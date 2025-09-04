@@ -17,20 +17,19 @@ const CaseStudy = () => {
       image: CarterRedesign,
       link: "/Projects/CarterRedesign",
     },
-    
-    {
-      title: "Carter Redesign",
-      year: 2024,
-      categories: ["Design", "Branding"],
-      image: Cartercampaign,
-      link: "/Projects/Cartercampaign",
-    },
     {
       title: "Carter DSP Template",
       year: 2024,
       categories: ["Design", "Strategy"],
       image: Dsptemplate,
       link: "/Projects/CarterDSP",
+    },
+     {
+      title: "Carter Redesign",
+      year: 2024,
+      categories: ["Design", "Branding"],
+      image: Cartercampaign,
+      link: "/Projects/Cartercampaign",
     },
     {
       title: "United Veterinary Care",

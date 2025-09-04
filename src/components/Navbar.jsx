@@ -49,7 +49,7 @@ const Navbar = () => {
           top-0 md:top-6
         `}
       >
-        <header className="flex items-center justify-between px-6 py-2 bg-black/30 backdrop-blur-md border border-white/10 rounded-none md:rounded-full shadow-md">
+        <header className="flex items-center justify-between px-6 py-2 bg-white/10 backdrop-blur-md border border-white/10 rounded-none md:rounded-full shadow-md">
 
           {/* Left: Logo */}
           <div className="flex items-center gap-4">
@@ -73,7 +73,7 @@ const Navbar = () => {
           <div className="hidden md:flex">
             <Link
               to="/contact"
-              className="flex items-center gap-2 px-4 py-1.5 text-xs font-medium text-white border border-white/20 rounded-full hover:bg-white/10 transition-all"
+              className="flex items-center gap-2 px-4 py-1.5 text-xs font-medium bg-black text-white border border-white/20 rounded-full hover:bg-white/10 transition-all"
             >
               Contact
               <span className="bg-[#d6f928] text-black px-2 py-0.5 text-[10px] rounded-md font-semibold">
@@ -106,7 +106,7 @@ const Navbar = () => {
 
         {/* Mobile Dropdown responsive */}
         {isMenuOpen && (
-          <div className="md:hidden mt-2 p-4 backdrop-blur-md border border-white/20 rounded-xl text-white text-sm space-y-4 shadow-md bg-black/40">
+          <div className="md:hidden mt-2 p-4 backdrop-blur-md border  border-white/20 rounded-xl text-white text-sm space-y-4 shadow-md bg-black/40">
             {renderNavLinks("block")}
             <Link
               to="/contact"
