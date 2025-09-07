@@ -192,7 +192,7 @@ const CarterDsp = () => {
               storytelling, not logistics.
             </p>
           </section>
-          <img src={Campaign} alt="" />
+          
 
           {/* Solution */}
           <section className="bg-white/5 border border-white/10 backdrop-blur-lg p-12 rounded-3xl space-y-8">
@@ -227,40 +227,12 @@ const CarterDsp = () => {
                 </li>
               </ul>
 
-              <h3 className="text-white font-semibold mt-4">User Personas:</h3>
-              <ul>
-                <li>
-                  <strong className="text-white">
-                    Aarav, 32 – Performance Marketing Manager:
-                  </strong>
-                  <p>
-                    Seeks unified control over assets and budgets, with a focus
-                    on efficiency and in-depth reporting.
-                  </p>
-                </li>
-                <li>
-                  <strong className="text-white">
-                    Riya, 28 – Brand Marketer:
-                  </strong>
-                  <p>
-                    Prioritizes message consistency and relies on intuitive
-                    creative previews.
-                  </p>
-                </li>
-                <li>
-                  <strong className="text-white">
-                    Dev, 40 – Agency Director:
-                  </strong>
-                  <p>
-                    Manages performance for 20+ clients and needs scalable
-                    reporting with rapid campaign duplication tools.
-                  </p>
-                </li>
-              </ul>
+              
             </div>
           </section>
-          <img src={campaigndetail} alt="" />
+          
           {/* Design System Section */}
+          <img src={Campaign} alt="" />
           {/* Research & Insights */}
           <section className="bg-white/5 border border-white/10 backdrop-blur-lg p-12 rounded-3xl space-y-8">
             <p className="text-xs uppercase tracking-widest font-semibold text-gray-400">
@@ -329,6 +301,7 @@ const CarterDsp = () => {
               </div>
             </div>
           </section>
+          <img src={campaigndetail} alt="" />
 
           {/* Solution */}
           <section className="bg-white/5 border border-white/10 backdrop-blur-lg p-12 rounded-3xl space-y-8">
