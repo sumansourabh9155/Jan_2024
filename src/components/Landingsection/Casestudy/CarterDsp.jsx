@@ -28,7 +28,7 @@ const CarterDsp = () => {
               and analytics.
             </p>
           </div>
-
+          
           <img src={dsp} alt="" />
 
           <section className="bg-white/5 border border-white/10 backdrop-blur-md rounded-2xl p-10 space-y-10 text-white">
@@ -113,6 +113,7 @@ const CarterDsp = () => {
           <section className="bg-white/5 border border-white/10 backdrop-blur-lg p-6 sm:p-8 md:p-12 rounded-3xl space-y-8">
             <div className="flex flex-col md:flex-row gap-8 items-center md:items-start">
               <video
+              
                 controls
                 autoPlay
                 loop

@@ -10,7 +10,7 @@ const Projects = () => {
   return (
     <div className="container__wrapper">
       <Navbar />
-      <CaseStudy/>
+     {/* <CaseStudy/> */}
       <DesignProjects/>
 
       <Footer />
