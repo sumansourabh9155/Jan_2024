@@ -171,7 +171,7 @@ const MessyMiddle = () => {
               <p className="text-xs text-gray-300">
                 We prioritized <span className="font-semibold text-white">keyboard navigation and screen reader support</span> 
                 {" "}for critical workflows, but kept the dense visualizations intact. We added an "accessible mode" toggle 
-                for users who needed it (used by <5% of users).
+                for users who needed it (used by &lt;5% of users).
               </p>
             </div>
 
