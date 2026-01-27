@@ -6,7 +6,7 @@ import { Link } from "react-router-dom";
 
 const HeroSection = () => {
   return (
-    <div className="relative w-full min-h-screen flex items-center justify-center px-4 sm:px-6 lg:px-8">
+    <div className="relative w-full min-h-screen flex items-center justify-center">
       <div className="max-w-6xl w-full pt-36">
         {/* Badge */}
         <div className="inline-flex items-center gap-2 px-4 py-2 bg-white/5 border border-white/10 backdrop-blur-md text-white rounded-full text-sm mb-6">
@@ -16,20 +16,20 @@ const HeroSection = () => {
 
         {/* Title - Bold and Impactful */}
         <h1 className="text-5xl sm:text-6xl lg:text-7xl font-bold text-white leading-tight">
-          I Design SaaS Products<br />That{" "}
+          I Design Products That{" "}
           <span className="text-transparent bg-clip-text bg-gradient-to-r from-white to-gray-400">
-            Retain Users
+            <br /> Retain Users
           </span>{" "}&{" "}
           <span className="text-transparent bg-clip-text bg-gradient-to-r from-white to-gray-400">
             Reduce Churn
           </span>
           <span className="inline-block align-middle ml-2">
-            <ArrowUpRight className="w-8 h-8 inline-block" />
+            {/* <ArrowUpRight className="w-8 h-8 inline-block" /> */}
           </span>
         </h1>
 
         {/* Subtitle - Business Focused */}
-        <p className="mt-8 text-lg sm:text-xl text-gray-300 max-w-3xl font-light leading-relaxed">
+        <p className="mt-8 text-md sm:text-md text-gray-300 max-w-3xl font-light leading-relaxed">
           Moving beyond 'pixel-perfect' to <span className="font-semibold text-white">profit-focused</span>. I use{" "}
           <span className="font-semibold text-white">Psychology-driven UX</span> and{" "}
           <span className="font-semibold text-white">Technical Constraints</span> to build products that{" "}
@@ -69,7 +69,7 @@ const HeroSection = () => {
         </div>
 
         {/* Social Proof - Results Focused */}
-        <div className="hidden md:block absolute top-80 right-60 transform rotate-[-8deg] w-72 backdrop-blur-md bg-white/5 border border-white/10 text-white p-5 rounded-xl shadow-lg">
+        {/* <div className="hidden md:block absolute top-80 right-60 transform rotate-[-8deg] w-72 backdrop-blur-md bg-white/5 border border-white/10 text-white p-5 rounded-xl shadow-lg">
           <div className="flex items-center gap-2 mb-2">
             <div className="w-2 h-2 bg-green-400 rounded-full"></div>
             <span className="text-xs font-semibold text-green-400">RESULT</span>
@@ -89,7 +89,7 @@ const HeroSection = () => {
             "DAU increased by 22% within 3 months of implementing the retention-focused redesign."
           </p>
           <p className="text-right text-sm mt-3 text-gray-400">— VP Product, Fintech Startup</p>
-        </div>
+        </div> */}
       </div>
     </div>
   );

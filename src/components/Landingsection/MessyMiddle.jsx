@@ -13,7 +13,7 @@ const MessyMiddle = () => {
           </div>
           <h2 className="text-5xl font-bold mt-4">
             I Make{" "}
-            <span className="text-gray-400">Ruthless Business Decisions</span>
+            <span className="text-gray-400">Strategic Business Decisions</span>
           </h2>
           <p className="text-gray-300 mt-4 text-lg max-w-3xl leading-relaxed">
             Most portfolios only show the "perfect" final screens. That's fake. Real product work involves 

@@ -63,13 +63,13 @@ const DesignServices = () => {
               <p className="text-sm text-gray-300 mb-4 leading-relaxed">
                 I don't just make interfaces "pretty." I design experiences that keep users coming back. 
                 By applying behavioral psychology (Loss Aversion, Endowed Progress Effect, Variable Rewards), 
-                I build products that reduce churn by 15-30%.
+                I build products that reduce churn.
               </p>
-              <div className="bg-black/30 border border-white/5 rounded-lg p-4 mt-4">
+              {/* <div className="bg-black/30 border border-white/5 rounded-lg p-4 mt-4">
                 <p className="text-xs text-gray-400 mb-2">TYPICAL IMPACT:</p>
                 <p className="text-sm font-semibold text-white">↑ 20-25% increase in DAU (Daily Active Users)</p>
                 <p className="text-sm font-semibold text-white">↓ 15-30% reduction in user churn</p>
-              </div>
+              </div> */}
               <img
                 src={ux}
                 alt="Retention Design"
@@ -88,10 +88,10 @@ const DesignServices = () => {
                 and backend logic. I facilitate UX workshops to align stakeholders, define MVP scope, 
                 and build product roadmaps that ship on time.
               </p>
-              <div className="mt-4 p-4 bg-black/30 border border-white/5 rounded-lg">
+              {/* <div className="mt-4 p-4 bg-black/30 border border-white/5 rounded-lg">
                 <p className="text-xs font-mono text-green-400">// I speak Product Manager</p>
                 <p className="text-xs text-gray-400 mt-2">"By cutting Feature X, we shipped 2 weeks early and validated our core hypothesis with real users."</p>
-              </div>
+              </div> */}
             </div>
           </div>
 
@@ -108,11 +108,11 @@ const DesignServices = () => {
                 Every CTA placement, color choice, and headline is backed by conversion psychology. 
                 Built with Framer, Webflow, or custom React—whatever converts best.
               </p>
-              <div className="bg-black/30 border border-white/5 rounded-lg p-4 mt-4">
+              {/* <div className="bg-black/30 border border-white/5 rounded-lg p-4 mt-4">
                 <p className="text-xs text-gray-400 mb-2">PROVEN RESULTS:</p>
                 <p className="text-sm font-semibold text-white">↑ 30-45% increase in sign-up conversions</p>
                 <p className="text-sm font-semibold text-white">↓ 20-35% reduction in bounce rate</p>
-              </div>
+              </div> */}
             </div>
 
             {/* Rapid MVP Deployment */}
@@ -131,11 +131,11 @@ const DesignServices = () => {
                 alt="MVP Strategy"
                 className="w-full rounded-md object-cover"
               />
-              <div className="mt-4 flex items-center gap-2 text-xs text-gray-400">
+              {/* <div className="mt-4 flex items-center gap-2 text-xs text-gray-400">
                 <span className="px-3 py-1 bg-black/50 border border-white/10 rounded-full">Tech-Literate</span>
                 <span className="px-3 py-1 bg-black/50 border border-white/10 rounded-full">Ship Fast</span>
                 <span className="px-3 py-1 bg-black/50 border border-white/10 rounded-full">No Fluff</span>
-              </div>
+              </div> */}
             </div>
           </div>
         </div>

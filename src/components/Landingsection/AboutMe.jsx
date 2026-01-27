@@ -35,12 +35,8 @@ export const AboutMe = () => {
               style={{ backgroundImage: `url(${suman})` }}
             ></div>
 
-            {/* Name & Title */}
-            <h3 className="text-3xl font-bold text-white mt-6">Suman Sourabh</h3>
-            <p className="text-base text-gray-400 mt-2">
-              SaaS Product Strategist | B.Tech in Computer Science, 2024
-            </p>
-
+           
+        
             {/* The "Efficiency" Pitch */}
             <div className="mt-8 space-y-6 text-gray-300 text-base leading-relaxed">
               <p>
@@ -84,25 +80,9 @@ export const AboutMe = () => {
               </div>
             </div>
 
-            {/* Testimonial */}
-            <blockquote className="mt-8 text-sm text-gray-400 leading-relaxed italic border-l-2 border-white/20 pl-4">
-              "Suman worked on our dream project as a UX/UI Design Lead. His gift to perfect the designs was seen 
-              since the very beginning. From understanding the product & brand to executing the minutest details. 
-              His sincerity and dedication inspite of numerous hurdles is what makes him a true winner."
-            </blockquote>
-            <p className="text-sm text-gray-500 mt-2">— Founder, Healthcare Startup</p>
-
+            
             {/* CTA */}
-            <div className="mt-8">
-              <Link to="/contact">
-                <button 
-                  data-testid="about-contact-btn"
-                  className="bg-white text-black px-6 py-3 rounded-full font-semibold text-sm hover:bg-gray-100 transition-all shadow-lg"
-                >
-                  Let's Work Together
-                </button>
-              </Link>
-            </div>
+            
           </div>
         </div>
       </div>

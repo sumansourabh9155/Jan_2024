@@ -2,7 +2,9 @@ import React from "react";
 import Navbar from "../components/Navbar";
 import Footer from "../components/Footer";
 import { Instagram, Dribbble, X } from "lucide-react";
+import TechProof from "../components/Landingsection/TechProof";
 import profilePic from "../assets/Img/suman.jpg";
+import DesignProcess from "../components/Landingsection/DesignProcess";
 
 const Resume = () => {
   return (
@@ -76,6 +78,12 @@ const Resume = () => {
             </div>
           </div>
         </section>
+
+
+        {/* my way of working */}
+        <TechProof />
+
+        <DesignProcess />
 
         {/* Experience Section */}
         <section className="bg-white/5 border border-white/10 backdrop-blur-md rounded-2xl p-6 mb-12 shadow-md">

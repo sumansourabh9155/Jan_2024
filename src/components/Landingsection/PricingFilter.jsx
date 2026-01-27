@@ -163,7 +163,7 @@ const PricingFilter = () => {
         </div>
 
         {/* Trust Signals */}
-        <div className="mt-12 grid grid-cols-2 md:grid-cols-4 gap-6 text-center">
+        {/* <div className="mt-12 grid grid-cols-2 md:grid-cols-4 gap-6 text-center">
           <div>
             <p className="text-3xl font-bold text-white">15+</p>
             <p className="text-sm text-gray-400 mt-1">SaaS Products Shipped</p>
@@ -180,7 +180,7 @@ const PricingFilter = () => {
             <p className="text-3xl font-bold text-white">100%</p>
             <p className="text-sm text-gray-400 mt-1">Client Satisfaction</p>
           </div>
-        </div>
+        </div> */}
       </div>
     </section>
   );

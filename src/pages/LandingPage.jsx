@@ -34,15 +34,13 @@ const LandingPage = () => {
 
       {/* Rest of the page */}
       <Projects />
-      <DesignServices />
-      <TechProof />
-      <MessyMiddle />
       <AboutMe />
-      <Tools />
+      <DesignServices />
       <Testimonial />
-      <DoubleDiamond />
-      <DesignProcess />
+      <Tools />
+      <MessyMiddle />
       <PricingFilter />
+      <DoubleDiamond />
       <Faq />
       <Footer />
     </>

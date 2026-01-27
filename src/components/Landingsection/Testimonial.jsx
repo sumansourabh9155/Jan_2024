@@ -24,10 +24,11 @@ const Testimonial = () => {
           {/* CTA Button */}
           <a
             href="/contact"
-            className="bg-white text-black px-6 py-3 rounded-full text-sm font-medium hover:opacity-90 transition"
+            className="bg-white text-black px-6 py-3 rounded-full text-sm font-semibold hover:opacity-90 transition"
           >
-            Contact Now
+             Let's Work Together
           </a>
+         
         </div>
       </div>
 
