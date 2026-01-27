@@ -135,7 +135,7 @@ const projectData = [
 const Projects = () => {
   return (
     <div className="py-24 mx-auto overflow-hidden bg-black border-t border-white/10">
-      <div className="max-w-6xl mx-auto px-4 mb-12">
+      <div className="max-w-7xl mx-auto px-4 mb-12">
         <div className="inline-flex items-center gap-2 text-sm bg-white/5 border border-white/10 backdrop-blur px-4 py-1 rounded-full mb-4">
           <span className="text-gray-400">◎</span> Case Studies
         </div>

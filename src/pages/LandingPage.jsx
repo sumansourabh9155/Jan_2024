@@ -22,10 +22,11 @@ const LandingPage = () => {
       <div
         className="relative bg-cover bg-no-repeat bg-center min-h-screen"
         style={{
-          backgroundImage: `url(${bg})`,
-          backgroundSize: "cover",
-          backgroundRepeat: "no-repeat",
-          backgroundPosition: "center",
+          // backgroundImage: `url(${bg})`,
+          // backgroundSize: "cover",
+          // backgroundRepeat: "no-repeat",
+          // backgroundPosition: "center",
+          backgroundColor: "#000000",
         }}
       >
         <Navbar />
@@ -37,10 +38,10 @@ const LandingPage = () => {
       <AboutMe />
       <DesignServices />
       <Testimonial />
-      <Tools />
+      {/* <Tools /> */}
+      <DoubleDiamond />
       <MessyMiddle />
       <PricingFilter />
-      <DoubleDiamond />
       <Faq />
       <Footer />
     </>

@@ -1,88 +1,116 @@
 import React from "react";
+import { Quote, ArrowRight } from "lucide-react";
+// Keep your existing imports
 import rgv from "../../assets/Img/rgv.png";
 import sam from "../../assets/Img/sam.png";
 
 const Testimonial = () => {
   return (
-    <section className="bg-black py-24 px-4 flex flex-col items-center justify-center">
-      {/* Headline */}
-      <div className="max-w-6xl w-full mb-16">
-        <div className="flex justify-between items-center flex-wrap gap-4">
-          {/* Left Heading */}
+    <section className="bg-[#050505] py-32 px-6 relative overflow-hidden flex justify-center">
+       {/* Background Elements */}
+       <div 
+        className="absolute inset-0 opacity-[0.03] pointer-events-none"
+        style={{
+            backgroundImage: `linear-gradient(#ffffff 1px, transparent 1px), linear-gradient(90deg, #ffffff 1px, transparent 1px)`,
+            backgroundSize: '40px 40px'
+        }}
+      ></div>
+      
+      {/* The Glow behind the card */}
+      <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[500px] h-[500px] bg-[#d6f928]/5 blur-[120px] rounded-full pointer-events-none"></div>
+
+
+      <div className="max-w-7xl w-full relative z-10">
+        
+        {/* Header Section */}
+        <div className="flex flex-col md:flex-row justify-between items-end mb-16 gap-6">
           <div>
-            <div className="inline-flex items-center gap-2 text-sm bg-white/5 text-white px-4 py-1 rounded-full border border-white/10 backdrop-blur-md">
-              ⭘ Happy Clients
+            <div className="inline-flex items-center gap-2 text-xs font-mono text-[#d6f928] tracking-widest uppercase mb-6">
+               [ Social Proof ]
             </div>
-            <h1 className="text-4xl font-light text-white mt-4">
-              Clients <span className="text-gray-400 font-medium">Love me</span>
+            <h1 className="text-4xl md:text-5xl font-bold text-white leading-tight">
+              Trusted by Founders <br />
+              <span className="text-gray-500">Who Demand Excellence.</span>
             </h1>
-            <p className="text-sm text-gray-400 mt-2 max-w-md">
-              Trusted by 100+ happy clients, adding $250M+ in revenue.
-            </p>
           </div>
-
-          {/* CTA Button */}
-          <a
-            href="/contact"
-            className="bg-white text-black px-6 py-3 rounded-full text-sm font-semibold hover:opacity-90 transition"
-          >
-             Let's Work Together
-          </a>
-         
-        </div>
-      </div>
-
-      {/* Testimonial Card */}
-      <div className="flex flex-col md:flex-row justify-center items-center max-w-6xl w-full bg-white/5 border border-white/10 backdrop-blur-lg rounded-2xl shadow-md p-6">
-        {/* Profile image */}
-        <div className="relative h-60 xl:h-80 w-full md:w-auto">
-          <img
-            src={sam}
-            alt="profile"
-            className="w-full h-full object-cover rounded-xl"
-          />
-          <div className="hidden md:flex items-center justify-center w-14 h-14 bg-[#d6f928] rounded-md absolute -top-4 -right-4 shadow">
-            <svg
-              xmlns="http://www.w3.org/2000/svg"
-              fill="black"
-              className="w-5 h-5"
-              viewBox="0 0 975.036 975.036"
-            >
-              <path d="M925.036 57.197h-304c-27.6 0-50 22.4-50 50v304c0 27.601 22.4 50 50 50h145.5c-1.9 79.601-20.4 143.3-55.4 191.2-27.6 37.8-69.399 69.1-125.3 93.8-25.7 11.3-36.8 41.7-24.8 67.101l36 76c11.6 24.399 40.3 35.1 65.1 24.399 66.2-28.6 122.101-64.8 167.7-108.8 55.601-53.7 93.7-114.3 114.3-181.9 20.601-67.6 30.9-159.8 30.9-276.8v-239c0-27.599-22.401-50-50-50zM106.036 913.497c65.4-28.5 121-64.699 166.9-108.6 56.1-53.7 94.4-114.1 115-181.2 20.6-67.1 30.899-159.6 30.899-277.5v-239c0-27.6-22.399-50-50-50h-304c-27.6 0-50 22.4-50 50v304c0 27.601 22.4 50 50 50h145.5c-1.9 79.601-20.4 143.3-55.4 191.2-27.6 37.8-69.4 69.1-125.3 93.8-25.7 11.3-36.8 41.7-24.8 67.101l35.9 75.8c11.601 24.399 40.501 35.2 65.301 24.399z"></path>
-            </svg>
+          
+          <div className="text-right">
+             <div className="text-3xl font-bold text-white mb-1">$250M+</div>
+             <p className="text-sm text-gray-500 font-mono uppercase tracking-wide">Client Revenue Generated</p>
           </div>
         </div>
 
-        {/* Testimonial content */}
-        <div className="md:ml-20 lg:w-2/3 mt-6 md:mt-0">
-          <h1 className="text-2xl font-medium text-white">
-            He was definitely the person who, if commits, would deliver with utmost excellence.
-          </h1>
-          <blockquote className="text-sm text-gray-400 mt-4 leading-relaxed">
-            "Suman worked on our dream project as a UX/UI Design Lead. His gift
-            to perfect the designs was seen since very beginning of the project
-            in his every action. From understanding the product & brand to
-            understanding founders’ vision to executing those minutest details.
-            His sincerity and dedication to execute plans inspite of numerous
-            huddles is what makes him a true winner. I believe his attitude and
-            grit for his work will help him carve his mark in this industry."
-          </blockquote>
+        {/* The Feature Testimonial Card */}
+        <div className="relative bg-[#0a0a0a] border border-white/10 rounded-3xl p-8 md:p-12 lg:p-16 overflow-hidden group">
+            
+            {/* Giant Watermark Quote Icon */}
+            <Quote className="absolute top-10 left-10 text-white/5 w-48 h-48 -rotate-12 pointer-events-none" />
 
-          {/* Footer */}
-          <div className="mt-6">
-            <p className="text-md font-semibold text-white">Samira Pujari</p>
-            <p className="text-sm text-gray-400">
-              Founder & Owner, Art & Décor Brand "RaikarsGoodVibes"
-            </p>
-            <div className="w-40 bg-[#dab853] px-3 py-1 mt-2 rounded-md overflow-hidden">
-              <img
-                src={rgv}
-                alt="brand logo"
-                className="w-full h-auto object-contain"
-              />
+            <div className="relative z-10 flex flex-col lg:flex-row gap-12 lg:gap-20 items-center">
+                
+                {/* Image Section (Left) */}
+                <div className="w-full lg:w-1/3 relative">
+                    <div className="relative aspect-[4/5] rounded-2xl overflow-hidden border border-white/10 shadow-2xl">
+                        <img 
+                            src={sam} 
+                            alt="Samira Pujari" 
+                            className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105" // Subtle zoom on hover
+                        />
+                        {/* Overlay Gradient */}
+                        <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent"></div>
+                        
+                        {/* Name on Image (Mobile/Tablet view mostly, or artistic choice) */}
+                        <div className="absolute bottom-6 left-6 text-left">
+                            <p className="text-white font-bold text-lg">Samira Pujari</p>
+                            <p className="text-gray-300 text-xs uppercase tracking-wider">Founder, RaikarsGoodVibes</p>
+                        </div>
+                    </div>
+                    
+                    {/* Brand Logo Floating Badge */}
+                    <div className="absolute -bottom-6 -right-6 w-32 bg-[#dab853] p-4 rounded-xl shadow-[0_10px_30px_rgba(0,0,0,0.5)] border border-white/10 rotate-3 group-hover:rotate-0 transition-transform duration-500">
+                         <img src={rgv} alt="Brand Logo" className="w-full h-auto object-contain mix-blend-multiply" />
+                    </div>
+                </div>
+
+                {/* Content Section (Right) */}
+                <div className="w-full lg:w-2/3 text-left">
+                    {/* The "Hook" Headline */}
+                    <h2 className="text-2xl md:text-3xl lg:text-4xl font-medium text-white leading-snug mb-8">
+                        "He is the person who, if he commits, <span className="text-[#d6f928] border-b border-[#d6f928]/30 pb-1">delivers with utmost excellence.</span>"
+                    </h2>
+                    
+                    {/* The Full Quote (Muted) */}
+                    <div className="text-gray-400 text-sm md:text-base leading-relaxed space-y-4 max-w-2xl">
+                        <p>
+                            "Suman worked on our dream project as a Lead. His gift to perfect the designs was seen from the very beginning—from understanding the founder's vision to executing the minutest details."
+                        </p>
+                        <p>
+                            "His sincerity and dedication to execute plans despite numerous hurdles is what makes him a true winner. I believe his grit will carve his mark in this industry."
+                        </p>
+                    </div>
+
+                    {/* CTA within the card */}
+                    <div className="mt-10 pt-8 border-t border-white/10 flex flex-wrap gap-6 items-center">
+                        <a href="/contact" className="flex items-center gap-2 text-white hover:text-[#d6f928] transition-colors font-medium">
+                            Start Your Project <ArrowRight size={18} />
+                        </a>
+                        <span className="text-gray-600 text-sm hidden md:inline">|</span>
+                        <p className="text-gray-500 text-sm">
+                            Art & Décor Brand Strategy
+                        </p>
+                    </div>
+                </div>
+
             </div>
-          </div>
         </div>
+
+        {/* Optional: Navigation Dots (Visual balance) */}
+        <div className="flex justify-center gap-3 mt-8">
+            <div className="w-12 h-1 bg-[#d6f928] rounded-full"></div>
+            <div className="w-2 h-1 bg-white/10 rounded-full"></div>
+            <div className="w-2 h-1 bg-white/10 rounded-full"></div>
+        </div>
+
       </div>
     </section>
   );

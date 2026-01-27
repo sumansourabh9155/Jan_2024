@@ -1,122 +1,137 @@
 import React, { useState, useEffect } from "react";
-import { Link, NavLink } from "react-router-dom";
-import { Sparkles } from "lucide-react";
+import { Link, NavLink, useLocation } from "react-router-dom";
+import { Menu, X, ArrowRight, CircleDot } from "lucide-react";
 
 const Navbar = () => {
-  const [isScrolled, setIsScrolled] = useState(true);
-  const [prevScrollPos, setPrevScrollPos] = useState(0);
+  const [isVisible, setIsVisible] = useState(true);
+  const [lastScrollY, setLastScrollY] = useState(0);
   const [isMenuOpen, setIsMenuOpen] = useState(false);
+  const location = useLocation();
 
+  // Smart Scroll Logic: Hides on scroll down, shows on scroll up
   useEffect(() => {
-    const handleScroll = () => {
-      const currentScrollPos = window.pageYOffset;
-      setIsScrolled(
-        prevScrollPos > currentScrollPos && prevScrollPos - currentScrollPos > 0
-      );
-      setPrevScrollPos(currentScrollPos);
+    const controlNavbar = () => {
+      if (typeof window !== "undefined") {
+        if (window.scrollY > lastScrollY && window.scrollY > 100) {
+          setIsVisible(false); // Hide
+        } else {
+          setIsVisible(true); // Show
+        }
+        setLastScrollY(window.scrollY);
+      }
     };
 
-    window.addEventListener("scroll", handleScroll);
-    return () => window.removeEventListener("scroll", handleScroll);
-  }, [prevScrollPos]);
+    window.addEventListener("scroll", controlNavbar);
+    return () => window.removeEventListener("scroll", controlNavbar);
+  }, [lastScrollY]);
+
+  // Close mobile menu on route change
+  useEffect(() => {
+    setIsMenuOpen(false);
+  }, [location]);
 
   const navLinks = [
-    { to: "/projects", text: "Projects" },
-    { to: "/Resource", text: "Resource" },
-    { to: "/resume", text: "About Me" },
+    { to: "/projects", text: "Case Studies" }, // Renamed for Business Impact
+    { to: "/resources", text: "Resources" },
+    { to: "/resume", text: "Profile" },        // Renamed from "About Me" (more professional)
   ];
 
-  const renderNavLinks = (extraClasses = "") =>
-    navLinks.map(({ to, text }) => (
-      <NavLink
-        key={to}
-        to={to}
-        className={({ isActive }) =>
-          isActive
-            ? `text-white ${extraClasses}`
-            : `text-gray-400 hover:text-white transition ${extraClasses}`
-        }
-      >
-        {text}
-      </NavLink>
-    ));
-
   return (
-    <div className="flex justify-center">
+    <div className="flex justify-center w-full">
       <div
-        className={`fixed z-50 w-full md:w-[90%] md:max-w-6xl transition-transform duration-300
-          ${isScrolled ? "translate-y-0" : "-translate-y-24"}
-          top-0 md:top-6
+        className={`fixed z-50 w-[95%] md:max-w-7xl transition-all duration-500 ease-in-out
+          ${isVisible ? "translate-y-6 opacity-100" : "-translate-y-full opacity-0"}
         `}
       >
-        <header className="flex items-center justify-between px-6 py-2 bg-white/10 backdrop-blur-md border border-white/10 rounded-none md:rounded-full shadow-md">
+        <header className="relative flex items-center justify-between px-6 py-3 bg-[#0a0a0a]/80 backdrop-blur-xl border border-white/10 rounded-full shadow-[0_8px_32px_rgba(0,0,0,0.5)]">
 
           {/* Left: Logo */}
-          <div className="flex items-center gap-4">
-            <Link
-              to="/"
-              className="flex items-center gap-2 text-white font-medium text-base"
-            >
-              <span className="w-4 h-4 rounded-full bg-gradient-to-br from-white to-gray-500 flex items-center justify-center text-black text-sm font-bold">
-                ⬤
-              </span>
-              Suman Sourabh
-            </Link>
-          </div>
+          <Link
+            to="/"
+            className="flex items-center gap-2 group"
+          >
+            <div className="relative flex items-center justify-center w-8 h-8 rounded-full bg-white/5 border border-white/10 group-hover:border-[#d6f928]/50 transition-colors">
+               <span className="font-mono font-bold text-white text-xs group-hover:text-[#d6f928] transition-colors">S</span>
+            </div>
+            <div className="flex flex-col">
+                <span className="text-white font-medium text-sm leading-none tracking-wide">Suman Sourabh</span>
+                <span className="text-[10px] text-gray-500 font-mono mt-0.5 group-hover:text-[#d6f928] transition-colors">Product Strategist</span>
+            </div>
+          </Link>
 
-          {/* Middle: Nav Links */}
-          <nav className="hidden md:flex gap-6 text-sm font-medium">
-            {renderNavLinks()}
+          {/* Middle: Desktop Nav */}
+          <nav className="hidden md:flex items-center gap-1 bg-white/5 px-2 py-1 rounded-full border border-white/5">
+            {navLinks.map(({ to, text }) => (
+              <NavLink
+                key={to}
+                to={to}
+                className={({ isActive }) =>
+                  `px-4 py-1.5 rounded-full text-xs font-medium transition-all duration-300
+                  ${isActive 
+                    ? "bg-[#d6f928] text-black shadow-[0_0_15px_rgba(214,249,40,0.4)]" 
+                    : "text-gray-400 hover:text-white hover:bg-white/5"
+                  }`
+                }
+              >
+                {text}
+              </NavLink>
+            ))}
           </nav>
 
-          {/* Right: Button */}
-          <div className="hidden md:flex">
+          {/* Right: CTA Button */}
+          <div className="hidden md:flex items-center">
             <Link
               to="/contact"
-              className="flex items-center gap-2 px-4 py-1.5 text-xs font-medium bg-black text-white border border-white/20 rounded-full hover:bg-white/10 transition-all"
+              className="group flex items-center gap-2 px-5 py-2 text-xs font-semibold bg-white text-black border border-transparent rounded-full hover:bg-gray-200 transition-all active:scale-95"
             >
-              Contact
-              <span className="bg-[#d6f928] text-black px-2 py-0.5 text-[10px] rounded-md font-semibold">
-                pro
-              </span>
+              Book Audit
+              <ArrowRight size={14} className="group-hover:translate-x-0.5 transition-transform" />
             </Link>
           </div>
 
-          {/* Mobile Menu Toggle */}
+          {/* Mobile Toggle */}
           <button
             onClick={() => setIsMenuOpen(!isMenuOpen)}
-            className="md:hidden text-white focus:outline-none"
+            className="md:hidden p-2 text-gray-400 hover:text-white transition-colors"
           >
-            <svg
-              className="w-6 h-6"
-              fill="none"
-              stroke="currentColor"
-              viewBox="0 0 24 24"
-              xmlns="http://www.w3.org/2000/svg"
-            >
-              <path
-                strokeLinecap="round"
-                strokeLinejoin="round"
-                strokeWidth={2}
-                d="M4 6h16M4 12h16M4 18h16"
-              />
-            </svg>
+            {isMenuOpen ? <X size={24} /> : <Menu size={24} />}
           </button>
         </header>
 
-        {/* Mobile Dropdown responsive */}
-        {isMenuOpen && (
-          <div className="md:hidden mt-2 p-4 backdrop-blur-md border  border-white/20 rounded-xl text-white text-sm space-y-4 shadow-md bg-black/40">
-            {renderNavLinks("block")}
-            <Link
-              to="/contact"
-              className="inline-flex items-center gap-2 text-sm font-medium bg-white/10 hover:bg-white/20 px-4 py-2 rounded-md"
-            >
-              <Sparkles className="w-4 h-4" />
-              Contact
-            </Link>
-          </div>
-        )}
+        {/* Mobile Menu Dropdown */}
+        <div 
+            className={`md:hidden absolute top-full left-0 w-full mt-2 bg-[#0a0a0a] border border-white/10 rounded-2xl overflow-hidden shadow-2xl transition-all duration-300 origin-top
+            ${isMenuOpen ? "opacity-100 scale-100 max-h-96" : "opacity-0 scale-95 max-h-0 pointer-events-none"}
+            `}
+        >
+            <div className="p-4 flex flex-col gap-2">
+                {navLinks.map(({ to, text }) => (
+                <NavLink
+                    key={to}
+                    to={to}
+                    className={({ isActive }) =>
+                    `px-4 py-3 rounded-xl text-sm font-medium transition-colors
+                    ${isActive 
+                        ? "bg-white/10 text-[#d6f928] border border-[#d6f928]/20" 
+                        : "text-gray-400 hover:text-white hover:bg-white/5"
+                    }`
+                    }
+                >
+                    {text}
+                </NavLink>
+                ))}
+                
+                <div className="h-px bg-white/10 my-2"></div>
+                
+                <Link
+                to="/contact"
+                className="flex items-center justify-center gap-2 px-4 py-3 text-sm font-bold bg-[#d6f928] text-black rounded-xl hover:opacity-90 transition-opacity"
+                >
+                Book Audit <ArrowRight size={16} />
+                </Link>
+            </div>
+        </div>
+
       </div>
     </div>
   );
