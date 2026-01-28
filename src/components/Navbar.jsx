@@ -50,12 +50,12 @@ const Navbar = () => {
             to="/"
             className="flex items-center gap-2 group"
           >
-            <div className="relative flex items-center justify-center w-8 h-8 rounded-full bg-white/5 border border-white/10 group-hover:border-[#d6f928]/50 transition-colors">
-               <span className="font-mono font-bold text-white text-xs group-hover:text-[#d6f928] transition-colors">S</span>
+            <div className={`relative flex items-center justify-center w-8 h-8 rounded-full bg-white/5 border transition-colors ${location.pathname === "/" ? "border-[#d6f928]/50" : "border-white/10 group-hover:border-[#d6f928]/50"}`}>
+               <span className={`font-mono font-bold text-xs transition-colors ${location.pathname === "/" ? "text-[#d6f928]" : "text-white group-hover:text-[#d6f928]"}`}>S</span>
             </div>
             <div className="flex flex-col">
                 <span className="text-white font-medium text-sm leading-none tracking-wide">Suman Sourabh</span>
-                <span className="text-[10px] text-gray-500 font-mono mt-0.5 group-hover:text-[#d6f928] transition-colors">Product Strategist</span>
+                <span className={`text-[10px] font-mono mt-0.5 transition-colors ${location.pathname === "/" ? "text-[#d6f928]" : "text-gray-500 group-hover:text-[#d6f928]"}`}>Product Designer + Strategist</span>
             </div>
           </Link>
 

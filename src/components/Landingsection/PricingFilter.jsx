@@ -4,7 +4,23 @@ import { Link } from "react-router-dom";
 
 const PricingFilter = () => {
   return (
-    <section className="bg-black text-white py-24 px-4 border-t border-white/10">
+    // FIX 1: Added bg-[#050505] relative overflow-hidden to the section
+    <section className="bg-[#050505] text-white py-24 px-4 border-t border-white/10 relative overflow-hidden">
+      
+      {/* --- BACKGROUND LAYERS --- */}
+      {/* 1. The Technical Grid - Now visible because of bg-[#050505] */}
+      <div 
+        className="absolute inset-0 opacity-[0.03] pointer-events-none"
+        style={{
+            backgroundImage: `linear-gradient(#ffffff 1px, transparent 1px), linear-gradient(90deg, #ffffff 1px, transparent 1px)`,
+            backgroundSize: '40px 40px'
+        }}
+      ></div>
+      
+      {/* 2. The Atmosphere Glow */}
+      <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] h-[800px] bg-blue-500/10 blur-[150px] rounded-full pointer-events-none"></div>
+
+
       <div className="max-w-6xl mx-auto">
         {/* Section Header */}
         <div className="text-center mb-16">

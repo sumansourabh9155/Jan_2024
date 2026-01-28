@@ -42,6 +42,7 @@ export const DesignProcess = () => {
 
   return (
     <section className="bg-black py-32 px-6 overflow-hidden pb-0">
+      
       <div className="max-w-6xl mx-auto grid gap-20 lg:grid-cols-12">
         {/* Left Title Section */}
         <div className="col-span-12 lg:col-span-4">

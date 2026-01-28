@@ -1,49 +1,39 @@
 import React, { useState } from "react";
+import { Plus, Minus } from "lucide-react";
 
 const Faq = () => {
-  const [openIndex, setOpenIndex] = useState(null);
+  const [openIndex, setOpenIndex] = useState(0); // First one open by default for engagement
 
   const faqData = [
     {
-      question: "What type of projects do you specialize in?",
+      question: "Do you code what you design?",
       answer:
-        "I specialize in end-to-end UI/UX design, design systems, and web development for SaaS platforms, B2B tools, and consumer-facing websites—especially projects that need clarity, scale, and clean user flows.",
+        "Yes. I am not just a Figma designer. I understand React, Tailwind, and component architecture. This means I design with 'Dev Feasibility' in mind—saving your engineering team hundreds of hours in back-and-forth fixes.",
     },
     {
-      question:
-        "Can you help if we only need a design system or component library?",
+      question: "My product is already live. Can you just fix the UX?",
       answer:
-        "Absolutely. I’ve led multiple design system initiatives from scratch and can help create scalable systems with detailed documentation for consistency and team efficiency.",
+        "Yes. This is my 'Audit & Fix' engagement. I review your current flow, identify high-churn friction points, and provide a prioritized list of fixes (or redesigns) to improve retention immediately.",
     },
     {
-      question: "Do you offer UX audit or consulting for existing products?",
+      question: "How do you charge? Fixed price or Retainer?",
       answer:
-        "Yes. I offer UX audits with actionable insights, quick wins, and long-term strategies based on usability heuristics, user flows, and business goals.",
+        "For defined scopes (like an Audit or MVP Sprint), I charge a fixed fee ($2k - $5k). For ongoing growth and iteration, I work on a monthly retainer ($3.5k/mo), acting as your fractional Head of Product.",
     },
     {
-      question: "Are you available for remote or on-site collaborations?",
+      question: "Who is this NOT for?",
       answer:
-        "I'm fully remote but open to hybrid engagements for workshops, design sprints, or team onboarding if the project demands it.",
+        "I am not the right fit if you need a $500 logo, 'just some pretty screens,' or micromanagement. I work best with founders who trust me to own the product strategy and deliver business outcomes.",
     },
     {
-      question: "Can you handle both design and development?",
+      question: "What is the timeline for an MVP?",
       answer:
-        "Yes. I can take your product from Figma to a fully functional website using tools like Framer, Webflow, or coded stacks like React/Next.js—depending on what's best for the project.",
+        "Typical MVP Sprints take 2-3 weeks. Week 1 is Strategy & Wireframes. Week 2 is High-Fidelity & Prototyping. Week 3 is Handoff & Documentation. We move fast.",
     },
     {
-      question: "How do we get started with you?",
+      question: "Do you work with existing design teams?",
       answer:
-        "Just reach out with a short brief via the contact page. From there, I usually propose a quick discovery call, scope the work, and align on the next steps.",
-    },
-    {
-      question: "Do you work with startups or only enterprise clients?",
-      answer:
-        "Both. I’ve worked with early-stage founders, mid-scale startups, and enterprise clients like Shyftlabs. The common factor is clarity of vision and impact.",
-    },
-    {
-      question: "What makes your workflow different?",
-      answer:
-        "I balance business understanding with deep design thinking. I’m not just delivering UI—I’m solving product problems with measurable outcomes, whether that’s improved retention or faster dev handoffs.",
+        "Absolutely. I often come in to build Design Systems or optimize specific flows that the internal team is too busy to handle. I document everything so your team can take over easily.",
     },
   ];
 
@@ -52,78 +42,61 @@ const Faq = () => {
   };
 
   return (
-    <section className="bg-black py-32 px-4">
-      <div className="max-w-4xl mx-auto text-center">
-        {/* Badge */}
-        <div className="inline-flex items-center gap-2 text-sm bg-white/5 text-white px-4 py-1 rounded-full border border-white/10 backdrop-blur-md mb-4">
-          ⭘ FAQs
+    <section className="bg-[#050505] py-32 px-6 relative overflow-hidden">
+      
+      
+      <div className="max-w-3xl mx-auto relative z-10">
+        
+        {/* Header */}
+        <div className="text-center mb-16">
+          <div className="inline-flex items-center gap-2 text-xs font-mono text-[#d6f928] tracking-widest uppercase mb-6 bg-[#d6f928]/5 px-3 py-1 rounded border border-[#d6f928]/20">
+            [ FAQ ]
+          </div>
+          <h2 className="text-3xl md:text-4xl font-bold text-white mb-4">
+            Common Questions
+          </h2>
+          <p className="text-gray-400">
+            Everything you need to know about the process.
+          </p>
         </div>
 
-        {/* Title */}
-        <h1 className="text-4xl font-light text-white">
-          Frequently <span className="font-medium text-gray-400">Asked</span>{" "}
-          Questions
-        </h1>
-
-        {/* FAQ Items */}
-        <div className="mt-14 space-y-6 text-left">
+        {/* FAQ List */}
+        <div className="space-y-4">
           {faqData.map((faq, index) => (
             <div
               key={index}
-              className={`bg-white/5 border border-white/10 backdrop-blur-md rounded-xl transition-all duration-300 px-6 py-5 ${
-                openIndex === index ? "shadow-lg" : "hover:bg-white/10"
-              }`}
+              className={`group border rounded-2xl transition-all duration-300 overflow-hidden
+                ${openIndex === index 
+                    ? "bg-[#0a0a0a] border-[#d6f928]/50 shadow-[0_0_20px_rgba(214,249,40,0.05)]" 
+                    : "bg-white/5 border-white/10 hover:border-white/20"
+                }
+              `}
             >
               <button
-                className="flex items-center justify-between w-full text-left"
+                className="flex items-center justify-between w-full text-left p-6"
                 onClick={() => toggleFaq(index)}
               >
-                <h2 className="font-medium text-white text-sm sm:text-base max-w-[90%]">
+                <span className={`font-medium text-lg transition-colors ${openIndex === index ? "text-white" : "text-gray-300"}`}>
                   {faq.question}
-                </h2>
-                <span className="text-gray-400">
-                  {openIndex === index ? (
-                    <svg
-                      xmlns="http://www.w3.org/2000/svg"
-                      className="w-5 h-5"
-                      fill="none"
-                      viewBox="0 0 24 24"
-                      stroke="currentColor"
-                    >
-                      <path
-                        strokeLinecap="round"
-                        strokeLinejoin="round"
-                        strokeWidth="2"
-                        d="M18 12H6"
-                      />
-                    </svg>
-                  ) : (
-                    <svg
-                      xmlns="http://www.w3.org/2000/svg"
-                      className="w-5 h-5"
-                      fill="none"
-                      viewBox="0 0 24 24"
-                      stroke="currentColor"
-                    >
-                      <path
-                        strokeLinecap="round"
-                        strokeLinejoin="round"
-                        strokeWidth="2"
-                        d="M12 6v6m0 0v6m0-6h6m-6 0H6"
-                      />
-                    </svg>
-                  )}
+                </span>
+                <span className={`transition-transform duration-300 ${openIndex === index ? "rotate-180 text-[#d6f928]" : "text-gray-500"}`}>
+                  {openIndex === index ? <Minus size={20} /> : <Plus size={20} />}
                 </span>
               </button>
 
-              {openIndex === index && (
-                <p className="mt-4 text-sm text-gray-400 leading-relaxed">
-                  {faq.answer}
-                </p>
-              )}
+              <div 
+                className={`grid transition-[grid-template-rows] duration-300 ease-out ${openIndex === index ? "grid-rows-[1fr] opacity-100" : "grid-rows-[0fr] opacity-0"}`}
+              >
+                <div className="overflow-hidden">
+                  <p className="p-6 pt-0 text-gray-400 leading-relaxed text-sm md:text-base border-t border-white/5 mt-2">
+                    {faq.answer}
+                  </p>
+                </div>
+              </div>
             </div>
           ))}
         </div>
+
       </div>
     </section>
   );

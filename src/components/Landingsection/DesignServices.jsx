@@ -83,14 +83,20 @@ const DesignServices = () => {
 
   return (
     <section className="bg-[#050505] text-white py-32 px-6 relative overflow-hidden">
-        {/* Subtle Background Grid */}
-        <div 
+        {/* --- BACKGROUND LAYERS --- */}
+      {/* 1. The Technical Grid */}
+      <div 
         className="absolute inset-0 opacity-[0.03] pointer-events-none"
         style={{
             backgroundImage: `linear-gradient(#ffffff 1px, transparent 1px), linear-gradient(90deg, #ffffff 1px, transparent 1px)`,
-            backgroundSize: '30px 30px'
+            backgroundSize: '40px 40px'
         }}
       ></div>
+      
+      {/* 2. The Atmosphere Glow (Centered but offset) */}
+      <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] h-[800px] bg-blue-500/10 blur-[150px] rounded-full pointer-events-none"></div>
+
+
 
       <div className="max-w-7xl mx-auto relative z-10">
         

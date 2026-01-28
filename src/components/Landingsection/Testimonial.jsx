@@ -1,25 +1,14 @@
-import React from "react";
+import React, { memo } from "react";
 import { Quote, ArrowRight } from "lucide-react";
 // Keep your existing imports
 import rgv from "../../assets/Img/rgv.png";
 import sam from "../../assets/Img/sam.png";
 
-const Testimonial = () => {
+// Optimization 1: Use memo to prevent re-renders from parent scroll events
+const Testimonial = memo(() => {
   return (
     <section className="bg-[#050505] py-32 px-6 relative overflow-hidden flex justify-center">
-       {/* Background Elements */}
-       <div 
-        className="absolute inset-0 opacity-[0.03] pointer-events-none"
-        style={{
-            backgroundImage: `linear-gradient(#ffffff 1px, transparent 1px), linear-gradient(90deg, #ffffff 1px, transparent 1px)`,
-            backgroundSize: '40px 40px'
-        }}
-      ></div>
       
-      {/* The Glow behind the card */}
-      <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[500px] h-[500px] bg-[#d6f928]/5 blur-[120px] rounded-full pointer-events-none"></div>
-
-
       <div className="max-w-7xl w-full relative z-10">
         
         {/* Header Section */}
@@ -51,15 +40,18 @@ const Testimonial = () => {
                 {/* Image Section (Left) */}
                 <div className="w-full lg:w-1/3 relative">
                     <div className="relative aspect-[4/5] rounded-2xl overflow-hidden border border-white/10 shadow-2xl">
+                        {/* Optimization 2 & 3: Lazy load, Async decode, and GPU hint for animation */}
                         <img 
                             src={sam} 
                             alt="Samira Pujari" 
-                            className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105" // Subtle zoom on hover
+                            loading="lazy"
+                            decoding="async"
+                            className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105 will-change-transform" 
                         />
                         {/* Overlay Gradient */}
-                        <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent"></div>
+                        <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent pointer-events-none"></div>
                         
-                        {/* Name on Image (Mobile/Tablet view mostly, or artistic choice) */}
+                        {/* Name on Image */}
                         <div className="absolute bottom-6 left-6 text-left">
                             <p className="text-white font-bold text-lg">Samira Pujari</p>
                             <p className="text-gray-300 text-xs uppercase tracking-wider">Founder, RaikarsGoodVibes</p>
@@ -67,8 +59,15 @@ const Testimonial = () => {
                     </div>
                     
                     {/* Brand Logo Floating Badge */}
-                    <div className="absolute -bottom-6 -right-6 w-32 bg-[#dab853] p-4 rounded-xl shadow-[0_10px_30px_rgba(0,0,0,0.5)] border border-white/10 rotate-3 group-hover:rotate-0 transition-transform duration-500">
-                         <img src={rgv} alt="Brand Logo" className="w-full h-auto object-contain mix-blend-multiply" />
+                    {/* Optimization 4: transform-gpu for smoother rendering */}
+                    <div className="absolute -bottom-6 -right-6 w-32 bg-[#dab853] p-4 rounded-xl shadow-[0_10px_30px_rgba(0,0,0,0.5)] border border-white/10 rotate-3 group-hover:rotate-0 transition-transform duration-500 transform-gpu">
+                         <img 
+                            src={rgv} 
+                            alt="Brand Logo" 
+                            loading="lazy"
+                            decoding="async"
+                            className="w-full h-auto object-contain mix-blend-multiply" 
+                         />
                     </div>
                 </div>
 
@@ -114,6 +113,6 @@ const Testimonial = () => {
       </div>
     </section>
   );
-};
+});
 
 export default Testimonial;
