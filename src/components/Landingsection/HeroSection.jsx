@@ -69,7 +69,7 @@ const HeroSection = () => {
                   <button 
                   className="bg-white text-black px-8 py-4 rounded-full font-bold text-base hover:bg-[#d6f928] hover:scale-105 transition-all shadow-[0_0_20px_rgba(255,255,255,0.2)] w-full sm:w-auto"
                   >
-                  Audit My Product
+                  Book Strategy Call
                   </button>
               </Link>
               <Link to="/projects">
@@ -116,10 +116,10 @@ const HeroSection = () => {
                   <span className="text-[10px] font-mono text-gray-500 uppercase tracking-widest group-hover:text-[#d6f928] transition-colors">Client Satisfaction</span>
                 </div>
                 <div className="flex items-baseline gap-1">
-                    <p className="text-5xl font-bold text-white tracking-tighter">100</p>
+                    <p className="text-5xl font-bold text-white tracking-tighter">85</p>
                     <span className="text-2xl text-gray-500 font-light">%</span>
                 </div>
-                <p className="text-xs text-gray-400 mt-2 border-t border-white/5 pt-2">Based on 25+ Projects</p>
+                <p className="text-xs text-gray-400 mt-2 border-t border-white/5 pt-2">Repeat Hire Rate</p>
               </div>
             </div>
             

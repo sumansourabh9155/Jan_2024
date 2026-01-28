@@ -32,7 +32,7 @@ const Navbar = () => {
 
   const navLinks = [
     { to: "/projects", text: "Case Studies" }, // Renamed for Business Impact
-    { to: "/resources", text: "Resources" },
+    // { to: "/resources", text: "Resources" },
     { to: "/resume", text: "Profile" },        // Renamed from "About Me" (more professional)
   ];
 
@@ -84,7 +84,7 @@ const Navbar = () => {
               to="/contact"
               className="group flex items-center gap-2 px-5 py-2 text-xs font-semibold bg-white text-black border border-transparent rounded-full hover:bg-gray-200 transition-all active:scale-95"
             >
-              Book Audit
+              Book Strategy Call
               <ArrowRight size={14} className="group-hover:translate-x-0.5 transition-transform" />
             </Link>
           </div>
@@ -127,7 +127,7 @@ const Navbar = () => {
                 to="/contact"
                 className="flex items-center justify-center gap-2 px-4 py-3 text-sm font-bold bg-[#d6f928] text-black rounded-xl hover:opacity-90 transition-opacity"
                 >
-                Book Audit <ArrowRight size={16} />
+                Book Strategy Call <ArrowRight size={16} />
                 </Link>
             </div>
         </div>

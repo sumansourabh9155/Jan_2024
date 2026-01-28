@@ -5,7 +5,7 @@ import { Code, TrendingUp, Zap } from "lucide-react";
 export const AboutMe = () => {
   return (
     <div className="bg-black flex justify-center items-center py-24 px-4 border-t border-white/10">
-      <div className="max-w-6xl w-full">
+      <div className="max-w-7xl w-full">
         {/* Section Header */}
         <div className="text-center mb-16">
           <div className="inline-flex items-center gap-2 text-sm bg-white/5 border border-white/10 backdrop-blur px-4 py-1 rounded-full mb-4">

@@ -117,11 +117,12 @@ const DesignServices = () => {
           </div>
           
           <Link to="/contact">
-            <button className="group flex items-center gap-2 text-white border-b border-white/30 pb-1 hover:border-[#d6f928] hover:text-[#d6f928] transition-all">
-                Start a Project
-                <ArrowRight size={16} className="group-hover:translate-x-1 transition-transform" />
-            </button>
-          </Link>
+                            <button 
+                            className="inline-block bg-white text-black px-6 py-3 rounded-full font-semibold text-sm hover:bg-gray-100 transition-all shadow-lg"
+                            >
+                            Book Strategy Call
+                            </button>
+                        </Link>
         </div>
 
         {/* The Service Grid */}
