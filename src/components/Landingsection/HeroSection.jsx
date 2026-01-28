@@ -6,8 +6,8 @@ const HeroSection = () => {
   return (
     <div className="relative w-full min-h-screen bg-[#050505] flex items-center justify-center overflow-hidden px-6 pt-20">
       
-      {/* --- BACKGROUND LAYERS --- */}
-      {/* 1. The Technical Grid */}
+      {/* --- LAYER 1: The Technical Grid (The Logic) --- */}
+      {/* This draws a 1px white line every 40px using CSS gradients */}
       <div 
         className="absolute inset-0 opacity-[0.03] pointer-events-none"
         style={{
@@ -15,11 +15,13 @@ const HeroSection = () => {
             backgroundSize: '40px 40px'
         }}
       ></div>
+
+      {/* --- LAYER 2: The "Psychology" Glow (The Focus) --- */}
+      {/* A subtle neon lime glow at the top center to highlight the headline */}
+      <div className="absolute top-[-10%] left-1/2 -translate-x-1/2 w-[600px] h-[400px] bg-[#d6f928]/5 blur-[120px] rounded-full pointer-events-none"></div>
       
-      {/* 2. The Atmosphere Glow (Centered but offset) */}
-      <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] h-[800px] bg-blue-500/10 blur-[150px] rounded-full pointer-events-none"></div>
-
-
+      {/* Secondary Blue Glow for depth (Bottom Right) */}
+      <div className="absolute bottom-[-10%] right-[-10%] w-[500px] h-[500px] bg-blue-500/5 blur-[100px] rounded-full pointer-events-none"></div>
       {/* --- MAIN CONTENT GRID --- */}
       <div className="max-w-7xl w-full grid grid-cols-1 lg:grid-cols-12 gap-12 items-center relative z-10">
         
@@ -37,10 +39,9 @@ const HeroSection = () => {
               I Design Products <br/> That{" "}
               <span className="text-transparent bg-clip-text bg-gradient-to-r from-white via-gray-200 to-gray-500">
                 Retain Users
-              </span>{" "}
-              &{" "}
+              </span>
               <span className="text-transparent bg-clip-text bg-gradient-to-r from-white via-gray-200 to-gray-500">
-                 Reduce Churn.
+                <br/>  & Reduce Churn.
               </span>
             </h1>
 
@@ -97,10 +98,10 @@ const HeroSection = () => {
                   <span className="text-[10px] font-mono text-gray-500 uppercase tracking-widest group-hover:text-blue-400 transition-colors">Velocity</span>
                 </div>
                  <div className="flex items-baseline gap-1">
-                    <p className="text-5xl font-bold text-white tracking-tighter">20</p>
+                    <p className="text-5xl font-bold text-white tracking-tighter">25</p>
                     <span className="text-2xl text-gray-500 font-light">+</span>
                 </div>
-                <p className="text-xs text-gray-400 mt-2 border-t border-white/5 pt-2">Projects Delivered</p>
+                <p className="text-xs text-gray-400 mt-2 border-t border-white/5 pt-2">Products Shipped</p>
               </div>
             </div>
 
@@ -118,7 +119,7 @@ const HeroSection = () => {
                     <p className="text-5xl font-bold text-white tracking-tighter">100</p>
                     <span className="text-2xl text-gray-500 font-light">%</span>
                 </div>
-                <p className="text-xs text-gray-400 mt-2 border-t border-white/5 pt-2">Based on 20+ Projects</p>
+                <p className="text-xs text-gray-400 mt-2 border-t border-white/5 pt-2">Based on 25+ Projects</p>
               </div>
             </div>
             
