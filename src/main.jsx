@@ -76,10 +76,18 @@ root.render(
         <Route path="/projects" element={<Projects />} />
         <Route path="/resource" element={<Resource />} />
         <Route path="/shyftlabs" element={<Shyftlabs />} />
-        <Route path="/expense" element={<ExpenseDashboard />} />
+        
         {/* <Route path="/blog" element={<Blog />} /> */}
 
         <Route
+          path="/expense"
+          element={
+            <ProtectedRoute correctPassword="1196">
+              <ExpenseDashboard />
+            </ProtectedRoute>
+          }
+        />
+         <Route
           path="/Projects/Raikar"
           element={
             <ProtectedRoute correctPassword="9155">
