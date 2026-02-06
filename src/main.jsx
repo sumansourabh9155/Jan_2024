@@ -82,7 +82,7 @@ root.render(
         <Route
           path="/expense"
           element={
-            <ProtectedRoute correctPassword="1196">
+            <ProtectedRoute correctPassword="sexy">
               <ExpenseDashboard />
             </ProtectedRoute>
           }
