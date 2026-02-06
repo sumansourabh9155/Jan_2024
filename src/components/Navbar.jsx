@@ -33,7 +33,7 @@ const Navbar = () => {
   const navLinks = [
     { to: "/projects", text: "Case Studies" }, // Renamed for Business Impact
     // { to: "/resources", text: "Resources" },
-    { to: "/resume", text: "Profile" },        // Renamed from "About Me" (more professional)
+    // { to: "/resume", text: "Profile" },        // Renamed from "About Me" (more professional)
   ];
 
   return (

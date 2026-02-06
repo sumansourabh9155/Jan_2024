@@ -9,7 +9,7 @@ import Resource from "./pages/Resource";
 import Shyftlabs from "./pages/Shyftlabs";
 // import Blog from "./pages/Blog"; // Commented intentionally
 import Projects from "./pages/Projects";
-
+import ExpenseDashboard from "./pages/ExpenseDashboard";
 import RaikarGoodVibes from "./components/Landingsection/Casestudy/RaikarGoodVibes";
 import CarterRedesign from "./components/Landingsection/Casestudy/CarterRedesign";
 import Uvc from "./components/Landingsection/Casestudy/Uvc";
@@ -76,6 +76,7 @@ root.render(
         <Route path="/projects" element={<Projects />} />
         <Route path="/resource" element={<Resource />} />
         <Route path="/shyftlabs" element={<Shyftlabs />} />
+        <Route path="/expense" element={<ExpenseDashboard />} />
         {/* <Route path="/blog" element={<Blog />} /> */}
 
         <Route
