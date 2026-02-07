@@ -5,7 +5,7 @@ import { Link } from "react-router-dom";
 const PricingFilter = () => {
   return (
     // FIX 1: Added bg-[#050505] relative overflow-hidden to the section
-    <section className="bg-[#050505] text-white py-24 px-4 border-t border-white/10 relative overflow-hidden">
+    <section id="pricing" aria-labelledby="pricing-heading" className="bg-[#050505] text-white py-24 px-4 border-t border-white/10 relative overflow-hidden">
       
       {/* --- BACKGROUND LAYERS --- */}
       {/* 1. The Technical Grid - Now visible because of bg-[#050505] */}
