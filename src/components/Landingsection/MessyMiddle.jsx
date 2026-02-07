@@ -26,7 +26,7 @@ const MessyMiddle = () => {
         {/* Trade-off Examples */}
         <div className="grid md:grid-cols-2 gap-6">
           {/* Trade-off 1 */}
-          <div className="bg-white/5 border border-white/10 backdrop-blur-md rounded-2xl p-8">
+          <article className="bg-white/5 border border-white/10 backdrop-blur-md rounded-2xl p-8">
             <div className="flex items-center gap-2 mb-4">
               <div className="w-10 h-10 bg-red-500/20 border border-red-500/30 rounded-lg flex items-center justify-center">
                 <XCircle size={20} className="text-red-400" />
