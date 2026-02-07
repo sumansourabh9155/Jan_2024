@@ -211,7 +211,7 @@ const DoubleDiamond = () => {
         </div>
 
       </div>
-    </div>
+    </section>
   );
 };
 
