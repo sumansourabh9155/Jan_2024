@@ -60,7 +60,7 @@ const Navbar = () => {
           </Link>
 
           {/* Middle: Desktop Nav */}
-          <nav className="hidden md:flex items-center gap-1 bg-white/5 px-2 py-1 rounded-full border border-white/5">
+          <nav aria-label="Main navigation" className="hidden md:flex items-center gap-1 bg-white/5 px-2 py-1 rounded-full border border-white/5">
             {navLinks.map(({ to, text }) => (
               <NavLink
                 key={to}
