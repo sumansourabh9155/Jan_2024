@@ -28,7 +28,7 @@ const PricingFilter = () => {
             <DollarSign size={14} className="text-green-400" />
             <span className="text-gray-400">Investment & Engagement</span>
           </div>
-          <h2 className="text-5xl font-bold mt-4">
+          <h2 id="pricing-heading" className="text-5xl font-bold mt-4">
             Minimum Engagement:{" "}
             <span className="text-transparent bg-clip-text bg-gradient-to-r from-white to-gray-400">$2,000</span>
           </h2>
