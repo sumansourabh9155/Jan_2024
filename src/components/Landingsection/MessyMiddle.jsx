@@ -99,10 +99,10 @@ const MessyMiddle = () => {
               <TrendingUp size={16} className="text-green-400" />
               <span className="text-green-400 font-semibold">Result: 17% reduction in cart abandonment</span>
             </div>
-          </div>
+          </article>
 
           {/* Trade-off 3 */}
-          <div className="bg-white/5 border border-white/10 backdrop-blur-md rounded-2xl p-8">
+          <article className="bg-white/5 border border-white/10 backdrop-blur-md rounded-2xl p-8">
             <div className="flex items-center gap-2 mb-4">
               <div className="w-10 h-10 bg-blue-500/20 border border-blue-500/30 rounded-lg flex items-center justify-center">
                 <CheckCircle size={20} className="text-blue-400" />
