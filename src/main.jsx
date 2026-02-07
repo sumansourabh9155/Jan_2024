@@ -132,4 +132,5 @@ root.render(
       </Routes>
     </Router>
   </div>
+  </HelmetProvider>
 );
