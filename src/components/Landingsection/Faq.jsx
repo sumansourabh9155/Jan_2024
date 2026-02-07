@@ -42,7 +42,7 @@ const Faq = () => {
   };
 
   return (
-    <section className="bg-[#050505] py-32 px-6 relative overflow-hidden">
+    <section aria-labelledby="faq-heading" className="bg-[#050505] py-32 px-6 relative overflow-hidden">
       
       
       <div className="max-w-3xl mx-auto relative z-10">
