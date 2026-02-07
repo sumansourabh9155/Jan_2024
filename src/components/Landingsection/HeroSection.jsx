@@ -4,7 +4,7 @@ import { Link } from "react-router-dom";
 
 const HeroSection = () => {
   return (
-    <div className="relative w-full min-h-screen bg-[#050505] flex items-center justify-center overflow-hidden px-6 pt-20">
+    <header role="banner" data-testid="hero-section" className="relative w-full min-h-screen bg-[#050505] flex items-center justify-center overflow-hidden px-6 pt-20">
       
       {/* --- LAYER 1: The Technical Grid (The Logic) --- */}
       {/* This draws a 1px white line every 40px using CSS gradients */}
