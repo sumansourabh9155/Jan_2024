@@ -14,18 +14,16 @@ import TechProof from "../components/Landingsection/TechProof";
 import MessyMiddle from "../components/Landingsection/MessyMiddle";
 import PricingFilter from "../components/Landingsection/PricingFilter";
 import { AboutMe } from "../components/Landingsection/AboutMe";
+import SeoHead from "../components/SeoHead";
 
 const LandingPage = () => {
   return (
     <>
+      <SeoHead />
       {/* Hero + Navbar Section with Background */}
       <div
         className="relative bg-cover bg-no-repeat bg-center min-h-screen"
         style={{
-          // backgroundImage: `url(${bg})`,
-          // backgroundSize: "cover",
-          // backgroundRepeat: "no-repeat",
-          // backgroundPosition: "center",
           backgroundColor: "#000000",
         }}
       >
@@ -33,16 +31,32 @@ const LandingPage = () => {
         <HeroSection />
       </div>
 
-      {/* Rest of the page */}
+      {/* Case Studies Section */}
       <Projects />
-      <AboutMe />
+
+      {/* About Section */}
+      <aside aria-label="About Suman Sourabh">
+        <AboutMe />
+      </aside>
+
+      {/* Services Section */}
       <DesignServices />
+
+      {/* Social Proof */}
       <Testimonial />
-      {/* <Tools /> */}
+
+      {/* Methodology */}
       <DoubleDiamond />
+
+      {/* Messy Middle Case Studies */}
       <MessyMiddle />
+
+      {/* Pricing */}
       <PricingFilter />
+
+      {/* FAQ */}
       <Faq />
+
       <Footer />
     </>
   );
