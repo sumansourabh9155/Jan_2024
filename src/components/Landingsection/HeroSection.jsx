@@ -36,12 +36,12 @@ const HeroSection = () => {
 
             {/* Headline */}
             <h1 className="text-5xl sm:text-6xl xl:text-7xl font-bold text-white leading-[1.1] tracking-tight mb-8">
-              I Design Products <br/> That{" "}
+              SaaS Product Strategist <br/>
               <span className="text-transparent bg-clip-text bg-gradient-to-r from-white via-gray-200 to-gray-500">
-                Retain Users
+                Reducing Churn
               </span>
               <span className="text-transparent bg-clip-text bg-gradient-to-r from-white via-gray-200 to-gray-500">
-                <br/>  & Reduce Churn.
+                <br/> & Scaling Revenue.
               </span>
             </h1>
 
