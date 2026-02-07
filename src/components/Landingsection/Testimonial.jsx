@@ -43,7 +43,7 @@ const Testimonial = memo(() => {
                         {/* Optimization 2 & 3: Lazy load, Async decode, and GPU hint for animation */}
                         <img 
                             src={sam} 
-                            alt="Samira Pujari" 
+                            alt="Samira Pujari - Founder of RaikarsGoodVibes who achieved brand strategy success through product design partnership" 
                             loading="lazy"
                             decoding="async"
                             className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105 will-change-transform" 
