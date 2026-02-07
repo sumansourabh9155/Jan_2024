@@ -3,6 +3,7 @@ import ReactDOM from "react-dom/client";
 import "./index.css";
 import App from "./App";
 import LandingPage from "./pages/LandingPage";
+import { HelmetProvider } from "react-helmet-async";
 import Resume from "./pages/Resume";
 import Contact from "./pages/Contact";
 import Resource from "./pages/Resource";
