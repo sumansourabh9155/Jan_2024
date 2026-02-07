@@ -31,6 +31,7 @@ const isMouseDevice = window.matchMedia("(pointer: fine)").matches;
 
 const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(
+  <HelmetProvider>
   <div>
     {isMouseDevice && (
       <AnimatedCursor
