@@ -36,7 +36,7 @@ const DoubleDiamond = () => {
   ];
 
   return (
-    <div className="w-full bg-[#050505] text-white py-24 px-6 relative overflow-hidden font-sans">
+    <section aria-labelledby="methodology-heading" className="w-full bg-[#050505] text-white py-24 px-6 relative overflow-hidden font-sans">
       {/* --- BACKGROUND LAYERS --- */}
       {/* 1. The Technical Grid */}
       <div 
