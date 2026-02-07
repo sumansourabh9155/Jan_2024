@@ -11,7 +11,7 @@ export const AboutMe = () => {
           <div className="inline-flex items-center gap-2 text-sm bg-white/5 border border-white/10 backdrop-blur px-4 py-1 rounded-full mb-4">
             <span className="text-gray-400">◎</span> About
           </div>
-          <h2 className="text-5xl font-bold text-white">
+          <h2 id="about-heading" className="text-5xl font-bold text-white">
             Not Just Art.{" "}
             <span className="text-gray-400">System Logic.</span>
           </h2>
