@@ -23,7 +23,7 @@ export const AboutMe = () => {
             <img
               src={suman}
               className="object-cover rounded-xl h-[400px] w-[400px] brightness-110"
-              alt="Suman Sourabh"
+              alt="Suman Sourabh - SaaS Product Strategist helping founders reduce churn and scale revenue"
             />
           </div>
 
