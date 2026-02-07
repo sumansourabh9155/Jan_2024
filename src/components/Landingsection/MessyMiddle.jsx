@@ -139,10 +139,10 @@ const MessyMiddle = () => {
               <TrendingUp size={16} className="text-green-400" />
               <span className="text-green-400 font-semibold">Result: 24% increase in feature activation</span>
             </div>
-          </div>
+          </article>
 
           {/* Trade-off 4 */}
-          <div className="bg-white/5 border border-white/10 backdrop-blur-md rounded-2xl p-8">
+          <article className="bg-white/5 border border-white/10 backdrop-blur-md rounded-2xl p-8">
             <div className="flex items-center gap-2 mb-4">
               <div className="w-10 h-10 bg-purple-500/20 border border-purple-500/30 rounded-lg flex items-center justify-center">
                 <AlertTriangle size={20} className="text-purple-400" />
