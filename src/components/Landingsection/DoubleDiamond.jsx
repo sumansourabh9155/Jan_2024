@@ -57,9 +57,9 @@ const DoubleDiamond = () => {
           <h2 className="text-sm font-mono text-[#d6f928] tracking-widest uppercase mb-4">
             Methodology
           </h2>
-          <h1 className="text-4xl md:text-5xl font-bold tracking-tight">
+          <h2 className="text-4xl md:text-5xl font-bold tracking-tight">
             From Chaos to <span className="text-transparent bg-clip-text bg-gradient-to-r from-white to-gray-500">Clarity</span>.
-          </h1>
+          </h2>
           <p className="text-gray-400 mt-4 max-w-2xl mx-auto">
             I don't just "design." I use a divergent-convergent framework to ensure we are solving the right problem before we build the solution.
           </p>
