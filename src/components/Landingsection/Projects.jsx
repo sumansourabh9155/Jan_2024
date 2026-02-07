@@ -64,12 +64,12 @@ const projectData = [
 
 const Projects = () => {
   return (
-    <div className="py-24 mx-auto overflow-hidden bg-black border-t border-white/10">
+    <section aria-labelledby="case-studies-heading" data-testid="projects-section" className="py-24 mx-auto overflow-hidden bg-black border-t border-white/10">
       <div className="max-w-7xl mx-auto px-4 mb-12">
         <div className="inline-flex items-center gap-2 text-sm bg-white/5 border border-white/10 backdrop-blur px-4 py-1 rounded-full mb-4">
-          <span className="text-gray-400">◎</span> Case Studies
+          <span className="text-gray-400">&#9678;</span> Case Studies
         </div>
-        <h2 className="text-5xl font-bold text-white">
+        <h2 id="case-studies-heading" className="text-5xl font-bold text-white">
           Real Projects. <span className="text-gray-400">Real Results.</span>
         </h2>
         <p className="text-gray-300 mt-4 text-md max-w-3xl">
@@ -82,19 +82,21 @@ const Projects = () => {
   <ul className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
     {projectData.slice(0, 6).map((project, i) => (
       <li key={i} className="w-full">
-        <div className="flex flex-col h-full w-full bg-white/5 border-2 border-white/20 backdrop-blur-md rounded-xl overflow-hidden shadow-md hover:border-white/40 transition-all group">
+        <article className="flex flex-col h-full w-full bg-white/5 border-2 border-white/20 backdrop-blur-md rounded-xl overflow-hidden shadow-md hover:border-white/40 transition-all group">
           {/* Relative Image Container */}
-          <div className="relative aspect-video overflow-hidden">
+          <figure className="relative aspect-video overflow-hidden">
             <img
               src={project.image}
-              alt={project.title}
+              alt={project.alt}
+              loading="lazy"
+              decoding="async"
               className="w-full h-full object-cover rounded-t-xl group-hover:scale-105 transition-transform duration-300"
             />
             {/* Metric Badge */}
             <div className="absolute top-3 right-3 bg-black/80 backdrop-blur-md border border-white/20 rounded-full px-3 py-1.5 flex items-center gap-2">
               {project.icon}
             </div>
-          </div>
+          </figure>
 
           <div className="p-5 flex flex-col flex-grow justify-between">
             <div>
@@ -115,7 +117,7 @@ const Projects = () => {
               </span>
             </div>
           </div>
-        </div>
+        </article>
       </li>
     ))}
   </ul>
