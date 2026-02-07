@@ -52,7 +52,7 @@ const Faq = () => {
           <div className="inline-flex items-center gap-2 text-xs font-mono text-[#d6f928] tracking-widest uppercase mb-6 bg-[#d6f928]/5 px-3 py-1 rounded border border-[#d6f928]/20">
             [ FAQ ]
           </div>
-          <h2 className="text-3xl md:text-4xl font-bold text-white mb-4">
+          <h2 id="faq-heading" className="text-3xl md:text-4xl font-bold text-white mb-4">
             Common Questions
           </h2>
           <p className="text-gray-400">
