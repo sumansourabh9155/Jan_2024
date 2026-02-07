@@ -17,10 +17,10 @@ const Testimonial = memo(() => {
             <div className="inline-flex items-center gap-2 text-xs font-mono text-[#d6f928] tracking-widest uppercase mb-6">
                [ Social Proof ]
             </div>
-            <h1 className="text-4xl md:text-5xl font-bold text-white leading-tight">
+            <h2 className="text-4xl md:text-5xl font-bold text-white leading-tight">
               Trusted by Founders <br />
               <span className="text-gray-500">Who Demand Excellence.</span>
-            </h1>
+            </h2>
           </div>
           
           <div className="text-right">
