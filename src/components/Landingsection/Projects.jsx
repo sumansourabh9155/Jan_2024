@@ -184,7 +184,7 @@ const Projects = () => {
           View Full Case Studies
         </a>
       </div>
-    </div>
+    </section>
   );
 };
 
