@@ -350,6 +350,15 @@ export default function ExpenseDashboard() {
                   }
                 />
               </button>
+              <a
+                href="https://docs.google.com/spreadsheets/d/16GyzSutUEa9KFAgaYHTNBfEh_04m7cVHkBvjGNFukOg/edit?usp=sharing"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="p-2.5 bg-[#0a0a0a] border border-white/10 text-gray-400 hover:text-white hover:border-white/30 rounded-lg transition-all group"
+              >
+                Sheet
+              </a>
+
               <button
                 onClick={() => setIsModalOpen(true)}
                 className="flex items-center gap-2 bg-white text-black px-4 py-2.5 rounded-lg font-bold text-sm hover:bg-[#d6f928] transition-colors shadow-lg shadow-white/5"
@@ -704,14 +713,13 @@ export default function ExpenseDashboard() {
                             {formatDate(t.Date)}
                           </span>
                         </td>
-                         <td className="px-6 py-3 text-right align-center">
-                             <div className="flex flex-wrap items-center gap-2">
+                        <td className="px-6 py-3 text-right align-center">
+                          <div className="flex flex-wrap items-center gap-2">
                             <div
                               className={`inline-flex items-center gap-1.5 px-2 py-0.5 rounded text-[10px] font-medium border ${styles.badge}`}
                             >
                               <Tag size={10} /> {t.Category}
                             </div>
-                           
                           </div>
                         </td>
                         <td className="px-6 py-3 align-center">
@@ -719,12 +727,11 @@ export default function ExpenseDashboard() {
                             {t["Sub-Category"] || "Unspecified"}
                           </div>
                           {t["Sub-Category"] && (
-                              <span className="text-[10px] text-gray-600">
-                                {t.Description}
-                              </span>
-                            )}
+                            <span className="text-[10px] text-gray-600">
+                              {t.Description}
+                            </span>
+                          )}
                         </td>
-                       
 
                         <td className="px-6 py-3 text-right align-center">
                           <span
