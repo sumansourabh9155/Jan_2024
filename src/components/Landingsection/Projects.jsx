@@ -18,119 +18,48 @@ import Shopping from "../../assets/Project/shopping.webp";
 import { TrendingUp, Users, ShoppingCart, Zap } from "lucide-react";
 
 const projectData = [
-  // {
-  //   image: Raikar,
-  //   title: "Increasing Daily Active Users by 18%",
-  //   category: "Healthcare SaaS",
-
-  //   icon: <Users size={16} className="text-green-400" />,
-  // },
   {
     image: Shopping,
     title: "Reducing Cart Abandonment by 25%",
     category: "E-commerce Platform",
-
+    alt: "E-commerce checkout optimization that reduced cart abandonment by 25% through trust-building UX",
     icon: <ShoppingCart size={16} className="text-blue-400" />,
   },
-  // {
-  //   image: Payment,
-  //   title: "Optimizing Checkout Flow for Speed",
-  //   category: "Payment Gateway",
-
-  //   icon: <Zap size={16} className="text-yellow-400" />,
-  // },
-  // {
-  //   image: Health,
-  //   title: "Improving User Retention by 22%",
-  //   category: "Wellness App",
-
-  //   icon: <TrendingUp size={16} className="text-purple-400" />,
-  // },
    {
     image: NFT,
     title: "Simplifying NFT Minting Experience",
     category: "Web3 Platform",
-
+    alt: "Web3 minting flow redesign that simplified blockchain interactions for mainstream user adoption",
     icon: <Zap size={16} className="text-pink-400" />,
   },
   {
     image: Jobringer,
     title: "Streamlining Job Application Flow",
     category: "Job Marketplace",
-
+    alt: "Job marketplace application flow optimization that increased completion rates through reduced friction",
     icon: <Users size={16} className="text-green-400" />,
   },
-  // {
-  //   image: Kploy,
-  //   title: "Reducing Onboarding Drop-off by 30%",
-  //   category: "B2B SaaS",
-
-  //   icon: <TrendingUp size={16} className="text-blue-400" />,
-  // },
- 
-  // {
-  //   image: Pizza,
-  //   title: "Increasing Order Frequency by 28%",
-  //   category: "Food Delivery",
-
-  //   icon: <ShoppingCart size={16} className="text-red-400" />,
-  // },
   {
     image: Fashion,
     title: "Boosting Add-to-Cart Rate by 35%",
     category: "Fashion E-commerce",
-
+    alt: "Fashion e-commerce product discovery redesign that boosted add-to-cart conversions by 35%",
     icon: <ShoppingCart size={16} className="text-purple-400" />,
   },
-  // {
-  //   image: Glamor,
-  //   title: "Optimizing Product Discovery Flow",
-  //   category: "Beauty & Cosmetics",
-
-  //   icon: <Users size={16} className="text-pink-400" />,
-  // },
-  // {
-  //   image: Jewll,
-  //   title: "Reducing Search-to-Purchase Time",
-  //   category: "Jewelry E-commerce",
-
-  //   icon: <TrendingUp size={16} className="text-yellow-400" />,
-  // },
   {
     image: Shopify,
     title: "Improving Merchant Onboarding",
     category: "E-commerce Platform",
-
+    alt: "Merchant onboarding optimization that reduced time-to-first-sale for e-commerce platform sellers",
     icon: <Zap size={16} className="text-green-400" />,
   },
   {
     image: API,
     title: "Simplifying Developer Documentation",
     category: "API Platform",
-
+    alt: "API documentation redesign that improved developer onboarding speed and integration success rate",
     icon: <Users size={16} className="text-blue-400" />,
   },
-  // {
-  //   image: Drink,
-  //   title: "Increasing Subscription Sign-ups by 26%",
-  //   category: "Beverage Subscription",
-
-  //   icon: <TrendingUp size={16} className="text-green-400" />,
-  // },
-  // {
-  //   image: Anime,
-  //   title: "Reducing Playback Errors by 40%",
-  //   category: "Streaming Platform",
-
-  //   icon: <Zap size={16} className="text-red-400" />,
-  // },
-  // {
-  //   image: Jwells,
-  //   title: "Optimizing Mobile Checkout Experience",
-  //   category: "Luxury Retail",
-
-  //   icon: <ShoppingCart size={16} className="text-purple-400" />,
-  // },
 ];
 
 const Projects = () => {
