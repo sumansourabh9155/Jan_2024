@@ -179,7 +179,7 @@ const MessyMiddle = () => {
               <CheckCircle size={16} className="text-green-400" />
               <span className="text-green-400 font-semibold">Result: Balanced accessibility with business needs</span>
             </div>
-          </div>
+          </article>
         </div>
 
         {/* Bottom Message */}
