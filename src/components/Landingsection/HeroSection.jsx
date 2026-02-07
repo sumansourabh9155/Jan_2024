@@ -148,7 +148,7 @@ const HeroSection = () => {
         </div>
 
       </div>
-    </div>
+    </header>
   );
 };
 
