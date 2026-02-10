@@ -9,9 +9,16 @@ import v1 from "../../../assets/dsp/1.mp4";
 import v2 from "../../../assets/dsp/2.mp4";
 import v3 from "../../../assets/dsp/3.mp4";
 import Footer from "../../Footer";
+import SEO from "../../SEO";
 const CarterDsp = () => {
   return (
     <div className="font-sans text-white bg-black">
+      <SEO
+        title="Carter DSP - Case Study"
+        description="Carter DSP Retail Media Network platform design for managing campaigns across fragmented networks."
+        keywords="case study, carter dsp, retail media network, ad tech, campaign management"
+        url="https://www.sumansourabh.com/Projects/carterdsp"
+      />
       <Navbar />
       <div className="px-6 pt-32">
         <div className="max-w-6xl mx-auto space-y-12">
@@ -28,7 +35,7 @@ const CarterDsp = () => {
               and analytics.
             </p>
           </div>
-          
+
           <img src={dsp} alt="" />
 
           <section className="bg-white/5 border border-white/10 backdrop-blur-md rounded-2xl p-10 space-y-10 text-white">
@@ -113,7 +120,7 @@ const CarterDsp = () => {
           <section className="bg-white/5 border border-white/10 backdrop-blur-lg p-6 sm:p-8 md:p-12 rounded-3xl space-y-8">
             <div className="flex flex-col md:flex-row gap-8 items-center md:items-start">
               <video
-              
+
                 controls
                 autoPlay
                 loop
@@ -193,7 +200,7 @@ const CarterDsp = () => {
               storytelling, not logistics.
             </p>
           </section>
-          
+
 
           {/* Solution */}
           <section className="bg-white/5 border border-white/10 backdrop-blur-lg p-12 rounded-3xl space-y-8">
@@ -228,10 +235,10 @@ const CarterDsp = () => {
                 </li>
               </ul>
 
-              
+
             </div>
           </section>
-          
+
           {/* Design System Section */}
           <img src={Campaign} alt="" />
           {/* Research & Insights */}

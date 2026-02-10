@@ -6,6 +6,7 @@ import Cms from "../../../assets/uvc/cms.png";
 import Old from "../../../assets/uvc/old.png";
 import Text from "../../../assets/uvc/text.png";
 import Template from "../../../assets/uvc/template.png";
+import SEO from "../../SEO";
 
 const Section = ({ title, children }) => (
   <section className="bg-white/5 border border-white/10 backdrop-blur-md p-10 rounded-3xl space-y-6">
@@ -17,6 +18,12 @@ const Section = ({ title, children }) => (
 const Uvc = () => {
   return (
     <div className="font-sans text-white bg-black">
+      <SEO
+        title="United Veterinary Care - Case Study"
+        description="CMS and website redesign for United Veterinary Care, improving SEO, booking UX, and content governance for 130+ clinics."
+        keywords="case study, uvc, veterinary, cms, redesign, seo"
+        url="https://www.sumansourabh.com/Projects/uvc"
+      />
       <Navbar />
       <div className="px-6 pt-32 pb-20">
         <div className="max-w-6xl mx-auto space-y-14">
@@ -45,11 +52,11 @@ const Uvc = () => {
               <li>Collaborated with dev teams for seamless implementation</li>
             </ul>
           </Section>
-          
+
           <img src={Old} alt="" />
-          
-          
-         
+
+
+
           {/* Problem Statement */}
           <Section title="Problem Statement">
             <p>Legacy clinic websites were disconnected with:</p>
@@ -63,7 +70,7 @@ const Uvc = () => {
 
           {/* Goals */}
           <img src={Template} alt="" />
-          
+
           <Section title="Goals">
             <ul className="list-disc ml-5 space-y-1">
               <li>Unify design under consistent, scalable templates</li>
@@ -84,7 +91,7 @@ const Uvc = () => {
           </Section>
 
           {/* Template Strategy */}
-           <img src={Text} alt="" />
+          <img src={Text} alt="" />
           <Section title="Template Design Strategy">
             <ul className="list-disc ml-5 space-y-1">
               <li>UVC Corporate Landing Page</li>

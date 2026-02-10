@@ -1,18 +1,25 @@
-import React from "react";
+import React, { Suspense } from "react";
 import ReactDOM from "react-dom/client";
+import { HelmetProvider } from "react-helmet-async";
 import "./index.css";
 import App from "./App";
-import LandingPage from "./pages/LandingPage";
-import Resume from "./pages/Resume";
-import Contact from "./pages/Contact";
-import Resource from "./pages/Resource";
-import Shyftlabs from "./pages/Shyftlabs";
-// import Blog from "./pages/Blog"; // Commented intentionally
-import Projects from "./pages/Projects";
-import ExpenseDashboard from "./pages/ExpenseDashboard";
-import RaikarGoodVibes from "./components/Landingsection/Casestudy/RaikarGoodVibes";
-import CarterRedesign from "./components/Landingsection/Casestudy/CarterRedesign";
-import Uvc from "./components/Landingsection/Casestudy/Uvc";
+
+// Lazy load pages for performance optimization
+const LandingPage = React.lazy(() => import("./pages/LandingPage"));
+const Resume = React.lazy(() => import("./pages/Resume"));
+const Contact = React.lazy(() => import("./pages/Contact"));
+const Resource = React.lazy(() => import("./pages/Resource"));
+const Shyftlabs = React.lazy(() => import("./pages/Shyftlabs"));
+// const Blog = React.lazy(() => import("./pages/Blog")); // Commented intentionally
+const Projects = React.lazy(() => import("./pages/Projects"));
+const ExpenseDashboard = React.lazy(() => import("./pages/ExpenseDashboard"));
+
+// Lazy load Case Studies
+const RaikarGoodVibes = React.lazy(() => import("./components/Landingsection/Casestudy/RaikarGoodVibes"));
+const CarterRedesign = React.lazy(() => import("./components/Landingsection/Casestudy/CarterRedesign"));
+const Uvc = React.lazy(() => import("./components/Landingsection/Casestudy/Uvc"));
+const CarterDsp = React.lazy(() => import("./components/Landingsection/Casestudy/CarterDsp"));
+const CarterCampaign = React.lazy(() => import("./components/Landingsection/Casestudy/CarterCampaign"));
 
 import ProtectedRoute from "./components/ProtectedRoute";
 import AnimatedCursor from "react-animated-cursor";
@@ -22,112 +29,115 @@ import {
   Routes,
   Route,
 } from "react-router-dom";
-import CarterDsp from "./components/Landingsection/Casestudy/CarterDsp";
-import CarterCampaign from "./components/Landingsection/Casestudy/CarterCampaign";
 
 // Check if device has fine pointer (like a mouse)
 const isMouseDevice = window.matchMedia("(pointer: fine)").matches;
 
 const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(
-  <div>
-    {isMouseDevice && (
-      <AnimatedCursor
-        showSystemCursor={false}
-        innerSize={16}
-        outerSize={60}
-        color="266, 266, 266"
-        outerAlpha={0.1}
-        innerScale={0.7}
-        outerScale={2}
-        trailingSpeed={18}
-        clickables={[
-          "a",
-          'input[type="text"]',
-          'input[type="email"]',
-          'input[type="number"]',
-          'input[type="submit"]',
-          'input[type="image"]',
-          "label[for]",
-          "select",
-          "textarea",
-          "button",
-          ".link",
-          {
-            target: ".custom",
-            options: {
-              innerSize: 12,
-              outerSize: 12,
-              color: "255, 255, 255",
-              outerAlpha: 0.3,
-              innerScale: 0.7,
-              outerScale: 5,
+  <HelmetProvider>
+    <div>
+      {isMouseDevice && (
+        <AnimatedCursor
+          showSystemCursor={false}
+          innerSize={16}
+          outerSize={60}
+          color="255, 255, 255" // Fixed Typo: 266 -> 255
+          outerAlpha={0.1}
+          innerScale={0.7}
+          outerScale={2}
+          trailingSpeed={18}
+          clickables={[
+            "a",
+            'input[type="text"]',
+            'input[type="email"]',
+            'input[type="number"]',
+            'input[type="submit"]',
+            'input[type="image"]',
+            "label[for]",
+            "select",
+            "textarea",
+            "button",
+            ".link",
+            {
+              target: ".custom",
+              options: {
+                innerSize: 12,
+                outerSize: 12,
+                color: "255, 255, 255",
+                outerAlpha: 0.3,
+                innerScale: 0.7,
+                outerScale: 5,
+              },
             },
-          },
-        ]}
-      />
-    )}
-    <Router>
-      <Routes>
-        <Route path="/" element={<App />} />
-        <Route path="/home" element={<LandingPage />} />
-        <Route path="/resume" element={<Resume />} />
-        <Route path="/contact" element={<Contact />} />
-        <Route path="/projects" element={<Projects />} />
-        <Route path="/resource" element={<Resource />} />
-        <Route path="/shyftlabs" element={<Shyftlabs />} />
-        
-        {/* <Route path="/blog" element={<Blog />} /> */}
+          ]}
+        />
+      )}
+      <Router>
+        <Suspense fallback={<div className="flex items-center justify-center min-h-screen bg-black text-white">Loading...</div>}>
+          <Routes>
+            <Route path="/" element={<App />} />
+            <Route path="/home" element={<LandingPage />} />
+            <Route path="/resume" element={<Resume />} />
+            <Route path="/contact" element={<Contact />} />
+            <Route path="/projects" element={<Projects />} />
+            <Route path="/resource" element={<Resource />} />
+            <Route path="/shyftlabs" element={<Shyftlabs />} />
 
-        <Route
-          path="/expense"
-          element={
-            <ProtectedRoute correctPassword="sexy">
-              <ExpenseDashboard />
-            </ProtectedRoute>
-          }
-        />
-         <Route
-          path="/Projects/Raikar"
-          element={
-            <ProtectedRoute correctPassword="9155">
-              <RaikarGoodVibes />
-            </ProtectedRoute>
-          }
-        />
-        <Route
-          path="/Projects/CarterRedesign"
-          element={
-            <ProtectedRoute correctPassword="9155">
-              <CarterRedesign />
-            </ProtectedRoute>
-          }
-        />
-        <Route
-          path="/Projects/uvc"
-          element={
-            <ProtectedRoute correctPassword="9155">
-              <Uvc />
-            </ProtectedRoute>
-          }
-        />
-        <Route
-          path="/Projects/carterdsp"
-          element={
-            <ProtectedRoute correctPassword="9155">
-              <CarterDsp/>
-            </ProtectedRoute>
-          }
-        />
-        <Route
-          path="/Projects/cartercampaign"
-          element={
-            <ProtectedRoute correctPassword="9155">
-             <CarterCampaign/>
-            </ProtectedRoute>
-          }
-        />
-      </Routes>
-    </Router>
-  </div>
+            {/* <Route path="/blog" element={<Blog />} /> */}
+
+            <Route
+              path="/expense"
+              element={
+                <ProtectedRoute correctPassword="sexy">
+                  <ExpenseDashboard />
+                </ProtectedRoute>
+              }
+            />
+            <Route
+              path="/Projects/Raikar"
+              element={
+                <ProtectedRoute correctPassword="9155">
+                  <RaikarGoodVibes />
+                </ProtectedRoute>
+              }
+            />
+            <Route
+              path="/Projects/CarterRedesign"
+              element={
+                <ProtectedRoute correctPassword="9155">
+                  <CarterRedesign />
+                </ProtectedRoute>
+              }
+            />
+            <Route
+              path="/Projects/uvc"
+              element={
+                <ProtectedRoute correctPassword="9155">
+                  <Uvc />
+                </ProtectedRoute>
+              }
+            />
+            <Route
+              path="/Projects/carterdsp"
+              element={
+                <ProtectedRoute correctPassword="9155">
+                  <CarterDsp />
+                </ProtectedRoute>
+              }
+            />
+            <Route
+              path="/Projects/cartercampaign"
+              element={
+                <ProtectedRoute correctPassword="9155">
+                  <CarterCampaign />
+                </ProtectedRoute>
+              }
+            />
+          </Routes>
+        </Suspense>
+      </Router>
+    </div>
+  </HelmetProvider>
 );
+

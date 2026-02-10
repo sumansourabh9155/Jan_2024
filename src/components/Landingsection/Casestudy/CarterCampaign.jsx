@@ -3,10 +3,17 @@ import Aditem from "../../../assets/cartercampigh/aditem.png";
 import Oldaditem from "../../../assets/cartercampigh/oldaditem.png";
 import Campaign from "../../../assets/cartercampigh/campaign.png";
 import Footer from "../../Footer";
+import SEO from "../../SEO";
 
 const CarterCampaign = () => {
   return (
     <div className="font-sans text-white bg-black">
+      <SEO
+        title="Carter Campaign Creation - Case Study"
+        description="UX and UI redesign of Carter's Campaign Creation and Ad Item Management interfaces to enhance automation and efficiency."
+        keywords="case study, carter campaign, campaign creation, ad tech, ux redesign"
+        url="https://www.sumansourabh.com/Projects/cartercampaign"
+      />
       <Navbar />
       <div className="px-6 pt-32">
         <div className="max-w-6xl mx-auto space-y-12">

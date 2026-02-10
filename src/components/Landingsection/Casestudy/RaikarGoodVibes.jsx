@@ -1,4 +1,5 @@
 import React from "react";
+import SEO from "../../SEO";
 import Navbar from "../../Navbar";
 import Footer from "../../Footer";
 import raikarscreen from "../../../assets/raikargoodvibes/raikarscreen.png";
@@ -17,6 +18,12 @@ import prototype from "../../../assets/raikargoodvibes/prototype.png";
 const RaikarGoodVibes = () => {
   return (
     <div className="bg-black text-white">
+      <SEO
+        title="Raikars Good Vibes - Case Study"
+        description="E-commerce platform design for Raikars Good Vibes, focusing on user-centric design and front-end development."
+        keywords="case study, raikars, e-commerce, ui/ux design, frontend development"
+        url="https://www.sumansourabh.com/Projects/Raikar"
+      />
       <Navbar />
 
       {/* Hero Section */}

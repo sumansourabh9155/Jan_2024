@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import Navbar from "../components/Navbar";
 import Footer from "../components/Footer";
+import SEO from "../components/SEO";
 
 const Contact = () => {
   const [formStatus, setFormStatus] = useState(null);
@@ -44,6 +45,12 @@ const Contact = () => {
 
   return (
     <div className="bg-black min-h-screen text-white">
+      <SEO
+        title="Contact - Suman Sourabh | Product Designer"
+        description="Get in touch with Suman Sourabh for product design collaborations, hiring, or guidance."
+        keywords="contact, hire product designer, collaboration, guidance"
+        url="https://www.sumansourabh.com/contact"
+      />
       <Navbar />
       <div className="flex justify-center items-center pt-40 px-4 pb-20">
         <div className="w-full max-w-2xl bg-white/5 backdrop-blur-md border border-white/10 rounded-2xl p-8 shadow-md">
@@ -58,9 +65,8 @@ const Contact = () => {
 
           {/* Status Alert */}
           {formStatus && (
-            <div className={`mt-6 p-4 rounded text-sm ${
-              formStatus.type === "success" ? "bg-green-500/10 text-green-300" : "bg-red-500/10 text-red-300"
-            }`}>
+            <div className={`mt-6 p-4 rounded text-sm ${formStatus.type === "success" ? "bg-green-500/10 text-green-300" : "bg-red-500/10 text-red-300"
+              }`}>
               {formStatus.message}
             </div>
           )}
@@ -116,11 +122,10 @@ const Contact = () => {
             <button
               type="submit"
               disabled={loading}
-              className={`w-full py-3 text-sm font-semibold text-white rounded-md transition-all ${
-                loading
-                  ? "bg-white/20 cursor-not-allowed"
-                  : "bg-white/10 hover:bg-white/20"
-              }`}
+              className={`w-full py-3 text-sm font-semibold text-white rounded-md transition-all ${loading
+                ? "bg-white/20 cursor-not-allowed"
+                : "bg-white/10 hover:bg-white/20"
+                }`}
             >
               {loading ? "Submitting..." : "Submit Form"}
             </button>

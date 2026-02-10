@@ -12,6 +12,7 @@ import {
   LayoutDashboard,
 } from "lucide-react";
 import Footer from "../components/Footer";
+import SEO from "../components/SEO";
 
 const designSystems = [
   {
@@ -144,6 +145,12 @@ const books = [
 const Resource = () => {
   return (
     <div className="container__wrapper bg-black text-white min-h-screen ">
+      <SEO
+        title="Resources - Suman Sourabh | Product Designer"
+        description="Curated list of design resources, books, and tools that influence my design practice."
+        keywords="design resources, ux guidelines, design systems, recommended books, ui tools"
+        url="https://www.sumansourabh.com/resource"
+      />
       <Navbar />
       <div className="max-w-7xl mx-auto px-4 md:px-12 pt-40">
         {/* Header */}

@@ -15,9 +15,18 @@ import MessyMiddle from "../components/Landingsection/MessyMiddle";
 import PricingFilter from "../components/Landingsection/PricingFilter";
 import { AboutMe } from "../components/Landingsection/AboutMe";
 
+import SEO from "../components/SEO";
+
 const LandingPage = () => {
   return (
     <>
+      <SEO
+        title="Suman Sourabh - SaaS Product Strategist | Retention & Conversion Design"
+        description="Suman Sourabh is a SaaS Product Strategist specializing in retention-focused design, conversion optimization, and rapid MVP deployment."
+        keywords="SaaS product designer, UX strategist, retention design, conversion optimization, product management, startup design, MVP design"
+        image="/android-chrome-512x512.png"
+        url="https://www.sumansourabh.com/"
+      />
       {/* Hero + Navbar Section with Background */}
       <div
         className="relative bg-cover bg-no-repeat bg-center min-h-screen"

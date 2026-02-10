@@ -5,10 +5,18 @@ import { Instagram, Dribbble, X } from "lucide-react";
 import TechProof from "../components/Landingsection/TechProof";
 import profilePic from "../assets/Img/suman.jpg";
 import DesignProcess from "../components/Landingsection/DesignProcess";
+import SEO from "../components/SEO";
 
 const Resume = () => {
   return (
     <div className="bg-black text-white min-h-screen">
+      <SEO
+        title="Resume - Suman Sourabh | Product Designer"
+        description="Experience of Suman Sourabh, a Product Designer at Shyftlabs. View my work history, skills, and talks."
+        keywords="resume, product designer, ux designer, shyftlabs, kraftbase, experience, skills"
+        image={profilePic}
+        url="https://www.sumansourabh.com/resume"
+      />
       <Navbar />
       <main className="max-w-6xl mx-auto px-4 sm:px-6 pt-20">
         <section className="py-24">

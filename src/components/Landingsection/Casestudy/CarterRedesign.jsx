@@ -4,9 +4,16 @@ import Oldcarter from "../../../assets/CarterRedesign/oldcarter.png";
 import Beforeafter from "../../../assets/CarterRedesign/Beforeafter.png";
 import DSL from "../../../assets/CarterRedesign/dsl.png";
 import Footer from "../../Footer";
+import SEO from "../../SEO";
 const CarterRedesign = () => {
   return (
     <div className="font-sans text-white bg-black">
+      <SEO
+        title="Carter 2.0 Redesign - Case Study"
+        description="Redesign of Carter Retail Media Network platform, improving usability, design system, and client conversions."
+        keywords="case study, carter, redesign, retail media network, shyftlabs, product designer"
+        url="https://www.sumansourabh.com/Projects/CarterRedesign"
+      />
       <Navbar />
       <div className="px-6 pt-32">
         <div className="max-w-6xl mx-auto space-y-12">
@@ -201,7 +208,7 @@ const CarterRedesign = () => {
             </div>
           </section>
 
-     <img src={DSL} alt="" />
+          <img src={DSL} alt="" />
           {/* Design System Section */}
           <section className="bg-white/5 border border-white/10 backdrop-blur-lg p-12 rounded-3xl space-y-12">
             <p className="text-xs uppercase text-gray-400 tracking-widest font-semibold">
@@ -258,7 +265,7 @@ const CarterRedesign = () => {
               The design system became the backbone of Carter’s UI transformation—offering a shared, living resource that aligned design thinking with technical execution. It empowered both designers and engineers to move faster with confidence, all while delivering a seamless and brand-consistent user experience.
             </p>
           </section>
-          
+
 
           {/* Impact */}
           <section className="bg-white/5 border border-white/10 backdrop-blur-md p-12 rounded-3xl space-y-10">
@@ -266,7 +273,7 @@ const CarterRedesign = () => {
               Impact
             </p>
 
-            
+
             <div className="space-y-8 text-gray-300 text-base">
               <div>
                 <p className="text-xl text-white font-semibold">
@@ -286,14 +293,14 @@ const CarterRedesign = () => {
               </div>
               <div>
                 <p className="text-xl text-white font-semibold">
-                  40% Increase in Engagement 
+                  40% Increase in Engagement
                 </p>
                 <p className="text-gray-400 ">
                   Time spent on platform and satisfaction scores improved
                   significantly.
                 </p>
               </div>
-                <div>
+              <div>
                 <p className="text-xl text-white font-semibold">
                   2x faster onboarding
                 </p>
@@ -330,7 +337,7 @@ const CarterRedesign = () => {
           </div>
         </div>
       </div>
-      <Footer/>
+      <Footer />
     </div>
   );
 };

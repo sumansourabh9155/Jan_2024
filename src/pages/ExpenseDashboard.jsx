@@ -28,6 +28,7 @@ import {
   ResponsiveContainer,
 } from "recharts";
 import Navbar from "../components/Navbar";
+import SEO from "../components/SEO";
 
 // ----------------------------------------------------------------------
 // CONFIGURATION
@@ -294,6 +295,12 @@ export default function ExpenseDashboard() {
 
   return (
     <div>
+      <SEO
+        title="Expense Dashboard - Financial Analytics"
+        description="A live financial analytics dashboard tracking income, expenses, and net position."
+        keywords="expense tracker, financial dashboard, react dashboard, analytics"
+        url="https://www.sumansourabh.com/expense"
+      />
       <Navbar />
 
       <div className="min-h-screen pt-24 bg-[#050505] text-white font-sans selection:bg-[#d6f928] selection:text-black relative overflow-hidden">
