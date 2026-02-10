@@ -106,10 +106,10 @@ const DesignServices = () => {
             <div className="inline-flex items-center gap-2 text-xs font-mono text-[#d6f928] tracking-widest uppercase mb-6">
                [ Capabilities ]
             </div>
-            <h1 className="text-4xl md:text-5xl font-bold leading-tight mb-6">
+            <h2 className="text-4xl md:text-5xl font-bold leading-tight mb-6">
               Outcomes, <br/>
               <span className="text-gray-500">Not Just Deliverables.</span>
-            </h1>
+            </h2>
             <p className="text-gray-400 text-lg font-light leading-relaxed">
               I don't sell "design." I sell retention, conversion, and clarity. 
               Every pixel I push is backed by a business metric.

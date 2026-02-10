@@ -18,129 +18,58 @@ import Shopping from "../../assets/Project/shopping.webp";
 import { TrendingUp, Users, ShoppingCart, Zap } from "lucide-react";
 
 const projectData = [
-  // {
-  //   image: Raikar,
-  //   title: "Increasing Daily Active Users by 18%",
-  //   category: "Healthcare SaaS",
-
-  //   icon: <Users size={16} className="text-green-400" />,
-  // },
   {
     image: Shopping,
     title: "Reducing Cart Abandonment by 25%",
     category: "E-commerce Platform",
-
+    alt: "E-commerce checkout optimization that reduced cart abandonment by 25% through trust-building UX",
     icon: <ShoppingCart size={16} className="text-blue-400" />,
   },
-  // {
-  //   image: Payment,
-  //   title: "Optimizing Checkout Flow for Speed",
-  //   category: "Payment Gateway",
-
-  //   icon: <Zap size={16} className="text-yellow-400" />,
-  // },
-  // {
-  //   image: Health,
-  //   title: "Improving User Retention by 22%",
-  //   category: "Wellness App",
-
-  //   icon: <TrendingUp size={16} className="text-purple-400" />,
-  // },
    {
     image: NFT,
     title: "Simplifying NFT Minting Experience",
     category: "Web3 Platform",
-
+    alt: "Web3 minting flow redesign that simplified blockchain interactions for mainstream user adoption",
     icon: <Zap size={16} className="text-pink-400" />,
   },
   {
     image: Jobringer,
     title: "Streamlining Job Application Flow",
     category: "Job Marketplace",
-
+    alt: "Job marketplace application flow optimization that increased completion rates through reduced friction",
     icon: <Users size={16} className="text-green-400" />,
   },
-  // {
-  //   image: Kploy,
-  //   title: "Reducing Onboarding Drop-off by 30%",
-  //   category: "B2B SaaS",
-
-  //   icon: <TrendingUp size={16} className="text-blue-400" />,
-  // },
- 
-  // {
-  //   image: Pizza,
-  //   title: "Increasing Order Frequency by 28%",
-  //   category: "Food Delivery",
-
-  //   icon: <ShoppingCart size={16} className="text-red-400" />,
-  // },
   {
     image: Fashion,
     title: "Boosting Add-to-Cart Rate by 35%",
     category: "Fashion E-commerce",
-
+    alt: "Fashion e-commerce product discovery redesign that boosted add-to-cart conversions by 35%",
     icon: <ShoppingCart size={16} className="text-purple-400" />,
   },
-  // {
-  //   image: Glamor,
-  //   title: "Optimizing Product Discovery Flow",
-  //   category: "Beauty & Cosmetics",
-
-  //   icon: <Users size={16} className="text-pink-400" />,
-  // },
-  // {
-  //   image: Jewll,
-  //   title: "Reducing Search-to-Purchase Time",
-  //   category: "Jewelry E-commerce",
-
-  //   icon: <TrendingUp size={16} className="text-yellow-400" />,
-  // },
   {
     image: Shopify,
     title: "Improving Merchant Onboarding",
     category: "E-commerce Platform",
-
+    alt: "Merchant onboarding optimization that reduced time-to-first-sale for e-commerce platform sellers",
     icon: <Zap size={16} className="text-green-400" />,
   },
   {
     image: API,
     title: "Simplifying Developer Documentation",
     category: "API Platform",
-
+    alt: "API documentation redesign that improved developer onboarding speed and integration success rate",
     icon: <Users size={16} className="text-blue-400" />,
   },
-  // {
-  //   image: Drink,
-  //   title: "Increasing Subscription Sign-ups by 26%",
-  //   category: "Beverage Subscription",
-
-  //   icon: <TrendingUp size={16} className="text-green-400" />,
-  // },
-  // {
-  //   image: Anime,
-  //   title: "Reducing Playback Errors by 40%",
-  //   category: "Streaming Platform",
-
-  //   icon: <Zap size={16} className="text-red-400" />,
-  // },
-  // {
-  //   image: Jwells,
-  //   title: "Optimizing Mobile Checkout Experience",
-  //   category: "Luxury Retail",
-
-  //   icon: <ShoppingCart size={16} className="text-purple-400" />,
-  // },
 ];
 
 const Projects = () => {
   return (
-    <div className="py-24 mx-auto overflow-hidden bg-black border-t border-white/10">
+    <section aria-labelledby="case-studies-heading" data-testid="projects-section" className="py-24 mx-auto overflow-hidden bg-black border-t border-white/10">
       <div className="max-w-7xl mx-auto px-4 mb-12">
         <div className="inline-flex items-center gap-2 text-sm bg-white/5 border border-white/10 backdrop-blur px-4 py-1 rounded-full mb-4">
-          <span className="text-gray-400">◎</span> Case Studies
+          <span className="text-gray-400">&#9678;</span> Case Studies
         </div>
-        <h2 className="text-5xl font-bold text-white">
+        <h2 id="case-studies-heading" className="text-5xl font-bold text-white">
           Real Projects. <span className="text-gray-400">Real Results.</span>
         </h2>
         <p className="text-gray-300 mt-4 text-md max-w-3xl">
@@ -153,19 +82,21 @@ const Projects = () => {
   <ul className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
     {projectData.slice(0, 6).map((project, i) => (
       <li key={i} className="w-full">
-        <div className="flex flex-col h-full w-full bg-white/5 border-2 border-white/20 backdrop-blur-md rounded-xl overflow-hidden shadow-md hover:border-white/40 transition-all group">
+        <article className="flex flex-col h-full w-full bg-white/5 border-2 border-white/20 backdrop-blur-md rounded-xl overflow-hidden shadow-md hover:border-white/40 transition-all group">
           {/* Relative Image Container */}
-          <div className="relative aspect-video overflow-hidden">
+          <figure className="relative aspect-video overflow-hidden">
             <img
               src={project.image}
-              alt={project.title}
+              alt={project.alt}
+              loading="lazy"
+              decoding="async"
               className="w-full h-full object-cover rounded-t-xl group-hover:scale-105 transition-transform duration-300"
             />
             {/* Metric Badge */}
             <div className="absolute top-3 right-3 bg-black/80 backdrop-blur-md border border-white/20 rounded-full px-3 py-1.5 flex items-center gap-2">
               {project.icon}
             </div>
-          </div>
+          </figure>
 
           <div className="p-5 flex flex-col flex-grow justify-between">
             <div>
@@ -186,7 +117,7 @@ const Projects = () => {
               </span>
             </div>
           </div>
-        </div>
+        </article>
       </li>
     ))}
   </ul>
@@ -253,7 +184,7 @@ const Projects = () => {
           View Full Case Studies
         </a>
       </div>
-    </div>
+    </section>
   );
 };
 

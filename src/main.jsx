@@ -42,7 +42,7 @@ root.render(
           showSystemCursor={false}
           innerSize={16}
           outerSize={60}
-          color="255, 255, 255" // Fixed Typo: 266 -> 255
+          color="255, 255, 255"
           outerAlpha={0.1}
           innerScale={0.7}
           outerScale={2}
@@ -140,4 +140,3 @@ root.render(
     </div>
   </HelmetProvider>
 );
-

@@ -36,7 +36,7 @@ const DoubleDiamond = () => {
   ];
 
   return (
-    <div className="w-full bg-[#050505] text-white py-24 px-6 relative overflow-hidden font-sans">
+    <section aria-labelledby="methodology-heading" className="w-full bg-[#050505] text-white py-24 px-6 relative overflow-hidden font-sans">
       {/* --- BACKGROUND LAYERS --- */}
       {/* 1. The Technical Grid */}
       <div 
@@ -54,12 +54,12 @@ const DoubleDiamond = () => {
 
       <div className="max-w-7xl mx-auto relative z-10">
         <div className="text-center mb-20">
-          <h2 className="text-sm font-mono text-[#d6f928] tracking-widest uppercase mb-4">
+          <h2 id="methodology-heading" className="text-sm font-mono text-[#d6f928] tracking-widest uppercase mb-4">
             Methodology
           </h2>
-          <h1 className="text-4xl md:text-5xl font-bold tracking-tight">
+          <h2 className="text-4xl md:text-5xl font-bold tracking-tight">
             From Chaos to <span className="text-transparent bg-clip-text bg-gradient-to-r from-white to-gray-500">Clarity</span>.
-          </h1>
+          </h2>
           <p className="text-gray-400 mt-4 max-w-2xl mx-auto">
             I don't just "design." I use a divergent-convergent framework to ensure we are solving the right problem before we build the solution.
           </p>
@@ -211,7 +211,7 @@ const DoubleDiamond = () => {
         </div>
 
       </div>
-    </div>
+    </section>
   );
 };
 

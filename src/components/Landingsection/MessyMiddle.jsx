@@ -26,7 +26,7 @@ const MessyMiddle = () => {
         {/* Trade-off Examples */}
         <div className="grid md:grid-cols-2 gap-6">
           {/* Trade-off 1 */}
-          <div className="bg-white/5 border border-white/10 backdrop-blur-md rounded-2xl p-8">
+          <article className="bg-white/5 border border-white/10 backdrop-blur-md rounded-2xl p-8">
             <div className="flex items-center gap-2 mb-4">
               <div className="w-10 h-10 bg-red-500/20 border border-red-500/30 rounded-lg flex items-center justify-center">
                 <XCircle size={20} className="text-red-400" />
@@ -60,10 +60,10 @@ const MessyMiddle = () => {
               <TrendingUp size={16} className="text-green-400" />
               <span className="text-green-400 font-semibold">Result: Launched 2 months early, validated PMF faster</span>
             </div>
-          </div>
+          </article>
 
           {/* Trade-off 2 */}
-          <div className="bg-white/5 border border-white/10 backdrop-blur-md rounded-2xl p-8">
+          <article className="bg-white/5 border border-white/10 backdrop-blur-md rounded-2xl p-8">
             <div className="flex items-center gap-2 mb-4">
               <div className="w-10 h-10 bg-yellow-500/20 border border-yellow-500/30 rounded-lg flex items-center justify-center">
                 <AlertTriangle size={20} className="text-yellow-400" />
@@ -99,10 +99,10 @@ const MessyMiddle = () => {
               <TrendingUp size={16} className="text-green-400" />
               <span className="text-green-400 font-semibold">Result: 17% reduction in cart abandonment</span>
             </div>
-          </div>
+          </article>
 
           {/* Trade-off 3 */}
-          <div className="bg-white/5 border border-white/10 backdrop-blur-md rounded-2xl p-8">
+          <article className="bg-white/5 border border-white/10 backdrop-blur-md rounded-2xl p-8">
             <div className="flex items-center gap-2 mb-4">
               <div className="w-10 h-10 bg-blue-500/20 border border-blue-500/30 rounded-lg flex items-center justify-center">
                 <CheckCircle size={20} className="text-blue-400" />
@@ -139,10 +139,10 @@ const MessyMiddle = () => {
               <TrendingUp size={16} className="text-green-400" />
               <span className="text-green-400 font-semibold">Result: 24% increase in feature activation</span>
             </div>
-          </div>
+          </article>
 
           {/* Trade-off 4 */}
-          <div className="bg-white/5 border border-white/10 backdrop-blur-md rounded-2xl p-8">
+          <article className="bg-white/5 border border-white/10 backdrop-blur-md rounded-2xl p-8">
             <div className="flex items-center gap-2 mb-4">
               <div className="w-10 h-10 bg-purple-500/20 border border-purple-500/30 rounded-lg flex items-center justify-center">
                 <AlertTriangle size={20} className="text-purple-400" />
@@ -179,7 +179,7 @@ const MessyMiddle = () => {
               <CheckCircle size={16} className="text-green-400" />
               <span className="text-green-400 font-semibold">Result: Balanced accessibility with business needs</span>
             </div>
-          </div>
+          </article>
         </div>
 
         {/* Bottom Message */}

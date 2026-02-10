@@ -4,14 +4,14 @@ import { Code, TrendingUp, Zap } from "lucide-react";
 
 export const AboutMe = () => {
   return (
-    <div className="bg-black flex justify-center items-center py-24 px-4 border-t border-white/10">
+    <section aria-labelledby="about-heading" data-testid="about-section" className="bg-black flex justify-center items-center py-24 px-4 border-t border-white/10">
       <div className="max-w-7xl w-full">
         {/* Section Header */}
         <div className="text-center mb-16">
           <div className="inline-flex items-center gap-2 text-sm bg-white/5 border border-white/10 backdrop-blur px-4 py-1 rounded-full mb-4">
             <span className="text-gray-400">◎</span> About
           </div>
-          <h2 className="text-5xl font-bold text-white">
+          <h2 id="about-heading" className="text-5xl font-bold text-white">
             Not Just Art.{" "}
             <span className="text-gray-400">System Logic.</span>
           </h2>
@@ -23,7 +23,7 @@ export const AboutMe = () => {
             <img
               src={suman}
               className="object-cover rounded-xl h-[400px] w-[400px] brightness-110"
-              alt="Suman Sourabh"
+              alt="Suman Sourabh - SaaS Product Strategist helping founders reduce churn and scale revenue"
             />
           </div>
 
@@ -86,6 +86,6 @@ export const AboutMe = () => {
           </div>
         </div>
       </div>
-    </div>
+    </section>
   );
 };

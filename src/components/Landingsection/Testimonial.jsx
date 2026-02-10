@@ -17,10 +17,10 @@ const Testimonial = memo(() => {
             <div className="inline-flex items-center gap-2 text-xs font-mono text-[#d6f928] tracking-widest uppercase mb-6">
                [ Social Proof ]
             </div>
-            <h1 className="text-4xl md:text-5xl font-bold text-white leading-tight">
+            <h2 className="text-4xl md:text-5xl font-bold text-white leading-tight">
               Trusted by Founders <br />
               <span className="text-gray-500">Who Demand Excellence.</span>
-            </h1>
+            </h2>
           </div>
           
           <div className="text-right">
@@ -43,7 +43,7 @@ const Testimonial = memo(() => {
                         {/* Optimization 2 & 3: Lazy load, Async decode, and GPU hint for animation */}
                         <img 
                             src={sam} 
-                            alt="Samira Pujari" 
+                            alt="Samira Pujari - Founder of RaikarsGoodVibes who achieved brand strategy success through product design partnership" 
                             loading="lazy"
                             decoding="async"
                             className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105 will-change-transform" 
@@ -63,7 +63,7 @@ const Testimonial = memo(() => {
                     <div className="absolute -bottom-6 -right-6 w-32 bg-[#dab853] p-4 rounded-xl shadow-[0_10px_30px_rgba(0,0,0,0.5)] border border-white/10 rotate-3 group-hover:rotate-0 transition-transform duration-500 transform-gpu">
                          <img 
                             src={rgv} 
-                            alt="Brand Logo" 
+                            alt="RaikarsGoodVibes brand logo - art and decor brand that scaled through strategic product design" 
                             loading="lazy"
                             decoding="async"
                             className="w-full h-auto object-contain mix-blend-multiply" 
