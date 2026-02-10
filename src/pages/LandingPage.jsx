@@ -21,7 +21,6 @@ import SEO from "../components/SEO";
 const LandingPage = () => {
   return (
     <>
-<<<<<<< HEAD
       <SEO
         title="Suman Sourabh - SaaS Product Strategist | Retention & Conversion Design"
         description="Suman Sourabh is a SaaS Product Strategist specializing in retention-focused design, conversion optimization, and rapid MVP deployment."
@@ -29,9 +28,6 @@ const LandingPage = () => {
         image="/android-chrome-512x512.png"
         url="https://www.sumansourabh.com/"
       />
-=======
-      <SeoHead />
->>>>>>> d228d6df5a4001909bd7edb7776dd62111cf1aa7
       {/* Hero + Navbar Section with Background */}
       <div
         className="relative bg-cover bg-no-repeat bg-center min-h-screen"
