@@ -24,7 +24,7 @@ const CaseStudy = () => {
       image: Dsptemplate,
       link: "/Projects/CarterDSP",
     },
-     {
+    {
       title: "Carter Redesign",
       year: 2024,
       categories: ["Design", "Branding"],
@@ -58,8 +58,8 @@ const CaseStudy = () => {
         </p>
       </div>
 
-      <div className="flex flex-col md:flex-row items-center md:items-start p-8 md:p-16 gap-12 max-w-6xl mx-auto">
-        <div className="w-full grid grid-cols-1 md:grid-cols-2 gap-12">
+      <div className="items-center md:items-start max-w-6xl mx-auto">
+        <div className="w-full gap-12">
           {projects.map((project, index) => (
             <ProjectCard
               key={index}
@@ -74,7 +74,7 @@ const CaseStudy = () => {
 };
 
 const ProjectCard = ({ project, onClick }) => (
-  <div className="space-y-2 cursor-pointer" onClick={onClick}>
+  <div className="space-y-2 pt-20 cursor-pointer" onClick={onClick}>
     <div className="relative">
       <img
         src={project.image}
