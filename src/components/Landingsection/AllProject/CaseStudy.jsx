@@ -3,7 +3,7 @@ import { useNavigate } from "react-router-dom";
 
 import Bannergodiverse from "../../../assets/Godiverse/Banner.png";
 import Bannercarter from "../../../assets/CarterRedesign/Banner.png";
-import Banneruvc from "../../../assets/UVC/Banner.png";
+import Banneruvc from "../../../assets/Uvc/Banner.png";
 
 const CaseStudy = () => {
   const navigate = useNavigate();
