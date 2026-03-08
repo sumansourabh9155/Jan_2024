@@ -1,8 +1,7 @@
 import { useNavigate } from "react-router-dom";
 
 
-import Bannergodiverse from "../../../assets/GoDiverse/Banner.png";
-
+import Bannergodiverse from "../../../assets/Godiverse/Banner.png";
 import Bannercarter from "../../../assets/CarterRedesign/Banner.png";
 import Banneruvc from "../../../assets/UVC/Banner.png";
 
