@@ -1,4 +1,3 @@
-import React from "react";
 
 const Underlinebutton = (props) => {
   const { text1, text2 = "text" } = props; // Set default value for text2

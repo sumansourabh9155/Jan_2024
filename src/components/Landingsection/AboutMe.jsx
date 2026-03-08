@@ -1,4 +1,3 @@
-import { Link } from "react-router-dom";
 import suman from "../../assets/Img/suman.jpg";
 import { Code, TrendingUp, Zap } from "lucide-react";
 
@@ -35,18 +34,18 @@ export const AboutMe = () => {
               style={{ backgroundImage: `url(${suman})` }}
             ></div>
 
-           
-        
+
+
             {/* The "Efficiency" Pitch */}
             <div className="mt-8 space-y-6 text-gray-300 text-base leading-relaxed">
               <p>
-                I don't believe in <span className="line-through text-gray-500">"Passion for Design."</span>{" "}
+                I don&apos;t believe in <span className="line-through text-gray-500">&quot;Passion for Design.&quot;</span>{" "}
                 I believe in <span className="font-semibold text-white">Obsession with Efficiency</span>.
               </p>
 
               <p>
-                My background isn't just art—it's <span className="font-semibold text-white">System Logic</span>. 
-                Whether it's organizing a chaotic browser with custom scripts or organizing a chaotic SaaS product 
+                My background isn&apos;t just art—it&apos;s <span className="font-semibold text-white">System Logic</span>.
+                Whether it&apos;s organizing a chaotic browser with custom scripts or organizing a chaotic SaaS product
                 with better UX, my goal is the same: <span className="font-semibold text-white">Remove Friction</span>.
               </p>
 
@@ -54,8 +53,8 @@ export const AboutMe = () => {
                 I work best with <span className="font-semibold text-white">Founders</span> who care about{" "}
                 <span className="font-semibold text-white">metrics</span>,{" "}
                 <span className="font-semibold text-white">data</span>, and{" "}
-                <span className="font-semibold text-white">shipping fast</span>. If you need someone to make things "pretty," 
-                hire a graphic designer. If you need someone to make your product <span className="font-semibold text-white">profitable</span>, let's talk.
+                <span className="font-semibold text-white">shipping fast</span>. {"If you need someone to make things \"pretty,\""}
+                {"hire a graphic designer. If you need someone to make your product "} <span className="font-semibold text-white">profitable</span>, let&apos;s talk.
               </p>
             </div>
 
@@ -64,7 +63,7 @@ export const AboutMe = () => {
               <div className="bg-black/50 border border-white/10 rounded-lg p-4">
                 <Code size={24} className="text-blue-400 mb-2" />
                 <h4 className="text-sm font-semibold text-white mb-1">Tech-Literate</h4>
-                <p className="text-xs text-gray-400">I understand code constraints. No "impossible" designs.</p>
+                <p className="text-xs text-gray-400">{"I understand code constraints. No \"impossible\" designs."}</p>
               </div>
 
               <div className="bg-black/50 border border-white/10 rounded-lg p-4">
@@ -80,9 +79,9 @@ export const AboutMe = () => {
               </div>
             </div>
 
-            
+
             {/* CTA */}
-            
+
           </div>
         </div>
       </div>

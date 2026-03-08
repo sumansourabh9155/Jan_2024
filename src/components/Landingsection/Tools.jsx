@@ -1,4 +1,3 @@
-import React from "react";
 import { Smile, Briefcase, Calendar, Mic } from "lucide-react";
 
 const Tools = () => {

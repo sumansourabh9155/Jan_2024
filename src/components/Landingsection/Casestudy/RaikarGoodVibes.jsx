@@ -1,4 +1,3 @@
-import React from "react";
 import SEO from "../../SEO";
 import Navbar from "../../Navbar";
 import Footer from "../../Footer";
@@ -92,7 +91,7 @@ const RaikarGoodVibes = () => {
 
             {/* Description */}
             <p className="text-sm text-gray-400 mt-4">
-              I'm a UI/UX designer and front-end developer tasked with creating
+              I&apos;m a UI/UX designer and front-end developer tasked with creating
               an e-commerce site, focusing on user-centric design and front-end
               development for optimal user experience and business success.
             </p>

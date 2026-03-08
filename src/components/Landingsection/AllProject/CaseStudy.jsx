@@ -1,43 +1,51 @@
-import React from "react";
 import { useNavigate } from "react-router-dom";
 
-import Cartercampaign from "../../../assets/Project/cartercampaign.png";
-import CarterRedesign from "../../../assets/Project/CarterRedesign.png";
-import UVC from "../../../assets/Project/UVC.png";
-import Dsptemplate from "../../../assets/Project/CarterDSP.png";
+
+import Bannergodiverse from "../../../assets/GoDiverse/Banner.png";
+
+import Bannercarter from "../../../assets/CarterRedesign/Banner.png";
+import Banneruvc from "../../../assets/UVC/Banner.png";
 
 const CaseStudy = () => {
   const navigate = useNavigate();
 
   const projects = [
     {
-      title: "Carter Design System",
-      year: 2024,
+      title: "Carter Redesign + New DSP Platform",
+      year: "2024-2026",
       categories: ["Case Study", "UI/UX"],
-      image: CarterRedesign,
+      image: Bannercarter,
       link: "/Projects/CarterRedesign",
     },
     {
-      title: "Carter DSP Template",
-      year: 2024,
-      categories: ["Design", "Strategy"],
-      image: Dsptemplate,
-      link: "/Projects/CarterDSP",
-    },
-    {
-      title: "Carter Redesign",
-      year: 2024,
-      categories: ["Design", "Branding"],
-      image: Cartercampaign,
-      link: "/Projects/Cartercampaign",
-    },
-    {
-      title: "United Veterinary Care",
-      year: 2024,
+      title: "CMS Builder + Website for High Conversion",
+      year: "2025-2026",
       categories: ["Web", "Healthcare"],
-      image: UVC,
+      image: Banneruvc,
       link: "/Projects/UVC",
     },
+    {
+      title: "GoDiverse Resume Builder",
+      year: "2025",
+      categories: ["Web", "Education"],
+      image: Bannergodiverse,
+      link: "/Projects/GoDiverse",
+    },
+    // {
+    //   title: &quot;Carter DSP Template",
+    //   year: "2024-2026",
+    //   categories: [&quot;Design&quot;, &quot;Strategy&quot;],
+    //   image: Dsptemplate,
+    //   link: "/Projects/CarterDSP",
+    // },
+    // {
+    //   title: &quot;Carter Redesign&quot;,
+    //   year: 2024,
+    //   categories: [&quot;Design&quot;, "Branding"],
+    //   image: Cartercampaign,
+    //   link: "/Projects/Cartercampaign",
+    // },
+
   ];
 
   const handleProjectClick = (project) => {
@@ -48,10 +56,10 @@ const CaseStudy = () => {
     <div>
       <div className="text-center pt-32">
         <div className="inline-flex items-center gap-2 text-sm bg-white/5 border border-white/10 backdrop-blur px-4 py-1 rounded-full mb-4 text-white">
-          ◎ My Case Study
+          &quot;Every detail counts&quot;
         </div>
         <h1 className="text-4xl font-light text-white">
-          Visual <span className="text-gray-400 font-medium">Showcase</span>
+          Case <span className="text-gray-400 font-medium">Study</span>
         </h1>
         <p className="text-sm text-gray-400 mt-2">
           A curated selection of design explorations and experiments.
@@ -74,19 +82,19 @@ const CaseStudy = () => {
 };
 
 const ProjectCard = ({ project, onClick }) => (
-  <div className="space-y-2 pt-20 cursor-pointer" onClick={onClick}>
+  <div className="space-y-2 pt-16 cursor-pointer" onClick={onClick}>
     <div className="relative">
       <img
         src={project.image}
         alt={project.title}
-        className="w-full object-cover h-36 sm:h-60 md:h-72 lg:h-[340px] rounded-md"
+        className="w-full object-cover rounded-md"
       />
-      <div className="pt-2">
-        <h3 className="text-md font-medium text-white">
+      <div className="pt-4 flex flex-wrap justify-between">
+        <h3 className="text-2xl font-semibold text-white">
           {project.title}{" "}
           <span className="text-gray-400 text-sm">({project.year})</span>
         </h3>
-        <div className="mt-2 flex flex-wrap gap-2">
+        <div className="flex flex-wrap gap-2">
           {project.categories.map((category, idx) => (
             <span
               key={idx}

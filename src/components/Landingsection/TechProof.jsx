@@ -1,4 +1,3 @@
-import React from "react";
 import { Code, GitBranch, Cpu, CheckCircle } from "lucide-react";
 
 const TechProof = () => {
@@ -12,8 +11,8 @@ const TechProof = () => {
             <span className="text-gray-400">Tech-Literate Design</span>
           </div>
           <h2 className="text-5xl font-bold mt-4">
-            I Don't Design{" "}
-            <span className="text-gray-400">"Impossible" Features</span>
+            I Don&apos;t Design{" "}
+            <span className="text-gray-400">&quot;Impossible&quot; Features</span>
           </h2>
           <p className="text-gray-300 mt-4 text-lg max-w-3xl leading-relaxed">
             I understand <span className="font-semibold text-white">HTML/CSS/JS constraints</span>,{" "}
@@ -37,9 +36,7 @@ const TechProof = () => {
             </div>
 
             <p className="text-gray-300 text-sm leading-relaxed mb-6">
-              I didn't just design the interface—I built the entire logic. This extension handles complex array sorting, 
-              grouping algorithms, and Chrome API integrations to automatically organize browser tabs based on domain, 
-              activity, and user behavior.
+              I&apos;m a designer who actually codes. I build functional prototypes to bridge the gap between design and engineering. This extension handles complex array sorting, grouping algorithms, and Chrome API integrations to automatically organize browser tabs based on domain, activity, and user behavior.
             </p>
 
             {/* Tech Stack */}
@@ -80,7 +77,7 @@ const TechProof = () => {
           {/* Right: Logic Diagram */}
           <div className="bg-white/5 border border-white/10 backdrop-blur-md rounded-2xl p-8">
             <h4 className="text-sm font-semibold text-gray-400 mb-4">LOGIC FLOWCHART</h4>
-            
+
             {/* Flowchart Visual */}
             <div className="space-y-4">
               {/* Step 1 */}
@@ -136,7 +133,7 @@ const TechProof = () => {
             <div className="mt-6 bg-black/50 border border-white/5 rounded-lg p-4">
               <p className="text-xs font-semibold text-gray-400 mb-2">SAMPLE CODE SNIPPET:</p>
               <pre className="text-xs text-green-400 font-mono overflow-x-auto">
-{`// Group tabs by domain
+                {`// Group tabs by domain
 const groupTabs = (tabs) => {
   return tabs.reduce((acc, tab) => {
     const domain = new URL(tab.url).hostname;
@@ -155,7 +152,7 @@ const groupTabs = (tabs) => {
           <GitBranch size={32} className="mx-auto mb-4 text-blue-400" />
           <h3 className="text-2xl font-bold mb-2">The Signal to Founders</h3>
           <p className="text-gray-300 text-sm max-w-2xl mx-auto leading-relaxed">
-            I don't just design interfaces—I understand how code works. This means I won't design "impossible" features 
+            I don&apos;t just design interfaces—I understand how code works. This means I won&apos;t design &quot;impossible&quot; features
             that require 3 months of backend work. I think like a Product Manager and ship like a Developer.
           </p>
         </div>

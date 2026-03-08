@@ -1,4 +1,3 @@
-import React from "react";
 
 const BlackButton = ({ text1, text2 = "" }) => {
   return (

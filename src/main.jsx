@@ -1,11 +1,16 @@
+/* eslint-disable react-refresh/only-export-components */
 import React, { Suspense } from "react";
 import ReactDOM from "react-dom/client";
 import { HelmetProvider } from "react-helmet-async";
 import "./index.css";
 import App from "./App";
+import ProtectedRoute from "./components/ProtectedRoute";
+import AnimatedCursor from "react-animated-cursor";
+import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
+
+import LandingPage from "./pages/LandingPage";
 
 // Lazy load pages for performance optimization
-const LandingPage = React.lazy(() => import("./pages/LandingPage"));
 const Resume = React.lazy(() => import("./pages/Resume"));
 const Contact = React.lazy(() => import("./pages/Contact"));
 const Resource = React.lazy(() => import("./pages/Resource"));
@@ -17,25 +22,17 @@ const ExpenseDashboard = React.lazy(() => import("./pages/ExpenseDashboard"));
 // Lazy load Case Studies
 const RaikarGoodVibes = React.lazy(() => import("./components/Landingsection/Casestudy/RaikarGoodVibes"));
 const CarterRedesign = React.lazy(() => import("./components/Landingsection/Casestudy/CarterRedesign"));
+const Godiverse = React.lazy(() => import("./components/Landingsection/Casestudy/Godiverse"));
 const Uvc = React.lazy(() => import("./components/Landingsection/Casestudy/Uvc"));
 const CarterDsp = React.lazy(() => import("./components/Landingsection/Casestudy/CarterDsp"));
 const CarterCampaign = React.lazy(() => import("./components/Landingsection/Casestudy/CarterCampaign"));
 
-import ProtectedRoute from "./components/ProtectedRoute";
-import AnimatedCursor from "react-animated-cursor";
-
-import {
-  BrowserRouter as Router,
-  Routes,
-  Route,
-} from "react-router-dom";
-
-// Check if device has fine pointer (like a mouse)
 const isMouseDevice = window.matchMedia("(pointer: fine)").matches;
 
 const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(
   <HelmetProvider>
+
     <div>
       {isMouseDevice && (
         <AnimatedCursor
@@ -84,6 +81,7 @@ root.render(
             <Route path="/resource" element={<Resource />} />
             <Route path="/shyftlabs" element={<Shyftlabs />} />
 
+
             {/* <Route path="/blog" element={<Blog />} /> */}
 
             <Route
@@ -99,6 +97,14 @@ root.render(
               element={
                 <ProtectedRoute correctPassword="9155">
                   <RaikarGoodVibes />
+                </ProtectedRoute>
+              }
+            />
+            <Route
+              path="/Projects/GoDiverse"
+              element={
+                <ProtectedRoute correctPassword="9155">
+                  <Godiverse />
                 </ProtectedRoute>
               }
             />

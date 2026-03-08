@@ -103,7 +103,7 @@ const CarterRedesign = () => {
               Usability & Design Gaps Impacting Client Conversions
             </h2>
             <p className="text-base text-gray-400 leading-relaxed">
-              Carter's original platform suffered from inconsistent UI patterns,
+              Carter&apos;s original platform suffered from inconsistent UI patterns,
               unclear navigation, and poor responsiveness. These usability gaps
               made it difficult for clients to confidently interact with the
               platform and hindered internal teams during onboarding and
@@ -218,7 +218,7 @@ const CarterRedesign = () => {
               Foundations for Consistency and Scale
             </h2>
             <p className="text-base text-gray-400 leading-relaxed max-w-5xl">
-              The creation of Carter’s design system was a transformative step toward unifying the platform's UI and improving cross-functional collaboration. Inspired by Material Design 3 principles and built on atomic design methodology, the system provided a scalable foundation for consistent, accessible, and efficient product development.
+              The creation of Carter’s design system was a transformative step toward unifying the platform&apos;s UI and improving cross-functional collaboration. Inspired by Material Design 3 principles and built on atomic design methodology, the system provided a scalable foundation for consistent, accessible, and efficient product development.
             </p>
 
             <div className="space-y-6">

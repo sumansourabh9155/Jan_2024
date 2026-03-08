@@ -1,21 +1,10 @@
-import React from "react";
-import Anime from "../../assets/Project/anime.webp";
-import API from "../../assets/Project/api.webp";
-import Drink from "../../assets/Project/drink.webp";
-import Health from "../../assets/Project/health.webp";
-import Fashion from "../../assets/Project/fashion.webp";
-import Glamor from "../../assets/Project/glamor.webp";
-import Jewll from "../../assets/Project/jewll.webp";
 import Jobringer from "../../assets/Project/jobringer.webp";
-import Jwells from "../../assets/Project/jwells.webp";
-import Kploy from "../../assets/Project/kploy.webp";
 import NFT from "../../assets/Project/nft.webp";
-import Payment from "../../assets/Project/payment.webp";
-import Pizza from "../../assets/Project/pizza.webp";
-import Raikar from "../../assets/Project/raikar.webp";
+import Fashion from "../../assets/Project/fashion.webp";
 import Shopify from "../../assets/Project/shopify.webp";
+import API from "../../assets/Project/api.webp";
 import Shopping from "../../assets/Project/shopping.webp";
-import { TrendingUp, Users, ShoppingCart, Zap } from "lucide-react";
+import { ShoppingCart, Zap, Users } from "lucide-react";
 
 const projectData = [
   {
@@ -25,7 +14,7 @@ const projectData = [
     alt: "E-commerce checkout optimization that reduced cart abandonment by 25% through trust-building UX",
     icon: <ShoppingCart size={16} className="text-blue-400" />,
   },
-   {
+  {
     image: NFT,
     title: "Simplifying NFT Minting Experience",
     category: "Web3 Platform",
@@ -75,53 +64,53 @@ const Projects = () => {
         <p className="text-gray-300 mt-4 text-md max-w-3xl">
           Every project title below includes a{" "}
           <span className="font-semibold text-white">business outcome</span>,
-          not just "I redesigned an app." This is how I think—and how your
+          not just &quot;I redesigned an app.&quot; This is how I think—and how your
           customers will see ROI.
         </p>
         <div className="w-full mt-8">
-  <ul className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-    {projectData.slice(0, 6).map((project, i) => (
-      <li key={i} className="w-full">
-        <article className="flex flex-col h-full w-full bg-white/5 border-2 border-white/20 backdrop-blur-md rounded-xl overflow-hidden shadow-md hover:border-white/40 transition-all group">
-          {/* Relative Image Container */}
-          <figure className="relative aspect-video overflow-hidden">
-            <img
-              src={project.image}
-              alt={project.alt}
-              loading="lazy"
-              decoding="async"
-              className="w-full h-full object-cover rounded-t-xl group-hover:scale-105 transition-transform duration-300"
-            />
-            {/* Metric Badge */}
-            <div className="absolute top-3 right-3 bg-black/80 backdrop-blur-md border border-white/20 rounded-full px-3 py-1.5 flex items-center gap-2">
-              {project.icon}
-            </div>
-          </figure>
+          <ul className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+            {projectData.slice(0, 6).map((project, i) => (
+              <li key={i} className="w-full">
+                <article className="flex flex-col h-full w-full bg-white/5 border-2 border-white/20 backdrop-blur-md rounded-xl overflow-hidden shadow-md hover:border-white/40 transition-all group">
+                  {/* Relative Image Container */}
+                  <figure className="relative aspect-video overflow-hidden">
+                    <img
+                      src={project.image}
+                      alt={project.alt}
+                      loading="lazy"
+                      decoding="async"
+                      className="w-full h-full object-cover rounded-t-xl group-hover:scale-105 transition-transform duration-300"
+                    />
+                    {/* Metric Badge */}
+                    <div className="absolute top-3 right-3 bg-black/80 backdrop-blur-md border border-white/20 rounded-full px-3 py-1.5 flex items-center gap-2">
+                      {project.icon}
+                    </div>
+                  </figure>
 
-          <div className="p-5 flex flex-col flex-grow justify-between">
-            <div>
-              <p className="text-xs text-gray-400 mb-2 uppercase tracking-wider">
-                {project.category}
-              </p>
-              <h3 className="text-base font-bold text-white leading-tight">
-                {project.title}
-              </h3>
-            </div>
+                  <div className="p-5 flex flex-col flex-grow justify-between">
+                    <div>
+                      <p className="text-xs text-gray-400 mb-2 uppercase tracking-wider">
+                        {project.category}
+                      </p>
+                      <h3 className="text-base font-bold text-white leading-tight">
+                        {project.title}
+                      </h3>
+                    </div>
 
-            <div className="mt-4 flex flex-wrap items-center gap-2 text-xs text-gray-400">
-              <span className="px-2 py-1 bg-white/5 border border-white/10 rounded-full whitespace-nowrap">
-                UX Strategy
-              </span>
-              <span className="px-2 py-1 bg-white/5 border border-white/10 rounded-full whitespace-nowrap">
-                A/B Testing
-              </span>
-            </div>
-          </div>
-        </article>
-      </li>
-    ))}
-  </ul>
-</div>
+                    <div className="mt-4 flex flex-wrap items-center gap-2 text-xs text-gray-400">
+                      <span className="px-2 py-1 bg-white/5 border border-white/10 rounded-full whitespace-nowrap">
+                        UX Strategy
+                      </span>
+                      <span className="px-2 py-1 bg-white/5 border border-white/10 rounded-full whitespace-nowrap">
+                        A/B Testing
+                      </span>
+                    </div>
+                  </div>
+                </article>
+              </li>
+            ))}
+          </ul>
+        </div>
       </div>
 
       {/* <div className="w-full inline-flex flex-nowrap">
@@ -129,7 +118,7 @@ const Projects = () => {
          <ul
             key={index}
             className="flex items-center justify-center md:justify-start [&_li]:mx-4 animate-infinite-scroll"
-            style={{ animationDuration: '80s' }} // SLOWER SPEED (60s instead of default fast)
+            style={{ animationDuration: '80s&apos; }} // SLOWER SPEED (60s instead of default fast)
             aria-hidden={index === 1}
           >
             {projectData.map((project, i) => (

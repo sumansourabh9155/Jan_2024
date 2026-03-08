@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import { useState } from "react";
 import Anime from "../../../assets/Project/anime.webp";
 import API from "../../../assets/Project/api.webp";
 import Drink from "../../../assets/Project/drink.webp";
@@ -17,7 +17,9 @@ const DesignProjects = () => {
 
   const projects = [
     { title: "Anime", year: 2024, categories: ["Case Study", "UI/UX"], image: Anime },
-    { title: "API", year: 2024, categories: ["Design", "Branding"], image: API },
+    {
+      title: "API", year: 2024, categories: ["Design", "Branding"], image: API
+    },
     { title: "Drink", year: 2024, categories: ["TV", "Marketing"], image: Drink },
     { title: "Fashion", year: 2024, categories: ["Design", "Branding"], image: Fashion },
     { title: "Jewll", year: 2024, categories: ["Case Study", "UI"], image: Jewll },
@@ -43,7 +45,6 @@ const DesignProjects = () => {
           A curated visual archive of web and product design ideas from personal and client-based projects.
         </p>
       </div>
-
       <div className="grid grid-cols-1 md:grid-cols-2 gap-12 max-w-6xl mx-auto p-8 md:p-16">
         {projects.map((project, index) => (
           <ProjectCard key={index} {...project} onClick={() => setSelectedImage(project.image)} />

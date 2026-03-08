@@ -26,7 +26,7 @@ const CarterCampaign = () => {
               Campaign Creation & Ad Item Redesign
             </h1>
             <p className="text-base text-gray-400 max-w-2xl mx-auto font-light">
-              UX and UI redesign of Carter's Campaign Creation and Ad Item Management interfaces to enhance automation, visibility, and efficiency across the platform.
+              UX and UI redesign of Carter&apos;s Campaign Creation and Ad Item Management interfaces to enhance automation, visibility, and efficiency across the platform.
             </p>
           </div>
 

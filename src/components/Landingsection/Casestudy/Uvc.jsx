@@ -1,4 +1,3 @@
-import React from "react";
 import Navbar from "../../Navbar";
 import Footer from "../../Footer";
 import Newuvc from "../../../assets/uvc/newuvc.png";
@@ -44,7 +43,7 @@ const Uvc = () => {
 
           {/* Overview */}
           <Section title="Overview">
-            <p>United Veterinary Care (UVC) operates 130+ clinics in the U.S. with services spanning General Practice, Specialty, and Emergency. The redesign modernized UVC's digital footprint with a future-proof CMS and UX strategy.</p>
+            <p>United Veterinary Care (UVC) operates 130+ clinics in the U.S. with services spanning General Practice, Specialty, and Emergency. The redesign modernized UVC&apos;s digital footprint with a future-proof CMS and UX strategy.</p>
             <ul className="list-disc ml-5 mt-4 space-y-1">
               <li>Designed scalable, reusable website templates</li>
               <li>Planned CMS flows aligning with business and clinic autonomy</li>

@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import { useState, useEffect } from "react";
 import {
   TrendingUp,
   TrendingDown,
@@ -7,15 +7,14 @@ import {
   ArrowUpRight,
   Calendar,
   RefreshCw,
-  Filter,
-  CreditCard,
-  Tag,
-  Activity,
   Plus,
   X,
   Search, // Added
   ChevronDown, // Added
   RotateCcw, // Added
+  CreditCard,
+  Tag,
+  Activity,
 } from "lucide-react";
 
 import {
@@ -43,7 +42,6 @@ export default function ExpenseDashboard() {
   const [availableMonths, setAvailableMonths] = useState([]);
   const [selectedMonth, setSelectedMonth] = useState("");
   const [loading, setLoading] = useState(true);
-  const [error, setError] = useState(null);
 
   // --- NEW: ADVANCED FILTERS STATE ---
   const [searchQuery, setSearchQuery] = useState("");
@@ -73,7 +71,6 @@ export default function ExpenseDashboard() {
   // DATA FETCHING
   const fetchData = async () => {
     setLoading(true);
-    setError(null);
     try {
       const response = await fetch(API_URL);
       const json = await response.json();
@@ -94,7 +91,6 @@ export default function ExpenseDashboard() {
       }
     } catch (err) {
       console.error(err);
-      setError("Failed to fetch data.");
     } finally {
       setLoading(false);
     }
@@ -102,6 +98,7 @@ export default function ExpenseDashboard() {
 
   useEffect(() => {
     fetchData();
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
   // MONTH & FILTER LOGIC
@@ -237,7 +234,7 @@ export default function ExpenseDashboard() {
         mode: "UPI",
       });
       await fetchData();
-    } catch (err) {
+    } catch {
       alert("Failed to save transaction.");
     } finally {
       setSubmitting(false);
@@ -246,7 +243,7 @@ export default function ExpenseDashboard() {
 
   const getCategoryStyle = (category) => {
     const cat = category?.toLowerCase() || "";
-    if (cat.includes("high" || "loan"))
+    if (cat.includes("high") || cat.includes("loan"))
       return {
         badge: "text-red-500 bg-red-500/10 border-red-500/20",
         bar: "bg-red-500",

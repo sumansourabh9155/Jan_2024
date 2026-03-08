@@ -1,4 +1,3 @@
-import React from "react";
 import Navbar from "../components/Navbar";
 import SEO from "../components/SEO";
 
@@ -22,7 +21,7 @@ const Shyftlabs = () => {
             fill="black"
             xmlns="http://www.w3.org/2000/svg"
           >
-            <g clip-path="url(#clip0_150_2925)">
+            <g clipPath="url(#clip0_150_2925)">
               <path
                 d="M22.0117 6.20509L6.337 15.5275L6.32922 10.6281L17.8524 3.81494L22.0117 6.20509Z"
                 fill="#141D3B"

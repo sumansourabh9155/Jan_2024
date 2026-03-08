@@ -1,4 +1,3 @@
-import React from "react";
 
 import Navbar from "../../Navbar";
 import Campaign from "../../../assets/dsp/campaign.png";
@@ -6,7 +5,6 @@ import dsp from "../../../assets/dsp/dsp.png";
 import mediaplan from "../../../assets/dsp/mediaplan.png";
 import campaigndetail from "../../../assets/dsp/campaigndetail.png";
 import v1 from "../../../assets/dsp/1.mp4";
-import v2 from "../../../assets/dsp/2.mp4";
 import v3 from "../../../assets/dsp/3.mp4";
 import Footer from "../../Footer";
 import SEO from "../../SEO";
@@ -167,7 +165,7 @@ const CarterDsp = () => {
               Vision Statement
             </p>
             <p className="text-gray-400 text-base max-w-4xl">
-              To become the industry's most reliable multi-RMN orchestration
+              To become the industry&apos;s most reliable multi-RMN orchestration
               platform, equipping advertisers with:
             </p>
             <ul className="list-disc text-gray-400 pl-6 space-y-3 text-base">
@@ -302,8 +300,7 @@ const CarterDsp = () => {
                 <p className="text-base text-gray-400 max-w-4xl leading-relaxed">
                   The Retail Media Market is projected to reach $110B globally
                   by 2027. With growing reliance on first-party data in a
-                  post-cookie landscape, there's an urgent need for automation
-                  and AI-driven media operations to improve speed, precision,
+                  post-cookie landscape, there&apos;s an urgent need for automation,
                   and scalability.
                 </p>
               </div>

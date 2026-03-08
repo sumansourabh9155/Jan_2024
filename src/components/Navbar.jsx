@@ -1,6 +1,6 @@
-import React, { useState, useEffect } from "react";
+import { useState, useEffect } from "react";
 import { Link, NavLink, useLocation } from "react-router-dom";
-import { Menu, X, ArrowRight, CircleDot } from "lucide-react";
+import { Menu, X, ArrowRight } from "lucide-react";
 
 const Navbar = () => {
   const [isVisible, setIsVisible] = useState(true);
@@ -51,11 +51,11 @@ const Navbar = () => {
             className="flex items-center gap-2 group"
           >
             <div className={`relative flex items-center justify-center w-8 h-8 rounded-full bg-white/5 border transition-colors ${location.pathname === "/" ? "border-[#d6f928]/50" : "border-white/10 group-hover:border-[#d6f928]/50"}`}>
-               <span className={`font-mono font-bold text-xs transition-colors ${location.pathname === "/" ? "text-[#d6f928]" : "text-white group-hover:text-[#d6f928]"}`}>S</span>
+              <span className={`font-mono font-bold text-xs transition-colors ${location.pathname === "/" ? "text-[#d6f928]" : "text-white group-hover:text-[#d6f928]"}`}>S</span>
             </div>
             <div className="flex flex-col">
-                <span className="text-white font-medium text-sm leading-none tracking-wide">Suman Sourabh</span>
-                <span className={`text-[10px] font-mono mt-0.5 transition-colors ${location.pathname === "/" ? "text-[#d6f928]" : "text-gray-500 group-hover:text-[#d6f928]"}`}>Product Designer + Strategist</span>
+              <span className="text-white font-medium text-sm leading-none tracking-wide">Suman Sourabh</span>
+              <span className={`text-[10px] font-mono mt-0.5 transition-colors ${location.pathname === "/" ? "text-[#d6f928]" : "text-gray-500 group-hover:text-[#d6f928]"}`}>Product Designer + Strategist</span>
             </div>
           </Link>
 
@@ -67,8 +67,8 @@ const Navbar = () => {
                 to={to}
                 className={({ isActive }) =>
                   `px-4 py-1.5 rounded-full text-xs font-medium transition-all duration-300
-                  ${isActive 
-                    ? "bg-[#d6f928] text-black shadow-[0_0_15px_rgba(214,249,40,0.4)]" 
+                  ${isActive
+                    ? "bg-[#d6f928] text-black shadow-[0_0_15px_rgba(214,249,40,0.4)]"
                     : "text-gray-400 hover:text-white hover:bg-white/5"
                   }`
                 }
@@ -99,37 +99,37 @@ const Navbar = () => {
         </header>
 
         {/* Mobile Menu Dropdown */}
-        <div 
-            className={`md:hidden absolute top-full left-0 w-full mt-2 bg-[#0a0a0a] border border-white/10 rounded-2xl overflow-hidden shadow-2xl transition-all duration-300 origin-top
+        <div
+          className={`md:hidden absolute top-full left-0 w-full mt-2 bg-[#0a0a0a] border border-white/10 rounded-2xl overflow-hidden shadow-2xl transition-all duration-300 origin-top
             ${isMenuOpen ? "opacity-100 scale-100 max-h-96" : "opacity-0 scale-95 max-h-0 pointer-events-none"}
             `}
         >
-            <div className="p-4 flex flex-col gap-2">
-                {navLinks.map(({ to, text }) => (
-                <NavLink
-                    key={to}
-                    to={to}
-                    className={({ isActive }) =>
-                    `px-4 py-3 rounded-xl text-sm font-medium transition-colors
-                    ${isActive 
-                        ? "bg-white/10 text-[#d6f928] border border-[#d6f928]/20" 
-                        : "text-gray-400 hover:text-white hover:bg-white/5"
-                    }`
-                    }
-                >
-                    {text}
-                </NavLink>
-                ))}
-                
-                <div className="h-px bg-white/10 my-2"></div>
-                
-                <Link
-                to="/contact"
-                className="flex items-center justify-center gap-2 px-4 py-3 text-sm font-bold bg-[#d6f928] text-black rounded-xl hover:opacity-90 transition-opacity"
-                >
-                Book Strategy Call <ArrowRight size={16} />
-                </Link>
-            </div>
+          <div className="p-4 flex flex-col gap-2">
+            {navLinks.map(({ to, text }) => (
+              <NavLink
+                key={to}
+                to={to}
+                className={({ isActive }) =>
+                  `px-4 py-3 rounded-xl text-sm font-medium transition-colors
+                    ${isActive
+                    ? "bg-white/10 text-[#d6f928] border border-[#d6f928]/20"
+                    : "text-gray-400 hover:text-white hover:bg-white/5"
+                  }`
+                }
+              >
+                {text}
+              </NavLink>
+            ))}
+
+            <div className="h-px bg-white/10 my-2"></div>
+
+            <Link
+              to="/contact"
+              className="flex items-center justify-center gap-2 px-4 py-3 text-sm font-bold bg-[#d6f928] text-black rounded-xl hover:opacity-90 transition-opacity"
+            >
+              Book Strategy Call <ArrowRight size={16} />
+            </Link>
+          </div>
         </div>
 
       </div>

@@ -1,7 +1,5 @@
-import React from "react";
 import Navbar from "../components/Navbar";
 import Footer from "../components/Footer";
-import { Instagram, Dribbble, X } from "lucide-react";
 import TechProof from "../components/Landingsection/TechProof";
 import profilePic from "../assets/Img/suman.jpg";
 import DesignProcess from "../components/Landingsection/DesignProcess";

@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import { useState } from "react";
 import { Plus, Minus } from "lucide-react";
 
 const Faq = () => {
@@ -43,10 +43,10 @@ const Faq = () => {
 
   return (
     <section aria-labelledby="faq-heading" className="bg-[#050505] py-32 px-6 relative overflow-hidden">
-      
-      
+
+
       <div className="max-w-3xl mx-auto relative z-10">
-        
+
         {/* Header */}
         <div className="text-center mb-16">
           <div className="inline-flex items-center gap-2 text-xs font-mono text-[#d6f928] tracking-widest uppercase mb-6 bg-[#d6f928]/5 px-3 py-1 rounded border border-[#d6f928]/20">
@@ -66,9 +66,9 @@ const Faq = () => {
             <div
               key={index}
               className={`group border rounded-2xl transition-all duration-300 overflow-hidden
-                ${openIndex === index 
-                    ? "bg-[#0a0a0a] border-[#d6f928]/50 shadow-[0_0_20px_rgba(214,249,40,0.05)]" 
-                    : "bg-white/5 border-white/10 hover:border-white/20"
+                ${openIndex === index
+                  ? "bg-[#0a0a0a] border-[#d6f928]/50 shadow-[0_0_20px_rgba(214,249,40,0.05)]"
+                  : "bg-white/5 border-white/10 hover:border-white/20"
                 }
               `}
             >
@@ -84,7 +84,7 @@ const Faq = () => {
                 </span>
               </button>
 
-              <div 
+              <div
                 className={`grid transition-[grid-template-rows] duration-300 ease-out ${openIndex === index ? "grid-rows-[1fr] opacity-100" : "grid-rows-[0fr] opacity-0"}`}
               >
                 <div className="overflow-hidden">

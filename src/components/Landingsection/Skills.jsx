@@ -1,4 +1,3 @@
-import React from "react";
 import PenIcon from "@atlaskit/icon/core/pen";
 import OperationsIcon from "@atlaskit/icon/core/operations";
 import AngleBracketsIcon from "@atlaskit/icon/core/angle-brackets";

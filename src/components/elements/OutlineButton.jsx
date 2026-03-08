@@ -1,4 +1,3 @@
-import React from "react";
 
 const OutlineButton = ({ text1, text2 = "" }) => {
   return (
