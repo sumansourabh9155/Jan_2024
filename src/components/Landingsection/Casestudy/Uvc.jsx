@@ -6,13 +6,10 @@ import SEO from "../../SEO";
 import Banner from "../../../assets/uvc/Banner.png";
 import Charcount from "../../../assets/uvc/charcount.png";
 import Alltemplate from "../../../assets/uvc/Alltemplate.png";
-
-
 // Placeholder Phase 2 & 3 Assets (Update paths as needed)
 // import MultiLocation from "../../../assets/uvc/multilocation.png";
 import Sitebuilder from "../../../assets/uvc/Sitebuilder.png";
 import Templatemanager from "../../../assets/uvc/Templatemanager.png";
-
 // import SiteBuilder from "../../../assets/uvc/sitebuilder.png";
 
 const Section = ({ title, children, className = "" }) => (
@@ -21,7 +18,6 @@ const Section = ({ title, children, className = "" }) => (
     <div className="text-gray-300 text-base leading-relaxed space-y-4">{children}</div>
   </section>
 );
-
 const UvcEcosystem = () => {
   return (
     <div className="font-sans text-white bg-black">
@@ -227,8 +223,6 @@ const UvcEcosystem = () => {
             </Section>
 
           </div>
-
-
         </div>
       </div>
       <Footer />

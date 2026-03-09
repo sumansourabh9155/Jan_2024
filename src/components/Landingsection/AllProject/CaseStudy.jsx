@@ -14,7 +14,7 @@ const CaseStudy = () => {
       year: "2024-2026",
       categories: ["Case Study", "UI/UX"],
       image: Bannercarter,
-      link: "/Projects/CarterRedesign",
+      link: "/Projects/Carter",
     },
     {
       title: "CMS Builder + Website for High Conversion",
