@@ -37,7 +37,7 @@ const Carter = () => {
                         <h1 className="text-5xl md:text-6xl font-semibold text-white tracking-tight">
                             Carter <span className="text-gray-400 font-medium">Ecosystem</span>
                         </h1>
-                        <p className="text-lg text-gray-400 max-w-3xl mx-auto font-light leading-relaxed">
+                        <p className="text-md text-gray-400 max-w-3xl mx-auto font-light leading-relaxed">
                             Transforming a fragmented Retail Media Network (RMN) into a unified powerhouse.
                             This two-part case study covers the foundational redesign of the core Carter platform
                             and the subsequent 0-to-1 launch of the Carter DSP for cross-network campaign management.

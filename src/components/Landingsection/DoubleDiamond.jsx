@@ -1,7 +1,7 @@
 import { useState } from 'react';
 
 const DoubleDiamond = () => {
-   const [activeStage, setActiveStage] = useState(null);
+   const [activeStage, setActiveStage] = useState(1);
 
    // The "Product Strategist" Data Structure
    const stages = [
@@ -112,7 +112,7 @@ const DoubleDiamond = () => {
                   <div
                      className="w-[225px] h-[200px] flex flex-col justify-center items-center group cursor-pointer"
                      onMouseEnter={() => setActiveStage(1)}
-                     onMouseLeave={() => setActiveStage(null)}
+                     onMouseLeave={() => setActiveStage(1)}
                   >
                      <div className="bg-[#111] border border-white/10 p-4 rounded-xl backdrop-blur-md group-hover:border-[#d6f928]/50 transition-all duration-300 transform group-hover:-translate-y-2">
                         <div className="text-[#d6f928] font-mono text-xs mb-1">01. Diverge</div>
@@ -124,7 +124,7 @@ const DoubleDiamond = () => {
                   <div
                      className="w-[225px] h-[200px] flex flex-col justify-center items-center group cursor-pointer"
                      onMouseEnter={() => setActiveStage(2)}
-                     onMouseLeave={() => setActiveStage(null)}
+                     onMouseLeave={() => setActiveStage(1)}
                   >
                      <div className="bg-[#111] border border-white/10 p-4 rounded-xl backdrop-blur-md group-hover:border-[#d6f928]/50 transition-all duration-300 transform group-hover:-translate-y-2">
                         <div className="text-[#d6f928] font-mono text-xs mb-1">02. Converge</div>
@@ -136,7 +136,7 @@ const DoubleDiamond = () => {
                   <div
                      className="w-[225px] h-[200px] flex flex-col justify-center items-center group cursor-pointer"
                      onMouseEnter={() => setActiveStage(3)}
-                     onMouseLeave={() => setActiveStage(null)}
+                     onMouseLeave={() => setActiveStage(1)}
                   >
                      <div className="bg-[#111] border border-white/10 p-4 rounded-xl backdrop-blur-md group-hover:border-[#d6f928]/50 transition-all duration-300 transform group-hover:-translate-y-2">
                         <div className="text-[#d6f928] font-mono text-xs mb-1">03. Diverge</div>
@@ -148,7 +148,7 @@ const DoubleDiamond = () => {
                   <div
                      className="w-[225px] h-[200px] flex flex-col justify-center items-center group cursor-pointer"
                      onMouseEnter={() => setActiveStage(4)}
-                     onMouseLeave={() => setActiveStage(null)}
+                     onMouseLeave={() => setActiveStage(1)}
                   >
                      <div className="bg-[#111] border border-white/10 p-4 rounded-xl backdrop-blur-md group-hover:border-[#d6f928]/50 transition-all duration-300 transform group-hover:-translate-y-2">
                         <div className="text-[#d6f928] font-mono text-xs mb-1">04. Converge</div>
@@ -174,9 +174,6 @@ const DoubleDiamond = () => {
                            ))}
                         </div>
                      </div>
-                  )}
-                  {!activeStage && (
-                     <p className="text-gray-500 text-sm italic mt-6">Hover over a stage to see my process</p>
                   )}
                </div>
             </div>
