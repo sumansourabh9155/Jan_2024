@@ -1,14 +1,14 @@
 import Navbar from "../components/Navbar";
-import SEO from "../components/SEO";
+import SeoHead from "../components/SeoHead";
 
 const Shyftlabs = () => {
   return (
     <div className="bg-[#f9f9f9]">
-      <SEO
-        title="Shyftlabs - Suman Sourabh | Work Experience"
-        description="My journey as a Product Designer at Shyftlabs, leading design for Carter (RMN) and other data products."
-        keywords="shyftlabs, product designer, retail media network, data products, work experience"
-        url="https://www.sumansourabh.com/shyftlabs"
+      <SeoHead
+        title="Shyftlabs B2B SaaS Case Study | Suman Sourabh"
+        description="Case study of my work at Shyftlabs as a Product Designer, leading design for retail media networks and large-scale B2B data products."
+        keywords="shyftlabs case study, b2b saas design, retail media network, data products, enterprise ux"
+        canonicalUrl="https://www.sumansourabh.com/shyftlabs"
       />
       <Navbar />
 

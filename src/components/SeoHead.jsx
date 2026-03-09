@@ -217,8 +217,9 @@ const faqSchema = {
 };
 
 const SeoHead = ({
-  title = "SaaS Product Strategist - Reducing Churn & Scaling Revenue | Suman Sourabh",
+  title = "Suman Sourabh | SaaS Product Strategist & UX Consultant",
   description = "Suman Sourabh is a SaaS Product Strategist who helps VC-backed founders reduce churn and increase retention through psychology-driven UX and rapid MVP deployment.",
+  keywords = "SaaS Product Strategist, UX Consultant, Churn Reduction, Retention Design, MVP Deployment, Conversion Optimization, Product Management, Startup Design, React, Web3 UX, B2B SaaS",
   canonicalUrl = SITE_URL,
   ogImage = `${SITE_URL}/android-chrome-512x512.png`,
   includeSchemas = ["person", "service", "caseStudies", "faq"],
@@ -235,6 +236,7 @@ const SeoHead = ({
       {/* Primary Meta */}
       <title>{title}</title>
       <meta name="description" content={description} />
+      {keywords && <meta name="keywords" content={keywords} />}
       <link rel="canonical" href={canonicalUrl} />
 
       {/* Open Graph */}

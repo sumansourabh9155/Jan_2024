@@ -10,17 +10,15 @@ import Navbar from "../components/Navbar";
 import MessyMiddle from "../components/Landingsection/MessyMiddle";
 import PricingFilter from "../components/Landingsection/PricingFilter";
 import { AboutMe } from "../components/Landingsection/AboutMe";
-import SEO from "../components/SEO";
+import SeoHead from "../components/SeoHead";
 
 const LandingPage = () => {
   return (
     <>
-      <SEO
-        title="Suman Sourabh - SaaS Product Strategist | Retention & Conversion Design"
+      <SeoHead
+        title="Suman Sourabh | SaaS Product Strategist & UX Consultant"
         description="Suman Sourabh is a SaaS Product Strategist specializing in retention-focused design, conversion optimization, and rapid MVP deployment."
-        keywords="SaaS product designer, UX strategist, retention design, conversion optimization, product management, startup design, MVP design"
-        image="/android-chrome-512x512.png"
-        url="https://www.sumansourabh.com/"
+        canonicalUrl="https://www.sumansourabh.com/"
       />
       {/* Hero + Navbar Section with Background */}
       <div

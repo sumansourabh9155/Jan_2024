@@ -3,17 +3,17 @@ import Footer from "../components/Footer";
 import TechProof from "../components/Landingsection/TechProof";
 import profilePic from "../assets/Img/suman.jpg";
 import DesignProcess from "../components/Landingsection/DesignProcess";
-import SEO from "../components/SEO";
+import SeoHead from "../components/SeoHead";
 
 const Resume = () => {
   return (
     <div className="bg-black text-white min-h-screen">
-      <SEO
-        title="Resume - Suman Sourabh | Product Designer"
-        description="Experience of Suman Sourabh, a Product Designer at Shyftlabs. View my work history, skills, and talks."
-        keywords="resume, product designer, ux designer, shyftlabs, kraftbase, experience, skills"
-        image={profilePic}
-        url="https://www.sumansourabh.com/resume"
+      <SeoHead
+        title="Resume: Suman Sourabh - SaaS Product Strategist & UX Designer"
+        description="Experience of Suman Sourabh, a SaaS Product Strategist & UX Designer. Background in venture-backed startups, product management, and churn reduction."
+        keywords="resume, product designer, ux designer, saas product strategist, shyftlabs, kraftbase, experience, skills, b2b saas"
+        ogImage={profilePic}
+        canonicalUrl="https://www.sumansourabh.com/resume"
       />
       <Navbar />
       <main className="max-w-6xl mx-auto px-4 sm:px-6 pt-20">

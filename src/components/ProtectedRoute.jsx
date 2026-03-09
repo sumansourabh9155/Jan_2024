@@ -1,5 +1,6 @@
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
+import { Helmet } from "react-helmet-async";
 
 const ProtectedRoute = ({ children, correctPassword }) => {
   const [password, setPassword] = useState("");
@@ -19,6 +20,9 @@ const ProtectedRoute = ({ children, correctPassword }) => {
 
   return (
     <div className="min-h-screen bg-black text-white flex flex-col items-center justify-center space-y-4 px-4">
+      <Helmet>
+        <meta name="robots" content="noindex, nofollow" />
+      </Helmet>
       <h2 className="text-xl font-semibold">Enter Password to Access</h2>
       <form onSubmit={handleSubmit} className="space-y-4 w-full max-w-xs">
         <input

@@ -1,5 +1,3 @@
-
-
 const Godiverse = () => {
     return (
         <div>

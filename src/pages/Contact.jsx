@@ -1,7 +1,7 @@
 import { useState } from "react";
 import Navbar from "../components/Navbar";
 import Footer from "../components/Footer";
-import SEO from "../components/SEO";
+import SeoHead from "../components/SeoHead";
 
 const Contact = () => {
   const [formStatus, setFormStatus] = useState(null);
@@ -45,11 +45,11 @@ const Contact = () => {
 
   return (
     <div className="bg-black min-h-screen text-white">
-      <SEO
-        title="Contact - Suman Sourabh | Product Designer"
-        description="Get in touch with Suman Sourabh for product design collaborations, hiring, or guidance."
-        keywords="contact, hire product designer, collaboration, guidance"
-        url="https://www.sumansourabh.com/contact"
+      <SeoHead
+        title="Contact Suman Sourabh | Hire a SaaS Product Strategist"
+        description="Get in touch with Suman Sourabh for SaaS product strategy consulting, UX audits, rapid MVP design, or full-time opportunities."
+        keywords="contact, hire saas product strategist, ux consultant, freelance product designer, collaboration"
+        canonicalUrl="https://www.sumansourabh.com/contact"
       />
       <Navbar />
       <div className="flex justify-center items-center pt-40 px-4 pb-20">

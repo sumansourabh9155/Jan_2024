@@ -2,18 +2,18 @@ import Navbar from "../components/Navbar";
 import Footer from "../components/Footer";
 import CaseStudy from "../components/Landingsection/AllProject/CaseStudy";
 import DesignProjects from "../components/Landingsection/AllProject/DesignProjects";
-import SEO from "../components/SEO";
+import SeoHead from "../components/SeoHead";
 
 const Projects = () => {
 
 
   return (
     <div className="container__wrapper">
-      <SEO
-        title="Projects - Suman Sourabh | Product Designer"
-        description="Explore the design portfolio of Suman Sourabh. Case studies on SaaS products, mobile apps, and design systems."
-        keywords="design portfolio, case studies, ui/ux projects, saas design, mobile app design"
-        url="https://www.sumansourabh.com/projects"
+      <SeoHead
+        title="SaaS Product Strategy Case Studies & Portfolio | Suman Sourabh"
+        description="Explore the design portfolio of Suman Sourabh. Case studies on SaaS products, measurable churn reduction, and strategic UX redesigns."
+        keywords="SaaS product strategy, design portfolio, case studies, ui/ux projects, saas design, measurable UX ROI, churn reduction"
+        canonicalUrl="https://www.sumansourabh.com/projects"
       />
       <Navbar />
       <CaseStudy />

@@ -11,7 +11,7 @@ import {
   LayoutDashboard,
 } from "lucide-react";
 import Footer from "../components/Footer";
-import SEO from "../components/SEO";
+import SeoHead from "../components/SeoHead";
 
 const designSystems = [
   {
@@ -144,11 +144,11 @@ const books = [
 const Resource = () => {
   return (
     <div className="container__wrapper bg-black text-white min-h-screen ">
-      <SEO
-        title="Resources - Suman Sourabh | Product Designer"
-        description="Curated list of design resources, books, and tools that influence my design practice."
-        keywords="design resources, ux guidelines, design systems, recommended books, ui tools"
-        url="https://www.sumansourabh.com/resource"
+      <SeoHead
+        title="SaaS Growth & Retention Resources | Suman Sourabh"
+        description="Curated list of SaaS growth tools, retention frameworks, UX psychology guides, and MVP strategies."
+        keywords="SaaS growth resources, retention frameworks, ux psychology, mvp strategy, UI/UX tools, startup design"
+        canonicalUrl="https://www.sumansourabh.com/resource"
       />
       <Navbar />
       <div className="max-w-7xl mx-auto px-4 md:px-12 pt-40">
