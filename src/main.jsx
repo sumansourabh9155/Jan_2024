@@ -9,6 +9,7 @@ import AnimatedCursor from "react-animated-cursor";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 
 import LandingPage from "./pages/LandingPage";
+import Carter from "./components/Landingsection/Casestudy/Carter";
 
 // Lazy load pages for performance optimization
 const Resume = React.lazy(() => import("./pages/Resume"));
@@ -105,6 +106,14 @@ root.render(
               element={
                 <ProtectedRoute correctPassword="9155">
                   <Godiverse />
+                </ProtectedRoute>
+              }
+            />
+            <Route
+              path="/Projects/carter"
+              element={
+                <ProtectedRoute correctPassword="9155">
+                  <Carter />
                 </ProtectedRoute>
               }
             />
