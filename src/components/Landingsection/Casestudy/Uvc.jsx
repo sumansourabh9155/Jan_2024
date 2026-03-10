@@ -10,6 +10,8 @@ import Alltemplate from "../../../assets/uvc/Alltemplate.png";
 // import MultiLocation from "../../../assets/uvc/multilocation.png";
 import Sitebuilder from "../../../assets/uvc/Sitebuilder.png";
 import Templatemanager from "../../../assets/uvc/Templatemanager.png";
+import UvcTaxonomy from "./UvcTaxonomy";
+import UvcTemplates from "./UvcTemplates";
 // import SiteBuilder from "../../../assets/uvc/sitebuilder.png";
 
 const Section = ({ title, children, className = "" }) => (
@@ -74,48 +76,29 @@ const UvcEcosystem = () => {
           {/* ================= PHASE 1 ================= */}
           <div className="space-y-12">
             <div className="flex items-center gap-4">
-              <h2 className="text-3xl font-semibold text-white">Phase 1: Standardization & CMS Foundation</h2>
+              <h2 className="text-3xl font-semibold text-white">Phase 1: Standardization of Websites and Data Flow</h2>
               <div className="h-px bg-white/20 flex-grow"></div>
             </div>
 
             <img src={Alltemplate} alt="Old UVC Website" className="rounded-2xl w-full border border-white/10" />
 
             <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-              <Section title="The Problem">
-                <p>Legacy clinic websites were entirely disconnected. Key issues included:</p>
-                <ul className="list-disc ml-5 space-y-2">
-                  <li>Fragmented structures and deep UX inconsistencies.</li>
-                  <li>No CMS governance, version control, or auditability.</li>
-                  <li>High booking drop-offs with poor CTA visibility.</li>
-                  <li>Minimal SEO reach due to severe content duplication.</li>
-                </ul>
+              <Section title="Audience & Accessibility First">
+                <p className="mb-3">Our initial discovery phase highlighted a critical constraint: while the target audience spanned all demographics, a significant and highly engaged portion of pet owners were elderly. In emergency scenarios, cognitive load is severely compromised, meaning the UI had to be exceptionally intuitive and heavily resilient to user error.</p>
+                <p>To solve this, we rooted the design language in strict <strong>WCAG 2.1 AA accessibility guidelines</strong>. This meant enforcing high-contrast color palettes (abandoning low-contrast pastels common in the industry), utilizing highly legible, large-scale typography (Inter &amp; Roboto), and engineering deeply obvious, universally recognized iconography for high-stress triage navigation.</p>
               </Section>
 
-              <Section title="The Goals">
-                <ul className="list-disc ml-5 space-y-2">
-                  <li>Unify the design language under scalable, flexible templates.</li>
-                  <li>Improve page performance, discoverability, and conversion rates.</li>
-                  <li>Empower regional marketing teams via centralized CMS control.</li>
-                  <li>Enable service-level and location-specific business logic.</li>
-                </ul>
+              <Section title="Information Architecture & Taxonomy">
+                <p className="mb-3">The legacy data model was a flat, unsearchable mess. We completely restructured how clinical data is stored, linked, and displayed by building a robust relational taxonomy.</p>
+                <p>Instead of static pages, data became interconnected nodes. We mapped out a clear architectural tiering system to intelligently link specific veterinary services (e.g., &quot;Orthopedic Surgery&quot;) directly to approved physical locations, available specialists, and relevant post-op care content. This meant users could naturally traverse complex healthcare data horizontally, drastically reducing time-to-conversion.</p>
               </Section>
             </div>
 
+            <UvcTaxonomy />
+
             <img src={Charcount} alt="Template Designs" className="rounded-2xl w-full border border-white/10" />
 
-            <Section title="Template Strategy & Research">
-              <p>After evaluating tools like Payload, Strapi, Webflow, and Drupal, we modeled the CMS on a hybrid approach for maximum flexibility, integrated with OneTrust for compliance across 112+ domains.</p>
-              <div className="mt-4 p-4 bg-white/5 rounded-xl border border-white/10">
-                <p className="font-semibold text-white mb-2">Developed Templates:</p>
-                <ul className="list-disc ml-5 space-y-1 text-sm">
-                  <li>General Practice (GP)</li>
-                  <li>Specialty Clinic</li>
-                  <li>Emergency Clinic (ER)</li>
-                  <li>Specialty + Emergency Hybrid</li>
-                  <li>Multi-Location Clinic</li>
-                </ul>
-              </div>
-            </Section>
+            <UvcTemplates />
 
             <Section title="Phase 1 Impact">
               <div className="grid grid-cols-2 md:grid-cols-4 gap-6">
@@ -142,7 +125,7 @@ const UvcEcosystem = () => {
           {/* ================= PHASE 2 ================= */}
           <div className="space-y-12 pt-10">
             <div className="flex items-center gap-4">
-              <h2 className="text-3xl font-semibold text-white">Phase 2: Multi-Location Brand Hierarchy</h2>
+              <h2 className="text-3xl font-semibold text-white">Phase 2: Building CMS for Clinics and Multi-Location Clinic Flow</h2>
               <div className="h-px bg-white/20 flex-grow"></div>
             </div>
 
@@ -150,20 +133,22 @@ const UvcEcosystem = () => {
 
 
             <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-              <Section title="The Challenge">
+              <Section title="A Custom Webflow-Like CMS">
+                <p className="mb-3">
+                  Off-the-shelf CMS platforms simply couldn&apos;t handle the relational complexity required by UVC&apos;s multi-tenant architecture. We engineered a robust, proprietary headless CMS from the ground up, closely mirroring the flexibility, componentized logic, and visual hierarchy of <strong>Webflow</strong>—but tailored specifically for clinical operations.
+                </p>
                 <p>
-                  As UVC acquired larger hospital groups, the 1-to-1 template model broke down. We needed to accommodate &quot;Umbrella Brands&quot;—a single recognized hospital name that operated multiple physical locations (e.g., a North Campus and a South Campus), each offering vastly different services (GP vs. ER).
+                  This wasn&apos;t just a data-entry tool; it was a platform for empathy. By shifting away from rigid, form-based templates to a block-level content architecture, we enabled rich storytelling capabilities. Clinics could now showcase their local community involvement, feature detailed doctor biographies, and connect emotionally with pet owners, rather than just acting as a sterile directory of medical services.
                 </p>
               </Section>
-              <Section title="The Solution">
-                <p>
-                  I architected a &quot;Parent-Child&quot; clinic template system. Users land on a unified brand portal that dynamically routes them to the correct physical location based on the service they need.
+
+              <Section title="Unified Content Linking">
+                <p className="mb-3">
+                  The CMS became the &quot;central brain&quot; orchestrating the frontend. We eliminated redundant data entry by establishing singular sources of truth. If a specialist works at three different hospitals, their profile is managed centrally but dynamically mapped and rendered across all three local websites automatically.
                 </p>
-                <ul className="list-disc ml-5 space-y-1 mt-3">
-                  <li>Global service filtering at the brand level.</li>
-                  <li>Location-specific booking integrations (VetStoria).</li>
-                  <li>Shared team rosters with localized hours of operation.</li>
-                </ul>
+                <p>
+                  This unified linking extended across all 5 core template types. It dynamically cross-referenced veterinarians to the specialized services they offered, and bound those services to the clinics equipped to handle them. This created a seamless, infallible, and interconnected flow of information deeply optimized for Google&apos;s semantic schema mapping.
+                </p>
               </Section>
             </div>
 
@@ -183,23 +168,23 @@ const UvcEcosystem = () => {
 
 
 
-            <Section title="Empowering Customization at Scale">
+            <Section title="The 0-to-1 Site Builder">
               <p>
-                While the templates from Phase 1 and 2 covered 80% of use cases, high-performing clinics demanded bespoke landing pages for specialized campaigns, new facility tours, and localized community events. Relying on dev resources for every new page was an unscalable bottleneck.
+                To provide ultimate flexibility, we built a custom drag-and-drop site builder—giving regional managers a true &quot;Webflow-like&quot; experience right within the UVC ecosystem.
               </p>
             </Section>
             <img src={Sitebuilder} alt="UVC Custom Site Builder UI" className="rounded-2xl w-full border border-white/10" />
 
 
-            <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-              <Section title="Visual Canvas" className="md:col-span-1">
-                <p>Designed a drag-and-drop interface inspired by Framer and Webflow, allowing regional managers to visually construct pages without writing code.</p>
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+              <Section title="Building from Scratch">
+                <p className="mb-3">Recognizing that the 5 base templates couldn&apos;t satisfy agile, localized marketing demands, we developed the ultimate feature: a fully functional, zero-code drag-and-drop site builder natively integrated into the UVC ecosystem.</p>
+                <p>Regional managers and clinic directors were no longer constrained by engineering capacity or sprint cycles. Using an interface designed to mimic the intuitive fluidity of <strong>Framer or Webflow</strong> layer panels, they could create completely custom operational sites, community event pages, and high-conversion landing campaigns from a blank canvas. They simply drag in interactive layout blocks, edit copy inline, map assets, and publish instantly.</p>
               </Section>
-              <Section title="Component Library" className="md:col-span-1">
-                <p>Users build via pre-approved, WCAG-compliant blocks (Hero, Services, Testimonials) guaranteeing the brand system remains intact.</p>
-              </Section>
-              <Section title="Dynamic Binding" className="md:col-span-1">
-                <p>Components automatically pull real-time clinic data (hours, addresses, doctors) from the central CMS, preventing outdated information.</p>
+
+              <Section title="Removing Bottlenecks Safely">
+                <p className="mb-3">While we handed over complete layout control, we fiercely protected the brand. The builder operated on a principle of <em>freedom within constraints</em>. Every single drag-and-drop component available in the sidebar was pre-audited, thoroughly tested, and rigidly governed by the global UVC atomic design system.</p>
+                <p>This zero-code environment completely eliminated IT bottlenecks, empowering local clinics to execute rapid, storytelling-driven marketing strategies within hours—all while inherently guaranteeing perfect WCAG 2.1 AA compliance, responsive behavior, and unified brand aesthetics on every single page they built.</p>
               </Section>
             </div>
             <img src={Templatemanager} alt="Multi Location Architecture" className="rounded-2xl w-full border border-white/10" />
