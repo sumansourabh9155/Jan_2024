@@ -192,7 +192,7 @@ const CarterEcosystem = () => {
                                 The old campaign builder was a single long form. Users had no sense of where
                                 they were, where they were going, or whether what they set up was correct.
                                 We redesigned it into a structured, five-stage modular flow: Objective →
-                                Budget → Creative → Targeting → Review. Each stage was independent, gave
+                                Budget → Review → Creative . Each stage was independent, gave
                                 live feedback, and surfaced AI-powered suggestions based on the advertiser&apos;s
                                 past performance data. The final Review screen showed forecasted reach,
                                 estimated spend, and projected ROI — building confidence before they hit launch.
@@ -246,7 +246,6 @@ const CarterEcosystem = () => {
                             </section>
                         </div>
                     </div>
-
                     {/* ——— SOLUTION: AD ITEM MANAGEMENT ——— */}
                     <div className="space-y-8">
                         <div className="space-y-3 max-w-3xl">
@@ -529,19 +528,6 @@ const CarterEcosystem = () => {
                             </p>
                         </div>
                     </div>
-
-                    {/* ================= FOOTER CTA ================= */}
-                    <div className="text-center space-y-4 py-16 border-t border-white/10">
-                        <h3 className="text-2xl font-semibold text-white">Let&apos;s build something impactful.</h3>
-                        <p className="text-sm text-gray-400">Available for product design collaborations, consulting, and full-time opportunities.</p>
-                        <a
-                            href="/contact"
-                            className="inline-block mt-4 px-8 py-3 text-sm font-semibold text-black bg-white rounded-full hover:bg-gray-200 transition-colors"
-                        >
-                            Get in Touch →
-                        </a>
-                    </div>
-
                 </div>
             </div>
             <Footer />
