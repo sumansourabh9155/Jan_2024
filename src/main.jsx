@@ -22,11 +22,9 @@ const ExpenseDashboard = React.lazy(() => import("./pages/ExpenseDashboard"));
 
 // Lazy load Case Studies
 const RaikarGoodVibes = React.lazy(() => import("./components/Landingsection/Casestudy/RaikarGoodVibes"));
-const CarterRedesign = React.lazy(() => import("./components/Landingsection/Casestudy/CarterRedesign"));
 const Godiverse = React.lazy(() => import("./components/Landingsection/Casestudy/Godiverse"));
 const Uvc = React.lazy(() => import("./components/Landingsection/Casestudy/Uvc"));
-const CarterDsp = React.lazy(() => import("./components/Landingsection/Casestudy/CarterDsp"));
-const CarterCampaign = React.lazy(() => import("./components/Landingsection/Casestudy/CarterCampaign"));
+
 
 const isMouseDevice = window.matchMedia("(pointer: fine)").matches;
 
@@ -118,34 +116,10 @@ root.render(
               }
             />
             <Route
-              path="/Projects/CarterRedesign"
-              element={
-                <ProtectedRoute correctPassword="9155">
-                  <CarterRedesign />
-                </ProtectedRoute>
-              }
-            />
-            <Route
               path="/Projects/uvc"
               element={
                 <ProtectedRoute correctPassword="9155">
                   <Uvc />
-                </ProtectedRoute>
-              }
-            />
-            <Route
-              path="/Projects/carterdsp"
-              element={
-                <ProtectedRoute correctPassword="9155">
-                  <CarterDsp />
-                </ProtectedRoute>
-              }
-            />
-            <Route
-              path="/Projects/cartercampaign"
-              element={
-                <ProtectedRoute correctPassword="9155">
-                  <CarterCampaign />
                 </ProtectedRoute>
               }
             />
