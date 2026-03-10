@@ -15,7 +15,6 @@ import Carter from "./components/Landingsection/Casestudy/Carter";
 const Resume = React.lazy(() => import("./pages/Resume"));
 const Contact = React.lazy(() => import("./pages/Contact"));
 const Resource = React.lazy(() => import("./pages/Resource"));
-const Shyftlabs = React.lazy(() => import("./pages/Shyftlabs"));
 // const Blog = React.lazy(() => import("./pages/Blog")); // Commented intentionally
 const Projects = React.lazy(() => import("./pages/Projects"));
 const ExpenseDashboard = React.lazy(() => import("./pages/ExpenseDashboard"));
@@ -78,7 +77,6 @@ root.render(
             <Route path="/contact" element={<Contact />} />
             <Route path="/projects" element={<Projects />} />
             <Route path="/resource" element={<Resource />} />
-            <Route path="/shyftlabs" element={<Shyftlabs />} />
 
 
             {/* <Route path="/blog" element={<Blog />} /> */}
