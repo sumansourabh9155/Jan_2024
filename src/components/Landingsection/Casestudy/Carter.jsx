@@ -534,5 +534,4 @@ const CarterEcosystem = () => {
         </div>
     );
 };
-
 export default CarterEcosystem;
