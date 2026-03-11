@@ -12,16 +12,8 @@ const templateData = [
     title: "Mobile Template",
     description: "Fully responsive mobile-first design optimized for on-the-go pet owners. Prioritizes click-to-call, directions, and fast-loading content.",
     image: Mobile,
-    accentColor: "border-sky-500/40",
-    tag: "Mobile"
-  },
-  {
-    id: "specer",
-    title: "Specialty + Emergency Hybrid",
-    description: "A complex dual-funnel architecture that seamlessly routes urgent cases to the ER while allowing specialty clients to research chronic care.",
-    image: SpecEr,
     accentColor: "border-orange-500/40",
-    tag: "Spec + ER"
+    tag: "Mobile + Spec + ER"
   },
   {
     id: "spec",
@@ -38,6 +30,14 @@ const templateData = [
     image: ER,
     accentColor: "border-red-500/40",
     tag: "ER"
+  },
+  {
+    id: "specer",
+    title: "Specialty + Emergency Hybrid",
+    description: "A complex dual-funnel architecture that seamlessly routes urgent cases to the ER while allowing specialty clients to research chronic care.",
+    image: SpecEr,
+    accentColor: "border-orange-500/40",
+    tag: "Spec + ER"
   },
   {
     id: "gp",
@@ -81,7 +81,7 @@ const UvcTemplates = () => {
         <div className="flex-1 w-full">
           <div className="mb-10">
             <h4 className="text-gray-400 uppercase tracking-widest text-xs font-semibold mb-2">The Architecture</h4>
-            <h2 className="text-3xl md:text-5xl font-bold tracking-tight">The 5 Core Templates</h2>
+            <h2 className="text-2xl md:text-4xl font-bold tracking-tight">The 5 Core Templates</h2>
           </div>
 
           <div className="space-y-1">

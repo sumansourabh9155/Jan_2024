@@ -373,19 +373,6 @@ const UvcEcosystem = () => {
               </p>
             </div>
           </div>
-
-          {/* ================= FOOTER CTA ================= */}
-          <div className="text-center space-y-4 py-16 border-t border-white/10">
-            <h3 className="text-2xl font-semibold text-white">Let&apos;s build something impactful.</h3>
-            <p className="text-sm text-gray-400">Available for product design collaborations, consulting, and full-time opportunities.</p>
-            <a
-              href="/contact"
-              className="inline-block mt-4 px-8 py-3 text-sm font-semibold text-black bg-white rounded-full hover:bg-gray-200 transition-colors"
-            >
-              Get in Touch →
-            </a>
-          </div>
-
         </div>
       </div>
       <Footer />
