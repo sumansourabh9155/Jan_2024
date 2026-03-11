@@ -5,7 +5,6 @@ import SEO from "../../SEO";
 // Assets
 import Banner from "../../../assets/uvc/Banner.png";
 import Charcount from "../../../assets/uvc/charcount.png";
-import Alltemplate from "../../../assets/uvc/Alltemplate.png";
 import Sitebuilder from "../../../assets/uvc/Sitebuilder.png";
 import Templatemanager from "../../../assets/uvc/Templatemanager.png";
 import UvcTaxonomy from "./UvcTaxonomy";
@@ -148,8 +147,6 @@ const UvcEcosystem = () => {
             </div>
           </div>
           <UvcTemplates />
-          <img src={Alltemplate} alt="UVC All Template Types" className="rounded-2xl w-full border border-white/10" />
-
           {/* Taxonomy */}
           <div className="space-y-8">
             <div className="space-y-3 max-w-3xl">
