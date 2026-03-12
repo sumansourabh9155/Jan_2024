@@ -277,17 +277,25 @@ const UvcEcosystem = () => {
               </p>
             </div>
 
-            {/* NEW ADDITION: Clinic-Level Branding */}
-            <div className="bg-zinc-900/20 border border-zinc-800/80 hover:bg-zinc-900/40 transition-colors rounded-2xl p-8 md:p-10 space-y-5 md:col-span-2">
-              <h4 className="text-white font-medium text-xl">Clinic-Level Theme Customization</h4>
-              <p className="text-zinc-400 text-base leading-relaxed font-light max-w-4xl">
+
+
+          </div>
+          {/* NEW ADDITION: Clinic-Level Branding */}
+          <div className="grid grid-cols-1 md:grid-cols-12 gap-10 md:gap-20 items-start">
+            <div className="md:col-span-5  ">
+              <SectionLabel>Branding System</SectionLabel>
+              <h3 className="text-3xl md:text-4xl font-medium text-white tracking-tight leading-tight">
+                Clinic-Level Theme Customization<br />
+                <span className="text-zinc-500">Color Pallete to change Theme</span>
+              </h3>
+            </div>
+            <div className="md:col-span-7 space-y-6 text-lg text-zinc-400 font-light leading-relaxed">
+              <p>
                 To ease the transition for newly acquired clinics that wanted to retain their legacy identity, we introduced local theme customization. Clinics could adjust their primary and secondary color palettes directly within the CMS. The design system automatically mapped these choices to accessible, WCAG-compliant shades across all UI components—allowing them to keep their branding without breaking global design rules.
               </p>
-              {/* Add your reference image here later. Example:
-                <img src={ThemeSettingsImage} alt="CMS Theme Customization Settings" className="mt-6 rounded-xl w-full border border-zinc-800 object-cover shadow-lg" /> 
-              */}
             </div>
           </div>
+          <img src={Sitebuilder} alt="UVC No-Code Site Builder Interface" className="rounded-[2rem] w-full border border-zinc-800/60 shadow-xl" />
 
           {/* Phase 2 Outcomes */}
           <section className="bg-zinc-900/30 border border-zinc-800/50 p-10 md:p-16 rounded-[2rem] relative overflow-hidden">
