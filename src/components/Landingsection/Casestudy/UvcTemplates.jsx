@@ -9,7 +9,7 @@ import Mobile from "../../../assets/uvc/Mobile.png";
 const templateData = [
   {
     id: "mobile",
-    title: "Mobile Template",
+    title: "Multi-Location Template",
     description: "Fully responsive mobile-first design optimized for on-the-go pet owners. Prioritizes click-to-call, directions, and fast-loading content.",
     image: Mobile,
     accentColor: "border-orange-500/40",

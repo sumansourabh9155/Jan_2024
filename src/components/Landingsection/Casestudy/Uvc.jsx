@@ -146,24 +146,10 @@ const UvcEcosystem = () => {
               </p>
             </div>
           </div>
-          <UvcTemplates />
+
           {/* Taxonomy */}
-          <div className="space-y-8">
-            <div className="space-y-3 max-w-3xl">
-              <SectionLabel>The Hardest Problem — Information Architecture</SectionLabel>
-              <h3 className="text-3xl font-bold text-white">
-                Building the taxonomy that connects<br />
-                <span className="text-gray-400 font-light">services, specialists, and locations.</span>
-              </h3>
-              <p className="text-gray-400 text-base leading-relaxed">
-                Static pages were dead. The moment a doctor joined or left a clinic, or a service was added or discontinued, a static page became wrong. And with 130+ clinics, wrong pages at scale meant hundreds of broken user journeys and Google penalties.
-              </p>
-              <p className="text-gray-400 text-base leading-relaxed">
-                We redesigned the data model from the ground up — turning every service, specialist, and location into a relational node rather than a static page. The taxonomy we built had four levels: Service Category → Service Type → Detailed Offering → Metadata Attributes. This meant a search for &ldquo;Oncology&rdquo; could automatically surface the right specialists, their certifications, and the specific clinics equipped to handle chemotherapy — without any manual linking per clinic.
-              </p>
-            </div>
-            <UvcTaxonomy />
-          </div>
+
+          <UvcTaxonomy />
 
           {/* Templates */}
           <div className="space-y-8">
@@ -179,8 +165,7 @@ const UvcEcosystem = () => {
             </div>
 
           </div>
-
-          <img src={Charcount} alt="UVC Template Character Count Limits" className="rounded-2xl w-full border border-white/10" />
+          <UvcTemplates />
 
           {/* Phase 1 Outcomes */}
           <section className="bg-gradient-to-br from-white/[0.07] to-transparent border border-white/10 backdrop-blur-md p-10 rounded-3xl">
@@ -226,8 +211,8 @@ const UvcEcosystem = () => {
               </p>
             </div>
           </div>
+          <img src={Charcount} alt="UVC Template Character Count Limits" className="rounded-2xl w-full border border-white/10" />
 
-          <img src={Templatemanager} alt="UVC Relational CMS Architecture" className="rounded-2xl w-full border border-white/10" />
 
           {/* CMS Solution */}
           <div className="space-y-8">
@@ -264,7 +249,22 @@ const UvcEcosystem = () => {
                   For clinic groups operating multiple physical locations under a single brand, we built a parent-child hierarchy. A parent clinic page presented the unified brand narrative; child location pages inherited brand elements automatically while surfacing location-specific details. Google canonicalization was handled at the architecture level — no manual meta tag management required.
                 </p>
               </div>
+
+
             </div>
+          </div>
+
+          <div className="space-y-8">
+            <div className="space-y-3 max-w-3xl">
+              <SectionLabel>Clinic-Level Theme Customization</SectionLabel>
+              <h3 className="text-3xl font-bold text-white">Clinic Level Branding<br /><span className="text-gray-400 font-light">Color Palette at clinic level</span></h3>
+              <p className="text-gray-400 text-base leading-relaxed">
+                To ease the transition for newly acquired clinics that wanted to retain their legacy identity, we introduced local theme customization. Clinics could adjust their primary and secondary color palettes directly within the CMS. The design system automatically mapped these choices to accessible, WCAG-compliant shades across all UI components—allowing them to keep their branding without breaking global design rules.
+              </p>
+            </div>
+            {/* Add your reference image here later. Example:
+                  <img src={ThemeSettingsImage} alt="CMS Theme Customization Settings" className="mt-4 rounded-xl w-full border border-white/10 object-cover" /> 
+                */}
           </div>
 
           {/* Phase 2 Outcomes */}

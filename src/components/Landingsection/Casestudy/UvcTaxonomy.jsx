@@ -65,12 +65,20 @@ const UvcTaxonomy = () => {
       ></div>
 
       <div className="p-8 md:p-12 relative z-10">
-        <div className="mb-8">
-          <h3 className="text-sm font-mono text-[#4ade80] tracking-widest uppercase mb-2">Relational Taxonomy</h3>
-          <h2 className="text-3xl font-bold text-white mb-4">Service Hierarchy Flow</h2>
-          <p className="text-gray-400 text-sm max-w-2xl">
-            Structuring complex clinical offerings into an intuitive, scalable data model. Hover to explore the relationship between service categories and detailed procedures.
-          </p>
+        <div className="space-y-8">
+          <div className="space-y-3 max-w-3xl">
+            <h3 className="text-sm font-mono text-[#4ade80] tracking-widest uppercase mb-2">Relational Taxonomy</h3>
+            <h3 className="text-3xl font-bold text-white">
+              Building the taxonomy that connects<br />
+              <span className="text-gray-400 font-light">services, specialists, and locations.</span>
+            </h3>
+            <p className="text-gray-400 text-base leading-relaxed">
+              Static pages were dead. The moment a doctor joined or left a clinic, or a service was added or discontinued, a static page became wrong. And with 130+ clinics, wrong pages at scale meant hundreds of broken user journeys and Google penalties.
+            </p>
+            <p className="text-gray-400 text-base leading-relaxed">
+              We redesigned the data model from the ground up — turning every service, specialist, and location into a relational node rather than a static page. The taxonomy we built had four levels: Service Category → Service Type → Detailed Offering → Metadata Attributes. This meant a search for &ldquo;Oncology&rdquo; could automatically surface the right specialists, their certifications, and the specific clinics equipped to handle chemotherapy — without any manual linking per clinic.
+            </p>
+          </div>
         </div>
 
         {/* Interactive Flow Diagram */}
@@ -87,8 +95,8 @@ const UvcTaxonomy = () => {
                   setActiveTypeId(cat.types[0].id);
                 }}
                 className={`p-4 rounded-xl cursor-pointer transition-all duration-300 border backdrop-blur-md relative ${activeCatId === cat.id
-                    ? "bg-[#111] border-[#4ade80]/50 shadow-[0_0_20px_rgba(74,222,128,0.1)] translate-x-2"
-                    : "bg-white/5 border-white/10 hover:border-white/20 hover:bg-white/10"
+                  ? "bg-[#111] border-[#4ade80]/50 shadow-[0_0_20px_rgba(74,222,128,0.1)] translate-x-2"
+                  : "bg-white/5 border-white/10 hover:border-white/20 hover:bg-white/10"
                   }`}
               >
                 <h4 className={`text-lg font-medium ${activeCatId === cat.id ? "text-white" : "text-gray-400"}`}>
@@ -115,8 +123,8 @@ const UvcTaxonomy = () => {
                 key={type.id}
                 onMouseEnter={() => setActiveTypeId(type.id)}
                 className={`p-4 rounded-xl cursor-pointer transition-all duration-300 border backdrop-blur-md relative ${activeTypeId === type.id
-                    ? "bg-[#111] border-[#4ade80]/40 shadow-[0_0_15px_rgba(74,222,128,0.05)] translate-x-1"
-                    : "bg-white/5 border-transparent hover:border-white/10"
+                  ? "bg-[#111] border-[#4ade80]/40 shadow-[0_0_15px_rgba(74,222,128,0.05)] translate-x-1"
+                  : "bg-white/5 border-transparent hover:border-white/10"
                   }`}
               >
                 <div className="flex justify-between items-center">
