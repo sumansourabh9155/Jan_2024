@@ -125,7 +125,6 @@ const UvcTemplates = () => {
         <div className={`flex-[0.9] w-full transition-opacity duration-200 ${fade ? 'opacity-100' : 'opacity-0'}`}>
           {/* Browser chrome */}
           <div className="rounded-2xl overflow-hidden border border-white/10 shadow-2xl bg-[#1e1e1e]">
-
             {/* Title bar */}
             <div className="flex items-center gap-3 px-4 py-3 bg-[#2a2a2a] border-b border-white/10">
               {/* Traffic lights */}
@@ -143,7 +142,7 @@ const UvcTemplates = () => {
                   <path d="M7 11V7a5 5 0 0 1 10 0v4" />
                 </svg>
                 <span className="text-gray-400 text-xs font-mono truncate">
-                  unitedveterinarycare.com/{activeTemplate.tag.toLowerCase().replace(/\s+\+\s+/, '-')}
+                  unitedveterinarycare.com/{activeTemplate.tag.toLowerCase()}
                 </span>
               </div>
             </div>
@@ -166,5 +165,4 @@ const UvcTemplates = () => {
     </div>
   );
 };
-
 export default UvcTemplates;

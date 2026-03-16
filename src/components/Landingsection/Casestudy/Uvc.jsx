@@ -17,9 +17,9 @@ const SectionLabel = ({ children }) => (
   </div>
 );
 
-const StatCard = ({ value, label }) => (
+const StatCard = ({ value, label, valueColor = "text-white" }) => (
   <div className="space-y-3 p-6 rounded-2xl bg-zinc-900/30 border border-zinc-800/50 hover:bg-zinc-900/50 transition-colors">
-    <p className="text-4xl font-medium text-white tracking-tight">{value}</p>
+    <p className={`text-4xl font-medium tracking-tight ${valueColor}`}>{value}</p>
     <p className="text-sm text-zinc-400 leading-relaxed">{label}</p>
   </div>
 );
@@ -129,17 +129,17 @@ const UvcEcosystem = () => {
 
           {/* Problem audit cards */}
           <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-            <div className="bg-red-950/10 border border-red-900/30 rounded-2xl p-8 space-y-5 hover:bg-red-950/20 transition-colors">
+            <div className="bg-red-950/10 border border-red-900 rounded-2xl p-8 space-y-5 hover:bg-red-950/20 transition-colors">
               <div className="w-10 h-10 rounded-full bg-red-500/10 flex items-center justify-center text-red-400 text-lg font-mono">01</div>
               <h4 className="text-white font-medium text-lg">Zero SEO Governance</h4>
               <p className="text-zinc-400 text-sm leading-relaxed">Duplicate content across sister clinics. Missing schema markup. Canonicalization errors. Google was penalizing UVC for having the same doctor bios repeated across 40+ clinic pages verbatim.</p>
             </div>
-            <div className="bg-red-950/10 border border-red-900/30 rounded-2xl p-8 space-y-5 hover:bg-red-950/20 transition-colors">
+            <div className="bg-red-950/10 border border-red-900 rounded-2xl p-8 space-y-5 hover:bg-red-950/20 transition-colors">
               <div className="w-10 h-10 rounded-full bg-red-500/10 flex items-center justify-center text-red-400 text-lg font-mono">02</div>
               <h4 className="text-white font-medium text-lg">Emergency Abandonment</h4>
               <p className="text-zinc-400 text-sm leading-relaxed">Pet owners in crisis couldn&apos;t find clinic hours, an address, or a phone number quickly. Low-contrast text, cluttered layouts, and no mobile optimization made emergency situations worse.</p>
             </div>
-            <div className="bg-red-950/10 border border-red-900/30 rounded-2xl p-8 space-y-5 hover:bg-red-950/20 transition-colors">
+            <div className="bg-red-950/10 border border-red-900 rounded-2xl p-8 space-y-5 hover:bg-red-950/20 transition-colors">
               <div className="w-10 h-10 rounded-full bg-red-500/10 flex items-center justify-center text-red-400 text-lg font-mono">03</div>
               <h4 className="text-white font-medium text-lg">IT as the Gatekeeper</h4>
               <p className="text-zinc-400 text-sm leading-relaxed">Updating a clinic&apos;s hours, adding a new staff member, or changing service offerings required filing an IT ticket and waiting days. Local teams had zero autonomy.</p>
@@ -148,7 +148,7 @@ const UvcEcosystem = () => {
 
           {/* Accessibility — Split Layout */}
           <div className="grid grid-cols-1 md:grid-cols-12 gap-10 md:gap-20 items-start">
-            <div className="md:col-span-5  ">
+            <div className="md:col-span-5 ">
               <SectionLabel>Critical Discovery</SectionLabel>
               <h3 className="text-3xl md:text-4xl font-medium text-white tracking-tight leading-tight">
                 Designing for the hardest user:<br />
@@ -194,10 +194,10 @@ const UvcEcosystem = () => {
                 Standardization wasn&apos;t glamorous. But the compounding returns were immediate. Better structure meant better crawlability, better UX, and a data model that could actually scale.
               </p>
               <div className="grid grid-cols-2 md:grid-cols-4 gap-8">
-                <StatCard value="↑ 41%" label="Increase in organic search traffic within 6 months." />
-                <StatCard value="↑ 29%" label="Improvement in booking conversion rates." />
-                <StatCard value="↑ 74%" label="Pages successfully indexed by Google." />
-                <StatCard value="100+" label="Clinics launched under the new architecture." />
+                <StatCard value="↑ 41%" label="Increase in organic search traffic within 6 months." valueColor="text-[#4ade80]" />
+                <StatCard value="↑ 29%" label="Improvement in booking conversion rates." valueColor="text-[#4ade80]" />
+                <StatCard value="↑ 74%" label="Pages successfully indexed by Google." valueColor="text-[#4ade80]" />
+                <StatCard value="100+" label="Clinics launched under the new architecture." valueColor="text-[#4ade80]" />
               </div>
             </div>
           </section>
@@ -306,9 +306,9 @@ const UvcEcosystem = () => {
                 The relational CMS collapsed an operational nightmare into a manageable workflow, handing Google the structured data it needed to reward UVC&apos;s network properly.
               </p>
               <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-                <StatCard value="45%" label="Reduction in user navigational friction via session analysis." />
-                <StatCard value="Zero" label="Duplicate content penalties after canonicalization." />
-                <StatCard value="Hours" label="Time to integrate a newly acquired clinic into the ecosystem." />
+                <StatCard value="45%" label="Reduction in user navigational friction via session analysis." valueColor="text-[#4ade80]" />
+                <StatCard value="Zero" label="Duplicate content penalties after canonicalization." valueColor="text-[#4ade80]" />
+                <StatCard value="Hours" label="Time to integrate a newly acquired clinic into the ecosystem." valueColor="text-[#4ade80]" />
               </div>
             </div>
           </section>
@@ -387,9 +387,9 @@ const UvcEcosystem = () => {
                 The site builder fundamentally changed the power dynamic between central IT and local clinic teams. Marketing finally moved at the speed of marketing.
               </p>
               <div className="grid grid-cols-1 sm:grid-cols-3 gap-8">
-                <StatCard value="100%" label="Reduction in engineering tickets for custom pages." />
-                <StatCard value="Hours" label="Time to launch a custom marketing campaign." />
-                <StatCard value="Zero" label="Brand or accessibility breakages across 50+ pages." />
+                <StatCard value="100%" label="Reduction in engineering tickets for custom pages." valueColor="text-[#4ade80]" />
+                <StatCard value="Hours" label="Time to launch a custom marketing campaign." valueColor="text-[#4ade80]" />
+                <StatCard value="Zero" label="Brand or accessibility breakages across 50+ pages." valueColor="text-[#4ade80]" />
               </div>
             </div>
           </section>
@@ -421,5 +421,4 @@ const UvcEcosystem = () => {
     </div>
   );
 };
-
 export default UvcEcosystem;
