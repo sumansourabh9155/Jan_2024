@@ -142,7 +142,7 @@ const UvcTemplates = () => {
                   <path d="M7 11V7a5 5 0 0 1 10 0v4" />
                 </svg>
                 <span className="text-gray-400 text-xs font-mono truncate">
-                  unitedveterinarycare.com/{activeTemplate.tag.toLowerCase()}
+                  unitedveterinarycare.com/{activeTemplate.title.toLowerCase()}
                 </span>
               </div>
             </div>
@@ -160,7 +160,6 @@ const UvcTemplates = () => {
             </div>
           </div>
         </div>
-
       </div>
     </div>
   );
