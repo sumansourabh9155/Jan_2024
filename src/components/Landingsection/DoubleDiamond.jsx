@@ -3,35 +3,35 @@ import { useState } from 'react';
 const DoubleDiamond = () => {
    const [activeStage, setActiveStage] = useState(1);
 
-   // The "Product Strategist" Data Structure
+   // The PM Sprint Framework
    const stages = [
       {
          id: 1,
-         title: "Audit & Discovery",
-         subtitle: "The Problem Space",
-         desc: "We don't guess. We audit.",
-         details: ["User Interviews", "Churn Analysis", "Heatmap Review", "Competitor Audit"]
+         title: "Discovery & Diagnosis",
+         subtitle: "Define the Right Problem",
+         desc: "No PRD before the problem is validated. The constraint is the user's reality—not internal opinions.",
+         details: ["User Interviews", "Session Recording", "SQL Cohort Analysis", "Churn Signal Mapping", "Competitor Audit"]
       },
       {
          id: 2,
          title: "Strategy & Scope",
-         subtitle: "The Pivot Point",
-         desc: "Defining the high-value bet.",
-         details: ["KPI Definition", "User Personas", "Feature Prioritization", "ROI Projection"]
+         subtitle: "Place the Right Bet",
+         desc: "What to build, what to cut, and why. Every scope decision is a hypothesis with a measurable outcome.",
+         details: ["OKRs + North Star Metric", "RICE / ICE Prioritization", "MVP Hypothesis", "LTV:CAC Framing", "What NOT to Build"]
       },
       {
          id: 3,
-         title: "Architecture & Logic",
-         subtitle: "The Solution Space",
-         desc: "Building systems, not just screens.",
-         details: ["Information Arch.", "Low-Fi Wireframes", "Edge Case Logic", "Dev Feasibility Check"]
+         title: "Build & Ship",
+         subtitle: "Execute Without Drift",
+         desc: "PRD to sprint to shipped. Engineering trust comes from technical credibility in the room, not after the meeting.",
+         details: ["PRD → Jira/Linear", "Technical Feasibility", "AI-Assisted Dev", "Sprint Planning", "Stakeholder Alignment"]
       },
       {
          id: 4,
-         title: "Execution & Handoff",
-         subtitle: "The Final Asset",
-         desc: "Pixel-perfect & code-ready.",
-         details: ["High-Fidelity UI", "Interactive Prototypes", "Design System", "Dev Handoff"]
+         title: "Measure & Compound",
+         subtitle: "Close the Loop",
+         desc: "Shipped is not done. The metric has to move. If it doesn't, that's the next discovery sprint.",
+         details: ["D1/D7/D30 Retention", "A/B Testing", "Amplitude / Mixpanel", "NRR + Churn", "OKR Retro"]
       }
    ];
 
@@ -55,13 +55,15 @@ const DoubleDiamond = () => {
          <div className="max-w-7xl mx-auto relative z-10">
             <div className="text-center mb-20">
                <h2 id="methodology-heading" className="text-sm font-mono text-[#d6f928] tracking-widest uppercase mb-4">
-                  Methodology
+                  How I Work
                </h2>
                <h2 className="text-4xl md:text-5xl font-bold tracking-tight">
-                  From Chaos to <span className="text-transparent bg-clip-text bg-gradient-to-r from-white to-gray-500">Clarity</span>.
+                  From Signal to <span className="text-transparent bg-clip-text bg-gradient-to-r from-white to-gray-500">Shipped</span>.
                </h2>
                <p className="text-gray-400 mt-4 max-w-2xl mx-auto">
-                  {"I don't just \"design.\" I use a divergent-convergent framework to ensure we are solving the right problem before we build the solution."}
+                  Every product decision I make flows through four gates: validate the problem, commit to the bet, execute without drift, and close the loop on the metric.
+                  I don&apos;t write a PRD until I can show you the user signal that proves the problem is real.
+                  I don&apos;t call a sprint done until the retention or conversion number moves.
                </p>
             </div>
 
@@ -115,8 +117,8 @@ const DoubleDiamond = () => {
                      onMouseLeave={() => setActiveStage(1)}
                   >
                      <div className="bg-[#111] border border-white/10 p-4 rounded-xl backdrop-blur-md group-hover:border-[#d6f928]/50 transition-all duration-300 transform group-hover:-translate-y-2">
-                        <div className="text-[#d6f928] font-mono text-xs mb-1">01. Diverge</div>
-                        <h3 className="text-lg font-bold">Audit</h3>
+                        <div className="text-[#d6f928] font-mono text-xs mb-1">01. Diagnose</div>
+                        <h3 className="text-lg font-bold">Discovery</h3>
                      </div>
                   </div>
 
@@ -127,7 +129,7 @@ const DoubleDiamond = () => {
                      onMouseLeave={() => setActiveStage(1)}
                   >
                      <div className="bg-[#111] border border-white/10 p-4 rounded-xl backdrop-blur-md group-hover:border-[#d6f928]/50 transition-all duration-300 transform group-hover:-translate-y-2">
-                        <div className="text-[#d6f928] font-mono text-xs mb-1">02. Converge</div>
+                        <div className="text-[#d6f928] font-mono text-xs mb-1">02. Prioritize</div>
                         <h3 className="text-lg font-bold">Strategy</h3>
                      </div>
                   </div>
@@ -139,8 +141,8 @@ const DoubleDiamond = () => {
                      onMouseLeave={() => setActiveStage(1)}
                   >
                      <div className="bg-[#111] border border-white/10 p-4 rounded-xl backdrop-blur-md group-hover:border-[#d6f928]/50 transition-all duration-300 transform group-hover:-translate-y-2">
-                        <div className="text-[#d6f928] font-mono text-xs mb-1">03. Diverge</div>
-                        <h3 className="text-lg font-bold">Logic</h3>
+                        <div className="text-[#d6f928] font-mono text-xs mb-1">03. Execute</div>
+                        <h3 className="text-lg font-bold">Build</h3>
                      </div>
                   </div>
 
@@ -151,8 +153,8 @@ const DoubleDiamond = () => {
                      onMouseLeave={() => setActiveStage(1)}
                   >
                      <div className="bg-[#111] border border-white/10 p-4 rounded-xl backdrop-blur-md group-hover:border-[#d6f928]/50 transition-all duration-300 transform group-hover:-translate-y-2">
-                        <div className="text-[#d6f928] font-mono text-xs mb-1">04. Converge</div>
-                        <h3 className="text-lg font-bold">Execution</h3>
+                        <div className="text-[#d6f928] font-mono text-xs mb-1">04. Measure</div>
+                        <h3 className="text-lg font-bold">Compound</h3>
                      </div>
                   </div>
                </div>

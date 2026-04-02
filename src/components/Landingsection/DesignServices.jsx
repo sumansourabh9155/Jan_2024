@@ -1,12 +1,27 @@
 import { Link } from "react-router-dom";
-import { TrendingUp, Target, Rocket, Layout } from "lucide-react";
+import { TrendingUp, Target, Cpu } from "lucide-react";
 
 const DesignServices = () => {
   const services = [
     {
-      title: "Retention & Churn",
+      title: "Product Strategy & GTM",
+      icon: <Target size={24} className="text-blue-400" />,
+      desc: "I own the full product lifecycle—from the first user interview to launch day. That means defining what to build, writing the PRD, prioritizing the roadmap, and aligning GTM messaging to what the product actually delivers. Every decision is grounded in what's technically feasible, not just what sounds good in a slide.",
+      color: "hover:border-blue-400/50",
+      visual: (
+        <div className="mt-6 bg-[#111] border border-white/10 rounded-lg p-4 relative font-mono text-[10px] text-gray-400 leading-relaxed">
+          <div className="text-blue-400">// PRD: Onboarding Sprint</div>
+          <div className="pl-4 text-gray-300">goal: time_to_value &lt; 90s</div>
+          <div className="pl-4">scope: MVP (3 features)</div>
+          <div className="pl-4 text-[#d6f928]">gtm: aligned_to_ltv_cac</div>
+          <div className="text-blue-400">status: shipped ✓</div>
+        </div>
+      )
+    },
+    {
+      title: "Growth & Unit Economics",
       icon: <TrendingUp size={24} className="text-[#d6f928]" />,
-      desc: "I apply behavioral psychology (Endowed Progress, Variable Rewards) to fix leaky buckets and keep users active.",
+      desc: "I don't just track metrics—I pull them directly via SQL, run A/B tests, and instrument the funnel in Amplitude or Mixpanel. I can diagnose why activation is stuck, where users are churning, and what the LTV:CAC ratio says about the acquisition strategy. Every sprint I run has a revenue or retention number attached to it.",
       color: "hover:border-[#d6f928]/50",
       visual: (
         <div className="mt-6 bg-[#111] border border-white/10 rounded-lg p-4 relative overflow-hidden">
@@ -15,45 +30,14 @@ const DesignServices = () => {
               <div key={i} className="w-full bg-[#d6f928] opacity-20 hover:opacity-100 transition-all duration-500 rounded-t-sm" style={{ height: `${h}%` }}></div>
             ))}
           </div>
-          <div className="absolute top-2 left-2 text-[10px] font-mono text-[#d6f928] bg-[#d6f928]/10 px-2 py-0.5 rounded">churn_rate: -15%</div>
+          <div className="absolute top-2 left-2 text-[10px] font-mono text-[#d6f928] bg-[#d6f928]/10 px-2 py-0.5 rounded">activation_rate: +22%</div>
         </div>
       )
     },
     {
-      title: "Product Logic & Strategy",
-      icon: <Target size={24} className="text-blue-400" />,
-      desc: "I don't design impossible features. I define MVP scope, handle edge cases, and ensure technical feasibility.",
-      color: "hover:border-blue-400/50",
-      visual: (
-        <div className="mt-6 bg-[#111] border border-white/10 rounded-lg p-4 relative font-mono text-[10px] text-gray-400 leading-relaxed">
-          <div className="text-blue-400">if (user.isChurning) {"{"}</div>
-          <div className="pl-4">trigger(retention_flow);</div>
-          <div className="pl-4">offer_discount(10%);</div>
-          <div className="text-blue-400">{"}"} else {"{"}</div>
-          <div className="pl-4 text-gray-600">{"// Standard flow"}</div>
-          <div className="text-blue-400">{"}"}</div>
-        </div>
-      )
-    },
-    {
-      title: "High-Intent Landing Pages",
-      icon: <Layout size={24} className="text-purple-400" />,
-      desc: "Optimized for conversion, not just aesthetics. Every headline and CTA placement is backed by data.",
-      color: "hover:border-purple-400/50",
-      visual: (
-        <div className="mt-6 bg-[#111] border border-white/10 rounded-lg p-4 flex flex-col gap-2 items-center justify-center py-6">
-          <div className="w-3/4 h-2 bg-white/20 rounded-full mb-1"></div>
-          <div className="w-1/2 h-2 bg-white/10 rounded-full mb-4"></div>
-          <div className="bg-purple-500 text-white text-[10px] px-4 py-1.5 rounded-md shadow-[0_0_15px_rgba(168,85,247,0.4)] animate-pulse">
-            Start Free Trial
-          </div>
-        </div>
-      )
-    },
-    {
-      title: "Rapid MVP Deployment",
-      icon: <Rocket size={24} className="text-orange-400" />,
-      desc: "Ship fast. I cut fluff, prioritize core value, and hand off clean code-ready design systems.",
+      title: "AI & Technical Execution",
+      icon: <Cpu size={24} className="text-orange-400" />,
+      desc: "When the team needs an AI feature, I scope it, select the right model, and spec the integration — then I can help ship it too. I've built LLM pipelines with Claude and Gemini, wired up API and webhook architecture, and deployed automation workflows in n8n. I don't just write the requirements. I understand the system underneath them.",
       color: "hover:border-orange-400/50",
       visual: (
         <div className="mt-6 bg-[#111] border border-white/10 rounded-lg p-4 flex gap-2">
@@ -65,8 +49,8 @@ const DesignServices = () => {
             <div className="w-2 h-2 rounded-full bg-yellow-500 mb-1"></div>
             <div className="w-8 h-1 bg-white/10 rounded"></div>
           </div>
-          <div className="flex-1 bg-white/5 h-16 rounded border border-green-500/30 p-2 relative">
-            <div className="w-2 h-2 rounded-full bg-green-500 mb-1"></div>
+          <div className="flex-1 bg-white/5 h-16 rounded border border-orange-500/30 p-2 relative">
+            <div className="w-2 h-2 rounded-full bg-orange-400 mb-1"></div>
             <div className="w-8 h-1 bg-white/10 rounded"></div>
             <div className="absolute -top-1 -right-1 w-2 h-2 bg-orange-400 rounded-full animate-ping"></div>
           </div>
@@ -76,8 +60,14 @@ const DesignServices = () => {
   ];
 
   const tags = [
-    "Behavioral Psychology", "SaaS Metrics", "React/Tailwind", "Design Systems",
-    "Framer Auth", "Churn Reduction", "Conversion Funnels", "Technical Feasibility"
+    "Product Roadmapping", "Full Product Lifecycle", "PRD Authoring", "OKRs", "North Star Metric",
+    "RICE / ICE Prioritization", "Market & Competitive Analysis", "GTM Strategy", "0-to-1 Building",
+    "SQL", "Amplitude / Mixpanel", "A/B Testing & Experimentation", "AARRR Funnel",
+    "Activation Rate", "D1/D7/D30 Retention", "LTV:CAC", "NRR", "CRO", "PLG",
+    "Agile / Scrum", "Sprint Planning", "Jira / Linear", "Stakeholder Management",
+    "User Research", "Discovery & Validation",
+    "LLM Integration", "AI Feature Scoping", "Prompt Engineering",
+    "React / Tailwind", "API Webhooks", "n8n Automation"
   ];
 
   return (
@@ -103,15 +93,15 @@ const DesignServices = () => {
         <div className="flex flex-col md:flex-row justify-between items-start md:items-end gap-8 mb-20 border-b border-white/10 pb-12">
           <div className="max-w-2xl">
             <div className="inline-flex items-center gap-2 text-xs font-mono text-[#d6f928] tracking-widest uppercase mb-6">
-              [ Capabilities ]
+              [ Core Competencies ]
             </div>
             <h2 className="text-4xl md:text-5xl font-bold leading-tight mb-6">
-              Outcomes, <br />
-              <span className="text-gray-500">Not Just Deliverables.</span>
+              The Full Stack. <br />
+              <span className="text-gray-500">Product Manager Edition.</span>
             </h2>
             <p className="text-gray-400 text-lg font-light leading-relaxed">
-              {"I don't sell \"design.\" I sell retention, conversion, and clarity."}
-              {"Every pixel I push is backed by a business metric."}
+              Most PMs bring strategy. I bring strategy, cross-functional leadership,
+              technical execution, and AI integration—in one hire.
             </p>
           </div>
 
@@ -125,7 +115,7 @@ const DesignServices = () => {
         </div>
 
         {/* The Service Grid */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4">
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
           {services.map((s, index) => (
             <div
               key={index}
@@ -150,7 +140,7 @@ const DesignServices = () => {
 
         {/* The "Tech Stack" Ticker */}
         <div className="mt-24 pt-12 border-t border-white/10">
-          <p className="text-xs font-mono text-gray-500 mb-6 uppercase tracking-widest">Core Competencies</p>
+          <p className="text-xs font-mono text-gray-500 mb-6 uppercase tracking-widest">Skills & Tools</p>
           <div className="flex flex-wrap gap-3">
             {tags.map((tag, i) => (
               <span

@@ -30,55 +30,54 @@ const HeroSection = () => {
           {/* Badge */}
           <div className="inline-flex items-center gap-2 px-3 py-1.5 bg-white/5 border border-white/10 backdrop-blur-md text-gray-300 rounded-full text-xs font-mono tracking-wide mb-8">
             <CircleDot size={12} className="text-[#d6f928]" />
-            <span className="opacity-80">SaaS Product Strategist</span>
+            <span className="opacity-80">Product Manager · CS/ML · AI Integrations</span>
           </div>
 
           {/* Headline */}
           <h1 className="text-5xl sm:text-6xl xl:text-7xl font-bold text-white leading-[1.1] tracking-tight mb-8">
-            SaaS Product Strategist <br />
+            PM + Engineer.{" "}
             <span className="text-transparent bg-clip-text bg-gradient-to-r from-white via-gray-200 to-gray-500">
-              Reducing Churn
-            </span>
-            <span className="text-transparent bg-clip-text bg-gradient-to-r from-white via-gray-200 to-gray-500">
-              <br /> & Scaling Revenue.
+              <br />Rare by Design.
             </span>
           </h1>
 
           {/* Subtitle */}
-          <p className="text-md text-gray-400 max-w-2xl font-light leading-relaxed mb-10  ">
-            {"Moving beyond 'pixel-perfect' to "} <span className="text-white font-medium">profit-focused</span>.
-            {"I use "} <span className="text-white font-medium">Psychology-driven UX</span> {" and "} <span className="text-white font-medium">Technical Constraints</span> {" to build products that scale."}
+          <p className="text-md text-gray-400 max-w-2xl font-light leading-relaxed mb-10">
+            BTech in CS/ML, hands-on with <span className="text-white font-medium">React, Tailwind, and LLM integrations</span>.{" "}
+            I lead Design teams, Dev teams, and AI feature work—bringing engineering depth to every{" "}
+            <span className="text-white font-medium">PRD, sprint, and GTM decision</span> so strategy doesn&apos;t stall at the handoff.
           </p>
 
           {/* Metrics (Value Props) */}
           <div className="flex flex-wrap gap-6 mb-12">
             <div className="flex items-center gap-3 text-sm text-gray-400 bg-white/5 px-4 py-2 rounded-lg border border-white/5">
               <TrendingUp size={16} className="text-[#d6f928]" />
-              <span>Avg. <strong className="text-white">15-25%</strong> Retention Uplift</span>
+              <span>Avg. <strong className="text-white">15–25%</strong> Activation Uplift</span>
             </div>
             <div className="flex items-center gap-3 text-sm text-gray-400 bg-white/5 px-4 py-2 rounded-lg border border-white/5">
               <Target size={16} className="text-blue-400" />
-              <span><strong className="text-white">20-30%</strong> Less Abandonment</span>
+              <span>Shipped <strong className="text-white">AI-Powered</strong> Products End-to-End</span>
             </div>
           </div>
 
           {/* CTAs */}
           <div className="flex flex-col sm:flex-row gap-4 w-full sm:w-auto">
-            <Link to="/contact">
+            <Link to="/projects">
               <button
                 className="bg-white text-black px-8 py-4 rounded-full font-bold text-base hover:bg-[#d6f928] hover:scale-105 transition-all shadow-[0_0_20px_rgba(255,255,255,0.2)] w-full sm:w-auto"
               >
-                Book Strategy Call
+                View Product Case Studies
               </button>
             </Link>
-            <Link to="/projects">
+            <Link to="/contact">
               <button
                 className="bg-white/5 border border-white/10 text-white px-8 py-4 rounded-full font-medium text-base hover:bg-white/10 hover:border-white/30 transition-all backdrop-blur-md w-full sm:w-auto"
               >
-                See Case Studies
+                Let&apos;s Talk Strategy
               </button>
             </Link>
           </div>
+
         </div>
 
 
@@ -94,7 +93,7 @@ const HeroSection = () => {
             <div className="backdrop-blur-xl bg-[#0a0a0a]/90 border border-white/10 p-6 rounded-2xl shadow-2xl w-56 group hover:border-blue-500/50">
               <div className="flex items-center gap-3 mb-4">
                 <div className="w-2 h-2 bg-blue-500 rounded-full"></div>
-                <span className="text-[10px] font-mono text-gray-500 uppercase tracking-widest group-hover:text-blue-400 transition-colors">Velocity</span>
+                <span className="text-[10px] font-mono text-gray-500 uppercase tracking-widest group-hover:text-blue-400 transition-colors">Products Shipped</span>
               </div>
               <div className="flex items-baseline gap-1">
                 <p className="text-5xl font-bold text-white tracking-tighter">25</p>
@@ -112,7 +111,7 @@ const HeroSection = () => {
                   <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-[#d6f928] opacity-75"></span>
                   <span className="relative inline-flex rounded-full h-2 w-2 bg-[#d6f928]"></span>
                 </div>
-                <span className="text-[10px] font-mono text-gray-500 uppercase tracking-widest group-hover:text-[#d6f928] transition-colors">Client Satisfaction</span>
+                <span className="text-[10px] font-mono text-gray-500 uppercase tracking-widest group-hover:text-[#d6f928] transition-colors">Repeat Hire Rate</span>
               </div>
               <div className="flex items-baseline gap-1">
                 <p className="text-5xl font-bold text-white tracking-tighter">85</p>
@@ -127,13 +126,13 @@ const HeroSection = () => {
             <div className="backdrop-blur-xl bg-[#0a0a0a]/90 border border-white/10 p-6 rounded-2xl shadow-2xl w-56 group hover:border-purple-500/50">
               <div className="flex items-center gap-3 mb-4">
                 <div className="w-2 h-2 bg-purple-500 rounded-sm rotate-45"></div>
-                <span className="text-[10px] font-mono text-gray-500 uppercase tracking-widest group-hover:text-purple-400 transition-colors">Authority</span>
+                <span className="text-[10px] font-mono text-gray-500 uppercase tracking-widest group-hover:text-purple-400 transition-colors">Full Lifecycle</span>
               </div>
               <div className="flex items-baseline gap-1">
                 <p className="text-5xl font-bold text-white tracking-tighter">3</p>
                 <span className="text-2xl text-gray-500 font-light">+</span>
               </div>
-              <p className="text-xs text-gray-400 mt-2 border-t border-white/5 pt-2">Public Speaking Events</p>
+              <p className="text-xs text-gray-400 mt-2 border-t border-white/5 pt-2">Industries Shipped Across</p>
             </div>
 
           </div>

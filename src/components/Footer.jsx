@@ -39,11 +39,11 @@ const Footer = () => {
                 <div className="flex flex-col md:flex-row justify-between items-start md:items-end gap-10 mb-20 border-b border-white/10 pb-16">
                     <div className="max-w-xl">
                         <h2 className="text-3xl md:text-4xl font-bold text-white mb-6">
-                            Ready to stop guessing and start <span className="text-[#d6f928]">scaling?</span>
+                            Looking for a PM who <span className="text-[#d6f928]">multiplies your output?</span>
                         </h2>
                         <p className="text-gray-400 font-light">
-                            I take on a limited number of clients per quarter to ensure high-focus delivery.
-                            Let&apos;s see if we&apos;re a fit.
+                            I embed into teams, close the strategy-execution gap, and ship products that move metrics.
+                            Let&apos;s see if there&apos;s a fit.
                         </p>
                     </div>
                     <div>
@@ -65,7 +65,7 @@ const Footer = () => {
                             Suman <span className="text-gray-500">Sourabh</span>
                         </Link>
                         <p className="text-sm text-gray-500 mb-6 max-w-sm">
-                            SaaS Product Strategist. I build systems that turn confused users into loyal customers.
+                            Product Manager. CS/ML background. I multiply team output by eliminating the gap between product strategy and technical execution.
                         </p>
                         <a
                             href="mailto:hello@sumansourabh.com"
@@ -129,7 +129,7 @@ const Footer = () => {
                         © {currentYear} Suman Sourabh. All Rights Reserved.
                     </p>
                     <p className="text-xs text-gray-600 mt-2 md:mt-0 flex items-center gap-1">
-                        Designed in <span className="text-white">Figma</span>. Built with <span className="text-[#61DAFB]">React</span>.
+                        Built with <span className="text-[#61DAFB]">React</span> + <span className="text-[#d6f928]">Claude</span>. Shipped fast.
                     </p>
                 </div>
 

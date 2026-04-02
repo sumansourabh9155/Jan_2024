@@ -55,7 +55,7 @@ const Navbar = () => {
             </div>
             <div className="flex flex-col">
               <span className="text-white font-medium text-sm leading-none tracking-wide">Suman Sourabh</span>
-              <span className={`text-[10px] font-mono mt-0.5 transition-colors ${location.pathname === "/" ? "text-[#d6f928]" : "text-gray-500 group-hover:text-[#d6f928]"}`}>Product Designer + Strategist</span>
+              <span className={`text-[10px] font-mono mt-0.5 transition-colors ${location.pathname === "/" ? "text-[#d6f928]" : "text-gray-500 group-hover:text-[#d6f928]"}`}>Product Manager · CS/ML · AI</span>
             </div>
           </Link>
 
@@ -84,7 +84,7 @@ const Navbar = () => {
               to="/contact"
               className="group flex items-center gap-2 px-5 py-2 text-xs font-semibold bg-white text-black border border-transparent rounded-full hover:bg-gray-200 transition-all active:scale-95"
             >
-              Book Strategy Call
+              Let&apos;s Work Together
               <ArrowRight size={14} className="group-hover:translate-x-0.5 transition-transform" />
             </Link>
           </div>
@@ -127,7 +127,7 @@ const Navbar = () => {
               to="/contact"
               className="flex items-center justify-center gap-2 px-4 py-3 text-sm font-bold bg-[#d6f928] text-black rounded-xl hover:opacity-90 transition-opacity"
             >
-              Book Strategy Call <ArrowRight size={16} />
+              Let&apos;s Work Together <ArrowRight size={16} />
             </Link>
           </div>
         </div>
