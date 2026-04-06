@@ -59,7 +59,7 @@ const Contact = () => {
             <div className="inline-flex items-center gap-2 text-sm bg-white/10 border border-white/10 px-4 py-1 rounded-full mb-4">
               ◎ Contact
             </div>
-            <h1 className="text-4xl font-light text-white">Let’s <span className="font-medium text-gray-300">Talk</span></h1>
+            <h1 className="font-heading text-4xl font-light text-white">Let’s <span className="font-medium text-gray-300">Talk</span></h1>
             <p className="text-sm text-gray-400 mt-2">I’d love to hear from you. Whether you have a project idea or just want to say hi.</p>
           </div>
 

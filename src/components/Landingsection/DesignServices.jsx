@@ -6,7 +6,7 @@ const DesignServices = () => {
     {
       title: "Product Strategy & GTM",
       icon: <Target size={24} className="text-blue-400" />,
-      desc: "I own the full product lifecycle—from the first user interview to launch day. That means defining what to build, writing the PRD, prioritizing the roadmap, and aligning GTM messaging to what the product actually delivers. Every decision is grounded in what's technically feasible, not just what sounds good in a slide.",
+      desc: "Took products from first user interview to launch. Wrote PRDs, prioritized roadmaps, and aligned GTM to what the product actually delivered—grounded in technical feasibility, not slide logic.",
       color: "hover:border-blue-400/50",
       visual: (
         <div className="mt-6 bg-[#111] border border-white/10 rounded-lg p-4 relative font-mono text-[10px] text-gray-400 leading-relaxed">
@@ -21,7 +21,7 @@ const DesignServices = () => {
     {
       title: "Growth & Unit Economics",
       icon: <TrendingUp size={24} className="text-[#d6f928]" />,
-      desc: "I don't just track metrics—I pull them directly via SQL, run A/B tests, and instrument the funnel in Amplitude or Mixpanel. I can diagnose why activation is stuck, where users are churning, and what the LTV:CAC ratio says about the acquisition strategy. Every sprint I run has a revenue or retention number attached to it.",
+      desc: "Diagnosed activation bottlenecks via SQL, ran A/B tests, and instrumented funnels in Amplitude. Improved activation rates by restructuring onboarding around data—not assumptions. Every sprint tied to a revenue or retention number.",
       color: "hover:border-[#d6f928]/50",
       visual: (
         <div className="mt-6 bg-[#111] border border-white/10 rounded-lg p-4 relative overflow-hidden">
@@ -37,7 +37,7 @@ const DesignServices = () => {
     {
       title: "AI & Technical Execution",
       icon: <Cpu size={24} className="text-orange-400" />,
-      desc: "When the team needs an AI feature, I scope it, select the right model, and spec the integration — then I can help ship it too. I've built LLM pipelines with Claude and Gemini, wired up API and webhook architecture, and deployed automation workflows in n8n. I don't just write the requirements. I understand the system underneath them.",
+      desc: "Built LLM pipelines with Claude and Gemini, wired API/webhook integrations, and deployed n8n automation. Replaced a 3-week custom build with a 1-day Claude API call that delivered the same output quality.",
       color: "hover:border-orange-400/50",
       visual: (
         <div className="mt-6 bg-[#111] border border-white/10 rounded-lg p-4 flex gap-2">
@@ -60,18 +60,14 @@ const DesignServices = () => {
   ];
 
   const tags = [
-    "Product Roadmapping", "Full Product Lifecycle", "PRD Authoring", "OKRs", "North Star Metric",
-    "RICE / ICE Prioritization", "Market & Competitive Analysis", "GTM Strategy", "0-to-1 Building",
-    "SQL", "Amplitude / Mixpanel", "A/B Testing & Experimentation", "AARRR Funnel",
-    "Activation Rate", "D1/D7/D30 Retention", "LTV:CAC", "NRR", "CRO", "PLG",
-    "Agile / Scrum", "Sprint Planning", "Jira / Linear", "Stakeholder Management",
-    "User Research", "Discovery & Validation",
-    "LLM Integration", "AI Feature Scoping", "Prompt Engineering",
-    "React / Tailwind", "API Webhooks", "n8n Automation"
+    "PRD Authoring", "Product Roadmapping", "OKRs", "RICE / ICE", "GTM Strategy", "0-to-1 Building",
+    "SQL", "Amplitude / Mixpanel", "A/B Testing", "LTV:CAC", "CRO",
+    "Agile / Scrum", "Jira / Linear", "User Research",
+    "LLM Integration", "AI Feature Scoping", "React / Tailwind", "n8n Automation"
   ];
 
   return (
-    <section className="bg-[#050505] text-white py-32 px-6 relative overflow-hidden">
+    <section className="bg-[#050505] text-white py-24 px-4 relative overflow-hidden">
       {/* --- BACKGROUND LAYERS --- */}
       {/* 1. The Technical Grid */}
       <div
@@ -90,12 +86,12 @@ const DesignServices = () => {
       <div className="max-w-7xl mx-auto relative z-10">
 
         {/* Header */}
-        <div className="flex flex-col md:flex-row justify-between items-start md:items-end gap-8 mb-20 border-b border-white/10 pb-12">
+        <div className="flex flex-col md:flex-row justify-between items-start md:items-end gap-8 mb-16 border-b border-white/10 pb-12">
           <div className="max-w-2xl">
-            <div className="inline-flex items-center gap-2 text-xs font-mono text-[#d6f928] tracking-widest uppercase mb-6">
+            <div className="inline-flex items-center gap-2 text-xs font-mono text-[#d6f928] tracking-widest uppercase mb-4">
               [ Core Competencies ]
             </div>
-            <h2 className="text-4xl md:text-5xl font-bold leading-tight mb-6">
+            <h2 className="font-heading text-4xl md:text-5xl font-bold leading-tight mb-4">
               The Full Stack. <br />
               <span className="text-gray-500">Product Manager Edition.</span>
             </h2>
@@ -125,7 +121,7 @@ const DesignServices = () => {
                 <div className="mb-6 p-3 bg-white/5 w-fit rounded-lg border border-white/5">
                   {s.icon}
                 </div>
-                <h3 className="text-xl font-bold mb-3">{s.title}</h3>
+                <h3 className="font-heading text-xl font-bold mb-3">{s.title}</h3>
                 <p className="text-sm text-gray-400 leading-relaxed mb-6">
                   {s.desc}
                 </p>

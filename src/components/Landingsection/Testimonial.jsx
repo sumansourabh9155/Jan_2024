@@ -17,14 +17,14 @@ const Testimonial = memo(() => {
                         <div className="inline-flex items-center gap-2 text-xs font-mono text-[#d6f928] tracking-widest uppercase mb-6">
                             [ Social Proof ]
                         </div>
-                        <h2 className="text-4xl md:text-5xl font-bold text-white leading-tight">
+                        <h2 className="font-heading text-4xl md:text-5xl font-bold text-white leading-tight">
                             Trusted by Founders <br />
                             <span className="text-gray-500">Who Demand Excellence.</span>
                         </h2>
                     </div>
 
                     <div className="text-right">
-                        <div className="text-3xl font-bold text-white mb-1">$250M+</div>
+                        <div className="font-heading text-3xl font-bold text-white mb-1">$250M+</div>
                         <p className="text-sm text-gray-500 font-mono uppercase tracking-wide">Client Revenue Generated</p>
                     </div>
                 </div>
@@ -74,7 +74,7 @@ const Testimonial = memo(() => {
                         {/* Content Section (Right) */}
                         <div className="w-full lg:w-2/3 text-left">
                             {/* The "Hook" Headline */}
-                            <h2 className="text-2xl md:text-3xl lg:text-4xl font-medium text-white leading-snug mb-8">
+                            <h2 className="font-heading text-2xl md:text-3xl lg:text-4xl font-medium text-white leading-snug mb-8">
                                 &quot;He is the person who, if he commits, <span className="text-[#d6f928] border-b border-[#d6f928]/30 pb-1">delivers with utmost excellence.</span>&quot;
                             </h2>
 

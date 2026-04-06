@@ -36,7 +36,7 @@ const DoubleDiamond = () => {
    ];
 
    return (
-      <section aria-labelledby="methodology-heading" className="w-full bg-[#050505] text-white py-24 px-6 relative overflow-hidden font-sans">
+      <section aria-labelledby="methodology-heading" className="w-full bg-[#050505] text-white py-24 px-4 relative overflow-hidden font-sans border-t border-white/10">
          {/* --- BACKGROUND LAYERS --- */}
          {/* 1. The Technical Grid */}
          <div
@@ -53,11 +53,11 @@ const DoubleDiamond = () => {
 
 
          <div className="max-w-7xl mx-auto relative z-10">
-            <div className="text-center mb-20">
-               <h2 id="methodology-heading" className="text-sm font-mono text-[#d6f928] tracking-widest uppercase mb-4">
-                  How I Work
-               </h2>
-               <h2 className="text-4xl md:text-5xl font-bold tracking-tight">
+            <div className="text-center mb-16">
+               <div className="inline-flex items-center gap-2 text-xs font-mono text-[#d6f928] tracking-widest uppercase mb-4">
+                  [ How I Work ]
+               </div>
+               <h2 className="font-heading text-4xl md:text-5xl font-bold tracking-tight">
                   From Signal to <span className="text-transparent bg-clip-text bg-gradient-to-r from-white to-gray-500">Shipped</span>.
                </h2>
                <p className="text-gray-400 mt-4 max-w-2xl mx-auto">
@@ -118,7 +118,7 @@ const DoubleDiamond = () => {
                   >
                      <div className="bg-[#111] border border-white/10 p-4 rounded-xl backdrop-blur-md group-hover:border-[#d6f928]/50 transition-all duration-300 transform group-hover:-translate-y-2">
                         <div className="text-[#d6f928] font-mono text-xs mb-1">01. Diagnose</div>
-                        <h3 className="text-lg font-bold">Discovery</h3>
+                        <h3 className="font-heading text-lg font-bold">Discovery</h3>
                      </div>
                   </div>
 
@@ -130,7 +130,7 @@ const DoubleDiamond = () => {
                   >
                      <div className="bg-[#111] border border-white/10 p-4 rounded-xl backdrop-blur-md group-hover:border-[#d6f928]/50 transition-all duration-300 transform group-hover:-translate-y-2">
                         <div className="text-[#d6f928] font-mono text-xs mb-1">02. Prioritize</div>
-                        <h3 className="text-lg font-bold">Strategy</h3>
+                        <h3 className="font-heading text-lg font-bold">Strategy</h3>
                      </div>
                   </div>
 
@@ -142,7 +142,7 @@ const DoubleDiamond = () => {
                   >
                      <div className="bg-[#111] border border-white/10 p-4 rounded-xl backdrop-blur-md group-hover:border-[#d6f928]/50 transition-all duration-300 transform group-hover:-translate-y-2">
                         <div className="text-[#d6f928] font-mono text-xs mb-1">03. Execute</div>
-                        <h3 className="text-lg font-bold">Build</h3>
+                        <h3 className="font-heading text-lg font-bold">Build</h3>
                      </div>
                   </div>
 
@@ -154,7 +154,7 @@ const DoubleDiamond = () => {
                   >
                      <div className="bg-[#111] border border-white/10 p-4 rounded-xl backdrop-blur-md group-hover:border-[#d6f928]/50 transition-all duration-300 transform group-hover:-translate-y-2">
                         <div className="text-[#d6f928] font-mono text-xs mb-1">04. Measure</div>
-                        <h3 className="text-lg font-bold">Compound</h3>
+                        <h3 className="font-heading text-lg font-bold">Compound</h3>
                      </div>
                   </div>
                </div>
@@ -193,7 +193,7 @@ const DoubleDiamond = () => {
                         {/* Content */}
                         <div className="flex flex-col items-start">
                            <span className="text-[#d6f928] text-xs font-mono mb-2">Phase 0{stage.id}</span>
-                           <h3 className="text-2xl font-bold text-white mb-1">{stage.title}</h3>
+                           <h3 className="font-heading text-2xl font-bold text-white mb-1">{stage.title}</h3>
                            <p className="text-gray-400 text-sm mb-4">{stage.desc}</p>
 
                            <div className="flex flex-wrap gap-2">

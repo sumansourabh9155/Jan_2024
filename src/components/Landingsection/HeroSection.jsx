@@ -3,7 +3,7 @@ import { Link } from "react-router-dom";
 
 const HeroSection = () => {
   return (
-    <header role="banner" data-testid="hero-section" className="relative w-full min-h-screen bg-[#050505] flex items-center justify-center overflow-hidden px-6 pt-20">
+    <header role="banner" data-testid="hero-section" className="relative w-full min-h-screen bg-[#050505] flex items-center justify-center overflow-hidden px-4 pt-20">
 
       {/* --- LAYER 1: The Technical Grid (The Logic) --- */}
       {/* This draws a 1px white line every 40px using CSS gradients */}
@@ -34,7 +34,7 @@ const HeroSection = () => {
           </div>
 
           {/* Headline */}
-          <h1 className="text-5xl sm:text-6xl xl:text-7xl font-bold text-white leading-[1.1] tracking-tight mb-8">
+          <h1 className="font-heading text-5xl sm:text-6xl xl:text-7xl font-extrabold text-white leading-[1.1] tracking-tight mb-8">
             PM + Engineer.{" "}
             <span className="text-transparent bg-clip-text bg-gradient-to-r from-white via-gray-200 to-gray-500">
               <br />Rare by Design.
@@ -43,22 +43,10 @@ const HeroSection = () => {
 
           {/* Subtitle */}
           <p className="text-md text-gray-400 max-w-2xl font-light leading-relaxed mb-10">
-            BTech in CS/ML, hands-on with <span className="text-white font-medium">React, Tailwind, and LLM integrations</span>.{" "}
-            I lead Design teams, Dev teams, and AI feature work—bringing engineering depth to every{" "}
-            <span className="text-white font-medium">PRD, sprint, and GTM decision</span> so strategy doesn&apos;t stall at the handoff.
+            BTech in CS/ML. Shipped AI-powered products with <span className="text-white font-medium">Claude and Gemini</span>.{" "}
+            Led cross-functional teams across design, engineering, and product—from{" "}
+            <span className="text-white font-medium">user research to launch</span>.
           </p>
-
-          {/* Metrics (Value Props) */}
-          <div className="flex flex-wrap gap-6 mb-12">
-            <div className="flex items-center gap-3 text-sm text-gray-400 bg-white/5 px-4 py-2 rounded-lg border border-white/5">
-              <TrendingUp size={16} className="text-[#d6f928]" />
-              <span>Avg. <strong className="text-white">15–25%</strong> Activation Uplift</span>
-            </div>
-            <div className="flex items-center gap-3 text-sm text-gray-400 bg-white/5 px-4 py-2 rounded-lg border border-white/5">
-              <Target size={16} className="text-blue-400" />
-              <span>Shipped <strong className="text-white">AI-Powered</strong> Products End-to-End</span>
-            </div>
-          </div>
 
           {/* CTAs */}
           <div className="flex flex-col sm:flex-row gap-4 w-full sm:w-auto">
@@ -96,7 +84,7 @@ const HeroSection = () => {
                 <span className="text-[10px] font-mono text-gray-500 uppercase tracking-widest group-hover:text-blue-400 transition-colors">Products Shipped</span>
               </div>
               <div className="flex items-baseline gap-1">
-                <p className="text-5xl font-bold text-white tracking-tighter">25</p>
+                <p className="font-heading text-5xl font-bold text-white tracking-tighter">25</p>
                 <span className="text-2xl text-gray-500 font-light">+</span>
               </div>
               <p className="text-xs text-gray-400 mt-2 border-t border-white/5 pt-2">Products Shipped</p>
@@ -114,7 +102,7 @@ const HeroSection = () => {
                 <span className="text-[10px] font-mono text-gray-500 uppercase tracking-widest group-hover:text-[#d6f928] transition-colors">Repeat Hire Rate</span>
               </div>
               <div className="flex items-baseline gap-1">
-                <p className="text-5xl font-bold text-white tracking-tighter">85</p>
+                <p className="font-heading text-5xl font-bold text-white tracking-tighter">85</p>
                 <span className="text-2xl text-gray-500 font-light">%</span>
               </div>
               <p className="text-xs text-gray-400 mt-2 border-t border-white/5 pt-2">Repeat Hire Rate</p>
@@ -129,7 +117,7 @@ const HeroSection = () => {
                 <span className="text-[10px] font-mono text-gray-500 uppercase tracking-widest group-hover:text-purple-400 transition-colors">Full Lifecycle</span>
               </div>
               <div className="flex items-baseline gap-1">
-                <p className="text-5xl font-bold text-white tracking-tighter">3</p>
+                <p className="font-heading text-5xl font-bold text-white tracking-tighter">3</p>
                 <span className="text-2xl text-gray-500 font-light">+</span>
               </div>
               <p className="text-xs text-gray-400 mt-2 border-t border-white/5 pt-2">Industries Shipped Across</p>

@@ -3,14 +3,13 @@ import { GitBranch, CheckCircle, Workflow, LayoutDashboard } from "lucide-react"
 const TechProof = () => {
   return (
     <section className="bg-black text-white py-24 px-4 border-t border-white/10">
-      <div className="max-w-6xl mx-auto">
+      <div className="max-w-7xl mx-auto">
         {/* Section Header */}
         <div className="mb-16">
-          <div className="inline-flex items-center gap-2 text-sm bg-white/5 border border-white/10 backdrop-blur px-4 py-1 rounded-full mb-4">
-            <Workflow size={14} className="text-orange-400" />
-            <span className="text-gray-400">Builder PM</span>
+          <div className="inline-flex items-center gap-2 text-xs font-mono text-[#d6f928] tracking-widest uppercase mb-4">
+            [ Builder PM ]
           </div>
-          <h2 className="text-5xl font-bold mt-4">
+          <h2 className="font-heading text-5xl font-bold mt-4">
             I Don&apos;t Just Spec It.{" "}
             <span className="text-gray-400">I Ship It.</span>
           </h2>
@@ -31,7 +30,7 @@ const TechProof = () => {
                 <Workflow size={24} />
               </div>
               <div>
-                <h3 className="text-xl font-bold">Automated Data Pipelines</h3>
+                <h3 className="font-heading text-xl font-bold">Automated Data Pipelines</h3>
                 <p className="text-sm text-gray-400">n8n · API Webhooks · No Engineering Required</p>
               </div>
             </div>
@@ -105,7 +104,7 @@ const TechProof = () => {
                 <LayoutDashboard size={24} />
               </div>
               <div>
-                <h3 className="text-xl font-bold">Serverless Internal Tools</h3>
+                <h3 className="font-heading text-xl font-bold">Serverless Internal Tools</h3>
                 <p className="text-sm text-gray-400">React · Tailwind · Google Apps Script · Sheets</p>
               </div>
             </div>
@@ -170,7 +169,7 @@ const TechProof = () => {
           <div className="flex flex-col md:flex-row gap-8 items-start">
             <div className="flex-1 text-center md:text-left">
               <GitBranch size={32} className="mx-auto md:mx-0 mb-4 text-orange-400" />
-              <h3 className="text-2xl font-bold mb-2">The Signal to Hiring Managers</h3>
+              <h3 className="font-heading text-2xl font-bold mb-2">The Signal to Hiring Managers</h3>
               <p className="text-gray-300 text-sm max-w-2xl leading-relaxed">
                 My technical depth doesn&apos;t just make me a better PM.
                 It means I can build the tools that remove bottlenecks from the engineering

@@ -2,37 +2,37 @@ import { Zap, BarChart2, ShoppingCart } from "lucide-react";
 
 const projectData = [
   {
-    title: "Abun.com: GTM Realignment & Activation Funnel for an AI Content Platform",
+    title: "Abun.com: GTM & Activation for an AI Content Platform",
     category: "AI Content Platform",
-    alt: "GTM strategy and activation funnel redesign for an AI content platform powered by LLM integrations",
+    alt: "GTM strategy and activation funnel redesign for an AI content platform",
     icon: <Zap size={16} className="text-[#d6f928]" />,
     badge: "AI/LLM · GTM · Activation",
-    user: "Content marketers at SMBs—they signed up expecting to ship blog posts faster, but the product's first experience was a configuration screen, not content.",
-    problem: "High CAC, low free-to-paid conversion. Users churned before experiencing the core AI output—the product's value was hidden behind setup friction.",
-    decision: "Redefined the GTM messaging to match what the LLM actually delivered, then scoped the onboarding to generate a real AI output within 90 seconds of signup.",
-    impact: "Rebuilt the acquisition funnel around the 'Aha!' moment—when the LLM generates real content for the first time. Conversion signal improved within the first sprint.",
+    user: "SMB content marketers who signed up expecting instant blog posts—got a config screen instead.",
+    problem: "Users churned before experiencing the AI output. Value was hidden behind setup friction.",
+    decision: "Redesigned onboarding to generate real AI content within 90 seconds of signup.",
+    impact: "Acquisition funnel rebuilt around the 'Aha!' moment. Conversion signal improved in the first sprint.",
   },
   {
-    title: "UVC: Phased CMS Rollout Across 130+ Clinic Locations",
+    title: "UVC: CMS Rollout Across 130+ Clinic Locations",
     category: "Enterprise CMS · Healthcare",
-    alt: "Phased CMS product rollout across 130+ clinic locations reducing technical debt and standardizing digital architecture",
+    alt: "Phased CMS product rollout across 130+ clinic locations",
     icon: <BarChart2 size={16} className="text-blue-400" />,
     badge: "Scale · Roadmap · Tech Debt",
-    user: "Clinic administrators managing local web presence—they were manually updating fragmented sites with no shared tooling, losing hours per location per update.",
-    problem: "130+ locations with fragmented infrastructure—no standardized CMS, mounting technical debt at every new acquisition. Each new clinic added a new point of failure.",
-    decision: "Applied systems-thinking to map dependencies across locations. Chose phased rollout over big-bang deployment to contain risk and maintain uptime at existing sites.",
-    impact: "Scalable CMS architecture that reduced per-location deployment overhead, standardized digital operations, and unified the patient-facing web presence network-wide.",
+    user: "Clinic admins manually updating fragmented sites—hours lost per location per update.",
+    problem: "130+ locations, no standardized CMS. Each new clinic added a new point of failure.",
+    decision: "Phased rollout (5 → 20 → all) instead of big-bang. Contained risk while maintaining uptime.",
+    impact: "Reduced per-location deployment overhead. Unified digital presence network-wide.",
   },
   {
-    title: "Rosso Brunello: CRO Audit & Checkout Funnel Revenue Recovery",
+    title: "Rosso Brunello: CRO Audit & Revenue Recovery",
     category: "E-Commerce · CRO",
-    alt: "CRO audit and checkout funnel optimization targeting cart abandonment reduction and Average Order Value uplift",
+    alt: "CRO audit and checkout funnel optimization for cart abandonment and AOV",
     icon: <ShoppingCart size={16} className="text-orange-400" />,
     badge: "CRO · AOV · Funnel",
-    user: "High-intent wine buyers who were adding to cart but abandoning—session data showed hesitation at the shipping cost reveal and no upsell prompt before checkout.",
-    problem: "Revenue leaking from high cart abandonment and an AOV sitting below category benchmarks. The checkout flow was optimized for simplicity, not conversion.",
-    decision: "Full funnel audit of every drop-off point. Built an intervention backlog ranked strictly by revenue impact vs. engineering effort—no recommendation without data.",
-    impact: "Prioritized roadmap targeting shipping cost transparency, bundle upsell placement, and checkout flow restructuring. Every call tied to a measurable AOV or abandonment metric.",
+    user: "High-intent buyers adding premium items to cart, then abandoning at the shipping cost reveal.",
+    problem: "Cart abandonment high, AOV below category benchmarks. Checkout optimized for simplicity, not conversion.",
+    decision: "Audited every funnel drop-off. Ranked interventions by revenue impact vs. effort—nothing without data.",
+    impact: "Shipped trust signals, upsell placement, and checkout restructuring. Every change tied to a metric.",
   },
 ];
 
@@ -40,10 +40,10 @@ const Projects = () => {
   return (
     <section aria-labelledby="case-studies-heading" data-testid="projects-section" className="py-24 mx-auto overflow-hidden bg-black border-t border-white/10">
       <div className="max-w-7xl mx-auto px-4 mb-12">
-        <div className="inline-flex items-center gap-2 text-sm bg-white/5 border border-white/10 backdrop-blur px-4 py-1 rounded-full mb-4">
-          <span className="text-gray-400">&#9678;</span> Case Studies
+        <div className="inline-flex items-center gap-2 text-xs font-mono text-[#d6f928] tracking-widest uppercase mb-4">
+          [ Case Studies ]
         </div>
-        <h2 id="case-studies-heading" className="text-5xl font-bold text-white">
+        <h2 id="case-studies-heading" className="font-heading text-5xl font-bold text-white">
           Real Products. <span className="text-gray-400">Real Decisions.</span>
         </h2>
         <p className="text-gray-300 mt-4 text-md max-w-3xl">
@@ -69,7 +69,7 @@ const Projects = () => {
 
                   <div className="p-5 flex flex-col flex-grow justify-between">
                     <div className="space-y-3">
-                      <h3 className="text-base font-bold text-white leading-tight">
+                      <h3 className="font-heading text-base font-bold text-white leading-tight">
                         {project.title}
                       </h3>
 
@@ -136,7 +136,7 @@ const Projects = () => {
                     <p className="text-xs text-gray-400 mb-2 uppercase tracking-wider">
                       {project.category}
                     </p>
-                    <h3 className="text-base font-bold text-white leading-tight">
+                    <h3 className="font-heading text-base font-bold text-white leading-tight">
                       {project.title}
                     </h3>
 

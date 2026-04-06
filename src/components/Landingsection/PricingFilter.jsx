@@ -1,4 +1,4 @@
-import { Briefcase, Target, Clock } from "lucide-react";
+import { Target, Clock } from "lucide-react";
 import { Link } from "react-router-dom";
 
 const PricingFilter = () => {
@@ -18,11 +18,10 @@ const PricingFilter = () => {
       <div className="max-w-7xl mx-auto relative z-10">
         {/* Section Header */}
         <div className="text-center mb-16">
-          <div className="inline-flex items-center gap-2 text-sm bg-white/5 border border-white/10 backdrop-blur px-4 py-1 rounded-full mb-4">
-            <Briefcase size={14} className="text-blue-400" />
-            <span className="text-gray-400">Ways to Work Together</span>
+          <div className="inline-flex items-center gap-2 text-xs font-mono text-[#d6f928] tracking-widest uppercase mb-4">
+            [ Engagement ]
           </div>
-          <h2 id="engagement-heading" className="text-5xl font-bold mt-4">
+          <h2 id="engagement-heading" className="font-heading text-5xl font-bold mt-4">
             Embedded PM.{" "}
             <span className="text-transparent bg-clip-text bg-gradient-to-r from-white to-gray-400">Right-Sized for Your Stage.</span>
           </h2>
@@ -42,9 +41,9 @@ const PricingFilter = () => {
               <div className="w-12 h-12 bg-blue-500/20 border border-blue-500/30 rounded-xl flex items-center justify-center">
                 <Target size={24} className="text-blue-400" />
               </div>
-              <h3 className="text-xl font-bold">Product Audit</h3>
+              <h3 className="font-heading text-xl font-bold">Product Audit</h3>
             </div>
-            <p className="text-3xl font-bold mb-1">1–2 Weeks</p>
+            <p className="font-heading text-3xl font-bold mb-1">1–2 Weeks</p>
             <p className="text-sm text-gray-400 mb-6">Fixed-scope engagement</p>
 
             <ul className="space-y-3 mb-6">
@@ -86,9 +85,9 @@ const PricingFilter = () => {
               <div className="w-12 h-12 bg-[#d6f928]/20 border border-[#d6f928]/30 rounded-xl flex items-center justify-center">
                 <Target size={24} className="text-[#d6f928]" />
               </div>
-              <h3 className="text-xl font-bold">MVP Sprint</h3>
+              <h3 className="font-heading text-xl font-bold">MVP Sprint</h3>
             </div>
-            <p className="text-3xl font-bold mb-1">2–4 Weeks</p>
+            <p className="font-heading text-3xl font-bold mb-1">2–4 Weeks</p>
             <p className="text-sm text-gray-400 mb-6">End-to-end product delivery</p>
 
             <ul className="space-y-3 mb-6">
@@ -130,9 +129,9 @@ const PricingFilter = () => {
               <div className="w-12 h-12 bg-purple-500/20 border border-purple-500/30 rounded-xl flex items-center justify-center">
                 <Clock size={24} className="text-purple-400" />
               </div>
-              <h3 className="text-xl font-bold">Fractional PM</h3>
+              <h3 className="font-heading text-xl font-bold">Fractional PM</h3>
             </div>
-            <p className="text-3xl font-bold mb-1">Ongoing</p>
+            <p className="font-heading text-3xl font-bold mb-1">Ongoing</p>
             <p className="text-sm text-gray-400 mb-6">Embedded, part-time PM</p>
 
             <ul className="space-y-3 mb-6">
@@ -167,7 +166,7 @@ const PricingFilter = () => {
 
         {/* CTA */}
         <div className="bg-gradient-to-r from-white/10 to-white/5 border border-white/20 backdrop-blur-md rounded-2xl p-8 text-center">
-          <h3 className="text-2xl font-bold mb-3">Not Sure Which Fits?</h3>
+          <h3 className="font-heading text-2xl font-bold mb-3">Not Sure Which Fits?</h3>
           <p className="text-gray-300 text-sm mb-6 max-w-2xl mx-auto">
             Let&apos;s spend 30 minutes mapping your current product, your growth blockers,
             and the fastest path to the next metric milestone. No pitch. Just clarity.

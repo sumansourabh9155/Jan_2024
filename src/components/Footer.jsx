@@ -38,7 +38,7 @@ const Footer = () => {
                 {/* Top Section: The Final CTA */}
                 <div className="flex flex-col md:flex-row justify-between items-start md:items-end gap-10 mb-20 border-b border-white/10 pb-16">
                     <div className="max-w-xl">
-                        <h2 className="text-3xl md:text-4xl font-bold text-white mb-6">
+                        <h2 className="font-heading text-3xl md:text-4xl font-bold text-white mb-6">
                             Looking for a PM who <span className="text-[#d6f928]">multiplies your output?</span>
                         </h2>
                         <p className="text-gray-400 font-light">

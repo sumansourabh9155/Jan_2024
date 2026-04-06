@@ -41,7 +41,7 @@ const Experience = () => {
       <div className="max-w-6xl mx-auto grid grid-cols-1 md:grid-cols-2 lg:gap-40 gap-12">
         {/* Experience Section */}
         <div>
-          <h2 className="text-2xl font-semibold text-white mb-16">
+          <h2 className="font-heading text-2xl font-semibold text-white mb-16">
             Working Experience
           </h2>
           <div className="space-y-6">
@@ -68,7 +68,7 @@ const Experience = () => {
 
         {/* Awards Section */}
         <div>
-          <h2 className="text-2xl font-semibold text-white mb-16">
+          <h2 className="font-heading text-2xl font-semibold text-white mb-16">
             Public Events
           </h2>
           <div className="space-y-6">

@@ -7,10 +7,10 @@ export const AboutMe = () => {
       <div className="max-w-7xl w-full">
         {/* Section Header */}
         <div className="text-center mb-16">
-          <div className="inline-flex items-center gap-2 text-sm bg-white/5 border border-white/10 backdrop-blur px-4 py-1 rounded-full mb-4">
-            <span className="text-gray-400">◎</span> About
+          <div className="inline-flex items-center gap-2 text-xs font-mono text-[#d6f928] tracking-widest uppercase mb-4">
+            [ About ]
           </div>
-          <h2 id="about-heading" className="text-5xl font-bold text-white">
+          <h2 id="about-heading" className="font-heading text-5xl font-bold text-white">
             One PM.{" "}
             <span className="text-gray-400">Every Room in the Building.</span>
           </h2>
@@ -37,48 +37,25 @@ export const AboutMe = () => {
 
 
 
-            {/* The Manifesto */}
-            <div className="mt-8 space-y-6 text-gray-300 text-base leading-relaxed">
+            {/* The Manifesto — 3 lines per paragraph max (Cracking PM: blobs 3+ lines aren't read) */}
+            <div className="mt-8 space-y-5 text-gray-300 text-base leading-relaxed">
 
-              {/* Para 1: Why PM? — The Origin Story */}
               <p>
-                Most product failures aren&apos;t engineering failures—they&apos;re decision failures.
-                I watched technically brilliant teams spend months building exactly the wrong thing,
-                because nobody had validated the problem before the sprint started. That observation is what
-                drove me into Product Management. I wanted to be the person who prevents it.
-                My <span className="font-semibold text-white">BTech in CS/ML</span> wasn&apos;t just a credential—it gave me the
-                standing to operate in an engineering room with real authority. I can read the codebase,
-                evaluate model tradeoffs, and tell the difference between genuine technical risk and scope creep
-                disguised as complexity. When engineering says something is &ldquo;complex,&rdquo; I already know why.
-                That eliminates an entire layer of friction—and keeps the team anchored to
-                <span className="font-semibold text-white"> OKRs and the North Star metric</span>, not just the sprint board.
+                I became a PM because I kept watching great engineers build the wrong thing—nobody had validated the problem first.
+                My <span className="font-semibold text-white">BTech in CS/ML</span> means I can read the codebase, challenge architecture, and tell scope creep from real complexity.
+                That gives me credibility in the engineering room and keeps the team focused on what actually moves the metric.
               </p>
 
-              {/* Para 2: The User Signal Discipline */}
               <p>
-                I then built the other side of the equation: <span className="font-semibold text-white">user research, discovery, and frontend execution</span>.
-                React, Tailwind, and building actual interfaces. Not because I wanted to be a designer—but because
-                I realized a PRD written without direct user signal is just an educated guess with a deadline.
-                I conduct user interviews, run session recording analysis, pull
-                <span className="font-semibold text-white"> cohort data directly via SQL</span>, and build activation flows
-                that guide users to their &ldquo;Aha!&rdquo; moment in under 90 seconds.
-                I don&apos;t ask engineering to build something until I can point to the
-                <span className="font-semibold text-white"> funnel data, the interview quote, or the D7 retention signal</span> that justifies it.
-                That discipline is what keeps a roadmap from becoming a feature graveyard.
+                I don&apos;t write PRDs from opinions. I run user interviews, pull <span className="font-semibold text-white">cohort data via SQL</span>,
+                and instrument funnels in <span className="font-semibold text-white">Amplitude/Mixpanel</span>.
+                Nothing enters the sprint until I can point to the data, the interview quote, or the retention signal that justifies it.
               </p>
 
-              {/* Para 3: The PM Multiplier — What You Get */}
               <p>
-                Now I work as a <span className="font-semibold text-white">Product Manager</span>—and the two sides compound.
-                I&apos;ve shipped multiple MVPs using <span className="font-semibold text-white">Claude and Gemini</span> as co-development tools,
-                led Design on onboarding flows, led Dev through sprint planning,
-                and owned AI feature work end-to-end—model selection, prompt architecture,
-                output evaluation rubrics. I run backlogs in <span className="font-semibold text-white">Jira/Linear</span>,
-                write PRDs that engineering trusts because they&apos;re technically grounded, and connect
-                every sprint task back to a revenue or retention metric. I&apos;ve also shipped the wrong thing once—
-                and it permanently changed how I validate before I build.
-                The result: one PM who can lead every function, speak credibly in technical discussions,
-                and keep the user&apos;s reality in every sprint decision.
+                I&apos;ve shipped MVPs with <span className="font-semibold text-white">Claude and Gemini</span>,
+                led Design and Dev through sprint planning, and owned AI features end-to-end.
+                Backlogs in <span className="font-semibold text-white">Jira/Linear</span>. Every sprint task tied to a revenue or retention number.
               </p>
             </div>
 

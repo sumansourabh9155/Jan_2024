@@ -6,6 +6,10 @@ export default {
   ],
   theme: {
     extend: {
+      fontFamily: {
+        heading: ['Archivo', 'sans-serif'],
+        body: ['IBM Plex Sans', 'sans-serif'],
+      },
       animation: {
         'infinite-scroll': 'infinite-scroll 35s linear infinite',
       },
@@ -14,7 +18,7 @@ export default {
           from: { transform: 'translateX(0)' },
           to: { transform: 'translateX(-100%)' },
         }
-      }                    
+      }
     },
   },
   plugins: [],
