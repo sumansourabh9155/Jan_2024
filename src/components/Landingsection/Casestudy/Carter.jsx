@@ -1,19 +1,19 @@
+import { Link } from "react-router-dom";
 import Navbar from "../../Navbar";
 import Footer from "../../Footer";
 import SEO from "../../SEO";
+import {
+    Search, Users, Target, TrendingUp, Zap, Layers,
+    BarChart2, AlertTriangle, Scissors, CheckCircle2,
+    Layout, Cpu, Split, Eye, FileText, Bug, Clock
+} from "lucide-react";
 
 // ================= ASSETS =================
-
-// Phase 1: Core Redesign & Design System Assets
 import Carterimg from "../../../assets/CarterRedesign/carter.png";
 import DSL from "../../../assets/CarterRedesign/dsl.png";
-
-// Phase 1: Campaign & Ad Item Workflow Assets
 import Aditem from "../../../assets/cartercampigh/aditem.png";
 import Oldaditem from "../../../assets/cartercampigh/oldaditem.png";
 import CampaignCreationImg from "../../../assets/cartercampigh/campaign.png";
-
-// Phase 2: DSP Assets
 import dsp from "../../../assets/dsp/dsp.png";
 import CampaignDSP from "../../../assets/dsp/campaign.png";
 import mediaplan from "../../../assets/dsp/mediaplan.png";
@@ -21,515 +21,562 @@ import campaigndetail from "../../../assets/dsp/campaigndetail.png";
 import v1 from "../../../assets/dsp/1.mp4";
 import v3 from "../../../assets/dsp/3.mp4";
 
-const StatCard = ({ value, label }) => (
-    <div className="space-y-2">
-        <p className="text-3xl font-bold text-white">{value}</p>
+// ================= REUSABLE COMPONENTS =================
+
+const Badge = ({ children }) => (
+    <div className="inline-flex items-center gap-2 text-xs font-mono text-[#d6f928] tracking-widest uppercase mb-6 bg-[#d6f928]/5 px-3 py-1 rounded border border-[#d6f928]/20">
+        {children}
+    </div>
+);
+
+const StatCard = ({ value, label, icon }) => (
+    <div className="bg-white/5 border border-white/10 rounded-2xl p-6 space-y-3">
+        {icon && <div className="w-10 h-10 rounded-xl bg-white/5 border border-white/10 flex items-center justify-center">{icon}</div>}
+        <p className="font-heading text-3xl font-bold text-white">{value}</p>
         <p className="text-sm text-gray-400 leading-snug">{label}</p>
     </div>
 );
 
-const SectionLabel = ({ children }) => (
-    <p className="text-xs uppercase text-gray-500 tracking-widest font-semibold">{children}</p>
+const MetricRow = ({ label, before, after, delta }) => (
+    <div className="flex items-center justify-between py-4 border-b border-white/5 last:border-0">
+        <span className="text-white text-sm font-medium w-2/5">{label}</span>
+        <span className="text-gray-500 text-sm w-1/5 text-center">{before}</span>
+        <span className="text-green-400 text-sm w-1/5 text-center">{after}</span>
+        <span className="text-green-400 text-sm font-semibold w-1/5 text-right">{delta}</span>
+    </div>
 );
 
 const CarterEcosystem = () => {
     return (
-        <div className="font-sans text-white bg-black">
+        <div className="text-white bg-[#050505]">
             <SEO
-                title="Carter Ecosystem: Redesign & DSP - Case Study"
-                description="A comprehensive case study on the Carter Retail Media Network: redesigning the core platform workflows, building a scalable design system, and launching a 0-1 DSP for cross-network campaign management."
-                keywords="case study, carter, redesign, campaign creation, dsp, retail media network, ad tech, design system"
+                title="Carter Ecosystem: Platform Redesign & 0-to-1 DSP — PM Case Study"
+                description="How I owned product strategy end-to-end at a B2B ad-tech startup — from fixing a broken activation funnel to launching a 0-to-1 Demand-Side Platform."
+                keywords="product management case study, carter, platform redesign, DSP, retail media network, ad tech, product strategy, PRD, cross-functional leadership"
                 url="https://www.sumansourabh.com/Projects/CarterEcosystem"
             />
             <Navbar />
 
-            <div className="px-6 pt-32 pb-16">
-                <div className="max-w-6xl mx-auto space-y-20">
-
-                    {/* ================= HEADER ================= */}
-                    <div className="text-center space-y-6 max-w-3xl mx-auto">
-                        <div className="inline-flex items-center gap-2 text-sm bg-white/10 border border-white/20 backdrop-blur px-4 py-1 rounded-full text-gray-300">
-                            ◎ Retail Media Network &middot; B2B SaaS &middot; Ad Tech
-                        </div>
-                        <h1 className="text-5xl md:text-7xl font-bold text-white tracking-tight leading-none">
+            {/* ================= HERO ================= */}
+            <section className="bg-[#050505] pt-32 pb-24 px-4">
+                <div className="max-w-7xl mx-auto">
+                    <div className="text-center max-w-3xl mx-auto mb-20">
+                        <Badge>[ B2B SaaS &middot; Ad Tech &middot; Retail Media ]</Badge>
+                        <h1 className="font-heading text-5xl md:text-7xl font-extrabold text-white tracking-tight leading-none mb-6">
                             Carter <span className="text-gray-500 font-light">Ecosystem</span>
                         </h1>
-                        <p className="text-lg text-gray-400 font-light leading-relaxed">
-                            How we turned a broken ad-tech platform into a retail media powerhouse — from fixing the foundation, to launching a 0-to-1 Demand-Side Platform.
+                        <p className="text-lg text-gray-400 font-light leading-relaxed max-w-xl mx-auto">
+                            Owned product strategy end-to-end. Fixed a broken activation funnel, then launched a 0-to-1 DSP.
                         </p>
                     </div>
 
-                    <img src={Carterimg} alt="Carter Platform Overview" className="rounded-3xl w-full object-cover border border-white/10" />
+                    <img src={Carterimg} alt="Carter Platform Overview" className="rounded-2xl w-full object-cover border border-white/10" />
 
-                    {/* ================= PROJECT SNAPSHOT ================= */}
-                    <section className="bg-white/5 border border-white/10 backdrop-blur-md rounded-3xl p-10 space-y-10">
-                        <div className="flex flex-wrap gap-3">
-                            {["B2B SaaS", "Ad Tech", "Design System", "Workflow Redesign", "0 to 1 DSP", "Retail Media"].map((tag, i) => (
-                                <span key={i} className="text-xs font-medium bg-white/10 border border-white/20 text-gray-300 px-4 py-1.5 rounded-full tracking-wide">
-                                    {tag}
-                                </span>
-                            ))}
+                    {/* Snapshot Strip */}
+                    <div className="grid grid-cols-2 md:grid-cols-4 gap-6 mt-12">
+                        <div className="bg-white/5 border border-white/10 rounded-2xl p-5 text-center">
+                            <p className="text-xs text-gray-500 uppercase tracking-widest mb-2">Company</p>
+                            <p className="text-white font-medium">Shyftlabs</p>
                         </div>
-                        <div className="grid grid-cols-2 md:grid-cols-4 gap-8 border-t border-white/10 pt-8 text-sm">
-                            <div><p className="text-gray-500 uppercase tracking-widest text-xs mb-1">Company</p><p className="text-white font-medium">Shyftlabs</p></div>
-                            <div><p className="text-gray-500 uppercase tracking-widest text-xs mb-1">My Role</p><p className="text-white font-medium">Lead Product Designer</p></div>
-                            <div><p className="text-gray-500 uppercase tracking-widest text-xs mb-1">Platform</p><p className="text-white font-medium">Desktop Web (Responsive)</p></div>
-                            <div><p className="text-gray-500 uppercase tracking-widest text-xs mb-1">Duration</p><p className="text-white font-medium">12 Months, 2 Phases</p></div>
+                        <div className="bg-white/5 border border-white/10 rounded-2xl p-5 text-center">
+                            <p className="text-xs text-gray-500 uppercase tracking-widest mb-2">My Role</p>
+                            <p className="text-white font-medium">Designer → Acting PM</p>
                         </div>
-                    </section>
-
-                    {/* ================= THE CONTEXT ================= */}
-                    <div className="space-y-8 max-w-4xl">
-                        <SectionLabel>Context & Background</SectionLabel>
-                        <h2 className="text-4xl font-bold text-white leading-tight">
-                            A product people had to use.<br />
-                            <span className="text-gray-500 font-light">Not one they wanted to.</span>
-                        </h2>
-                        <div className="space-y-4 text-gray-400 text-lg leading-relaxed">
-                            <p>
-                                Carter is a Retail Media Network (RMN) platform — a system that allows retailers
-                                to sell ad space within their digital properties to brands who want to reach
-                                shoppers at their most decisive moment: right before purchase.
-                            </p>
-                            <p>
-                                Think of it like Google Ads, but exclusively for retail ecosystems — where a
-                                Walmart or Target becomes the publisher and a consumer brand pays to appear
-                                in front of high-intent shoppers directly on that retailer&apos;s platform.
-                            </p>
-                            <p>
-                                When I joined, Carter had found product-market-fit. Retailers were adopting it.
-                                But behind the sales momentum was a product that was quietly breaking people.
-                                Clients were churning. Onboarding calls were running hours over schedule.
-                                Campaign abandonment was at 27%. Nobody was using the platform without
-                                hand-holding.
-                            </p>
-                            <p className="text-white border-l-4 border-white/30 pl-5 italic font-light text-base">
-                                &ldquo;The platform works, but nobody outside the team knows how to use it confidently.&rdquo;
-                                — Internal Stakeholder Interview
-                            </p>
+                        <div className="bg-white/5 border border-white/10 rounded-2xl p-5 text-center">
+                            <p className="text-xs text-gray-500 uppercase tracking-widest mb-2">Platform</p>
+                            <p className="text-white font-medium">Desktop Web</p>
+                        </div>
+                        <div className="bg-white/5 border border-white/10 rounded-2xl p-5 text-center">
+                            <p className="text-xs text-gray-500 uppercase tracking-widest mb-2">Duration</p>
+                            <p className="text-white font-medium">12 Months, 2 Phases</p>
                         </div>
                     </div>
 
-                    {/* ================= PHASE DIVIDER ================= */}
-                    <div className="flex items-center gap-6">
+                    {/* Tools Stack */}
+                    <div className="flex flex-wrap gap-2 mt-8 justify-center">
+                        {["Jira", "Figma", "Hotjar", "Amplitude", "Storybook", "React", "Tailwind CSS"].map((tool) => (
+                            <span key={tool} className="text-xs px-3 py-1 bg-white/5 text-gray-500 border border-white/10 rounded-full">
+                                {tool}
+                            </span>
+                        ))}
+                    </div>
+                </div>
+            </section>
+
+            {/* ================= WHY I HAD PM AUTHORITY ================= */}
+            <section className="bg-black py-24 px-4 border-t border-white/10">
+                <div className="max-w-7xl mx-auto">
+                    <div className="max-w-3xl mb-20">
+                        <Badge>[ Why I Owned Product Decisions ]</Badge>
+                        <h2 className="font-heading text-4xl md:text-5xl font-bold text-white leading-tight mb-6">
+                            Titled Designer.{" "}
+                            <span className="text-gray-400">Operated as the Product Owner.</span>
+                        </h2>
+                        <p className="text-gray-400 text-base leading-relaxed">
+                            Carter had product-market fit but a product that was quietly breaking people.
+                            The Product Head gave me ownership because I could
+                            <span className="text-white font-medium"> read the codebase, run user research, and ship the UI myself</span>.
+                            I ran a cross-functional pod — <span className="text-white font-medium">4 engineers, 2 designers, 1 QA lead</span> — in 2-week sprints.
+                        </p>
+                    </div>
+
+                    {/* What I Owned — Icon Cards */}
+                    <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mb-16">
+                        <div className="bg-white/5 border border-white/10 rounded-2xl p-6 flex gap-4">
+                            <div className="w-10 h-10 rounded-xl bg-blue-500/10 border border-blue-500/20 flex items-center justify-center flex-shrink-0">
+                                <FileText size={18} className="text-blue-400" />
+                            </div>
+                            <div>
+                                <h4 className="text-white font-semibold text-sm mb-1">PRDs & Roadmap</h4>
+                                <p className="text-gray-400 text-xs leading-relaxed">Wrote every PRD. Prioritized the backlog. Defined what shipped and what didn&apos;t.</p>
+                            </div>
+                        </div>
+                        <div className="bg-white/5 border border-white/10 rounded-2xl p-6 flex gap-4">
+                            <div className="w-10 h-10 rounded-xl bg-[#d6f928]/10 border border-[#d6f928]/20 flex items-center justify-center flex-shrink-0">
+                                <Users size={18} className="text-[#d6f928]" />
+                            </div>
+                            <div>
+                                <h4 className="text-white font-semibold text-sm mb-1">Cross-Functional Lead</h4>
+                                <p className="text-gray-400 text-xs leading-relaxed">Ran sprint planning. Coordinated design, engineering, and QA in one room.</p>
+                            </div>
+                        </div>
+                        <div className="bg-white/5 border border-white/10 rounded-2xl p-6 flex gap-4">
+                            <div className="w-10 h-10 rounded-xl bg-orange-500/10 border border-orange-500/20 flex items-center justify-center flex-shrink-0">
+                                <Bug size={18} className="text-orange-400" />
+                            </div>
+                            <div>
+                                <h4 className="text-white font-semibold text-sm mb-1">QA & Jira Process</h4>
+                                <p className="text-gray-400 text-xs leading-relaxed">Structured acceptance criteria, expected behavior, and edge cases for every ticket.</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <p className="text-white border-l-4 border-[#d6f928]/40 pl-6 italic font-light text-base max-w-3xl">
+                        &ldquo;The platform works, but nobody outside the team knows how to use it confidently.&rdquo;
+                        <span className="text-gray-500 not-italic block mt-2 text-sm">— Internal Stakeholder Interview</span>
+                    </p>
+                </div>
+            </section>
+
+            {/* ================= PHASE 1 ================= */}
+            <section className="bg-[#050505] py-24 px-4 border-t border-white/10">
+                <div className="max-w-7xl mx-auto">
+
+                    {/* Phase Divider */}
+                    <div className="flex items-center gap-6 mb-20">
                         <div className="text-xs font-mono text-gray-600 uppercase tracking-widest whitespace-nowrap">Phase 01</div>
                         <div className="h-px bg-white/10 flex-grow"></div>
-                        <div className="text-xs font-mono text-gray-600 uppercase tracking-widest whitespace-nowrap">Foundation</div>
+                        <div className="text-xs font-mono text-gray-600 uppercase tracking-widest whitespace-nowrap">Fix the Foundation</div>
                     </div>
 
-                    {/* ================= PHASE 1: SETUP ================= */}
-                    <div className="space-y-6 max-w-4xl">
-                        <h2 className="text-3xl md:text-4xl font-bold text-white">Before we could build,<br /><span className="text-gray-400 font-light">we had to fix.</span></h2>
-                        <p className="text-gray-400 text-lg leading-relaxed">
-                            The team wanted to add new features. My instinct said the opposite — slow down,
-                            audit deeply, and fix the core before it compounds. The platform&apos;s biggest
-                            problem wasn&apos;t missing features. It was that the features it had were unusable.
+                    {/* Strategic Bet */}
+                    <div className="max-w-3xl mb-20">
+                        <Badge>[ The Strategic Bet ]</Badge>
+                        <h2 className="font-heading text-4xl md:text-5xl font-bold text-white leading-tight mb-6">
+                            The team wanted features.{" "}
+                            <span className="text-gray-400">I pushed to fix activation first.</span>
+                        </h2>
+                        <p className="text-gray-400 text-base leading-relaxed mb-5">
+                            I scored the backlog using RICE — reach, impact, confidence, effort — and the data was clear:
+                            fixing campaign activation had 4x the revenue impact of any new feature.
                         </p>
-                        <p className="text-gray-400 text-lg leading-relaxed">
-                            Two workflows were particularly broken. Campaign Creation — how advertisers
-                            build and launch ads — had a 27% abandonment rate. Ad Item Management —
-                            where they monitor and optimize running ads — was an outdated data table with
-                            no forecasting, no guidance, and no actionability. Clients were flying blind.
+                        <p className="text-gray-400 text-base leading-relaxed">
+                            The VP of Sales pushed back — &ldquo;we need feature X for the Kroger deal.&rdquo; I walked leadership through the churn correlation:
+                            27% abandonment meant we were losing clients faster than Sales could close them.
+                            They gave me two sprints to prove it. The numbers did the rest.
                         </p>
                     </div>
 
-                    {/* The Audit Callouts */}
-                    <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-                        <div className="bg-red-950/30 border border-red-500/20 rounded-2xl p-6 space-y-3">
-                            <div className="w-8 h-8 rounded-full bg-red-500/20 flex items-center justify-center text-red-400 text-lg font-bold">!</div>
-                            <h4 className="text-white font-semibold">27% Campaign Abandonment</h4>
-                            <p className="text-gray-400 text-sm leading-relaxed">A linear, form-heavy campaign builder with no progress feedback. Users dropped off after Step 2, confused about what they were even setting up.</p>
+                    {/* Discovery */}
+                    <div className="bg-white/5 border border-white/10 rounded-2xl p-8 max-w-4xl mb-20 flex flex-col md:flex-row gap-4 md:gap-6">
+                        <div className="w-12 h-12 rounded-xl bg-purple-500/10 border border-purple-500/20 flex items-center justify-center flex-shrink-0">
+                            <Search size={20} className="text-purple-400" />
                         </div>
-                        <div className="bg-red-950/30 border border-red-500/20 rounded-2xl p-6 space-y-3">
-                            <div className="w-8 h-8 rounded-full bg-red-500/20 flex items-center justify-center text-red-400 text-lg font-bold">!</div>
-                            <h4 className="text-white font-semibold">Static Data, Zero Insight</h4>
-                            <p className="text-gray-400 text-sm leading-relaxed">Ad item management was a legacy table — rows of numbers, no visual context. CTR down? The platform didn&apos;t tell you what to do about it.</p>
-                        </div>
-                        <div className="bg-red-950/30 border border-red-500/20 rounded-2xl p-6 space-y-3">
-                            <div className="w-8 h-8 rounded-full bg-red-500/20 flex items-center justify-center text-red-400 text-lg font-bold">!</div>
-                            <h4 className="text-white font-semibold">No Design Language</h4>
-                            <p className="text-gray-400 text-sm leading-relaxed">12 teams. 12 different UI patterns. Buttons, modals, inputs — none matched. The product looked and felt like it was built by different companies.</p>
-                        </div>
-                    </div>
-
-                    {/* ——— SOLUTION: DESIGN SYSTEM ——— */}
-                    <div className="space-y-8">
-                        <div className="space-y-3 max-w-3xl">
-                            <SectionLabel>Step 1 of 3 — The Language</SectionLabel>
-                            <h3 className="text-3xl font-bold text-white">Building the Carter Design System 2.0</h3>
-                            <p className="text-gray-400 text-base leading-relaxed">
-                                You cannot fix a house with different tools in every room. Before touching any
-                                workflow, we standardized the visual and interaction language of the entire
-                                platform. Every component — buttons, inputs, modals, tables, tooltips — was
-                                rebuilt from scratch using atomic design principles, Material Design 3 tokens,
-                                an 8pt spatial grid, and rigorous WCAG 2.1 AA testing. This became the single
-                                source of truth for every team building on top of Carter going forward.
+                        <div>
+                            <h4 className="text-white font-semibold mb-3">Discovery</h4>
+                            <p className="text-gray-400 text-sm leading-relaxed">
+                                Interviewed <span className="text-white font-medium">8 advertisers + 5 internal ops</span> over 2 weeks.
+                                Pulled 200+ session recordings from Hotjar. The key insight: users weren&apos;t confused by complexity —
+                                they had <span className="text-white font-medium">no confidence signals</span> at any step. That reframed the problem from
+                                &ldquo;simplify the UI&rdquo; to &ldquo;add feedback at every decision point.&rdquo;
                             </p>
                         </div>
+                    </div>
+
+                    {/* Audit Findings */}
+                    <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mb-20">
+                        <div className="bg-red-950/20 border border-red-500/15 rounded-2xl p-6">
+                            <div className="w-10 h-10 rounded-xl bg-red-500/10 border border-red-500/20 flex items-center justify-center mb-4">
+                                <AlertTriangle size={18} className="text-red-400" />
+                            </div>
+                            <h4 className="font-heading text-2xl font-bold text-white mb-2">27%</h4>
+                            <p className="text-white text-sm font-medium mb-2">Activation Drop-off</p>
+                            <p className="text-gray-400 text-xs leading-relaxed">Users dropped after Step 2 of campaign builder. Directly impacting TTV and LTV:CAC.</p>
+                        </div>
+                        <div className="bg-red-950/20 border border-red-500/15 rounded-2xl p-6">
+                            <div className="w-10 h-10 rounded-xl bg-red-500/10 border border-red-500/20 flex items-center justify-center mb-4">
+                                <Eye size={18} className="text-red-400" />
+                            </div>
+                            <h4 className="font-heading text-2xl font-bold text-white mb-2">0</h4>
+                            <p className="text-white text-sm font-medium mb-2">Actionable Insights</p>
+                            <p className="text-gray-400 text-xs leading-relaxed">Ad management was a legacy table. CTR down 40%? No guidance on what to do. Retention killer.</p>
+                        </div>
+                        <div className="bg-red-950/20 border border-red-500/15 rounded-2xl p-6">
+                            <div className="w-10 h-10 rounded-xl bg-red-500/10 border border-red-500/20 flex items-center justify-center mb-4">
+                                <Split size={18} className="text-red-400" />
+                            </div>
+                            <h4 className="font-heading text-2xl font-bold text-white mb-2">12</h4>
+                            <p className="text-white text-sm font-medium mb-2">Teams, Zero Consistency</p>
+                            <p className="text-gray-400 text-xs leading-relaxed">Every team built UI independently. Engineering velocity bled out on rework.</p>
+                        </div>
+                    </div>
+
+                    {/* ——— DECISION 1: PLATFORM INFRASTRUCTURE ——— */}
+                    <div className="mb-24">
+                        <Badge>[ Product Decision 1 — Platform Investment ]</Badge>
+                        <h3 className="font-heading text-3xl font-bold text-white mb-4">Component system to cut shipping cycles by 50%</h3>
+                        <p className="text-gray-400 text-base leading-relaxed max-w-3xl mb-10">
+                            A product decision to reduce engineering rework across 12 teams.
+                            Atomic design, 8pt grid, WCAG 2.1 AA. Every component shipped with Storybook docs — zero dev back-and-forth.
+                        </p>
                         <img src={DSL} alt="Carter Design System 2.0" className="rounded-2xl w-full border border-white/10" />
-                        <div className="grid grid-cols-1 md:grid-cols-3 gap-6 text-sm">
-                            <div className="bg-white/5 border border-white/10 rounded-xl p-6 space-y-2">
-                                <h4 className="text-white font-semibold">Tokenized Theming</h4>
-                                <p className="text-gray-400">Color, typography, and spacing defined as tokens — meaning a brand theme change cascades instantly instead of requiring manual updates across 200+ screens.</p>
-                            </div>
-                            <div className="bg-white/5 border border-white/10 rounded-xl p-6 space-y-2">
-                                <h4 className="text-white font-semibold">Figma ↔ Code Parity</h4>
-                                <p className="text-gray-400">Every component handoff included interaction specs, state definitions, and Storybook documentation — cutting dev-to-design back-and-forth by over 50%.</p>
-                            </div>
-                            <div className="bg-white/5 border border-white/10 rounded-xl p-6 space-y-2">
-                                <h4 className="text-white font-semibold">Scalable for Phase 2</h4>
-                                <p className="text-gray-400">The system was built with extension in mind. When we later designed the DSP, every new component slotted in seamlessly — no rework of existing patterns.</p>
-                            </div>
-                        </div>
                     </div>
 
-                    {/* ——— SOLUTION: CAMPAIGN CREATION ——— */}
-                    <div className="space-y-8">
-                        <div className="space-y-3 max-w-3xl">
-                            <SectionLabel>Step 2 of 3 — Campaign Creation Redesign</SectionLabel>
-                            <h3 className="text-3xl font-bold text-white">From a form, to a guided experience.</h3>
-                            <p className="text-gray-400 text-base leading-relaxed">
-                                The old campaign builder was a single long form. Users had no sense of where
-                                they were, where they were going, or whether what they set up was correct.
-                                We redesigned it into a structured, five-stage modular flow: Objective →
-                                Budget → Review → Creative . Each stage was independent, gave
-                                live feedback, and surfaced AI-powered suggestions based on the advertiser&apos;s
-                                past performance data. The final Review screen showed forecasted reach,
-                                estimated spend, and projected ROI — building confidence before they hit launch.
-                            </p>
-                        </div>
-                        <img src={CampaignCreationImg} alt="Campaign Creation Redesign" className="rounded-2xl w-full border border-white/10" />
-                        <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-                            <section className="bg-white/5 border border-white/10 rounded-2xl p-8 space-y-5">
-                                <h4 className="text-white font-semibold text-base">Key Design Decisions</h4>
-                                <ul className="text-gray-400 text-sm space-y-3">
-                                    <li className="flex gap-3"><span className="text-white mt-0.5">→</span><span><strong className="text-white">Progress visibility:</strong> A persistent sticky header showed stage completion; advertisers could jump back to any step without losing data.</span></li>
-                                    <li className="flex gap-3"><span className="text-white mt-0.5">→</span><span><strong className="text-white">Inline validation:</strong> Errors surfaced per field, not as a bulk submission failure — eliminating the most common frustration point.</span></li>
-                                    <li className="flex gap-3"><span className="text-white mt-0.5">→</span><span><strong className="text-white">Contextual AI nudges:</strong> Budget recommendations based on similar historical campaigns appeared within the budget step — not as an overlay, but as part of the form.</span></li>
-                                    <li className="flex gap-3"><span className="text-white mt-0.5">→</span><span><strong className="text-white">Forecast preview:</strong> Before launch, a read-only summary with projected impressions, estimated clicks, and recommended KPIs gave clients conviction to commit.</span></li>
-                                </ul>
-                            </section>
-                            <section className="bg-white/5 border border-white/10 rounded-2xl p-8 space-y-5">
-                                <h4 className="text-white font-semibold text-base">Before vs. After</h4>
-                                <div className="overflow-x-auto">
-                                    <table className="w-full text-left text-sm text-gray-400">
-                                        <thead className="text-xs text-gray-500 uppercase bg-white/5">
-                                            <tr>
-                                                <th className="px-3 py-3">Metric</th>
-                                                <th className="px-3 py-3">Before</th>
-                                                <th className="px-3 py-3">After</th>
-                                                <th className="px-3 py-3">Δ</th>
-                                            </tr>
-                                        </thead>
-                                        <tbody className="divide-y divide-white/5">
-                                            <tr>
-                                                <td className="px-3 py-3 text-white">Abandonment Rate</td>
-                                                <td className="px-3 py-3">27%</td>
-                                                <td className="px-3 py-3 text-green-400">8.5%</td>
-                                                <td className="px-3 py-3 font-semibold text-green-400">−68%</td>
-                                            </tr>
-                                            <tr>
-                                                <td className="px-3 py-3 text-white">Avg. Setup Time</td>
-                                                <td className="px-3 py-3">7.1 min</td>
-                                                <td className="px-3 py-3 text-green-400">4.1 min</td>
-                                                <td className="px-3 py-3 font-semibold text-green-400">−42%</td>
-                                            </tr>
-                                            <tr>
-                                                <td className="px-3 py-3 text-white">Campaign Launch Rate</td>
-                                                <td className="px-3 py-3">61%</td>
-                                                <td className="px-3 py-3 text-green-400">81%</td>
-                                                <td className="px-3 py-3 font-semibold text-green-400">+20pts</td>
-                                            </tr>
-                                        </tbody>
-                                    </table>
-                                </div>
-                            </section>
-                        </div>
-                    </div>
-                    {/* ——— SOLUTION: AD ITEM MANAGEMENT ——— */}
-                    <div className="space-y-8">
-                        <div className="space-y-3 max-w-3xl">
-                            <SectionLabel>Step 3 of 3 — Ad Item Intelligence</SectionLabel>
-                            <h3 className="text-3xl font-bold text-white">Stop showing data.<br /><span className="text-gray-400 font-light">Start showing decisions.</span></h3>
-                            <p className="text-gray-400 text-base leading-relaxed">
-                                The old ad item view was a passive table — density without insight. An advertiser
-                                could see that their CTR was 0.4% but had no idea if that was good, bad, or
-                                what to do next. We replaced it with an intelligence layer: card-based layouts
-                                with visual status indicators, spend pacing charts, and proactive system
-                                recommendations like &ldquo;this creative is underperforming — swap it for your
-                                top-performing variant.&rdquo; We moved the product from a reporting tool
-                                to an optimization engine.
-                            </p>
-                        </div>
-
-                        <div className="space-y-4">
-                            <p className="text-xs text-gray-600 uppercase tracking-widest font-medium">The old view — a dense, unactionable table</p>
-                            <img src={Oldaditem} alt="Old Ad Item Interface" className="rounded-2xl w-full border border-white/10 opacity-50 grayscale" />
-                        </div>
-                        <div className="space-y-4">
-                            <p className="text-xs text-gray-500 uppercase tracking-widest font-medium">The new view — context, clarity, and one-click optimization</p>
-                            <img src={Aditem} alt="New Ad Item Interface" className="rounded-2xl w-full border border-white/10" />
-                        </div>
-
-                        <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-                            <section className="bg-white/5 border border-white/10 rounded-2xl p-8 space-y-5">
-                                <h4 className="text-white font-semibold text-base">What Changed</h4>
-                                <ul className="text-gray-400 text-sm space-y-3">
-                                    <li className="flex gap-3"><span className="text-white mt-0.5">→</span><span><strong className="text-white">Visual pacing charts:</strong> Spend and impression curves made budget burn immediately readable at a glance — no mental math required.</span></li>
-                                    <li className="flex gap-3"><span className="text-white mt-0.5">→</span><span><strong className="text-white">Smart alerts:</strong> The system surfaced proactive flags — underperforming creative, overspending bids, audience saturation — before they became costly mistakes.</span></li>
-                                    <li className="flex gap-3"><span className="text-white mt-0.5">→</span><span><strong className="text-white">One-click actions:</strong> Pause, swap creative, adjust bid — all accessible in-context on the card, without navigating away to another screen.</span></li>
-                                    <li className="flex gap-3"><span className="text-white mt-0.5">→</span><span><strong className="text-white">ROI-backed bid suggestions:</strong> Instead of manual bid guessing, the system suggested bids based on historical first-party data for similar ad placements.</span></li>
-                                </ul>
-                            </section>
-                            <section className="bg-white/5 border border-white/10 rounded-2xl p-8 space-y-5">
-                                <h4 className="text-white font-semibold text-base">Before vs. After</h4>
-                                <div className="overflow-x-auto">
-                                    <table className="w-full text-left text-sm text-gray-400">
-                                        <thead className="text-xs text-gray-500 uppercase bg-white/5">
-                                            <tr>
-                                                <th className="px-3 py-3">Metric</th>
-                                                <th className="px-3 py-3">Before</th>
-                                                <th className="px-3 py-3">After</th>
-                                                <th className="px-3 py-3">Δ</th>
-                                            </tr>
-                                        </thead>
-                                        <tbody className="divide-y divide-white/5">
-                                            <tr>
-                                                <td className="px-3 py-3 text-white">Review Time / Ad Item</td>
-                                                <td className="px-3 py-3">6.4 min</td>
-                                                <td className="px-3 py-3 text-green-400">3.1 min</td>
-                                                <td className="px-3 py-3 font-semibold text-green-400">−52%</td>
-                                            </tr>
-                                            <tr>
-                                                <td className="px-3 py-3 text-white">Creative Swap Rate</td>
-                                                <td className="px-3 py-3">14%</td>
-                                                <td className="px-3 py-3 text-green-400">47%</td>
-                                                <td className="px-3 py-3 font-semibold text-green-400">+33pts</td>
-                                            </tr>
-                                            <tr>
-                                                <td className="px-3 py-3 text-white">ROI from Bid Guidance</td>
-                                                <td className="px-3 py-3">—</td>
-                                                <td className="px-3 py-3 text-green-400">+24%</td>
-                                                <td className="px-3 py-3 font-semibold text-green-400">New KPI</td>
-                                            </tr>
-                                        </tbody>
-                                    </table>
-                                </div>
-                            </section>
-                        </div>
-                    </div>
-
-                    {/* ——— PHASE 1 OUTCOMES ——— */}
-                    <section className="bg-gradient-to-br from-white/[0.07] to-transparent border border-white/10 backdrop-blur-md p-10 rounded-3xl">
-                        <SectionLabel>Phase 1 — Strategic Outcomes</SectionLabel>
-                        <p className="text-gray-400 text-sm mt-2 mb-10 max-w-2xl">
-                            Fixing the foundation delivered compounding returns. Better UX meant shorter sales cycles, faster client onboarding, and — critically — a reusable system that would let us build Phase 2 at speed.
+                    {/* ——— DECISION 2: CAMPAIGN CREATION ——— */}
+                    <div className="mb-24">
+                        <Badge>[ Product Decision 2 — Activation Funnel Fix ]</Badge>
+                        <h3 className="font-heading text-3xl font-bold text-white mb-4">From a form dump to a guided 5-stage flow</h3>
+                        <p className="text-gray-400 text-base leading-relaxed max-w-3xl mb-10">
+                            Wrote the PRD, mapped every drop-off from session recordings. Applied Hick&apos;s Law — reduced choices from 12 to 3 per step.
+                            Each stage gave live validation and AI-powered budget recommendations.
                         </p>
-                        <div className="grid grid-cols-2 md:grid-cols-4 gap-8">
-                            <StatCard value="300%" label="Growth in active enterprise clients within 12 months of relaunch." />
-                            <StatCard value="50%" label="Faster engineering cycles due to reusable Design System components." />
-                            <StatCard value="40%" label="Increase in platform engagement — users exploring more features independently." />
-                            <StatCard value="2×" label="Faster client onboarding — from 3 hours average down to under 90 minutes." />
-                        </div>
-                    </section>
+                        <img src={CampaignCreationImg} alt="Campaign Creation Redesign" className="rounded-2xl w-full border border-white/10 mb-12" />
 
-                    {/* ================= PHASE 2 DIVIDER ================= */}
-                    <div className="flex items-center gap-6 pt-8">
+                        {/* Product Calls — Icon Grid */}
+                        <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mb-12">
+                            <div className="bg-white/5 border border-white/10 rounded-2xl p-6 flex gap-4">
+                                <div className="w-10 h-10 rounded-xl bg-blue-500/10 border border-blue-500/20 flex items-center justify-center flex-shrink-0">
+                                    <Layers size={18} className="text-blue-400" />
+                                </div>
+                                <div>
+                                    <h4 className="text-white font-semibold text-sm mb-1">Persistent Progress State</h4>
+                                    <p className="text-gray-400 text-xs leading-relaxed">Scoped in PRD. Users jump between steps without data loss. TTV dropped immediately.</p>
+                                </div>
+                            </div>
+                            <div className="bg-white/5 border border-white/10 rounded-2xl p-6 flex gap-4">
+                                <div className="w-10 h-10 rounded-xl bg-green-500/10 border border-green-500/20 flex items-center justify-center flex-shrink-0">
+                                    <CheckCircle2 size={18} className="text-green-400" />
+                                </div>
+                                <div>
+                                    <h4 className="text-white font-semibold text-sm mb-1">Inline Validation</h4>
+                                    <p className="text-gray-400 text-xs leading-relaxed">Eliminated the #1 support ticket. Errors per field, not a post-submission wall.</p>
+                                </div>
+                            </div>
+                            <div className="bg-white/5 border border-white/10 rounded-2xl p-6 flex gap-4">
+                                <div className="w-10 h-10 rounded-xl bg-[#d6f928]/10 border border-[#d6f928]/20 flex items-center justify-center flex-shrink-0">
+                                    <Cpu size={18} className="text-[#d6f928]" />
+                                </div>
+                                <div>
+                                    <h4 className="text-white font-semibold text-sm mb-1">AI Budget Nudges</h4>
+                                    <p className="text-gray-400 text-xs leading-relaxed">Historical spend recommendations embedded in the flow. Contextual guidance, not a modal.</p>
+                                </div>
+                            </div>
+                            <div className="bg-white/5 border border-white/10 rounded-2xl p-6 flex gap-4">
+                                <div className="w-10 h-10 rounded-xl bg-purple-500/10 border border-purple-500/20 flex items-center justify-center flex-shrink-0">
+                                    <BarChart2 size={18} className="text-purple-400" />
+                                </div>
+                                <div>
+                                    <h4 className="text-white font-semibold text-sm mb-1">Pre-Launch Forecast</h4>
+                                    <p className="text-gray-400 text-xs leading-relaxed">Projected impressions, clicks, ROI. Gave advertisers conviction. Launch rate +20pts.</p>
+                                </div>
+                            </div>
+                        </div>
+
+                        {/* Metrics */}
+                        <div className="bg-white/5 border border-white/10 rounded-2xl p-8">
+                            <h4 className="text-white font-semibold text-sm mb-6">Before vs. After</h4>
+                            <div className="flex items-center justify-between pb-3 border-b border-white/10 mb-1">
+                                <span className="text-gray-500 text-xs uppercase tracking-widest w-2/5">Metric</span>
+                                <span className="text-gray-500 text-xs uppercase tracking-widest w-1/5 text-center">Before</span>
+                                <span className="text-gray-500 text-xs uppercase tracking-widest w-1/5 text-center">After</span>
+                                <span className="text-gray-500 text-xs uppercase tracking-widest w-1/5 text-right">Delta</span>
+                            </div>
+                            <MetricRow label="Abandonment Rate" before="27%" after="8.5%" delta="-68%" />
+                            <MetricRow label="Avg. Setup Time" before="7.1 min" after="4.1 min" delta="-42%" />
+                            <MetricRow label="Campaign Launch Rate" before="61%" after="81%" delta="+20pts" />
+                        </div>
+
+                        {/* What didn't work */}
+                        <div className="mt-8 bg-white/[0.02] border border-dashed border-white/10 rounded-xl p-5 max-w-3xl">
+                            <p className="text-gray-600 text-xs uppercase tracking-widest mb-2 font-mono">What didn&apos;t work first</p>
+                            <p className="text-gray-400 text-sm leading-relaxed">
+                                First version of AI budget nudges auto-filled spend amounts. Under 10% interaction — users didn&apos;t trust automated inputs on day one.
+                                Iterated: switched to <span className="text-white font-medium">contextual recommendations alongside manual controls</span>. Adoption jumped to 38%.
+                            </p>
+                        </div>
+                    </div>
+
+                    {/* ——— DECISION 3: AD ITEM MANAGEMENT ——— */}
+                    <div className="mb-24">
+                        <Badge>[ Product Decision 3 — Retention Feature ]</Badge>
+                        <h3 className="font-heading text-3xl font-bold text-white mb-4">
+                            From a reporting table <span className="text-gray-400 font-light">to an optimization engine.</span>
+                        </h3>
+                        <p className="text-gray-400 text-base leading-relaxed max-w-3xl mb-10">
+                            Card-based layout with pacing charts, proactive alerts, and one-click actions.
+                            Product bet: move from passive reporting to active guidance.
+                        </p>
+
+                        <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mb-12">
+                            <div className="space-y-3">
+                                <p className="text-xs text-gray-600 uppercase tracking-widest font-medium">Before</p>
+                                <img src={Oldaditem} alt="Old Ad Item Interface" className="rounded-2xl w-full border border-white/10 opacity-40 grayscale" />
+                            </div>
+                            <div className="space-y-3">
+                                <p className="text-xs text-[#d6f928] uppercase tracking-widest font-medium">After</p>
+                                <img src={Aditem} alt="New Ad Item Interface" className="rounded-2xl w-full border border-white/10" />
+                            </div>
+                        </div>
+
+                        <div className="bg-white/5 border border-white/10 rounded-2xl p-8">
+                            <h4 className="text-white font-semibold text-sm mb-6">Impact</h4>
+                            <div className="flex items-center justify-between pb-3 border-b border-white/10 mb-1">
+                                <span className="text-gray-500 text-xs uppercase tracking-widest w-2/5">Metric</span>
+                                <span className="text-gray-500 text-xs uppercase tracking-widest w-1/5 text-center">Before</span>
+                                <span className="text-gray-500 text-xs uppercase tracking-widest w-1/5 text-center">After</span>
+                                <span className="text-gray-500 text-xs uppercase tracking-widest w-1/5 text-right">Delta</span>
+                            </div>
+                            <MetricRow label="Review Time / Item" before="6.4 min" after="3.1 min" delta="-52%" />
+                            <MetricRow label="Creative Swap Rate" before="14%" after="47%" delta="+33pts" />
+                            <MetricRow label="ROI from Bid Guidance" before="--" after="+24%" delta="New KPI" />
+                        </div>
+                    </div>
+
+                    {/* Phase 1 Outcomes */}
+                    <div className="bg-gradient-to-br from-white/[0.05] to-transparent border border-white/10 backdrop-blur-md rounded-2xl p-8 md:p-10">
+                        <Badge>[ Phase 1 — Business Outcomes ]</Badge>
+                        <p className="text-gray-400 text-sm mb-10 max-w-2xl">
+                            Fixing activation before building new features delivered compounding returns.
+                        </p>
+                        <div className="grid grid-cols-2 md:grid-cols-4 gap-6">
+                            <StatCard value="300%" label="Enterprise client growth — retention fixed before scaling." icon={<TrendingUp size={18} className="text-green-400" />} />
+                            <StatCard value="50%" label="Faster shipping velocity from component infrastructure." icon={<Zap size={18} className="text-yellow-400" />} />
+                            <StatCard value="40%" label="Activation improvement — users reaching value independently." icon={<Target size={18} className="text-blue-400" />} />
+                            <StatCard value="2x" label="Faster onboarding — 3 hours down to under 90 minutes." icon={<Clock size={18} className="text-purple-400" />} />
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            {/* ================= PHASE 2 ================= */}
+            <section className="bg-black py-24 px-4 border-t border-white/10">
+                <div className="max-w-7xl mx-auto">
+
+                    {/* Phase Divider */}
+                    <div className="flex items-center gap-6 mb-20">
                         <div className="text-xs font-mono text-gray-600 uppercase tracking-widest whitespace-nowrap">Phase 02</div>
                         <div className="h-px bg-white/10 flex-grow"></div>
                         <div className="text-xs font-mono text-gray-600 uppercase tracking-widest whitespace-nowrap">0-to-1 DSP</div>
                     </div>
 
-                    {/* ================= PHASE 2: CONTEXT ================= */}
-                    <div className="space-y-8 max-w-4xl">
-                        <SectionLabel>The Next Frontier</SectionLabel>
-                        <h2 className="text-4xl font-bold text-white leading-tight">
-                            A stable platform.<br />
-                            <span className="text-gray-400 font-light">Now scale it across every retailer.</span>
+                    {/* Strategic Bet */}
+                    <div className="max-w-3xl mb-20">
+                        <Badge>[ The Strategic Bet ]</Badge>
+                        <h2 className="font-heading text-4xl md:text-5xl font-bold text-white leading-tight mb-6">
+                            Phase 1 earned trust.{" "}
+                            <span className="text-gray-400">I used it to pitch a new product.</span>
                         </h2>
-                        <div className="space-y-4 text-gray-400 text-lg leading-relaxed">
-                            <p>
-                                With Phase 1 validated, the business had a new ambition: don&apos;t just power one
-                                retailer&apos;s ad network. Power all of them, from a single interface. The
-                                vision was a Demand-Side Platform (DSP) — a unified command center where
-                                marketers could plan, buy, and manage campaigns across multiple Retail Media
-                                Networks simultaneously.
-                            </p>
-                            <p>
-                                The problem we were solving for was brutal in its scale: a typical enterprise
-                                advertiser managing campaigns across Walmart, Kroger, and Target wasn&apos;t just
-                                dealing with different ad formats — they were doing three separate logins,
-                                three separate creative uploads, three separate reporting exports, and
-                                manually reconciling the results in a spreadsheet. Every week.
-                            </p>
-                            <p className="text-white border-l-4 border-white/30 pl-5 italic font-light text-base">
-                                &ldquo;I spend 4 hours every Monday just pulling reports and combining them. I still
-                                don&apos;t know which channel is actually working.&rdquo; — Enterprise Advertiser, User Research
+                        <p className="text-gray-400 text-base leading-relaxed mb-5">
+                            After the redesign shipped, enterprise clients started asking for cross-network campaign management.
+                            I ran competitive analysis — no unified DSP existed for retail media at this scale.
+                        </p>
+                        <p className="text-gray-400 text-base leading-relaxed">
+                            Built a one-pager for leadership: TAM sizing, build vs. buy analysis, 6-month phased roadmap.
+                            The data point that closed it — advertisers active on 3+ networks had <span className="text-white font-medium">4x the LTV</span> of single-network clients.
+                            CTO greenlit it in one meeting.
+                        </p>
+                    </div>
+
+                    {/* Context */}
+                    <div className="max-w-3xl mb-20">
+                        <Badge>[ The Next Product ]</Badge>
+                        <h2 className="font-heading text-4xl md:text-5xl font-bold text-white leading-tight mb-6">
+                            One platform.{" "}
+                            <span className="text-gray-400">Every retail ad network.</span>
+                        </h2>
+                        <p className="text-gray-400 text-base leading-relaxed mb-5">
+                            Build a DSP — a unified command center for campaigns across multiple Retail Media Networks.
+                            I owned this 0-to-1 from discovery to ship. PRD. IA. Sprint planning. Engineering + QA coordination.
+                        </p>
+                        <p className="text-white border-l-4 border-[#d6f928]/40 pl-6 italic font-light text-base">
+                            &ldquo;I spend 4 hours every Monday just pulling reports. I still don&apos;t know which channel is working.&rdquo;
+                            <span className="text-gray-500 not-italic block mt-2 text-sm">— Enterprise Advertiser, User Research</span>
+                        </p>
+                    </div>
+
+                    <img src={dsp} alt="Carter DSP — Platform Overview" className="rounded-2xl w-full border border-white/10 mb-20" />
+
+                    {/* Market Gap + North Stars */}
+                    <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mb-20">
+                        <div className="bg-white/5 border border-white/10 rounded-2xl p-8">
+                            <Badge>[ The Market Gap ]</Badge>
+                            <div className="space-y-4 mt-2">
+                                {[
+                                    { icon: <BarChart2 size={16} className="text-red-400" />, text: "No unified performance view across networks" },
+                                    { icon: <Layout size={16} className="text-red-400" />, text: "Creative uploaded per-network — massive duplication" },
+                                    { icon: <AlertTriangle size={16} className="text-red-400" />, text: "Budget splits done manually. Overspend on saturated segments" },
+                                ].map((item, i) => (
+                                    <div key={i} className="flex items-start gap-3">
+                                        <div className="w-8 h-8 rounded-lg bg-red-500/10 border border-red-500/20 flex items-center justify-center flex-shrink-0 mt-0.5">{item.icon}</div>
+                                        <p className="text-gray-400 text-sm leading-relaxed">{item.text}</p>
+                                    </div>
+                                ))}
+                            </div>
+                        </div>
+                        <div className="bg-white/5 border border-white/10 rounded-2xl p-8">
+                            <Badge>[ North Star Metrics ]</Badge>
+                            <div className="space-y-4 mt-2">
+                                {[
+                                    { icon: <Zap size={16} className="text-[#d6f928]" />, text: "Reduce cross-network setup time by 60-70%" },
+                                    { icon: <CheckCircle2 size={16} className="text-[#d6f928]" />, text: "95%+ creative compliance through guided spec validation" },
+                                    { icon: <Target size={16} className="text-[#d6f928]" />, text: "Single KPI standard — one source of truth" },
+                                ].map((item, i) => (
+                                    <div key={i} className="flex items-start gap-3">
+                                        <div className="w-8 h-8 rounded-lg bg-[#d6f928]/10 border border-[#d6f928]/20 flex items-center justify-center flex-shrink-0 mt-0.5">{item.icon}</div>
+                                        <p className="text-gray-400 text-sm leading-relaxed">{item.text}</p>
+                                    </div>
+                                ))}
+                            </div>
+                        </div>
+                    </div>
+
+                    {/* What I Said No To */}
+                    <div className="bg-white/5 border border-white/10 rounded-2xl p-8 max-w-4xl mb-20 flex flex-col md:flex-row gap-4 md:gap-6">
+                        <div className="w-12 h-12 rounded-xl bg-orange-500/10 border border-orange-500/20 flex items-center justify-center flex-shrink-0">
+                            <Scissors size={20} className="text-orange-400" />
+                        </div>
+                        <div>
+                            <h4 className="text-white font-semibold mb-3">What I Said No To</h4>
+                            <p className="text-gray-400 text-sm leading-relaxed">
+                                14 modules on the wishlist. I scoped MVP to 6. Cut <span className="text-white font-medium">real-time bidding</span> (no data yet),
+                                <span className="text-white font-medium"> custom attribution</span> (3-month build, unclear ROI),
+                                and <span className="text-white font-medium">white-label theming</span> (sales request, not user need).
+                                Every cut documented in the PRD with trigger conditions for revisiting.
                             </p>
                         </div>
                     </div>
 
-                    <img src={dsp} alt="Carter DSP — Overview" className="rounded-3xl w-full border border-white/10" />
-
-                    {/* Video + Business Goals */}
-                    <section className="bg-white/5 border border-white/10 backdrop-blur-lg p-8 md:p-12 rounded-3xl">
-                        <div className="flex flex-col md:flex-row gap-12 items-center">
-                            <video controls autoPlay loop muted className="w-full md:w-1/2 rounded-2xl border border-white/10 shadow-2xl">
+                    {/* Video Walkthrough */}
+                    <div className="bg-white/5 border border-white/10 backdrop-blur-lg p-6 md:p-10 rounded-2xl mb-20">
+                        <div className="flex flex-col md:flex-row gap-10 items-center">
+                            <video controls autoPlay loop muted className="w-full md:w-1/2 rounded-2xl border border-white/10">
                                 <source src={v1} type="video/mp4" />
                             </video>
-                            <div className="w-full md:w-1/2 space-y-10">
-                                <div className="space-y-4">
-                                    <SectionLabel>The Problem We Were Designing Against</SectionLabel>
-                                    <h3 className="text-xl font-semibold text-white">Fragmentation at every layer</h3>
-                                    <ul className="text-gray-400 text-sm space-y-3">
-                                        <li className="flex gap-3"><span className="text-white mt-0.5">→</span><span>No unified view of campaign performance across networks — every RMN had its own reporting format.</span></li>
-                                        <li className="flex gap-3"><span className="text-white mt-0.5">→</span><span>Creative assets uploaded per-network, per-format — no shared library, massive duplication.</span></li>
-                                        <li className="flex gap-3"><span className="text-white mt-0.5">→</span><span>Budget splits decided manually, with no optimization recommendations or pacing visibility.</span></li>
-                                        <li className="flex gap-3"><span className="text-white mt-0.5">→</span><span>Zero cross-network spend efficiency — marketers overspent on saturated segments without knowing.</span></li>
-                                    </ul>
+                            <div className="w-full md:w-1/2">
+                                <Badge>[ Product Architecture ]</Badge>
+                                <h3 className="font-heading text-2xl font-bold text-white mb-6">Four bets that defined the DSP</h3>
+                                <div className="space-y-5">
+                                    {[
+                                        { icon: <Layers size={16} className="text-blue-400" />, title: "Unified Orchestration", desc: "One campaign pushed to all RMNs with auto-reformatting." },
+                                        { icon: <Users size={16} className="text-purple-400" />, title: "Shared Targeting", desc: "Audience overlap detection across networks. First-of-its-kind." },
+                                        { icon: <Layout size={16} className="text-orange-400" />, title: "Dynamic Creative", desc: "One master asset → compliant variants for every network." },
+                                        { icon: <TrendingUp size={16} className="text-green-400" />, title: "Smart Budgeting", desc: "Real-time spend allocation based on performance signals." },
+                                    ].map((item, i) => (
+                                        <div key={i} className="flex items-start gap-3">
+                                            <div className="w-8 h-8 rounded-lg bg-white/5 border border-white/10 flex items-center justify-center flex-shrink-0 mt-0.5">{item.icon}</div>
+                                            <div>
+                                                <p className="text-white text-sm font-medium">{item.title}</p>
+                                                <p className="text-gray-400 text-xs">{item.desc}</p>
+                                            </div>
+                                        </div>
+                                    ))}
                                 </div>
-                                <div className="space-y-4">
-                                    <SectionLabel>Design KPIs</SectionLabel>
-                                    <ul className="text-gray-400 text-sm space-y-3">
-                                        <li className="flex gap-3"><span className="text-white mt-0.5">→</span><span>Reduce campaign setup time across networks by 60–70%.</span></li>
-                                        <li className="flex gap-3"><span className="text-white mt-0.5">→</span><span>Achieve 95%+ asset compliance rate through guided creative specs.</span></li>
-                                        <li className="flex gap-3"><span className="text-white mt-0.5">→</span><span>Unify reporting into a single KPI standard — one source of truth.</span></li>
-                                    </ul>
-                                </div>
-                            </div>
-                        </div>
-                    </section>
-
-                    {/* DSP Solution Architecture */}
-                    <div className="space-y-8">
-                        <div className="space-y-3 max-w-3xl">
-                            <SectionLabel>The DSP Architecture</SectionLabel>
-                            <h3 className="text-3xl font-bold text-white">One platform. Every network. Zero switching.</h3>
-                            <p className="text-gray-400 text-base leading-relaxed">
-                                The Information Architecture was the core design challenge. The hierarchy had to
-                                feel natural for someone managing 20 campaigns across 5 networks, while also
-                                being accessible to a smaller brand running their first multi-channel effort.
-                                We landed on a clear navigation spine: Dashboard → Campaigns → Creative Library
-                                → Targeting → Channels → Reports. Each layer was designed to function
-                                independently, but surface cross-channel insights automatically.
-                            </p>
-                        </div>
-
-                        <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-                            <div className="bg-white/5 border border-white/10 rounded-2xl p-8 space-y-4">
-                                <h4 className="text-white font-semibold">Unified Campaign Orchestration</h4>
-                                <p className="text-gray-400 text-sm leading-relaxed">
-                                    A campaign created once in Carter could be pushed to all connected RMNs simultaneously, with automatic reformatting for each network&apos;s creative specifications. One brief, one setup, all networks — instant.
-                                </p>
-                            </div>
-                            <div className="bg-white/5 border border-white/10 rounded-2xl p-8 space-y-4">
-                                <h4 className="text-white font-semibold">Shared Targeting Layer</h4>
-                                <p className="text-gray-400 text-sm leading-relaxed">
-                                    Audience segments defined once and applied across networks. Overlap detection prevented the same shopper from being hit on Walmart and Target simultaneously — a first-of-its-kind feature in the RMN space.
-                                </p>
-                            </div>
-                            <div className="bg-white/5 border border-white/10 rounded-2xl p-8 space-y-4">
-                                <h4 className="text-white font-semibold">Dynamic Creative Engine</h4>
-                                <p className="text-gray-400 text-sm leading-relaxed">
-                                    A centralized Digital Asset Manager (DAM) with spec-aware transformations. Upload one master creative and the system auto-generates compliant variants for every connected network&apos;s ad formats.
-                                </p>
-                            </div>
-                            <div className="bg-white/5 border border-white/10 rounded-2xl p-8 space-y-4">
-                                <h4 className="text-white font-semibold">Smart Budgeting & Media Planning</h4>
-                                <p className="text-gray-400 text-sm leading-relaxed">
-                                    A rule-based budget allocator that distributes spend in real-time across networks based on performance signals. Pairs with a visual media planning canvas for quarterly campaign mapping.
-                                </p>
                             </div>
                         </div>
                     </div>
 
-                    {/* DSP Screen Walkthroughs */}
-                    <div className="space-y-6">
-                        <div className="space-y-2">
-                            <SectionLabel>Screens — Cross-Network Campaign View</SectionLabel>
-                            <p className="text-gray-500 text-sm">Managing multiple campaigns across 5 retail networks in a single unified dashboard.</p>
+                    {/* DSP Screens */}
+                    <div className="space-y-12 mb-20">
+                        <div>
+                            <Badge>[ Cross-Network Campaign View ]</Badge>
+                            <img src={CampaignDSP} alt="DSP — Campaign Dashboard" className="rounded-2xl w-full border border-white/10 mt-2" />
                         </div>
-                        <img src={CampaignDSP} alt="DSP — Campaign Management Dashboard" className="rounded-2xl w-full border border-white/10" />
+                        <div>
+                            <Badge>[ Campaign Detail & Performance ]</Badge>
+                            <img src={campaigndetail} alt="DSP — Campaign Details" className="rounded-2xl w-full border border-white/10 mt-2" />
+                        </div>
+                        <div>
+                            <Badge>[ Media Planning Canvas ]</Badge>
+                            <img src={mediaplan} alt="DSP — Media Planning" className="rounded-2xl w-full border border-white/10 mt-2" />
+                        </div>
                     </div>
 
-                    <div className="space-y-6">
-                        <div className="space-y-2">
-                            <SectionLabel>Screens — Campaign Detail & Performance</SectionLabel>
-                            <p className="text-gray-500 text-sm">Granular performance breakdown per network, creative, and audience segment — all in one view.</p>
-                        </div>
-                        <img src={campaigndetail} alt="DSP — Campaign Details View" className="rounded-2xl w-full border border-white/10" />
-                    </div>
-
-                    <div className="space-y-6">
-                        <div className="space-y-2">
-                            <SectionLabel>Screens — Media Planning Canvas</SectionLabel>
-                            <p className="text-gray-500 text-sm">A drag-and-drop planning canvas for mapping quarterly spend across networks, seasons, and brand objectives.</p>
-                        </div>
-                        <img src={mediaplan} alt="DSP — Media Planning Tool" className="rounded-2xl w-full border border-white/10" />
-                    </div>
-
-                    {/* Phase 2 impact + video */}
-                    <section className="bg-white/5 border border-white/10 backdrop-blur-md p-8 md:p-12 rounded-3xl">
-                        <div className="flex flex-col md:flex-row-reverse gap-12 items-center">
-                            <video controls autoPlay loop muted className="w-full md:w-1/2 rounded-2xl border border-white/10 shadow-2xl">
+                    {/* Phase 2 Impact */}
+                    <div className="bg-white/5 border border-white/10 backdrop-blur-md p-6 md:p-10 rounded-2xl">
+                        <div className="flex flex-col md:flex-row-reverse gap-10 items-center">
+                            <video controls autoPlay loop muted className="w-full md:w-1/2 rounded-2xl border border-white/10">
                                 <source src={v3} type="video/mp4" />
                             </video>
-                            <div className="w-full md:w-1/2 space-y-8">
-                                <div>
-                                    <SectionLabel>Phase 2 — Impact at Launch</SectionLabel>
-                                    <p className="text-gray-500 text-sm mt-2">Validated through internal testing and alpha client sessions prior to public release.</p>
-                                </div>
+                            <div className="w-full md:w-1/2">
+                                <Badge>[ Phase 2 — Impact at Launch ]</Badge>
+                                <p className="text-gray-500 text-sm mb-8">Validated through alpha client sessions.</p>
                                 <div className="space-y-6">
-                                    <div className="border-b border-white/10 pb-4">
-                                        <p className="text-2xl font-bold text-white">60–70% Faster Setup</p>
-                                        <p className="text-gray-400 text-sm mt-1">Multi-network campaign creation time reduced from an average of 3.5 hours per channel to under 45 minutes total.</p>
-                                    </div>
-                                    <div className="border-b border-white/10 pb-4">
-                                        <p className="text-2xl font-bold text-white">50% Fewer Errors</p>
-                                        <p className="text-gray-400 text-sm mt-1">Creative compliance issues dropped dramatically thanks to real-time spec validation and auto-resize.</p>
-                                    </div>
-                                    <div className="border-b border-white/10 pb-4">
-                                        <p className="text-2xl font-bold text-white">90%+ Satisfaction</p>
-                                        <p className="text-gray-400 text-sm mt-1">Alpha testers rated the platform 4.6/5 on average for usability — the highest score Carter had ever recorded.</p>
-                                    </div>
-                                    <div>
-                                        <p className="text-2xl font-bold text-white">40% Cycle Reduction</p>
-                                        <p className="text-gray-400 text-sm mt-1">The average weekly campaign management cycle shrunk from 4+ hours to under 90 minutes per user.</p>
-                                    </div>
+                                    {[
+                                        { value: "60-70%", label: "Faster Setup", desc: "3.5 hours per channel → 45 minutes total" },
+                                        { value: "50%", label: "Fewer Errors", desc: "Real-time spec validation and auto-resize" },
+                                        { value: "4.6/5", label: "Usability Score", desc: "Highest Carter had ever recorded" },
+                                        { value: "40%", label: "Cycle Reduction", desc: "4+ hours weekly → under 90 minutes" },
+                                    ].map((item, i) => (
+                                        <div key={i} className="border-b border-white/5 pb-5 last:border-0 last:pb-0">
+                                            <div className="flex items-baseline gap-3 mb-1">
+                                                <span className="font-heading text-xl font-bold text-white">{item.value}</span>
+                                                <span className="text-white text-sm font-medium">{item.label}</span>
+                                            </div>
+                                            <p className="text-gray-400 text-xs">{item.desc}</p>
+                                        </div>
+                                    ))}
                                 </div>
                             </div>
-                        </div>
-                    </section>
-
-                    {/* ================= REFLECTION ================= */}
-                    <div className="space-y-8 max-w-4xl">
-                        <SectionLabel>What I learned</SectionLabel>
-                        <h2 className="text-3xl font-bold text-white leading-tight">Good design often means<br /><span className="text-gray-400 font-light">saying no to new features.</span></h2>
-                        <div className="space-y-4 text-gray-400 text-base leading-relaxed">
-                            <p>
-                                The most impactful decision on this project wasn&apos;t a design choice — it was a
-                                strategic one. When leadership wanted to add new capabilities to win more clients,
-                                I advocated for pausing and fixing what existed first. That tension is common
-                                in fast-growing startups, and navigating it required data, trust, and the
-                                willingness to say &ldquo;our highest-value feature is making the current ones legible.&rdquo;
-                            </p>
-                            <p>
-                                The Phase 1 metrics proved it. Fixing campaign creation alone unlocked 20
-                                percentage points of launch rate — meaning more campaigns were actually being
-                                launched with the same number of clients. That&apos;s revenue found in the product
-                                instead of the sales funnel.
-                            </p>
-                            <p>
-                                For Phase 2, the hardest design challenge was scalable complexity — how do you
-                                build a tool powerful enough for a 50-person enterprise marketing team, without
-                                making it intimidating for a 2-person D2C startup? The answer was progressive
-                                disclosure: every advanced feature existed but was hidden until the user
-                                signalled they were ready for it. Simplicity on the surface, depth underneath.
-                            </p>
                         </div>
                     </div>
                 </div>
-            </div>
+            </section>
+
+            {/* ================= CLOSING ================= */}
+            <section className="bg-[#050505] py-24 px-4 border-t border-white/10">
+                <div className="max-w-7xl mx-auto">
+                    <div className="max-w-3xl">
+                        <Badge>[ The Real Story ]</Badge>
+                        <h2 className="font-heading text-4xl md:text-5xl font-bold text-white leading-tight mb-8">
+                            Designer title. PM proof.{" "}
+                            <span className="text-gray-400">The metrics don&apos;t care what your title says.</span>
+                        </h2>
+                        <p className="text-gray-400 text-base leading-relaxed mb-5">
+                            The most impactful decision wasn&apos;t a screen — it was convincing leadership to pause the roadmap.
+                            That call unlocked 20 percentage points of campaign launch rate. Revenue found in the product, not the sales funnel.
+                        </p>
+                        <p className="text-gray-400 text-base leading-relaxed">
+                            I wrote PRDs, ran sprint planning, coordinated engineering and QA, streamlined Jira processes,
+                            and shipped industry-level design — all in one seat. The Product Head didn&apos;t hire a separate PM.
+                            Because the work was already getting done.
+                        </p>
+                    </div>
+                </div>
+            </section>
+
+            {/* ================= NEXT CASE STUDY ================= */}
+            <section className="bg-black py-16 px-4 border-t border-white/10">
+                <div className="max-w-7xl mx-auto flex flex-col md:flex-row items-center justify-between gap-6">
+                    <div>
+                        <p className="text-xs font-mono text-gray-600 uppercase tracking-widest mb-2">Next Case Study</p>
+                        <p className="font-heading text-2xl font-bold text-white">UVC: CMS Builder + Website for High Conversion</p>
+                    </div>
+                    <Link to="/Projects/UVC" className="text-[#d6f928] font-medium text-sm border border-[#d6f928]/20 bg-[#d6f928]/5 px-6 py-3 rounded-full hover:bg-[#d6f928]/10 transition-colors whitespace-nowrap">
+                        View Case Study &rarr;
+                    </Link>
+                </div>
+            </section>
+
             <Footer />
         </div>
     );

@@ -12,14 +12,14 @@ const CaseStudy = () => {
     {
       title: "Carter Redesign + New DSP Platform",
       year: "2024-2026",
-      categories: ["Case Study", "UI/UX"],
+      categories: ["Product Strategy", "0-to-1"],
       image: Bannercarter,
       link: "/Projects/Carter",
     },
     {
-      title: "CMS Builder + Website for High Conversion",
+      title: "CMS Architecture + 0-to-1 Site Builder",
       year: "2025-2026",
-      categories: ["Web", "Healthcare"],
+      categories: ["Product Strategy", "Healthcare"],
       image: Banneruvc,
       link: "/Projects/UVC",
     },
@@ -54,14 +54,14 @@ const CaseStudy = () => {
   return (
     <div>
       <div className="text-center pt-32">
-        <div className="inline-flex items-center gap-2 text-sm bg-white/5 border border-white/10 backdrop-blur px-4 py-1 rounded-full mb-4 text-white">
-          &quot;Every detail counts&quot;
+        <div className="inline-flex items-center gap-2 text-xs font-mono text-[#d6f928] tracking-widest uppercase px-3 py-1 rounded border border-[#d6f928]/20 bg-[#d6f928]/5 mb-4">
+          [ Case Studies ]
         </div>
-        <h1 className="text-4xl font-light text-white">
-          Case <span className="text-gray-400 font-medium">Study</span>
+        <h1 className="font-heading text-4xl font-bold text-white">
+          Real Products. <span className="text-gray-400">Real Decisions.</span>
         </h1>
         <p className="text-sm text-gray-400 mt-2">
-          A curated selection of design explorations and experiments.
+          Full breakdowns — the problem, the product calls, and the outcomes.
         </p>
       </div>
 
@@ -89,7 +89,7 @@ const ProjectCard = ({ project, onClick }) => (
         className="w-full object-cover rounded-md"
       />
       <div className="pt-4 flex flex-wrap justify-between">
-        <h3 className="text-2xl font-semibold text-white">
+        <h3 className="font-heading text-2xl font-semibold text-white">
           {project.title}{" "}
           <span className="text-gray-400 text-sm">({project.year})</span>
         </h3>

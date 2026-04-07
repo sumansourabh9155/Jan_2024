@@ -24,6 +24,9 @@ const RaikarGoodVibes = React.lazy(() => import("./components/Landingsection/Cas
 const Godiverse = React.lazy(() => import("./components/Landingsection/Casestudy/Godiverse"));
 const Uvc = React.lazy(() => import("./components/Landingsection/Casestudy/Uvc"));
 
+// Lazy load Tools
+const InquiryProtocol = React.lazy(() => import("./pages/InquiryProtocol"));
+
 
 const isMouseDevice = window.matchMedia("(pointer: fine)").matches;
 
@@ -118,6 +121,14 @@ root.render(
               element={
                 <ProtectedRoute correctPassword="9155">
                   <Uvc />
+                </ProtectedRoute>
+              }
+            />
+            <Route
+              path="/ask"
+              element={
+                <ProtectedRoute correctPassword="sexy">
+                  <InquiryProtocol />
                 </ProtectedRoute>
               }
             />

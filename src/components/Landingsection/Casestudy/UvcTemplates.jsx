@@ -81,7 +81,7 @@ const UvcTemplates = () => {
         <div className="flex-1 w-full">
           <div className="mb-10">
             <h4 className="text-gray-400 uppercase tracking-widest text-xs font-semibold mb-2">The Architecture</h4>
-            <h2 className="text-2xl md:text-4xl font-bold tracking-tight">The 5 Core Templates</h2>
+            <h2 className="font-heading text-2xl md:text-4xl font-bold tracking-tight">The 5 Core Templates</h2>
           </div>
 
           <div className="space-y-1">
@@ -95,7 +95,7 @@ const UvcTemplates = () => {
                 >
                   <div className="flex gap-4 items-start">
                     <div className="mt-0.5 shrink-0">
-                      <CheckCircle2 className={`w-6 h-6 transition-all duration-300 ${isActive ? 'fill-[#4ade80] text-[#0a0a0a]' : 'text-gray-600'}`} />
+                      <CheckCircle2 className={`w-6 h-6 transition-all duration-300 ${isActive ? 'fill-[#d6f928] text-[#0a0a0a]' : 'text-gray-600'}`} />
                     </div>
                     <div className="flex-1 -mt-0.5">
                       <div className="flex items-center gap-3">
