@@ -24,9 +24,9 @@ const CaseStudy = () => {
       link: "/Projects/UVC",
     },
     {
-      title: "GoDiverse Resume Builder",
+      title: "GoDiverse: 1-Page Resume Builder",
       year: "2025",
-      categories: ["Web", "Education"],
+      categories: ["Product Strategy", "SaaS"],
       image: Bannergodiverse,
       link: "/Projects/GoDiverse",
     },

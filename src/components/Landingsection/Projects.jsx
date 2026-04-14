@@ -11,6 +11,20 @@ const projectData = [
     problem: "Users churned before experiencing the AI output. Value was hidden behind setup friction.",
     decision: "Redesigned onboarding to generate real AI content within 90 seconds of signup.",
     impact: "Acquisition funnel rebuilt around the 'Aha!' moment. Conversion signal improved in the first sprint.",
+    visual: (
+      <svg className="w-full h-6 mt-2 mb-1 opacity-50" viewBox="0 0 200 24" fill="none">
+        <rect x="0" y="4" width="44" height="16" rx="3" stroke="#d6f928" strokeOpacity="0.3" />
+        <rect x="8" y="9" width="16" height="2.5" rx="1" fill="#d6f928" fillOpacity="0.15" />
+        <rect x="8" y="13" width="10" height="2.5" rx="1" fill="#d6f928" fillOpacity="0.1" />
+        <path d="M52 12 L72 12" stroke="white" strokeOpacity="0.08" strokeDasharray="2 2" />
+        <circle cx="86" cy="12" r="10" stroke="#d6f928" strokeOpacity="0.35" fill="#d6f928" fillOpacity="0.04" />
+        <path d="M80 12 L84 9 L88 12 L92 9" stroke="#d6f928" strokeOpacity="0.3" strokeWidth="1" />
+        <path d="M104 12 L124 12" stroke="white" strokeOpacity="0.08" strokeDasharray="2 2" />
+        <rect x="132" y="2" width="52" height="20" rx="4" stroke="#d6f928" strokeOpacity="0.5" fill="#d6f928" fillOpacity="0.04" />
+        <rect x="140" y="8" width="18" height="2.5" rx="1" fill="#d6f928" fillOpacity="0.3" />
+        <rect x="140" y="12" width="26" height="2.5" rx="1" fill="#d6f928" fillOpacity="0.2" />
+      </svg>
+    ),
   },
   {
     title: "UVC: CMS Rollout Across 130+ Clinic Locations",
@@ -22,6 +36,18 @@ const projectData = [
     problem: "130+ locations, no standardized CMS. Each new clinic added a new point of failure.",
     decision: "Phased rollout (5 → 20 → all) instead of big-bang. Contained risk while maintaining uptime.",
     impact: "Reduced per-location deployment overhead. Unified digital presence network-wide.",
+    visual: (
+      <svg className="w-full h-6 mt-2 mb-1 opacity-50" viewBox="0 0 200 24" fill="none">
+        <circle cx="24" cy="12" r="10" stroke="#3b82f6" strokeOpacity="0.35" fill="#3b82f6" fillOpacity="0.05" />
+        <circle cx="24" cy="12" r="3" fill="#3b82f6" fillOpacity="0.3" />
+        <line x1="38" y1="6" x2="64" y2="4" stroke="#3b82f6" strokeOpacity="0.12" />
+        <line x1="38" y1="12" x2="64" y2="12" stroke="#3b82f6" strokeOpacity="0.12" />
+        <line x1="38" y1="18" x2="64" y2="20" stroke="#3b82f6" strokeOpacity="0.12" />
+        <circle cx="72" cy="4" r="5" stroke="#3b82f6" strokeOpacity="0.2" fill="#3b82f6" fillOpacity="0.03" />
+        <circle cx="72" cy="12" r="5" stroke="#3b82f6" strokeOpacity="0.2" fill="#3b82f6" fillOpacity="0.03" />
+        <circle cx="72" cy="20" r="5" stroke="#3b82f6" strokeOpacity="0.2" fill="#3b82f6" fillOpacity="0.03" />
+      </svg>
+    ),
   },
   {
     title: "Rosso Brunello: CRO Audit & Revenue Recovery",
@@ -33,6 +59,15 @@ const projectData = [
     problem: "Cart abandonment high, AOV below category benchmarks. Checkout optimized for simplicity, not conversion.",
     decision: "Audited every funnel drop-off. Ranked interventions by revenue impact vs. effort—nothing without data.",
     impact: "Shipped trust signals, upsell placement, and checkout restructuring. Every change tied to a metric.",
+    visual: (
+      <svg className="w-full h-6 mt-2 mb-1 opacity-50" viewBox="0 0 200 24" fill="none">
+        <path d="M10 1 L66 1 L58 23 L18 23 Z" stroke="#f97316" strokeOpacity="0.25" fill="#f97316" fillOpacity="0.03" />
+        <path d="M78 12 L98 12" stroke="white" strokeOpacity="0.08" strokeDasharray="2 2" />
+        <path d="M108 3 L148 3 L142 21 L114 21 Z" stroke="#d6f928" strokeOpacity="0.35" fill="#d6f928" fillOpacity="0.04" />
+        <path d="M158 12 L172 12" stroke="#d6f928" strokeOpacity="0.2" />
+        <path d="M168 8 L174 12 L168 16" stroke="#d6f928" strokeOpacity="0.3" fill="none" />
+      </svg>
+    ),
   },
 ];
 
@@ -72,6 +107,8 @@ const Projects = () => {
                       <h3 className="font-heading text-base font-bold text-white leading-tight">
                         {project.title}
                       </h3>
+
+                      {project.visual}
 
                       <div>
                         <span className="text-blue-400 uppercase tracking-wider text-[10px] font-semibold block mb-1">The User</span>
