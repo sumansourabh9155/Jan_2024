@@ -44,7 +44,7 @@ const LandingPage = () => {
       <DesignServices />
 
       {/* Builder PM — Technical Product Operations */}
-      <TechProof />
+      {/* <TechProof /> */}
 
       {/* Social Proof */}
       <Testimonial />
@@ -56,7 +56,7 @@ const LandingPage = () => {
       <MessyMiddle />
 
       {/* Pricing */}
-      <PricingFilter />
+      {/* <PricingFilter /> */}
 
       {/* FAQ */}
       <Faq />

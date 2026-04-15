@@ -71,7 +71,7 @@ const Footer = () => {
                             href="mailto:hello@sumansourabh.com"
                             className="flex items-center gap-2 text-white hover:text-[#d6f928] transition-colors"
                         >
-                            <Mail size={16} /> hello@sumansourabh.com
+                            <Mail size={16} /> ux.sumansourabh@gmail.com
                         </a>
                     </div>
 
@@ -124,12 +124,9 @@ const Footer = () => {
                 </div>
 
                 {/* Bottom Section: Copyright */}
-                <div className="flex flex-col md:flex-row justify-between items-center pt-8 border-t border-white/5">
+                <div className="flex flex-col  items-center pt-8 border-t border-white/5">
                     <p className="text-xs text-gray-600">
                         © {currentYear} Suman Sourabh. All Rights Reserved.
-                    </p>
-                    <p className="text-xs text-gray-600 mt-2 md:mt-0 flex items-center gap-1">
-                        Built with <span className="text-[#61DAFB]">React</span> + <span className="text-[#d6f928]">Claude</span>. Shipped fast.
                     </p>
                 </div>
 

@@ -30,11 +30,31 @@ const MessyMiddle = () => {
               <h3 className="font-heading text-lg font-bold">Which AI to Build With</h3>
             </div>
             {/* Concept: Model evaluation → selection */}
-            <svg className="w-48 h-10 my-3 opacity-60" viewBox="0 0 200 40" fill="none">
-              <rect x="0" y="8" width="50" height="24" rx="6" stroke="#3b82f6" strokeWidth="1" opacity="0.25" />
-              <rect x="70" y="8" width="50" height="24" rx="6" stroke="#3b82f6" strokeWidth="1" opacity="0.25" />
-              <rect x="140" y="4" width="56" height="32" rx="8" stroke="#3b82f6" strokeWidth="1.5" opacity="0.6" fill="#3b82f6" fillOpacity="0.08" />
-              <path d="M160 18 L166 24 L176 14" stroke="#d6f928" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
+            <svg className="w-full h-20 my-3" viewBox="0 0 360 70" fill="none">
+              <defs>
+                <filter id="mm1-glow"><feGaussianBlur stdDeviation="3" result="b" /><feMerge><feMergeNode in="b" /><feMergeNode in="SourceGraphic" /></feMerge></filter>
+              </defs>
+              {/* Model A - dimmed/rejected */}
+              <rect x="10" y="12" width="80" height="46" rx="8" stroke="#3b82f6" strokeOpacity="0.15" fill="#3b82f6" fillOpacity="0.03" />
+              <rect x="22" y="24" width="32" height="3" rx="1.5" fill="#3b82f6" fillOpacity="0.12" />
+              <rect x="22" y="31" width="50" height="3" rx="1.5" fill="#3b82f6" fillOpacity="0.08" />
+              <rect x="22" y="38" width="24" height="3" rx="1.5" fill="#3b82f6" fillOpacity="0.06" />
+              <line x1="10" y1="12" x2="90" y2="58" stroke="#ef4444" strokeOpacity="0.15" strokeWidth="1" />
+              {/* Model B - dimmed/rejected */}
+              <rect x="108" y="12" width="80" height="46" rx="8" stroke="#3b82f6" strokeOpacity="0.15" fill="#3b82f6" fillOpacity="0.03" />
+              <rect x="120" y="24" width="40" height="3" rx="1.5" fill="#3b82f6" fillOpacity="0.12" />
+              <rect x="120" y="31" width="52" height="3" rx="1.5" fill="#3b82f6" fillOpacity="0.08" />
+              <rect x="120" y="38" width="30" height="3" rx="1.5" fill="#3b82f6" fillOpacity="0.06" />
+              <line x1="108" y1="12" x2="188" y2="58" stroke="#ef4444" strokeOpacity="0.15" strokeWidth="1" />
+              {/* Arrow */}
+              <path d="M200 35 L225 35" stroke="white" strokeOpacity="0.1" strokeDasharray="3 3" />
+              <path d="M220 30 L228 35 L220 40" stroke="white" strokeOpacity="0.15" fill="none" />
+              {/* Model C - chosen with glow */}
+              <rect x="240" y="6" width="100" height="58" rx="10" stroke="#3b82f6" strokeOpacity="0.5" fill="#3b82f6" fillOpacity="0.06" />
+              <rect x="255" y="20" width="44" height="3" rx="1.5" fill="#3b82f6" fillOpacity="0.3" />
+              <rect x="255" y="27" width="62" height="3" rx="1.5" fill="#3b82f6" fillOpacity="0.25" />
+              <rect x="255" y="34" width="36" height="3" rx="1.5" fill="#3b82f6" fillOpacity="0.2" />
+              <path d="M310 42 L316 48 L328 36" stroke="#d6f928" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" filter="url(#mm1-glow)" />
             </svg>
             <p className="text-gray-300 text-sm leading-relaxed mb-4">
               Founder default was &ldquo;just use ChatGPT.&rdquo;
@@ -57,17 +77,37 @@ const MessyMiddle = () => {
               <h3 className="font-heading text-lg font-bold">The Feature I Killed Before Sprint 1</h3>
             </div>
             {/* Concept: Scope cut — 3 cut features → 1 shipped */}
-            <svg className="w-56 h-10 my-3 opacity-60" viewBox="0 0 232 40" fill="none">
-              <rect x="0" y="8" width="36" height="24" rx="5" stroke="#ef4444" opacity="0.25" />
-              <line x1="6" y1="12" x2="30" y2="28" stroke="#ef4444" opacity="0.35" strokeWidth="1.5" />
-              <rect x="44" y="8" width="36" height="24" rx="5" stroke="#ef4444" opacity="0.25" />
-              <line x1="50" y1="12" x2="74" y2="28" stroke="#ef4444" opacity="0.35" strokeWidth="1.5" />
-              <rect x="88" y="8" width="36" height="24" rx="5" stroke="#ef4444" opacity="0.25" />
-              <line x1="94" y1="12" x2="118" y2="28" stroke="#ef4444" opacity="0.35" strokeWidth="1.5" />
-              <path d="M136 20 L152 20" stroke="white" opacity="0.1" />
-              <path d="M148 16 L154 20 L148 24" stroke="white" opacity="0.15" fill="none" />
-              <rect x="164" y="4" width="44" height="32" rx="7" stroke="#d6f928" opacity="0.5" fill="#d6f928" fillOpacity="0.06" />
-              <path d="M180 16 L184 21 L193 12" stroke="#d6f928" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
+            <svg className="w-full h-20 my-3" viewBox="0 0 360 70" fill="none">
+              <defs>
+                <filter id="mm2-glow"><feGaussianBlur stdDeviation="3" result="b" /><feMerge><feMergeNode in="b" /><feMergeNode in="SourceGraphic" /></feMerge></filter>
+              </defs>
+              {/* Feature 1 — cut */}
+              <rect x="8" y="12" width="62" height="46" rx="7" stroke="#ef4444" strokeOpacity="0.2" fill="#ef4444" fillOpacity="0.03" />
+              <rect x="18" y="24" width="30" height="2.5" rx="1" fill="#ef4444" fillOpacity="0.12" />
+              <rect x="18" y="30" width="40" height="2.5" rx="1" fill="#ef4444" fillOpacity="0.08" />
+              <line x1="8" y1="14" x2="70" y2="56" stroke="#ef4444" strokeOpacity="0.35" strokeWidth="1.5" />
+              <text x="22" y="50" fill="#ef4444" fillOpacity="0.3" fontSize="7" fontFamily="monospace">6wk</text>
+              {/* Feature 2 — cut */}
+              <rect x="82" y="12" width="62" height="46" rx="7" stroke="#ef4444" strokeOpacity="0.2" fill="#ef4444" fillOpacity="0.03" />
+              <rect x="92" y="24" width="34" height="2.5" rx="1" fill="#ef4444" fillOpacity="0.12" />
+              <rect x="92" y="30" width="42" height="2.5" rx="1" fill="#ef4444" fillOpacity="0.08" />
+              <line x1="82" y1="14" x2="144" y2="56" stroke="#ef4444" strokeOpacity="0.35" strokeWidth="1.5" />
+              <text x="96" y="50" fill="#ef4444" fillOpacity="0.3" fontSize="7" fontFamily="monospace">4wk</text>
+              {/* Feature 3 — cut */}
+              <rect x="156" y="12" width="62" height="46" rx="7" stroke="#ef4444" strokeOpacity="0.2" fill="#ef4444" fillOpacity="0.03" />
+              <rect x="166" y="24" width="28" height="2.5" rx="1" fill="#ef4444" fillOpacity="0.12" />
+              <rect x="166" y="30" width="38" height="2.5" rx="1" fill="#ef4444" fillOpacity="0.08" />
+              <line x1="156" y1="14" x2="218" y2="56" stroke="#ef4444" strokeOpacity="0.35" strokeWidth="1.5" />
+              <text x="170" y="50" fill="#ef4444" fillOpacity="0.3" fontSize="7" fontFamily="monospace">3wk</text>
+              {/* Arrow */}
+              <path d="M230 35 L258 35" stroke="white" strokeOpacity="0.1" strokeDasharray="3 3" />
+              <path d="M253 30 L261 35 L253 40" stroke="white" strokeOpacity="0.15" fill="none" />
+              {/* Shipped — the one that mattered */}
+              <rect x="272" y="6" width="78" height="58" rx="10" stroke="#d6f928" strokeOpacity="0.5" fill="#d6f928" fillOpacity="0.04" />
+              <rect x="286" y="22" width="50" height="3" rx="1.5" fill="#d6f928" fillOpacity="0.25" />
+              <rect x="286" y="29" width="50" height="3" rx="1.5" fill="#d6f928" fillOpacity="0.2" />
+              <path d="M304 42 L310 48 L322 36" stroke="#d6f928" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" filter="url(#mm2-glow)" />
+              <text x="286" y="58" fill="#d6f928" fillOpacity="0.35" fontSize="7" fontFamily="monospace">3 days</text>
             </svg>
             <p className="text-gray-300 text-sm leading-relaxed mb-4">
               Founder wanted custom reports, PDF exports, and scheduled emails in the MVP. Engineering estimate: 6+ weeks.
@@ -89,17 +129,38 @@ const MessyMiddle = () => {
               <h3 className="font-heading text-lg font-bold">Build It vs. Prompt It</h3>
             </div>
             {/* Concept: Effort comparison — long build vs short prompt */}
-            <svg className="w-52 h-12 my-3 opacity-60" viewBox="0 0 220 48" fill="none">
-              <rect x="0" y="4" width="196" height="16" rx="4" fill="#eab308" fillOpacity="0.06" stroke="#eab308" strokeOpacity="0.15" />
-              <rect x="4" y="8" width="8" height="8" rx="1.5" fill="#eab308" fillOpacity="0.25" />
-              <rect x="16" y="8" width="8" height="8" rx="1.5" fill="#eab308" fillOpacity="0.22" />
-              <rect x="28" y="8" width="8" height="8" rx="1.5" fill="#eab308" fillOpacity="0.19" />
-              <rect x="40" y="8" width="8" height="8" rx="1.5" fill="#eab308" fillOpacity="0.16" />
-              <rect x="52" y="8" width="8" height="8" rx="1.5" fill="#eab308" fillOpacity="0.13" />
-              <rect x="0" y="28" width="48" height="16" rx="4" fill="#d6f928" fillOpacity="0.1" stroke="#d6f928" strokeOpacity="0.3" />
-              <rect x="4" y="32" width="8" height="8" rx="1.5" fill="#d6f928" fillOpacity="0.5" />
-              <path d="M56 36 L68 36" stroke="#d6f928" strokeOpacity="0.4" />
-              <path d="M64 32 L70 36 L64 40" stroke="#d6f928" strokeOpacity="0.4" fill="none" />
+            <svg className="w-full h-20 my-3" viewBox="0 0 360 70" fill="none">
+              <defs>
+                <linearGradient id="mm3-long" x1="0" y1="0" x2="1" y2="0">
+                  <stop offset="0%" stopColor="#eab308" stopOpacity="0.2" />
+                  <stop offset="100%" stopColor="#eab308" stopOpacity="0.05" />
+                </linearGradient>
+                <linearGradient id="mm3-short" x1="0" y1="0" x2="1" y2="0">
+                  <stop offset="0%" stopColor="#d6f928" stopOpacity="0.35" />
+                  <stop offset="100%" stopColor="#d6f928" stopOpacity="0.15" />
+                </linearGradient>
+              </defs>
+              {/* Label */}
+              <text x="12" y="14" fill="white" fillOpacity="0.15" fontSize="8" fontFamily="monospace">BUILD</text>
+              {/* Long bar — 3 week custom build */}
+              <rect x="12" y="20" width="290" height="18" rx="5" fill="url(#mm3-long)" stroke="#eab308" strokeOpacity="0.15" />
+              {/* Sprint blocks inside */}
+              <rect x="18" y="24" width="42" height="10" rx="3" fill="#eab308" fillOpacity="0.12" stroke="#eab308" strokeOpacity="0.08" />
+              <rect x="64" y="24" width="42" height="10" rx="3" fill="#eab308" fillOpacity="0.1" stroke="#eab308" strokeOpacity="0.06" />
+              <rect x="110" y="24" width="42" height="10" rx="3" fill="#eab308" fillOpacity="0.08" stroke="#eab308" strokeOpacity="0.05" />
+              <rect x="156" y="24" width="42" height="10" rx="3" fill="#eab308" fillOpacity="0.06" stroke="#eab308" strokeOpacity="0.04" />
+              <rect x="202" y="24" width="42" height="10" rx="3" fill="#eab308" fillOpacity="0.05" stroke="#eab308" strokeOpacity="0.03" />
+              <rect x="248" y="24" width="42" height="10" rx="3" fill="#eab308" fillOpacity="0.04" stroke="#eab308" strokeOpacity="0.03" />
+              <text x="310" y="33" fill="#eab308" fillOpacity="0.35" fontSize="8" fontFamily="monospace">3 wk</text>
+              {/* Label */}
+              <text x="12" y="52" fill="white" fillOpacity="0.15" fontSize="8" fontFamily="monospace">PROMPT</text>
+              {/* Short bar — 1 day API call */}
+              <rect x="12" y="56" width="52" height="18" rx="5" fill="url(#mm3-short)" stroke="#d6f928" strokeOpacity="0.4" />
+              <rect x="18" y="60" width="40" height="10" rx="3" fill="#d6f928" fillOpacity="0.2" stroke="#d6f928" strokeOpacity="0.15" />
+              <text x="72" y="69" fill="#d6f928" fillOpacity="0.5" fontSize="8" fontFamily="monospace">1 day</text>
+              {/* Savings callout */}
+              <path d="M80 65 L110 65" stroke="#d6f928" strokeOpacity="0.15" strokeDasharray="2 3" />
+              <text x="116" y="68" fill="#d6f928" fillOpacity="0.3" fontSize="7" fontFamily="monospace">same output</text>
             </svg>
             <p className="text-gray-300 text-sm leading-relaxed mb-4">
               Team wanted a custom sentiment analysis module. 3-week sprint estimate.
@@ -121,11 +182,41 @@ const MessyMiddle = () => {
               <h3 className="font-heading text-lg font-bold">When the Data Overruled the Founder</h3>
             </div>
             {/* Concept: Before/after metric lift */}
-            <svg className="w-40 h-12 my-3 opacity-60" viewBox="0 0 160 48" fill="none">
-              <rect x="8" y="22" width="28" height="22" rx="4" fill="#a855f7" fillOpacity="0.12" stroke="#a855f7" strokeOpacity="0.2" />
-              <rect x="48" y="6" width="28" height="38" rx="4" fill="#a855f7" fillOpacity="0.25" stroke="#a855f7" strokeOpacity="0.4" />
-              <path d="M92 34 L106 22 L120 26 L140 8" stroke="#d6f928" strokeWidth="1.5" strokeOpacity="0.5" strokeLinecap="round" strokeLinejoin="round" />
-              <circle cx="140" cy="8" r="3" fill="#d6f928" fillOpacity="0.7" />
+            <svg className="w-full h-20 my-3" viewBox="0 0 360 70" fill="none">
+              <defs>
+                <linearGradient id="mm4-bar1" x1="0" y1="1" x2="0" y2="0">
+                  <stop offset="0%" stopColor="#a855f7" stopOpacity="0.05" />
+                  <stop offset="100%" stopColor="#a855f7" stopOpacity="0.2" />
+                </linearGradient>
+                <linearGradient id="mm4-bar2" x1="0" y1="1" x2="0" y2="0">
+                  <stop offset="0%" stopColor="#d6f928" stopOpacity="0.05" />
+                  <stop offset="100%" stopColor="#d6f928" stopOpacity="0.35" />
+                </linearGradient>
+                <linearGradient id="mm4-curve" x1="0" y1="0" x2="1" y2="0">
+                  <stop offset="0%" stopColor="#a855f7" stopOpacity="0.3" />
+                  <stop offset="100%" stopColor="#d6f928" stopOpacity="0.7" />
+                </linearGradient>
+                <filter id="mm4-glow"><feGaussianBlur stdDeviation="3" result="b" /><feMerge><feMergeNode in="b" /><feMergeNode in="SourceGraphic" /></feMerge></filter>
+              </defs>
+              {/* Baseline */}
+              <line x1="30" y1="60" x2="330" y2="60" stroke="white" strokeOpacity="0.05" />
+              {/* Before bar — 34% */}
+              <rect x="50" y="32" width="50" height="28" rx="5" fill="url(#mm4-bar1)" stroke="#a855f7" strokeOpacity="0.25" />
+              <text x="60" y="50" fill="#a855f7" fillOpacity="0.5" fontSize="10" fontFamily="monospace">34%</text>
+              <text x="55" y="72" fill="white" fillOpacity="0.12" fontSize="7" fontFamily="monospace">before</text>
+              {/* After bar — 58% */}
+              <rect x="120" y="12" width="50" height="48" rx="5" fill="url(#mm4-bar2)" stroke="#d6f928" strokeOpacity="0.4" />
+              <text x="127" y="38" fill="#d6f928" fillOpacity="0.6" fontSize="10" fontFamily="monospace">58%</text>
+              <text x="127" y="72" fill="white" fillOpacity="0.12" fontSize="7" fontFamily="monospace">after</text>
+              {/* Trend line with data points */}
+              <path d="M200 52 C220 48, 240 40, 260 30 S300 14, 330 8" stroke="url(#mm4-curve)" strokeWidth="2" strokeLinecap="round" fill="none" />
+              <circle cx="200" cy="52" r="3" fill="#a855f7" fillOpacity="0.4" />
+              <circle cx="230" cy="42" r="3" fill="#a855f7" fillOpacity="0.4" />
+              <circle cx="260" cy="30" r="3.5" fill="#d6f928" fillOpacity="0.5" />
+              <circle cx="295" cy="18" r="3.5" fill="#d6f928" fillOpacity="0.6" />
+              <circle cx="330" cy="8" r="5" fill="#d6f928" fillOpacity="0.7" filter="url(#mm4-glow)" />
+              {/* +24% callout */}
+              <text x="305" y="8" fill="#d6f928" fillOpacity="0.5" fontSize="9" fontFamily="monospace">+24%</text>
             </svg>
             <p className="text-gray-300 text-sm leading-relaxed mb-4">
               Founder wanted a &ldquo;clean&rdquo; onboarding. Activation rate: stuck at 34%.

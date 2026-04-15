@@ -67,7 +67,7 @@ const HeroSection = () => {
 
         {/* Subtitle */}
         <p className="text-md text-gray-400 max-w-2xl mx-auto font-light leading-relaxed mb-8">
-          BTech in CS/ML. Shipped AI-powered products with <span className="text-white font-medium">Claude and Gemini</span>.{" "}
+          BTech in CSE/ML. Shipped AI-powered products with <span className="text-white font-medium">Claude and Gemini</span>.{" "}
           Led cross-functional teams across design, engineering, and product—from{" "}
           <span className="text-white font-medium">user research to launch</span>.
         </p>

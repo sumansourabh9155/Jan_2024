@@ -1,71 +1,195 @@
-import { Zap, BarChart2, ShoppingCart } from "lucide-react";
+import { BarChart2, Layout, FileText } from "lucide-react";
+import { Link } from "react-router-dom";
 
 const projectData = [
   {
-    title: "Abun.com: GTM & Activation for an AI Content Platform",
-    category: "AI Content Platform",
-    alt: "GTM strategy and activation funnel redesign for an AI content platform",
-    icon: <Zap size={16} className="text-[#d6f928]" />,
-    badge: "AI/LLM · GTM · Activation",
-    user: "SMB content marketers who signed up expecting instant blog posts—got a config screen instead.",
-    problem: "Users churned before experiencing the AI output. Value was hidden behind setup friction.",
-    decision: "Redesigned onboarding to generate real AI content within 90 seconds of signup.",
-    impact: "Acquisition funnel rebuilt around the 'Aha!' moment. Conversion signal improved in the first sprint.",
+    title: "Carter",
+    subtitle: "Ad Platform Redesign & DSP Launch",
+    category: "Ad-Tech · B2B · SaaS",
+    link: "/Projects/carter",
+    icon: <Layout size={16} className="text-blue-400" />,
+    badge: "Activation · Design System · 0→1",
+    summary: "No confidence signals in a complex ad activation funnel. Redesigned to a guided 5-stage flow. 40% activation lift, 300% enterprise client growth.",
     visual: (
-      <svg className="w-full h-6 mt-2 mb-1 opacity-50" viewBox="0 0 200 24" fill="none">
-        <rect x="0" y="4" width="44" height="16" rx="3" stroke="#d6f928" strokeOpacity="0.3" />
-        <rect x="8" y="9" width="16" height="2.5" rx="1" fill="#d6f928" fillOpacity="0.15" />
-        <rect x="8" y="13" width="10" height="2.5" rx="1" fill="#d6f928" fillOpacity="0.1" />
-        <path d="M52 12 L72 12" stroke="white" strokeOpacity="0.08" strokeDasharray="2 2" />
-        <circle cx="86" cy="12" r="10" stroke="#d6f928" strokeOpacity="0.35" fill="#d6f928" fillOpacity="0.04" />
-        <path d="M80 12 L84 9 L88 12 L92 9" stroke="#d6f928" strokeOpacity="0.3" strokeWidth="1" />
-        <path d="M104 12 L124 12" stroke="white" strokeOpacity="0.08" strokeDasharray="2 2" />
-        <rect x="132" y="2" width="52" height="20" rx="4" stroke="#d6f928" strokeOpacity="0.5" fill="#d6f928" fillOpacity="0.04" />
-        <rect x="140" y="8" width="18" height="2.5" rx="1" fill="#d6f928" fillOpacity="0.3" />
-        <rect x="140" y="12" width="26" height="2.5" rx="1" fill="#d6f928" fillOpacity="0.2" />
+      <svg className="w-full h-28 mt-4 mb-2" viewBox="0 0 400 110" fill="none">
+        <defs>
+          <linearGradient id="carter-bar" x1="0" y1="1" x2="0" y2="0">
+            <stop offset="0%" stopColor="#3b82f6" stopOpacity="0.1" />
+            <stop offset="100%" stopColor="#3b82f6" stopOpacity="0.6" />
+          </linearGradient>
+          <linearGradient id="carter-line" x1="0" y1="0" x2="1" y2="0">
+            <stop offset="0%" stopColor="#3b82f6" stopOpacity="0.2" />
+            <stop offset="100%" stopColor="#d6f928" stopOpacity="0.8" />
+          </linearGradient>
+          <filter id="carter-glow">
+            <feGaussianBlur stdDeviation="4" result="blur" />
+            <feMerge><feMergeNode in="blur" /><feMergeNode in="SourceGraphic" /></feMerge>
+          </filter>
+        </defs>
+        {/* Baseline */}
+        <line x1="40" y1="95" x2="360" y2="95" stroke="white" strokeOpacity="0.06" />
+        {/* 5 Rising bars */}
+        <rect x="50" y="75" width="36" height="20" rx="4" fill="url(#carter-bar)" stroke="#3b82f6" strokeOpacity="0.15" />
+        <rect x="110" y="60" width="36" height="35" rx="4" fill="url(#carter-bar)" stroke="#3b82f6" strokeOpacity="0.2" />
+        <rect x="170" y="48" width="36" height="47" rx="4" fill="url(#carter-bar)" stroke="#3b82f6" strokeOpacity="0.25" />
+        <rect x="230" y="33" width="36" height="62" rx="4" fill="url(#carter-bar)" stroke="#3b82f6" strokeOpacity="0.3" />
+        <rect x="290" y="15" width="36" height="80" rx="4" fill="url(#carter-bar)" stroke="#3b82f6" strokeOpacity="0.5" />
+        {/* Rising trend curve */}
+        <path d="M68 72 C100 68, 120 58, 128 57 S160 46, 188 45 S220 32, 248 30 S280 16, 308 12" stroke="url(#carter-line)" strokeWidth="2" strokeLinecap="round" fill="none" />
+        {/* Data points on curve */}
+        <circle cx="68" cy="72" r="3" fill="#3b82f6" fillOpacity="0.4" />
+        <circle cx="128" cy="57" r="3" fill="#3b82f6" fillOpacity="0.5" />
+        <circle cx="188" cy="45" r="3" fill="#3b82f6" fillOpacity="0.6" />
+        <circle cx="248" cy="30" r="3.5" fill="#3b82f6" fillOpacity="0.7" />
+        <circle cx="308" cy="12" r="5" fill="#d6f928" fillOpacity="0.8" filter="url(#carter-glow)" />
+        {/* +40% label near peak */}
+        <text x="322" y="10" fill="#d6f928" fillOpacity="0.6" fontSize="9" fontFamily="monospace">+40%</text>
+        {/* Stage labels */}
+        <text x="56" y="105" fill="white" fillOpacity="0.15" fontSize="7" fontFamily="monospace">S1</text>
+        <text x="116" y="105" fill="white" fillOpacity="0.15" fontSize="7" fontFamily="monospace">S2</text>
+        <text x="176" y="105" fill="white" fillOpacity="0.15" fontSize="7" fontFamily="monospace">S3</text>
+        <text x="236" y="105" fill="white" fillOpacity="0.15" fontSize="7" fontFamily="monospace">S4</text>
+        <text x="296" y="105" fill="white" fillOpacity="0.2" fontSize="7" fontFamily="monospace">S5</text>
       </svg>
     ),
   },
   {
-    title: "UVC: CMS Rollout Across 130+ Clinic Locations",
+    title: "UVC Clinics",
+    subtitle: "CMS Rollout Across 130+ Locations",
     category: "Enterprise CMS · Healthcare",
-    alt: "Phased CMS product rollout across 130+ clinic locations",
-    icon: <BarChart2 size={16} className="text-blue-400" />,
+    link: "/Projects/uvc",
+    icon: <BarChart2 size={16} className="text-[#d6f928]" />,
     badge: "Scale · Roadmap · Tech Debt",
-    user: "Clinic admins manually updating fragmented sites—hours lost per location per update.",
-    problem: "130+ locations, no standardized CMS. Each new clinic added a new point of failure.",
-    decision: "Phased rollout (5 → 20 → all) instead of big-bang. Contained risk while maintaining uptime.",
-    impact: "Reduced per-location deployment overhead. Unified digital presence network-wide.",
+    summary: "130+ clinics, no unified CMS. Led phased rollout (5 → 20 → all) to unify digital presence without downtime.",
     visual: (
-      <svg className="w-full h-6 mt-2 mb-1 opacity-50" viewBox="0 0 200 24" fill="none">
-        <circle cx="24" cy="12" r="10" stroke="#3b82f6" strokeOpacity="0.35" fill="#3b82f6" fillOpacity="0.05" />
-        <circle cx="24" cy="12" r="3" fill="#3b82f6" fillOpacity="0.3" />
-        <line x1="38" y1="6" x2="64" y2="4" stroke="#3b82f6" strokeOpacity="0.12" />
-        <line x1="38" y1="12" x2="64" y2="12" stroke="#3b82f6" strokeOpacity="0.12" />
-        <line x1="38" y1="18" x2="64" y2="20" stroke="#3b82f6" strokeOpacity="0.12" />
-        <circle cx="72" cy="4" r="5" stroke="#3b82f6" strokeOpacity="0.2" fill="#3b82f6" fillOpacity="0.03" />
-        <circle cx="72" cy="12" r="5" stroke="#3b82f6" strokeOpacity="0.2" fill="#3b82f6" fillOpacity="0.03" />
-        <circle cx="72" cy="20" r="5" stroke="#3b82f6" strokeOpacity="0.2" fill="#3b82f6" fillOpacity="0.03" />
+      <svg className="w-full h-28 mt-4 mb-2" viewBox="0 0 400 110" fill="none">
+        <defs>
+          <radialGradient id="uvc-hub" cx="50%" cy="50%" r="50%">
+            <stop offset="0%" stopColor="#d6f928" stopOpacity="0.4" />
+            <stop offset="100%" stopColor="#d6f928" stopOpacity="0" />
+          </radialGradient>
+          <filter id="uvc-glow">
+            <feGaussianBlur stdDeviation="6" result="blur" />
+            <feMerge><feMergeNode in="blur" /><feMergeNode in="SourceGraphic" /></feMerge>
+          </filter>
+        </defs>
+        {/* Central hub with pulse rings */}
+        <circle cx="110" cy="55" r="30" fill="url(#uvc-hub)" />
+        <circle cx="110" cy="55" r="22" stroke="#d6f928" strokeOpacity="0.15" strokeDasharray="3 5" fill="none" />
+        <circle cx="110" cy="55" r="12" stroke="#d6f928" strokeOpacity="0.4" fill="#d6f928" fillOpacity="0.08" />
+        <circle cx="110" cy="55" r="4" fill="#d6f928" fillOpacity="0.7" filter="url(#uvc-glow)" />
+        <text x="102" y="59" fill="#d6f928" fillOpacity="0.5" fontSize="7" fontFamily="monospace">HQ</text>
+        {/* Phase 1: 5 clinics - inner ring */}
+        <line x1="122" y1="50" x2="170" y2="35" stroke="#d6f928" strokeOpacity="0.15" />
+        <line x1="122" y1="60" x2="170" y2="65" stroke="#d6f928" strokeOpacity="0.15" />
+        <line x1="120" y1="43" x2="165" y2="22" stroke="#d6f928" strokeOpacity="0.12" />
+        <line x1="120" y1="67" x2="165" y2="82" stroke="#d6f928" strokeOpacity="0.12" />
+        <line x1="122" y1="55" x2="175" y2="50" stroke="#d6f928" strokeOpacity="0.15" />
+        <circle cx="170" cy="35" r="6" stroke="#d6f928" strokeOpacity="0.3" fill="#d6f928" fillOpacity="0.06" />
+        <circle cx="170" cy="65" r="6" stroke="#d6f928" strokeOpacity="0.3" fill="#d6f928" fillOpacity="0.06" />
+        <circle cx="165" cy="22" r="5" stroke="#d6f928" strokeOpacity="0.25" fill="#d6f928" fillOpacity="0.04" />
+        <circle cx="165" cy="82" r="5" stroke="#d6f928" strokeOpacity="0.25" fill="#d6f928" fillOpacity="0.04" />
+        <circle cx="175" cy="50" r="6" stroke="#d6f928" strokeOpacity="0.3" fill="#d6f928" fillOpacity="0.06" />
+        {/* Phase 2: 20 clinics - mid ring */}
+        <line x1="176" y1="35" x2="230" y2="20" stroke="#d6f928" strokeOpacity="0.1" />
+        <line x1="176" y1="65" x2="230" y2="80" stroke="#d6f928" strokeOpacity="0.1" />
+        <line x1="181" y1="50" x2="235" y2="45" stroke="#d6f928" strokeOpacity="0.1" />
+        <line x1="176" y1="35" x2="235" y2="35" stroke="#d6f928" strokeOpacity="0.08" />
+        <line x1="176" y1="65" x2="235" y2="60" stroke="#d6f928" strokeOpacity="0.08" />
+        <circle cx="230" cy="20" r="4" stroke="#d6f928" strokeOpacity="0.2" fill="#d6f928" fillOpacity="0.04" />
+        <circle cx="230" cy="80" r="4" stroke="#d6f928" strokeOpacity="0.2" fill="#d6f928" fillOpacity="0.04" />
+        <circle cx="235" cy="45" r="4" stroke="#d6f928" strokeOpacity="0.2" fill="#d6f928" fillOpacity="0.04" />
+        <circle cx="235" cy="35" r="3.5" stroke="#d6f928" strokeOpacity="0.18" fill="#d6f928" fillOpacity="0.03" />
+        <circle cx="235" cy="60" r="3.5" stroke="#d6f928" strokeOpacity="0.18" fill="#d6f928" fillOpacity="0.03" />
+        {/* Phase 3: 130+ clinics - outer scatter */}
+        <circle cx="280" cy="15" r="2.5" fill="#d6f928" fillOpacity="0.12" />
+        <circle cx="295" cy="30" r="2" fill="#d6f928" fillOpacity="0.1" />
+        <circle cx="310" cy="18" r="2.5" fill="#d6f928" fillOpacity="0.14" />
+        <circle cx="290" cy="50" r="2" fill="#d6f928" fillOpacity="0.1" />
+        <circle cx="305" cy="42" r="2.5" fill="#d6f928" fillOpacity="0.12" />
+        <circle cx="320" cy="55" r="2" fill="#d6f928" fillOpacity="0.08" />
+        <circle cx="280" cy="70" r="2" fill="#d6f928" fillOpacity="0.1" />
+        <circle cx="300" cy="78" r="2.5" fill="#d6f928" fillOpacity="0.12" />
+        <circle cx="315" cy="68" r="2" fill="#d6f928" fillOpacity="0.08" />
+        <circle cx="330" cy="35" r="1.5" fill="#d6f928" fillOpacity="0.06" />
+        <circle cx="340" cy="50" r="1.5" fill="#d6f928" fillOpacity="0.06" />
+        <circle cx="285" cy="90" r="2" fill="#d6f928" fillOpacity="0.08" />
+        <circle cx="310" cy="88" r="1.5" fill="#d6f928" fillOpacity="0.06" />
+        <circle cx="345" cy="70" r="1.5" fill="#d6f928" fillOpacity="0.05" />
+        <circle cx="350" cy="25" r="1.5" fill="#d6f928" fillOpacity="0.05" />
+        {/* Phase labels */}
+        <text x="155" y="100" fill="#d6f928" fillOpacity="0.2" fontSize="7" fontFamily="monospace">5</text>
+        <text x="220" y="100" fill="#d6f928" fillOpacity="0.25" fontSize="7" fontFamily="monospace">20</text>
+        <text x="295" y="100" fill="#d6f928" fillOpacity="0.35" fontSize="7" fontFamily="monospace">130+</text>
       </svg>
     ),
   },
   {
-    title: "Rosso Brunello: CRO Audit & Revenue Recovery",
-    category: "E-Commerce · CRO",
-    alt: "CRO audit and checkout funnel optimization for cart abandonment and AOV",
-    icon: <ShoppingCart size={16} className="text-orange-400" />,
-    badge: "CRO · AOV · Funnel",
-    user: "High-intent buyers adding premium items to cart, then abandoning at the shipping cost reveal.",
-    problem: "Cart abandonment high, AOV below category benchmarks. Checkout optimized for simplicity, not conversion.",
-    decision: "Audited every funnel drop-off. Ranked interventions by revenue impact vs. effort—nothing without data.",
-    impact: "Shipped trust signals, upsell placement, and checkout restructuring. Every change tied to a metric.",
+    title: "GoDiverse",
+    subtitle: "1-Page Resume Builder with AI",
+    category: "Product Strategy · SaaS",
+    link: "/Projects/GoDiverse",
+    icon: <FileText size={16} className="text-purple-400" />,
+    badge: "0→1 · AI · Constraints",
+    summary: "Builders were either too complex or too generic. Scoped a 1-page constraint with 3 distribution channels and AI-assisted content. Under 8 min to first shared resume.",
     visual: (
-      <svg className="w-full h-6 mt-2 mb-1 opacity-50" viewBox="0 0 200 24" fill="none">
-        <path d="M10 1 L66 1 L58 23 L18 23 Z" stroke="#f97316" strokeOpacity="0.25" fill="#f97316" fillOpacity="0.03" />
-        <path d="M78 12 L98 12" stroke="white" strokeOpacity="0.08" strokeDasharray="2 2" />
-        <path d="M108 3 L148 3 L142 21 L114 21 Z" stroke="#d6f928" strokeOpacity="0.35" fill="#d6f928" fillOpacity="0.04" />
-        <path d="M158 12 L172 12" stroke="#d6f928" strokeOpacity="0.2" />
-        <path d="M168 8 L174 12 L168 16" stroke="#d6f928" strokeOpacity="0.3" fill="none" />
+      <svg className="w-full h-28 mt-4 mb-2" viewBox="0 0 400 110" fill="none">
+        <defs>
+          <linearGradient id="gd-flow" x1="0" y1="0" x2="1" y2="0">
+            <stop offset="0%" stopColor="#a855f7" stopOpacity="0.3" />
+            <stop offset="50%" stopColor="#d6f928" stopOpacity="0.5" />
+            <stop offset="100%" stopColor="#d6f928" stopOpacity="0.3" />
+          </linearGradient>
+          <filter id="gd-glow">
+            <feGaussianBlur stdDeviation="5" result="blur" />
+            <feMerge><feMergeNode in="blur" /><feMergeNode in="SourceGraphic" /></feMerge>
+          </filter>
+          <radialGradient id="gd-ai" cx="50%" cy="50%" r="50%">
+            <stop offset="0%" stopColor="#d6f928" stopOpacity="0.3" />
+            <stop offset="100%" stopColor="#d6f928" stopOpacity="0" />
+          </radialGradient>
+        </defs>
+        {/* Input: messy document */}
+        <rect x="30" y="15" width="70" height="85" rx="6" stroke="#a855f7" strokeOpacity="0.3" fill="#a855f7" fillOpacity="0.04" />
+        <rect x="42" y="28" width="32" height="3" rx="1.5" fill="#a855f7" fillOpacity="0.25" />
+        <rect x="42" y="36" width="46" height="3" rx="1.5" fill="#a855f7" fillOpacity="0.2" />
+        <rect x="42" y="44" width="22" height="3" rx="1.5" fill="#a855f7" fillOpacity="0.15" />
+        <rect x="42" y="52" width="40" height="3" rx="1.5" fill="#a855f7" fillOpacity="0.18" />
+        <rect x="42" y="60" width="28" height="3" rx="1.5" fill="#a855f7" fillOpacity="0.12" />
+        <rect x="42" y="68" width="36" height="3" rx="1.5" fill="#a855f7" fillOpacity="0.15" />
+        <rect x="42" y="76" width="18" height="3" rx="1.5" fill="#a855f7" fillOpacity="0.1" />
+        <text x="45" y="92" fill="#a855f7" fillOpacity="0.25" fontSize="7" fontFamily="monospace">draft</text>
+        {/* Flow arrow 1 */}
+        <path d="M110 55 L145 55" stroke="url(#gd-flow)" strokeWidth="1.5" strokeDasharray="4 3" />
+        <path d="M140 50 L148 55 L140 60" stroke="#a855f7" strokeOpacity="0.3" fill="none" />
+        {/* AI Processing diamond */}
+        <circle cx="200" cy="55" r="35" fill="url(#gd-ai)" />
+        <path d="M200 22 L230 55 L200 88 L170 55 Z" stroke="#d6f928" strokeOpacity="0.4" fill="#d6f928" fillOpacity="0.04" strokeWidth="1" />
+        <path d="M200 32 L220 55 L200 78 L180 55 Z" stroke="#d6f928" strokeOpacity="0.2" fill="#d6f928" fillOpacity="0.03" strokeWidth="0.5" />
+        <circle cx="200" cy="55" r="6" fill="#d6f928" fillOpacity="0.3" filter="url(#gd-glow)" />
+        {/* Sparkle particles */}
+        <circle cx="182" cy="35" r="1.5" fill="#d6f928" fillOpacity="0.5" />
+        <circle cx="218" cy="38" r="1" fill="#d6f928" fillOpacity="0.4" />
+        <circle cx="175" cy="65" r="1" fill="#d6f928" fillOpacity="0.3" />
+        <circle cx="225" cy="70" r="1.5" fill="#d6f928" fillOpacity="0.4" />
+        <circle cx="190" cy="28" r="1" fill="#d6f928" fillOpacity="0.3" />
+        <circle cx="212" cy="80" r="1" fill="#d6f928" fillOpacity="0.3" />
+        <text x="189" y="58" fill="#d6f928" fillOpacity="0.5" fontSize="8" fontFamily="monospace">AI</text>
+        {/* Flow arrow 2 */}
+        <path d="M252 55 L287 55" stroke="url(#gd-flow)" strokeWidth="1.5" strokeDasharray="4 3" />
+        <path d="M282 50 L290 55 L282 60" stroke="#d6f928" strokeOpacity="0.3" fill="none" />
+        {/* Output: polished document */}
+        <rect x="300" y="15" width="70" height="85" rx="6" stroke="#d6f928" strokeOpacity="0.4" fill="#d6f928" fillOpacity="0.04" />
+        <rect x="312" y="28" width="46" height="3" rx="1.5" fill="#d6f928" fillOpacity="0.35" />
+        <rect x="312" y="36" width="46" height="3" rx="1.5" fill="#d6f928" fillOpacity="0.3" />
+        <rect x="312" y="44" width="46" height="3" rx="1.5" fill="#d6f928" fillOpacity="0.25" />
+        <rect x="312" y="52" width="46" height="3" rx="1.5" fill="#d6f928" fillOpacity="0.2" />
+        <rect x="312" y="60" width="46" height="3" rx="1.5" fill="#d6f928" fillOpacity="0.18" />
+        <rect x="312" y="68" width="46" height="3" rx="1.5" fill="#d6f928" fillOpacity="0.15" />
+        <rect x="312" y="76" width="30" height="3" rx="1.5" fill="#d6f928" fillOpacity="0.12" />
+        <text x="313" y="92" fill="#d6f928" fillOpacity="0.35" fontSize="7" fontFamily="monospace">ready</text>
+        {/* Time label */}
+        <text x="162" y="106" fill="white" fillOpacity="0.12" fontSize="7" fontFamily="monospace">&lt; 8 min</text>
       </svg>
     ),
   },
@@ -85,118 +209,59 @@ const Projects = () => {
           Three products across AI, healthcare, and e-commerce.
           Each one starts with{" "}
           <span className="font-semibold text-white">the user who was struggling</span>—then the business problem,
-          the call I made, and what it produced. No case study padding. Just what happened and why.
+          the call I made, and what it produced.
         </p>
-        <div className="w-full mt-8">
-          <ul className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+
+        <div className="w-full mt-10">
+          <ul className="grid grid-cols-1 md:grid-cols-3 gap-6">
             {projectData.map((project, i) => (
               <li key={i} className="w-full">
-                <article className="flex flex-col h-full w-full bg-white/5 border-2 border-white/20 backdrop-blur-md rounded-xl overflow-hidden shadow-md hover:border-white/40 transition-all group">
-                  {/* Category + Icon Header */}
-                  <div className="px-5 pt-5 pb-0 flex items-center justify-between">
-                    <p className="text-xs text-gray-400 uppercase tracking-wider">
-                      {project.category}
-                    </p>
-                    <div className="bg-black/60 border border-white/20 rounded-full px-3 py-1.5 flex items-center gap-2">
-                      {project.icon}
-                    </div>
-                  </div>
-
-                  <div className="p-5 flex flex-col flex-grow justify-between">
-                    <div className="space-y-3">
-                      <h3 className="font-heading text-base font-bold text-white leading-tight">
-                        {project.title}
-                      </h3>
-
-                      {project.visual}
-
-                      <div>
-                        <span className="text-blue-400 uppercase tracking-wider text-[10px] font-semibold block mb-1">The User</span>
-                        <p className="text-xs text-gray-400 leading-relaxed">{project.user}</p>
-                      </div>
-
-                      <div>
-                        <span className="text-gray-500 uppercase tracking-wider text-[10px] font-semibold block mb-1">The Problem</span>
-                        <p className="text-xs text-gray-400 leading-relaxed">{project.problem}</p>
-                      </div>
-
-                      <div>
-                        <span className="text-orange-400 uppercase tracking-wider text-[10px] font-semibold block mb-1">The PM Decision</span>
-                        <p className="text-xs text-gray-300 leading-relaxed">{project.decision}</p>
-                      </div>
-
-                      <div>
-                        <span className="text-[#d6f928] uppercase tracking-wider text-[10px] font-semibold block mb-1">Outcome</span>
-                        <p className="text-xs text-gray-300 leading-relaxed">{project.impact}</p>
+                <Link to={project.link} className="block h-full">
+                  <article className="flex flex-col h-full w-full bg-white/5 border border-white/10 backdrop-blur-md rounded-2xl overflow-hidden hover:border-white/25 hover:-translate-y-1 transition-all duration-300 group cursor-pointer">
+                    {/* Header */}
+                    <div className="px-6 pt-6 pb-0 flex items-center justify-between">
+                      <p className="text-[10px] text-gray-500 uppercase tracking-wider font-mono">
+                        {project.category}
+                      </p>
+                      <div className="bg-white/5 border border-white/10 rounded-full p-2 flex items-center justify-center">
+                        {project.icon}
                       </div>
                     </div>
 
-                    <div className="mt-4 flex flex-wrap items-center gap-2 text-xs text-gray-400">
-                      {project.badge.split(" · ").map((tag, j) => (
-                        <span key={j} className="px-2 py-1 bg-white/5 border border-white/10 rounded-full whitespace-nowrap">
-                          {tag}
-                        </span>
-                      ))}
+                    <div className="px-6 pb-6 pt-4 flex flex-col flex-grow justify-between">
+                      <div>
+                        <h3 className="font-heading text-xl font-bold text-white leading-tight group-hover:text-[#d6f928] transition-colors">
+                          {project.title}
+                        </h3>
+                        <p className="text-sm text-gray-400 mt-1">{project.subtitle}</p>
+
+                        {project.visual}
+
+                        <p className="text-sm text-gray-300 leading-relaxed mt-3">
+                          {project.summary}
+                        </p>
+                      </div>
+
+                      <div className="mt-5 flex flex-wrap items-center gap-2">
+                        {project.badge.split(" · ").map((tag, j) => (
+                          <span key={j} className="text-[10px] text-gray-400 px-2.5 py-1 bg-white/5 border border-white/10 rounded-full whitespace-nowrap font-mono">
+                            {tag}
+                          </span>
+                        ))}
+                      </div>
                     </div>
-                  </div>
-                </article>
+                  </article>
+                </Link>
               </li>
             ))}
           </ul>
         </div>
       </div>
 
-      {/* <div className="w-full inline-flex flex-nowrap">
-        {[...Array(2)].map((_, index) => (
-         <ul
-            key={index}
-            className="flex items-center justify-center md:justify-start [&_li]:mx-4 animate-infinite-scroll"
-            style={{ animationDuration: '80s&apos; }} // SLOWER SPEED (60s instead of default fast)
-            aria-hidden={index === 1}
-          >
-            {projectData.map((project, i) => (
-              <li key={i}>
-                <div className="h-80 w-[380px] bg-white/5 border-2 border-white/20 backdrop-blur-md rounded-xl overflow-hidden shadow-md hover:border-white/40 transition-all group">
-                  <div className="relative h-48 overflow-hidden">
-                    <img
-                      src={project.image}
-                      alt={project.title}
-                      className="w-full h-full object-cover rounded-t-xl group-hover:scale-105 transition-transform duration-300"
-                    />
-                    
-                    <div className="absolute top-3 right-3 bg-black/80 backdrop-blur-md border border-white/20 rounded-full px-3 py-1.5 flex items-center gap-2">
-                      {project.icon}
-                    </div>
-                  </div>
-
-                  <div className="p-5">
-                    <p className="text-xs text-gray-400 mb-2 uppercase tracking-wider">
-                      {project.category}
-                    </p>
-                    <h3 className="font-heading text-base font-bold text-white leading-tight">
-                      {project.title}
-                    </h3>
-
-                    <div className="mt-4 flex items-center gap-2 text-xs text-gray-400">
-                      <span className="px-2 py-1 bg-white/5 border border-white/10 rounded-full">
-                        UX Strategy
-                      </span>
-                      <span className="px-2 py-1 bg-white/5 border border-white/10 rounded-full">
-                        A/B Testing
-                      </span>
-                    </div>
-                  </div>
-                </div>
-              </li>
-            ))}
-          </ul>
-        ))}
-      </div> */}
-
       {/* Bottom CTA */}
       <div className="max-w-6xl mx-auto px-4 mt-16 text-center">
         <p className="text-gray-400 text-sm mb-4">
-          Want the full breakdown — problem, decisions, and results — for each project?
+          Want the full breakdown — problem, decisions, and results?
         </p>
         <a
           href="/projects"
