@@ -59,29 +59,7 @@ export const AboutMe = () => {
               </p>
             </div>
 
-            {/* Visual: PM Intersection — Product × Engineering × AI */}
-            <div className="mt-10 mb-2 flex justify-center lg:justify-start">
-              <svg className="w-[260px] h-[150px]" viewBox="0 0 260 150" fill="none">
-                <line x1="130" y1="72" x2="56" y2="30" stroke="#d6f928" strokeOpacity="0.12" strokeDasharray="4 4" />
-                <line x1="130" y1="72" x2="204" y2="30" stroke="#3b82f6" strokeOpacity="0.12" strokeDasharray="4 4" />
-                <line x1="130" y1="72" x2="130" y2="128" stroke="#a855f7" strokeOpacity="0.12" strokeDasharray="4 4" />
-                <circle cx="130" cy="72" r="36" stroke="white" strokeOpacity="0.03" strokeDasharray="2 4" />
-                <circle cx="130" cy="72" r="60" stroke="white" strokeOpacity="0.02" strokeDasharray="2 6" />
-                <circle cx="56" cy="30" r="16" stroke="#d6f928" strokeOpacity="0.25" fill="#d6f928" fillOpacity="0.03" />
-                <circle cx="56" cy="30" r="3.5" fill="#d6f928" fillOpacity="0.5" />
-                <circle cx="204" cy="30" r="16" stroke="#3b82f6" strokeOpacity="0.25" fill="#3b82f6" fillOpacity="0.03" />
-                <circle cx="204" cy="30" r="3.5" fill="#3b82f6" fillOpacity="0.5" />
-                <circle cx="130" cy="128" r="16" stroke="#a855f7" strokeOpacity="0.25" fill="#a855f7" fillOpacity="0.03" />
-                <circle cx="130" cy="128" r="3.5" fill="#a855f7" fillOpacity="0.5" />
-                <circle cx="130" cy="72" r="8" stroke="#d6f928" strokeOpacity="0.4" fill="#d6f928" fillOpacity="0.06" />
-                <circle cx="130" cy="72" r="3" fill="#d6f928" fillOpacity="0.8" />
-              </svg>
-            </div>
-            <div className="flex justify-center lg:justify-start gap-6 mb-4 -mt-1">
-              <span className="text-[10px] font-mono text-[#d6f928]/40">Product</span>
-              <span className="text-[10px] font-mono text-blue-400/40">Engineering</span>
-              <span className="text-[10px] font-mono text-purple-400/40">AI · ML</span>
-            </div>
+           
 
             {/* Key Differentiators */}
             <div className="mt-4 grid grid-cols-1 md:grid-cols-3 gap-4 w-full">
