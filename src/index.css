@@ -7,8 +7,9 @@
         padding: 0;
         box-sizing: border-box;
 }
-body {
+html, body {
         font-size: 14px;
+        background-color: #000000;
 }
 
 /* Hide scrollbar for horizontal scroll containers */

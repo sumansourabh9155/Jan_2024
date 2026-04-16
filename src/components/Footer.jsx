@@ -1,5 +1,5 @@
 import { Link } from "react-router-dom";
-import { Github, Linkedin, Twitter, Mail, ArrowUpRight } from "lucide-react";
+import { Github, Linkedin, Mail, ArrowUpRight } from "lucide-react";
 
 const Footer = () => {
     const currentYear = new Date().getFullYear();
@@ -7,18 +7,17 @@ const Footer = () => {
     const links = {
         explore: [
             { name: "Case Studies", url: "/projects" },
-            { name: "Services", url: "/services" },
             { name: "About", url: "/resume" },
-            { name: "Resources", url: "/resources" },
+            { name: "Contact", url: "/contact" },
         ],
         social: [
-            { name: "LinkedIn", url: "https://linkedin.com/in/yourprofile", icon: <Linkedin size={16} /> },
-            { name: "Twitter / X", url: "https://twitter.com/yourhandle", icon: <Twitter size={16} /> },
-            { name: "GitHub", url: "https://github.com/yourrepo", icon: <Github size={16} /> },
+            { name: "LinkedIn", url: "https://www.linkedin.com/in/sumansourabh9155/", icon: <Linkedin size={16} /> },
+            { name: "GitHub", url: "https://github.com/sumansourabh9155", icon: <Github size={16} /> },
         ],
-        legal: [
-            { name: "Privacy Policy", url: "/privacy" },
-            { name: "Terms of Service", url: "/terms" },
+        caseStudies: [
+            { name: "Carter", url: "/Projects/carter" },
+            { name: "UVC Clinics", url: "/Projects/uvc" },
+            { name: "GoDiverse", url: "/Projects/GoDiverse" },
         ]
     };
 
@@ -68,10 +67,10 @@ const Footer = () => {
                             Product Manager. CS/ML background. I multiply team output by eliminating the gap between product strategy and technical execution.
                         </p>
                         <a
-                            href="mailto:hello@sumansourabh.com"
+                            href="mailto:sumansourabh9155@gmail.com"
                             className="flex items-center gap-2 text-white hover:text-[#d6f928] transition-colors"
                         >
-                            <Mail size={16} /> ux.sumansourabh@gmail.com
+                            <Mail size={16} /> sumansourabh9155@gmail.com
                         </a>
                     </div>
 
@@ -108,11 +107,11 @@ const Footer = () => {
                         </ul>
                     </div>
 
-                    {/* Column 4: Legal (2 Cols) */}
+                    {/* Column 4: Case Studies (2 Cols) */}
                     <div className="md:col-span-2">
-                        <h4 className="text-xs font-mono text-gray-500 uppercase tracking-widest mb-6">Legal</h4>
+                        <h4 className="text-xs font-mono text-gray-500 uppercase tracking-widest mb-6">Case Studies</h4>
                         <ul className="space-y-4">
-                            {links.legal.map((link) => (
+                            {links.caseStudies.map((link) => (
                                 <li key={link.name}>
                                     <Link to={link.url} className="text-sm text-gray-400 hover:text-white transition-colors">
                                         {link.name}
