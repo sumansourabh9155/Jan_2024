@@ -169,6 +169,42 @@ const CarterEcosystem = () => {
                         <div className="text-xs font-mono text-gray-600 uppercase tracking-widest whitespace-nowrap">Fix the Foundation</div>
                     </div>
 
+                    {/* Phase 01 Roadmap Timeline SVG */}
+                    <svg className="w-full h-20 my-6" viewBox="0 0 400 80" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <defs>
+                            <filter id="p1GlowRed" x="-50%" y="-50%" width="200%" height="200%">
+                                <feGaussianBlur stdDeviation="3" result="blur" />
+                                <feMerge><feMergeNode in="blur" /><feMergeNode in="SourceGraphic" /></feMerge>
+                            </filter>
+                            <filter id="p1GlowLime" x="-50%" y="-50%" width="200%" height="200%">
+                                <feGaussianBlur stdDeviation="3" result="blur" />
+                                <feMerge><feMergeNode in="blur" /><feMergeNode in="SourceGraphic" /></feMerge>
+                            </filter>
+                        </defs>
+                        {/* Dashed connecting line */}
+                        <line x1="50" y1="35" x2="350" y2="35" stroke="#3b82f6" strokeOpacity="0.2" strokeWidth="1" strokeDasharray="6 4" />
+                        {/* Node 1 — Broken (red) */}
+                        <circle cx="50" cy="35" r="10" fill="#ef4444" fillOpacity="0.15" stroke="#ef4444" strokeOpacity="0.5" strokeWidth="1.5" filter="url(#p1GlowRed)" />
+                        <circle cx="50" cy="35" r="3" fill="#ef4444" fillOpacity="0.6" />
+                        <text x="50" y="62" textAnchor="middle" fill="white" fillOpacity="0.3" fontFamily="monospace" fontSize="7">BROKEN</text>
+                        {/* Node 2 — Audit (blue) */}
+                        <circle cx="150" cy="35" r="10" fill="#3b82f6" fillOpacity="0.1" stroke="#3b82f6" strokeOpacity="0.4" strokeWidth="1.5" />
+                        <circle cx="150" cy="35" r="3" fill="#3b82f6" fillOpacity="0.5" />
+                        <text x="150" y="62" textAnchor="middle" fill="white" fillOpacity="0.3" fontFamily="monospace" fontSize="7">AUDIT</text>
+                        {/* Node 3 — Redesign (blue) */}
+                        <circle cx="250" cy="35" r="10" fill="#3b82f6" fillOpacity="0.1" stroke="#3b82f6" strokeOpacity="0.4" strokeWidth="1.5" />
+                        <circle cx="250" cy="35" r="3" fill="#3b82f6" fillOpacity="0.5" />
+                        <text x="250" y="62" textAnchor="middle" fill="white" fillOpacity="0.3" fontFamily="monospace" fontSize="7">REDESIGN</text>
+                        {/* Node 4 — Launch (lime) */}
+                        <circle cx="350" cy="35" r="10" fill="#d6f928" fillOpacity="0.15" stroke="#d6f928" strokeOpacity="0.5" strokeWidth="1.5" filter="url(#p1GlowLime)" />
+                        <circle cx="350" cy="35" r="3" fill="#d6f928" fillOpacity="0.6" />
+                        <text x="350" y="62" textAnchor="middle" fill="white" fillOpacity="0.3" fontFamily="monospace" fontSize="7">SHIPPED</text>
+                        {/* Arrow tips between nodes */}
+                        <polygon points="95,35 88,31 88,39" fill="#3b82f6" fillOpacity="0.3" />
+                        <polygon points="195,35 188,31 188,39" fill="#3b82f6" fillOpacity="0.3" />
+                        <polygon points="295,35 288,31 288,39" fill="#d6f928" fillOpacity="0.3" />
+                    </svg>
+
                     {/* Strategic Bet */}
                     <div className="max-w-3xl mb-20">
                         <Badge>[ The Strategic Bet ]</Badge>
@@ -176,6 +212,39 @@ const CarterEcosystem = () => {
                             The team wanted features.{" "}
                             <span className="text-gray-400">I pushed to fix activation first.</span>
                         </h2>
+
+                        {/* RICE Prioritization Visual */}
+                        <svg className="w-full h-24 my-6" viewBox="0 0 400 90" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <defs>
+                                <linearGradient id="riceWinGrad" x1="0" y1="0" x2="0" y2="1">
+                                    <stop offset="0%" stopColor="#d6f928" stopOpacity="0.3" />
+                                    <stop offset="100%" stopColor="#d6f928" stopOpacity="0.05" />
+                                </linearGradient>
+                                <filter id="riceGlow" x="-50%" y="-50%" width="200%" height="200%">
+                                    <feGaussianBlur stdDeviation="4" result="blur" />
+                                    <feMerge><feMergeNode in="blur" /><feMergeNode in="SourceGraphic" /></feMerge>
+                                </filter>
+                            </defs>
+                            {/* Baseline */}
+                            <line x1="40" y1="72" x2="360" y2="72" stroke="white" strokeOpacity="0.08" strokeWidth="1" />
+                            {/* R bar */}
+                            <rect x="60" y="42" width="40" height="30" rx="3" fill="#3b82f6" fillOpacity="0.12" stroke="#3b82f6" strokeOpacity="0.25" strokeWidth="1" />
+                            <text x="80" y="82" textAnchor="middle" fill="white" fillOpacity="0.25" fontFamily="monospace" fontSize="8">R</text>
+                            <text x="80" y="38" textAnchor="middle" fill="white" fillOpacity="0.2" fontFamily="monospace" fontSize="7">HIGH</text>
+                            {/* I bar — tallest, the winner */}
+                            <rect x="140" y="14" width="40" height="58" rx="3" fill="url(#riceWinGrad)" stroke="#d6f928" strokeOpacity="0.5" strokeWidth="1.5" filter="url(#riceGlow)" />
+                            <text x="160" y="82" textAnchor="middle" fill="#d6f928" fillOpacity="0.4" fontFamily="monospace" fontSize="8" fontWeight="bold">I</text>
+                            <text x="160" y="10" textAnchor="middle" fill="#d6f928" fillOpacity="0.35" fontFamily="monospace" fontSize="7">4x REV</text>
+                            {/* C bar */}
+                            <rect x="220" y="36" width="40" height="36" rx="3" fill="#a855f7" fillOpacity="0.1" stroke="#a855f7" strokeOpacity="0.25" strokeWidth="1" />
+                            <text x="240" y="82" textAnchor="middle" fill="white" fillOpacity="0.25" fontFamily="monospace" fontSize="8">C</text>
+                            <text x="240" y="32" textAnchor="middle" fill="white" fillOpacity="0.2" fontFamily="monospace" fontSize="7">90%</text>
+                            {/* E bar */}
+                            <rect x="300" y="48" width="40" height="24" rx="3" fill="#3b82f6" fillOpacity="0.1" stroke="#3b82f6" strokeOpacity="0.2" strokeWidth="1" />
+                            <text x="320" y="82" textAnchor="middle" fill="white" fillOpacity="0.25" fontFamily="monospace" fontSize="8">E</text>
+                            <text x="320" y="44" textAnchor="middle" fill="white" fillOpacity="0.2" fontFamily="monospace" fontSize="7">2 SPRINTS</text>
+                        </svg>
+
                         <p className="text-gray-400 text-base leading-relaxed mb-5">
                             I scored the backlog using RICE — reach, impact, confidence, effort — and the data was clear:
                             fixing campaign activation had 4x the revenue impact of any new feature.
@@ -378,6 +447,48 @@ const CarterEcosystem = () => {
                         <div className="h-px bg-white/10 flex-grow"></div>
                         <div className="text-xs font-mono text-gray-600 uppercase tracking-widest whitespace-nowrap">0-to-1 DSP</div>
                     </div>
+
+                    {/* Phase 02 Concept Vector — fragmented networks → unified DSP */}
+                    <svg className="w-full h-20 my-6" viewBox="0 0 400 80" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <defs>
+                            <linearGradient id="dsp-hub-grad" x1="0" y1="0" x2="1" y2="0">
+                                <stop offset="0%" stopColor="#d6f928" stopOpacity="0.4" />
+                                <stop offset="100%" stopColor="#d6f928" stopOpacity="0.1" />
+                            </linearGradient>
+                            <filter id="dsp-glow">
+                                <feGaussianBlur stdDeviation="4" result="blur" />
+                                <feMerge><feMergeNode in="blur" /><feMergeNode in="SourceGraphic" /></feMerge>
+                            </filter>
+                        </defs>
+                        {/* 4 fragmented networks on the left */}
+                        {[0, 1, 2, 3].map((i) => (
+                            <rect key={i} x={10 + i * 2} y={12 + i * 14} width={28} height={10} rx="2"
+                                stroke="#ef4444" strokeOpacity="0.3" strokeWidth="0.8" fill="#ef4444" fillOpacity="0.05" />
+                        ))}
+                        <text x="24" y="78" textAnchor="middle" fontFamily="monospace" fontSize="7" fill="white" fillOpacity="0.2">4 NETWORKS</text>
+                        {/* Converging lines */}
+                        {[0, 1, 2, 3].map((i) => (
+                            <line key={i} x1="40" y1={17 + i * 14} x2="160" y2="40"
+                                stroke="#d6f928" strokeOpacity="0.15" strokeWidth="0.6" strokeDasharray="4 3" />
+                        ))}
+                        {/* Central DSP hub */}
+                        <circle cx="160" cy="40" r="18" fill="#d6f928" fillOpacity="0.06" stroke="#d6f928" strokeOpacity="0.4" strokeWidth="1.5" filter="url(#dsp-glow)" />
+                        <circle cx="160" cy="40" r="6" fill="#d6f928" fillOpacity="0.25" />
+                        <text x="160" y="76" textAnchor="middle" fontFamily="monospace" fontSize="7" fill="#d6f928" fillOpacity="0.35">DSP</text>
+                        {/* Arrow right */}
+                        <line x1="182" y1="40" x2="230" y2="40" stroke="#d6f928" strokeOpacity="0.3" strokeWidth="0.8" />
+                        <polygon points="230,37 238,40 230,43" fill="#d6f928" fillOpacity="0.3" />
+                        {/* Unified view */}
+                        <rect x="242" y="18" width="110" height="44" rx="4" fill="url(#dsp-hub-grad)" stroke="#d6f928" strokeOpacity="0.2" strokeWidth="0.8" />
+                        {[0, 1, 2].map((i) => (
+                            <rect key={i} x={250} y={25 + i * 12} width={94} height={7} rx="1"
+                                fill="#d6f928" fillOpacity={0.06 + i * 0.01} />
+                        ))}
+                        <text x="296" y="76" textAnchor="middle" fontFamily="monospace" fontSize="7" fill="#d6f928" fillOpacity="0.3">UNIFIED VIEW</text>
+                        {/* 4x LTV label */}
+                        <text x="370" y="36" textAnchor="middle" fontFamily="monospace" fontSize="9" fill="#d6f928" fillOpacity="0.5" filter="url(#dsp-glow)">4x</text>
+                        <text x="370" y="47" textAnchor="middle" fontFamily="monospace" fontSize="6" fill="white" fillOpacity="0.2">LTV</text>
+                    </svg>
 
                     {/* Strategic Bet */}
                     <div className="max-w-3xl mb-20">

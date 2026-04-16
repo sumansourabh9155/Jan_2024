@@ -182,6 +182,42 @@ const UvcEcosystem = () => {
                         <div className="text-xs font-mono text-gray-600 uppercase tracking-widest whitespace-nowrap">Standardization</div>
                     </div>
 
+                    {/* Concept Vector — Consolidation: chaos → order */}
+                    <svg className="w-full h-20 my-6" viewBox="0 0 400 80" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <defs>
+                            <linearGradient id="uvc-lime-grad-01" x1="0" y1="40" x2="400" y2="40" gradientUnits="userSpaceOnUse">
+                                <stop stopColor="#d6f928" stopOpacity="0.3" />
+                                <stop offset="1" stopColor="#d6f928" stopOpacity="0.05" />
+                            </linearGradient>
+                            <filter id="uvc-glow-lime-01">
+                                <feGaussianBlur stdDeviation="3" result="blur" />
+                                <feMerge><feMergeNode in="blur" /><feMergeNode in="SourceGraphic" /></feMerge>
+                            </filter>
+                        </defs>
+                        {/* Scattered dots — 130 clinics */}
+                        {[
+                            [15,12],[22,58],[35,30],[42,65],[50,18],[28,42],[60,50],[18,38],[45,8],[55,62],
+                            [10,52],[38,20],[48,45],[25,70],[58,35],[32,55],[12,25],[52,28],[40,72],[20,48],
+                            [65,15],[30,10],[8,60],[46,38],[55,5],[36,48],[14,34],[50,55],[22,15],[42,32]
+                        ].map(([cx, cy], i) => (
+                            <circle key={i} cx={cx} cy={cy} r="1.5" fill="#d6f928" fillOpacity={0.15 + Math.random() * 0.25} />
+                        ))}
+                        {/* Funnel shape */}
+                        <path d="M100 5 L160 30 L160 50 L100 75 Z" stroke="#d6f928" strokeOpacity="0.2" strokeWidth="0.5" fill="#d6f928" fillOpacity="0.03" />
+                        <line x1="80" y1="40" x2="160" y2="40" stroke="#d6f928" strokeOpacity="0.15" strokeWidth="0.5" strokeDasharray="3 3" />
+                        {/* Arrow */}
+                        <line x1="160" y1="40" x2="210" y2="40" stroke="#d6f928" strokeOpacity="0.3" strokeWidth="0.5" filter="url(#uvc-glow-lime-01)" />
+                        <polygon points="210,37 218,40 210,43" fill="#d6f928" fillOpacity="0.3" />
+                        {/* 5 organized template boxes */}
+                        {[0, 1, 2, 3, 4].map((i) => (
+                            <rect key={i} x={235 + i * 32} y={25} width="24" height="30" rx="3" stroke="#d6f928" strokeOpacity="0.35" strokeWidth="0.5" fill="#d6f928" fillOpacity="0.05" />
+                        ))}
+                        {/* Labels */}
+                        <text x="30" y="78" fontFamily="monospace" fontSize="7" fill="#d6f928" fillOpacity="0.25">130 clinics</text>
+                        <text x="125" y="78" fontFamily="monospace" fontSize="7" fill="#d6f928" fillOpacity="0.25">funnel</text>
+                        <text x="270" y="78" fontFamily="monospace" fontSize="7" fill="#d6f928" fillOpacity="0.25">5 templates</text>
+                    </svg>
+
                     {/* Strategic Bet */}
                     <div className="max-w-3xl mb-20">
                         <Badge>[ The Strategic Bet ]</Badge>
@@ -288,6 +324,52 @@ const UvcEcosystem = () => {
                         <div className="h-px bg-white/10 flex-grow"></div>
                         <div className="text-xs font-mono text-gray-600 uppercase tracking-widest whitespace-nowrap">Relational CMS</div>
                     </div>
+
+                    {/* Phase 02 Vector — relational data model: nodes → connected graph */}
+                    <svg className="w-full h-20 my-6" viewBox="0 0 400 80" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <defs>
+                            <radialGradient id="uvc-node-center" cx="50%" cy="50%" r="50%">
+                                <stop offset="0%" stopColor="#3b82f6" stopOpacity="0.5" />
+                                <stop offset="100%" stopColor="#3b82f6" stopOpacity="0" />
+                            </radialGradient>
+                            <filter id="uvc-cms-glow">
+                                <feGaussianBlur stdDeviation="3" result="blur" />
+                                <feMerge><feMergeNode in="blur" /><feMergeNode in="SourceGraphic" /></feMerge>
+                            </filter>
+                        </defs>
+                        {/* Isolated copies — before */}
+                        {[0, 1, 2].map((i) => (
+                            <circle key={i} cx={18 + i * 22} cy={35} r="9"
+                                fill="#ef4444" fillOpacity="0.06" stroke="#ef4444" strokeOpacity="0.25" strokeWidth="0.8" />
+                        ))}
+                        <text x="14" y="55" fontFamily="monospace" fontSize="6" fill="white" fillOpacity="0.2">3 copies</text>
+                        <line x1="80" y1="15" x2="80" y2="60" stroke="white" strokeOpacity="0.06" strokeWidth="0.5" strokeDasharray="2 3" />
+                        {/* Arrow */}
+                        <line x1="88" y1="35" x2="120" y2="35" stroke="#3b82f6" strokeOpacity="0.3" strokeWidth="0.8" />
+                        <polygon points="120,32 128,35 120,38" fill="#3b82f6" fillOpacity="0.3" />
+                        {/* Central record */}
+                        <circle cx="160" cy="35" r="14" fill="url(#uvc-node-center)" stroke="#3b82f6" strokeOpacity="0.5" strokeWidth="1.5" filter="url(#uvc-cms-glow)" />
+                        <circle cx="160" cy="35" r="4" fill="#3b82f6" fillOpacity="0.5" />
+                        <text x="160" y="64" textAnchor="middle" fontFamily="monospace" fontSize="7" fill="white" fillOpacity="0.3">1 RECORD</text>
+                        {/* Lines to leaf nodes */}
+                        {[[210, 15], [230, 35], [210, 55]].map(([nx, ny], i) => (
+                            <line key={i} x1="174" y1="35" x2={nx} y2={ny}
+                                stroke="#d6f928" strokeOpacity="0.2" strokeWidth="0.7" />
+                        ))}
+                        {/* Leaf nodes */}
+                        {[[210, 15], [230, 35], [210, 55]].map(([nx, ny], i) => (
+                            <circle key={i} cx={nx} cy={ny} r="8"
+                                fill="#d6f928" fillOpacity="0.05" stroke="#d6f928" strokeOpacity="0.3" strokeWidth="0.8" />
+                        ))}
+                        <text x="220" y="72" textAnchor="middle" fontFamily="monospace" fontSize="7" fill="#d6f928" fillOpacity="0.25">cascades</text>
+                        {/* Label stack */}
+                        {[["SPEC", 260, 22], ["LOC", 292, 35], ["SVC", 260, 48]].map(([label, lx, ly]) => (
+                            <text key={label} x={lx} y={ly} textAnchor="middle" fontFamily="monospace" fontSize="6" fill="white" fillOpacity="0.2">{label}</text>
+                        ))}
+                        {/* Benefit callout */}
+                        <text x="350" y="28" textAnchor="middle" fontFamily="monospace" fontSize="8" fill="#d6f928" fillOpacity="0.5" filter="url(#uvc-cms-glow)">0</text>
+                        <text x="350" y="40" textAnchor="middle" fontFamily="monospace" fontSize="6" fill="white" fillOpacity="0.2">duplicates</text>
+                    </svg>
 
                     {/* Strategic Bet */}
                     <div className="max-w-3xl mb-20">
@@ -404,6 +486,49 @@ const UvcEcosystem = () => {
                         <div className="h-px bg-white/10 flex-grow"></div>
                         <div className="text-xs font-mono text-gray-600 uppercase tracking-widest whitespace-nowrap">0-to-1 Site Builder</div>
                     </div>
+
+                    {/* Phase 03 Vector — sprint backlog clogged → self-serve builder */}
+                    <svg className="w-full h-20 my-6" viewBox="0 0 400 80" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <defs>
+                            <linearGradient id="uvc-p3-bar" x1="0" y1="0" x2="1" y2="0">
+                                <stop offset="0%" stopColor="#ef4444" stopOpacity="0.3" />
+                                <stop offset="100%" stopColor="#ef4444" stopOpacity="0.05" />
+                            </linearGradient>
+                            <linearGradient id="uvc-p3-win" x1="0" y1="0" x2="1" y2="0">
+                                <stop offset="0%" stopColor="#d6f928" stopOpacity="0.3" />
+                                <stop offset="100%" stopColor="#d6f928" stopOpacity="0.05" />
+                            </linearGradient>
+                            <filter id="uvc-p3-glow">
+                                <feGaussianBlur stdDeviation="3" result="blur" />
+                                <feMerge><feMergeNode in="blur" /><feMergeNode in="SourceGraphic" /></feMerge>
+                            </filter>
+                        </defs>
+                        {/* Engineering queue — stacked tickets */}
+                        {[0, 1, 2, 3, 4].map((i) => (
+                            <rect key={i} x={8} y={8 + i * 13} width={70 - i * 5} height={9} rx="2"
+                                fill="url(#uvc-p3-bar)" stroke="#ef4444" strokeOpacity={0.3 - i * 0.04} strokeWidth="0.7" />
+                        ))}
+                        <text x="40" y="76" textAnchor="middle" fontFamily="monospace" fontSize="7" fill="white" fillOpacity="0.2">eng queue</text>
+                        {/* Arrow */}
+                        <line x1="88" y1="40" x2="130" y2="40" stroke="white" strokeOpacity="0.2" strokeWidth="0.8" strokeDasharray="4 3" />
+                        <polygon points="130,37 138,40 130,43" fill="white" fillOpacity="0.15" />
+                        {/* Builder canvas */}
+                        <rect x="145" y="12" width="110" height="56" rx="4" fill="none" stroke="#3b82f6" strokeOpacity="0.2" strokeWidth="0.8" />
+                        {/* Drag blocks inside */}
+                        {[[150, 18, 40, 10], [196, 18, 52, 10], [150, 32, 60, 10], [150, 46, 45, 10]].map(([x, y, w, h], i) => (
+                            <rect key={i} x={x} y={y} width={w} height={h} rx="2"
+                                fill="#3b82f6" fillOpacity="0.07" stroke="#3b82f6" strokeOpacity="0.2" strokeWidth="0.5" />
+                        ))}
+                        <text x="200" y="76" textAnchor="middle" fontFamily="monospace" fontSize="7" fill="white" fillOpacity="0.2">no-code builder</text>
+                        {/* Arrow to outcome */}
+                        <line x1="258" y1="40" x2="292" y2="40" stroke="#d6f928" strokeOpacity="0.3" strokeWidth="0.8" />
+                        <polygon points="292,37 300,40 292,43" fill="#d6f928" fillOpacity="0.3" />
+                        {/* Outcome: 0 tickets */}
+                        <circle cx="330" cy="40" r="22" fill="url(#uvc-p3-win)" stroke="#d6f928" strokeOpacity="0.35" strokeWidth="1.2" filter="url(#uvc-p3-glow)" />
+                        <text x="330" y="37" textAnchor="middle" fontFamily="monospace" fontSize="12" fill="#d6f928" fillOpacity="0.6">0</text>
+                        <text x="330" y="49" textAnchor="middle" fontFamily="monospace" fontSize="6" fill="white" fillOpacity="0.25">tickets</text>
+                        <text x="330" y="76" textAnchor="middle" fontFamily="monospace" fontSize="7" fill="#d6f928" fillOpacity="0.3">100% reduction</text>
+                    </svg>
 
                     {/* Strategic Bet */}
                     <div className="max-w-3xl mb-20">
