@@ -77,9 +77,9 @@ const HeroSection = () => {
           {capabilities.map((cap, i) => (
             <div
               key={i}
-              className="bg-white/[0.04] border border-white/10 backdrop-blur-md rounded-xl p-5 flex flex-col items-center gap-3 hover:border-white/25 hover:-translate-y-1 transition-all duration-300 cursor-default group"
+              className="bg-white/[0.04] border border-white/10 backdrop-blur-md rounded-xl p-5 flex flex-col items-center gap-3 cursor-default"
             >
-              <div className="p-2.5 bg-white/5 rounded-lg border border-white/5 group-hover:border-white/10 transition-colors">
+              <div className="p-2.5 bg-white/5 rounded-lg border border-white/5">
                 {cap.icon}
               </div>
               <span className="text-sm text-gray-300 font-medium">{cap.label}</span>

@@ -1,3 +1,4 @@
+import { useState, useRef, useCallback } from "react";
 import { Link } from "react-router-dom";
 import Navbar from "../../Navbar";
 import Footer from "../../Footer";
@@ -22,6 +23,61 @@ import v1 from "../../../assets/dsp/1.mp4";
 import v3 from "../../../assets/dsp/3.mp4";
 
 // ================= REUSABLE COMPONENTS =================
+
+const BeforeAfterSlider = ({ beforeSrc, afterSrc, beforeAlt, afterAlt }) => {
+    const [pos, setPos] = useState(50);
+    const containerRef = useRef(null);
+    const dragging = useRef(false);
+
+    const updatePos = useCallback((clientX) => {
+        const rect = containerRef.current.getBoundingClientRect();
+        const pct = Math.min(100, Math.max(0, ((clientX - rect.left) / rect.width) * 100));
+        setPos(pct);
+    }, []);
+
+    const onMouseDown = () => { dragging.current = true; };
+    const onMouseMove = (e) => { if (dragging.current) updatePos(e.clientX); };
+    const onMouseUp = () => { dragging.current = false; };
+
+    return (
+        <div
+            ref={containerRef}
+            className="relative w-full rounded-2xl overflow-hidden select-none cursor-ew-resize border border-white/10"
+            onMouseDown={onMouseDown}
+            onMouseMove={onMouseMove}
+            onMouseUp={onMouseUp}
+            onMouseLeave={onMouseUp}
+            onTouchMove={(e) => updatePos(e.touches[0].clientX)}
+            onTouchStart={(e) => updatePos(e.touches[0].clientX)}
+        >
+            {/* BEFORE image — base layer (sets container height) */}
+            <img src={beforeSrc} alt={beforeAlt} className="w-full h-auto block" draggable={false} />
+
+            {/* AFTER image — clipped to right of slider */}
+            <img
+                src={afterSrc} alt={afterAlt}
+                className="absolute top-0 left-0 w-full"
+                style={{ clipPath: `inset(0 0 0 ${pos}%)` }}
+                draggable={false}
+            />
+
+            {/* Divider line */}
+            <div
+                className="absolute top-0 bottom-0 w-0.5 bg-white/80 shadow-lg pointer-events-none"
+                style={{ left: `${pos}%`, transform: "translateX(-50%)" }}
+            >
+                {/* Handle circle */}
+                <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-9 h-9 rounded-full bg-white shadow-xl flex items-center justify-center">
+                    <span className="text-black text-xs font-bold select-none">⇔</span>
+                </div>
+            </div>
+
+            {/* Labels */}
+            <span className="absolute top-3 left-3 text-xs font-mono uppercase tracking-widest text-white/70 bg-black/50 px-2 py-0.5 rounded pointer-events-none">Before</span>
+            <span className="absolute top-3 right-3 text-xs font-mono uppercase tracking-widest text-[#d6f928] bg-black/50 px-2 py-0.5 rounded pointer-events-none">After</span>
+        </div>
+    );
+};
 
 const Badge = ({ children }) => (
     <div className="inline-flex items-center gap-2 text-xs font-mono text-[#d6f928] tracking-widest uppercase mb-6 bg-[#d6f928]/5 px-3 py-1 rounded border border-[#d6f928]/20">
@@ -361,7 +417,6 @@ const CarterEcosystem = () => {
                             </div>
                         </div>
 
-                        {/* Metrics */}
                         <div className="bg-white/5 border border-white/10 rounded-2xl p-8">
                             <h4 className="text-white font-semibold text-sm mb-6">Before vs. After</h4>
                             <div className="flex items-center justify-between pb-3 border-b border-white/10 mb-1">
@@ -370,7 +425,8 @@ const CarterEcosystem = () => {
                                 <span className="text-gray-500 text-xs uppercase tracking-widest w-1/5 text-center">After</span>
                                 <span className="text-gray-500 text-xs uppercase tracking-widest w-1/5 text-right">Delta</span>
                             </div>
-                            <MetricRow label="Abandonment Rate" before="27%" after="8.5%" delta="-68%" />
+                            <MetricRow label="Review Time / Item" before="6.4 min" after="3.1 min" delta="-52%" />
+                            <MetricRow label="Creative Swap Rate" before="14%" after="47%" delta="+33pts" />
                             <MetricRow label="Avg. Setup Time" before="7.1 min" after="4.1 min" delta="-42%" />
                             <MetricRow label="Campaign Launch Rate" before="61%" after="81%" delta="+20pts" />
                         </div>
@@ -396,29 +452,16 @@ const CarterEcosystem = () => {
                             Product bet: move from passive reporting to active guidance.
                         </p>
 
-                        <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mb-12">
-                            <div className="space-y-3">
-                                <p className="text-xs text-gray-600 uppercase tracking-widest font-medium">Before</p>
-                                <img src={Oldaditem} alt="Old Ad Item Interface" className="rounded-2xl w-full border border-white/10 opacity-40 grayscale" />
-                            </div>
-                            <div className="space-y-3">
-                                <p className="text-xs text-[#d6f928] uppercase tracking-widest font-medium">After</p>
-                                <img src={Aditem} alt="New Ad Item Interface" className="rounded-2xl w-full border border-white/10" />
-                            </div>
+                        <div className="mb-12">
+                            <BeforeAfterSlider
+                                beforeSrc={Oldaditem}
+                                afterSrc={Aditem}
+                                beforeAlt="Old Ad Item Interface"
+                                afterAlt="New Ad Item Interface"
+                            />
                         </div>
 
-                        <div className="bg-white/5 border border-white/10 rounded-2xl p-8">
-                            <h4 className="text-white font-semibold text-sm mb-6">Impact</h4>
-                            <div className="flex items-center justify-between pb-3 border-b border-white/10 mb-1">
-                                <span className="text-gray-500 text-xs uppercase tracking-widest w-2/5">Metric</span>
-                                <span className="text-gray-500 text-xs uppercase tracking-widest w-1/5 text-center">Before</span>
-                                <span className="text-gray-500 text-xs uppercase tracking-widest w-1/5 text-center">After</span>
-                                <span className="text-gray-500 text-xs uppercase tracking-widest w-1/5 text-right">Delta</span>
-                            </div>
-                            <MetricRow label="Review Time / Item" before="6.4 min" after="3.1 min" delta="-52%" />
-                            <MetricRow label="Creative Swap Rate" before="14%" after="47%" delta="+33pts" />
-                            <MetricRow label="ROI from Bid Guidance" before="--" after="+24%" delta="New KPI" />
-                        </div>
+                        
                     </div>
 
                     {/* Phase 1 Outcomes */}

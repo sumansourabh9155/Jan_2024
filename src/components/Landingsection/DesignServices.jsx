@@ -141,7 +141,7 @@ const DesignServices = () => {
             {tags.map((tag, i) => (
               <span
                 key={i}
-                className="text-xs text-gray-300 bg-white/5 border border-white/10 px-4 py-2 rounded-full hover:bg-white/10 hover:border-white/30 transition-colors cursor-default"
+                className="text-xs text-gray-300 bg-white/5 border border-white/10 px-4 py-2 rounded-full cursor-default"
               >
                 {tag}
               </span>

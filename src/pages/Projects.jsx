@@ -8,7 +8,7 @@ const Projects = () => {
 
 
   return (
-    <div className="container__wrapper">
+    <div className="bg-[#050505] min-h-screen text-white">
       <SeoHead
         title="SaaS Product Strategy Case Studies & Portfolio | Suman Sourabh"
         description="Explore the design portfolio of Suman Sourabh. Case studies on SaaS products, measurable churn reduction, and strategic UX redesigns."

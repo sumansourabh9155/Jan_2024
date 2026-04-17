@@ -217,25 +217,27 @@ const Projects = () => {
             {projectData.map((project, i) => (
               <li key={i} className="w-full">
                 <Link to={project.link} className="block h-full">
-                  <article className="flex flex-col h-full w-full bg-white/5 border border-white/10 backdrop-blur-md rounded-2xl overflow-hidden hover:border-white/25 hover:-translate-y-1 transition-all duration-300 group cursor-pointer">
+                  <article className="flex flex-col h-full w-full bg-white/5 border border-white/10 backdrop-blur-md rounded-2xl overflow-hidden hover:border-white/30 hover:-translate-y-2 hover:shadow-xl hover:shadow-black/40 transition-all duration-300 group cursor-pointer">
                     {/* Header */}
                     <div className="px-6 pt-6 pb-0 flex items-center justify-between">
-                      <p className="text-[10px] text-gray-500 uppercase tracking-wider font-mono">
+                      <p className="text-[10px] text-gray-500 uppercase tracking-wider font-mono transition-colors duration-200 group-hover:text-gray-300">
                         {project.category}
                       </p>
-                      <div className="bg-white/5 border border-white/10 rounded-full p-2 flex items-center justify-center">
+                      <div className="bg-white/5 border border-white/10 rounded-full p-2 flex items-center justify-center transition-colors duration-200 group-hover:bg-white/10 group-hover:border-white/25">
                         {project.icon}
                       </div>
                     </div>
 
                     <div className="px-6 pb-6 pt-4 flex flex-col flex-grow justify-between">
                       <div>
-                        <h3 className="font-heading text-xl font-bold text-white leading-tight group-hover:text-[#d6f928] transition-colors">
+                        <h3 className="font-heading text-xl font-bold text-white leading-tight group-hover:text-[#d6f928] transition-colors duration-200">
                           {project.title}
                         </h3>
-                        <p className="text-sm text-gray-400 mt-1">{project.subtitle}</p>
+                        <p className="text-sm text-gray-400 mt-1 transition-colors duration-200 group-hover:text-gray-300">{project.subtitle}</p>
 
-                        {project.visual}
+                        <div className="transition-transform duration-300 group-hover:scale-[1.02] origin-bottom">
+                          {project.visual}
+                        </div>
 
                         <p className="text-sm text-gray-300 leading-relaxed mt-3">
                           {project.summary}
@@ -244,7 +246,7 @@ const Projects = () => {
 
                       <div className="mt-5 flex flex-wrap items-center gap-2">
                         {project.badge.split(" · ").map((tag, j) => (
-                          <span key={j} className="text-[10px] text-gray-400 px-2.5 py-1 bg-white/5 border border-white/10 rounded-full whitespace-nowrap font-mono">
+                          <span key={j} className="text-[10px] text-gray-400 px-2.5 py-1 bg-white/5 border border-white/10 rounded-full whitespace-nowrap font-mono transition-colors duration-200 group-hover:border-white/30 group-hover:text-white group-hover:bg-white/10">
                             {tag}
                           </span>
                         ))}
