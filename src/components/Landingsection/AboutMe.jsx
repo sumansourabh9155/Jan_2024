@@ -22,6 +22,10 @@ export const AboutMe = () => {
           <div className="hidden lg:block flex-shrink-0">
             <img
               src={suman}
+              loading="lazy"
+              decoding="async"
+              width="400"
+              height="400"
               className="object-cover rounded-xl h-[400px] w-[400px] brightness-110"
               alt="Suman Sourabh - Product Manager with CS/ML background leading cross-functional teams"
             />
@@ -30,10 +34,15 @@ export const AboutMe = () => {
           {/* Content Section */}
           <div className="flex-1 flex flex-col items-center lg:items-start text-center lg:text-left">
             {/* Mobile Image */}
-            <div
-              className="block lg:hidden rounded-full shadow-xl mx-auto mt-4 h-32 w-32 bg-cover bg-center"
-              style={{ backgroundImage: `url(${suman})` }}
-            ></div>
+            <img
+              src={suman}
+              loading="lazy"
+              decoding="async"
+              width="128"
+              height="128"
+              alt="Suman Sourabh - Product Manager"
+              className="block lg:hidden rounded-full shadow-xl mx-auto mt-4 h-32 w-32 object-cover"
+            />
 
 
 

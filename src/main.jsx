@@ -9,9 +9,9 @@ import AnimatedCursor from "react-animated-cursor";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 
 import LandingPage from "./pages/LandingPage";
-import Carter from "./components/Landingsection/Casestudy/Carter";
 
 // Lazy load pages for performance optimization
+const Carter = React.lazy(() => import("./components/Landingsection/Casestudy/Carter"));
 const Resume = React.lazy(() => import("./pages/Resume"));
 const Contact = React.lazy(() => import("./pages/Contact"));
 const Resource = React.lazy(() => import("./pages/Resource"));

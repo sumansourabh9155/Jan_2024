@@ -179,7 +179,7 @@ const SectionLabel = ({ text }) => (
 
 const TeamCard = ({ name, title, image }) => (
   <div className="flex items-center gap-4 bg-white/5 border border-white/10 p-4 rounded-xl backdrop-blur">
-    <img src={image} alt={name} className="w-14 h-14 rounded-full" />
+    <img loading="lazy" decoding="async" src={image} alt={name} className="w-14 h-14 rounded-full" />
     <div>
       <p className="font-medium text-white">{name}</p>
       <p className="text-sm text-gray-400">{title}</p>
@@ -190,7 +190,7 @@ const TeamCard = ({ name, title, image }) => (
 const ImageSection = ({ title, image }) => (
   <section className="space-y-4 ">
     <SectionLabel text={title} />
-    <img src={image} alt={title} className="rounded-xl w-full bg-white" />
+    <img loading="lazy" decoding="async" src={image} alt={title} className="rounded-xl w-full bg-white" />
   </section>
 );
 

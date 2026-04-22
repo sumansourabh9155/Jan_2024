@@ -65,7 +65,7 @@ const Faq = () => {
           {faqData.map((faq, index) => (
             <div
               key={index}
-              className={`group border rounded-2xl transition-all duration-300 overflow-hidden
+              className={`group border rounded-2xl transition-[background-color,border-color,box-shadow] duration-300 overflow-hidden
                 ${openIndex === index
                   ? "bg-[#0a0a0a] border-[#d6f928]/50 shadow-[0_0_20px_rgba(214,249,40,0.05)]"
                   : "bg-white/5 border-white/10 hover:border-white/20"

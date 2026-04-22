@@ -1,17 +1,24 @@
+import { lazy, Suspense } from "react";
 import "../App.css";
-import Footer from "../components/Footer";
-import DesignServices from "../components/Landingsection/DesignServices";
-import DoubleDiamond from "../components/Landingsection/DoubleDiamond";
-import Faq from "../components/Landingsection/Faq";
 import HeroSection from "../components/Landingsection/HeroSection";
-import Projects from "../components/Landingsection/Projects";
-import Testimonial from "../components/Landingsection/Testimonial";
 import Navbar from "../components/Navbar";
-import MessyMiddle from "../components/Landingsection/MessyMiddle";
-import PricingFilter from "../components/Landingsection/PricingFilter";
-import { AboutMe } from "../components/Landingsection/AboutMe";
-import TechProof from "../components/Landingsection/TechProof";
 import SeoHead from "../components/SeoHead";
+
+// Below-the-fold sections — code-split so the initial landing payload only
+// ships Navbar + Hero. Each chunk streams in as the user scrolls.
+const Projects = lazy(() => import("../components/Landingsection/Projects"));
+const AboutMe = lazy(() =>
+  import("../components/Landingsection/AboutMe").then((m) => ({ default: m.AboutMe }))
+);
+const DesignServices = lazy(() => import("../components/Landingsection/DesignServices"));
+const Testimonial = lazy(() => import("../components/Landingsection/Testimonial"));
+const DoubleDiamond = lazy(() => import("../components/Landingsection/DoubleDiamond"));
+const MessyMiddle = lazy(() => import("../components/Landingsection/MessyMiddle"));
+const Faq = lazy(() => import("../components/Landingsection/Faq"));
+const Footer = lazy(() => import("../components/Footer"));
+
+// Minimal height placeholder so scroll position doesn't jump when a chunk streams in
+const SectionFallback = () => <div className="min-h-[400px] bg-[#050505]" />;
 
 const LandingPage = () => {
   return (
@@ -21,47 +28,41 @@ const LandingPage = () => {
         description="Product Manager with a BTech in CS/ML. I bring AI integration, cross-functional leadership, and GTM strategy to early-to-mid-stage SaaS teams."
         canonicalUrl="https://www.sumansourabh.com/"
       />
-      {/* Hero + Navbar Section with Background */}
+      {/* Hero + Navbar — eager, above the fold */}
       <div
         className="relative bg-cover bg-no-repeat bg-center min-h-screen"
-        style={{
-          backgroundColor: "#000000",
-        }}
+        style={{ backgroundColor: "#000000" }}
       >
         <Navbar />
         <HeroSection />
       </div>
 
-      {/* Case Studies Section */}
-      <Projects />
+      <Suspense fallback={<SectionFallback />}>
+        {/* Case Studies */}
+        <Projects />
 
-      {/* About Section */}
-      <aside aria-label="About Suman Sourabh">
-        <AboutMe />
-      </aside>
+        {/* About */}
+        <aside aria-label="About Suman Sourabh">
+          <AboutMe />
+        </aside>
 
-      {/* Services Section */}
-      <DesignServices />
+        {/* Services */}
+        <DesignServices />
 
-      {/* Builder PM — Technical Product Operations */}
-      {/* <TechProof /> */}
+        {/* Social Proof */}
+        <Testimonial />
 
-      {/* Social Proof */}
-      <Testimonial />
+        {/* Methodology */}
+        <DoubleDiamond />
 
-      {/* Methodology */}
-      <DoubleDiamond />
+        {/* Messy Middle Case Studies */}
+        <MessyMiddle />
 
-      {/* Messy Middle Case Studies */}
-      <MessyMiddle />
+        {/* FAQ */}
+        <Faq />
 
-      {/* Pricing */}
-      {/* <PricingFilter /> */}
-
-      {/* FAQ */}
-      <Faq />
-
-      <Footer />
+        <Footer />
+      </Suspense>
     </>
   );
 };

@@ -404,7 +404,7 @@ const UvcEcosystem = () => {
                         </div>
                     </div>
 
-                    <img src={Charcount} alt="UVC Content Architecture" className="rounded-2xl w-full border border-white/10 mb-20" />
+                    <img loading="lazy" decoding="async" src={Charcount} alt="UVC Content Architecture" className="rounded-2xl w-full border border-white/10 mb-20" />
 
                     {/* CMS Architecture Cards */}
                     <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mb-20">
@@ -459,7 +459,7 @@ const UvcEcosystem = () => {
                         </p>
                     </div>
 
-                    <img src={Sitebuilder} alt="UVC Branding System" className="rounded-2xl w-full border border-white/10 mb-20" />
+                    <img loading="lazy" decoding="async" src={Sitebuilder} alt="UVC Branding System" className="rounded-2xl w-full border border-white/10 mb-20" />
 
                     {/* Phase 2 Outcomes */}
                     <div className="bg-gradient-to-br from-white/[0.05] to-transparent border border-white/10 backdrop-blur-md rounded-2xl p-8 md:p-10">
@@ -548,7 +548,7 @@ const UvcEcosystem = () => {
                         </p>
                     </div>
 
-                    <img src={Sitebuilder} alt="UVC No-Code Site Builder" className="rounded-2xl w-full border border-white/10 mb-20" />
+                    <img loading="lazy" decoding="async" src={Sitebuilder} alt="UVC No-Code Site Builder" className="rounded-2xl w-full border border-white/10 mb-20" />
 
                     {/* Builder Product Decisions */}
                     <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mb-20">
@@ -572,7 +572,7 @@ const UvcEcosystem = () => {
                         </div>
                     </div>
 
-                    <img src={Templatemanager} alt="UVC Template Manager" className="rounded-2xl w-full border border-white/10 mb-20" />
+                    <img loading="lazy" decoding="async" src={Templatemanager} alt="UVC Template Manager" className="rounded-2xl w-full border border-white/10 mb-20" />
 
                     {/* What didn't work */}
                     <div className="mb-20 bg-white/[0.02] border border-dashed border-white/10 rounded-xl p-5 max-w-3xl">

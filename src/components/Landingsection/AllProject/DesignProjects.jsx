@@ -72,7 +72,7 @@ const DesignProjects = () => {
 const ProjectCard = ({ title, year, categories, image, onClick }) => (
   <div className="space-y-2 cursor-pointer group" onClick={onClick}>
     <div className="overflow-hidden rounded-xl">
-      <img src={image} alt={title} className="w-full object-cover h-72 rounded-xl transition-transform duration-300 group-hover:scale-[1.03] group-hover:brightness-110" />
+      <img loading="lazy" decoding="async" src={image} alt={title} className="w-full object-cover h-72 rounded-xl transition-transform duration-300 group-hover:scale-[1.03] group-hover:brightness-110" />
     </div>
     <div>
       <h3 className="text-md font-medium text-white transition-colors duration-200 group-hover:text-[#d6f928]">

@@ -51,10 +51,11 @@ const BeforeAfterSlider = ({ beforeSrc, afterSrc, beforeAlt, afterAlt }) => {
             onTouchStart={(e) => updatePos(e.touches[0].clientX)}
         >
             {/* BEFORE image — base layer (sets container height) */}
-            <img src={beforeSrc} alt={beforeAlt} className="w-full h-auto block" draggable={false} />
+            <img loading="lazy" decoding="async" src={beforeSrc} alt={beforeAlt} className="w-full h-auto block" draggable={false} />
 
             {/* AFTER image — clipped to right of slider */}
             <img
+                loading="lazy" decoding="async"
                 src={afterSrc} alt={afterAlt}
                 className="absolute top-0 left-0 w-full"
                 style={{ clipPath: `inset(0 0 0 ${pos}%)` }}
@@ -364,7 +365,7 @@ const CarterEcosystem = () => {
                             A product decision to reduce engineering rework across 12 teams.
                             Atomic design, 8pt grid, WCAG 2.1 AA. Every component shipped with Storybook docs — zero dev back-and-forth.
                         </p>
-                        <img src={DSL} alt="Carter Design System 2.0" className="rounded-2xl w-full border border-white/10" />
+                        <img loading="lazy" decoding="async" src={DSL} alt="Carter Design System 2.0" className="rounded-2xl w-full border border-white/10" />
                     </div>
 
                     {/* ——— DECISION 2: CAMPAIGN CREATION ——— */}
@@ -375,7 +376,7 @@ const CarterEcosystem = () => {
                             Wrote the PRD, mapped every drop-off from session recordings. Applied Hick&apos;s Law — reduced choices from 12 to 3 per step.
                             Each stage gave live validation and AI-powered budget recommendations.
                         </p>
-                        <img src={CampaignCreationImg} alt="Campaign Creation Redesign" className="rounded-2xl w-full border border-white/10 mb-12" />
+                        <img loading="lazy" decoding="async" src={CampaignCreationImg} alt="Campaign Creation Redesign" className="rounded-2xl w-full border border-white/10 mb-12" />
 
                         {/* Product Calls — Icon Grid */}
                         <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mb-12">
@@ -568,7 +569,7 @@ const CarterEcosystem = () => {
                         </p>
                     </div>
 
-                    <img src={dsp} alt="Carter DSP — Platform Overview" className="rounded-2xl w-full border border-white/10 mb-20" />
+                    <img loading="lazy" decoding="async" src={dsp} alt="Carter DSP — Platform Overview" className="rounded-2xl w-full border border-white/10 mb-20" />
 
                     {/* Market Gap + North Stars */}
                     <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mb-20">
@@ -653,15 +654,15 @@ const CarterEcosystem = () => {
                     <div className="space-y-12 mb-20">
                         <div>
                             <Badge>[ Cross-Network Campaign View ]</Badge>
-                            <img src={CampaignDSP} alt="DSP — Campaign Dashboard" className="rounded-2xl w-full border border-white/10 mt-2" />
+                            <img loading="lazy" decoding="async" src={CampaignDSP} alt="DSP — Campaign Dashboard" className="rounded-2xl w-full border border-white/10 mt-2" />
                         </div>
                         <div>
                             <Badge>[ Campaign Detail & Performance ]</Badge>
-                            <img src={campaigndetail} alt="DSP — Campaign Details" className="rounded-2xl w-full border border-white/10 mt-2" />
+                            <img loading="lazy" decoding="async" src={campaigndetail} alt="DSP — Campaign Details" className="rounded-2xl w-full border border-white/10 mt-2" />
                         </div>
                         <div>
                             <Badge>[ Media Planning Canvas ]</Badge>
-                            <img src={mediaplan} alt="DSP — Media Planning" className="rounded-2xl w-full border border-white/10 mt-2" />
+                            <img loading="lazy" decoding="async" src={mediaplan} alt="DSP — Media Planning" className="rounded-2xl w-full border border-white/10 mt-2" />
                         </div>
                     </div>
 

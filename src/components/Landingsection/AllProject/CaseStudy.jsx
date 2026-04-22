@@ -91,7 +91,7 @@ const CaseStudy = () => {
                 key={index}
                 className={`group cursor-pointer bg-white/5 border border-white/10 rounded-2xl overflow-hidden backdrop-blur-sm
                   hover:-translate-y-1 hover:shadow-2xl ${accent.glow} ${accent.border}
-                  transition-all duration-300`}
+                  transition-[transform,box-shadow,border-color] duration-300 will-change-transform`}
                 onClick={() => navigate(project.link)}
               >
                 <div className="grid grid-cols-1 md:grid-cols-2">

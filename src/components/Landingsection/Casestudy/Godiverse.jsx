@@ -222,7 +222,7 @@ const Godiverse = () => {
                     </div>
 
                     {/* Research Screenshot Placeholder */}
-                    <img src={PLACEHOLDER} alt="Competitive Research" className="rounded-2xl w-full border border-white/10" />
+                    <img loading="lazy" decoding="async" src={PLACEHOLDER} alt="Competitive Research" className="rounded-2xl w-full border border-white/10" />
                 </div>
             </section>
 
@@ -322,7 +322,7 @@ const Godiverse = () => {
                     </div>
 
                     {/* Builder Screenshot Placeholder */}
-                    <img src={PLACEHOLDER} alt="Resume Builder Interface" className="rounded-2xl w-full border border-white/10 mb-20" />
+                    <img loading="lazy" decoding="async" src={PLACEHOLDER} alt="Resume Builder Interface" className="rounded-2xl w-full border border-white/10 mb-20" />
 
                     {/* Key Product Decisions */}
                     <h3 className="font-heading text-2xl font-bold text-white mb-3">Key Product Decisions</h3>
@@ -442,7 +442,7 @@ const Godiverse = () => {
                     </div>
 
                     {/* AI Screenshot Placeholder */}
-                    <img src={PLACEHOLDER} alt="AI Content Generation Flow" className="rounded-2xl w-full border border-white/10 mb-20" />
+                    <img loading="lazy" decoding="async" src={PLACEHOLDER} alt="AI Content Generation Flow" className="rounded-2xl w-full border border-white/10 mb-20" />
 
                     {/* What didn't work + What I said no to */}
                     <div className="flex flex-col md:flex-row gap-6 mb-20">
@@ -479,8 +479,8 @@ const Godiverse = () => {
                     </p>
 
                     <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-                        <img src={PLACEHOLDER} alt="Editor View" className="rounded-2xl w-full border border-white/10" />
-                        <img src={PLACEHOLDER} alt="Template Selection" className="rounded-2xl w-full border border-white/10" />
+                        <img loading="lazy" decoding="async" src={PLACEHOLDER} alt="Editor View" className="rounded-2xl w-full border border-white/10" />
+                        <img loading="lazy" decoding="async" src={PLACEHOLDER} alt="Template Selection" className="rounded-2xl w-full border border-white/10" />
                     </div>
                 </div>
             </section>

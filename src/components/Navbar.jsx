@@ -1,29 +1,36 @@
-import { useState, useEffect } from "react";
+import { useState, useEffect, useRef } from "react";
 import { Link, NavLink, useLocation } from "react-router-dom";
 import { Menu, X, ArrowRight } from "lucide-react";
 
 const Navbar = () => {
   const [isVisible, setIsVisible] = useState(true);
-  const [lastScrollY, setLastScrollY] = useState(0);
+  const lastScrollY = useRef(0);
+  const ticking = useRef(false);
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const location = useLocation();
 
-  // Smart Scroll Logic: Hides on scroll down, shows on scroll up
+  // Smart Scroll Logic: Hides on scroll down, shows on scroll up.
+  // rAF-throttled + passive listener + ref-based prev scroll so the
+  // effect registers once (no re-bind on every scroll tick).
   useEffect(() => {
-    const controlNavbar = () => {
-      if (typeof window !== "undefined") {
-        if (window.scrollY > lastScrollY && window.scrollY > 100) {
-          setIsVisible(false); // Hide
+    const onScroll = () => {
+      if (ticking.current) return;
+      ticking.current = true;
+      window.requestAnimationFrame(() => {
+        const y = window.scrollY;
+        if (y > lastScrollY.current && y > 100) {
+          setIsVisible(false);
         } else {
-          setIsVisible(true); // Show
+          setIsVisible(true);
         }
-        setLastScrollY(window.scrollY);
-      }
+        lastScrollY.current = y;
+        ticking.current = false;
+      });
     };
 
-    window.addEventListener("scroll", controlNavbar);
-    return () => window.removeEventListener("scroll", controlNavbar);
-  }, [lastScrollY]);
+    window.addEventListener("scroll", onScroll, { passive: true });
+    return () => window.removeEventListener("scroll", onScroll);
+  }, []);
 
   // Close mobile menu on route change
   useEffect(() => {

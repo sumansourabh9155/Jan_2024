@@ -217,7 +217,7 @@ const Projects = () => {
             {projectData.map((project, i) => (
               <li key={i} className="w-full">
                 <Link to={project.link} className="block h-full">
-                  <article className="flex flex-col h-full w-full bg-white/5 border border-white/10 backdrop-blur-md rounded-2xl overflow-hidden hover:border-white/30 hover:-translate-y-2 hover:shadow-xl hover:shadow-black/40 transition-all duration-300 group cursor-pointer">
+                  <article className="flex flex-col h-full w-full bg-white/5 border border-white/10 backdrop-blur-md rounded-2xl overflow-hidden hover:border-white/30 hover:-translate-y-2 hover:shadow-xl hover:shadow-black/40 transition-[transform,box-shadow,border-color] duration-300 will-change-transform group cursor-pointer">
                     {/* Header */}
                     <div className="px-6 pt-6 pb-0 flex items-center justify-between">
                       <p className="text-[10px] text-gray-500 uppercase tracking-wider font-mono transition-colors duration-200 group-hover:text-gray-300">
