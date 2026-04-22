@@ -6,34 +6,34 @@ const Faq = () => {
 
   const faqData = [
     {
+      question: "How soon can you join?",
+      answer:
+        "30 days. I'm on a standard notice period and I'll honor it — clean handover matters. If the role is right, I can start knowledge-transfer conversations immediately.",
+    },
+    {
+      question: "You're a designer by title — why should I hire you as a PM?",
+      answer:
+        "Because I've already operated as one. At Carter & Atlas I was titled Designer but owned product decisions: wrote every PRD, ran sprint planning, prioritized the backlog, and made the trade-off calls. BTech in CS/ML — I read codebases, evaluate architecture trade-offs, and ship UI myself. The title is catching up to the work.",
+    },
+    {
+      question: "What kind of role are you looking for?",
+      answer:
+        "PM or Senior PM at a seed-to-Series-B SaaS or AI company. Ideally a team where the PM owns outcomes end-to-end — strategy, spec, ship, measure — without a 4-layer approval chain. Bonus if the product touches LLMs.",
+    },
+    {
+      question: "Remote, hybrid, or on-site?",
+      answer:
+        "All three are on the table. Currently based in India and open to relocation for the right role. Happy to overlap with US or EU time zones — I've run distributed pods before.",
+    },
+    {
       question: "What PM work have you actually shipped?",
       answer:
-        "AI-powered MVPs with Claude and Gemini. Enterprise CMS across 130+ locations (UVC). E-commerce CRO audits. Automation pipelines in n8n. Serverless dashboards in React/Tailwind. Full cycle—PRD to shipped product.",
+        "Carter (B2B ad-tech) — redesigned activation funnel, 40% lift, 300% enterprise client growth. UVC (healthcare) — unified 130+ clinic sites under one CMS, launched 0-to-1 no-code builder. GoDiverse (SaaS) — 1-page resume builder with Claude-powered assist, under 8 min to first share. Full cycle on each: PRD to shipped.",
     },
     {
-      question: "What does 'technical PM' mean in your case?",
+      question: "Are you open to consulting or contract work?",
       answer:
-        "BTech in CS/ML. I read codebases, evaluate architecture tradeoffs, integrate LLM APIs, and write PRDs that engineering ships without translation. It's in the work, not just the resume.",
-    },
-    {
-      question: "How have you used Claude and Gemini in production?",
-      answer:
-        "Claude for long-form content pipelines and structured classification. Gemini for multimodal workflows and Google Workspace integrations. These were product spec decisions—model selection based on latency, cost, and output quality, not developer preference.",
-    },
-    {
-      question: "Tell me about a time you shipped the wrong thing.",
-      answer:
-        "Scoped a reporting feature based on a stakeholder assumption. Built it in two sprints. Post-launch: 6% usage. I'd let conviction substitute for user signal. Now every PRD requires a direct user interview or session recording before a feature enters sprint. That miss became a permanent process change.",
-    },
-    {
-      question: "Tell me about a time engineering pushed back.",
-      answer:
-        "Scoped an AI feature needing real-time inference. Engineering said latency would be 4-6 seconds—UX breaker. I asked them to walk me through it. They were right. We redesigned together: async inference on submit, not keystroke. Same value, technically viable, shipped on schedule.",
-    },
-    {
-      question: "How do you define 'done' for an AI feature?",
-      answer:
-        "Output quality at P90/P95, latency within the activation flow's time-to-value budget, inference cost within unit economics, and a feedback loop to catch degradation. I write the evaluation rubric before the PRD—if you can't measure 'good enough,' you can't scope the feature.",
+        "Yes — for short, scoped engagements: product audits, 0-to-1 scoping sprints, AI feature design, or UX-to-PM transition coaching. For full-time I'm selective, so consulting is a good way to work together first if you're unsure.",
     },
   ];
 
@@ -53,10 +53,10 @@ const Faq = () => {
             [ FAQ ]
           </div>
           <h2 id="faq-heading" className="font-heading text-3xl md:text-4xl font-bold text-white mb-4">
-            Questions Hiring Managers Actually Ask
+            Before you <span className="text-gray-500 font-light">reach out.</span>
           </h2>
           <p className="text-gray-400 max-w-xl mx-auto">
-            The questions that actually come up. Answered directly, with specifics.
+            The questions recruiters and founders usually ask first — answered up front, so we can skip straight to the work on our first call.
           </p>
         </div>
 
