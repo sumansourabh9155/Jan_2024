@@ -92,37 +92,44 @@ root.render(
                 </ProtectedRoute>
               }
             />
+            {/* Case studies — public (password lock disabled).
+                Keep the <ProtectedRoute> snippets below for future re-lock;
+                swap the `element={...}` back to the commented version to re-enable. */}
             <Route
               path="/Projects/Raikar"
-              element={
-                <ProtectedRoute correctPassword="9155">
-                  <RaikarGoodVibes />
-                </ProtectedRoute>
-              }
+              element={<RaikarGoodVibes />}
+              // element={
+              //   <ProtectedRoute correctPassword="9155">
+              //     <RaikarGoodVibes />
+              //   </ProtectedRoute>
+              // }
             />
             <Route
               path="/Projects/GoDiverse"
-              element={
-                <ProtectedRoute correctPassword="9155">
-                  <Godiverse />
-                </ProtectedRoute>
-              }
+              element={<Godiverse />}
+              // element={
+              //   <ProtectedRoute correctPassword="9155">
+              //     <Godiverse />
+              //   </ProtectedRoute>
+              // }
             />
             <Route
               path="/Projects/carter"
-              element={
-                <ProtectedRoute correctPassword="9155">
-                  <Carter />
-                </ProtectedRoute>
-              }
+              element={<Carter />}
+              // element={
+              //   <ProtectedRoute correctPassword="9155">
+              //     <Carter />
+              //   </ProtectedRoute>
+              // }
             />
             <Route
               path="/Projects/uvc"
-              element={
-                <ProtectedRoute correctPassword="9155">
-                  <Uvc />
-                </ProtectedRoute>
-              }
+              element={<Uvc />}
+              // element={
+              //   <ProtectedRoute correctPassword="9155">
+              //     <Uvc />
+              //   </ProtectedRoute>
+              // }
             />
             <Route
               path="/ask"
