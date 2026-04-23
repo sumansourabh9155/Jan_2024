@@ -89,7 +89,7 @@ const Contact = () => {
               {/* Contact tiles */}
               <div className="space-y-3 mb-10">
                 <a
-                  href="mailto:sumansourabh099@gmail.com"
+                  href="mailto:sumansourabh9155@gmail.com"
                   className="flex items-center gap-4 bg-white/5 border border-white/10 rounded-2xl p-4 group hover:border-white/25 hover:bg-white/[0.07] transition-all duration-200"
                 >
                   <div className="w-10 h-10 rounded-xl bg-[#d6f928]/10 border border-[#d6f928]/20 flex items-center justify-center flex-shrink-0">
@@ -97,13 +97,13 @@ const Contact = () => {
                   </div>
                   <div className="flex-1 min-w-0">
                     <p className="text-xs text-gray-500 font-mono uppercase tracking-widest mb-0.5">Email</p>
-                    <p className="text-sm text-white truncate">sumansourabh099@gmail.com</p>
+                    <p className="text-sm text-white truncate">sumansourabh9155@gmail.com</p>
                   </div>
                   <ArrowRight size={14} className="text-gray-600 group-hover:text-[#d6f928] group-hover:translate-x-0.5 transition-all duration-200 flex-shrink-0" />
                 </a>
 
                 <a
-                  href="https://www.linkedin.com/in/suman-sourabh/"
+                  href="https://www.linkedin.com/in/sumansourabh9155/"
                   target="_blank"
                   rel="noopener noreferrer"
                   className="flex items-center gap-4 bg-white/5 border border-white/10 rounded-2xl p-4 group hover:border-white/25 hover:bg-white/[0.07] transition-all duration-200"
@@ -113,7 +113,7 @@ const Contact = () => {
                   </div>
                   <div className="flex-1 min-w-0">
                     <p className="text-xs text-gray-500 font-mono uppercase tracking-widest mb-0.5">LinkedIn</p>
-                    <p className="text-sm text-white">linkedin.com/in/suman-sourabh</p>
+                    <p className="text-sm text-white">linkedin.com/in/sumansourabh9155</p>
                   </div>
                   <ArrowRight size={14} className="text-gray-600 group-hover:text-blue-400 group-hover:translate-x-0.5 transition-all duration-200 flex-shrink-0" />
                 </a>
