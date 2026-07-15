@@ -22,11 +22,11 @@ dist-ssr
 *.njsproj
 *.sln
 *.sw?
--e 
+
 # Environment files
+.env
 *.env
 *.env.*
--e 
-# Environment files
-*.env
-*.env.*
+
+# Private interview-prep material — never publish
+METRICS_LEDGER.md

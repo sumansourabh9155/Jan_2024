@@ -25,13 +25,13 @@ const projects = [
     accentColor: "lime",
   },
   {
-    title: "GoDiverse: 1-Page Resume Builder",
+    title: "GoDiverse: 1-Page Supplier Profile Builder",
     subtitle: "SaaS · AI Integration",
     year: "2025",
     categories: ["Product Strategy", "SaaS"],
     image: Bannergodiverse,
     link: "/Projects/GoDiverse",
-    outcome: "Under 8 min to first shared resume. 3 distribution channels. Claude-powered AI assist.",
+    outcome: "Designed for under 8 min to first shared profile. 3 distribution channels. Claude-powered AI assist.",
     accentColor: "purple",
   },
 ];

@@ -51,7 +51,7 @@ export const AboutMe = () => {
 
               <p>
                 I became a PM because I kept watching great engineers build the wrong thing—nobody had validated the problem first.
-                My <span className="font-semibold text-white">BTech in CS/ML</span> means I can read the codebase, challenge architecture, and tell scope creep from real complexity.
+                My <span className="font-semibold text-white">CS degree with an ML specialization</span> means I can read the codebase, challenge architecture, and tell scope creep from real complexity.
                 That gives me credibility in the engineering room and keeps the team focused on what actually moves the metric.
               </p>
 
@@ -87,7 +87,7 @@ export const AboutMe = () => {
               <div className="bg-black/50 border border-white/10 rounded-lg p-4">
                 <Zap size={24} className="text-yellow-400 mb-2" />
                 <h4 className="text-sm font-semibold text-white mb-1">Technical Depth</h4>
-                <p className="text-xs text-gray-400">BTech CS/ML. I read codebases, challenge architecture, and write PRDs engineering actually ships.</p>
+                <p className="text-xs text-gray-400">CS/ML degree. I read codebases, challenge architecture, and write PRDs engineering actually ships.</p>
               </div>
             </div>
 

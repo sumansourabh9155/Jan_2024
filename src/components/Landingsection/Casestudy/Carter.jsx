@@ -621,6 +621,27 @@ const CarterEcosystem = () => {
                         </div>
                     </div>
 
+                    {/* ——— AGENTIC AI CAMPAIGN ASSISTANT ——— */}
+                    <div className="mb-20">
+                        <Badge>[ Product Decision &mdash; Agentic AI Campaign Assistant ]</Badge>
+                        <h3 className="font-heading text-3xl font-bold text-white mb-4">
+                            Campaign creation: <span className="text-gray-400 font-light">2.5 hours &rarr; 30 minutes.</span>
+                        </h3>
+                        <p className="text-gray-400 text-base leading-relaxed max-w-3xl mb-8">
+                            Even with the guided flow, building a campaign still meant manually translating a media brief into
+                            targeting, budgets, flight dates, and creative slots. I designed and shipped an
+                            <span className="text-white font-medium"> agentic assistant on the Claude API</span>: the advertiser
+                            provides the brief, the assistant drafts the full campaign structure step by step, and the user
+                            reviews and edits each section before anything goes live &mdash; human-in-the-loop by design, because
+                            advertisers had already shown us they don&apos;t trust silent automation.
+                        </p>
+                        <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+                            <StatCard value="5x" label="Operational efficiency — campaign launch time cut from 2.5 hours to 30 minutes." icon={<Zap size={18} className="text-[#d6f928]" />} />
+                            <StatCard value="Draft, don't decide" label="The assistant proposes; the advertiser approves. Every AI output editable before launch." icon={<Cpu size={18} className="text-blue-400" />} />
+                            <StatCard value="Spec-checked" label="Drafts validated against each network's specs before submission — errors caught pre-launch, not post." icon={<CheckCircle2 size={18} className="text-green-400" />} />
+                        </div>
+                    </div>
+
                     {/* Video Walkthrough */}
                     <div className="bg-white/5 border border-white/10 backdrop-blur-lg p-6 md:p-10 rounded-2xl mb-20">
                         <div className="flex flex-col md:flex-row gap-10 items-center">

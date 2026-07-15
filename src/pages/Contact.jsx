@@ -46,9 +46,9 @@ const Contact = () => {
   return (
     <div className="bg-[#050505] min-h-screen text-white">
       <SeoHead
-        title="Contact Suman Sourabh | Hire a SaaS Product Strategist"
-        description="Get in touch with Suman Sourabh for SaaS product strategy consulting, UX audits, rapid MVP design, or full-time opportunities."
-        keywords="contact, hire saas product strategist, ux consultant, freelance product designer, collaboration"
+        title="Contact Suman Sourabh | Product Manager — AI & 0-to-1 Products"
+        description="Get in touch with Suman Sourabh about product manager roles, AI product work, or product questions."
+        keywords="contact, product manager, hire product manager, AI product manager"
         canonicalUrl="https://www.sumansourabh.com/contact"
       />
       <Navbar />
@@ -192,7 +192,7 @@ const Contact = () => {
 
                 <textarea
                   name="issue"
-                  placeholder="Describe your project or message*"
+                  placeholder="Your message — role, opportunity, or question*"
                   className={inputClass + " resize-none"}
                   rows="5"
                   required

@@ -5,8 +5,8 @@ import Footer from "../../Footer";
 import SEO from "../../SEO";
 import {
     Search, Users, Target, TrendingUp, Zap, Layers,
-    BarChart2, AlertTriangle, FileText, Shield,
-    Database, Globe, Blocks, CheckCircle2, GitBranch, Palette,
+    AlertTriangle, FileText, Shield,
+    Database, Globe, Blocks, CheckCircle2, GitBranch,
     Sparkles, Bot, PenLine, ExternalLink
 } from "lucide-react";
 
@@ -399,7 +399,7 @@ const UvcEcosystem = () => {
                                 Stakeholders wanted <span className="text-white font-medium">per-clinic custom workflows</span> (unsustainable at 130+ scale),
                                 <span className="text-white font-medium"> real-time chat integration</span> (6-month build, unclear adoption),
                                 and <span className="text-white font-medium">patient portal login</span> (compliance risk, out of scope for Phase 2).
-                                Every cut documented in the PRD with trigger conditions for revisiting.
+                                Each cut went into the PRD&apos;s parking lot with the specific signal that would reopen it.
                             </p>
                         </div>
                     </div>
@@ -892,7 +892,7 @@ const UvcEcosystem = () => {
                 <div className="max-w-7xl mx-auto flex flex-col md:flex-row items-center justify-between gap-6">
                     <div>
                         <p className="text-xs font-mono text-gray-600 uppercase tracking-widest mb-2">Next Case Study</p>
-                        <p className="font-heading text-2xl font-bold text-white">GoDiverse: Resume Builder</p>
+                        <p className="font-heading text-2xl font-bold text-white">GoDiverse: Supplier Profile Builder</p>
                     </div>
                     <Link to="/Projects/GoDiverse" className="text-[#d6f928] font-medium text-sm border border-[#d6f928]/20 bg-[#d6f928]/5 px-6 py-3 rounded-full hover:bg-[#d6f928]/10 transition-colors whitespace-nowrap">
                         View Case Study &rarr;

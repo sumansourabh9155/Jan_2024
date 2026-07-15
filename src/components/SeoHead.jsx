@@ -7,96 +7,44 @@ const personSchema = {
   "@type": "Person",
   name: "Suman Sourabh",
   url: SITE_URL,
-  jobTitle: "SaaS Product Strategist",
+  jobTitle: "Product Manager",
   description:
-    "Suman Sourabh is a SaaS Product Strategist who helps VC-backed founders reduce churn and increase retention through psychology-driven UX and rapid MVP deployment.",
+    "Product Manager with a CS/ML background shipping 0-to-1 products across AdTech and HealthTech, including AI features built on the Claude API.",
   sameAs: [
-    "https://www.linkedin.com/in/sumansourabh",
-    "https://twitter.com/sumansourabh",
-    "https://github.com/sumansourabh",
+    "https://www.linkedin.com/in/sumansourabh9155/",
+    "https://github.com/sumansourabh9155",
   ],
   knowsAbout: [
-    "SaaS Retention",
-    "Churn Reduction",
-    "MVP Strategy",
-    "React",
-    "UX Psychology",
     "Product Management",
-    "Conversion Optimization",
-  ],
-};
-
-const professionalServiceSchema = {
-  "@context": "https://schema.org",
-  "@type": "ProfessionalService",
-  name: "Suman Sourabh - SaaS Product Strategy",
-  url: SITE_URL,
-  description:
-    "High-ticket SaaS product strategy consulting. Specializing in churn reduction, retention design, and rapid MVP deployment for VC-backed startups.",
-  priceRange: "$$$-$$$$",
-  areaServed: "Worldwide",
-  provider: {
-    "@type": "Person",
-    name: "Suman Sourabh",
-  },
-  knowsAbout: [
-    "SaaS Retention",
-    "Churn Reduction",
-    "MVP Strategy",
+    "Product Strategy",
+    "PRD Writing",
+    "Roadmapping",
+    "AI Product Development",
+    "LLM Integration",
+    "User Research",
+    "A/B Testing",
+    "SQL",
     "React",
-    "UX Psychology",
-    "Conversion Optimization",
-    "Product Management",
-    "Behavioral Psychology",
-  ],
-  offers: [
-    {
-      "@type": "Offer",
-      name: "Product Audit",
-      price: "2000",
-      priceCurrency: "USD",
-      description:
-        "Comprehensive UX/UI audit with conversion & retention analysis and actionable recommendations.",
-    },
-    {
-      "@type": "Offer",
-      name: "MVP Design Sprint",
-      price: "5000",
-      priceCurrency: "USD",
-      description:
-        "Full MVP design in 2-3 weeks including user flows, wireframes, high-fidelity prototypes, and design system.",
-    },
-    {
-      "@type": "Offer",
-      name: "Monthly Retainer",
-      price: "3500",
-      priceCurrency: "USD",
-      description:
-        "Ongoing product design partnership with ~80 hours/month, feature design, A/B testing, and weekly sync calls.",
-    },
   ],
 };
 
 const caseStudiesItemList = {
   "@context": "https://schema.org",
   "@type": "ItemList",
-  name: "SaaS Product Strategy Case Studies",
+  name: "Product Management Case Studies",
   description:
-    "Real case studies demonstrating measurable business outcomes through psychology-driven UX and product strategy.",
+    "Product management case studies covering the user problem, the product decisions made, and the measured outcomes.",
   itemListElement: [
     {
       "@type": "ListItem",
       position: 1,
       item: {
         "@type": "CreativeWork",
-        name: "Reducing Cart Abandonment by 25%",
+        name: "Carter — Ad Platform Redesign & 0-to-1 DSP Launch",
+        url: `${SITE_URL}/Projects/carter`,
         description:
-          "E-commerce platform optimization that reduced cart abandonment through trust-building UX patterns.",
-        about: "E-commerce Platform",
-        offers: {
-          "@type": "Offer",
-          businessFunction: "Reduced cart abandonment by 25%",
-        },
+          "Fixing a broken activation funnel on a B2B retail media platform, then launching a 0-to-1 demand-side platform.",
+        about: "AdTech / Retail Media",
       },
     },
     {
@@ -104,14 +52,11 @@ const caseStudiesItemList = {
       position: 2,
       item: {
         "@type": "CreativeWork",
-        name: "Simplifying NFT Minting Experience",
+        name: "UVC — CMS Architecture & 0-to-1 Site Builder",
+        url: `${SITE_URL}/Projects/uvc`,
         description:
-          "Web3 platform UX redesign that simplified complex minting flows for mainstream users.",
-        about: "Web3 Platform",
-        offers: {
-          "@type": "Offer",
-          businessFunction: "Simplified NFT minting for mainstream adoption",
-        },
+          "Unifying 130+ clinic websites under a relational CMS with a phased rollout and a no-code site builder.",
+        about: "Healthcare / Enterprise CMS",
       },
     },
     {
@@ -119,116 +64,27 @@ const caseStudiesItemList = {
       position: 3,
       item: {
         "@type": "CreativeWork",
-        name: "Streamlining Job Application Flow",
+        name: "GoDiverse — 1-Page Profile Builder with AI Assist",
+        url: `${SITE_URL}/Projects/GoDiverse`,
         description:
-          "Job marketplace UX optimization that increased application completion rates.",
-        about: "Job Marketplace",
-        offers: {
-          "@type": "Offer",
-          businessFunction: "Streamlined application flow for higher completion",
-        },
-      },
-    },
-    {
-      "@type": "ListItem",
-      position: 4,
-      item: {
-        "@type": "CreativeWork",
-        name: "Boosting Add-to-Cart Rate by 35%",
-        description:
-          "Fashion e-commerce product discovery redesign that increased add-to-cart conversions.",
-        about: "Fashion E-commerce",
-        offers: {
-          "@type": "Offer",
-          businessFunction: "Increased add-to-cart rate by 35%",
-        },
-      },
-    },
-    {
-      "@type": "ListItem",
-      position: 5,
-      item: {
-        "@type": "CreativeWork",
-        name: "Improving Merchant Onboarding",
-        description:
-          "E-commerce platform merchant onboarding redesign reducing time-to-first-sale.",
-        about: "E-commerce Platform",
-        offers: {
-          "@type": "Offer",
-          businessFunction: "Improved merchant onboarding conversion",
-        },
-      },
-    },
-    {
-      "@type": "ListItem",
-      position: 6,
-      item: {
-        "@type": "CreativeWork",
-        name: "Simplifying Developer Documentation",
-        description:
-          "API platform documentation redesign that improved developer onboarding and integration speed.",
-        about: "API Platform",
-        offers: {
-          "@type": "Offer",
-          businessFunction: "Simplified developer onboarding",
-        },
-      },
-    },
-  ],
-};
-
-const faqSchema = {
-  "@context": "https://schema.org",
-  "@type": "FAQPage",
-  mainEntity: [
-    {
-      "@type": "Question",
-      name: "Do you code what you design?",
-      acceptedAnswer: {
-        "@type": "Answer",
-        text: "Yes. I understand React, Tailwind, and component architecture. This means I design with Dev Feasibility in mind—saving your engineering team hundreds of hours in back-and-forth fixes.",
-      },
-    },
-    {
-      "@type": "Question",
-      name: "My product is already live. Can you just fix the UX?",
-      acceptedAnswer: {
-        "@type": "Answer",
-        text: "Yes. This is my Audit & Fix engagement. I review your current flow, identify high-churn friction points, and provide a prioritized list of fixes to improve retention immediately.",
-      },
-    },
-    {
-      "@type": "Question",
-      name: "How do you charge? Fixed price or Retainer?",
-      acceptedAnswer: {
-        "@type": "Answer",
-        text: "For defined scopes (like an Audit or MVP Sprint), I charge a fixed fee ($2k - $5k). For ongoing growth and iteration, I work on a monthly retainer ($3.5k/mo), acting as your fractional Head of Product.",
-      },
-    },
-    {
-      "@type": "Question",
-      name: "What is the timeline for an MVP?",
-      acceptedAnswer: {
-        "@type": "Answer",
-        text: "Typical MVP Sprints take 2-3 weeks. Week 1 is Strategy & Wireframes. Week 2 is High-Fidelity & Prototyping. Week 3 is Handoff & Documentation.",
+          "Scoping a constraint-driven one-page builder with AI-assisted content for a supplier-diversity platform.",
+        about: "SaaS / AI Integration",
       },
     },
   ],
 };
 
 const SeoHead = ({
-  title = "Suman Sourabh | SaaS Product Strategist & UX Consultant",
-  description = "Suman Sourabh is a SaaS Product Strategist who helps VC-backed founders reduce churn and increase retention through psychology-driven UX and rapid MVP deployment.",
-  keywords = "SaaS Product Strategist, UX Consultant, Churn Reduction, Retention Design, MVP Deployment, Conversion Optimization, Product Management, Startup Design, React, Web3 UX, B2B SaaS",
+  title = "Suman Sourabh | Product Manager — AI & 0-to-1 Products",
+  description = "Product Manager with a CS/ML background shipping 0-to-1 products across AdTech and HealthTech — PRDs, roadmaps, cross-functional delivery, and AI features built on the Claude API.",
+  keywords = "product manager, AI product manager, 0-to-1 products, product management case studies, PRD, roadmap, Claude API, technical product manager",
   canonicalUrl = SITE_URL,
   ogImage = `${SITE_URL}/android-chrome-512x512.png`,
-  includeSchemas = ["person", "service", "caseStudies", "faq"],
+  includeSchemas = ["person", "caseStudies"],
 }) => {
   const schemaMap = {
     person: personSchema,
-    service: professionalServiceSchema,
     caseStudies: caseStudiesItemList,
-    faq: faqSchema,
   };
 
   return (
@@ -246,7 +102,7 @@ const SeoHead = ({
       <meta property="og:url" content={canonicalUrl} />
       <meta property="og:image" content={ogImage} />
       <meta property="og:locale" content="en_US" />
-      <meta property="og:site_name" content="Suman Sourabh - SaaS Product Strategist" />
+      <meta property="og:site_name" content="Suman Sourabh — Product Manager" />
 
       {/* Twitter Card */}
       <meta name="twitter:card" content="summary_large_image" />

@@ -25,7 +25,7 @@ const LandingPage = () => {
     <>
       <SeoHead
         title="Suman Sourabh | Product Manager — CS/ML Background, AI Integrations, GTM Strategy"
-        description="Product Manager with a BTech in CS/ML. I bring AI integration, cross-functional leadership, and GTM strategy to early-to-mid-stage SaaS teams."
+        description="Product Manager with a CS/ML background. I bring AI integration, cross-functional leadership, and GTM strategy to early-to-mid-stage SaaS teams."
         canonicalUrl="https://www.sumansourabh.com/"
       />
       {/* Hero + Navbar — eager, above the fold */}

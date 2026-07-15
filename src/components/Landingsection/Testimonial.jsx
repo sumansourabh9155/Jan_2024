@@ -18,14 +18,9 @@ const Testimonial = memo(() => {
                             [ Social Proof ]
                         </div>
                         <h2 className="font-heading text-4xl md:text-5xl font-bold text-white leading-tight">
-                            Trusted by Founders <br />
-                            <span className="text-gray-500">Who Demand Excellence.</span>
+                            What People I&apos;ve <br />
+                            <span className="text-gray-500">Worked With Say.</span>
                         </h2>
-                    </div>
-
-                    <div className="text-right">
-                        <div className="font-heading text-3xl font-bold text-white mb-1">$250M+</div>
-                        <p className="text-sm text-gray-500 font-mono uppercase tracking-wide">Client Revenue Generated</p>
                     </div>
                 </div>
 
@@ -91,7 +86,7 @@ const Testimonial = memo(() => {
                             {/* CTA within the card */}
                             <div className="mt-10 pt-8 border-t border-white/10 flex flex-wrap gap-6 items-center">
                                 <a href="/contact" className="flex items-center gap-2 text-white hover:text-[#d6f928] transition-colors font-medium">
-                                    Start Your Project <ArrowRight size={18} />
+                                    Get in Touch <ArrowRight size={18} />
                                 </a>
                                 <span className="text-gray-600 text-sm hidden md:inline">|</span>
                                 <p className="text-gray-500 text-sm">

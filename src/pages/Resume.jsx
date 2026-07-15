@@ -1,17 +1,17 @@
+import { Link } from "react-router-dom";
 import Navbar from "../components/Navbar";
 import Footer from "../components/Footer";
 import TechProof from "../components/Landingsection/TechProof";
 import profilePic from "../assets/Img/suman.jpg";
-import DesignProcess from "../components/Landingsection/DesignProcess";
 import SeoHead from "../components/SeoHead";
 
 const Resume = () => {
   return (
     <div className="bg-black text-white min-h-screen">
       <SeoHead
-        title="Resume: Suman Sourabh - SaaS Product Strategist & UX Designer"
-        description="Experience of Suman Sourabh, a SaaS Product Strategist & UX Designer. Background in venture-backed startups, product management, and churn reduction."
-        keywords="resume, product designer, ux designer, saas product strategist, shyftlabs, kraftbase, experience, skills, b2b saas"
+        title="Resume: Suman Sourabh — Product Manager | AI & 0-to-1 Products"
+        description="Experience of Suman Sourabh, a Product Manager with a CS/ML background. 0-to-1 products across AdTech and HealthTech, AI features on the Claude API, and cross-functional delivery."
+        keywords="resume, product manager, AI product manager, shyftlabs, 0-to-1 products, PRD, roadmap, experience"
         ogImage={profilePic}
         canonicalUrl="https://www.sumansourabh.com/resume"
       />
@@ -20,15 +20,15 @@ const Resume = () => {
         <section className="py-24">
           <div className="text-center mb-12">
             <span className="inline-flex items-center px-4 py-1 rounded-full text-sm bg-white/10 border border-white/10 backdrop-blur-md mb-4">
-              ◎ Product Designer
+              ◎ Product Manager
             </span>
             <h1 className="text-4xl font-light">
               Suman Sourabh,
-              <span className="font-medium text-gray-400"> Your Designer</span>
+              <span className="font-medium text-gray-400"> Product Manager</span>
             </h1>
             <p className="text-sm text-gray-400 mt-2 max-w-xl mx-auto">
-              A brief personal overview and journey through my experiences as a
-              designer, developer, and thinker.
+              2.5 years shipping 0-to-1 products across AdTech, HealthTech, and
+              CMS — with the technical depth to prototype in code.
             </p>
           </div>
 
@@ -43,32 +43,31 @@ const Resume = () => {
                 />
                 <div className="absolute bottom-3 left-3 text-xs text-white bg-black/50 backdrop-blur px-2 py-0.5 rounded-full flex items-center gap-2">
                   <span className="w-2 h-2 bg-green-400 rounded-full" />
-                  Available for work
+                  Open to PM roles
                 </div>
               </div>
-              <h2 className="text-lg font-semibold">Hello I am Suman Sourabh</h2>
+              <h2 className="text-lg font-semibold">Hello, I am Suman Sourabh</h2>
             </div>
 
             {/* RIGHT - About Content */}
             <div className="bg-white/5 border border-white/10 rounded-2xl p-6 backdrop-blur-md shadow-lg flex flex-col justify-between">
               <div>
                 <p className="text-md font-semibold text-gray-300 mt-4">
-                  UI/UX & Product Designer based in India.
+                  Product Manager — AI & 0-to-1 Products, based in India.
                 </p>
                 <p className="text-sm text-gray-500">
-                  B.Tech in Computer Science & Engineering, Class of 2024
+                  B.Sc. Computer Science — Machine Learning specialization, Class of 2024
                 </p>
                 <p className="text-sm text-gray-400 mt-4 leading-relaxed">
-                  I craft functional, scalable, and elegant user experiences
-                  that drive business value. With strong foundations in UX, UI,
-                  and strategy—I bridge gaps between product thinking and
-                  execution. From atomic design systems to responsive
-                  interfaces, I design with intent, usability, and impact in
-                  mind.
+                  I own products end-to-end: discovery, PRDs, OKRs, roadmap,
+                  and launch. I started in design, which means I ship
+                  interfaces users understand — and my CS/ML background means
+                  I can read the codebase, prototype in Python and React, and
+                  scope AI features with engineering at eye level.
                 </p>
 
                 <div className="flex flex-wrap gap-2 mt-6">
-                  {["UX Research", "UI Design", "Prototyping", "Design Systems", "Webflow", "Framer", "Figma"].map((skill, i) => (
+                  {["PRD Writing", "Roadmapping", "OKRs", "User Research", "A/B Testing", "SQL", "LLM Product Design", "Claude API", "Figma"].map((skill, i) => (
                     <span
                       key={i}
                       className="text-xs bg-black/40 border border-white/10 px-3 py-1 rounded-md"
@@ -78,18 +77,17 @@ const Resume = () => {
                   ))}
                 </div>
               </div>
-              <button className="bg-white text-black w-full py-2 rounded-full mt-6 text-sm font-medium hover:opacity-90 transition">
-                Connect with me
-              </button>
+              <Link to="/contact">
+                <button className="bg-white text-black w-full py-2 rounded-full mt-6 text-sm font-medium hover:opacity-90 transition">
+                  Connect with me
+                </button>
+              </Link>
             </div>
           </div>
         </section>
 
-
         {/* my way of working */}
         <TechProof />
-
-        <DesignProcess />
 
         {/* Experience Section */}
         <section className="bg-white/5 border border-white/10 backdrop-blur-md rounded-2xl p-6 mb-12 shadow-md">
@@ -102,14 +100,28 @@ const Resume = () => {
 
           <div className="space-y-10">
             {[{
-              title: "Shyftlabs – Product Designer",
+              title: "Shyftlabs – Product Designer (Product Management)",
               duration: "Jan 2024 – Present · Noida, India",
               points: [
-                "Currently leading the Product Carter (RMN)",
-                "Collaborated cross-functionally across lifecycle, aligning design vision with performance goals",
-                "Maintained scalable design systems with reusable UI components",
-                "Conducted user research and developed accessible, intuitive interfaces",
-                "Mentored fellow designers and documented key processes"
+                "Own end-to-end product management for the retail media and platforms portfolio: discovery, PRDs, OKRs, roadmap, launch",
+                "Launched a 0-to-1 DSP (Carter): authored the PRD, defined OKRs, and led an 8-person cross-functional team from discovery to launch",
+                "Designed and shipped an agentic AI campaign-creation assistant on the Claude API",
+                "Led end-to-end delivery of a 0-to-1 healthcare CMS replacing a fragmented 130-clinic ecosystem",
+                "Architected a centralized UI component library adopted across all company products"
+              ]
+            }, {
+              title: "GoDiverse – UI/UX Consultant",
+              duration: "Oct 2025 – Nov 2025 · UK (remote)",
+              points: [
+                "Designed a streamlined supplier onboarding flow for a UK supplier-diversity SaaS platform",
+                "Scoped a one-page, AI-assisted profile builder used to pitch suppliers to corporate brands"
+              ]
+            }, {
+              title: "Raikar – Product Consultant",
+              duration: "Aug 2023 – Feb 2024 · E-commerce",
+              points: [
+                "Owned the full product scope for an e-commerce brand — branding, UX/UI, and development — leading a 5-person team from concept to launch",
+                "Delivered the storefront and brand identity with an SEO-optimized site structure"
               ]
             }, {
               title: "KraftBase – Product Designer Intern",
@@ -118,14 +130,6 @@ const Resume = () => {
                 "Created mobile app wireframes with platform consistency",
                 "Improved client websites resulting in higher engagement",
                 "Ensured smooth design-to-dev transitions"
-              ]
-            }, {
-              title: "RaikarsGoodVibes – UI Consultant",
-              duration: "Nov 2022 – Feb 2023 · Punjab, India",
-              points: [
-                "Redesigned app flows to enhance usability",
-                "Analyzed feedback to drive continuous UI improvements",
-                "Led client workshops and implemented direct feedback"
               ]
             }].map((exp, idx) => (
               <div key={idx}>

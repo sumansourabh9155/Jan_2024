@@ -54,7 +54,7 @@ const HeroSection = () => {
         {/* Badge */}
         <div className="inline-flex items-center gap-2 px-3 py-1.5 bg-white/5 border border-white/10 backdrop-blur-md text-gray-300 rounded-full text-xs font-mono tracking-wide mb-8">
           <CircleDot size={12} className="text-[#d6f928]" />
-          <span className="opacity-80">25+ Products Shipped</span>
+          <span className="opacity-80">2&times; Zero-to-One Product Launches</span>
         </div>
 
         {/* Headline */}
@@ -67,7 +67,7 @@ const HeroSection = () => {
 
         {/* Subtitle */}
         <p className="text-md text-gray-400 max-w-2xl mx-auto font-light leading-relaxed mb-8">
-          BTech in CSE/ML. Shipped AI-powered products with <span className="text-white font-medium">Claude and Gemini</span>.{" "}
+          CS/ML degree. Shipped AI-powered products with <span className="text-white font-medium">Claude and Gemini</span>.{" "}
           Led cross-functional teams across design, engineering, and product—from{" "}
           <span className="text-white font-medium">user research to launch</span>.
         </p>

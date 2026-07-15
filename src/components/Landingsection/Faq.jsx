@@ -13,7 +13,7 @@ const Faq = () => {
     {
       question: "You're a designer by title — why should I hire you as a PM?",
       answer:
-        "Because I've already operated as one. At Carter & Atlas I was titled Designer but owned product decisions: wrote every PRD, ran sprint planning, prioritized the backlog, and made the trade-off calls. BTech in CS/ML — I read codebases, evaluate architecture trade-offs, and ship UI myself. The title is catching up to the work.",
+        "Because I've already operated as one. At Carter & Atlas I was titled Designer but owned product decisions: wrote every PRD, ran sprint planning, prioritized the backlog, and made the trade-off calls. CS degree with an ML specialization — I read codebases, evaluate architecture trade-offs, and ship UI myself. The title is catching up to the work.",
     },
     {
       question: "What kind of role are you looking for?",

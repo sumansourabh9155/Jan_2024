@@ -48,7 +48,7 @@ const Footer = () => {
                     <div>
                         <Link to="/contact">
                             <button className="group bg-white text-black px-8 py-4 rounded-full font-bold text-lg hover:bg-[#d6f928] transition-all shadow-[0_0_20px_rgba(255,255,255,0.1)] flex items-center gap-2">
-                                Book a Strategy Call
+                                Get in Touch
                                 <ArrowUpRight className="group-hover:translate-x-1 group-hover:-translate-y-1 transition-transform" />
                             </button>
                         </Link>

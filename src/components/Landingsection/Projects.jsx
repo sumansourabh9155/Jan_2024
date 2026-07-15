@@ -126,12 +126,12 @@ const projectData = [
   },
   {
     title: "GoDiverse",
-    subtitle: "1-Page Resume Builder with AI",
+    subtitle: "1-Page Supplier Profile Builder with AI",
     category: "Product Strategy · SaaS",
     link: "/Projects/GoDiverse",
     icon: <FileText size={16} className="text-purple-400" />,
     badge: "0→1 · AI · Constraints",
-    summary: "Builders were either too complex or too generic. Scoped a 1-page constraint with 3 distribution channels and AI-assisted content. Under 8 min to first shared resume.",
+    summary: "Builders were either too complex or too generic. Scoped a 1-page constraint with 3 distribution channels and AI-assisted content. Designed for under 8 min to first shared profile.",
     visual: (
       <svg className="w-full h-28 mt-4 mb-2" viewBox="0 0 400 110" fill="none">
         <defs>

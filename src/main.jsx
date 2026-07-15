@@ -30,6 +30,22 @@ const InquiryProtocol = React.lazy(() => import("./pages/InquiryProtocol"));
 
 const isMouseDevice = window.matchMedia("(pointer: fine)").matches;
 
+// Password for private tools (/expense, /ask) comes from the build environment
+// (VITE_TOOLS_PASSWORD in .env / Vercel env). If unset, those routes stay locked
+// with no valid password instead of shipping a hardcoded one in the bundle.
+const TOOLS_PASSWORD = import.meta.env.VITE_TOOLS_PASSWORD || null;
+
+const NotFound = () => (
+  <div className="flex flex-col items-center justify-center min-h-screen bg-black text-white gap-4 px-4 text-center">
+    <p className="font-mono text-xs text-[#d6f928] tracking-widest uppercase">[ 404 ]</p>
+    <h1 className="text-3xl font-bold">Page not found</h1>
+    <p className="text-gray-400 text-sm">The page you&apos;re looking for doesn&apos;t exist or has moved.</p>
+    <a href="/" className="mt-2 bg-white text-black px-6 py-3 rounded-full font-semibold text-sm hover:bg-gray-200 transition-colors">
+      Back to home
+    </a>
+  </div>
+);
+
 const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(
   <HelmetProvider>
@@ -87,7 +103,7 @@ root.render(
             <Route
               path="/expense"
               element={
-                <ProtectedRoute correctPassword="sexy">
+                <ProtectedRoute correctPassword={TOOLS_PASSWORD}>
                   <ExpenseDashboard />
                 </ProtectedRoute>
               }
@@ -134,11 +150,12 @@ root.render(
             <Route
               path="/ask"
               element={
-                <ProtectedRoute correctPassword="sexy">
+                <ProtectedRoute correctPassword={TOOLS_PASSWORD}>
                   <InquiryProtocol />
                 </ProtectedRoute>
               }
             />
+            <Route path="*" element={<NotFound />} />
           </Routes>
         </Suspense>
       </Router>

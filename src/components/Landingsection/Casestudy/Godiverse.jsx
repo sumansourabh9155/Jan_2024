@@ -3,16 +3,13 @@ import Navbar from "../../Navbar";
 import Footer from "../../Footer";
 import SEO from "../../SEO";
 import {
-    FileText, Users, Target, TrendingUp, Zap, Layers,
-    Share2, Download, Printer, Search, Sparkles, Globe,
-    CheckCircle2, BarChart2, Palette, Shield, GitBranch, Eye
+    FileText, Users, Target, Zap, Layers,
+    Share2, Download, Printer, Search, Sparkles,
+    BarChart2, Palette, Shield, Eye
 } from "lucide-react";
 
 // ================= ASSETS =================
 import Banner from "../../../assets/Godiverse/Banner.png";
-
-// Placeholder for screenshots — replace with real assets
-const PLACEHOLDER = "data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='1200' height='700' fill='%23111'%3E%3Crect width='1200' height='700' fill='%23111' stroke='%23333' stroke-width='2'/%3E%3Ctext x='50%25' y='50%25' dominant-baseline='middle' text-anchor='middle' fill='%23444' font-family='monospace' font-size='18'%3EScreenshot Placeholder%3C/text%3E%3C/svg%3E";
 
 // ================= REUSABLE COMPONENTS =================
 
@@ -34,9 +31,9 @@ const Godiverse = () => {
     return (
         <div className="text-white bg-[#050505]">
             <SEO
-                title="GoDiverse: 1-Page Resume Builder — PM Case Study"
-                description="How I scoped, designed, and integrated AI into a 1-page resume builder that lets brands share by link, download PDF, or print — all in one flow."
-                keywords="product management case study, GoDiverse, resume builder, AI integration, PDF export, link sharing, product scoping, industry research"
+                title="GoDiverse: 1-Page Profile Builder with AI — PM Case Study"
+                description="How I scoped, designed, and integrated AI into a 1-page profile builder for a supplier-diversity platform — share by link, download PDF, or print, all in one flow."
+                keywords="product management case study, GoDiverse, profile builder, supplier diversity, AI integration, PDF export, link sharing, product scoping"
                 url="https://www.sumansourabh.com/Projects/GoDiverse"
             />
             <Navbar />
@@ -51,7 +48,7 @@ const Godiverse = () => {
                             <span className="text-gray-500">Resume Builder</span>
                         </h1>
                         <p className="text-gray-400 text-lg md:text-xl leading-relaxed max-w-2xl mx-auto">
-                            A 1-page resume builder for brands &mdash; create, share by link, download as PDF, or print. All in one flow. AI-assisted content generation built in.
+                            A 1-page profile builder for suppliers on a supplier-diversity platform &mdash; create, share by link, download as PDF, or print. All in one flow. AI-assisted content generation built in.
                         </p>
                     </div>
 
@@ -66,7 +63,7 @@ const Godiverse = () => {
                         </div>
                         <div className="bg-white/5 border border-white/10 rounded-2xl p-5 text-center">
                             <p className="text-xs text-gray-500 uppercase tracking-widest mb-2">My Role</p>
-                            <p className="text-white font-medium">Designer &rarr; Product Lead</p>
+                            <p className="text-white font-medium">UI/UX Consultant &rarr; Product Scope</p>
                         </div>
                         <div className="bg-white/5 border border-white/10 rounded-2xl p-5 text-center">
                             <p className="text-xs text-gray-500 uppercase tracking-widest mb-2">Platform</p>
@@ -74,7 +71,7 @@ const Godiverse = () => {
                         </div>
                         <div className="bg-white/5 border border-white/10 rounded-2xl p-5 text-center">
                             <p className="text-xs text-gray-500 uppercase tracking-widest mb-2">Duration</p>
-                            <p className="text-white font-medium">3 Months</p>
+                            <p className="text-white font-medium">2 Months (Oct&ndash;Nov 2025)</p>
                         </div>
                     </div>
 
@@ -103,9 +100,9 @@ const Godiverse = () => {
                             <span className="text-gray-400">Ended up scoping the product.</span>
                         </h2>
                         <p className="text-gray-400 text-base leading-relaxed">
-                            GoDiverse had the brand and the audience &mdash; a recruitment platform focused on diversity and inclusion.
-                            What they didn&apos;t have was a clear product scope for the resume builder.
-                            I was brought in to design the UI, but quickly took ownership of defining what to build, how AI should integrate, and the full user flow from creation to distribution.
+                            GoDiverse had the brand and the audience &mdash; a UK supplier-diversity SaaS platform connecting underrepresented suppliers with global corporations.
+                            What they didn&apos;t have was a clear product scope for the profile builder suppliers would use to pitch themselves.
+                            I was brought in as a UI/UX consultant, but quickly took ownership of defining what to build, how AI should integrate, and the full user flow from creation to distribution.
                         </p>
                     </div>
 
@@ -194,7 +191,7 @@ const Godiverse = () => {
                         </p>
                         <p className="text-gray-400 text-base leading-relaxed">
                             Neither solved the core job-to-be-done:
-                            create a <span className="text-white font-medium">professional, distinctive 1-page resume in under 10 minutes</span>,
+                            create a <span className="text-white font-medium">professional, distinctive 1-page profile in under 10 minutes</span>,
                             then share it instantly &mdash; by link, PDF, or print.
                         </p>
                     </div>
@@ -221,8 +218,6 @@ const Godiverse = () => {
                         </div>
                     </div>
 
-                    {/* Research Screenshot Placeholder */}
-                    <img loading="lazy" decoding="async" src={PLACEHOLDER} alt="Competitive Research" className="rounded-2xl w-full border border-white/10" />
                 </div>
             </section>
 
@@ -320,9 +315,6 @@ const Godiverse = () => {
                             <p className="text-gray-400 text-xs leading-relaxed">Print-optimized CSS renders perfectly on A4. Margins, typography, and spacing tuned for physical output.</p>
                         </div>
                     </div>
-
-                    {/* Builder Screenshot Placeholder */}
-                    <img loading="lazy" decoding="async" src={PLACEHOLDER} alt="Resume Builder Interface" className="rounded-2xl w-full border border-white/10 mb-20" />
 
                     {/* Key Product Decisions */}
                     <h3 className="font-heading text-2xl font-bold text-white mb-3">Key Product Decisions</h3>
@@ -441,9 +433,6 @@ const Godiverse = () => {
                         </div>
                     </div>
 
-                    {/* AI Screenshot Placeholder */}
-                    <img loading="lazy" decoding="async" src={PLACEHOLDER} alt="AI Content Generation Flow" className="rounded-2xl w-full border border-white/10 mb-20" />
-
                     {/* What didn't work + What I said no to */}
                     <div className="flex flex-col md:flex-row gap-6 mb-20">
                         <div className="flex-1 bg-white/[0.02] border border-dashed border-white/10 rounded-xl p-5">
@@ -472,16 +461,11 @@ const Godiverse = () => {
                         </div>
                     </div>
 
-                    {/* Design Screenshots Placeholders */}
+                    {/* The Product */}
                     <h3 className="font-heading text-2xl font-bold text-white mb-3">The Product</h3>
-                    <p className="text-gray-400 text-sm leading-relaxed max-w-2xl mb-10">
-                        UX built around reducing time-to-value. No onboarding tour. Users land on the builder, see their resume taking shape in real time, and hit share.
+                    <p className="text-gray-400 text-sm leading-relaxed max-w-2xl">
+                        UX built around reducing time-to-value. No onboarding tour. Users land on the builder, see their profile taking shape in real time, and hit share.
                     </p>
-
-                    <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-                        <img loading="lazy" decoding="async" src={PLACEHOLDER} alt="Editor View" className="rounded-2xl w-full border border-white/10" />
-                        <img loading="lazy" decoding="async" src={PLACEHOLDER} alt="Template Selection" className="rounded-2xl w-full border border-white/10" />
-                    </div>
                 </div>
             </section>
 
@@ -489,14 +473,14 @@ const Godiverse = () => {
             <section className="bg-[#050505] py-24 px-4 border-t border-white/10">
                 <div className="max-w-7xl mx-auto">
                     <div className="bg-gradient-to-br from-white/[0.05] to-transparent border border-white/10 backdrop-blur-md rounded-2xl p-8 md:p-10">
-                        <Badge>[ Business Outcomes ]</Badge>
+                        <Badge>[ Outcomes ]</Badge>
                         <p className="text-gray-400 text-sm mb-10 max-w-2xl">
-                            Shipped in 3 months. The constraint-driven approach &mdash; one page, three distribution channels, AI-assisted content &mdash; produced a focused product that solved a real job-to-be-done.
+                            Scoped and designed in a 2-month engagement. The constraint-driven approach &mdash; one page, three distribution channels, AI-assisted content &mdash; produced a focused product that solved a real job-to-be-done.
                         </p>
                         <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-                            <StatCard value="< 8 min" label="Average time from signup to first shared resume." icon={<Zap size={18} className="text-yellow-400" />} />
+                            <StatCard value="< 8 min" label="Design target: signup to first shared profile." icon={<Zap size={18} className="text-yellow-400" />} />
                             <StatCard value="3-in-1" label="Distribution — link, PDF, and print from a single build." icon={<Share2 size={18} className="text-[#d6f928]" />} />
-                            <StatCard value="40%" label="Of users used AI-assisted content generation on first resume." icon={<Sparkles size={18} className="text-purple-400" />} />
+                            <StatCard value="3" label="Optional AI touchpoints — summary, bullets, skills — each editable by the user." icon={<Sparkles size={18} className="text-purple-400" />} />
                         </div>
                     </div>
                 </div>
@@ -515,11 +499,11 @@ const Godiverse = () => {
                             The one-page constraint wasn&apos;t a limitation &mdash; it was the product strategy.
                             It forced every design decision toward clarity and speed.
                             Combined with AI-assisted content and three distribution channels,
-                            it turned a resume builder into a share-first career tool.
+                            it turned a profile builder into a share-first pitching tool for suppliers.
                         </p>
                         <p className="text-gray-400 text-base leading-relaxed">
                             I scoped the product, ran the industry research, defined the AI integration points,
-                            and designed every screen. From blank brief to shipped SaaS in 3 months.
+                            and designed every screen &mdash; a 2-month consulting engagement from blank brief to buildable spec.
                         </p>
                     </div>
                 </div>
