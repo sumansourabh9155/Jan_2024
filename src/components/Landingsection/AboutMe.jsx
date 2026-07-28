@@ -11,7 +11,7 @@ export const AboutMe = () => {
             [ About ]
           </div>
           <h2 id="about-heading" className="font-heading text-5xl font-bold text-white">
-            One PM.{" "}
+            One Product Owner.{" "}
             <span className="text-gray-400">Every Room in the Building.</span>
           </h2>
           <p className="text-gray-500 mt-3 text-base">Design, engineering, product, and AI feature work.</p>
@@ -27,7 +27,7 @@ export const AboutMe = () => {
               width="400"
               height="400"
               className="object-cover rounded-xl h-[400px] w-[400px] brightness-110"
-              alt="Suman Sourabh - Product Manager with CS/ML background leading cross-functional teams"
+              alt="Suman Sourabh - Product Designer operating as a Product Manager, CS/ML background, leading cross-functional teams"
             />
           </div>
 
@@ -40,7 +40,7 @@ export const AboutMe = () => {
               decoding="async"
               width="128"
               height="128"
-              alt="Suman Sourabh - Product Manager"
+              alt="Suman Sourabh - Product Designer & PM"
               className="block lg:hidden rounded-full shadow-xl mx-auto mt-4 h-32 w-32 object-cover"
             />
 
@@ -50,7 +50,7 @@ export const AboutMe = () => {
             <div className="mt-8 space-y-5 text-gray-300 text-base leading-relaxed">
 
               <p>
-                I became a PM because I kept watching great engineers build the wrong thing—nobody had validated the problem first.
+                I moved from design into product because I kept watching great engineers build the wrong thing—nobody had validated the problem first.
                 My <span className="font-semibold text-white">CS degree with an ML specialization</span> means I can read the codebase, challenge architecture, and tell scope creep from real complexity.
                 That gives me credibility in the engineering room and keeps the team focused on what actually moves the metric.
               </p>

@@ -7,9 +7,9 @@ const personSchema = {
   "@type": "Person",
   name: "Suman Sourabh",
   url: SITE_URL,
-  jobTitle: "Product Manager",
+  jobTitle: "Product Designer",
   description:
-    "Product Manager with a CS/ML background shipping 0-to-1 products across AdTech and HealthTech, including AI features built on the Claude API.",
+    "Product Designer operating as a Product Manager, with a CS/ML background — shipping 0-to-1 products across AdTech and HealthTech, including AI features built on the Claude API.",
   sameAs: [
     "https://www.linkedin.com/in/sumansourabh9155/",
     "https://github.com/sumansourabh9155",
@@ -75,9 +75,9 @@ const caseStudiesItemList = {
 };
 
 const SeoHead = ({
-  title = "Suman Sourabh | Product Manager — AI & 0-to-1 Products",
-  description = "Product Manager with a CS/ML background shipping 0-to-1 products across AdTech and HealthTech — PRDs, roadmaps, cross-functional delivery, and AI features built on the Claude API.",
-  keywords = "product manager, AI product manager, 0-to-1 products, product management case studies, PRD, roadmap, Claude API, technical product manager",
+  title = "Suman Sourabh | Product Designer operating as Product Manager — AI & 0-to-1 Products",
+  description = "Product Designer operating as a Product Manager (CS/ML background) — 0-to-1 products across AdTech and HealthTech, with PRDs, roadmaps, cross-functional delivery, and AI features on the Claude API.",
+  keywords = "product designer, product manager, ui/ux designer, AI product manager, 0-to-1 products, product design portfolio, PRD, roadmap, Claude API, design systems",
   canonicalUrl = SITE_URL,
   ogImage = `${SITE_URL}/android-chrome-512x512.png`,
   includeSchemas = ["person", "caseStudies"],
@@ -102,7 +102,7 @@ const SeoHead = ({
       <meta property="og:url" content={canonicalUrl} />
       <meta property="og:image" content={ogImage} />
       <meta property="og:locale" content="en_US" />
-      <meta property="og:site_name" content="Suman Sourabh — Product Manager" />
+      <meta property="og:site_name" content="Suman Sourabh — Product Designer & PM" />
 
       {/* Twitter Card */}
       <meta name="twitter:card" content="summary_large_image" />

@@ -93,7 +93,7 @@ const DesignServices = () => {
             </div>
             <h2 className="font-heading text-4xl md:text-5xl font-bold leading-tight mb-4">
               The Full Stack. <br />
-              <span className="text-gray-500">Product Manager Edition.</span>
+              <span className="text-gray-500">Product Owner&apos;s Edition.</span>
             </h2>
             <p className="text-gray-400 text-lg font-light leading-relaxed">
               Most PMs bring strategy. I bring strategy, cross-functional leadership,

@@ -9,8 +9,8 @@ const Resume = () => {
   return (
     <div className="bg-black text-white min-h-screen">
       <SeoHead
-        title="Resume: Suman Sourabh — Product Manager | AI & 0-to-1 Products"
-        description="Experience of Suman Sourabh, a Product Manager with a CS/ML background. 0-to-1 products across AdTech and HealthTech, AI features on the Claude API, and cross-functional delivery."
+        title="Resume: Suman Sourabh — Product Designer & PM | AI & 0-to-1 Products"
+        description="Experience of Suman Sourabh, a Product Designer operating as a Product Manager, with a CS/ML background. 0-to-1 products across AdTech and HealthTech, AI features on the Claude API, and cross-functional delivery."
         keywords="resume, product manager, AI product manager, shyftlabs, 0-to-1 products, PRD, roadmap, experience"
         ogImage={profilePic}
         canonicalUrl="https://www.sumansourabh.com/resume"
@@ -20,11 +20,11 @@ const Resume = () => {
         <section className="py-24">
           <div className="text-center mb-12">
             <span className="inline-flex items-center px-4 py-1 rounded-full text-sm bg-white/10 border border-white/10 backdrop-blur-md mb-4">
-              ◎ Product Manager
+              ◎ Product Designer · PM Track
             </span>
             <h1 className="text-4xl font-light">
               Suman Sourabh,
-              <span className="font-medium text-gray-400"> Product Manager</span>
+              <span className="font-medium text-gray-400"> Product Designer</span>
             </h1>
             <p className="text-sm text-gray-400 mt-2 max-w-xl mx-auto">
               2.5 years shipping 0-to-1 products across AdTech, HealthTech, and
@@ -53,7 +53,7 @@ const Resume = () => {
             <div className="bg-white/5 border border-white/10 rounded-2xl p-6 backdrop-blur-md shadow-lg flex flex-col justify-between">
               <div>
                 <p className="text-md font-semibold text-gray-300 mt-4">
-                  Product Manager — AI & 0-to-1 Products, based in India.
+                  Product Designer operating as a PM — AI & 0-to-1 Products, based in India.
                 </p>
                 <p className="text-sm text-gray-500">
                   B.Sc. Computer Science — Machine Learning specialization, Class of 2024
