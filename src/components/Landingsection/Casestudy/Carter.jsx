@@ -107,9 +107,9 @@ const CarterEcosystem = () => {
     return (
         <div className="text-white bg-[#050505]">
             <SEO
-                title="Carter Ecosystem: Platform Redesign & 0-to-1 DSP — PM Case Study"
-                description="How I owned product strategy end-to-end at a B2B ad-tech startup — from fixing a broken activation funnel to launching a 0-to-1 Demand-Side Platform."
-                keywords="product management case study, carter, platform redesign, DSP, retail media network, ad tech, product strategy, PRD, cross-functional leadership"
+                title="Carter Ecosystem: Platform Redesign & 0-to-1 DSP — Product Design Case Study"
+                description="How I owned the design end-to-end at a B2B ad-tech startup — from fixing a broken activation funnel to designing a 0-to-1 Demand-Side Platform."
+                keywords="product design case study, carter, platform redesign, DSP, retail media network, ad tech, UX design, design systems, activation funnel, interaction design"
                 url="https://www.sumansourabh.com/Projects/CarterEcosystem"
             />
             <Navbar />
@@ -123,7 +123,7 @@ const CarterEcosystem = () => {
                             Carter <span className="text-gray-500 font-light">Ecosystem</span>
                         </h1>
                         <p className="text-lg text-gray-400 font-light leading-relaxed max-w-xl mx-auto">
-                            Owned product strategy end-to-end. Fixed a broken activation funnel, then launched a 0-to-1 DSP.
+                            Owned the design end-to-end. Fixed a broken activation funnel, then designed a 0-to-1 DSP.
                         </p>
                     </div>
 
@@ -137,7 +137,7 @@ const CarterEcosystem = () => {
                         </div>
                         <div className="bg-white/5 border border-white/10 rounded-2xl p-5 text-center">
                             <p className="text-xs text-gray-500 uppercase tracking-widest mb-2">My Role</p>
-                            <p className="text-white font-medium">Designer → Acting PM</p>
+                            <p className="text-white font-medium">Lead Product Designer</p>
                         </div>
                         <div className="bg-white/5 border border-white/10 rounded-2xl p-5 text-center">
                             <p className="text-xs text-gray-500 uppercase tracking-widest mb-2">Platform</p>
@@ -164,10 +164,10 @@ const CarterEcosystem = () => {
             <section className="bg-black py-24 px-4 border-t border-white/10">
                 <div className="max-w-7xl mx-auto">
                     <div className="max-w-3xl mb-20">
-                        <Badge>[ Why I Owned Product Decisions ]</Badge>
+                        <Badge>[ How I Owned the Design ]</Badge>
                         <h2 className="font-heading text-4xl md:text-5xl font-bold text-white leading-tight mb-6">
-                            Titled Designer.{" "}
-                            <span className="text-gray-400">Operated as the Product Owner.</span>
+                            One Designer.{" "}
+                            <span className="text-gray-400">Research to shipped UI.</span>
                         </h2>
                         <p className="text-gray-400 text-base leading-relaxed">
                             Carter had product-market fit but a product that was quietly breaking people.
@@ -184,8 +184,8 @@ const CarterEcosystem = () => {
                                 <FileText size={18} className="text-blue-400" />
                             </div>
                             <div>
-                                <h4 className="text-white font-semibold text-sm mb-1">PRDs & Roadmap</h4>
-                                <p className="text-gray-400 text-xs leading-relaxed">Wrote every PRD. Prioritized the backlog. Defined what shipped and what didn&apos;t.</p>
+                                <h4 className="text-white font-semibold text-sm mb-1">Specs & Scope</h4>
+                                <p className="text-gray-400 text-xs leading-relaxed">Wrote detailed design specs and acceptance criteria. Helped prioritize what shipped and what didn&apos;t.</p>
                             </div>
                         </div>
                         <div className="bg-white/5 border border-white/10 rounded-2xl p-6 flex gap-4">
@@ -724,7 +724,7 @@ const CarterEcosystem = () => {
                     <div className="max-w-3xl">
                         <Badge>[ The Real Story ]</Badge>
                         <h2 className="font-heading text-4xl md:text-5xl font-bold text-white leading-tight mb-8">
-                            Designer title. PM proof.{" "}
+                            Designer title. Design proof.{" "}
                             <span className="text-gray-400">The metrics don&apos;t care what your title says.</span>
                         </h2>
                         <p className="text-gray-400 text-base leading-relaxed mb-5">
@@ -732,8 +732,8 @@ const CarterEcosystem = () => {
                             That call unlocked 20 percentage points of campaign launch rate. Revenue found in the product, not the sales funnel.
                         </p>
                         <p className="text-gray-400 text-base leading-relaxed">
-                            I wrote PRDs, ran sprint planning, coordinated engineering and QA, streamlined Jira processes,
-                            and shipped industry-level design — all in one seat. The Product Head didn&apos;t hire a separate PM.
+                            I ran user research, wrote the design specs, coordinated engineering and QA, streamlined the design-to-dev handoff,
+                            and shipped industry-level design — all in one seat. That&apos;s what an end-to-end product designer looks like.
                             Because the work was already getting done.
                         </p>
                     </div>

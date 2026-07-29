@@ -46,9 +46,9 @@ const Contact = () => {
   return (
     <div className="bg-[#050505] min-h-screen text-white">
       <SeoHead
-        title="Contact Suman Sourabh | Product Designer & PM — AI & 0-to-1 Products"
-        description="Get in touch with Suman Sourabh about product manager roles, AI product work, or product questions."
-        keywords="contact, product manager, hire product manager, AI product manager"
+        title="Contact Suman Sourabh | Product Designer — AI & 0-to-1 Products"
+        description="Get in touch with Suman Sourabh about product design roles, AI-native design work, or design questions."
+        keywords="contact, product designer, hire product designer, ui/ux designer, AI-native design"
         canonicalUrl="https://www.sumansourabh.com/contact"
       />
       <Navbar />

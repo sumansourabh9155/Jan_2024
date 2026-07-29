@@ -7,7 +7,7 @@ const TechProof = () => {
         {/* Section Header */}
         <div className="mb-16">
           <div className="inline-flex items-center gap-2 text-xs font-mono text-[#d6f928] tracking-widest uppercase mb-4">
-            [ Builder PM ]
+            [ Design Engineer ]
           </div>
           <h2 className="font-heading text-5xl font-bold mt-4">
             I Don&apos;t Just Spec It.{" "}
@@ -171,8 +171,8 @@ const TechProof = () => {
               <GitBranch size={32} className="mx-auto md:mx-0 mb-4 text-orange-400" />
               <h3 className="font-heading text-2xl font-bold mb-2">The Signal to Hiring Managers</h3>
               <p className="text-gray-300 text-sm max-w-2xl leading-relaxed">
-                My technical depth doesn&apos;t just make me a better PM.
-                It means I can build the tools that remove bottlenecks from the engineering
+                My technical depth doesn&apos;t just make me a better designer.
+                It means I ship what I design and build the tools that remove bottlenecks from the engineering
                 team&apos;s path—so they stay focused on the core product, not internal busywork.
               </p>
             </div>
@@ -181,15 +181,15 @@ const TechProof = () => {
               <div className="flex items-start gap-3 bg-black/30 border border-white/5 rounded-lg px-4 py-3">
                 <span className="text-[#d6f928] text-lg leading-none mt-0.5">↗</span>
                 <div>
-                  <p className="text-sm font-semibold text-white">Agentic AI Pipelines</p>
-                  <p className="text-xs text-gray-400">PM demand for agentic AI product ownership is projected to exceed 25% of senior JDs by 2026. I&apos;m already building with these patterns.</p>
+                  <p className="text-sm font-semibold text-white">Agentic AI Experiences</p>
+                  <p className="text-xs text-gray-400">Demand for designers who can shape agentic AI UX is climbing fast. I&apos;m already designing and prototyping with these patterns.</p>
                 </div>
               </div>
               <div className="flex items-start gap-3 bg-black/30 border border-white/5 rounded-lg px-4 py-3">
                 <span className="text-[#d6f928] text-lg leading-none mt-0.5">↗</span>
                 <div>
-                  <p className="text-sm font-semibold text-white">Product-Led Growth (PLG)</p>
-                  <p className="text-xs text-gray-400">PLG motion now in 35%+ of SaaS JDs. Activation rate optimization, TTV engineering, and self-serve onboarding are core to how I scope every product.</p>
+                  <p className="text-sm font-semibold text-white">Self-Serve & Onboarding UX</p>
+                  <p className="text-xs text-gray-400">Self-serve is the default SaaS motion now. Onboarding design, activation, and time-to-value are core to how I design every product.</p>
                 </div>
               </div>
             </div>

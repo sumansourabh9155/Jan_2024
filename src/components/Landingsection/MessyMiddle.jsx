@@ -7,14 +7,14 @@ const MessyMiddle = () => {
         {/* Section Header */}
         <div className="mb-16">
           <div className="inline-flex items-center gap-2 text-xs font-mono text-[#d6f928] tracking-widest uppercase mb-4">
-            [ Decision Log ]
+            [ Design Decisions ]
           </div>
           <h2 className="font-heading text-5xl font-bold mt-4">
             How I Actually{" "}
-            <span className="text-gray-400">Make Product Calls</span>
+            <span className="text-gray-400">Make Design Calls</span>
           </h2>
           <p className="text-gray-300 mt-4 text-lg max-w-3xl leading-relaxed">
-            Four real decisions. The scope cuts, technical bets, and the times data overruled instinct.
+            Four real decisions. The scope cuts, the design bets, and the times user data overruled instinct.
           </p>
         </div>
 

@@ -38,7 +38,7 @@ const Footer = () => {
                 <div className="flex flex-col md:flex-row justify-between items-start md:items-end gap-10 mb-20 border-b border-white/10 pb-16">
                     <div className="max-w-xl">
                         <h2 className="font-heading text-3xl md:text-4xl font-bold text-white mb-6">
-                            Looking for a product owner who <span className="text-[#d6f928]">multiplies your output?</span>
+                            Looking for a designer who <span className="text-[#d6f928]">ships what they design?</span>
                         </h2>
                         <p className="text-gray-400 font-light">
                             I embed into teams, close the strategy-execution gap, and ship products that move metrics.
@@ -64,7 +64,7 @@ const Footer = () => {
                             Suman <span className="text-gray-500">Sourabh</span>
                         </Link>
                         <p className="text-sm text-gray-500 mb-6 max-w-sm">
-                            Product Designer operating as a PM. CS/ML background. I multiply team output by eliminating the gap between product strategy and technical execution.
+                            Product Designer with a CS/ML background. I design 0-to-1 AI products end-to-end and ship the UI myself—no gap between design and engineering.
                         </p>
                         <a
                             href="mailto:sumansourabh9155@gmail.com"

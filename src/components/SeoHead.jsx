@@ -9,21 +9,21 @@ const personSchema = {
   url: SITE_URL,
   jobTitle: "Product Designer",
   description:
-    "Product Designer operating as a Product Manager, with a CS/ML background — shipping 0-to-1 products across AdTech and HealthTech, including AI features built on the Claude API.",
+    "Product Designer with a CS/ML background — designing 0-to-1 AI products end-to-end across AdTech and HealthTech, building design systems, and shipping the UI in React.",
   sameAs: [
     "https://www.linkedin.com/in/sumansourabh9155/",
     "https://github.com/sumansourabh9155",
   ],
   knowsAbout: [
-    "Product Management",
-    "Product Strategy",
-    "PRD Writing",
-    "Roadmapping",
-    "AI Product Development",
-    "LLM Integration",
+    "Product Design",
+    "UX Design",
+    "Interaction Design",
+    "Design Systems",
     "User Research",
-    "A/B Testing",
-    "SQL",
+    "Usability Testing",
+    "AI-Native Design",
+    "Accessibility",
+    "Figma",
     "React",
   ],
 };
@@ -31,9 +31,9 @@ const personSchema = {
 const caseStudiesItemList = {
   "@context": "https://schema.org",
   "@type": "ItemList",
-  name: "Product Management Case Studies",
+  name: "Product Design Case Studies",
   description:
-    "Product management case studies covering the user problem, the product decisions made, and the measured outcomes.",
+    "Product design case studies covering the user problem, the design decisions made, and the measured outcomes.",
   itemListElement: [
     {
       "@type": "ListItem",
@@ -75,9 +75,9 @@ const caseStudiesItemList = {
 };
 
 const SeoHead = ({
-  title = "Suman Sourabh | Product Designer operating as Product Manager — AI & 0-to-1 Products",
-  description = "Product Designer operating as a Product Manager (CS/ML background) — 0-to-1 products across AdTech and HealthTech, with PRDs, roadmaps, cross-functional delivery, and AI features on the Claude API.",
-  keywords = "product designer, product manager, ui/ux designer, AI product manager, 0-to-1 products, product design portfolio, PRD, roadmap, Claude API, design systems",
+  title = "Suman Sourabh | Product Designer — AI-Native UX, Design Systems, 0-to-1",
+  description = "Product Designer with a CS/ML background — end-to-end design of 0-to-1 AI products across AdTech and HealthTech, design systems, and shipping the UI in React.",
+  keywords = "product designer, ui/ux designer, product design portfolio, design systems, interaction design, AI-native design, UX research, usability testing, Figma, React",
   canonicalUrl = SITE_URL,
   ogImage = `${SITE_URL}/android-chrome-512x512.png`,
   includeSchemas = ["person", "caseStudies"],
@@ -102,7 +102,7 @@ const SeoHead = ({
       <meta property="og:url" content={canonicalUrl} />
       <meta property="og:image" content={ogImage} />
       <meta property="og:locale" content="en_US" />
-      <meta property="og:site_name" content="Suman Sourabh — Product Designer & PM" />
+      <meta property="og:site_name" content="Suman Sourabh — Product Designer" />
 
       {/* Twitter Card */}
       <meta name="twitter:card" content="summary_large_image" />

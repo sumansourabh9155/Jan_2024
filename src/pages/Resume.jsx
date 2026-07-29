@@ -9,9 +9,9 @@ const Resume = () => {
   return (
     <div className="bg-black text-white min-h-screen">
       <SeoHead
-        title="Resume: Suman Sourabh — Product Designer & PM | AI & 0-to-1 Products"
-        description="Experience of Suman Sourabh, a Product Designer operating as a Product Manager, with a CS/ML background. 0-to-1 products across AdTech and HealthTech, AI features on the Claude API, and cross-functional delivery."
-        keywords="resume, product manager, AI product manager, shyftlabs, 0-to-1 products, PRD, roadmap, experience"
+        title="Resume: Suman Sourabh — Product Designer | AI-Native & 0-to-1"
+        description="Experience of Suman Sourabh, a Product Designer with a CS/ML background. End-to-end design of 0-to-1 AI products across AdTech and HealthTech, design systems, and shipping the UI in React."
+        keywords="resume, product designer, ui/ux designer, shyftlabs, 0-to-1 products, design systems, AI-native design, experience"
         ogImage={profilePic}
         canonicalUrl="https://www.sumansourabh.com/resume"
       />
@@ -20,15 +20,15 @@ const Resume = () => {
         <section className="py-24">
           <div className="text-center mb-12">
             <span className="inline-flex items-center px-4 py-1 rounded-full text-sm bg-white/10 border border-white/10 backdrop-blur-md mb-4">
-              ◎ Product Designer · PM Track
+              ◎ Product Designer
             </span>
             <h1 className="text-4xl font-light">
               Suman Sourabh,
               <span className="font-medium text-gray-400"> Product Designer</span>
             </h1>
             <p className="text-sm text-gray-400 mt-2 max-w-xl mx-auto">
-              2.5 years shipping 0-to-1 products across AdTech, HealthTech, and
-              CMS — with the technical depth to prototype in code.
+              3 years designing 0-to-1 products across AdTech, HealthTech, and
+              CMS — with the technical depth to ship what I design.
             </p>
           </div>
 
@@ -43,7 +43,7 @@ const Resume = () => {
                 />
                 <div className="absolute bottom-3 left-3 text-xs text-white bg-black/50 backdrop-blur px-2 py-0.5 rounded-full flex items-center gap-2">
                   <span className="w-2 h-2 bg-green-400 rounded-full" />
-                  Open to PM roles
+                  Open to design roles
                 </div>
               </div>
               <h2 className="text-lg font-semibold">Hello, I am Suman Sourabh</h2>
@@ -53,21 +53,21 @@ const Resume = () => {
             <div className="bg-white/5 border border-white/10 rounded-2xl p-6 backdrop-blur-md shadow-lg flex flex-col justify-between">
               <div>
                 <p className="text-md font-semibold text-gray-300 mt-4">
-                  Product Designer operating as a PM — AI & 0-to-1 Products, based in India.
+                  Product Designer — AI-Native & 0-to-1 Products, based in India.
                 </p>
                 <p className="text-sm text-gray-500">
                   B.Sc. Computer Science — Machine Learning specialization, Class of 2024
                 </p>
                 <p className="text-sm text-gray-400 mt-4 leading-relaxed">
-                  I own products end-to-end: discovery, PRDs, OKRs, roadmap,
-                  and launch. I started in design, which means I ship
-                  interfaces users understand — and my CS/ML background means
-                  I can read the codebase, prototype in Python and React, and
-                  scope AI features with engineering at eye level.
+                  I design products end-to-end: discovery, user research,
+                  interaction design, design systems, and launch. My CS/ML
+                  background means I ship what I design — I read the codebase,
+                  prototype in React and Tailwind, and design AI features with
+                  engineering at eye level.
                 </p>
 
                 <div className="flex flex-wrap gap-2 mt-6">
-                  {["PRD Writing", "Roadmapping", "OKRs", "User Research", "A/B Testing", "SQL", "LLM Product Design", "Claude API", "Figma"].map((skill, i) => (
+                  {["UX Research", "Interaction Design", "Design Systems", "Prototyping", "Usability Testing", "Accessibility", "AI-Native UX", "Figma", "React / Tailwind"].map((skill, i) => (
                     <span
                       key={i}
                       className="text-xs bg-black/40 border border-white/10 px-3 py-1 rounded-md"

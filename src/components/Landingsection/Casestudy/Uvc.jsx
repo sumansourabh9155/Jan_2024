@@ -64,9 +64,9 @@ const UvcEcosystem = () => {
     return (
         <div className="text-white bg-[#050505]">
             <SEO
-                title="UVC: CMS Architecture & 0-to-1 Site Builder — PM Case Study"
-                description="How I owned product strategy for a 130+ clinic veterinary network — standardizing digital infrastructure, building a relational CMS, and launching a 0-to-1 no-code site builder."
-                keywords="product management case study, UVC, veterinary, CMS architecture, site builder, multi-location, healthcare, product strategy, phased rollout"
+                title="UVC: CMS Architecture & 0-to-1 Site Builder — Product Design Case Study"
+                description="How I owned the design for a 130+ clinic veterinary network — standardizing digital infrastructure, designing a relational CMS, and a 0-to-1 no-code site builder."
+                keywords="product design case study, UVC, veterinary, CMS design, site builder, multi-location, healthcare, design systems, information architecture, phased rollout"
                 url="https://www.sumansourabh.com/Projects/uvc"
             />
             <Navbar />
@@ -94,7 +94,7 @@ const UvcEcosystem = () => {
                         </div>
                         <div className="bg-white/5 border border-white/10 rounded-2xl p-5 text-center">
                             <p className="text-xs text-gray-500 uppercase tracking-widest mb-2">My Role</p>
-                            <p className="text-white font-medium">Designer &rarr; Acting PM</p>
+                            <p className="text-white font-medium">Lead Product Designer</p>
                         </div>
                         <div className="bg-white/5 border border-white/10 rounded-2xl p-5 text-center">
                             <p className="text-xs text-gray-500 uppercase tracking-widest mb-2">Platform</p>
@@ -121,14 +121,14 @@ const UvcEcosystem = () => {
             <section className="bg-black py-24 px-4 border-t border-white/10">
                 <div className="max-w-7xl mx-auto">
                     <div className="max-w-3xl mb-20">
-                        <Badge>[ Why I Owned Product Decisions ]</Badge>
+                        <Badge>[ How I Owned the Design ]</Badge>
                         <h2 className="font-heading text-4xl md:text-5xl font-bold text-white leading-tight mb-6">
                             130 clinics. 3 phases.{" "}
-                            <span className="text-gray-400">One product owner driving all three.</span>
+                            <span className="text-gray-400">One designer driving all three.</span>
                         </h2>
                         <p className="text-gray-400 text-base leading-relaxed">
                             UVC needed someone who could understand the <span className="text-white font-medium">data architecture, design the user experience, and coordinate engineering delivery</span> — simultaneously.
-                            I owned the product roadmap across all three phases: standardization, CMS architecture, and the 0-to-1 site builder.
+                            I owned the design across all three phases: standardization, CMS architecture, and the 0-to-1 site builder.
                             Ran a cross-functional pod — <span className="text-white font-medium">3 engineers, 1 designer, 1 SEO specialist</span> — in 2-week sprints.
                         </p>
                     </div>
@@ -140,8 +140,8 @@ const UvcEcosystem = () => {
                                 <FileText size={18} className="text-blue-400" />
                             </div>
                             <div>
-                                <h4 className="text-white font-semibold text-sm mb-1">PRDs &amp; Phased Roadmap</h4>
-                                <p className="text-gray-400 text-xs leading-relaxed">Wrote PRDs for each phase. Defined scope, acceptance criteria, and rollout strategy for 130+ locations.</p>
+                                <h4 className="text-white font-semibold text-sm mb-1">Specs &amp; Phased Rollout</h4>
+                                <p className="text-gray-400 text-xs leading-relaxed">Wrote design specs for each phase. Defined scope, acceptance criteria, and rollout strategy for 130+ locations.</p>
                             </div>
                         </div>
                         <div className="bg-white/5 border border-white/10 rounded-2xl p-6 flex gap-4">
@@ -629,10 +629,10 @@ const UvcEcosystem = () => {
                             and full template customization &mdash; all shipped without adding engineering headcount.
                         </p>
                         <p className="text-gray-400 text-base leading-relaxed">
-                            I built CMS 2.0 myself using Claude. Not just the PRD &mdash;{" "}
+                            I built CMS 2.0 myself using Claude. Not just the design &mdash;{" "}
                             <span className="text-white font-medium">the actual product</span>.
                             Planned, architected, and deployed on Vercel.
-                            This is what a builder PM looks like at the edge of AI tooling.
+                            This is what a builder designer looks like at the edge of AI tooling.
                         </p>
                     </div>
 
@@ -836,11 +836,11 @@ const UvcEcosystem = () => {
 
                     {/* Builder PM Signal */}
                     <div className="mb-20 bg-[#d6f928]/5 border border-[#d6f928]/20 rounded-2xl p-8">
-                        <p className="text-[#d6f928] text-xs uppercase tracking-widest mb-3 font-mono font-semibold">Builder PM Signal</p>
+                        <p className="text-[#d6f928] text-xs uppercase tracking-widest mb-3 font-mono font-semibold">Builder Designer Signal</p>
                         <p className="text-white text-base leading-relaxed max-w-2xl">
                             I didn&apos;t spec CMS 2.0 and hand it to engineering. I built it &mdash;
                             using Claude as my engineering partner. AI content writing, automated SEO,
-                            approval workflows, user management &mdash; all shipped by one PM
+                            approval workflows, user management &mdash; all shipped by one designer
                             who understands both the product and the code.
                         </p>
                     </div>
@@ -877,10 +877,10 @@ const UvcEcosystem = () => {
                             and what CMS 2.0 turned into an AI-native content operating system.
                         </p>
                         <p className="text-gray-400 text-base leading-relaxed">
-                            Four phases. I wrote the PRDs, defined the phased rollout, coordinated engineering sprints,
+                            Four phases. I wrote the design specs, defined the phased rollout, coordinated engineering,
                             and shipped across all of them. Then in Phase 4, I built CMS 2.0 myself &mdash;
                             using Claude to ship seven new capabilities without adding headcount.
-                            One product owner who could bridge architecture, experience, and AI execution &mdash;
+                            One designer who could bridge architecture, experience, and AI execution &mdash;
                             that&apos;s what made 130 clinics feel like one ecosystem.
                         </p>
                     </div>

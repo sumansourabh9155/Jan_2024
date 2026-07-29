@@ -31,9 +31,9 @@ const Godiverse = () => {
     return (
         <div className="text-white bg-[#050505]">
             <SEO
-                title="GoDiverse: 1-Page Profile Builder with AI — PM Case Study"
+                title="GoDiverse: 1-Page Profile Builder with AI — Product Design Case Study"
                 description="How I scoped, designed, and integrated AI into a 1-page profile builder for a supplier-diversity platform — share by link, download PDF, or print, all in one flow."
-                keywords="product management case study, GoDiverse, profile builder, supplier diversity, AI integration, PDF export, link sharing, product scoping"
+                keywords="product design case study, GoDiverse, profile builder, supplier diversity, AI integration, UX design, interaction design, product scoping"
                 url="https://www.sumansourabh.com/Projects/GoDiverse"
             />
             <Navbar />
@@ -63,7 +63,7 @@ const Godiverse = () => {
                         </div>
                         <div className="bg-white/5 border border-white/10 rounded-2xl p-5 text-center">
                             <p className="text-xs text-gray-500 uppercase tracking-widest mb-2">My Role</p>
-                            <p className="text-white font-medium">UI/UX Consultant &rarr; Product Scope</p>
+                            <p className="text-white font-medium">UI/UX Consultant &rarr; Design Lead</p>
                         </div>
                         <div className="bg-white/5 border border-white/10 rounded-2xl p-5 text-center">
                             <p className="text-xs text-gray-500 uppercase tracking-widest mb-2">Platform</p>
@@ -496,7 +496,7 @@ const Godiverse = () => {
                             <span className="text-gray-400">Not compromises.</span>
                         </h2>
                         <p className="text-gray-400 text-base leading-relaxed mb-5">
-                            The one-page constraint wasn&apos;t a limitation &mdash; it was the product strategy.
+                            The one-page constraint wasn&apos;t a limitation &mdash; it was the design strategy.
                             It forced every design decision toward clarity and speed.
                             Combined with AI-assisted content and three distribution channels,
                             it turned a profile builder into a share-first pitching tool for suppliers.

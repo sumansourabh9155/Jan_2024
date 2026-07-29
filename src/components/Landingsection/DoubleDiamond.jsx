@@ -3,35 +3,35 @@ import { useState } from 'react';
 const DoubleDiamond = () => {
    const [activeStage, setActiveStage] = useState(1);
 
-   // The PM Sprint Framework
+   // The Double Diamond — my design process
    const stages = [
       {
          id: 1,
-         title: "Discovery & Diagnosis",
+         title: "Discover & Research",
          subtitle: "Define the Right Problem",
-         desc: "No PRD before the problem is validated. The constraint is the user's reality—not internal opinions.",
-         details: ["User Interviews", "Session Recording", "SQL Cohort Analysis", "Churn Signal Mapping", "Competitor Audit"]
+         desc: "No pixels before the problem is validated. The constraint is the user's reality—not internal opinions.",
+         details: ["User Interviews", "Session Recordings", "Journey Mapping", "Heuristic Audit", "Competitor Teardown"]
       },
       {
          id: 2,
-         title: "Strategy & Scope",
-         subtitle: "Place the Right Bet",
-         desc: "What to build, what to cut, and why. Every scope decision is a hypothesis with a measurable outcome.",
-         details: ["OKRs + North Star Metric", "RICE / ICE Prioritization", "MVP Hypothesis", "LTV:CAC Framing", "What NOT to Build"]
+         title: "Define & Ideate",
+         subtitle: "Frame the Right Direction",
+         desc: "What to design, what to cut, and why. Every scope decision is a hypothesis with a measurable outcome.",
+         details: ["Information Architecture", "User Flows", "Wireframes", "Prioritized Scope", "What NOT to Build"]
       },
       {
          id: 3,
-         title: "Build & Ship",
+         title: "Design & Ship",
          subtitle: "Execute Without Drift",
-         desc: "PRD to sprint to shipped. Engineering trust comes from technical credibility in the room, not after the meeting.",
-         details: ["PRD → Jira/Linear", "Technical Feasibility", "AI-Assisted Dev", "Sprint Planning", "Stakeholder Alignment"]
+         desc: "Hi-fi design to shipped UI. Engineering trust comes from technical credibility in the room, not after the meeting.",
+         details: ["Hi-Fi UI", "Design System", "Technical Feasibility", "React/Tailwind Build", "Design QA"]
       },
       {
          id: 4,
-         title: "Measure & Compound",
+         title: "Measure & Iterate",
          subtitle: "Close the Loop",
-         desc: "Shipped is not done. The metric has to move. If it doesn't, that's the next discovery sprint.",
-         details: ["D1/D7/D30 Retention", "A/B Testing", "Amplitude / Mixpanel", "NRR + Churn", "OKR Retro"]
+         desc: "Shipped is not done. The metric has to move. If it doesn't, that's the next research round.",
+         details: ["Usability Testing", "A/B Testing", "Analytics Review", "Adoption + Retention", "Design Retro"]
       }
    ];
 
@@ -61,9 +61,9 @@ const DoubleDiamond = () => {
                   From Signal to <span className="text-transparent bg-clip-text bg-gradient-to-r from-white to-gray-500">Shipped</span>.
                </h2>
                <p className="text-gray-400 mt-4 max-w-2xl mx-auto">
-                  Every product decision I make flows through four gates: validate the problem, commit to the bet, execute without drift, and close the loop on the metric.
-                  I don&apos;t write a PRD until I can show you the user signal that proves the problem is real.
-                  I don&apos;t call a sprint done until the retention or conversion number moves.
+                  Every design decision I make flows through four gates: validate the problem, commit to the direction, execute without drift, and close the loop on the metric.
+                  I don&apos;t open Figma until I can show you the user signal that proves the problem is real.
+                  I don&apos;t call a design done until the usability or conversion number moves.
                </p>
             </div>
 

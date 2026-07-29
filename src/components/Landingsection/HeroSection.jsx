@@ -3,12 +3,12 @@ import { Link } from "react-router-dom";
 
 const HeroSection = () => {
   const capabilities = [
-    { icon: <Target size={22} className="text-blue-400" />, label: "Product Strategy" },
-    { icon: <PenTool size={22} className="text-pink-400" />, label: "Design" },
-    { icon: <Sparkles size={22} className="text-[#d6f928]" />, label: "AI Integration" },
-    { icon: <TrendingUp size={22} className="text-green-400" />, label: "Growth & CRO" },
-    { icon: <Users size={22} className="text-purple-400" />, label: "Sprint Leadership" },
-    { icon: <Code size={22} className="text-orange-400" />, label: "Technical Build" },
+    { icon: <Target size={22} className="text-blue-400" />, label: "Product Design" },
+    { icon: <PenTool size={22} className="text-pink-400" />, label: "UI & Visual Design" },
+    { icon: <Sparkles size={22} className="text-[#d6f928]" />, label: "AI-Native UX" },
+    { icon: <TrendingUp size={22} className="text-green-400" />, label: "Design Systems" },
+    { icon: <Users size={22} className="text-purple-400" />, label: "User Research" },
+    { icon: <Code size={22} className="text-orange-400" />, label: "Design Engineering" },
   ];
 
   return (
@@ -59,17 +59,17 @@ const HeroSection = () => {
 
         {/* Headline */}
         <h1 className="font-heading text-5xl sm:text-6xl xl:text-7xl font-extrabold text-white leading-[1.1] tracking-tight mb-6">
-          Designer by title.{" "}
+          Designer + Engineer.{" "}
           <span className="text-transparent bg-clip-text bg-gradient-to-r from-white via-gray-200 to-gray-500">
-            <br />PM by practice.
+            <br />Rare by Design.
           </span>
         </h1>
 
         {/* Subtitle */}
         <p className="text-md text-gray-400 max-w-2xl mx-auto font-light leading-relaxed mb-8">
-          CS/ML degree. Shipped AI-powered products with <span className="text-white font-medium">Claude and Gemini</span>.{" "}
-          Led cross-functional teams across design, engineering, and product—from{" "}
-          <span className="text-white font-medium">user research to launch</span>.
+          CS/ML degree—a designer who ships what they design. I take 0-to-1 AI products from{" "}
+          <span className="text-white font-medium">user research to launch</span>, then build the UI myself in{" "}
+          <span className="text-white font-medium">React and Tailwind</span>.
         </p>
 
         {/* Capability Boxes */}

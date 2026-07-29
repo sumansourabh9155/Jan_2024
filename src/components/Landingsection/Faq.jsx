@@ -11,29 +11,29 @@ const Faq = () => {
         "30 days. I'm on a standard notice period and I'll honor it — clean handover matters. If the role is right, I can start knowledge-transfer conversations immediately.",
     },
     {
-      question: "You're a designer by title — why should I hire you as a PM?",
+      question: "What kind of designer are you?",
       answer:
-        "Because I've already operated as one. At Carter & Atlas I was titled Designer but owned product decisions: wrote every PRD, ran sprint planning, prioritized the backlog, and made the trade-off calls. CS degree with an ML specialization — I read codebases, evaluate architecture trade-offs, and ship UI myself. The title is catching up to the work.",
+        "End-to-end product designer. I run discovery and user research, design the interaction and visual layers, build and maintain the design system, and ship the front-end in React/Tailwind. AI-native design is my focus — agentic and conversational UX that models can actually serve.",
     },
     {
       question: "What kind of role are you looking for?",
       answer:
-        "PM or Senior PM at a seed-to-Series-B SaaS or AI company. Ideally a team where the PM owns outcomes end-to-end — strategy, spec, ship, measure — without a 4-layer approval chain. Bonus if the product touches LLMs.",
+        "Product Designer / Senior Product Designer at a seed-to-Series-B SaaS or AI company — somewhere design owns the problem from research through shipped UI, and AI is part of the product, not a bolt-on. Bonus if I get to work close to engineering.",
     },
     {
       question: "Remote, hybrid, or on-site?",
       answer:
-        "All three are on the table. Currently based in India and open to relocation for the right role. Happy to overlap with US or EU time zones — I've run distributed pods before.",
+        "All three are on the table. Currently based in India and open to relocation for the right role. Happy to overlap with US or EU time zones — I've worked in distributed teams before.",
     },
     {
-      question: "What PM work have you actually shipped?",
+      question: "What design work have you actually shipped?",
       answer:
-        "Carter (B2B ad-tech) — redesigned activation funnel, 40% lift, 300% enterprise client growth. UVC (healthcare) — unified 130+ clinic sites under one CMS, launched 0-to-1 no-code builder. GoDiverse (SaaS) — 1-page resume builder with Claude-powered assist, under 8 min to first share. Full cycle on each: PRD to shipped.",
+        "Carter (B2B ad-tech) — redesigned the activation funnel and built a component system adopted across 12 teams (activation +40%, measured over ~6 months post-rollout). UVC (healthcare) — unified 130+ clinic sites under one design system and designed a no-code site builder. GoDiverse (SaaS) — AI-assisted 1-page builder. Research → interaction → UI → shipped on each.",
     },
     {
       question: "Are you open to consulting or contract work?",
       answer:
-        "Yes — for short, scoped engagements: product audits, 0-to-1 scoping sprints, AI feature design, or UX-to-PM transition coaching. For full-time I'm selective, so consulting is a good way to work together first if you're unsure.",
+        "Yes — for short, scoped engagements: product design sprints, design-system builds, UX audits, or AI-native UX design. For full-time I'm selective, so a scoped project is a good way to work together first if you're unsure.",
     },
   ];
 
