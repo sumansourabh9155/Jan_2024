@@ -4,7 +4,7 @@
     {
       "name": "portfolio",
       "runtimeExecutable": "/opt/homebrew/bin/node",
-      "runtimeArgs": ["node_modules/.bin/vite"],
+      "runtimeArgs": ["node_modules/.bin/vite", "--port", "5176", "--strictPort"],
       "port": 5176
     }
   ]

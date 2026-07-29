@@ -89,7 +89,7 @@ const HeroSection = () => {
 
         {/* CTAs */}
         <div className="flex flex-col sm:flex-row gap-4 justify-center">
-          <Link to="/projects">
+          <Link to="/#case-studies">
             <button
               className="bg-white text-black px-8 py-4 rounded-full font-bold text-base hover:bg-[#d6f928] hover:scale-105 transition-[transform,background-color,color] duration-200 shadow-[0_0_20px_rgba(255,255,255,0.2)] w-full sm:w-auto"
             >

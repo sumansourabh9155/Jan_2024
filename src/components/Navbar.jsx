@@ -1,5 +1,5 @@
 import { useState, useEffect, useRef } from "react";
-import { Link, NavLink, useLocation } from "react-router-dom";
+import { Link, useLocation } from "react-router-dom";
 import { Menu, X, ArrowRight } from "lucide-react";
 
 const Navbar = () => {
@@ -38,7 +38,9 @@ const Navbar = () => {
   }, [location]);
 
   const navLinks = [
-    { to: "/projects", text: "Case Studies" }, // Renamed for Business Impact
+    { to: "/#case-studies", text: "Case Studies" },
+    { to: "/#design-gallery", text: "Design Work" },
+    { to: "/#about", text: "About" },
     // { to: "/resources", text: "Resources" },
     // { to: "/resume", text: "Profile" },        // Renamed from "About Me" (more professional)
   ];
@@ -68,21 +70,23 @@ const Navbar = () => {
 
           {/* Middle: Desktop Nav */}
           <nav aria-label="Main navigation" className="hidden md:flex items-center gap-1 bg-white/5 px-2 py-1 rounded-full border border-white/5">
-            {navLinks.map(({ to, text }) => (
-              <NavLink
-                key={to}
-                to={to}
-                className={({ isActive }) =>
-                  `px-4 py-1.5 rounded-full text-xs font-medium transition-all duration-300
+            {navLinks.map(({ to, text }) => {
+              // Hash links all share the "/" path, so derive active state from the hash.
+              const isActive = location.pathname === "/" && location.hash === to.slice(1);
+              return (
+                <Link
+                  key={to}
+                  to={to}
+                  className={`px-4 py-1.5 rounded-full text-xs font-medium transition-all duration-300
                   ${isActive
                     ? "bg-[#d6f928] text-black shadow-[0_0_15px_rgba(214,249,40,0.4)]"
                     : "text-gray-400 hover:text-white hover:bg-white/5"
-                  }`
-                }
-              >
-                {text}
-              </NavLink>
-            ))}
+                  }`}
+                >
+                  {text}
+                </Link>
+              );
+            })}
           </nav>
 
           {/* Right: CTA Button */}
@@ -112,21 +116,22 @@ const Navbar = () => {
             `}
         >
           <div className="p-4 flex flex-col gap-2">
-            {navLinks.map(({ to, text }) => (
-              <NavLink
-                key={to}
-                to={to}
-                className={({ isActive }) =>
-                  `px-4 py-3 rounded-xl text-sm font-medium transition-colors
+            {navLinks.map(({ to, text }) => {
+              const isActive = location.pathname === "/" && location.hash === to.slice(1);
+              return (
+                <Link
+                  key={to}
+                  to={to}
+                  className={`px-4 py-3 rounded-xl text-sm font-medium transition-colors
                     ${isActive
                     ? "bg-white/10 text-[#d6f928] border border-[#d6f928]/20"
                     : "text-gray-400 hover:text-white hover:bg-white/5"
-                  }`
-                }
-              >
-                {text}
-              </NavLink>
-            ))}
+                  }`}
+                >
+                  {text}
+                </Link>
+              );
+            })}
 
             <div className="h-px bg-white/10 my-2"></div>
 

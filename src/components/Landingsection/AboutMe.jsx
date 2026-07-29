@@ -3,7 +3,7 @@ import { Code, TrendingUp, Zap } from "lucide-react";
 
 export const AboutMe = () => {
   return (
-    <section aria-labelledby="about-heading" data-testid="about-section" className="bg-black flex justify-center items-center py-24 px-4 border-t border-white/10">
+    <section id="about" aria-labelledby="about-heading" data-testid="about-section" className="scroll-mt-24 bg-black flex justify-center items-center py-24 px-4 border-t border-white/10">
       <div className="max-w-7xl w-full">
         {/* Section Header */}
         <div className="text-center mb-16">

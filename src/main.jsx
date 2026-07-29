@@ -5,8 +5,9 @@ import { HelmetProvider } from "react-helmet-async";
 import "./index.css";
 import App from "./App";
 import ProtectedRoute from "./components/ProtectedRoute";
+import ScrollToHash from "./components/ScrollToHash";
 import AnimatedCursor from "react-animated-cursor";
-import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
+import { BrowserRouter as Router, Routes, Route, Navigate } from "react-router-dom";
 
 import LandingPage from "./pages/LandingPage";
 
@@ -16,7 +17,6 @@ const Resume = React.lazy(() => import("./pages/Resume"));
 const Contact = React.lazy(() => import("./pages/Contact"));
 const Resource = React.lazy(() => import("./pages/Resource"));
 // const Blog = React.lazy(() => import("./pages/Blog")); // Commented intentionally
-const Projects = React.lazy(() => import("./pages/Projects"));
 const ExpenseDashboard = React.lazy(() => import("./pages/ExpenseDashboard"));
 
 // Lazy load Case Studies
@@ -88,13 +88,16 @@ root.render(
         />
       )}
       <Router>
+        <ScrollToHash />
         <Suspense fallback={<div className="flex items-center justify-center min-h-screen bg-black text-white">Loading...</div>}>
           <Routes>
             <Route path="/" element={<App />} />
             <Route path="/home" element={<LandingPage />} />
             <Route path="/resume" element={<Resume />} />
             <Route path="/contact" element={<Contact />} />
-            <Route path="/projects" element={<Projects />} />
+            {/* Case studies + design gallery now live on the landing page.
+                Old /projects URLs redirect to the on-page section. */}
+            <Route path="/projects" element={<Navigate to="/#case-studies" replace />} />
             <Route path="/resource" element={<Resource />} />
 
 

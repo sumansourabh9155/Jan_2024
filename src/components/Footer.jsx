@@ -6,8 +6,10 @@ const Footer = () => {
 
     const links = {
         explore: [
-            { name: "Case Studies", url: "/projects" },
-            { name: "About", url: "/resume" },
+            { name: "Case Studies", url: "/#case-studies" },
+            { name: "Design Work", url: "/#design-gallery" },
+            { name: "About", url: "/#about" },
+            { name: "Resume", url: "/resume" },
             { name: "Contact", url: "/contact" },
         ],
         social: [

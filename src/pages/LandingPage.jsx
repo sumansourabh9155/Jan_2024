@@ -7,6 +7,7 @@ import SeoHead from "../components/SeoHead";
 // Below-the-fold sections — code-split so the initial landing payload only
 // ships Navbar + Hero. Each chunk streams in as the user scrolls.
 const Projects = lazy(() => import("../components/Landingsection/Projects"));
+const DesignShowcase = lazy(() => import("../components/Landingsection/DesignShowcase"));
 const AboutMe = lazy(() =>
   import("../components/Landingsection/AboutMe").then((m) => ({ default: m.AboutMe }))
 );
@@ -40,6 +41,9 @@ const LandingPage = () => {
       <Suspense fallback={<SectionFallback />}>
         {/* Case Studies */}
         <Projects />
+
+        {/* Visual design work */}
+        <DesignShowcase />
 
         {/* About */}
         <aside aria-label="About Suman Sourabh">
