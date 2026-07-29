@@ -1,41 +1,13 @@
 import { defineConfig } from 'vite'
 import react from '@vitejs/plugin-react-swc'
-import viteImagemin from 'vite-plugin-imagemin'
 
 // https://vite.dev/config/
 export default defineConfig({
   plugins: [
+    // Images in src/assets are pre-optimized (resized to a 2000px cap +
+    // compressed via scripts/optimize-images), so no build-time image plugin
+    // is needed. This keeps `vite build` fast (seconds, not minutes).
     react(),
-    // Compress images at build time. Dev is untouched (fast HMR);
-    // `vite build` runs these over every asset emitted.
-    viteImagemin({
-      // PNGs — the heaviest offenders (dsl.png, Beforeafter.png, Alltemplate.png).
-      // quality 65-80 is visually lossless for screenshots; typical reduction 80-95%.
-      pngquant: {
-        quality: [0.65, 0.8],
-        speed: 4,
-        strip: true,
-      },
-      // JPEGs — suman.jpg etc.
-      mozjpeg: {
-        quality: 75,
-        progressive: true,
-      },
-      // WebP variants generated alongside for modern browsers.
-      webp: {
-        quality: 75,
-      },
-      // GIF — untouched by default, but safe.
-      gifsicle: {
-        optimizationLevel: 3,
-      },
-      // SVG — remove metadata, keep viewBox.
-      svgo: {
-        plugins: [
-          { name: 'preset-default', params: { overrides: { removeViewBox: false } } },
-        ],
-      },
-    }),
   ],
   build: {
     // Surface oversized chunks — anything > 500KB gzipped should be
