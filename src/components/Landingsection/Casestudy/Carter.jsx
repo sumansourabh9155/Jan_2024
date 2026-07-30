@@ -23,6 +23,7 @@ import Aditem from "../../../assets/cartercampigh/aditem.png";
 import CampaignCreationImg from "../../../assets/cartercampigh/campaign.png";
 import CampaignDSP from "../../../assets/dsp/campaign.png";
 import CarterAiSlider from "./CarterAiSlider";
+import CarterLogo from "../../../assets/carter/carter-logo.svg";
 // ================= ASSETS =================
 import Carterimg from "../../../assets/CarterRedesign/carter.png";
 import DSL from "../../../assets/CarterRedesign/dsl.png";
@@ -152,7 +153,7 @@ const CarterEcosystem = () => {
                 title="Carter Ecosystem: Platform Redesign & 0-to-1 DSP — Product Design Case Study"
                 description="How I owned the design end-to-end at a B2B ad-tech startup — from fixing a broken activation funnel to designing a 0-to-1 Demand-Side Platform."
                 keywords="product design case study, carter, platform redesign, DSP, retail media network, ad tech, UX design, design systems, activation funnel, interaction design"
-                url="https://www.sumansourabh.com/Projects/CarterEcosystem"
+                url="https://www.sumansourabh.com/Projects/carter"
             />
             <Navbar />
 
@@ -160,13 +161,19 @@ const CarterEcosystem = () => {
             <section className="bg-[#050505] pt-32 pb-24 px-4">
                 <div className="max-w-7xl mx-auto">
                     <div className="text-center max-w-3xl mx-auto mb-20">
-                        <Badge>[ B2B SaaS &middot; Ad Tech &middot; Retail Media ]</Badge>
+                        {/* Real Carter logo (from trycarter.com), on a light chip so the blue reads */}
+                        <div className="inline-flex items-center bg-white rounded-xl px-4 py-2.5 mb-6 shadow-lg">
+                            <img src={CarterLogo} alt="Carter logo" className="h-6 w-auto" width="136" height="41" />
+                        </div>
+                        <div><Badge>[ B2B SaaS &middot; Ad Tech &middot; Retail Media ]</Badge></div>
                         <h1 className="font-heading text-5xl md:text-7xl font-extrabold text-white tracking-tight leading-none mb-6">
                             Carter <span className="text-gray-500 font-light">Ecosystem</span>
                         </h1>
                         <p className="text-lg text-gray-400 font-light leading-relaxed max-w-xl mx-auto">
-                            Owned the design end-to-end. Fixed a broken activation funnel,
-                            then designed a 0-to-1 DSP.
+                            Carter is a unified operating system for commerce media. Phase 1 —
+                            redesigned an inconsistent, wireframe-grade platform and built its design
+                            system. Phase 2 — designed the multi-DSP orchestration and AI-agent features
+                            and optimized the flows, as the sole designer.
                         </p>
                     </div>
 
@@ -204,9 +211,9 @@ const CarterEcosystem = () => {
                         </div>
                         <div className="bg-white/5 border border-white/10 rounded-2xl p-5 text-center">
                             <p className="text-xs text-gray-500 uppercase tracking-widest mb-2">
-                                Design Team Size
+                                Design Team
                             </p>
-                            <p className="text-white font-medium">2 Members</p>
+                            <p className="text-white font-medium">2 (P1) → Solo (P2)</p>
                         </div>
                     </div>
 
@@ -241,17 +248,19 @@ const CarterEcosystem = () => {
                         </h2>
                         <p className="text-gray-400 text-base leading-relaxed">
                             Carter had product-market fit but a product that was quietly
-                            breaking people. The Product Head gave me ownership because I
+                            breaking people. The Product Head gave me design ownership because I
                             could
                             <span className="text-white font-medium">
                                 {" "}
                                 read the codebase, run user research, and ship the UI myself
                             </span>
-                            . I ran a cross-functional pod —{" "}
-                            <span className="text-white font-medium">
-                                4 engineers, 2 designers, 1 QA lead
-                            </span>{" "}
-                            — in 2-week sprints.
+                            . Day to day I worked with an{" "}
+                            <span className="text-white font-medium">~8-person frontend and QA group</span>{" "}
+                            (4 on frontend); the wider product org — 50+ engineers across backend, data,
+                            and ML — ran their own tracks. Design stayed lean: Phase 1 ran with{" "}
+                            <span className="text-white font-medium">two designers</span> — by Phase 2 I was
+                            the <span className="text-white font-medium">sole designer</span>, the single
+                            owner of every screen that shipped.
                         </p>
                     </div>
 
@@ -277,11 +286,11 @@ const CarterEcosystem = () => {
                             </div>
                             <div>
                                 <h4 className="text-white font-semibold text-sm mb-1">
-                                    Cross-Functional Lead
+                                    Embedded with Engineering
                                 </h4>
                                 <p className="text-gray-400 text-xs leading-relaxed">
-                                    Ran sprint planning. Coordinated design, engineering, and QA
-                                    in one room.
+                                    Partnered daily with a 4-person frontend team inside a 50+ engineer
+                                    org — specs and design QA on every ticket.
                                 </p>
                             </div>
                         </div>
@@ -321,7 +330,7 @@ const CarterEcosystem = () => {
                         </div>
                         <div className="h-px bg-white/10 flex-grow"></div>
                         <div className="text-xs font-mono text-gray-600 uppercase tracking-widest whitespace-nowrap">
-                            Fix the Foundation
+                            Redesign &amp; Design System
                         </div>
                     </div>
 
@@ -988,7 +997,7 @@ const CarterEcosystem = () => {
                         </div>
                         <div className="h-px bg-white/10 flex-grow"></div>
                         <div className="text-xs font-mono text-gray-600 uppercase tracking-widest whitespace-nowrap">
-                            0-to-1 DSP
+                            Features &amp; Flow Optimization
                         </div>
                     </div>
 
@@ -1185,8 +1194,9 @@ const CarterEcosystem = () => {
                         </h2>
                         <p className="text-gray-400 text-base leading-relaxed mb-5">
                             Build a DSP — a unified command center for campaigns across
-                            multiple Retail Media Networks. I owned this 0-to-1 from discovery
-                            to ship. PRD. IA. Sprint planning. Engineering + QA coordination.
+                            multiple Retail Media Networks. I owned the design of this 0-to-1 from
+                            discovery to ship — research, IA, interaction design, and design QA
+                            alongside the frontend team.
                         </p>
                         <p className="text-white border-l-4 border-[#d6f928]/40 pl-6 italic font-light text-base">
                             &ldquo;I spend 4 hours every Monday just pulling reports. I still
@@ -1508,11 +1518,10 @@ const CarterEcosystem = () => {
                             product, not the sales funnel.
                         </p>
                         <p className="text-gray-400 text-base leading-relaxed">
-                            I ran user research, wrote the design specs, coordinated
-                            engineering and QA, streamlined the design-to-dev handoff, and
-                            shipped industry-level design — all in one seat. That&apos;s what
-                            an end-to-end product designer looks like. Because the work was
-                            already getting done.
+                            I ran user research, wrote the design specs, partnered with the
+                            frontend team on QA, streamlined the design-to-dev handoff, and
+                            shipped industry-level design — as the sole designer by Phase 2.
+                            That&apos;s what an end-to-end product designer looks like.
                         </p>
                     </div>
                 </div>

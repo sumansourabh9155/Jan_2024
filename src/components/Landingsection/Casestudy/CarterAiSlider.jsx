@@ -32,7 +32,8 @@ const CarterAiSlider = () => {
   const slides = useMemo(
     () =>
       Object.keys(modules)
-        .sort()
+        // Natural/numeric sort so 1,2,…,10,…,15 stay in order (not 1,10,11,2).
+        .sort((a, b) => a.localeCompare(b, undefined, { numeric: true }))
         .map((k) => ({ src: modules[k].default, caption: captionFromPath(k) })),
     []
   );
