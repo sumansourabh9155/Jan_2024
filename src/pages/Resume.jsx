@@ -1,7 +1,7 @@
 import { Link } from "react-router-dom";
+import { Download, Layers, Sparkles, Code } from "lucide-react";
 import Navbar from "../components/Navbar";
 import Footer from "../components/Footer";
-import TechProof from "../components/Landingsection/TechProof";
 import profilePic from "../assets/Img/suman.jpg";
 import SeoHead from "../components/SeoHead";
 
@@ -27,9 +27,21 @@ const Resume = () => {
               <span className="font-medium text-gray-400"> Product Designer</span>
             </h1>
             <p className="text-sm text-gray-400 mt-2 max-w-xl mx-auto">
-              3 years designing 0-to-1 products across AdTech, HealthTech, and
+              2.5 years designing 0-to-1 products across AdTech, HealthTech, and
               CMS — with the technical depth to ship what I design.
             </p>
+
+            {/* Download resume PDF — the thing recruiters actually want */}
+            <a
+              href="/Suman_Sourabh_Product_Designer_Resume.pdf"
+              download
+              className="mt-6 inline-flex items-center gap-2 bg-white text-black px-6 py-3 rounded-full font-bold text-sm
+                hover:bg-[#d6f928] hover:scale-[1.02] active:scale-[0.99] transition-[transform,background-color] duration-200
+                shadow-[0_0_20px_rgba(255,255,255,0.12)]"
+            >
+              <Download size={16} />
+              Download Resume (PDF)
+            </a>
           </div>
 
           <div className="grid grid-cols-1 md:grid-cols-2 gap-10">
@@ -56,7 +68,7 @@ const Resume = () => {
                   Product Designer — AI-Native & 0-to-1 Products, based in India.
                 </p>
                 <p className="text-sm text-gray-500">
-                  B.Sc. Computer Science — Machine Learning specialization, Class of 2024
+                  B.Tech. Computer Science — Machine Learning specialization, Class of 2024
                 </p>
                 <p className="text-sm text-gray-400 mt-4 leading-relaxed">
                   I design products end-to-end: discovery, user research,
@@ -86,8 +98,51 @@ const Resume = () => {
           </div>
         </section>
 
-        {/* my way of working */}
-        <TechProof />
+        {/* About / How I Work — moved here from the landing page */}
+        <section id="about" className="scroll-mt-24 bg-white/5 border border-white/10 backdrop-blur-md rounded-2xl p-6 md:p-8 mb-12 shadow-md">
+          <div className="inline-flex items-center gap-2 text-sm text-white mb-2">
+            <span className="text-gray-400">◎</span> How I Work
+          </div>
+          <h2 className="text-2xl font-light mb-6 text-white">
+            One Designer. <span className="text-gray-400">Every room in the building.</span>
+          </h2>
+          <div className="space-y-4 text-sm text-gray-300 leading-relaxed max-w-3xl">
+            <p>
+              I design from the problem, not the pixels — I kept watching teams build the wrong thing
+              because nobody validated the problem first. My <span className="text-white font-medium">CS degree
+              with an ML specialization</span> means I can read the codebase, prototype in React, and hand
+              engineering designs they can actually ship.
+            </p>
+            <p>
+              I don&apos;t design from opinions. I run user interviews, pull{" "}
+              <span className="text-white font-medium">behavioral data via SQL</span>, and validate with
+              usability testing. Nothing ships until the team can point to the research, the interview
+              quote, or the usability finding behind it.
+            </p>
+            <p>
+              I&apos;ve designed and shipped <span className="text-white font-medium">AI-native experiences</span>{" "}
+              with Claude and Gemini, built design systems adopted across products, and closed the
+              design-to-code loop myself in React and Tailwind. Craft and velocity — not one at the cost of the other.
+            </p>
+          </div>
+          <div className="mt-8 grid grid-cols-1 md:grid-cols-3 gap-4">
+            <div className="bg-black/40 border border-white/10 rounded-lg p-4">
+              <Layers size={22} className="text-blue-400 mb-2" />
+              <h4 className="text-sm font-semibold text-white mb-1">End-to-End Design</h4>
+              <p className="text-xs text-gray-400">Research, interaction, visual, and design systems — I own the full design lifecycle, not just the handoff.</p>
+            </div>
+            <div className="bg-black/40 border border-white/10 rounded-lg p-4">
+              <Sparkles size={22} className="text-green-400 mb-2" />
+              <h4 className="text-sm font-semibold text-white mb-1">AI-Native UX</h4>
+              <p className="text-xs text-gray-400">I design agentic and conversational experiences — clarification, confirmation, and recovery patterns that models can actually serve.</p>
+            </div>
+            <div className="bg-black/40 border border-white/10 rounded-lg p-4">
+              <Code size={22} className="text-yellow-400 mb-2" />
+              <h4 className="text-sm font-semibold text-white mb-1">Design Engineer Edge</h4>
+              <p className="text-xs text-gray-400">CS/ML degree. I prototype in React and Tailwind, so I ship what I design — zero design-to-code drift.</p>
+            </div>
+          </div>
+        </section>
 
         {/* Experience Section */}
         <section className="bg-white/5 border border-white/10 backdrop-blur-md rounded-2xl p-6 mb-12 shadow-md">

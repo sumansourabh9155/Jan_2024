@@ -30,11 +30,6 @@ const Faq = () => {
       answer:
         "Carter (B2B ad-tech) — redesigned the activation funnel and built a component system adopted across 12 teams (activation +40%, measured over ~6 months post-rollout). UVC (healthcare) — unified 130+ clinic sites under one design system and designed a no-code site builder. GoDiverse (SaaS) — AI-assisted 1-page builder. Research → interaction → UI → shipped on each.",
     },
-    {
-      question: "Are you open to consulting or contract work?",
-      answer:
-        "Yes — for short, scoped engagements: product design sprints, design-system builds, UX audits, or AI-native UX design. For full-time I'm selective, so a scoped project is a good way to work together first if you're unsure.",
-    },
   ];
 
   const toggleFaq = (index) => {

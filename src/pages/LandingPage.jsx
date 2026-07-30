@@ -8,9 +8,6 @@ import SeoHead from "../components/SeoHead";
 // ships Navbar + Hero. Each chunk streams in as the user scrolls.
 const Projects = lazy(() => import("../components/Landingsection/Projects"));
 const DesignShowcase = lazy(() => import("../components/Landingsection/DesignShowcase"));
-const AboutMe = lazy(() =>
-  import("../components/Landingsection/AboutMe").then((m) => ({ default: m.AboutMe }))
-);
 const DesignServices = lazy(() => import("../components/Landingsection/DesignServices"));
 const Testimonial = lazy(() => import("../components/Landingsection/Testimonial"));
 const DoubleDiamond = lazy(() => import("../components/Landingsection/DoubleDiamond"));
@@ -44,11 +41,6 @@ const LandingPage = () => {
 
         {/* Visual design work */}
         <DesignShowcase />
-
-        {/* About */}
-        <aside aria-label="About Suman Sourabh">
-          <AboutMe />
-        </aside>
 
         {/* Services */}
         <DesignServices />

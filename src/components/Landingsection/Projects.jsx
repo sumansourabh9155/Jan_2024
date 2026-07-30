@@ -16,10 +16,10 @@ const projectData = [
     icon: <Layout size={16} className="text-blue-400" />,
     accent: "blue",
     summary:
-      "A complex ad activation funnel with no confidence signals. Redesigned into a guided 5-stage flow.",
+      "Advertisers stalled in a dense, single-screen setup. The call: split it into a guided 5-stage flow — trading more steps for fewer decisions each, betting completion mattered more than speed.",
     stats: [
+      { value: "4.6/5", label: "Usability score" },
       { value: "+40%", label: "Activation" },
-      { value: "4.6/5", label: "Usability" },
     ],
   },
   {
@@ -31,7 +31,7 @@ const projectData = [
     icon: <BarChart2 size={16} className="text-[#d6f928]" />,
     accent: "lime",
     summary:
-      "130+ clinic sites, no unified system. Mapped every clinic to 5 templates and a relational content model.",
+      "130 clinics each wanted a bespoke site. The call: standardize to 5 archetypes instead — the trade-off that made the whole network maintainable without gutting local identity.",
     stats: [
       { value: "+41%", label: "Organic traffic" },
       { value: "+29%", label: "Bookings" },
@@ -46,7 +46,7 @@ const projectData = [
     icon: <FileText size={16} className="text-purple-400" />,
     accent: "purple",
     summary:
-      "Builders were overwhelming or generic. Scoped the product around a single one-page constraint.",
+      "Every builder was bloated or generic. The call: scope the whole product around one hard constraint — a single page — to force clarity over feature-count.",
     stats: [
       { value: "< 8 min", label: "To first share" },
       { value: "3-in-1", label: "Distribution" },
@@ -81,8 +81,11 @@ const Projects = () => {
             Real Products. <span className="text-gray-500">Real Decisions.</span>
           </h2>
           <p className="text-gray-300 mt-4 text-base leading-relaxed">
-            Three products across ad-tech, healthcare, and AI — the user problem, the design
-            call I made, and what it produced.
+            Three products across ad-tech, healthcare, and AI — the user problem,
+            the design call I made, and what it produced.
+          </p>
+          <p className="text-gray-600 mt-3 text-xs">
+            Figures are internal metrics measured post-launch.
           </p>
         </div>
 

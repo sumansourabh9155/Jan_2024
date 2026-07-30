@@ -112,7 +112,11 @@ const DoubleDiamond = () => {
                <div className="absolute inset-0 flex justify-between items-center px-[50px]">
                   {/* Phase 1: Audit */}
                   <div
-                     className="w-[225px] h-[200px] flex flex-col justify-center items-center group cursor-pointer"
+                     className="w-[225px] h-[200px] flex flex-col justify-center items-center group cursor-pointer focus:outline-none focus-visible:ring-2 focus-visible:ring-[#d6f928]/60 rounded-xl"
+                     role="button"
+                     tabIndex={0}
+                     aria-label="Stage 1: Discover & Research"
+                     onFocus={() => setActiveStage(1)}
                      onMouseEnter={() => setActiveStage(1)}
                      onMouseLeave={() => setActiveStage(1)}
                   >
@@ -124,7 +128,11 @@ const DoubleDiamond = () => {
 
                   {/* Phase 2: Strategy */}
                   <div
-                     className="w-[225px] h-[200px] flex flex-col justify-center items-center group cursor-pointer"
+                     className="w-[225px] h-[200px] flex flex-col justify-center items-center group cursor-pointer focus:outline-none focus-visible:ring-2 focus-visible:ring-[#d6f928]/60 rounded-xl"
+                     role="button"
+                     tabIndex={0}
+                     aria-label="Stage 2: Define & Ideate"
+                     onFocus={() => setActiveStage(2)}
                      onMouseEnter={() => setActiveStage(2)}
                      onMouseLeave={() => setActiveStage(1)}
                   >
@@ -136,7 +144,11 @@ const DoubleDiamond = () => {
 
                   {/* Phase 3: Logic */}
                   <div
-                     className="w-[225px] h-[200px] flex flex-col justify-center items-center group cursor-pointer"
+                     className="w-[225px] h-[200px] flex flex-col justify-center items-center group cursor-pointer focus:outline-none focus-visible:ring-2 focus-visible:ring-[#d6f928]/60 rounded-xl"
+                     role="button"
+                     tabIndex={0}
+                     aria-label="Stage 3: Design & Ship"
+                     onFocus={() => setActiveStage(3)}
                      onMouseEnter={() => setActiveStage(3)}
                      onMouseLeave={() => setActiveStage(1)}
                   >
@@ -148,7 +160,11 @@ const DoubleDiamond = () => {
 
                   {/* Phase 4: Execution */}
                   <div
-                     className="w-[225px] h-[200px] flex flex-col justify-center items-center group cursor-pointer"
+                     className="w-[225px] h-[200px] flex flex-col justify-center items-center group cursor-pointer focus:outline-none focus-visible:ring-2 focus-visible:ring-[#d6f928]/60 rounded-xl"
+                     role="button"
+                     tabIndex={0}
+                     aria-label="Stage 4: Measure & Iterate"
+                     onFocus={() => setActiveStage(4)}
                      onMouseEnter={() => setActiveStage(4)}
                      onMouseLeave={() => setActiveStage(1)}
                   >

@@ -3,6 +3,7 @@ import { Link } from "react-router-dom";
 import Navbar from "../../Navbar";
 import Footer from "../../Footer";
 import SEO from "../../SEO";
+import CarterAiSlider from "./CarterAiSlider";
 import {
     Search, Users, Target, TrendingUp, Zap, Layers,
     BarChart2, AlertTriangle, Scissors, CheckCircle2,
@@ -639,6 +640,12 @@ const CarterEcosystem = () => {
                             <StatCard value="5x" label="Operational efficiency — campaign launch time cut from 2.5 hours to 30 minutes." icon={<Zap size={18} className="text-[#d6f928]" />} />
                             <StatCard value="Draft, don't decide" label="The assistant proposes; the advertiser approves. Every AI output editable before launch." icon={<Cpu size={18} className="text-blue-400" />} />
                             <StatCard value="Spec-checked" label="Drafts validated against each network's specs before submission — errors caught pre-launch, not post." icon={<CheckCircle2 size={18} className="text-green-400" />} />
+                        </div>
+
+                        {/* The assistant, screen by screen */}
+                        <div className="mt-10">
+                            <p className="text-xs font-mono text-gray-500 uppercase tracking-widest mb-4">The flow, screen by screen</p>
+                            <CarterAiSlider />
                         </div>
                     </div>
 

@@ -8,7 +8,7 @@ const Footer = () => {
         explore: [
             { name: "Case Studies", url: "/#case-studies" },
             { name: "Design Work", url: "/#design-gallery" },
-            { name: "About", url: "/#about" },
+            { name: "About", url: "/resume#about" },
             { name: "Resume", url: "/resume" },
             { name: "Contact", url: "/contact" },
         ],

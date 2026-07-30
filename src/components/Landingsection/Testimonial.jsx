@@ -98,13 +98,6 @@ const Testimonial = memo(() => {
                     </div>
                 </div>
 
-                {/* Optional: Navigation Dots (Visual balance) */}
-                <div className="flex justify-center gap-3 mt-8">
-                    <div className="w-12 h-1 bg-[#d6f928] rounded-full"></div>
-                    <div className="w-2 h-1 bg-white/10 rounded-full"></div>
-                    <div className="w-2 h-1 bg-white/10 rounded-full"></div>
-                </div>
-
             </div>
         </section>
     );

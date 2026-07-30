@@ -10,7 +10,7 @@ const DesignServices = () => {
       color: "hover:border-blue-400/50",
       visual: (
         <div className="mt-6 bg-[#111] border border-white/10 rounded-lg p-4 relative font-mono text-[10px] text-gray-400 leading-relaxed">
-          <div className="text-blue-400">// Flow: Onboarding</div>
+          <div className="text-blue-400">{"// Flow: Onboarding"}</div>
           <div className="pl-4 text-gray-300">goal: time_to_value &lt; 90s</div>
           <div className="pl-4">screens: 3</div>
           <div className="pl-4 text-[#d6f928]">a11y: WCAG 2.1 AA</div>
@@ -60,10 +60,9 @@ const DesignServices = () => {
   ];
 
   const tags = [
-    "UX Research", "User Interviews", "Information Architecture", "User Flows", "Wireframing", "Prototyping",
-    "Interaction Design", "Visual Design", "Design Systems", "Design Tokens", "Figma Variables",
-    "Usability Testing", "Accessibility (WCAG)", "Responsive Design",
-    "AI-Native UX", "React / Tailwind", "Design-to-Code", "Journey Mapping"
+    "Design Systems", "Interaction Design", "AI-Native UX", "Usability Testing",
+    "Accessibility (WCAG)", "Figma Variables", "Design Tokens",
+    "React / Tailwind", "Design-to-Code", "Prototyping"
   ];
 
   return (

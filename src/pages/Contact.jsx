@@ -77,13 +77,13 @@ const Contact = () => {
             {/* ── LEFT: Context panel ── */}
             <div>
               <div className="inline-flex items-center gap-2 text-xs font-mono text-[#d6f928] tracking-widest uppercase px-3 py-1 rounded border border-[#d6f928]/20 bg-[#d6f928]/5 mb-6">
-                [ Let's Connect ]
+                [ Let&apos;s Connect ]
               </div>
               <h1 className="font-heading text-5xl md:text-6xl font-bold text-white leading-tight mb-4">
-                Let's build <span className="text-gray-500 font-light">something.</span>
+                Let&apos;s build <span className="text-gray-500 font-light">something.</span>
               </h1>
               <p className="text-gray-400 text-base leading-relaxed mb-10 max-w-sm">
-                Whether it's a full-time role, a consulting project, or you just want to talk product — I'm here.
+                Whether it&apos;s a full-time role, a project, or you just want to talk design — I&apos;m here.
               </p>
 
               {/* Contact tiles */}
@@ -184,8 +184,7 @@ const Contact = () => {
                   >
                     <option value="" disabled>Select a subject*</option>
                     <option value="hire">Hire — Full Time</option>
-                    <option value="project">Consulting Project</option>
-                    <option value="guidance">Career Guidance</option>
+                    <option value="project">Project / Contract</option>
                     <option value="other">Other</option>
                   </select>
                 </div>

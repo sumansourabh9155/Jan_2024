@@ -40,8 +40,7 @@ const Navbar = () => {
   const navLinks = [
     { to: "/#case-studies", text: "Case Studies" },
     { to: "/#design-gallery", text: "Design Work" },
-    { to: "/#about", text: "About" },
-    // { to: "/resources", text: "Resources" },
+    { to: "/resume", text: "About / Resume" },
     // { to: "/resume", text: "Profile" },        // Renamed from "About Me" (more professional)
   ];
 
@@ -72,7 +71,9 @@ const Navbar = () => {
           <nav aria-label="Main navigation" className="hidden md:flex items-center gap-1 bg-white/5 px-2 py-1 rounded-full border border-white/5">
             {navLinks.map(({ to, text }) => {
               // Hash links all share the "/" path, so derive active state from the hash.
-              const isActive = location.pathname === "/" && location.hash === to.slice(1);
+              const isActive = to.startsWith("/#")
+                ? location.pathname === "/" && location.hash === to.slice(1)
+                : location.pathname === to;
               return (
                 <Link
                   key={to}
@@ -117,7 +118,9 @@ const Navbar = () => {
         >
           <div className="p-4 flex flex-col gap-2">
             {navLinks.map(({ to, text }) => {
-              const isActive = location.pathname === "/" && location.hash === to.slice(1);
+              const isActive = to.startsWith("/#")
+                ? location.pathname === "/" && location.hash === to.slice(1)
+                : location.pathname === to;
               return (
                 <Link
                   key={to}

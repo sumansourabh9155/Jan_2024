@@ -15,12 +15,11 @@ import LandingPage from "./pages/LandingPage";
 const Carter = React.lazy(() => import("./components/Landingsection/Casestudy/Carter"));
 const Resume = React.lazy(() => import("./pages/Resume"));
 const Contact = React.lazy(() => import("./pages/Contact"));
-const Resource = React.lazy(() => import("./pages/Resource"));
 // const Blog = React.lazy(() => import("./pages/Blog")); // Commented intentionally
 const ExpenseDashboard = React.lazy(() => import("./pages/ExpenseDashboard"));
+// /resource page removed — was a junior links/bookmarks page.
 
 // Lazy load Case Studies
-const RaikarGoodVibes = React.lazy(() => import("./components/Landingsection/Casestudy/RaikarGoodVibes"));
 const Godiverse = React.lazy(() => import("./components/Landingsection/Casestudy/Godiverse"));
 const Uvc = React.lazy(() => import("./components/Landingsection/Casestudy/Uvc"));
 
@@ -98,7 +97,6 @@ root.render(
             {/* Case studies + design gallery now live on the landing page.
                 Old /projects URLs redirect to the on-page section. */}
             <Route path="/projects" element={<Navigate to="/#case-studies" replace />} />
-            <Route path="/resource" element={<Resource />} />
 
 
             {/* <Route path="/blog" element={<Blog />} /> */}
@@ -114,15 +112,6 @@ root.render(
             {/* Case studies — public (password lock disabled).
                 Keep the <ProtectedRoute> snippets below for future re-lock;
                 swap the `element={...}` back to the commented version to re-enable. */}
-            <Route
-              path="/Projects/Raikar"
-              element={<RaikarGoodVibes />}
-              // element={
-              //   <ProtectedRoute correctPassword="9155">
-              //     <RaikarGoodVibes />
-              //   </ProtectedRoute>
-              // }
-            />
             <Route
               path="/Projects/GoDiverse"
               element={<Godiverse />}

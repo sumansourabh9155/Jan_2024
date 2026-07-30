@@ -1,33 +1,17 @@
 import { useState, useEffect, useCallback, useRef } from "react";
 import { X, ChevronLeft, ChevronRight } from "lucide-react";
 
-// Full visual archive — optimized webp shots.
-import Anime from "../../assets/Project/anime.webp";
-import Api from "../../assets/Project/api.webp";
-import Drink from "../../assets/Project/drink.webp";
-import Fashion from "../../assets/Project/fashion.webp";
-import Jewll from "../../assets/Project/jewll.webp";
-import Jobringer from "../../assets/Project/jobringer.webp";
-import Jwells from "../../assets/Project/jwells.webp";
-import Kploy from "../../assets/Project/kploy.webp";
-import Nft from "../../assets/Project/nft.webp";
-import Payment from "../../assets/Project/payment.webp";
-import Shopify from "../../assets/Project/shopify.webp";
+// Four strongest product-UI shots (optimized webp).
 import Shopping from "../../assets/Project/shopping.webp";
+import Nft from "../../assets/Project/nft.webp";
+import Kploy from "../../assets/Project/kploy.webp";
+import Payment from "../../assets/Project/payment.webp";
 
 const shots = [
-  { img: Fashion, title: "Fashion Brand", tag: "Branding · UI" },
+  { img: Shopping, title: "Shopping App", tag: "Product · UI/UX" },
   { img: Nft, title: "NFT Marketplace", tag: "Product · UI" },
-  { img: Shopping, title: "Shopping App", tag: "UI/UX" },
   { img: Kploy, title: "Kploy", tag: "Product · UI/UX" },
-  { img: Drink, title: "Beverage Campaign", tag: "Visual · Marketing" },
-  { img: Jwells, title: "Jewellery Store", tag: "E-commerce · UI" },
   { img: Payment, title: "Payment Flow", tag: "Product · UI" },
-  { img: Api, title: "API Platform", tag: "Design · Branding" },
-  { img: Anime, title: "Anime Platform", tag: "UI/UX" },
-  { img: Jobringer, title: "Jobringer", tag: "Design · Branding" },
-  { img: Shopify, title: "Shopify Store", tag: "E-commerce · Marketing" },
-  { img: Jewll, title: "Jewll", tag: "Case Study · UI" },
 ];
 
 const DesignShowcase = () => {
