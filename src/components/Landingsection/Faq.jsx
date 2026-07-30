@@ -28,7 +28,7 @@ const Faq = () => {
     {
       question: "What design work have you actually shipped?",
       answer:
-        "Carter (B2B ad-tech) — redesigned the activation funnel and built a component system adopted across 12 teams (activation +40%, measured over ~6 months post-rollout). UVC (healthcare) — unified 130+ clinic sites under one design system and designed a no-code site builder. GoDiverse (SaaS) — AI-assisted 1-page builder. Research → interaction → UI → shipped on each.",
+        "Carter (B2B ad-tech) — redesigned the activation funnel and built a component system adopted across 12 teams (activation +40%, measured over ~6 months post-rollout). Atlas (veterinary healthcare) — unified 130+ clinic sites under one design system and designed a no-code site builder. GoDiverse (SaaS) — AI-assisted 1-page builder. Research → interaction → UI → shipped on each.",
     },
   ];
 

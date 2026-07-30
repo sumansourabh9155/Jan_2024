@@ -21,7 +21,7 @@ const ExpenseDashboard = React.lazy(() => import("./pages/ExpenseDashboard"));
 
 // Lazy load Case Studies
 const Godiverse = React.lazy(() => import("./components/Landingsection/Casestudy/Godiverse"));
-const Uvc = React.lazy(() => import("./components/Landingsection/Casestudy/Uvc"));
+const Atlas = React.lazy(() => import("./components/Landingsection/Casestudy/Atlas"));
 
 // Lazy load Tools
 const InquiryProtocol = React.lazy(() => import("./pages/InquiryProtocol"));
@@ -131,11 +131,11 @@ root.render(
               // }
             />
             <Route
-              path="/Projects/uvc"
-              element={<Uvc />}
+              path="/Projects/atlas"
+              element={<Atlas />}
               // element={
               //   <ProtectedRoute correctPassword="9155">
-              //     <Uvc />
+              //     <Atlas />
               //   </ProtectedRoute>
               // }
             />

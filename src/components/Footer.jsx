@@ -18,7 +18,7 @@ const Footer = () => {
         ],
         caseStudies: [
             { name: "Carter", url: "/Projects/carter" },
-            { name: "UVC Clinics", url: "/Projects/uvc" },
+            { name: "Atlas", url: "/Projects/atlas" },
             { name: "GoDiverse", url: "/Projects/GoDiverse" },
         ]
     };

@@ -52,8 +52,8 @@ const caseStudiesItemList = {
       position: 2,
       item: {
         "@type": "CreativeWork",
-        name: "UVC — CMS Architecture & 0-to-1 Site Builder",
-        url: `${SITE_URL}/Projects/uvc`,
+        name: "Atlas — CMS Architecture & 0-to-1 Site Builder",
+        url: `${SITE_URL}/Projects/atlas`,
         description:
           "Unifying 130+ clinic websites under a relational CMS with a phased rollout and a no-code site builder.",
         about: "Healthcare / Enterprise CMS",

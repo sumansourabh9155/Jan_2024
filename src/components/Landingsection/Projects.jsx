@@ -3,7 +3,7 @@ import { BarChart2, Layout, FileText, ArrowRight } from "lucide-react";
 
 // Banner imagery — same hero art the old /projects page used.
 import BannerCarter from "../../assets/CarterRedesign/Banner.png";
-import BannerUvc from "../../assets/uvc/Banner.png";
+import BannerAtlas from "../../assets/atlas/Banner.png";
 import BannerGodiverse from "../../assets/Godiverse/Banner.png";
 
 const projectData = [
@@ -23,11 +23,11 @@ const projectData = [
     ],
   },
   {
-    title: "UVC Clinics",
+    title: "Atlas",
     subtitle: "CMS Architecture Across 130+ Locations",
     category: "Enterprise CMS · Healthcare",
-    link: "/Projects/uvc",
-    image: BannerUvc,
+    link: "/Projects/atlas",
+    image: BannerAtlas,
     icon: <BarChart2 size={16} className="text-[#d6f928]" />,
     accent: "lime",
     summary:

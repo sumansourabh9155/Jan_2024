@@ -23,7 +23,6 @@ import Aditem from "../../../assets/cartercampigh/aditem.png";
 import CampaignCreationImg from "../../../assets/cartercampigh/campaign.png";
 import CampaignDSP from "../../../assets/dsp/campaign.png";
 import CarterAiSlider from "./CarterAiSlider";
-import CarterLogo from "../../../assets/carter/carter-logo.svg";
 // ================= ASSETS =================
 import Carterimg from "../../../assets/CarterRedesign/carter.png";
 import DSL from "../../../assets/CarterRedesign/dsl.png";
@@ -150,8 +149,8 @@ const CarterEcosystem = () => {
     return (
         <div className="text-white bg-[#050505]">
             <SEO
-                title="Carter Ecosystem: Platform Redesign & 0-to-1 DSP — Product Design Case Study"
-                description="How I owned the design end-to-end at a B2B ad-tech startup — from fixing a broken activation funnel to designing a 0-to-1 Demand-Side Platform."
+                title="Carter — Platform Redesign, Design System & Commerce-Media Features — Product Design Case Study"
+                description="How I redesigned Carter's inconsistent platform, built its design system, and designed the cross-network campaign features for a unified commerce-media operating system."
                 keywords="product design case study, carter, platform redesign, DSP, retail media network, ad tech, UX design, design systems, activation funnel, interaction design"
                 url="https://www.sumansourabh.com/Projects/carter"
             />
@@ -161,9 +160,11 @@ const CarterEcosystem = () => {
             <section className="bg-[#050505] pt-32 pb-24 px-4">
                 <div className="max-w-7xl mx-auto">
                     <div className="text-center max-w-3xl mx-auto mb-20">
-                        {/* Real Carter logo (from trycarter.com), on a light chip so the blue reads */}
-                        <div className="inline-flex items-center bg-white rounded-xl px-4 py-2.5 mb-6 shadow-lg">
-                            <img src={CarterLogo} alt="Carter logo" className="h-6 w-auto" width="136" height="41" />
+                        {/* Real Carter logo (from trycarter.com), inlined as SVG on a light chip so the blue reads */}
+                        <div className="inline-block bg-white rounded-xl px-4 py-2.5 mb-6 shadow-lg">
+                            <svg viewBox="0 0 136 41" width="116" height="35" fill="none" role="img" aria-label="Carter logo" className="block">
+                                <path fill="#0125BB" d="M19.715 33.078 13.252 37l-4.745-2.903 11.208-6.681zM1.312 12.32 13.591 5l4.75 2.898-12.079 7.345-4.95-2.924Zm7.271 4.313 12.284-7.325 4.745 2.898-12.078 7.345-4.956-2.924zM0 14.43l4.684 2.712v7.623L0 27.565zm26.72 22.287-4.669-2.795v-16.61L26.72 14.6zM6.662 32.63 1.424 29.5l4.787-2.856 5.442 3.104zm43.588.838c-7.452 0-12.96-5.58-12.96-13.068S42.87 7.332 50.394 7.332c1.98 0 3.708.432 5.544 1.404v6.228c-1.476-1.44-3.312-2.196-5.328-2.196-4.248 0-7.452 3.24-7.452 7.632 0 4.356 3.204 7.632 7.452 7.632 2.016 0 3.852-.756 5.328-2.196v6.192c-2.016 1.008-3.672 1.44-5.688 1.44m14.256-.036c-3.708 0-6.264-2.556-6.264-5.976 0-3.384 2.52-5.796 6.156-5.76 1.764.036 2.988.576 3.708 1.692.036-2.304-1.584-3.636-4.248-3.636-1.368 0-2.592.324-3.744 1.08v-4.464c1.476-.684 3.024-1.008 4.716-1.008 5.184 0 8.352 2.916 8.352 7.668V33h-4.86v-1.512c-.756 1.332-1.98 1.944-3.816 1.944m1.548-3.888c1.296 0 2.196-.9 2.196-2.124 0-1.188-.9-2.052-2.196-2.052s-2.196.864-2.196 2.088.9 2.088 2.196 2.088M76.007 33V15.828h5.4v2.412c.864-1.872 2.304-2.808 4.356-2.808.432 0 .72.036 1.152.18v5.544c-.684-.54-1.26-.792-2.016-.792-2.16 0-3.492 1.62-3.492 4.032V33zm21.766.468c-3.96 0-6.156-2.448-6.12-6.336v-6.84h-2.7v-4.464h2.7v-5.22h5.4v5.22h4.248v4.464h-4.248v6.048c0 1.476.756 2.196 2.16 2.196.72 0 1.44-.216 2.088-.684v4.752a7.6 7.6 0 0 1-3.528.864m15.199 0c-5.724 0-10.188-4.14-10.188-9.504 0-4.896 3.744-8.604 9.072-8.604 5.796 0 9.252 4.428 8.568 10.944h-11.556c.864 1.512 2.556 2.34 4.788 2.34 1.836 0 3.564-.54 5.256-1.62v4.824c-2.052 1.116-3.924 1.62-5.94 1.62m-4.608-10.908h6.984c-.396-1.908-1.728-3.096-3.6-3.096s-3.06 1.188-3.384 3.096M122.8 33V15.828h5.4v2.412c.864-1.872 2.304-2.808 4.356-2.808.432 0 .72.036 1.152.18v5.544c-.684-.54-1.26-.792-2.016-.792-2.16 0-3.492 1.62-3.492 4.032V33z" />
+                            </svg>
                         </div>
                         <div><Badge>[ B2B SaaS &middot; Ad Tech &middot; Retail Media ]</Badge></div>
                         <h1 className="font-heading text-5xl md:text-7xl font-extrabold text-white tracking-tight leading-none mb-6">
@@ -954,6 +955,39 @@ const CarterEcosystem = () => {
                         </div>
                     </div>
 
+                    {/* ——— DESIGN SYSTEM (DSL) ——— */}
+                    <div className="mb-20">
+                        <Badge>[ Product Decision 4 — Design System ]</Badge>
+                        <h3 className="font-heading text-3xl font-bold text-white mb-4">
+                            The UI looked like a wireframe.{" "}
+                            <span className="text-gray-400">So I built the system underneath it.</span>
+                        </h3>
+                        <p className="text-gray-400 text-base leading-relaxed max-w-3xl mb-8">
+                            The platform had no visual consistency — spacing, color, and components drifted
+                            screen to screen, and much of it still read like a mid-fi wireframe. Redesigning
+                            screens one at a time wouldn&apos;t hold. I built Carter&apos;s design system: a
+                            governed component library with design tokens, documented states, and
+                            design-to-code parity in Storybook — so every new screen inherited consistency by default.
+                        </p>
+                        <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+                            <StatCard
+                                value="1 library"
+                                label="Tokens, components, and documented states adopted across the platform."
+                                icon={<Layers size={18} className="text-[#d6f928]" />}
+                            />
+                            <StatCard
+                                value="+50%"
+                                label="Faster shipping velocity once engineering built from shared components."
+                                icon={<Zap size={18} className="text-yellow-400" />}
+                            />
+                            <StatCard
+                                value="Storybook"
+                                label="Design-to-code parity — the same component in Figma and in production."
+                                icon={<CheckCircle2 size={18} className="text-green-400" />}
+                            />
+                        </div>
+                    </div>
+
                     {/* Phase 1 Outcomes */}
                     <div className="bg-gradient-to-br from-white/[0.05] to-transparent border border-white/10 backdrop-blur-md rounded-2xl p-8 md:p-10">
                         <Badge>[ Phase 1 — Business Outcomes ]</Badge>
@@ -983,6 +1017,9 @@ const CarterEcosystem = () => {
                                 icon={<Clock size={18} className="text-purple-400" />}
                             />
                         </div>
+                        <p className="text-gray-600 text-xs mt-6">
+                            Figures are internal metrics measured post-launch over the phase window.
+                        </p>
                     </div>
                 </div>
             </section>
@@ -1168,7 +1205,7 @@ const CarterEcosystem = () => {
                         <h2 className="font-heading text-4xl md:text-5xl font-bold text-white leading-tight mb-6">
                             Phase 1 earned trust.{" "}
                             <span className="text-gray-400">
-                                I used it to pitch a new product.
+                                I used it to expand the platform.
                             </span>
                         </h2>
                         <p className="text-gray-400 text-base leading-relaxed mb-5">
@@ -1179,24 +1216,24 @@ const CarterEcosystem = () => {
                         <p className="text-gray-400 text-base leading-relaxed">
                             Built a one-pager for leadership: TAM sizing, build vs. buy
                             analysis, 6-month phased roadmap. The data point that closed it —
-                            advertisers active on 3+ networks had{" "}
-                            <span className="text-white font-medium">4x the LTV</span> of
-                            single-network clients. CTO greenlit it in one meeting.
+                            advertisers active on 3+ networks showed roughly{" "}
+                            <span className="text-white font-medium">4× the LTV</span> of
+                            single-network clients in our analysis. CTO greenlit it in one meeting.
                         </p>
                     </div>
 
                     {/* Context */}
                     <div className="max-w-3xl mb-20">
-                        <Badge>[ The Next Product ]</Badge>
+                        <Badge>[ Phase 2 — Cross-Network Features ]</Badge>
                         <h2 className="font-heading text-4xl md:text-5xl font-bold text-white leading-tight mb-6">
                             One platform.{" "}
                             <span className="text-gray-400">Every retail ad network.</span>
                         </h2>
                         <p className="text-gray-400 text-base leading-relaxed mb-5">
-                            Build a DSP — a unified command center for campaigns across
-                            multiple Retail Media Networks. I owned the design of this 0-to-1 from
-                            discovery to ship — research, IA, interaction design, and design QA
-                            alongside the frontend team.
+                            Carter&apos;s cross-network command center — plan, launch, and measure
+                            campaigns across every retail media network in one place. I owned the
+                            design of these features end-to-end — research, IA, interaction design,
+                            and design QA alongside the frontend team.
                         </p>
                         <p className="text-white border-l-4 border-[#d6f928]/40 pl-6 italic font-light text-base">
                             &ldquo;I spend 4 hours every Monday just pulling reports. I still
@@ -1535,11 +1572,11 @@ const CarterEcosystem = () => {
                             Next Case Study
                         </p>
                         <p className="font-heading text-2xl font-bold text-white">
-                            UVC: CMS Builder + Website for High Conversion
+                            Atlas: CMS Builder + Website for High Conversion
                         </p>
                     </div>
                     <Link
-                        to="/Projects/UVC"
+                        to="/Projects/atlas"
                         className="text-[#d6f928] font-medium text-sm border border-[#d6f928]/20 bg-[#d6f928]/5 px-6 py-3 rounded-full hover:bg-[#d6f928]/10 transition-colors whitespace-nowrap"
                     >
                         View Case Study &rarr;

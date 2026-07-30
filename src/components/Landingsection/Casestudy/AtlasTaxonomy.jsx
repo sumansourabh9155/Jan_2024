@@ -46,7 +46,7 @@ const metadata = [
   { label: "Complexity", values: ["Routine", "Advanced", "Emergency"] }
 ];
 
-const UvcTaxonomy = () => {
+const AtlasTaxonomy = () => {
   const [activeCatId, setActiveCatId] = useState("general");
   const [activeTypeId, setActiveTypeId] = useState("g1");
 
@@ -196,4 +196,4 @@ const UvcTaxonomy = () => {
   );
 };
 
-export default UvcTaxonomy;
+export default AtlasTaxonomy;

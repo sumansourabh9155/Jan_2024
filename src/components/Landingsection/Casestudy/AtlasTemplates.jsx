@@ -1,10 +1,10 @@
 import { useState } from 'react';
 import { CheckCircle2 } from 'lucide-react';
-import GP from "../../../assets/uvc/GP.png";
-import ER from "../../../assets/uvc/ER.png";
-import Spec from "../../../assets/uvc/Spec.png";
-import SpecEr from "../../../assets/uvc/SpecEr.png";
-import Mobile from "../../../assets/uvc/Mobile.png";
+import GP from "../../../assets/atlas/GP.png";
+import ER from "../../../assets/atlas/ER.png";
+import Spec from "../../../assets/atlas/Spec.png";
+import SpecEr from "../../../assets/atlas/SpecEr.png";
+import Mobile from "../../../assets/atlas/Mobile.png";
 
 const templateData = [
   {
@@ -49,7 +49,7 @@ const templateData = [
   }
 ];
 
-const UvcTemplates = () => {
+const AtlasTemplates = () => {
   const [activeIndex, setActiveIndex] = useState(0);
   const [fade, setFade] = useState(true);
 
@@ -67,9 +67,9 @@ const UvcTemplates = () => {
   return (
     <div className="w-full bg-[#0a0a0a] rounded-3xl border border-white/10 p-8 md:p-12 font-sans text-white my-12">
       <style>{`
-        .uvc-browser-scroll::-webkit-scrollbar { width: 11px; }
-        .uvc-browser-scroll::-webkit-scrollbar-track { background: #363636; }
-        .uvc-browser-scroll::-webkit-scrollbar-thumb {
+        .atlas-browser-scroll::-webkit-scrollbar { width: 11px; }
+        .atlas-browser-scroll::-webkit-scrollbar-track { background: #363636; }
+        .atlas-browser-scroll::-webkit-scrollbar-thumb {
           background-color: #90A4AE;
           border-radius: 6px;
           border: 3px solid #363636;
@@ -142,14 +142,14 @@ const UvcTemplates = () => {
                   <path d="M7 11V7a5 5 0 0 1 10 0v4" />
                 </svg>
                 <span className="text-gray-400 text-xs font-mono truncate">
-                  unitedveterinarycare.com/{activeTemplate.title.toLowerCase()}
+                  atlas.vet/{activeTemplate.title.toLowerCase()}
                 </span>
               </div>
             </div>
 
             {/* Scrollable viewport — fixed height, image scrolls inside */}
             <div
-              className="uvc-browser-scroll h-[520px] overflow-y-auto overflow-x-hidden"
+              className="atlas-browser-scroll h-[520px] overflow-y-auto overflow-x-hidden"
               style={{ scrollbarWidth: 'thin', scrollbarColor: '#90A4AE #363636ff' }}
             >
               <img
@@ -164,4 +164,4 @@ const UvcTemplates = () => {
     </div>
   );
 };
-export default UvcTemplates;
+export default AtlasTemplates;

@@ -1,22 +1,39 @@
-import { useState, useEffect, useRef } from "react";
-import { Link } from "react-router-dom";
-import Navbar from "../../Navbar";
-import Footer from "../../Footer";
-import SEO from "../../SEO";
 import {
-    Search, Users, Target, TrendingUp, Zap, Layers,
-    AlertTriangle, FileText, Shield,
-    Database, Globe, Blocks, CheckCircle2, GitBranch,
-    Sparkles, Bot, PenLine, ExternalLink
+    AlertTriangle,
+    Blocks,
+    Bot,
+    CheckCircle2,
+    Database,
+    FileText,
+    GitBranch,
+    Globe,
+    Layers,
+    PenLine,
+    Search,
+    Shield,
+    Sparkles,
+    Target,
+    TrendingUp,
+    Users,
+    Zap
 } from "lucide-react";
 
+// Placeholder assets — uncomment once real images are added:
+// import PhaseBranding from "../../../assets/atlas/phase2-branding.png";
+// import Accessibility from "../../../assets/atlas/accessibility-er.png";
+import AtlasTaxonomy from "./AtlasTaxonomy";
+import AtlasTemplates from "./AtlasTemplates";
 // Assets
-import Banner from "../../../assets/uvc/Banner.png";
-import Charcount from "../../../assets/uvc/charcount.png";
-import Sitebuilder from "../../../assets/uvc/Sitebuilder.png";
-import Templatemanager from "../../../assets/uvc/Templatemanager.png";
-import UvcTaxonomy from "./UvcTaxonomy";
-import UvcTemplates from "./UvcTemplates";
+import Banner from "../../../assets/atlas/Banner.png";
+import Charcount from "../../../assets/atlas/charcount.png";
+import Footer from "../../Footer";
+import { Link } from "react-router-dom";
+import Navbar from "../../Navbar";
+import SEO from "../../SEO";
+import Sitebuilder from "../../../assets/atlas/Sitebuilder.png";
+import Templatemanager from "../../../assets/atlas/Templatemanager.png";
+
+// import AtlasCmsSlider from "./AtlasCmsSlider";
 
 // ================= REUSABLE COMPONENTS =================
 
@@ -34,40 +51,14 @@ const StatCard = ({ value, label, icon }) => (
     </div>
 );
 
-const UvcEcosystem = () => {
-    const [showFloating, setShowFloating] = useState(false);
-    const previewRef = useRef(null);
-    const [previewScale, setPreviewScale] = useState(1);
-
-    useEffect(() => {
-        const handleScroll = () => {
-            const scrollPercent = window.scrollY / (document.body.scrollHeight - window.innerHeight);
-            setShowFloating(scrollPercent > 0.55 && scrollPercent < 0.95);
-        };
-        window.addEventListener("scroll", handleScroll, { passive: true });
-        return () => window.removeEventListener("scroll", handleScroll);
-    }, []);
-
-    // Scale iframe to fit container at MacBook Pro resolution (1440×900)
-    useEffect(() => {
-        const updateScale = () => {
-            if (previewRef.current) {
-                const containerWidth = previewRef.current.offsetWidth;
-                setPreviewScale(containerWidth / 1440);
-            }
-        };
-        updateScale();
-        window.addEventListener("resize", updateScale);
-        return () => window.removeEventListener("resize", updateScale);
-    }, []);
-
+const AtlasEcosystem = () => {
     return (
         <div className="text-white bg-[#050505]">
             <SEO
-                title="UVC: CMS Architecture & 0-to-1 Site Builder — Product Design Case Study"
+                title="Atlas: CMS Architecture & 0-to-1 Site Builder — Product Design Case Study"
                 description="How I owned the design for a 130+ clinic veterinary network — standardizing digital infrastructure, designing a relational CMS, and a 0-to-1 no-code site builder."
-                keywords="product design case study, UVC, veterinary, CMS design, site builder, multi-location, healthcare, design systems, information architecture, phased rollout"
-                url="https://www.sumansourabh.com/Projects/uvc"
+                keywords="product design case study, Atlas, veterinary, CMS design, site builder, multi-location, healthcare, design systems, information architecture, phased rollout"
+                url="https://www.sumansourabh.com/Projects/atlas"
             />
             <Navbar />
 
@@ -77,20 +68,20 @@ const UvcEcosystem = () => {
                     <div className="text-center max-w-3xl mx-auto mb-20">
                         <Badge>[ Healthcare &middot; Multi-Location &middot; 0-to-1 Builder ]</Badge>
                         <h1 className="font-heading text-5xl md:text-7xl font-extrabold text-white tracking-tight leading-none mb-6">
-                            United Veterinary <span className="text-gray-500 font-light">Care</span>
+                            Atlas <span className="text-gray-500 font-light">Veterinary Network</span>
                         </h1>
                         <p className="text-lg text-gray-400 font-light leading-relaxed max-w-xl mx-auto">
                             Transformed 130+ disconnected clinic websites into a unified digital ecosystem — standardized architecture, relational CMS, and a 0-to-1 no-code builder.
                         </p>
                     </div>
 
-                    <img src={Banner} alt="UVC Digital Ecosystem" className="rounded-2xl w-full object-cover border border-white/10" />
+                    <img src={Banner} alt="Atlas Digital Ecosystem" className="rounded-2xl w-full object-cover border border-white/10" />
 
                     {/* Snapshot Strip */}
                     <div className="grid grid-cols-2 md:grid-cols-4 gap-6 mt-12">
                         <div className="bg-white/5 border border-white/10 rounded-2xl p-5 text-center">
                             <p className="text-xs text-gray-500 uppercase tracking-widest mb-2">Company</p>
-                            <p className="text-white font-medium">United Veterinary Care</p>
+                            <p className="text-white font-medium">Shyftlabs</p>
                         </div>
                         <div className="bg-white/5 border border-white/10 rounded-2xl p-5 text-center">
                             <p className="text-xs text-gray-500 uppercase tracking-widest mb-2">My Role</p>
@@ -127,7 +118,7 @@ const UvcEcosystem = () => {
                             <span className="text-gray-400">One designer driving all three.</span>
                         </h2>
                         <p className="text-gray-400 text-base leading-relaxed">
-                            UVC needed someone who could understand the <span className="text-white font-medium">data architecture, design the user experience, and coordinate engineering delivery</span> — simultaneously.
+                            Atlas needed someone who could understand the <span className="text-white font-medium">data architecture, design the user experience, and coordinate engineering delivery</span> — simultaneously.
                             I owned the design across all three phases: standardization, CMS architecture, and the 0-to-1 site builder.
                             Ran a cross-functional pod — <span className="text-white font-medium">3 engineers, 1 designer, 1 SEO specialist</span> — in 2-week sprints.
                         </p>
@@ -166,7 +157,7 @@ const UvcEcosystem = () => {
 
                     <p className="text-white border-l-4 border-[#d6f928]/40 pl-6 italic font-light text-base max-w-3xl">
                         &ldquo;We&apos;re acquiring clinics faster than we can bring them into the network properly. Our digital infrastructure is a bottleneck to growth.&rdquo;
-                        <span className="text-gray-500 not-italic block mt-2 text-sm">&mdash; UVC Leadership</span>
+                        <span className="text-gray-500 not-italic block mt-2 text-sm">&mdash; Atlas Leadership</span>
                     </p>
                 </div>
             </section>
@@ -185,20 +176,20 @@ const UvcEcosystem = () => {
                     {/* Concept Vector — Consolidation: chaos → order */}
                     <svg className="w-full h-20 my-6" viewBox="0 0 400 80" fill="none" xmlns="http://www.w3.org/2000/svg">
                         <defs>
-                            <linearGradient id="uvc-lime-grad-01" x1="0" y1="40" x2="400" y2="40" gradientUnits="userSpaceOnUse">
+                            <linearGradient id="atlas-lime-grad-01" x1="0" y1="40" x2="400" y2="40" gradientUnits="userSpaceOnUse">
                                 <stop stopColor="#d6f928" stopOpacity="0.3" />
                                 <stop offset="1" stopColor="#d6f928" stopOpacity="0.05" />
                             </linearGradient>
-                            <filter id="uvc-glow-lime-01">
+                            <filter id="atlas-glow-lime-01">
                                 <feGaussianBlur stdDeviation="3" result="blur" />
                                 <feMerge><feMergeNode in="blur" /><feMergeNode in="SourceGraphic" /></feMerge>
                             </filter>
                         </defs>
                         {/* Scattered dots — 130 clinics */}
                         {[
-                            [15,12],[22,58],[35,30],[42,65],[50,18],[28,42],[60,50],[18,38],[45,8],[55,62],
-                            [10,52],[38,20],[48,45],[25,70],[58,35],[32,55],[12,25],[52,28],[40,72],[20,48],
-                            [65,15],[30,10],[8,60],[46,38],[55,5],[36,48],[14,34],[50,55],[22,15],[42,32]
+                            [15, 12], [22, 58], [35, 30], [42, 65], [50, 18], [28, 42], [60, 50], [18, 38], [45, 8], [55, 62],
+                            [10, 52], [38, 20], [48, 45], [25, 70], [58, 35], [32, 55], [12, 25], [52, 28], [40, 72], [20, 48],
+                            [65, 15], [30, 10], [8, 60], [46, 38], [55, 5], [36, 48], [14, 34], [50, 55], [22, 15], [42, 32]
                         ].map(([cx, cy], i) => (
                             <circle key={i} cx={cx} cy={cy} r="1.5" fill="#d6f928" fillOpacity={0.15 + Math.random() * 0.25} />
                         ))}
@@ -206,7 +197,7 @@ const UvcEcosystem = () => {
                         <path d="M100 5 L160 30 L160 50 L100 75 Z" stroke="#d6f928" strokeOpacity="0.2" strokeWidth="0.5" fill="#d6f928" fillOpacity="0.03" />
                         <line x1="80" y1="40" x2="160" y2="40" stroke="#d6f928" strokeOpacity="0.15" strokeWidth="0.5" strokeDasharray="3 3" />
                         {/* Arrow */}
-                        <line x1="160" y1="40" x2="210" y2="40" stroke="#d6f928" strokeOpacity="0.3" strokeWidth="0.5" filter="url(#uvc-glow-lime-01)" />
+                        <line x1="160" y1="40" x2="210" y2="40" stroke="#d6f928" strokeOpacity="0.3" strokeWidth="0.5" filter="url(#atlas-glow-lime-01)" />
                         <polygon points="210,37 218,40 210,43" fill="#d6f928" fillOpacity="0.3" />
                         {/* 5 organized template boxes */}
                         {[0, 1, 2, 3, 4].map((i) => (
@@ -252,6 +243,16 @@ const UvcEcosystem = () => {
                         </div>
                     </div>
 
+                    {/* Accessibility proof — the ER template built around the 2am insight.
+                        PLACEHOLDER: uncomment (and the Accessibility import) once the real ER template image is added.
+                    <figure className="mb-20">
+                        <img loading="lazy" decoding="async" src={Accessibility} alt="Atlas — accessible ER clinic template: high-contrast palette, large type, and call/directions/hours above the fold" className="rounded-2xl w-full border border-white/10" />
+                        <figcaption className="text-gray-500 text-xs mt-3 max-w-2xl">
+                            The ER template, designed around the 2am insight: high-contrast palette, oversized type, and call / directions / hours pinned above the fold. WCAG 2.1 AA verified on contrast and target size.
+                        </figcaption>
+                    </figure>
+                    */}
+
                     {/* Audit Findings */}
                     <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mb-20">
                         <div className="bg-red-950/20 border border-red-500/15 rounded-2xl p-6">
@@ -260,7 +261,7 @@ const UvcEcosystem = () => {
                             </div>
                             <h4 className="font-heading text-2xl font-bold text-white mb-2">Zero</h4>
                             <p className="text-white text-sm font-medium mb-2">SEO Governance</p>
-                            <p className="text-gray-400 text-xs leading-relaxed">Duplicate content across sister clinics. Missing schema markup. Google penalizing UVC for same doctor bios on 40+ pages.</p>
+                            <p className="text-gray-400 text-xs leading-relaxed">Duplicate content across sister clinics. Missing schema markup. Google penalizing Atlas for same doctor bios on 40+ pages.</p>
                         </div>
                         <div className="bg-red-950/20 border border-red-500/15 rounded-2xl p-6">
                             <div className="w-10 h-10 rounded-xl bg-red-500/10 border border-red-500/20 flex items-center justify-center mb-4">
@@ -281,7 +282,7 @@ const UvcEcosystem = () => {
                     </div>
 
                     {/* Taxonomy */}
-                    <UvcTaxonomy />
+                    <AtlasTaxonomy />
 
                     {/* Template Architecture */}
                     <div className="mt-20 mb-10 max-w-3xl">
@@ -290,13 +291,13 @@ const UvcEcosystem = () => {
                             Not one template. <span className="text-gray-400">Five clinical realities.</span>
                         </h3>
                         <p className="text-gray-400 text-base leading-relaxed">
-                            After mapping every clinic type, we landed on 5 strategic templates covering the entire UVC universe.
+                            After mapping every clinic type, we landed on 5 strategic templates covering the entire Atlas universe.
                             Any newly acquired clinic maps to an archetype within the first week. The templates weren&apos;t rigid &mdash;
                             they were a shared structural skeleton with intentional flex points at the local level.
                         </p>
                     </div>
 
-                    <UvcTemplates />
+                    <AtlasTemplates />
 
                     {/* Phase 1 Outcomes */}
                     <div className="mt-20 bg-gradient-to-br from-white/[0.05] to-transparent border border-white/10 backdrop-blur-md rounded-2xl p-8 md:p-10">
@@ -310,6 +311,7 @@ const UvcEcosystem = () => {
                             <StatCard value="&uarr; 74%" label="Pages successfully indexed by Google." icon={<Globe size={18} className="text-purple-400" />} />
                             <StatCard value="100+" label="Clinics launched under the new architecture." icon={<Zap size={18} className="text-yellow-400" />} />
                         </div>
+                        <p className="text-gray-600 text-xs mt-6">Figures are internal metrics measured post-launch over the phase window.</p>
                     </div>
                 </div>
             </section>
@@ -328,11 +330,11 @@ const UvcEcosystem = () => {
                     {/* Phase 02 Vector — relational data model: nodes → connected graph */}
                     <svg className="w-full h-20 my-6" viewBox="0 0 400 80" fill="none" xmlns="http://www.w3.org/2000/svg">
                         <defs>
-                            <radialGradient id="uvc-node-center" cx="50%" cy="50%" r="50%">
+                            <radialGradient id="atlas-node-center" cx="50%" cy="50%" r="50%">
                                 <stop offset="0%" stopColor="#3b82f6" stopOpacity="0.5" />
                                 <stop offset="100%" stopColor="#3b82f6" stopOpacity="0" />
                             </radialGradient>
-                            <filter id="uvc-cms-glow">
+                            <filter id="atlas-cms-glow">
                                 <feGaussianBlur stdDeviation="3" result="blur" />
                                 <feMerge><feMergeNode in="blur" /><feMergeNode in="SourceGraphic" /></feMerge>
                             </filter>
@@ -348,7 +350,7 @@ const UvcEcosystem = () => {
                         <line x1="88" y1="35" x2="120" y2="35" stroke="#3b82f6" strokeOpacity="0.3" strokeWidth="0.8" />
                         <polygon points="120,32 128,35 120,38" fill="#3b82f6" fillOpacity="0.3" />
                         {/* Central record */}
-                        <circle cx="160" cy="35" r="14" fill="url(#uvc-node-center)" stroke="#3b82f6" strokeOpacity="0.5" strokeWidth="1.5" filter="url(#uvc-cms-glow)" />
+                        <circle cx="160" cy="35" r="14" fill="url(#atlas-node-center)" stroke="#3b82f6" strokeOpacity="0.5" strokeWidth="1.5" filter="url(#atlas-cms-glow)" />
                         <circle cx="160" cy="35" r="4" fill="#3b82f6" fillOpacity="0.5" />
                         <text x="160" y="64" textAnchor="middle" fontFamily="monospace" fontSize="7" fill="white" fillOpacity="0.3">1 RECORD</text>
                         {/* Lines to leaf nodes */}
@@ -367,7 +369,7 @@ const UvcEcosystem = () => {
                             <text key={label} x={lx} y={ly} textAnchor="middle" fontFamily="monospace" fontSize="6" fill="white" fillOpacity="0.2">{label}</text>
                         ))}
                         {/* Benefit callout */}
-                        <text x="350" y="28" textAnchor="middle" fontFamily="monospace" fontSize="8" fill="#d6f928" fillOpacity="0.5" filter="url(#uvc-cms-glow)">0</text>
+                        <text x="350" y="28" textAnchor="middle" fontFamily="monospace" fontSize="8" fill="#d6f928" fillOpacity="0.5" filter="url(#atlas-cms-glow)">0</text>
                         <text x="350" y="40" textAnchor="middle" fontFamily="monospace" fontSize="6" fill="white" fillOpacity="0.2">duplicates</text>
                     </svg>
 
@@ -379,12 +381,12 @@ const UvcEcosystem = () => {
                             <span className="text-gray-400">Every off-the-shelf CMS failed the test.</span>
                         </h2>
                         <p className="text-gray-400 text-base leading-relaxed mb-5">
-                            Templates were live. But keeping them accurate across 130+ clinics was impossible. Dr. Sarah Chen operates at three Boston clinics &mdash;
-                            under the old system, her bio existed as three separate copy-paste entries. One email change meant three manual updates. Multiplied across hundreds of specialists, this was an SEO crisis &mdash; Google detected near-duplicate content at scale and penalized the entire domain.
+                            Templates were live. But keeping them accurate across 130+ clinics was impossible. A specialist practicing across three locations &mdash;
+                            under the old system, their bio existed as three separate copy-paste entries. One email change meant three manual updates. Multiplied across hundreds of specialists, this was an SEO crisis &mdash; Google detected near-duplicate content at scale and penalized the entire domain.
                         </p>
                         <p className="text-gray-400 text-base leading-relaxed">
                             WordPress, Contentful, Webflow &mdash; none handled the relational complexity of a multi-tenant healthcare network.
-                            The product call: <span className="text-white font-medium">build a proprietary headless CMS</span> engineered for UVC&apos;s operational model.
+                            The product call: <span className="text-white font-medium">build a proprietary headless CMS</span> engineered for Atlas&apos;s operational model.
                         </p>
                     </div>
 
@@ -404,7 +406,7 @@ const UvcEcosystem = () => {
                         </div>
                     </div>
 
-                    <img loading="lazy" decoding="async" src={Charcount} alt="UVC Content Architecture" className="rounded-2xl w-full border border-white/10 mb-20" />
+                    <img loading="lazy" decoding="async" src={Charcount} alt="Atlas Content Architecture" className="rounded-2xl w-full border border-white/10 mb-20" />
 
                     {/* CMS Architecture Cards */}
                     <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mb-20">
@@ -423,7 +425,7 @@ const UvcEcosystem = () => {
                             </div>
                             <div>
                                 <h4 className="text-white font-semibold text-sm mb-1">Relational Content Linking</h4>
-                                <p className="text-gray-400 text-xs leading-relaxed">CMS mapped relationships &mdash; specialists to certifications, services to locations. Google&apos;s schema finally understood UVC as an interconnected ecosystem.</p>
+                                <p className="text-gray-400 text-xs leading-relaxed">CMS mapped relationships &mdash; specialists to certifications, services to locations. Google&apos;s schema finally understood Atlas as an interconnected ecosystem.</p>
                             </div>
                         </div>
                         <div className="bg-white/5 border border-white/10 rounded-2xl p-6 flex gap-4">
@@ -459,7 +461,9 @@ const UvcEcosystem = () => {
                         </p>
                     </div>
 
-                    <img loading="lazy" decoding="async" src={Sitebuilder} alt="UVC Branding System" className="rounded-2xl w-full border border-white/10 mb-20" />
+                    {/* PLACEHOLDER: uncomment (and the PhaseBranding import) once the real branding/theme image is added.
+                    <img loading="lazy" decoding="async" src={PhaseBranding} alt="Atlas — clinic-level branding and theme customization" className="rounded-2xl w-full border border-white/10 mb-20" />
+                    */}
 
                     {/* Phase 2 Outcomes */}
                     <div className="bg-gradient-to-br from-white/[0.05] to-transparent border border-white/10 backdrop-blur-md rounded-2xl p-8 md:p-10">
@@ -472,6 +476,7 @@ const UvcEcosystem = () => {
                             <StatCard value="Zero" label="Duplicate content penalties after canonicalization." icon={<CheckCircle2 size={18} className="text-blue-400" />} />
                             <StatCard value="Hours" label="Time to integrate a newly acquired clinic." icon={<Zap size={18} className="text-yellow-400" />} />
                         </div>
+                        <p className="text-gray-600 text-xs mt-6">Figures are internal metrics measured post-launch over the phase window.</p>
                     </div>
                 </div>
             </section>
@@ -490,15 +495,15 @@ const UvcEcosystem = () => {
                     {/* Phase 03 Vector — sprint backlog clogged → self-serve builder */}
                     <svg className="w-full h-20 my-6" viewBox="0 0 400 80" fill="none" xmlns="http://www.w3.org/2000/svg">
                         <defs>
-                            <linearGradient id="uvc-p3-bar" x1="0" y1="0" x2="1" y2="0">
+                            <linearGradient id="atlas-p3-bar" x1="0" y1="0" x2="1" y2="0">
                                 <stop offset="0%" stopColor="#ef4444" stopOpacity="0.3" />
                                 <stop offset="100%" stopColor="#ef4444" stopOpacity="0.05" />
                             </linearGradient>
-                            <linearGradient id="uvc-p3-win" x1="0" y1="0" x2="1" y2="0">
+                            <linearGradient id="atlas-p3-win" x1="0" y1="0" x2="1" y2="0">
                                 <stop offset="0%" stopColor="#d6f928" stopOpacity="0.3" />
                                 <stop offset="100%" stopColor="#d6f928" stopOpacity="0.05" />
                             </linearGradient>
-                            <filter id="uvc-p3-glow">
+                            <filter id="atlas-p3-glow">
                                 <feGaussianBlur stdDeviation="3" result="blur" />
                                 <feMerge><feMergeNode in="blur" /><feMergeNode in="SourceGraphic" /></feMerge>
                             </filter>
@@ -506,7 +511,7 @@ const UvcEcosystem = () => {
                         {/* Engineering queue — stacked tickets */}
                         {[0, 1, 2, 3, 4].map((i) => (
                             <rect key={i} x={8} y={8 + i * 13} width={70 - i * 5} height={9} rx="2"
-                                fill="url(#uvc-p3-bar)" stroke="#ef4444" strokeOpacity={0.3 - i * 0.04} strokeWidth="0.7" />
+                                fill="url(#atlas-p3-bar)" stroke="#ef4444" strokeOpacity={0.3 - i * 0.04} strokeWidth="0.7" />
                         ))}
                         <text x="40" y="76" textAnchor="middle" fontFamily="monospace" fontSize="7" fill="white" fillOpacity="0.2">eng queue</text>
                         {/* Arrow */}
@@ -524,7 +529,7 @@ const UvcEcosystem = () => {
                         <line x1="258" y1="40" x2="292" y2="40" stroke="#d6f928" strokeOpacity="0.3" strokeWidth="0.8" />
                         <polygon points="292,37 300,40 292,43" fill="#d6f928" fillOpacity="0.3" />
                         {/* Outcome: 0 tickets */}
-                        <circle cx="330" cy="40" r="22" fill="url(#uvc-p3-win)" stroke="#d6f928" strokeOpacity="0.35" strokeWidth="1.2" filter="url(#uvc-p3-glow)" />
+                        <circle cx="330" cy="40" r="22" fill="url(#atlas-p3-win)" stroke="#d6f928" strokeOpacity="0.35" strokeWidth="1.2" filter="url(#atlas-p3-glow)" />
                         <text x="330" y="37" textAnchor="middle" fontFamily="monospace" fontSize="12" fill="#d6f928" fillOpacity="0.6">0</text>
                         <text x="330" y="49" textAnchor="middle" fontFamily="monospace" fontSize="6" fill="white" fillOpacity="0.25">tickets</text>
                         <text x="330" y="76" textAnchor="middle" fontFamily="monospace" fontSize="7" fill="#d6f928" fillOpacity="0.3">100% reduction</text>
@@ -538,7 +543,7 @@ const UvcEcosystem = () => {
                             <span className="text-gray-400">The 10% was killing engineering.</span>
                         </h2>
                         <p className="text-gray-400 text-base leading-relaxed mb-5">
-                            Phase 2 gave clinic teams content independence. But as UVC grew, so did requests outside the framework &mdash;
+                            Phase 2 gave clinic teams content independence. But as Atlas grew, so did requests outside the framework &mdash;
                             community vaccination drives, new specialist landing pages, holiday hours. Every request landed in the engineering sprint queue.
                             Turnaround was days, sometimes weeks.
                         </p>
@@ -548,7 +553,7 @@ const UvcEcosystem = () => {
                         </p>
                     </div>
 
-                    <img loading="lazy" decoding="async" src={Sitebuilder} alt="UVC No-Code Site Builder" className="rounded-2xl w-full border border-white/10 mb-20" />
+                    <img loading="lazy" decoding="async" src={Sitebuilder} alt="Atlas No-Code Site Builder" className="rounded-2xl w-full border border-white/10 mb-20" />
 
                     {/* Builder Product Decisions */}
                     <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mb-20">
@@ -572,7 +577,7 @@ const UvcEcosystem = () => {
                         </div>
                     </div>
 
-                    <img loading="lazy" decoding="async" src={Templatemanager} alt="UVC Template Manager" className="rounded-2xl w-full border border-white/10 mb-20" />
+                    <img loading="lazy" decoding="async" src={Templatemanager} alt="Atlas Template Manager" className="rounded-2xl w-full border border-white/10 mb-20" />
 
                     {/* What didn't work */}
                     <div className="mb-20 bg-white/[0.02] border border-dashed border-white/10 rounded-xl p-5 max-w-3xl">
@@ -590,10 +595,11 @@ const UvcEcosystem = () => {
                             The site builder changed the power dynamic between central IT and local clinic teams. Marketing finally moved at the speed of marketing.
                         </p>
                         <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-                            <StatCard value="100%" label="Reduction in engineering tickets for custom pages." icon={<CheckCircle2 size={18} className="text-green-400" />} />
+                            <StatCard value="~0" label="Engineering tickets for routine custom pages, once teams self-served." icon={<CheckCircle2 size={18} className="text-green-400" />} />
                             <StatCard value="Hours" label="Time to launch a custom marketing campaign." icon={<Zap size={18} className="text-yellow-400" />} />
                             <StatCard value="Zero" label="Brand or accessibility breakages across 50+ pages." icon={<Shield size={18} className="text-blue-400" />} />
                         </div>
+                        <p className="text-gray-600 text-xs mt-6">Figures are internal metrics measured post-launch over the phase window.</p>
                     </div>
                 </div>
             </section>
@@ -629,10 +635,9 @@ const UvcEcosystem = () => {
                             and full template customization &mdash; all shipped without adding engineering headcount.
                         </p>
                         <p className="text-gray-400 text-base leading-relaxed">
-                            I built CMS 2.0 myself using Claude. Not just the design &mdash;{" "}
-                            <span className="text-white font-medium">the actual product</span>.
-                            Planned, architected, and deployed on Vercel.
-                            This is what a builder designer looks like at the edge of AI tooling.
+                            I designed CMS 2.0 end-to-end &mdash; every core flow, state, and interaction &mdash; and
+                            prototyped the working build myself with Claude Code, so the flows were{" "}
+                            <span className="text-white font-medium">proven in a real product, not just a static mockup</span>.
                         </p>
                     </div>
 
@@ -648,83 +653,26 @@ const UvcEcosystem = () => {
                         </p>
                     </div>
 
-                    {/* Live CMS 2.0 Preview */}
+                    {/* CMS 2.0 screen flow — curated static screenshots (replaced the old live iframe).
+                        PLACEHOLDER: uncomment (and the AtlasCmsSlider import) after dropping screenshots into src/assets/atlas-cms/.
                     <div className="mb-20">
-                        <div className="flex items-center justify-between mb-6">
+                        <div className="flex flex-col sm:flex-row sm:items-end sm:justify-between gap-3 mb-6">
                             <div>
-                                <h3 className="font-heading text-2xl font-bold text-white mb-1">Live Product Preview</h3>
-                                <p className="text-gray-400 text-sm">Interact with CMS 2.0 below &mdash; or open it in a new tab.</p>
+                                <h3 className="font-heading text-2xl font-bold text-white mb-1">CMS 2.0, screen by screen</h3>
+                                <p className="text-gray-400 text-sm">The redesigned publishing flow &mdash; curated screens, not a live embed.</p>
                             </div>
                             <a
                                 href="https://atlas2-sable.vercel.app/dashboard"
                                 target="_blank"
                                 rel="noopener noreferrer"
-                                className="hidden md:inline-flex items-center gap-2 text-[#d6f928] text-sm font-medium border border-[#d6f928]/20 bg-[#d6f928]/5 px-5 py-2.5 rounded-full hover:bg-[#d6f928]/10 transition-colors whitespace-nowrap"
+                                className="inline-flex items-center gap-2 text-gray-400 hover:text-[#d6f928] text-sm font-medium transition-colors whitespace-nowrap self-start sm:self-auto"
                             >
-                                Open CMS 2.0 <ExternalLink size={14} />
+                                View live build <ExternalLink size={14} />
                             </a>
                         </div>
-
-                        {/* Browser Chrome */}
-                        <div className="rounded-2xl overflow-hidden border border-white/10 shadow-2xl bg-[#1e1e1e]">
-                            {/* Title Bar */}
-                            <div className="flex items-center gap-3 px-4 py-3 bg-[#2a2a2a] border-b border-white/10">
-                                <div className="flex items-center gap-1.5 shrink-0">
-                                    <span className="w-3 h-3 rounded-full bg-[#ff5f57] border border-[#e0443e]"></span>
-                                    <span className="w-3 h-3 rounded-full bg-[#febc2e] border border-[#d6a01d]"></span>
-                                    <span className="w-3 h-3 rounded-full bg-[#28c840] border border-[#1aab29]"></span>
-                                </div>
-                                <div className="flex-1 flex items-center gap-2 bg-[#3a3a3a] rounded-md px-3 py-1.5 mx-4">
-                                    <svg className="w-3 h-3 text-gray-400 shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth="2.5">
-                                        <rect x="3" y="11" width="18" height="11" rx="2" />
-                                        <path d="M7 11V7a5 5 0 0 1 10 0v4" />
-                                    </svg>
-                                    <span className="text-gray-400 text-xs font-mono truncate">atlas2-sable.vercel.app/dashboard</span>
-                                </div>
-                                <a
-                                    href="https://atlas2-sable.vercel.app/dashboard"
-                                    target="_blank"
-                                    rel="noopener noreferrer"
-                                    className="text-gray-400 hover:text-white transition-colors"
-                                    title="Open in new tab"
-                                >
-                                    <ExternalLink size={14} />
-                                </a>
-                            </div>
-
-                            {/* Iframe Viewport — renders at 1440×900 (MacBook Pro) and scales to fit */}
-                            <div
-                                ref={previewRef}
-                                className="relative bg-white overflow-hidden"
-                                style={{ height: `${900 * previewScale}px` }}
-                            >
-                                <iframe
-                                    src="https://atlas2-sable.vercel.app/dashboard"
-                                    title="UVC CMS 2.0 Live Preview"
-                                    className="border-0 origin-top-left"
-                                    style={{
-                                        width: "1440px",
-                                        height: "900px",
-                                        transform: `scale(${previewScale})`,
-                                    }}
-                                    loading="lazy"
-                                    allow="clipboard-read; clipboard-write"
-                                />
-                            </div>
-                        </div>
-
-                        {/* Mobile fallback CTA */}
-                        <div className="mt-4 md:hidden">
-                            <a
-                                href="https://atlas2-sable.vercel.app/dashboard"
-                                target="_blank"
-                                rel="noopener noreferrer"
-                                className="flex items-center justify-center gap-2 text-[#d6f928] text-sm font-medium border border-[#d6f928]/20 bg-[#d6f928]/5 px-5 py-3 rounded-full hover:bg-[#d6f928]/10 transition-colors w-full"
-                            >
-                                Open CMS 2.0 Live <ExternalLink size={14} />
-                            </a>
-                        </div>
+                        <AtlasCmsSlider />
                     </div>
+                    */}
 
                     {/* Feature Architecture */}
                     <div className="mb-20">
@@ -834,14 +782,13 @@ const UvcEcosystem = () => {
                         </div>
                     </div>
 
-                    {/* Builder PM Signal */}
+                    {/* Design-led build signal */}
                     <div className="mb-20 bg-[#d6f928]/5 border border-[#d6f928]/20 rounded-2xl p-8">
-                        <p className="text-[#d6f928] text-xs uppercase tracking-widest mb-3 font-mono font-semibold">Builder Designer Signal</p>
+                        <p className="text-[#d6f928] text-xs uppercase tracking-widest mb-3 font-mono font-semibold">Why this matters</p>
                         <p className="text-white text-base leading-relaxed max-w-2xl">
-                            I didn&apos;t spec CMS 2.0 and hand it to engineering. I built it &mdash;
-                            using Claude as my engineering partner. AI content writing, automated SEO,
-                            approval workflows, user management &mdash; all shipped by one designer
-                            who understands both the product and the code.
+                            Designing CMS 2.0 and prototyping it in code closed the usual gap between a spec and a
+                            shippable product &mdash; content writing, automated SEO, approval workflows, and user
+                            management were pressure-tested as real, working flows, not static screens.
                         </p>
                     </div>
 
@@ -857,6 +804,7 @@ const UvcEcosystem = () => {
                             <StatCard value="~70%" label="Reduction in content creation time with AI-assisted writing." icon={<Zap size={18} className="text-yellow-400" />} />
                             <StatCard value="Zero" label="Rogue publishes since approval workflow launch." icon={<Shield size={18} className="text-blue-400" />} />
                         </div>
+                        <p className="text-gray-600 text-xs mt-6">CMS 2.0 was designed and prototyped by me with Claude Code; figures reflect the pilot build.</p>
                     </div>
                 </div>
             </section>
@@ -878,10 +826,9 @@ const UvcEcosystem = () => {
                         </p>
                         <p className="text-gray-400 text-base leading-relaxed">
                             Four phases. I wrote the design specs, defined the phased rollout, coordinated engineering,
-                            and shipped across all of them. Then in Phase 4, I built CMS 2.0 myself &mdash;
-                            using Claude to ship seven new capabilities without adding headcount.
-                            One designer who could bridge architecture, experience, and AI execution &mdash;
-                            that&apos;s what made 130 clinics feel like one ecosystem.
+                            and shipped the design across all of them &mdash; then designed and prototyped CMS 2.0 myself
+                            to prove where the platform could go next. One designer bridging architecture, experience,
+                            and execution &mdash; that&apos;s what made 130 clinics feel like one ecosystem.
                         </p>
                     </div>
                 </div>
@@ -901,19 +848,7 @@ const UvcEcosystem = () => {
             </section>
 
             <Footer />
-
-            {/* Floating CTA — CMS 2.0 Live */}
-            <a
-                href="https://atlas2-sable.vercel.app/dashboard"
-                target="_blank"
-                rel="noopener noreferrer"
-                className={`fixed bottom-6 right-6 z-50 flex items-center gap-2 bg-[#d6f928] text-black text-sm font-bold px-5 py-3 rounded-full shadow-[0_0_30px_rgba(214,249,40,0.3)] hover:shadow-[0_0_40px_rgba(214,249,40,0.5)] hover:scale-105 transition-all duration-300 ${showFloating ? "opacity-100 translate-y-0" : "opacity-0 translate-y-4 pointer-events-none"}`}
-            >
-                <Sparkles size={16} />
-                Try CMS 2.0 Live
-                <ExternalLink size={14} />
-            </a>
         </div>
     );
 };
-export default UvcEcosystem;
+export default AtlasEcosystem;
