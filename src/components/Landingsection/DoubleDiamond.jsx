@@ -1,146 +1,83 @@
-import { useState } from 'react';
-
 const DoubleDiamond = () => {
    const [activeStage, setActiveStage] = useState('research');
 
-   const stages = {
-      discovery: [
-         {
-            id: 'research',
-            number: '01',
-            label: 'Research',
-            icon: '⌕',
-            title: 'Understand',
-            desc: 'Start with evidence. Understand users, behaviors, needs, and the problem space before designing.',
-            details: [
-               'User Interviews',
-               'Analytics Review',
-               'Session Recordings',
-               'Journey Mapping',
-               'Competitor Research'
-            ]
-         },
-         {
-            id: 'identify',
-            number: '02',
-            label: 'Identify',
-            icon: '◎',
-            title: 'Find the Opportunity',
-            desc: 'Turn research into meaningful opportunities by identifying recurring pain points and behavioral patterns.',
-            details: [
-               'Pain Points',
-               'Opportunity Mapping',
-               'Jobs-to-be-Done',
-               'Behavior Analysis',
-               'User Needs'
-            ]
-         },
-         {
-            id: 'define',
-            number: '03',
-            label: 'Define',
-            icon: '□',
-            title: 'Frame the Problem',
-            desc: 'Define the right problem, align stakeholders, establish hypotheses, and decide what matters most.',
-            details: [
-               'Problem Statement',
-               'Hypotheses',
-               'Success Metrics',
-               'Prioritization',
-               'Scope Definition'
-            ]
-         },
-         {
-            id: 'validate',
-            number: '04',
-            label: 'Validate',
-            icon: '◇',
-            title: 'Prove the Direction',
-            desc: 'Test the riskiest assumptions before committing significant design and engineering effort.',
-            details: [
-               'Prototype Testing',
-               'Usability Testing',
-               'Concept Validation',
-               'Technical Feasibility',
-               'Go / No-Go'
-            ]
-         }
-      ],
-
-      delivery: [
-         {
-            id: 'design',
-            number: '01',
-            label: 'Design',
-            icon: '✦',
-            title: 'Shape the Solution',
-            desc: 'Translate validated problems into intuitive experiences, flows, interfaces, and systems.',
-            details: [
-               'User Flows',
-               'Wireframes',
-               'Hi-Fi UI',
-               'Prototyping',
-               'Design System'
-            ]
-         },
-         {
-            id: 'build',
-            number: '02',
-            label: 'Build',
-            icon: '</>',
-            title: 'Turn Design into Product',
-            desc: 'Collaborate closely with engineering to build scalable, accessible, and technically sound experiences.',
-            details: [
-               'Engineering Handoff',
-               'React / Tailwind',
-               'Component Systems',
-               'Technical QA',
-               'Accessibility'
-            ]
-         },
-         {
-            id: 'test',
-            number: '03',
-            label: 'Test',
-            icon: '△',
-            title: 'Verify the Experience',
-            desc: 'Check whether the product works as intended across functionality, usability, accessibility, and performance.',
-            details: [
-               'QA Testing',
-               'Usability Testing',
-               'Design QA',
-               'Accessibility',
-               'Regression Testing'
-            ]
-         },
-         {
-            id: 'release',
-            number: '04',
-            label: 'Release',
-            icon: '↗',
-            title: 'Ship & Learn',
-            desc: 'Release incrementally, observe real-world behavior, and measure whether the product creates meaningful value.',
-            details: [
-               'Gradual Rollout',
-               'Analytics',
-               'Adoption',
-               'Retention',
-               'Outcome Tracking'
-            ]
-         }
-      ]
-   };
-
-   const allStages = [
-      ...stages.discovery,
-      ...stages.delivery
+   const discoveryStages = [
+      {
+         id: 'research',
+         number: '01',
+         label: 'Research',
+         title: 'Understand',
+         desc: 'Understand users, behaviours, needs, and the problem space before designing.',
+         details: ['User Interviews', 'Analytics', 'Session Recordings', 'Journey Mapping']
+      },
+      {
+         id: 'identify',
+         number: '02',
+         label: 'Identify',
+         title: 'Find the Opportunity',
+         desc: 'Turn research into clear opportunities by identifying recurring pain points and patterns.',
+         details: ['Pain Points', 'Opportunity Mapping', 'Jobs-to-be-Done', 'User Needs']
+      },
+      {
+         id: 'define',
+         number: '03',
+         label: 'Define',
+         title: 'Frame the Problem',
+         desc: 'Define the right problem, align stakeholders, and establish measurable outcomes.',
+         details: ['Problem Statement', 'Hypotheses', 'Success Metrics', 'Prioritization']
+      },
+      {
+         id: 'validate',
+         number: '04',
+         label: 'Validate',
+         title: 'Test the Direction',
+         desc: 'Validate the riskiest assumptions before investing heavily in design and development.',
+         details: ['Prototypes', 'Usability Testing', 'Concept Testing', 'Feasibility']
+      }
    ];
+
+   const deliveryStages = [
+      {
+         id: 'design',
+         number: '01',
+         label: 'Design',
+         title: 'Shape the Solution',
+         desc: 'Turn validated opportunities into intuitive flows, interfaces, and experiences.',
+         details: ['User Flows', 'Wireframes', 'UI Design', 'Prototyping']
+      },
+      {
+         id: 'build',
+         number: '02',
+         label: 'Build',
+         title: 'Build the Product',
+         desc: 'Work closely with engineering to create scalable and technically sound experiences.',
+         details: ['Handoff', 'React / Tailwind', 'Components', 'Design QA']
+      },
+      {
+         id: 'test',
+         number: '03',
+         label: 'Test',
+         title: 'Verify the Experience',
+         desc: 'Make sure the product works across usability, functionality, accessibility, and design.',
+         details: ['QA', 'Usability', 'Accessibility', 'Regression']
+      },
+      {
+         id: 'release',
+         number: '04',
+         label: 'Release',
+         title: 'Ship & Learn',
+         desc: 'Release, measure real behaviour, and use the results to inform the next cycle.',
+         details: ['Release', 'Analytics', 'Adoption', 'Outcome Tracking']
+      }
+   ];
+
+   const allStages = [...discoveryStages, ...deliveryStages];
 
    const activeData =
       allStages.find((stage) => stage.id === activeStage) ||
-      stages.discovery[0];
+      discoveryStages[0];
 
-   const isDiscovery = stages.discovery.some(
+   const isDiscovery = discoveryStages.some(
       (stage) => stage.id === activeStage
    );
 
@@ -149,11 +86,7 @@ const DoubleDiamond = () => {
          aria-labelledby="methodology-heading"
          className="w-full bg-[#050505] text-white py-24 px-4 relative overflow-hidden font-sans border-t border-white/10"
       >
-
-         {/* =========================================================
-             BACKGROUND
-         ========================================================= */}
-
+         {/* Background Grid */}
          <div
             className="absolute inset-0 opacity-[0.03] pointer-events-none"
             style={{
@@ -165,17 +98,14 @@ const DoubleDiamond = () => {
             }}
          />
 
-         <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] h-[800px] bg-blue-500/10 blur-[150px] rounded-full pointer-events-none" />
+         {/* Ambient Glow */}
+         <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[700px] h-[700px] bg-blue-500/10 blur-[150px] rounded-full pointer-events-none" />
 
-         <div className="absolute top-[30%] left-[10%] w-[300px] h-[300px] bg-[#d6f928]/5 blur-[120px] rounded-full pointer-events-none" />
+         <div className="absolute top-[25%] left-[10%] w-[300px] h-[300px] bg-[#d6f928]/5 blur-[120px] rounded-full pointer-events-none" />
 
          <div className="max-w-7xl mx-auto relative z-10">
 
-
-            {/* =========================================================
-                HEADER
-            ========================================================= */}
-
+            {/* Header */}
             <div className="text-center mb-16">
 
                <div className="inline-flex items-center gap-2 text-xs font-mono text-[#d6f928] tracking-widest uppercase mb-4">
@@ -194,536 +124,370 @@ const DoubleDiamond = () => {
                </h2>
 
                <p className="text-gray-400 mt-4 max-w-2xl mx-auto leading-relaxed">
-                  Two parallel tracks — Discovery and Delivery — working
-                  together to solve the right problem and build the right
-                  solution.
+                  Discovery and Delivery move together — continuously reducing
+                  uncertainty while creating measurable product value.
                </p>
-
             </div>
 
+            {/* Desktop */}
+            <div className="hidden lg:block max-w-6xl mx-auto">
 
-            {/* =========================================================
-                DESKTOP DIAGRAM
-            ========================================================= */}
+               {/* Discovery Track */}
+               <div className="relative">
 
-            <div className="hidden lg:block">
-
-               <div className="relative max-w-6xl mx-auto">
-
-                  {/* SVG CONNECTOR SYSTEM */}
-
-                  <svg
-                     className="absolute inset-0 w-full h-full pointer-events-none"
-                     viewBox="0 0 1200 570"
-                     preserveAspectRatio="none"
-                  >
-
-                     <defs>
-
-                        <linearGradient
-                           id="limeFlow"
-                           x1="0%"
-                           y1="0%"
-                           x2="100%"
-                           y2="0%"
-                        >
-                           <stop
-                              offset="0%"
-                              stopColor="#d6f928"
-                              stopOpacity="0.15"
-                           />
-
-                           <stop
-                              offset="50%"
-                              stopColor="#d6f928"
-                              stopOpacity="0.8"
-                           />
-
-                           <stop
-                              offset="100%"
-                              stopColor="#d6f928"
-                              stopOpacity="0.15"
-                           />
-                        </linearGradient>
-
-                     </defs>
-
-
-                     {/* Discovery flow */}
-
-                     <path
-                        d="M90 135 H1110"
-                        fill="none"
-                        stroke="#d6f928"
-                        strokeOpacity="0.08"
-                        strokeWidth="2"
-                     />
-
-                     <path
-                        d="M90 135 H1110"
-                        fill="none"
-                        stroke="url(#limeFlow)"
-                        strokeWidth="1.5"
-                        strokeDasharray="6 10"
-                     >
-                        <animate
-                           attributeName="stroke-dashoffset"
-                           from="0"
-                           to="-40"
-                           dur="2s"
-                           repeatCount="indefinite"
-                        />
-                     </path>
-
-
-                     {/* Delivery flow */}
-
-                     <path
-                        d="M90 350 H1110"
-                        fill="none"
-                        stroke="#ffffff"
-                        strokeOpacity="0.08"
-                        strokeWidth="2"
-                     />
-
-                     <path
-                        d="M90 350 H1110"
-                        fill="none"
-                        stroke="#ffffff"
-                        strokeOpacity="0.18"
-                        strokeWidth="1.5"
-                        strokeDasharray="6 10"
-                     >
-                        <animate
-                           attributeName="stroke-dashoffset"
-                           from="0"
-                           to="-40"
-                           dur="2.5s"
-                           repeatCount="indefinite"
-                        />
-                     </path>
-
-
-                     {/* Discovery → Delivery */}
-
-                     <path
-                        d="M250 135 C250 190 250 290 250 350"
-                        fill="none"
-                        stroke="#d6f928"
-                        strokeOpacity="0.15"
-                        strokeDasharray="4 8"
-                     />
-
-                     <path
-                        d="M600 135 C600 190 600 290 600 350"
-                        fill="none"
-                        stroke="#d6f928"
-                        strokeOpacity="0.12"
-                        strokeDasharray="4 8"
-                     />
-
-                     <path
-                        d="M950 135 C950 190 950 290 950 350"
-                        fill="none"
-                        stroke="#d6f928"
-                        strokeOpacity="0.12"
-                        strokeDasharray="4 8"
-                     />
-
-
-                     {/* Feedback loop */}
-
-                     <path
-                        d="
-                           M1110 350
-                           C1160 350 1160 450 1080 450
-                           H120
-                           C40 450 40 350 90 350
-                        "
-                        fill="none"
-                        stroke="#d6f928"
-                        strokeOpacity="0.2"
-                        strokeWidth="1.5"
-                        strokeDasharray="5 8"
-                     />
-
-                  </svg>
-
-
-                  {/* =====================================================
-                      DISCOVERY TRACK
-                  ===================================================== */}
-
-                  <div className="relative">
-
-                     {/* Track label */}
-
-                     <div className="flex justify-center mb-6">
-
-                        <div className="inline-flex items-center gap-3 border border-[#d6f928]/30 bg-[#d6f928]/5 px-5 py-2 rounded-full">
-
-                           <span className="w-2 h-2 bg-[#d6f928] rounded-full shadow-[0_0_10px_#d6f928]" />
-
-                           <span className="text-[#d6f928] text-xs font-mono tracking-[0.2em] uppercase">
-                              Discovery Track
-                           </span>
-
-                           <span className="text-gray-600 text-xs font-mono">
-                              / Problem Space
-                           </span>
-
-                        </div>
-
-                     </div>
-
-
-                     {/* Cards */}
-
-                     <div className="grid grid-cols-4 gap-5">
-
-                        {stages.discovery.map((stage) => (
-
-                           <StageCard
-                              key={stage.id}
-                              stage={stage}
-                              active={activeStage === stage.id}
-                              discovery
-                              onHover={() =>
-                                 setActiveStage(stage.id)
-                              }
-                           />
-
-                        ))}
-
-                     </div>
-
-                  </div>
-
-
-                  {/* =====================================================
-                      CENTER HANDOFF
-                  ===================================================== */}
-
-                  <div className="flex justify-center items-center gap-4 py-7">
-
-                     <div className="w-24 h-px bg-gradient-to-r from-transparent to-[#d6f928]/30" />
-
-                     <div className="flex items-center gap-2 px-4 py-1.5 border border-white/10 rounded-full bg-[#0b0b0b]">
-
-                        <span className="w-1.5 h-1.5 bg-[#d6f928] rounded-full" />
-
-                        <span className="text-[10px] font-mono text-gray-400 uppercase tracking-widest">
-                           Continuous Learning
+                  <div className="flex justify-center mb-7">
+                     <div className="inline-flex items-center gap-3 border border-[#d6f928]/30 bg-[#d6f928]/5 px-5 py-2 rounded-full">
+                        <span className="w-2 h-2 bg-[#d6f928] rounded-full shadow-[0_0_10px_#d6f928]" />
+                        <span className="text-[#d6f928] text-xs font-mono tracking-[0.2em] uppercase">
+                           Discovery Track
                         </span>
-
                      </div>
-
-                     <div className="w-24 h-px bg-gradient-to-l from-transparent to-[#d6f928]/30" />
-
                   </div>
-
-
-                  {/* =====================================================
-                      DELIVERY TRACK
-                  ===================================================== */}
 
                   <div className="relative">
 
-                     {/* Track label */}
+                     {/* Flow Line */}
+                     <div className="absolute top-1/2 left-[8%] right-[8%] h-px bg-[#d6f928]/15" />
 
-                     <div className="flex justify-center mb-6">
-
-                        <div className="inline-flex items-center gap-3 border border-white/15 bg-white/[0.03] px-5 py-2 rounded-full">
-
-                           <span className="w-2 h-2 bg-white/60 rounded-full" />
-
-                           <span className="text-gray-300 text-xs font-mono tracking-[0.2em] uppercase">
-                              Delivery Track
-                           </span>
-
-                           <span className="text-gray-600 text-xs font-mono">
-                              / Solution Space
-                           </span>
-
-                        </div>
-
-                     </div>
-
-
-                     <div className="grid grid-cols-4 gap-5">
-
-                        {stages.delivery.map((stage) => (
-
-                           <StageCard
-                              key={stage.id}
-                              stage={stage}
-                              active={activeStage === stage.id}
-                              onHover={() =>
-                                 setActiveStage(stage.id)
-                              }
-                           />
-
-                        ))}
-
-                     </div>
-
-                  </div>
-
-
-                  {/* =====================================================
-                      DETAIL PANEL
-                  ===================================================== */}
-
-                  <div className="mt-10 min-h-[150px]">
-
-                     <div
-                        key={activeStage}
-                        className="
-                           relative
-                           bg-[#111]
-                           border
-                           border-white/10
-                           rounded-xl
-                           p-6
-                           overflow-hidden
-                           transition-all
-                           duration-300
-                        "
-                     >
-
-                        {/* Top glow */}
-
+                     <div className="absolute top-1/2 left-[8%] right-[8%] h-px overflow-hidden">
                         <div
-                           className={`
-                              absolute
-                              top-0
-                              left-0
-                              right-0
-                              h-px
-                              ${
-                                 isDiscovery
-                                    ? 'bg-gradient-to-r from-transparent via-[#d6f928] to-transparent'
-                                    : 'bg-gradient-to-r from-transparent via-white/40 to-transparent'
-                              }
-                           `}
+                           className="w-24 h-px bg-gradient-to-r from-transparent via-[#d6f928] to-transparent"
+                           style={{
+                              animation: 'flow 2.5s linear infinite'
+                           }}
                         />
+                     </div>
 
+                     <div className="grid grid-cols-4 gap-6 relative">
 
-                        <div className="flex items-start gap-8">
+                        {discoveryStages.map((stage) => {
+                           const active = activeStage === stage.id;
 
-                           {/* Number */}
-
-                           <div className="hidden md:block">
-
-                              <div
-                                 className={`
-                                    text-4xl
-                                    font-mono
-                                    font-bold
-                                    ${
-                                       isDiscovery
-                                          ? 'text-[#d6f928]/30'
-                                          : 'text-white/20'
-                                    }
-                                 `}
+                           return (
+                              <button
+                                 key={stage.id}
+                                 type="button"
+                                 onMouseEnter={() => setActiveStage(stage.id)}
+                                 onFocus={() => setActiveStage(stage.id)}
+                                 className="relative text-left focus:outline-none group"
                               >
-                                 {activeData.number}
-                              </div>
-
-                           </div>
-
-
-                           {/* Main information */}
-
-                           <div className="flex-1">
-
-                              <div className="flex items-center gap-3">
-
-                                 <span
+                                 <div
                                     className={`
-                                       text-[10px]
-                                       font-mono
-                                       uppercase
-                                       tracking-widest
+                                       h-[150px]
+                                       rounded-xl
+                                       border
+                                       bg-[#111]/95
+                                       backdrop-blur-md
+                                       p-5
+                                       transition-all
+                                       duration-300
                                        ${
-                                          isDiscovery
-                                             ? 'text-[#d6f928]'
-                                             : 'text-gray-400'
+                                          active
+                                             ? 'border-[#d6f928]/60 -translate-y-2 shadow-[0_0_35px_rgba(214,249,40,0.10)]'
+                                             : 'border-white/10 group-hover:border-[#d6f928]/30'
                                        }
                                     `}
                                  >
-                                    {isDiscovery
-                                       ? 'Discovery'
-                                       : 'Delivery'}
-                                 </span>
+                                    <div className="flex justify-between items-start">
 
-                                 <span className="text-white/10">
-                                    /
-                                 </span>
+                                       <span className="text-[#d6f928] text-[10px] font-mono">
+                                          {stage.number}
+                                       </span>
 
-                                 <span className="text-gray-500 text-[10px] font-mono">
-                                    {activeData.label}
-                                 </span>
+                                       <span
+                                          className={`
+                                             w-2 h-2 rounded-full
+                                             ${
+                                                active
+                                                   ? 'bg-[#d6f928] shadow-[0_0_10px_#d6f928]'
+                                                   : 'bg-white/20'
+                                             }
+                                          `}
+                                       />
 
-                              </div>
+                                    </div>
 
-                              <h3 className="text-xl font-bold mt-2">
-                                 {activeData.title}
-                              </h3>
+                                    <div className="mt-7">
 
-                              <p className="text-gray-400 text-sm mt-2 max-w-xl leading-relaxed">
-                                 {activeData.desc}
-                              </p>
+                                       <div className="text-gray-500 text-[9px] font-mono uppercase tracking-widest">
+                                          Discovery
+                                       </div>
+
+                                       <h3 className="text-base font-bold mt-1">
+                                          {stage.label}
+                                       </h3>
+
+                                    </div>
+                                 </div>
+                              </button>
+                           );
+                        })}
+
+                     </div>
+                  </div>
+               </div>
+
+               {/* Handoff */}
+               <div className="flex items-center justify-center gap-4 py-8">
+
+                  <div className="w-32 h-px bg-gradient-to-r from-transparent to-[#d6f928]/30" />
+
+                  <div className="flex items-center gap-2 px-4 py-1.5 rounded-full border border-white/10 bg-white/[0.02]">
+
+                     <span className="w-1.5 h-1.5 bg-[#d6f928] rounded-full" />
+
+                     <span className="text-[9px] font-mono text-gray-500 uppercase tracking-[0.2em]">
+                        Validated → Ready to Build
+                     </span>
+
+                  </div>
+
+                  <div className="w-32 h-px bg-gradient-to-l from-transparent to-[#d6f928]/30" />
+
+               </div>
+
+               {/* Delivery Track */}
+               <div className="relative">
+
+                  <div className="flex justify-center mb-7">
+                     <div className="inline-flex items-center gap-3 border border-white/15 bg-white/[0.03] px-5 py-2 rounded-full">
+                        <span className="w-2 h-2 bg-white/50 rounded-full" />
+
+                        <span className="text-gray-300 text-xs font-mono tracking-[0.2em] uppercase">
+                           Delivery Track
+                        </span>
+                     </div>
+                  </div>
+
+                  <div className="relative">
+
+                     {/* Flow Line */}
+                     <div className="absolute top-1/2 left-[8%] right-[8%] h-px bg-white/10" />
+
+                     <div className="grid grid-cols-4 gap-6 relative">
+
+                        {deliveryStages.map((stage) => {
+                           const active = activeStage === stage.id;
+
+                           return (
+                              <button
+                                 key={stage.id}
+                                 type="button"
+                                 onMouseEnter={() => setActiveStage(stage.id)}
+                                 onFocus={() => setActiveStage(stage.id)}
+                                 className="relative text-left focus:outline-none group"
+                              >
+                                 <div
+                                    className={`
+                                       h-[150px]
+                                       rounded-xl
+                                       border
+                                       bg-[#111]/95
+                                       backdrop-blur-md
+                                       p-5
+                                       transition-all
+                                       duration-300
+                                       ${
+                                          active
+                                             ? 'border-white/30 -translate-y-2 shadow-[0_0_30px_rgba(255,255,255,0.05)]'
+                                             : 'border-white/10 group-hover:border-white/20'
+                                       }
+                                    `}
+                                 >
+                                    <div className="flex justify-between items-start">
+
+                                       <span className="text-gray-500 text-[10px] font-mono">
+                                          {stage.number}
+                                       </span>
+
+                                       <span
+                                          className={`
+                                             w-2 h-2 rounded-full
+                                             ${
+                                                active
+                                                   ? 'bg-white shadow-[0_0_10px_white]'
+                                                   : 'bg-white/20'
+                                             }
+                                          `}
+                                       />
+
+                                    </div>
+
+                                    <div className="mt-7">
+
+                                       <div className="text-gray-500 text-[9px] font-mono uppercase tracking-widest">
+                                          Delivery
+                                       </div>
+
+                                       <h3 className="text-base font-bold mt-1">
+                                          {stage.label}
+                                       </h3>
+
+                                    </div>
+                                 </div>
+                              </button>
+                           );
+                        })}
+
+                     </div>
+                  </div>
+               </div>
+
+               {/* Feedback Loop */}
+               <div className="flex justify-center mt-7">
+
+                  <div className="flex items-center gap-3">
+
+                     <div className="w-20 h-px bg-gradient-to-r from-transparent to-[#d6f928]/30" />
+
+                     <div className="text-[#d6f928] text-[9px] font-mono uppercase tracking-widest">
+                        Release → Measure → Learn → Discover
+                     </div>
+
+                     <div className="w-20 h-px bg-gradient-to-l from-transparent to-[#d6f928]/30" />
+
+                  </div>
+
+               </div>
+
+               {/* Detail Panel */}
+               <div className="mt-8 min-h-[150px]">
+
+                  <div
+                     key={activeStage}
+                     className="relative bg-[#111] border border-white/10 rounded-xl p-6 overflow-hidden"
+                  >
+
+                     <div
+                        className={`
+                           absolute top-0 left-0 right-0 h-px
+                           ${
+                              isDiscovery
+                                 ? 'bg-gradient-to-r from-transparent via-[#d6f928] to-transparent'
+                                 : 'bg-gradient-to-r from-transparent via-white/40 to-transparent'
+                           }
+                        `}
+                     />
+
+                     <div className="flex items-start gap-8">
+
+                        <div className="hidden md:block">
+                           <span
+                              className={`
+                                 text-4xl font-mono font-bold
+                                 ${
+                                    isDiscovery
+                                       ? 'text-[#d6f928]/20'
+                                       : 'text-white/15'
+                                 }
+                              `}
+                           >
+                              {activeData.number}
+                           </span>
+                        </div>
+
+                        <div className="flex-1">
+
+                           <div className="flex items-center gap-3">
+
+                              <span
+                                 className={`
+                                    text-[10px] font-mono uppercase tracking-widest
+                                    ${
+                                       isDiscovery
+                                          ? 'text-[#d6f928]'
+                                          : 'text-gray-400'
+                                    }
+                                 `}
+                              >
+                                 {isDiscovery
+                                    ? 'Discovery'
+                                    : 'Delivery'}
+                              </span>
+
+                              <span className="text-white/10">
+                                 /
+                              </span>
+
+                              <span className="text-gray-500 text-[10px] font-mono">
+                                 {activeData.label}
+                              </span>
 
                            </div>
 
+                           <h3 className="text-xl font-bold mt-2">
+                              {activeData.title}
+                           </h3>
 
-                           {/* Detail tags */}
+                           <p className="text-gray-400 text-sm mt-2 max-w-xl leading-relaxed">
+                              {activeData.desc}
+                           </p>
 
-                           <div className="hidden md:flex flex-wrap gap-2 max-w-[420px] justify-end">
+                        </div>
 
-                              {activeData.details.map(
-                                 (detail, index) => (
+                        <div className="hidden md:flex flex-wrap gap-2 max-w-[430px] justify-end">
 
-                                    <span
-                                       key={index}
-                                       className="
-                                          text-xs
-                                          bg-white/[0.03]
-                                          border
-                                          border-white/10
-                                          rounded-md
-                                          px-3
-                                          py-1.5
-                                          text-gray-300
-                                       "
-                                    >
-                                       {detail}
-                                    </span>
-
-                                 )
-                              )}
-
-                           </div>
+                           {activeData.details.map((detail) => (
+                              <span
+                                 key={detail}
+                                 className="text-xs bg-white/[0.03] border border-white/10 rounded-md px-3 py-1.5 text-gray-300"
+                              >
+                                 {detail}
+                              </span>
+                           ))}
 
                         </div>
 
                      </div>
-
                   </div>
 
+               </div>
 
-                  {/* Hover hint */}
+               <div className="text-center mt-5">
 
-                  <div className="flex justify-center mt-5">
-
-                     <span className="text-[10px] font-mono text-gray-600 uppercase tracking-[0.2em]">
-                        Hover over any step to explore
-                     </span>
-
-                  </div>
+                  <span className="text-[9px] font-mono text-gray-600 uppercase tracking-[0.2em]">
+                     Hover over any step to explore
+                  </span>
 
                </div>
 
             </div>
 
 
-            {/* =========================================================
-                MOBILE
-            ========================================================= */}
-
+            {/* Mobile */}
             <div className="lg:hidden">
 
-               <div className="space-y-14">
+               <MobileTrack
+                  title="Discovery Track"
+                  stages={discoveryStages}
+                  activeStage={activeStage}
+                  setActiveStage={setActiveStage}
+                  discovery
+               />
 
+               <div className="flex items-center gap-3 my-10">
 
-                  {/* Discovery */}
+                  <div className="flex-1 h-px bg-white/10" />
 
-                  <MobileTrack
-                     title="Discovery Track"
-                     subtitle="Problem Space"
-                     stages={stages.discovery}
-                     activeStage={activeStage}
-                     setActiveStage={setActiveStage}
-                     discovery
-                  />
+                  <span className="text-[#d6f928] text-[9px] font-mono uppercase tracking-widest">
+                     Validated → Build
+                  </span>
 
-
-                  {/* Divider */}
-
-                  <div className="flex items-center gap-4">
-
-                     <div className="flex-1 h-px bg-white/10" />
-
-                     <span className="text-[#d6f928] text-[9px] font-mono uppercase tracking-widest">
-                        Continuous Learning
-                     </span>
-
-                     <div className="flex-1 h-px bg-white/10" />
-
-                  </div>
-
-
-                  {/* Delivery */}
-
-                  <MobileTrack
-                     title="Delivery Track"
-                     subtitle="Solution Space"
-                     stages={stages.delivery}
-                     activeStage={activeStage}
-                     setActiveStage={setActiveStage}
-                  />
+                  <div className="flex-1 h-px bg-white/10" />
 
                </div>
 
-
-               {/* Mobile detail */}
-
-               <div className="mt-12">
-
-                  <div className="bg-[#111] border border-white/10 rounded-xl p-5">
-
-                     <div className="text-[#d6f928] text-[10px] font-mono uppercase tracking-widest">
-                        {activeData.label}
-                     </div>
-
-                     <h3 className="text-xl font-bold mt-2">
-                        {activeData.title}
-                     </h3>
-
-                     <p className="text-gray-400 text-sm mt-2 leading-relaxed">
-                        {activeData.desc}
-                     </p>
-
-                     <div className="flex flex-wrap gap-2 mt-5">
-
-                        {activeData.details.map(
-                           (detail, index) => (
-
-                              <span
-                                 key={index}
-                                 className="text-[10px] border border-white/10 bg-white/5 px-3 py-1.5 rounded-full text-gray-300"
-                              >
-                                 {detail}
-                              </span>
-
-                           )
-                        )}
-
-                     </div>
-
-                  </div>
-
-               </div>
+               <MobileTrack
+                  title="Delivery Track"
+                  stages={deliveryStages}
+                  activeStage={activeStage}
+                  setActiveStage={setActiveStage}
+               />
 
             </div>
 
-
-            {/* =========================================================
-                FOOTER
-            ========================================================= */}
-
-            <div className="text-center mt-16">
+            {/* Footer */}
+            <div className="text-center mt-14">
 
                <div className="inline-flex items-center gap-3">
 
@@ -741,115 +505,18 @@ const DoubleDiamond = () => {
 
          </div>
 
-      </section>
-   );
-};
-
-
-/* =============================================================
-   DESKTOP STAGE CARD
-============================================================= */
-
-const StageCard = ({
-   stage,
-   active,
-   discovery = false,
-   onHover
-}: {
-   stage: any;
-   active: boolean;
-   discovery?: boolean;
-   onHover: () => void;
-}) => {
-
-   return (
-      <button
-         type="button"
-         onMouseEnter={onHover}
-         onFocus={onHover}
-         className="
-            relative
-            w-full
-            h-[145px]
-            text-left
-            group
-            focus:outline-none
-         "
-      >
-
-         <div
-            className={`
-               absolute
-               inset-0
-               rounded-xl
-               border
-               bg-[#111]/90
-               backdrop-blur-md
-               transition-all
-               duration-300
-               ${
-                  active
-                     ? discovery
-                        ? 'border-[#d6f928]/60 shadow-[0_0_35px_rgba(214,249,40,0.10)] -translate-y-2'
-                        : 'border-white/30 shadow-[0_0_30px_rgba(255,255,255,0.05)] -translate-y-2'
-                     : 'border-white/10 group-hover:border-white/20'
+         <style>{`
+            @keyframes flow {
+               from {
+                  transform: translateX(-100px);
                }
-            `}
-         />
+               to {
+                  transform: translateX(1100px);
+               }
+            }
+         `}</style>
 
-
-         <div className="relative p-5 h-full flex flex-col justify-between">
-
-            <div className="flex items-center justify-between">
-
-               <span
-                  className={`
-                     text-[10px]
-                     font-mono
-                     ${
-                        discovery
-                           ? 'text-[#d6f928]'
-                           : 'text-gray-500'
-                     }
-                  `}
-               >
-                  {stage.number}
-               </span>
-
-               <span
-                  className={`
-                     text-lg
-                     font-mono
-                     ${
-                        active && discovery
-                           ? 'text-[#d6f928]'
-                           : 'text-gray-400'
-                     }
-                  `}
-               >
-                  {stage.icon}
-               </span>
-
-            </div>
-
-
-            <div>
-
-               <div className="text-gray-500 text-[9px] font-mono uppercase tracking-widest">
-                  {discovery
-                     ? 'Discovery'
-                     : 'Delivery'}
-               </div>
-
-               <h3 className="text-base font-bold mt-1">
-                  {stage.label}
-               </h3>
-
-            </div>
-
-         </div>
-
-      </button>
+      </section>
    );
 };
 
@@ -860,14 +527,12 @@ const StageCard = ({
 
 const MobileTrack = ({
    title,
-   subtitle,
    stages,
    activeStage,
    setActiveStage,
    discovery = false
 }: {
    title: string;
-   subtitle: string;
    stages: any[];
    activeStage: string;
    setActiveStage: (id: string) => void;
@@ -877,19 +542,11 @@ const MobileTrack = ({
    return (
       <div>
 
-         {/* Track header */}
-
          <div className="flex items-center gap-3 mb-7">
 
             <div
                className={`
-                  w-9
-                  h-9
-                  rounded-lg
-                  flex
-                  items-center
-                  justify-center
-                  border
+                  w-9 h-9 rounded-lg border flex items-center justify-center
                   ${
                      discovery
                         ? 'border-[#d6f928]/30 bg-[#d6f928]/5'
@@ -897,12 +554,9 @@ const MobileTrack = ({
                   }
                `}
             >
-
                <span
                   className={`
-                     w-2
-                     h-2
-                     rounded-full
+                     w-2 h-2 rounded-full
                      ${
                         discovery
                            ? 'bg-[#d6f928] shadow-[0_0_10px_#d6f928]'
@@ -910,17 +564,13 @@ const MobileTrack = ({
                      }
                   `}
                />
-
             </div>
 
             <div>
 
                <div
                   className={`
-                     text-[9px]
-                     font-mono
-                     uppercase
-                     tracking-widest
+                     text-[9px] font-mono uppercase tracking-widest
                      ${
                         discovery
                            ? 'text-[#d6f928]'
@@ -928,7 +578,7 @@ const MobileTrack = ({
                      }
                   `}
                >
-                  {subtitle}
+                  {discovery ? 'Problem Space' : 'Solution Space'}
                </div>
 
                <h3 className="text-lg font-bold">
@@ -940,54 +590,36 @@ const MobileTrack = ({
          </div>
 
 
-         {/* Timeline */}
-
          <div className="relative">
 
             <div
                className={`
-                  absolute
-                  left-[6px]
-                  top-0
-                  bottom-0
-                  w-px
+                  absolute left-[6px] top-0 bottom-0 w-px opacity-30
                   ${
                      discovery
                         ? 'bg-gradient-to-b from-[#d6f928] to-transparent'
-                        : 'bg-gradient-to-b from-white/30 to-transparent'
+                        : 'bg-gradient-to-b from-white/40 to-transparent'
                   }
-                  opacity-30
                `}
             />
 
-
-            <div className="space-y-6">
+            <div className="space-y-5">
 
                {stages.map((stage) => {
 
                   const active = activeStage === stage.id;
 
                   return (
-
                      <button
-                        type="button"
                         key={stage.id}
-                        onClick={() =>
-                           setActiveStage(stage.id)
-                        }
+                        type="button"
+                        onClick={() => setActiveStage(stage.id)}
                         className="relative pl-9 w-full text-left"
                      >
 
-                        {/* Node */}
-
                         <div
                            className={`
-                              absolute
-                              left-0
-                              top-5
-                              w-3
-                              h-3
-                              rounded-full
+                              absolute left-0 top-5 w-3 h-3 rounded-full
                               ${
                                  active
                                     ? discovery
@@ -998,16 +630,9 @@ const MobileTrack = ({
                            `}
                         />
 
-
-                        {/* Card */}
-
                         <div
                            className={`
-                              border
-                              rounded-xl
-                              p-4
-                              transition-all
-                              duration-300
+                              border rounded-xl p-4 transition-all duration-300
                               ${
                                  active
                                     ? discovery
@@ -1022,8 +647,7 @@ const MobileTrack = ({
 
                               <span
                                  className={`
-                                    text-[10px]
-                                    font-mono
+                                    text-[10px] font-mono
                                     ${
                                        discovery
                                           ? 'text-[#d6f928]'
@@ -1034,8 +658,8 @@ const MobileTrack = ({
                                  {stage.number} / {stage.label}
                               </span>
 
-                              <span className="text-gray-500 font-mono">
-                                 {stage.icon}
+                              <span className="text-gray-500 text-xs">
+                                 {active ? '−' : '+'}
                               </span>
 
                            </div>
@@ -1044,37 +668,31 @@ const MobileTrack = ({
                               {stage.title}
                            </h4>
 
-                           <p className="text-gray-400 text-xs mt-2 leading-relaxed">
-                              {stage.desc}
-                           </p>
-
                            {active && (
+                              <>
+                                 <p className="text-gray-400 text-xs mt-2 leading-relaxed">
+                                    {stage.desc}
+                                 </p>
 
-                              <div className="flex flex-wrap gap-2 mt-4">
+                                 <div className="flex flex-wrap gap-2 mt-4">
 
-                                 {stage.details.map(
-                                    (detail: string, index: number) => (
-
+                                    {stage.details.map((detail) => (
                                        <span
-                                          key={index}
+                                          key={detail}
                                           className="text-[10px] border border-white/10 bg-white/5 px-2.5 py-1 rounded-full text-gray-400"
                                        >
                                           {detail}
                                        </span>
+                                    ))}
 
-                                    )
-                                 )}
-
-                              </div>
-
+                                 </div>
+                              </>
                            )}
 
                         </div>
 
                      </button>
-
                   );
-
                })}
 
             </div>
@@ -1085,5 +703,4 @@ const MobileTrack = ({
    );
 };
 
-
-export default DualTrackAgile;
+export default DoubleDiamond;
