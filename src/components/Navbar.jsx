@@ -63,7 +63,7 @@ const Navbar = () => {
             </div>
             <div className="flex flex-col">
               <span className="text-white font-medium text-sm leading-none tracking-wide">Suman Sourabh</span>
-              <span className={`text-[10px] font-mono mt-0.5 transition-colors ${location.pathname === "/" ? "text-[#d6f928]" : "text-gray-500 group-hover:text-[#d6f928]"}`}>Product Designer · AI-Native · CS/ML</span>
+              <span className={`text-[10px] font-mono mt-0.5 transition-colors ${location.pathname === "/" ? "text-[#d6f928]" : "text-gray-500 group-hover:text-[#d6f928]"}`}>Product · AI-Native · CS/ML</span>
             </div>
           </Link>
 
