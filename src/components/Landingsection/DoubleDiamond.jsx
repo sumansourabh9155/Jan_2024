@@ -1,3 +1,5 @@
+import { useState } from 'react';
+
 const DoubleDiamond = () => {
    const [activeStage, setActiveStage] = useState('research');
 
@@ -8,7 +10,12 @@ const DoubleDiamond = () => {
          label: 'Research',
          title: 'Understand',
          desc: 'Understand users, behaviours, needs, and the problem space before designing.',
-         details: ['User Interviews', 'Analytics', 'Session Recordings', 'Journey Mapping']
+         details: [
+            'User Interviews',
+            'Analytics',
+            'Session Recordings',
+            'Journey Mapping'
+         ]
       },
       {
          id: 'identify',
@@ -16,7 +23,12 @@ const DoubleDiamond = () => {
          label: 'Identify',
          title: 'Find the Opportunity',
          desc: 'Turn research into clear opportunities by identifying recurring pain points and patterns.',
-         details: ['Pain Points', 'Opportunity Mapping', 'Jobs-to-be-Done', 'User Needs']
+         details: [
+            'Pain Points',
+            'Opportunity Mapping',
+            'Jobs-to-be-Done',
+            'User Needs'
+         ]
       },
       {
          id: 'define',
@@ -24,7 +36,12 @@ const DoubleDiamond = () => {
          label: 'Define',
          title: 'Frame the Problem',
          desc: 'Define the right problem, align stakeholders, and establish measurable outcomes.',
-         details: ['Problem Statement', 'Hypotheses', 'Success Metrics', 'Prioritization']
+         details: [
+            'Problem Statement',
+            'Hypotheses',
+            'Success Metrics',
+            'Prioritization'
+         ]
       },
       {
          id: 'validate',
@@ -32,7 +49,12 @@ const DoubleDiamond = () => {
          label: 'Validate',
          title: 'Test the Direction',
          desc: 'Validate the riskiest assumptions before investing heavily in design and development.',
-         details: ['Prototypes', 'Usability Testing', 'Concept Testing', 'Feasibility']
+         details: [
+            'Prototypes',
+            'Usability Testing',
+            'Concept Testing',
+            'Feasibility'
+         ]
       }
    ];
 
@@ -43,7 +65,12 @@ const DoubleDiamond = () => {
          label: 'Design',
          title: 'Shape the Solution',
          desc: 'Turn validated opportunities into intuitive flows, interfaces, and experiences.',
-         details: ['User Flows', 'Wireframes', 'UI Design', 'Prototyping']
+         details: [
+            'User Flows',
+            'Wireframes',
+            'UI Design',
+            'Prototyping'
+         ]
       },
       {
          id: 'build',
@@ -51,7 +78,12 @@ const DoubleDiamond = () => {
          label: 'Build',
          title: 'Build the Product',
          desc: 'Work closely with engineering to create scalable and technically sound experiences.',
-         details: ['Handoff', 'React / Tailwind', 'Components', 'Design QA']
+         details: [
+            'Handoff',
+            'React / Tailwind',
+            'Components',
+            'Design QA'
+         ]
       },
       {
          id: 'test',
@@ -59,7 +91,12 @@ const DoubleDiamond = () => {
          label: 'Test',
          title: 'Verify the Experience',
          desc: 'Make sure the product works across usability, functionality, accessibility, and design.',
-         details: ['QA', 'Usability', 'Accessibility', 'Regression']
+         details: [
+            'QA',
+            'Usability',
+            'Accessibility',
+            'Regression'
+         ]
       },
       {
          id: 'release',
@@ -67,11 +104,19 @@ const DoubleDiamond = () => {
          label: 'Release',
          title: 'Ship & Learn',
          desc: 'Release, measure real behaviour, and use the results to inform the next cycle.',
-         details: ['Release', 'Analytics', 'Adoption', 'Outcome Tracking']
+         details: [
+            'Release',
+            'Analytics',
+            'Adoption',
+            'Outcome Tracking'
+         ]
       }
    ];
 
-   const allStages = [...discoveryStages, ...deliveryStages];
+   const allStages = [
+      ...discoveryStages,
+      ...deliveryStages
+   ];
 
    const activeData =
       allStages.find((stage) => stage.id === activeStage) ||
@@ -86,7 +131,11 @@ const DoubleDiamond = () => {
          aria-labelledby="methodology-heading"
          className="w-full bg-[#050505] text-white py-24 px-4 relative overflow-hidden font-sans border-t border-white/10"
       >
-         {/* Background Grid */}
+
+         {/* =========================================================
+             BACKGROUND
+         ========================================================= */}
+
          <div
             className="absolute inset-0 opacity-[0.03] pointer-events-none"
             style={{
@@ -98,72 +147,109 @@ const DoubleDiamond = () => {
             }}
          />
 
-         {/* Ambient Glow */}
          <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[700px] h-[700px] bg-blue-500/10 blur-[150px] rounded-full pointer-events-none" />
 
          <div className="absolute top-[25%] left-[10%] w-[300px] h-[300px] bg-[#d6f928]/5 blur-[120px] rounded-full pointer-events-none" />
 
+
          <div className="max-w-7xl mx-auto relative z-10">
 
-            {/* Header */}
+
+            {/* =========================================================
+                HEADER
+            ========================================================= */}
+
             <div className="text-center mb-16">
 
                <div className="inline-flex items-center gap-2 text-xs font-mono text-[#d6f928] tracking-widest uppercase mb-4">
+
                   <span className="w-1.5 h-1.5 bg-[#d6f928] rounded-full animate-pulse" />
+
                   [ How I Work ]
+
                </div>
+
 
                <h2
                   id="methodology-heading"
                   className="font-heading text-4xl md:text-5xl font-bold tracking-tight"
                >
                   Dual-Track Agile{' '}
+
                   <span className="text-transparent bg-clip-text bg-gradient-to-r from-white to-gray-500">
                      Workflow
                   </span>
+
                </h2>
+
 
                <p className="text-gray-400 mt-4 max-w-2xl mx-auto leading-relaxed">
                   Discovery and Delivery move together — continuously reducing
                   uncertainty while creating measurable product value.
                </p>
+
             </div>
 
-            {/* Desktop */}
+
+            {/* =========================================================
+                DESKTOP
+            ========================================================= */}
+
             <div className="hidden lg:block max-w-6xl mx-auto">
 
-               {/* Discovery Track */}
+
+               {/* =====================================================
+                   DISCOVERY TRACK
+               ===================================================== */}
+
                <div className="relative">
 
                   <div className="flex justify-center mb-7">
+
                      <div className="inline-flex items-center gap-3 border border-[#d6f928]/30 bg-[#d6f928]/5 px-5 py-2 rounded-full">
+
                         <span className="w-2 h-2 bg-[#d6f928] rounded-full shadow-[0_0_10px_#d6f928]" />
+
                         <span className="text-[#d6f928] text-xs font-mono tracking-[0.2em] uppercase">
                            Discovery Track
                         </span>
+
                      </div>
+
                   </div>
+
 
                   <div className="relative">
 
-                     {/* Flow Line */}
+                     {/* Main horizontal line */}
+
                      <div className="absolute top-1/2 left-[8%] right-[8%] h-px bg-[#d6f928]/15" />
 
+
+                     {/* Animated flow */}
+
                      <div className="absolute top-1/2 left-[8%] right-[8%] h-px overflow-hidden">
+
                         <div
                            className="w-24 h-px bg-gradient-to-r from-transparent via-[#d6f928] to-transparent"
                            style={{
-                              animation: 'flow 2.5s linear infinite'
+                              animation: 'doubleDiamondFlow 2.5s linear infinite'
                            }}
                         />
+
                      </div>
+
+
+                     {/* Cards */}
 
                      <div className="grid grid-cols-4 gap-6 relative">
 
                         {discoveryStages.map((stage) => {
+
                            const active = activeStage === stage.id;
 
                            return (
+
                               <button
                                  key={stage.id}
                                  type="button"
@@ -171,6 +257,7 @@ const DoubleDiamond = () => {
                                  onFocus={() => setActiveStage(stage.id)}
                                  className="relative text-left focus:outline-none group"
                               >
+
                                  <div
                                     className={`
                                        h-[150px]
@@ -188,11 +275,13 @@ const DoubleDiamond = () => {
                                        }
                                     `}
                                  >
+
                                     <div className="flex justify-between items-start">
 
                                        <span className="text-[#d6f928] text-[10px] font-mono">
                                           {stage.number}
                                        </span>
+
 
                                        <span
                                           className={`
@@ -207,30 +296,43 @@ const DoubleDiamond = () => {
 
                                     </div>
 
+
                                     <div className="mt-7">
 
                                        <div className="text-gray-500 text-[9px] font-mono uppercase tracking-widest">
                                           Discovery
                                        </div>
 
+
                                        <h3 className="text-base font-bold mt-1">
                                           {stage.label}
                                        </h3>
 
                                     </div>
+
                                  </div>
+
                               </button>
+
                            );
+
                         })}
 
                      </div>
+
                   </div>
+
                </div>
 
-               {/* Handoff */}
+
+               {/* =====================================================
+                   HANDOFF
+               ===================================================== */}
+
                <div className="flex items-center justify-center gap-4 py-8">
 
                   <div className="w-32 h-px bg-gradient-to-r from-transparent to-[#d6f928]/30" />
+
 
                   <div className="flex items-center gap-2 px-4 py-1.5 rounded-full border border-white/10 bg-white/[0.02]">
 
@@ -242,34 +344,50 @@ const DoubleDiamond = () => {
 
                   </div>
 
+
                   <div className="w-32 h-px bg-gradient-to-l from-transparent to-[#d6f928]/30" />
 
                </div>
 
-               {/* Delivery Track */}
+
+               {/* =====================================================
+                   DELIVERY TRACK
+               ===================================================== */}
+
                <div className="relative">
 
                   <div className="flex justify-center mb-7">
+
                      <div className="inline-flex items-center gap-3 border border-white/15 bg-white/[0.03] px-5 py-2 rounded-full">
+
                         <span className="w-2 h-2 bg-white/50 rounded-full" />
 
                         <span className="text-gray-300 text-xs font-mono tracking-[0.2em] uppercase">
                            Delivery Track
                         </span>
+
                      </div>
+
                   </div>
+
 
                   <div className="relative">
 
-                     {/* Flow Line */}
+                     {/* Main horizontal line */}
+
                      <div className="absolute top-1/2 left-[8%] right-[8%] h-px bg-white/10" />
+
+
+                     {/* Cards */}
 
                      <div className="grid grid-cols-4 gap-6 relative">
 
                         {deliveryStages.map((stage) => {
+
                            const active = activeStage === stage.id;
 
                            return (
+
                               <button
                                  key={stage.id}
                                  type="button"
@@ -277,6 +395,7 @@ const DoubleDiamond = () => {
                                  onFocus={() => setActiveStage(stage.id)}
                                  className="relative text-left focus:outline-none group"
                               >
+
                                  <div
                                     className={`
                                        h-[150px]
@@ -294,11 +413,13 @@ const DoubleDiamond = () => {
                                        }
                                     `}
                                  >
+
                                     <div className="flex justify-between items-start">
 
                                        <span className="text-gray-500 text-[10px] font-mono">
                                           {stage.number}
                                        </span>
+
 
                                        <span
                                           className={`
@@ -313,27 +434,39 @@ const DoubleDiamond = () => {
 
                                     </div>
 
+
                                     <div className="mt-7">
 
                                        <div className="text-gray-500 text-[9px] font-mono uppercase tracking-widest">
                                           Delivery
                                        </div>
 
+
                                        <h3 className="text-base font-bold mt-1">
                                           {stage.label}
                                        </h3>
 
                                     </div>
+
                                  </div>
+
                               </button>
+
                            );
+
                         })}
 
                      </div>
+
                   </div>
+
                </div>
 
-               {/* Feedback Loop */}
+
+               {/* =====================================================
+                   FEEDBACK LOOP
+               ===================================================== */}
+
                <div className="flex justify-center mt-7">
 
                   <div className="flex items-center gap-3">
@@ -350,13 +483,19 @@ const DoubleDiamond = () => {
 
                </div>
 
-               {/* Detail Panel */}
+
+               {/* =====================================================
+                   DETAIL PANEL
+               ===================================================== */}
+
                <div className="mt-8 min-h-[150px]">
 
                   <div
                      key={activeStage}
                      className="relative bg-[#111] border border-white/10 rounded-xl p-6 overflow-hidden"
                   >
+
+                     {/* Top glow */}
 
                      <div
                         className={`
@@ -369,9 +508,14 @@ const DoubleDiamond = () => {
                         `}
                      />
 
+
                      <div className="flex items-start gap-8">
 
+
+                        {/* Number */}
+
                         <div className="hidden md:block">
+
                            <span
                               className={`
                                  text-4xl font-mono font-bold
@@ -384,7 +528,11 @@ const DoubleDiamond = () => {
                            >
                               {activeData.number}
                            </span>
+
                         </div>
+
+
+                        {/* Text */}
 
                         <div className="flex-1">
 
@@ -405,9 +553,11 @@ const DoubleDiamond = () => {
                                     : 'Delivery'}
                               </span>
 
+
                               <span className="text-white/10">
                                  /
                               </span>
+
 
                               <span className="text-gray-500 text-[10px] font-mono">
                                  {activeData.label}
@@ -415,9 +565,11 @@ const DoubleDiamond = () => {
 
                            </div>
 
+
                            <h3 className="text-xl font-bold mt-2">
                               {activeData.title}
                            </h3>
+
 
                            <p className="text-gray-400 text-sm mt-2 max-w-xl leading-relaxed">
                               {activeData.desc}
@@ -425,23 +577,32 @@ const DoubleDiamond = () => {
 
                         </div>
 
+
+                        {/* Detail Tags */}
+
                         <div className="hidden md:flex flex-wrap gap-2 max-w-[430px] justify-end">
 
                            {activeData.details.map((detail) => (
+
                               <span
                                  key={detail}
                                  className="text-xs bg-white/[0.03] border border-white/10 rounded-md px-3 py-1.5 text-gray-300"
                               >
                                  {detail}
                               </span>
+
                            ))}
 
                         </div>
 
                      </div>
+
                   </div>
 
                </div>
+
+
+               {/* Hover hint */}
 
                <div className="text-center mt-5">
 
@@ -454,7 +615,10 @@ const DoubleDiamond = () => {
             </div>
 
 
-            {/* Mobile */}
+            {/* =========================================================
+                MOBILE
+            ========================================================= */}
+
             <div className="lg:hidden">
 
                <MobileTrack
@@ -464,6 +628,9 @@ const DoubleDiamond = () => {
                   setActiveStage={setActiveStage}
                   discovery
                />
+
+
+               {/* Mobile Connector */}
 
                <div className="flex items-center gap-3 my-10">
 
@@ -477,6 +644,7 @@ const DoubleDiamond = () => {
 
                </div>
 
+
                <MobileTrack
                   title="Delivery Track"
                   stages={deliveryStages}
@@ -486,7 +654,11 @@ const DoubleDiamond = () => {
 
             </div>
 
-            {/* Footer */}
+
+            {/* =========================================================
+                FOOTER
+            ========================================================= */}
+
             <div className="text-center mt-14">
 
                <div className="inline-flex items-center gap-3">
@@ -505,11 +677,17 @@ const DoubleDiamond = () => {
 
          </div>
 
+
+         {/* =========================================================
+             ANIMATION
+         ========================================================= */}
+
          <style>{`
-            @keyframes flow {
+            @keyframes doubleDiamondFlow {
                from {
                   transform: translateX(-100px);
                }
+
                to {
                   transform: translateX(1100px);
                }
@@ -531,16 +709,13 @@ const MobileTrack = ({
    activeStage,
    setActiveStage,
    discovery = false
-}: {
-   title: string;
-   stages: any[];
-   activeStage: string;
-   setActiveStage: (id: string) => void;
-   discovery?: boolean;
 }) => {
 
    return (
       <div>
+
+
+         {/* Track Header */}
 
          <div className="flex items-center gap-3 mb-7">
 
@@ -554,6 +729,7 @@ const MobileTrack = ({
                   }
                `}
             >
+
                <span
                   className={`
                      w-2 h-2 rounded-full
@@ -564,7 +740,9 @@ const MobileTrack = ({
                      }
                   `}
                />
+
             </div>
+
 
             <div>
 
@@ -578,8 +756,11 @@ const MobileTrack = ({
                      }
                   `}
                >
-                  {discovery ? 'Problem Space' : 'Solution Space'}
+                  {discovery
+                     ? 'Problem Space'
+                     : 'Solution Space'}
                </div>
+
 
                <h3 className="text-lg font-bold">
                   {title}
@@ -590,7 +771,12 @@ const MobileTrack = ({
          </div>
 
 
+         {/* Timeline */}
+
          <div className="relative">
+
+
+            {/* Timeline Line */}
 
             <div
                className={`
@@ -603,6 +789,7 @@ const MobileTrack = ({
                `}
             />
 
+
             <div className="space-y-5">
 
                {stages.map((stage) => {
@@ -610,12 +797,16 @@ const MobileTrack = ({
                   const active = activeStage === stage.id;
 
                   return (
+
                      <button
                         key={stage.id}
                         type="button"
                         onClick={() => setActiveStage(stage.id)}
                         className="relative pl-9 w-full text-left"
                      >
+
+
+                        {/* Timeline Node */}
 
                         <div
                            className={`
@@ -630,6 +821,9 @@ const MobileTrack = ({
                            `}
                         />
 
+
+                        {/* Card */}
+
                         <div
                            className={`
                               border rounded-xl p-4 transition-all duration-300
@@ -643,7 +837,9 @@ const MobileTrack = ({
                            `}
                         >
 
+
                            <div className="flex items-center justify-between">
+
 
                               <span
                                  className={`
@@ -658,41 +854,53 @@ const MobileTrack = ({
                                  {stage.number} / {stage.label}
                               </span>
 
+
                               <span className="text-gray-500 text-xs">
                                  {active ? '−' : '+'}
                               </span>
 
                            </div>
 
+
                            <h4 className="text-lg font-bold mt-2">
                               {stage.title}
                            </h4>
 
+
                            {active && (
+
                               <>
+
                                  <p className="text-gray-400 text-xs mt-2 leading-relaxed">
                                     {stage.desc}
                                  </p>
 
+
                                  <div className="flex flex-wrap gap-2 mt-4">
 
                                     {stage.details.map((detail) => (
+
                                        <span
                                           key={detail}
                                           className="text-[10px] border border-white/10 bg-white/5 px-2.5 py-1 rounded-full text-gray-400"
                                        >
                                           {detail}
                                        </span>
+
                                     ))}
 
                                  </div>
+
                               </>
+
                            )}
 
                         </div>
 
                      </button>
+
                   );
+
                })}
 
             </div>
@@ -702,5 +910,6 @@ const MobileTrack = ({
       </div>
    );
 };
+
 
 export default DoubleDiamond;
