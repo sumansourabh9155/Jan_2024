@@ -34,7 +34,7 @@ const Godiverse = () => {
                 title="GoDiverse: 1-Page Profile Builder with AI — Product Design Case Study"
                 description="How I scoped, designed, and integrated AI into a 1-page profile builder for a supplier-diversity platform — share by link, download PDF, or print, all in one flow."
                 keywords="product design case study, GoDiverse, profile builder, supplier diversity, AI integration, UX design, interaction design, product scoping"
-                url="https://www.sumansourabh.com/Projects/GoDiverse"
+                url="https://www.sumansourabh.com/GoDiverse"
             />
             <Navbar />
 
@@ -516,7 +516,7 @@ const Godiverse = () => {
                         <p className="text-xs font-mono text-gray-600 uppercase tracking-widest mb-2">Next Case Study</p>
                         <p className="font-heading text-2xl font-bold text-white">Carter: Ad Platform Redesign</p>
                     </div>
-                    <Link to="/Projects/carter" className="text-[#d6f928] font-medium text-sm border border-[#d6f928]/20 bg-[#d6f928]/5 px-6 py-3 rounded-full hover:bg-[#d6f928]/10 transition-colors whitespace-nowrap">
+                    <Link to="/carter" className="text-[#d6f928] font-medium text-sm border border-[#d6f928]/20 bg-[#d6f928]/5 px-6 py-3 rounded-full hover:bg-[#d6f928]/10 transition-colors whitespace-nowrap">
                         View Case Study &rarr;
                     </Link>
                 </div>

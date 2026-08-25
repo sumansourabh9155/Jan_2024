@@ -97,9 +97,15 @@ root.render(
             <Route path="/home" element={<LandingPage />} />
             <Route path="/resume" element={<Resume />} />
             <Route path="/contact" element={<Contact />} />
-            {/* Case studies + design gallery now live on the landing page.
-                Old /projects URLs redirect to the on-page section. */}
-            <Route path="" element={<Navigate to="/#case-studies" replace />} />
+            {/* Case studies moved from /Projects/:slug to /:slug.
+                Old URLs are kept as redirects so anything already shared or
+                indexed still lands, rather than hitting the 404 route. */}
+            <Route path="/Projects/carter" element={<Navigate to="/carter" replace />} />
+            <Route path="/Projects/poppins" element={<Navigate to="/poppins" replace />} />
+            <Route path="/Projects/atlas" element={<Navigate to="/atlas" replace />} />
+            <Route path="/Projects/simfluent" element={<Navigate to="/simfluent" replace />} />
+            <Route path="/Projects/GoDiverse" element={<Navigate to="/GoDiverse" replace />} />
+            <Route path="/projects" element={<Navigate to="/#case-studies" replace />} />
 
 
             {/* <Route path="/blog" element={<Blog />} /> */}

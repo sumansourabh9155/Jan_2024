@@ -41,7 +41,7 @@ const caseStudiesItemList = {
       item: {
         "@type": "CreativeWork",
         name: "Carter — Ad Platform Redesign & 0-to-1 DSP Launch",
-        url: `${SITE_URL}/Projects/carter`,
+        url: `${SITE_URL}/carter`,
         description:
           "Fixing a broken activation funnel on a B2B retail media platform, then launching a 0-to-1 demand-side platform.",
         about: "AdTech / Retail Media",
@@ -53,7 +53,7 @@ const caseStudiesItemList = {
       item: {
         "@type": "CreativeWork",
         name: "Poppins — Conversational Finance App for iOS",
-        url: `${SITE_URL}/Projects/poppins`,
+        url: `${SITE_URL}/poppins`,
         description:
           "Designing an iOS conversational finance assistant around one explainable Safe to Spend figure and a two-voice system — and the decision to stop at v1 scope.",
         about: "iOS / Consumer Fintech",
@@ -65,7 +65,7 @@ const caseStudiesItemList = {
       item: {
         "@type": "CreativeWork",
         name: "Atlas — CMS Architecture & 0-to-1 Site Builder",
-        url: `${SITE_URL}/Projects/atlas`,
+        url: `${SITE_URL}/atlas`,
         description:
           "Unifying 130+ clinic websites under a relational CMS with a phased rollout and a no-code site builder.",
         about: "Healthcare / Enterprise CMS",

@@ -152,7 +152,7 @@ const CarterEcosystem = () => {
                 title="Carter — Platform Redesign, Design System & Commerce-Media Features — Product Design Case Study"
                 description="How I redesigned Carter's inconsistent platform, built its design system, and designed the cross-network campaign features for a unified commerce-media operating system."
                 keywords="product design case study, carter, platform redesign, DSP, retail media network, ad tech, UX design, design systems, activation funnel, interaction design"
-                url="https://www.sumansourabh.com/Projects/carter"
+                url="https://www.sumansourabh.com/carter"
             />
             <Navbar />
 
@@ -1576,7 +1576,7 @@ const CarterEcosystem = () => {
                         </p>
                     </div>
                     <Link
-                        to="/Projects/poppins"
+                        to="/poppins"
                         className="text-[#d6f928] font-medium text-sm border border-[#d6f928]/20 bg-[#d6f928]/5 px-6 py-3 rounded-full hover:bg-[#d6f928]/10 transition-colors whitespace-nowrap"
                     >
                         View Case Study &rarr;

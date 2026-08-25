@@ -58,7 +58,7 @@ const AtlasEcosystem = () => {
                 title="Atlas: CMS Architecture & 0-to-1 Site Builder — Product Design Case Study"
                 description="How I owned the design for a 130+ clinic veterinary network — standardizing digital infrastructure, designing a relational CMS, and a 0-to-1 no-code site builder."
                 keywords="product design case study, Atlas, veterinary, CMS design, site builder, multi-location, healthcare, design systems, information architecture, phased rollout"
-                url="https://www.sumansourabh.com/Projects/atlas"
+                url="https://www.sumansourabh.com/atlas"
             />
             <Navbar />
 
@@ -841,7 +841,7 @@ const AtlasEcosystem = () => {
                         <p className="text-xs font-mono text-gray-600 uppercase tracking-widest mb-2">Next Case Study</p>
                         <p className="font-heading text-2xl font-bold text-white">Carter: Ad Platform Redesign &amp; 0-to-1 DSP</p>
                     </div>
-                    <Link to="/Projects/carter" className="text-[#d6f928] font-medium text-sm border border-[#d6f928]/20 bg-[#d6f928]/5 px-6 py-3 rounded-full hover:bg-[#d6f928]/10 transition-colors whitespace-nowrap">
+                    <Link to="/carter" className="text-[#d6f928] font-medium text-sm border border-[#d6f928]/20 bg-[#d6f928]/5 px-6 py-3 rounded-full hover:bg-[#d6f928]/10 transition-colors whitespace-nowrap">
                         View Case Study &rarr;
                     </Link>
                 </div>

@@ -245,7 +245,7 @@ const Poppins = () => {
                 title="Poppins: A Conversational Finance App — Product Design Case Study"
                 description="Designing Poppins, an iOS conversational finance assistant: market and competitor research, four user archetypes, a permission ladder where every ask is earned, five intent-matched bank asks, and mobile micro-interaction craft — plus the decision to stop."
                 keywords="product design case study, iOS app design, conversational UI, fintech UX, user research, personas, user stories, mobile interaction design, onboarding design, voice and tone, design process"
-                canonicalUrl="https://www.sumansourabh.com/Projects/poppins"
+                canonicalUrl="https://www.sumansourabh.com/poppins"
             />
             <Navbar />
 
@@ -1369,7 +1369,7 @@ const Poppins = () => {
                         <p className="text-xs font-mono text-gray-600 uppercase tracking-widest mb-2">Next Case Study</p>
                         <p className="font-heading text-2xl font-bold text-white">Atlas: CMS Architecture Across 130+ Locations</p>
                     </div>
-                    <Link to="/Projects/atlas" className="text-[#d6f928] font-medium text-sm border border-[#d6f928]/20 bg-[#d6f928]/5 px-6 py-3 rounded-full hover:bg-[#d6f928]/10 transition-colors whitespace-nowrap flex items-center gap-2">
+                    <Link to="/atlas" className="text-[#d6f928] font-medium text-sm border border-[#d6f928]/20 bg-[#d6f928]/5 px-6 py-3 rounded-full hover:bg-[#d6f928]/10 transition-colors whitespace-nowrap flex items-center gap-2">
                         View Case Study <ArrowRight size={16} />
                     </Link>
                 </div>

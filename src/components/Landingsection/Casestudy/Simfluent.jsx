@@ -83,7 +83,7 @@ const Simfluent = () => {
                 title="Simfluent: AI-Native Recruitment & Resource-Ops Platform — Product Design Case Study"
                 description="Designing Simfluent (in progress) — a recruitment platform built around the real bottleneck: waiting. Email becomes a structured pipeline, SLAs surface stalled candidates, and Mavik, the AI layer, drafts jobs and scores résumés without ever deciding."
                 keywords="product design case study, HR tech, ATS design, recruitment platform, AI-native UX, human in the loop, applicant tracking, design systems, B2B SaaS"
-                canonicalUrl="https://www.sumansourabh.com/Projects/simfluent"
+                canonicalUrl="https://www.sumansourabh.com/simfluent"
             />
             <Navbar />
 
@@ -564,7 +564,7 @@ const Simfluent = () => {
                         <p className="text-xs font-mono text-gray-600 uppercase tracking-widest mb-2">Next Case Study</p>
                         <p className="font-heading text-2xl font-bold text-white">Atlas: CMS Architecture Across 130+ Locations</p>
                     </div>
-                    <Link to="/Projects/atlas" className="text-[#d6f928] font-medium text-sm border border-[#d6f928]/20 bg-[#d6f928]/5 px-6 py-3 rounded-full hover:bg-[#d6f928]/10 transition-colors whitespace-nowrap flex items-center gap-2">
+                    <Link to="/atlas" className="text-[#d6f928] font-medium text-sm border border-[#d6f928]/20 bg-[#d6f928]/5 px-6 py-3 rounded-full hover:bg-[#d6f928]/10 transition-colors whitespace-nowrap flex items-center gap-2">
                         View Case Study <ArrowRight size={16} />
                     </Link>
                 </div>
