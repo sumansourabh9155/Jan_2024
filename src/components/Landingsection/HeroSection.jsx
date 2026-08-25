@@ -7,7 +7,7 @@ const capabilities = ["Product Design", "Design Systems", "AI-Native UX", "Desig
 const proof = [
   { value: "4.6/5", label: "usability · 0-to-1 platform" },
   { value: "850+", label: "Figma community copies" },
-  { value: "2.5 yrs", label: "shipping 0-to-1 products" },
+  { value: "3+ yrs", label: "shipping 0-to-1 products" },
 ];
 
 const HeroSection = () => {
