@@ -1,5 +1,6 @@
+import { ArrowUpRight, Github, Linkedin, Mail } from "lucide-react";
+
 import { Link } from "react-router-dom";
-import { Github, Linkedin, Mail, ArrowUpRight } from "lucide-react";
 
 const Footer = () => {
     const currentYear = new Date().getFullYear();
@@ -17,9 +18,9 @@ const Footer = () => {
             { name: "GitHub", url: "https://github.com/sumansourabh9155", icon: <Github size={16} /> },
         ],
         caseStudies: [
-            { name: "Carter", url: "/Projects/carter" },
-            { name: "Poppins", url: "/Projects/poppins" },
-            { name: "Atlas", url: "/Projects/atlas" },
+            { name: "Carter", url: "/carter" },
+            { name: "Poppins", url: "/poppins" },
+            { name: "Atlas", url: "/atlas" },
         ]
     };
 

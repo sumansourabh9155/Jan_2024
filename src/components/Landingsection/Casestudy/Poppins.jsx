@@ -273,21 +273,13 @@ const Poppins = () => {
                         </p>
                     </div>
 
-                    <figure className="max-w-md mx-auto">
-                        <div className="rounded-[26px] bg-white/[0.04] border border-white/10 p-3 w-[260px] mx-auto">
-                            <img
-                                src={Cover}
-                                alt="Poppins home screen showing a Safe to Spend figure of $320, the week's bills, and an observation from The Steady Hand about grocery spending"
-                                className="rounded-2xl w-full object-cover border border-white/10"
-                            />
-                        </div>
-                        <figcaption className="text-gray-500 text-xs mt-4 leading-relaxed text-center">
-                            The entire thesis in one screen: no dashboard, one number, the week&apos;s commitments
-                            beneath it, and a single calm observation &mdash; labelled, so you know which voice is speaking.
-                        </figcaption>
-                    </figure>
+                    <img
+                        src={Cover}
+                        alt="Poppins — a conversational finance app for iOS"
+                        className="rounded-2xl w-full object-cover border border-white/10"
+                    />
 
-                    <div className="grid grid-cols-2 md:grid-cols-4 gap-6 mt-4 mb-8">
+                    <div className="grid grid-cols-2 md:grid-cols-4 gap-6 mt-12 mb-8">
                         <div className="bg-white/5 border border-white/10 rounded-2xl p-5 text-center">
                             <p className="text-xs text-gray-500 uppercase tracking-widest mb-2">My Role</p>
                             <p className="text-white font-medium">Product Designer</p>

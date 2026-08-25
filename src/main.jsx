@@ -1,15 +1,16 @@
+import "./index.css";
+
+import { Navigate, Route, BrowserRouter as Router, Routes } from "react-router-dom";
 /* eslint-disable react-refresh/only-export-components */
 import React, { Suspense } from "react";
-import ReactDOM from "react-dom/client";
-import { HelmetProvider } from "react-helmet-async";
-import "./index.css";
-import App from "./App";
-import ProtectedRoute from "./components/ProtectedRoute";
-import ScrollToHash from "./components/ScrollToHash";
-import AnimatedCursor from "react-animated-cursor";
-import { BrowserRouter as Router, Routes, Route, Navigate } from "react-router-dom";
 
+import AnimatedCursor from "react-animated-cursor";
+import App from "./App";
+import { HelmetProvider } from "react-helmet-async";
 import LandingPage from "./pages/LandingPage";
+import ProtectedRoute from "./components/ProtectedRoute";
+import ReactDOM from "react-dom/client";
+import ScrollToHash from "./components/ScrollToHash";
 
 // Lazy load pages for performance optimization
 const Carter = React.lazy(() => import("./components/Landingsection/Casestudy/Carter"));
@@ -98,7 +99,7 @@ root.render(
             <Route path="/contact" element={<Contact />} />
             {/* Case studies + design gallery now live on the landing page.
                 Old /projects URLs redirect to the on-page section. */}
-            <Route path="/projects" element={<Navigate to="/#case-studies" replace />} />
+            <Route path="" element={<Navigate to="/#case-studies" replace />} />
 
 
             {/* <Route path="/blog" element={<Blog />} /> */}
@@ -115,38 +116,38 @@ root.render(
                 Keep the <ProtectedRoute> snippets below for future re-lock;
                 swap the `element={...}` back to the commented version to re-enable. */}
             <Route
-              path="/Projects/GoDiverse"
+              path="/GoDiverse"
               element={<Godiverse />}
-              // element={
-              //   <ProtectedRoute correctPassword="9155">
-              //     <Godiverse />
-              //   </ProtectedRoute>
-              // }
+            // element={
+            //   <ProtectedRoute correctPassword="9155">
+            //     <Godiverse />
+            //   </ProtectedRoute>
+            // }
             />
             <Route
-              path="/Projects/carter"
+              path="/carter"
               element={<Carter />}
-              // element={
-              //   <ProtectedRoute correctPassword="9155">
-              //     <Carter />
-              //   </ProtectedRoute>
-              // }
+            // element={
+            //   <ProtectedRoute correctPassword="9155">
+            //     <Carter />
+            //   </ProtectedRoute>
+            // }
             />
             <Route
-              path="/Projects/atlas"
+              path="/atlas"
               element={<Atlas />}
-              // element={
-              //   <ProtectedRoute correctPassword="9155">
-              //     <Atlas />
-              //   </ProtectedRoute>
-              // }
+            // element={
+            //   <ProtectedRoute correctPassword="9155">
+            //     <Atlas />
+            //   </ProtectedRoute>
+            // }
             />
             <Route
-              path="/Projects/simfluent"
+              path="/simfluent"
               element={<Simfluent />}
             />
             <Route
-              path="/Projects/poppins"
+              path="/poppins"
               element={<Poppins />}
             />
             <Route

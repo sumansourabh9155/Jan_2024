@@ -13,7 +13,7 @@ const projectData = [
     title: "Carter",
     subtitle: "Ad Platform Redesign & 0-to-1 DSP Launch",
     category: "Ad-Tech · B2B · SaaS",
-    link: "/Projects/carter",
+    link: "/carter",
     image: BannerCarter,
     icon: <Layout size={16} className="text-blue-400" />,
     accent: "blue",
@@ -28,7 +28,7 @@ const projectData = [
     title: "Poppins",
     subtitle: "Conversational Finance App for iOS",
     category: "iOS · Consumer Fintech",
-    link: "/Projects/poppins",
+    link: "/poppins",
     image: BannerPoppins,
     icon: <Smartphone size={16} className="text-emerald-300" />,
     accent: "emerald",
@@ -44,7 +44,7 @@ const projectData = [
     title: "Atlas",
     subtitle: "CMS Architecture Across 130+ Locations",
     category: "Enterprise CMS · Healthcare",
-    link: "/Projects/atlas",
+    link: "/atlas",
     image: BannerAtlas,
     icon: <BarChart2 size={16} className="text-[#d6f928]" />,
     accent: "lime",
@@ -136,16 +136,14 @@ const Projects = () => {
                       {p.badge && (
                         // Live work pulses; concluded work reads as a quiet, factual status.
                         <span
-                          className={`inline-flex items-center gap-1.5 text-[10px] font-medium px-2 py-0.5 rounded-full border ${
-                            p.badgeLive
+                          className={`inline-flex items-center gap-1.5 text-[10px] font-medium px-2 py-0.5 rounded-full border ${p.badgeLive
                               ? "text-violet-300 bg-violet-500/10 border-violet-400/30"
                               : "text-gray-400 bg-white/5 border-white/15"
-                          }`}
+                            }`}
                         >
                           <span
-                            className={`w-1 h-1 rounded-full ${
-                              p.badgeLive ? "bg-violet-400 animate-pulse" : "bg-gray-500"
-                            }`}
+                            className={`w-1 h-1 rounded-full ${p.badgeLive ? "bg-violet-400 animate-pulse" : "bg-gray-500"
+                              }`}
                           />
                           {p.badge}
                         </span>
