@@ -199,14 +199,15 @@ const AtlasEcosystem = () => {
                         {/* Arrow */}
                         <line x1="160" y1="40" x2="210" y2="40" stroke="#d6f928" strokeOpacity="0.3" strokeWidth="0.5" filter="url(#atlas-glow-lime-01)" />
                         <polygon points="210,37 218,40 210,43" fill="#d6f928" fillOpacity="0.3" />
-                        {/* 5 organized template boxes */}
-                        {[0, 1, 2, 3, 4].map((i) => (
-                            <rect key={i} x={235 + i * 32} y={25} width="24" height="30" rx="3" stroke="#d6f928" strokeOpacity="0.35" strokeWidth="0.5" fill="#d6f928" fillOpacity="0.05" />
+                        {/* 6 organized template boxes — narrower pitch than five so the
+                            row still lands inside the 400-unit viewBox. */}
+                        {[0, 1, 2, 3, 4, 5].map((i) => (
+                            <rect key={i} x={235 + i * 26} y={25} width="20" height="30" rx="3" stroke="#d6f928" strokeOpacity="0.35" strokeWidth="0.5" fill="#d6f928" fillOpacity="0.05" />
                         ))}
                         {/* Labels */}
                         <text x="30" y="78" fontFamily="monospace" fontSize="7" fill="#d6f928" fillOpacity="0.25">130&ndash;150 clinics</text>
                         <text x="125" y="78" fontFamily="monospace" fontSize="7" fill="#d6f928" fillOpacity="0.25">funnel</text>
-                        <text x="270" y="78" fontFamily="monospace" fontSize="7" fill="#d6f928" fillOpacity="0.25">5 templates</text>
+                        <text x="270" y="78" fontFamily="monospace" fontSize="7" fill="#d6f928" fillOpacity="0.25">6 templates</text>
                     </svg>
 
                     {/* Strategic Bet */}
@@ -214,15 +215,16 @@ const AtlasEcosystem = () => {
                         <Badge>[ The Strategic Bet ]</Badge>
                         <h2 className="font-heading text-4xl md:text-5xl font-bold text-white leading-tight mb-6">
                             130&ndash;150 clinics wanted custom.{" "}
-                            <span className="text-gray-400">I standardized to 5 templates.</span>
+                            <span className="text-gray-400">I standardized to 6 templates.</span>
                         </h2>
                         <p className="text-gray-400 text-base leading-relaxed mb-5">
                             The instinct was to move fast &mdash; pick one template, deploy everywhere. I pushed back.
                             A General Practice clinic in rural Montana and a Specialty oncology center in Chicago serve fundamentally different users under different emotional states.
                         </p>
                         <p className="text-gray-400 text-base leading-relaxed">
-                            But a bespoke design per clinic was equally unsustainable. The product call: <span className="text-white font-medium">map every clinic to one of 5 strategic archetypes</span> &mdash;
-                            GP, Specialty, ER, Hybrid, Multi-Location. Any newly acquired clinic onboarded in days, not months. No custom design work, no IT bottleneck.
+                            But a bespoke design per clinic was equally unsustainable. The product call: <span className="text-white font-medium">map every clinic to one of 5 clinical archetypes</span> &mdash;
+                            GP, Specialty, ER, Hybrid, Multi-Location &mdash; plus a <span className="text-white font-medium">sixth template for the parent brand site</span> that sits above the network and does a different job: introduce the group, not convert a local visit.
+                            Any newly acquired clinic onboarded in days, not months. No custom design work, no IT bottleneck.
                         </p>
                     </div>
 
@@ -281,7 +283,8 @@ const AtlasEcosystem = () => {
                             Not one template. <span className="text-gray-400">Five clinical realities.</span>
                         </h3>
                         <p className="text-gray-400 text-base leading-relaxed">
-                            After mapping every clinic type, we landed on 5 strategic templates covering the entire Atlas universe.
+                            After mapping every clinic type, we landed on 6 templates covering the entire Atlas universe &mdash;
+                            five clinical archetypes, plus one for the parent brand site.
                             Any newly acquired clinic maps to an archetype within the first week. The templates weren&apos;t rigid &mdash;
                             they were a shared structural skeleton with intentional flex points at the local level.
                         </p>

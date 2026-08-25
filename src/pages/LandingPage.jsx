@@ -8,10 +8,9 @@ import SeoHead from "../components/SeoHead";
 // ships Navbar + Hero. Each chunk streams in as the user scrolls.
 const Projects = lazy(() => import("../components/Landingsection/Projects"));
 const DesignShowcase = lazy(() => import("../components/Landingsection/DesignShowcase"));
-const DesignServices = lazy(() => import("../components/Landingsection/DesignServices"));
 const Testimonial = lazy(() => import("../components/Landingsection/Testimonial"));
+const Speaking = lazy(() => import("../components/Landingsection/Speaking"));
 const DoubleDiamond = lazy(() => import("../components/Landingsection/DoubleDiamond"));
-const MessyMiddle = lazy(() => import("../components/Landingsection/MessyMiddle"));
 const Faq = lazy(() => import("../components/Landingsection/Faq"));
 const Footer = lazy(() => import("../components/Footer"));
 
@@ -42,17 +41,12 @@ const LandingPage = () => {
         {/* Visual design work */}
         <DesignShowcase />
 
-        {/* Services */}
-        <DesignServices />
-
-        {/* Social Proof */}
-        <Testimonial />
-
-        {/* Methodology */}
+        {/* Methodology — how the work gets made */}
         <DoubleDiamond />
 
-        {/* Messy Middle Case Studies */}
-        <MessyMiddle />
+        {/* Proof about the person, grouped: what others say, then what I teach */}
+        <Testimonial />
+        <Speaking />
 
         {/* FAQ */}
         <Faq />

@@ -79,9 +79,15 @@ const AtlasTemplates = () => {
 
         {/* Left Side: Content & Accordion */}
         <div className="flex-1 w-full">
+          {/* Five of the six — the sixth is the parent brand site, a different job
+              entirely, so it isn't one of the clinic archetypes shown here. */}
           <div className="mb-10">
             <h4 className="text-gray-400 uppercase tracking-widest text-xs font-semibold mb-2">The Architecture</h4>
-            <h2 className="font-heading text-2xl md:text-4xl font-bold tracking-tight">The 5 Core Templates</h2>
+            <h2 className="font-heading text-2xl md:text-4xl font-bold tracking-tight">The 5 Clinic Templates</h2>
+            <p className="text-gray-500 text-sm mt-3 max-w-md">
+              Every clinic in the network maps to one of these five. A sixth template covers
+              the parent brand site.
+            </p>
           </div>
 
           <div className="space-y-1">

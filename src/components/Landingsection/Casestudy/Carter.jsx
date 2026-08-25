@@ -1004,8 +1004,8 @@ const CarterEcosystem = () => {
                                 icon={<Zap size={18} className="text-yellow-400" />}
                             />
                             <StatCard
-                                value="40%"
-                                label="Activation improvement — users reaching value independently."
+                                value="&darr; 68%"
+                                label="Campaign abandonment — down from the 27% baseline after the funnel redesign."
                                 icon={<Target size={18} className="text-blue-400" />}
                             />
                             <StatCard
