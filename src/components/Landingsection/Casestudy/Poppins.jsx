@@ -465,23 +465,27 @@ const Poppins = () => {
                         <div className="grid grid-cols-1 sm:grid-cols-3 gap-4 mb-6">
                             <div className="bg-white/5 border border-white/10 rounded-2xl p-5">
                                 <p className="font-heading text-3xl font-bold text-emerald-300 mb-1">~98%</p>
-                                <p className="text-gray-400 text-xs leading-relaxed">Typical open rate for a WhatsApp message</p>
+                                <p className="text-gray-400 text-xs leading-relaxed">Reported open rate for a WhatsApp business message</p>
                             </div>
                             <div className="bg-white/5 border border-white/10 rounded-2xl p-5">
-                                <p className="font-heading text-3xl font-bold text-gray-500 mb-1">15&ndash;20%</p>
-                                <p className="text-gray-400 text-xs leading-relaxed">Typical open rate for an app push notification</p>
+                                <p className="font-heading text-3xl font-bold text-gray-500 mb-1">7&ndash;9%</p>
+                                <p className="text-gray-400 text-xs leading-relaxed">Push-notification open rate in financial services</p>
                             </div>
                             <div className="bg-white/5 border border-white/10 rounded-2xl p-5">
                                 <p className="font-heading text-3xl font-bold text-white mb-1">&lt;60s</p>
                                 <p className="text-gray-400 text-xs leading-relaxed">To first useful message, with no install required</p>
                             </div>
                         </div>
-                        <p className="text-gray-400 text-base leading-relaxed">
+                        <p className="text-gray-400 text-base leading-relaxed mb-4">
                             That gap reframed the delivery channel as a product decision rather than a notification
                             setting. If the app is where you <em>look things up</em> and messaging is where you
                             actually <em>get told</em>, then the reminder belongs in the thread, not behind an icon
                             badge. It also inherits something the app can&apos;t buy: fifteen years of accumulated
                             trust in the channel itself.
+                        </p>
+                        <p className="text-gray-600 text-xs leading-relaxed">
+                            Figures are published industry benchmarks used to frame the decision, not our own
+                            measurements &mdash; the product never shipped, so we had none.
                         </p>
                     </div>
 
@@ -547,13 +551,18 @@ const Poppins = () => {
 
                     <div className="max-w-3xl mb-8">
                         <h3 className="font-heading text-2xl font-bold text-white mb-4">The four people the first screen was written for</h3>
-                        <p className="text-gray-400 text-base leading-relaxed">
+                        <p className="text-gray-400 text-base leading-relaxed mb-4">
                             Segments are useful for prioritisation and useless for writing copy. So the opening
-                            conversation was designed against four specific archetypes &mdash; what each one types,
+                            conversation was designed against four specific people &mdash; what each one types,
                             what each one is feeling when they arrive, and{" "}
                             <span className="text-white font-medium">the exact moment each one decides to stay</span>.
                             That last column is what made the flow testable: if a moment converts nobody, it has no
                             reason to exist.
+                        </p>
+                        <p className="text-gray-500 text-sm leading-relaxed">
+                            These came out of user interviews run by our product lead; I worked from the transcripts
+                            and built the flow against them. <span className="text-gray-400">Names and identifying
+                            details are anonymised.</span>
                         </p>
                     </div>
 

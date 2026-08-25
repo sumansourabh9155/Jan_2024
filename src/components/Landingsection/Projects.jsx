@@ -42,14 +42,14 @@ const projectData = [
   },
   {
     title: "Atlas",
-    subtitle: "CMS Architecture Across 130+ Locations",
+    subtitle: "CMS Architecture Across 130–150 Locations",
     category: "Enterprise CMS · Healthcare",
     link: "/atlas",
     image: BannerAtlas,
     icon: <BarChart2 size={16} className="text-[#d6f928]" />,
     accent: "lime",
     summary:
-      "130 clinics each wanted a bespoke site. The call: standardize to 5 archetypes instead — the trade-off that made the whole network maintainable without gutting local identity.",
+      "130–150 clinics each wanted a bespoke site. The call: standardize to 5 archetypes instead — the trade-off that made the whole network maintainable without gutting local identity.",
     stats: [
       { value: "+41%", label: "Organic traffic" },
       { value: "+29%", label: "Bookings" },

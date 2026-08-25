@@ -259,9 +259,17 @@ const CarterEcosystem = () => {
                             <span className="text-white font-medium">~8-person frontend and QA group</span>{" "}
                             (4 on frontend); the wider product org — 50+ engineers across backend, data,
                             and ML — ran their own tracks. Design stayed lean: Phase 1 ran with{" "}
-                            <span className="text-white font-medium">two designers</span> — by Phase 2 I was
-                            the <span className="text-white font-medium">sole designer</span>, the single
-                            owner of every screen that shipped.
+                            <span className="text-white font-medium">two designers</span>, myself and a senior
+                            designer I worked under — by Phase 2 I was the{" "}
+                            <span className="text-white font-medium">sole designer</span>, the single owner of
+                            every screen that shipped.
+                        </p>
+                        <p className="text-gray-500 text-sm leading-relaxed mt-4">
+                            Timeline note: I moved onto Carter after leading the first stage of{" "}
+                            <Link to="/atlas" className="text-gray-300 underline underline-offset-2 hover:text-[#d6f928] transition-colors">Atlas</Link>,
+                            and kept supporting Atlas part-time through Phase 1 here before returning to it
+                            full-time later. The twelve months below are the Carter engagement window, not
+                            twelve months of exclusive work.
                         </p>
                     </div>
 
@@ -769,24 +777,46 @@ const CarterEcosystem = () => {
                         </div>
                     </div>
 
-                    {/* ——— DECISION 1: PLATFORM INFRASTRUCTURE ——— */}
+                    {/* ——— DECISION 1: THE DESIGN SYSTEM ——— */}
                     <div className="mb-24">
-                        <Badge>[ Product Decision 1 — Platform Investment ]</Badge>
+                        <Badge>[ Product Decision 1 — Design System ]</Badge>
                         <h3 className="font-heading text-3xl font-bold text-white mb-4">
-                            Component system to cut shipping cycles by 50%
+                            The UI looked like a wireframe.{" "}
+                            <span className="text-gray-400">So I built the system underneath it.</span>
                         </h3>
                         <p className="text-gray-400 text-base leading-relaxed max-w-3xl mb-10">
-                            A product decision to reduce engineering rework across 12 teams.
-                            Atomic design, 8pt grid, WCAG 2.1 AA. Every component shipped with
-                            Storybook docs — zero dev back-and-forth.
+                            The platform had no visual consistency &mdash; spacing, colour and components drifted
+                            screen to screen, and much of it still read like a mid-fi wireframe. Redesigning screens
+                            one at a time wouldn&apos;t hold, because twelve teams were building UI independently and
+                            re-solving the same problems. So the first call wasn&apos;t a screen, it was the layer
+                            underneath: a governed component library with design tokens, documented states, an 8pt
+                            grid and WCAG 2.1 AA baked in &mdash; with design-to-code parity in Storybook, so every
+                            new screen inherited consistency by default.
                         </p>
                         <img
                             loading="lazy"
                             decoding="async"
                             src={DSL}
-                            alt="Carter Design System 2.0"
-                            className="rounded-2xl w-full border border-white/10"
+                            alt="Carter Design System — tokens, components and documented states"
+                            className="rounded-2xl w-full border border-white/10 mb-10"
                         />
+                        <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+                            <StatCard
+                                value="1 library"
+                                label="Tokens, components, and documented states adopted across the platform."
+                                icon={<Layers size={18} className="text-[#d6f928]" />}
+                            />
+                            <StatCard
+                                value="+50%"
+                                label="Faster shipping velocity once engineering built from shared components."
+                                icon={<Zap size={18} className="text-yellow-400" />}
+                            />
+                            <StatCard
+                                value="Storybook"
+                                label="Design-to-code parity — the same component in Figma and in production."
+                                icon={<CheckCircle2 size={18} className="text-green-400" />}
+                            />
+                        </div>
                     </div>
 
                     {/* ——— DECISION 2: CAMPAIGN CREATION ——— */}
@@ -955,39 +985,6 @@ const CarterEcosystem = () => {
                         </div>
                     </div>
 
-                    {/* ——— DESIGN SYSTEM (DSL) ——— */}
-                    <div className="mb-20">
-                        <Badge>[ Product Decision 4 — Design System ]</Badge>
-                        <h3 className="font-heading text-3xl font-bold text-white mb-4">
-                            The UI looked like a wireframe.{" "}
-                            <span className="text-gray-400">So I built the system underneath it.</span>
-                        </h3>
-                        <p className="text-gray-400 text-base leading-relaxed max-w-3xl mb-8">
-                            The platform had no visual consistency — spacing, color, and components drifted
-                            screen to screen, and much of it still read like a mid-fi wireframe. Redesigning
-                            screens one at a time wouldn&apos;t hold. I built Carter&apos;s design system: a
-                            governed component library with design tokens, documented states, and
-                            design-to-code parity in Storybook — so every new screen inherited consistency by default.
-                        </p>
-                        <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-                            <StatCard
-                                value="1 library"
-                                label="Tokens, components, and documented states adopted across the platform."
-                                icon={<Layers size={18} className="text-[#d6f928]" />}
-                            />
-                            <StatCard
-                                value="+50%"
-                                label="Faster shipping velocity once engineering built from shared components."
-                                icon={<Zap size={18} className="text-yellow-400" />}
-                            />
-                            <StatCard
-                                value="Storybook"
-                                label="Design-to-code parity — the same component in Figma and in production."
-                                icon={<CheckCircle2 size={18} className="text-green-400" />}
-                            />
-                        </div>
-                    </div>
-
                     {/* Phase 1 Outcomes */}
                     <div className="bg-gradient-to-br from-white/[0.05] to-transparent border border-white/10 backdrop-blur-md rounded-2xl p-8 md:p-10">
                         <Badge>[ Phase 1 — Business Outcomes ]</Badge>
@@ -997,8 +994,8 @@ const CarterEcosystem = () => {
                         </p>
                         <div className="grid grid-cols-2 md:grid-cols-4 gap-6">
                             <StatCard
-                                value="300%"
-                                label="Enterprise client growth — retention fixed before scaling."
+                                value="1 → 3"
+                                label="Enterprise clients on the platform after activation and retention were fixed."
                                 icon={<TrendingUp size={18} className="text-green-400" />}
                             />
                             <StatCard
@@ -1508,7 +1505,7 @@ const CarterEcosystem = () => {
                                         {
                                             value: "4.6/5",
                                             label: "Usability Score",
-                                            desc: "Highest Carter had ever recorded",
+                                            desc: "Task-based sessions with alpha clients",
                                         },
                                         {
                                             value: "40%",
@@ -1543,22 +1540,22 @@ const CarterEcosystem = () => {
                     <div className="max-w-3xl">
                         <Badge>[ The Real Story ]</Badge>
                         <h2 className="font-heading text-4xl md:text-5xl font-bold text-white leading-tight mb-8">
-                            Designer title. Design proof.{" "}
+                            The hardest call wasn&apos;t a screen.{" "}
                             <span className="text-gray-400">
-                                The metrics don&apos;t care what your title says.
+                                It was asking the team to stop building.
                             </span>
                         </h2>
                         <p className="text-gray-400 text-base leading-relaxed mb-5">
-                            The most impactful decision wasn&apos;t a screen — it was
-                            convincing leadership to pause the roadmap. That call unlocked 20
-                            percentage points of campaign launch rate. Revenue found in the
-                            product, not the sales funnel.
+                            The roadmap was full of new features. The research said the product was
+                            losing people before they ever reached one. Arguing for two sprints to fix
+                            activation instead &mdash; on a team that wanted to ship &mdash; was the decision
+                            everything else rested on, and it moved campaign launch rate by twenty
+                            percentage points.
                         </p>
                         <p className="text-gray-400 text-base leading-relaxed">
-                            I ran user research, wrote the design specs, partnered with the
-                            frontend team on QA, streamlined the design-to-dev handoff, and
-                            shipped industry-level design — as the sole designer by Phase 2.
-                            That&apos;s what an end-to-end product designer looks like.
+                            After that the work was ordinary in the best sense: interviews and session
+                            recordings, a design system so twelve teams stopped re-solving the same problems,
+                            specs and QA with the frontend group, and every screen in Phase 2 owned end to end.
                         </p>
                     </div>
                 </div>

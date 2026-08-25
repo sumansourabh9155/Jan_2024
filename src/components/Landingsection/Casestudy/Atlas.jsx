@@ -1,26 +1,19 @@
 import {
     AlertTriangle,
     Blocks,
-    Bot,
     CheckCircle2,
     Database,
     FileText,
     GitBranch,
     Globe,
     Layers,
-    PenLine,
     Search,
     Shield,
-    Sparkles,
     Target,
     TrendingUp,
-    Users,
     Zap
 } from "lucide-react";
 
-// Placeholder assets — uncomment once real images are added:
-// import PhaseBranding from "../../../assets/atlas/phase2-branding.png";
-// import Accessibility from "../../../assets/atlas/accessibility-er.png";
 import AtlasTaxonomy from "./AtlasTaxonomy";
 import AtlasTemplates from "./AtlasTemplates";
 // Assets
@@ -33,7 +26,6 @@ import SEO from "../../SEO";
 import Sitebuilder from "../../../assets/atlas/Sitebuilder.png";
 import Templatemanager from "../../../assets/atlas/Templatemanager.png";
 
-// import AtlasCmsSlider from "./AtlasCmsSlider";
 
 // ================= REUSABLE COMPONENTS =================
 
@@ -56,7 +48,7 @@ const AtlasEcosystem = () => {
         <div className="text-white bg-[#050505]">
             <SEO
                 title="Atlas: CMS Architecture & 0-to-1 Site Builder — Product Design Case Study"
-                description="How I owned the design for a 130+ clinic veterinary network — standardizing digital infrastructure, designing a relational CMS, and a 0-to-1 no-code site builder."
+                description="How I owned the design for a 130–150 clinic veterinary network — standardizing digital infrastructure, designing a relational CMS, and a 0-to-1 no-code site builder."
                 keywords="product design case study, Atlas, veterinary, CMS design, site builder, multi-location, healthcare, design systems, information architecture, phased rollout"
                 url="https://www.sumansourabh.com/atlas"
             />
@@ -71,7 +63,7 @@ const AtlasEcosystem = () => {
                             Atlas <span className="text-gray-500 font-light">Veterinary Network</span>
                         </h1>
                         <p className="text-lg text-gray-400 font-light leading-relaxed max-w-xl mx-auto">
-                            Transformed 130+ disconnected clinic websites into a unified digital ecosystem — standardized architecture, relational CMS, and a 0-to-1 no-code builder.
+                            Transformed 130&ndash;150 disconnected clinic websites into a unified digital ecosystem — standardized architecture, relational CMS, and a 0-to-1 no-code builder.
                         </p>
                     </div>
 
@@ -85,7 +77,7 @@ const AtlasEcosystem = () => {
                         </div>
                         <div className="bg-white/5 border border-white/10 rounded-2xl p-5 text-center">
                             <p className="text-xs text-gray-500 uppercase tracking-widest mb-2">My Role</p>
-                            <p className="text-white font-medium">Lead Product Designer</p>
+                            <p className="text-white font-medium">Product Designer</p>
                         </div>
                         <div className="bg-white/5 border border-white/10 rounded-2xl p-5 text-center">
                             <p className="text-xs text-gray-500 uppercase tracking-widest mb-2">Platform</p>
@@ -93,7 +85,7 @@ const AtlasEcosystem = () => {
                         </div>
                         <div className="bg-white/5 border border-white/10 rounded-2xl p-5 text-center">
                             <p className="text-xs text-gray-500 uppercase tracking-widest mb-2">Duration</p>
-                            <p className="text-white font-medium">12+ Months, 4 Phases</p>
+                            <p className="text-white font-medium">3 Phases, Two Stints</p>
                         </div>
                     </div>
 
@@ -114,13 +106,21 @@ const AtlasEcosystem = () => {
                     <div className="max-w-3xl mb-20">
                         <Badge>[ How I Owned the Design ]</Badge>
                         <h2 className="font-heading text-4xl md:text-5xl font-bold text-white leading-tight mb-6">
-                            130 clinics. 3 phases.{" "}
+                            130&ndash;150 clinics. 3 phases.{" "}
                             <span className="text-gray-400">One designer driving all three.</span>
                         </h2>
                         <p className="text-gray-400 text-base leading-relaxed">
                             Atlas needed someone who could understand the <span className="text-white font-medium">data architecture, design the user experience, and coordinate engineering delivery</span> — simultaneously.
                             I owned the design across all three phases: standardization, CMS architecture, and the 0-to-1 site builder.
-                            Ran a cross-functional pod — <span className="text-white font-medium">3 engineers, 1 designer, 1 SEO specialist</span> — in 2-week sprints.
+                            The build team was around <span className="text-white font-medium">25 engineers</span> plus an SEO
+                            specialist, working in 2-week sprints &mdash; I was the{" "}
+                            <span className="text-white font-medium">only designer on it</span>, which is why the
+                            architecture decisions and the interface decisions had to be the same decisions.
+                        </p>
+                        <p className="text-gray-500 text-sm leading-relaxed mt-4">
+                            Timeline note: I led the first stage here for roughly six months, moved to{" "}
+                            <Link to="/carter" className="text-gray-300 underline underline-offset-2 hover:text-[#d6f928] transition-colors">Carter</Link>{" "}
+                            while supporting this part-time, then returned full-time as the later phases ramped up.
                         </p>
                     </div>
 
@@ -132,7 +132,7 @@ const AtlasEcosystem = () => {
                             </div>
                             <div>
                                 <h4 className="text-white font-semibold text-sm mb-1">Specs &amp; Phased Rollout</h4>
-                                <p className="text-gray-400 text-xs leading-relaxed">Wrote design specs for each phase. Defined scope, acceptance criteria, and rollout strategy for 130+ locations.</p>
+                                <p className="text-gray-400 text-xs leading-relaxed">Wrote design specs for each phase. Defined scope, acceptance criteria, and rollout strategy for every location in the network.</p>
                             </div>
                         </div>
                         <div className="bg-white/5 border border-white/10 rounded-2xl p-6 flex gap-4">
@@ -185,7 +185,7 @@ const AtlasEcosystem = () => {
                                 <feMerge><feMergeNode in="blur" /><feMergeNode in="SourceGraphic" /></feMerge>
                             </filter>
                         </defs>
-                        {/* Scattered dots — 130 clinics */}
+                        {/* Scattered dots — the clinic network */}
                         {[
                             [15, 12], [22, 58], [35, 30], [42, 65], [50, 18], [28, 42], [60, 50], [18, 38], [45, 8], [55, 62],
                             [10, 52], [38, 20], [48, 45], [25, 70], [58, 35], [32, 55], [12, 25], [52, 28], [40, 72], [20, 48],
@@ -204,7 +204,7 @@ const AtlasEcosystem = () => {
                             <rect key={i} x={235 + i * 32} y={25} width="24" height="30" rx="3" stroke="#d6f928" strokeOpacity="0.35" strokeWidth="0.5" fill="#d6f928" fillOpacity="0.05" />
                         ))}
                         {/* Labels */}
-                        <text x="30" y="78" fontFamily="monospace" fontSize="7" fill="#d6f928" fillOpacity="0.25">130 clinics</text>
+                        <text x="30" y="78" fontFamily="monospace" fontSize="7" fill="#d6f928" fillOpacity="0.25">130&ndash;150 clinics</text>
                         <text x="125" y="78" fontFamily="monospace" fontSize="7" fill="#d6f928" fillOpacity="0.25">funnel</text>
                         <text x="270" y="78" fontFamily="monospace" fontSize="7" fill="#d6f928" fillOpacity="0.25">5 templates</text>
                     </svg>
@@ -213,7 +213,7 @@ const AtlasEcosystem = () => {
                     <div className="max-w-3xl mb-20">
                         <Badge>[ The Strategic Bet ]</Badge>
                         <h2 className="font-heading text-4xl md:text-5xl font-bold text-white leading-tight mb-6">
-                            130 clinics wanted custom.{" "}
+                            130&ndash;150 clinics wanted custom.{" "}
                             <span className="text-gray-400">I standardized to 5 templates.</span>
                         </h2>
                         <p className="text-gray-400 text-base leading-relaxed mb-5">
@@ -221,7 +221,7 @@ const AtlasEcosystem = () => {
                             A General Practice clinic in rural Montana and a Specialty oncology center in Chicago serve fundamentally different users under different emotional states.
                         </p>
                         <p className="text-gray-400 text-base leading-relaxed">
-                            But 130 custom designs was equally unsustainable. The product call: <span className="text-white font-medium">map every clinic to one of 5 strategic archetypes</span> &mdash;
+                            But a bespoke design per clinic was equally unsustainable. The product call: <span className="text-white font-medium">map every clinic to one of 5 strategic archetypes</span> &mdash;
                             GP, Specialty, ER, Hybrid, Multi-Location. Any newly acquired clinic onboarded in days, not months. No custom design work, no IT bottleneck.
                         </p>
                     </div>
@@ -242,16 +242,6 @@ const AtlasEcosystem = () => {
                             </p>
                         </div>
                     </div>
-
-                    {/* Accessibility proof — the ER template built around the 2am insight.
-                        PLACEHOLDER: uncomment (and the Accessibility import) once the real ER template image is added.
-                    <figure className="mb-20">
-                        <img loading="lazy" decoding="async" src={Accessibility} alt="Atlas — accessible ER clinic template: high-contrast palette, large type, and call/directions/hours above the fold" className="rounded-2xl w-full border border-white/10" />
-                        <figcaption className="text-gray-500 text-xs mt-3 max-w-2xl">
-                            The ER template, designed around the 2am insight: high-contrast palette, oversized type, and call / directions / hours pinned above the fold. WCAG 2.1 AA verified on contrast and target size.
-                        </figcaption>
-                    </figure>
-                    */}
 
                     {/* Audit Findings */}
                     <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mb-20">
@@ -381,7 +371,7 @@ const AtlasEcosystem = () => {
                             <span className="text-gray-400">Every off-the-shelf CMS failed the test.</span>
                         </h2>
                         <p className="text-gray-400 text-base leading-relaxed mb-5">
-                            Templates were live. But keeping them accurate across 130+ clinics was impossible. A specialist practicing across three locations &mdash;
+                            Templates were live. But keeping them accurate across the whole network was impossible. A specialist practicing across three locations &mdash;
                             under the old system, their bio existed as three separate copy-paste entries. One email change meant three manual updates. Multiplied across hundreds of specialists, this was an SEO crisis &mdash; Google detected near-duplicate content at scale and penalized the entire domain.
                         </p>
                         <p className="text-gray-400 text-base leading-relaxed">
@@ -398,7 +388,7 @@ const AtlasEcosystem = () => {
                         <div>
                             <h4 className="text-white font-semibold mb-3">What I Said No To</h4>
                             <p className="text-gray-400 text-sm leading-relaxed">
-                                Stakeholders wanted <span className="text-white font-medium">per-clinic custom workflows</span> (unsustainable at 130+ scale),
+                                Stakeholders wanted <span className="text-white font-medium">per-clinic custom workflows</span> (unsustainable at that scale),
                                 <span className="text-white font-medium"> real-time chat integration</span> (6-month build, unclear adoption),
                                 and <span className="text-white font-medium">patient portal login</span> (compliance risk, out of scope for Phase 2).
                                 Each cut went into the PRD&apos;s parking lot with the specific signal that would reopen it.
@@ -460,10 +450,6 @@ const AtlasEcosystem = () => {
                             The design system auto-mapped choices to WCAG-compliant shades &mdash; <span className="text-white font-medium">branding freedom without breaking accessibility</span>.
                         </p>
                     </div>
-
-                    {/* PLACEHOLDER: uncomment (and the PhaseBranding import) once the real branding/theme image is added.
-                    <img loading="lazy" decoding="async" src={PhaseBranding} alt="Atlas — clinic-level branding and theme customization" className="rounded-2xl w-full border border-white/10 mb-20" />
-                    */}
 
                     {/* Phase 2 Outcomes */}
                     <div className="bg-gradient-to-br from-white/[0.05] to-transparent border border-white/10 backdrop-blur-md rounded-2xl p-8 md:p-10">
@@ -604,211 +590,6 @@ const AtlasEcosystem = () => {
                 </div>
             </section>
 
-            {/* ================= PHASE 4: CMS 2.0 ================= */}
-            <section className="bg-black py-24 px-4 border-t border-white/10">
-                <div className="max-w-7xl mx-auto">
-
-                    {/* Phase Divider */}
-                    <div className="flex items-center gap-6 mb-20">
-                        <div className="text-xs font-mono text-gray-600 uppercase tracking-widest whitespace-nowrap">Phase 04</div>
-                        <div className="h-px bg-white/10 flex-grow"></div>
-                        <div className="text-xs font-mono text-gray-600 uppercase tracking-widest whitespace-nowrap">CMS 2.0 &mdash; AI-Native Rebuild</div>
-                    </div>
-
-                    {/* Strategic Bet */}
-                    <div className="max-w-3xl mb-20">
-                        <Badge>[ The Strategic Bet ]</Badge>
-                        <h2 className="font-heading text-4xl md:text-5xl font-bold text-white leading-tight mb-6">
-                            CMS 1.0 solved infrastructure.{" "}
-                            <span className="text-gray-400">CMS 2.0 solved velocity.</span>
-                        </h2>
-                        <p className="text-gray-400 text-base leading-relaxed mb-5">
-                            Phases 1&ndash;3 gave 130+ clinics a standardized CMS, relational taxonomy, and a site builder.
-                            But content creation was still slow &mdash; clinic managers struggled with copy,
-                            SEO was inconsistent across locations, there was no approval chain for published content,
-                            and every template tweak still needed design intervention.
-                        </p>
-                        <p className="text-gray-400 text-base leading-relaxed mb-5">
-                            The product call: rebuild the CMS with{" "}
-                            <span className="text-white font-medium">AI at the core &mdash; not as a bolt-on feature, but as the operating layer</span>.
-                            Claude-powered content generation, automated SEO, intelligent approval workflows,
-                            and full template customization &mdash; all shipped without adding engineering headcount.
-                        </p>
-                        <p className="text-gray-400 text-base leading-relaxed">
-                            I designed CMS 2.0 end-to-end &mdash; every core flow, state, and interaction &mdash; and
-                            prototyped the working build myself with Claude Code, so the flows were{" "}
-                            <span className="text-white font-medium">proven in a real product, not just a static mockup</span>.
-                        </p>
-                    </div>
-
-                    {/* UX Overhaul */}
-                    <div className="mb-20 max-w-3xl">
-                        <h3 className="font-heading text-2xl font-bold text-white mb-3">Complete UX Overhaul</h3>
-                        <p className="text-gray-400 text-base leading-relaxed">
-                            CMS 1.0 worked &mdash; but it wasn&apos;t fast. Too many clicks to publish,
-                            unclear content status, no visibility into who changed what.
-                            CMS 2.0 redesigned every core flow from scratch &mdash;
-                            reducing time-to-publish, surfacing content health at a glance,
-                            and making the system feel like a product teams actually want to use.
-                        </p>
-                    </div>
-
-                    {/* CMS 2.0 screen flow — curated static screenshots (replaced the old live iframe).
-                        PLACEHOLDER: uncomment (and the AtlasCmsSlider import) after dropping screenshots into src/assets/atlas-cms/.
-                    <div className="mb-20">
-                        <div className="flex flex-col sm:flex-row sm:items-end sm:justify-between gap-3 mb-6">
-                            <div>
-                                <h3 className="font-heading text-2xl font-bold text-white mb-1">CMS 2.0, screen by screen</h3>
-                                <p className="text-gray-400 text-sm">The redesigned publishing flow &mdash; curated screens, not a live embed.</p>
-                            </div>
-                            <a
-                                href="https://atlas2-sable.vercel.app/dashboard"
-                                target="_blank"
-                                rel="noopener noreferrer"
-                                className="inline-flex items-center gap-2 text-gray-400 hover:text-[#d6f928] text-sm font-medium transition-colors whitespace-nowrap self-start sm:self-auto"
-                            >
-                                View live build <ExternalLink size={14} />
-                            </a>
-                        </div>
-                        <AtlasCmsSlider />
-                    </div>
-                    */}
-
-                    {/* Feature Architecture */}
-                    <div className="mb-20">
-                        <h3 className="font-heading text-2xl font-bold text-white mb-3">The Feature Stack</h3>
-                        <p className="text-gray-400 text-sm leading-relaxed max-w-2xl mb-10">
-                            Seven capabilities that turned a content management system into a content operating system.
-                            Each one scoped, built, and shipped with Claude as the engineering partner.
-                        </p>
-
-                        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-
-                            {/* AI Content Writing */}
-                            <div className="bg-white/5 border border-white/10 rounded-2xl p-6 space-y-3">
-                                <div className="w-10 h-10 rounded-xl bg-[#d6f928]/10 border border-[#d6f928]/20 flex items-center justify-center">
-                                    <Sparkles size={18} className="text-[#d6f928]" />
-                                </div>
-                                <h4 className="text-white font-semibold text-sm">AI Content Writing</h4>
-                                <p className="text-gray-400 text-xs leading-relaxed">
-                                    Claude-powered content generation built into the editor.
-                                    Clinic managers input context &mdash; the AI drafts service descriptions, doctor bios,
-                                    and marketing copy that matches brand voice.
-                                    First draft to publish-ready in minutes, not days.
-                                </p>
-                            </div>
-
-                            {/* Automated SEO */}
-                            <div className="bg-white/5 border border-white/10 rounded-2xl p-6 space-y-3">
-                                <div className="w-10 h-10 rounded-xl bg-blue-500/10 border border-blue-500/20 flex items-center justify-center">
-                                    <Search size={18} className="text-blue-400" />
-                                </div>
-                                <h4 className="text-white font-semibold text-sm">Automated SEO</h4>
-                                <p className="text-gray-400 text-xs leading-relaxed">
-                                    AI-generated meta titles, descriptions, schema markup, and keyword optimization &mdash;
-                                    applied automatically on every publish. No SEO specialist needed per location.
-                                    Consistent search performance across 130+ sites.
-                                </p>
-                            </div>
-
-                            {/* Approval Workflow */}
-                            <div className="bg-white/5 border border-white/10 rounded-2xl p-6 space-y-3">
-                                <div className="w-10 h-10 rounded-xl bg-orange-500/10 border border-orange-500/20 flex items-center justify-center">
-                                    <GitBranch size={18} className="text-orange-400" />
-                                </div>
-                                <h4 className="text-white font-semibold text-sm">Approval Workflow</h4>
-                                <p className="text-gray-400 text-xs leading-relaxed">
-                                    Multi-tier content governance. Clinic managers draft, regional leads review,
-                                    central marketing approves. Content status visible at every stage &mdash;
-                                    no more rogue pages going live without oversight.
-                                </p>
-                            </div>
-
-                            {/* User Management */}
-                            <div className="bg-white/5 border border-white/10 rounded-2xl p-6 space-y-3">
-                                <div className="w-10 h-10 rounded-xl bg-purple-500/10 border border-purple-500/20 flex items-center justify-center">
-                                    <Users size={18} className="text-purple-400" />
-                                </div>
-                                <h4 className="text-white font-semibold text-sm">User Management</h4>
-                                <p className="text-gray-400 text-xs leading-relaxed">
-                                    Role-based access control across the entire CMS. Clinic staff, regional managers,
-                                    marketing leads, and admins &mdash; each with scoped permissions.
-                                    No accidental overwrites, no unauthorized publishes.
-                                </p>
-                            </div>
-
-                            {/* Editable Templates */}
-                            <div className="bg-white/5 border border-white/10 rounded-2xl p-6 space-y-3">
-                                <div className="w-10 h-10 rounded-xl bg-emerald-500/10 border border-emerald-500/20 flex items-center justify-center">
-                                    <PenLine size={18} className="text-emerald-400" />
-                                </div>
-                                <h4 className="text-white font-semibold text-sm">Editable Templates</h4>
-                                <p className="text-gray-400 text-xs leading-relaxed">
-                                    Full template customization without breaking the design system.
-                                    Clinic teams modify section content, reorder blocks, and adjust layouts &mdash;
-                                    all within governed constraints. Design flexibility that scales.
-                                </p>
-                            </div>
-
-                            {/* Navigation Customization */}
-                            <div className="bg-white/5 border border-white/10 rounded-2xl p-6 space-y-3">
-                                <div className="w-10 h-10 rounded-xl bg-cyan-500/10 border border-cyan-500/20 flex items-center justify-center">
-                                    <Blocks size={18} className="text-cyan-400" />
-                                </div>
-                                <h4 className="text-white font-semibold text-sm">Navigation Customization</h4>
-                                <p className="text-gray-400 text-xs leading-relaxed">
-                                    Per-clinic navigation control. Each location surfaces the services and pages
-                                    most relevant to their market &mdash; without deviating from the global IA.
-                                    Local relevance, network consistency.
-                                </p>
-                            </div>
-
-                        </div>
-
-                        {/* Chatbot — full width standalone */}
-                        <div className="mt-6 bg-white/5 border border-white/10 rounded-2xl p-6 flex flex-col md:flex-row gap-4 md:gap-6 items-start">
-                            <div className="w-10 h-10 rounded-xl bg-[#d6f928]/10 border border-[#d6f928]/20 flex items-center justify-center flex-shrink-0">
-                                <Bot size={18} className="text-[#d6f928]" />
-                            </div>
-                            <div>
-                                <h4 className="text-white font-semibold text-sm mb-1">Chatbot & AI Integration</h4>
-                                <p className="text-gray-400 text-xs leading-relaxed max-w-3xl">
-                                    AI-powered chatbot deployed across clinic sites &mdash; handling appointment inquiries,
-                                    service questions, and emergency triage routing. Connected to the relational taxonomy
-                                    so responses are always location-aware and medically accurate.
-                                    Reduced front-desk call volume while improving patient experience.
-                                </p>
-                            </div>
-                        </div>
-                    </div>
-
-                    {/* Design-led build signal */}
-                    <div className="mb-20 bg-[#d6f928]/5 border border-[#d6f928]/20 rounded-2xl p-8">
-                        <p className="text-[#d6f928] text-xs uppercase tracking-widest mb-3 font-mono font-semibold">Why this matters</p>
-                        <p className="text-white text-base leading-relaxed max-w-2xl">
-                            Designing CMS 2.0 and prototyping it in code closed the usual gap between a spec and a
-                            shippable product &mdash; content writing, automated SEO, approval workflows, and user
-                            management were pressure-tested as real, working flows, not static screens.
-                        </p>
-                    </div>
-
-                    {/* Phase 4 Outcomes */}
-                    <div className="bg-gradient-to-br from-white/[0.05] to-transparent border border-white/10 backdrop-blur-md rounded-2xl p-8 md:p-10">
-                        <Badge>[ Phase 4 &mdash; Business Outcomes ]</Badge>
-                        <p className="text-gray-400 text-sm mb-10 max-w-2xl">
-                            CMS 2.0 didn&apos;t just add features &mdash; it eliminated the operational bottlenecks
-                            that were slowing every clinic&apos;s digital output.
-                        </p>
-                        <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-                            <StatCard value="7" label="New platform capabilities shipped without adding engineering headcount." icon={<Sparkles size={18} className="text-[#d6f928]" />} />
-                            <StatCard value="~70%" label="Reduction in content creation time with AI-assisted writing." icon={<Zap size={18} className="text-yellow-400" />} />
-                            <StatCard value="Zero" label="Rogue publishes since approval workflow launch." icon={<Shield size={18} className="text-blue-400" />} />
-                        </div>
-                        <p className="text-gray-600 text-xs mt-6">CMS 2.0 was designed and prototyped by me with Claude Code; figures reflect the pilot build.</p>
-                    </div>
-                </div>
-            </section>
-
             {/* ================= CLOSING ================= */}
             <section className="bg-[#050505] py-24 px-4 border-t border-white/10">
                 <div className="max-w-7xl mx-auto">
@@ -820,15 +601,20 @@ const AtlasEcosystem = () => {
                         </h2>
                         <p className="text-gray-400 text-base leading-relaxed mb-5">
                             The most impactful decision wasn&apos;t a layout &mdash; it was the data architecture.
-                            Making every specialist, service, and location a relational node instead of a static page
-                            is what made the CMS possible, what gave the site builder its power,
-                            and what CMS 2.0 turned into an AI-native content operating system.
+                            Making every specialist, service and location a relational node instead of a static page
+                            is what made the CMS possible and what gave the site builder its power.
+                        </p>
+                        <p className="text-gray-400 text-base leading-relaxed mb-5">
+                            The real test came afterwards. The same five-archetype model and content architecture
+                            were applied to a second, larger network of roughly{" "}
+                            <span className="text-white font-medium">350 clinics</span> &mdash; without redesigning
+                            the system. A structure that only fits the network it was drawn for isn&apos;t
+                            architecture; it&apos;s a template. This one held.
                         </p>
                         <p className="text-gray-400 text-base leading-relaxed">
-                            Four phases. I wrote the design specs, defined the phased rollout, coordinated engineering,
-                            and shipped the design across all of them &mdash; then designed and prototyped CMS 2.0 myself
-                            to prove where the platform could go next. One designer bridging architecture, experience,
-                            and execution &mdash; that&apos;s what made 130 clinics feel like one ecosystem.
+                            Three phases. I wrote the design specs, defined the phased rollout, worked with
+                            engineering through delivery, and shipped the design across all of them &mdash; which is
+                            what made 130&ndash;150 clinics feel like one ecosystem, and made the next 350 possible.
                         </p>
                     </div>
                 </div>

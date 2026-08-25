@@ -73,7 +73,7 @@ const AtlasTaxonomy = () => {
               <span className="text-gray-400 font-light">services, specialists, and locations.</span>
             </h3>
             <p className="text-gray-400 text-base leading-relaxed">
-              Static pages were dead. The moment a doctor joined or left a clinic, or a service was added or discontinued, a static page became wrong. And with 130+ clinics, wrong pages at scale meant hundreds of broken user journeys and Google penalties.
+              Static pages were dead. The moment a doctor joined or left a clinic, or a service was added or discontinued, a static page became wrong. And across a network that size, wrong pages at scale meant hundreds of broken user journeys and Google penalties.
             </p>
             <p className="text-gray-400 text-base leading-relaxed">
               We redesigned the data model from the ground up — turning every service, specialist, and location into a relational node rather than a static page. The taxonomy we built had four levels: Service Category → Service Type → Detailed Offering → Metadata Attributes. This meant a search for &ldquo;Oncology&rdquo; could automatically surface the right specialists, their certifications, and the specific clinics equipped to handle chemotherapy — without any manual linking per clinic.
