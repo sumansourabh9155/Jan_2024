@@ -1572,11 +1572,11 @@ const CarterEcosystem = () => {
                             Next Case Study
                         </p>
                         <p className="font-heading text-2xl font-bold text-white">
-                            Atlas: CMS Builder + Website for High Conversion
+                            Poppins: A Conversational Finance App for iOS
                         </p>
                     </div>
                     <Link
-                        to="/Projects/atlas"
+                        to="/Projects/poppins"
                         className="text-[#d6f928] font-medium text-sm border border-[#d6f928]/20 bg-[#d6f928]/5 px-6 py-3 rounded-full hover:bg-[#d6f928]/10 transition-colors whitespace-nowrap"
                     >
                         View Case Study &rarr;

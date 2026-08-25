@@ -18,8 +18,8 @@ const Footer = () => {
         ],
         caseStudies: [
             { name: "Carter", url: "/Projects/carter" },
+            { name: "Poppins", url: "/Projects/poppins" },
             { name: "Atlas", url: "/Projects/atlas" },
-            { name: "GoDiverse", url: "/Projects/GoDiverse" },
         ]
     };
 

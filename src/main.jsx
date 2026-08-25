@@ -22,6 +22,8 @@ const ExpenseDashboard = React.lazy(() => import("./pages/ExpenseDashboard"));
 // Lazy load Case Studies
 const Godiverse = React.lazy(() => import("./components/Landingsection/Casestudy/Godiverse"));
 const Atlas = React.lazy(() => import("./components/Landingsection/Casestudy/Atlas"));
+const Simfluent = React.lazy(() => import("./components/Landingsection/Casestudy/Simfluent"));
+const Poppins = React.lazy(() => import("./components/Landingsection/Casestudy/Poppins"));
 
 // Lazy load Tools
 const InquiryProtocol = React.lazy(() => import("./pages/InquiryProtocol"));
@@ -138,6 +140,14 @@ root.render(
               //     <Atlas />
               //   </ProtectedRoute>
               // }
+            />
+            <Route
+              path="/Projects/simfluent"
+              element={<Simfluent />}
+            />
+            <Route
+              path="/Projects/poppins"
+              element={<Poppins />}
             />
             <Route
               path="/ask"

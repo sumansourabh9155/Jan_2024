@@ -1,10 +1,12 @@
-import { Link } from "react-router-dom";
-import { BarChart2, Layout, FileText, ArrowRight } from "lucide-react";
+// import { ArrowRight, BarChart2, FileText, Layout } from "lucide-react";
 
+import { ArrowRight, BarChart2, Layout, Smartphone } from "lucide-react";
+
+import BannerAtlas from "../../assets/atlas/Banner.png";
 // Banner imagery — same hero art the old /projects page used.
 import BannerCarter from "../../assets/CarterRedesign/Banner.png";
-import BannerAtlas from "../../assets/atlas/Banner.png";
-import BannerGodiverse from "../../assets/Godiverse/Banner.png";
+import BannerPoppins from "../../assets/poppins/cover.png";
+import { Link } from "react-router-dom";
 
 const projectData = [
   {
@@ -23,6 +25,22 @@ const projectData = [
     ],
   },
   {
+    title: "Poppins",
+    subtitle: "Conversational Finance App for iOS",
+    category: "iOS · Consumer Fintech",
+    link: "/Projects/poppins",
+    image: BannerPoppins,
+    icon: <Smartphone size={16} className="text-emerald-300" />,
+    accent: "emerald",
+    badge: "Concluded",
+    summary:
+      "Finance apps lead with net worth — a number that answers nothing about today. The call: one Safe to Spend figure that always shows its arithmetic, and two named voices so reassurance and opportunity never sound the same.",
+    stats: [
+      { value: "Full process", label: "whiteboard → hi-fi" },
+      { value: "Killed at v1", label: "wedge wasn't defensible" },
+    ],
+  },
+  {
     title: "Atlas",
     subtitle: "CMS Architecture Across 130+ Locations",
     category: "Enterprise CMS · Healthcare",
@@ -37,27 +55,14 @@ const projectData = [
       { value: "+29%", label: "Bookings" },
     ],
   },
-  {
-    title: "GoDiverse",
-    subtitle: "1-Page Profile Builder with AI Assist",
-    category: "SaaS · AI Integration",
-    link: "/Projects/GoDiverse",
-    image: BannerGodiverse,
-    icon: <FileText size={16} className="text-purple-400" />,
-    accent: "purple",
-    summary:
-      "Every builder was bloated or generic. The call: scope the whole product around one hard constraint — a single page — to force clarity over feature-count.",
-    stats: [
-      { value: "< 8 min", label: "To first share" },
-      { value: "3-in-1", label: "Distribution" },
-    ],
-  },
 ];
 
 const accentMap = {
   blue: { border: "hover:border-blue-400/40", glow: "hover:shadow-blue-500/10", text: "group-hover:text-blue-300" },
   lime: { border: "hover:border-[#d6f928]/40", glow: "hover:shadow-[#d6f928]/10", text: "group-hover:text-[#d6f928]" },
   purple: { border: "hover:border-purple-400/40", glow: "hover:shadow-purple-500/10", text: "group-hover:text-purple-300" },
+  violet: { border: "hover:border-violet-400/40", glow: "hover:shadow-violet-500/10", text: "group-hover:text-violet-300" },
+  emerald: { border: "hover:border-emerald-400/40", glow: "hover:shadow-emerald-500/10", text: "group-hover:text-emerald-300" },
 };
 
 const Projects = () => {
@@ -81,8 +86,8 @@ const Projects = () => {
             Real Products. <span className="text-gray-500">Real Decisions.</span>
           </h2>
           <p className="text-gray-300 mt-4 text-base leading-relaxed">
-            Three products across ad-tech, healthcare, and AI — the user problem,
-            the design call I made, and what it produced.
+            Three products across ad-tech, consumer fintech, and healthcare — the user
+            problem, the design call I made, and what it produced.
           </p>
           <p className="text-gray-600 mt-3 text-xs">
             Figures are internal metrics measured post-launch.
@@ -100,18 +105,15 @@ const Projects = () => {
                 key={p.title}
                 className={`group relative bg-white/5 border border-white/10 rounded-2xl overflow-hidden backdrop-blur-sm
                   transition-[transform,box-shadow,border-color] duration-300 will-change-transform
-                  hover:-translate-y-1 hover:shadow-xl ${accent.glow} ${accent.border}`}
+                  hover:-translate-y-1 hover:shadow-xl ${accent.glow} ${accent.border}
+                  focus-within:ring-2 focus-within:ring-[#d6f928]/50`}
               >
                 <div
                   className={`grid grid-cols-1 lg:grid-cols-[minmax(0,1.1fr)_minmax(0,1fr)] lg:min-h-[260px]
                     ${flip ? "lg:[&>*:first-child]:order-2" : ""}`}
                 >
-                  {/* Image side */}
-                  <Link
-                    to={p.link}
-                    className="block overflow-hidden bg-black/40 h-48 sm:h-56 lg:h-full"
-                    aria-label={`${p.title} case study`}
-                  >
+                  {/* Image side — the whole card is the link, so this isn't interactive itself */}
+                  <div className="block overflow-hidden bg-black/40 h-48 sm:h-56 lg:h-full">
                     <img
                       src={p.image}
                       alt={`${p.title} — ${p.subtitle}`}
@@ -119,7 +121,7 @@ const Projects = () => {
                       decoding="async"
                       className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-[1.04] will-change-transform"
                     />
-                  </Link>
+                  </div>
 
                   {/* Content side */}
                   <div className="p-6 md:p-8 flex flex-col justify-center">
@@ -131,6 +133,23 @@ const Projects = () => {
                       <span className="text-[10px] font-mono text-gray-500 uppercase tracking-widest">
                         {p.category}
                       </span>
+                      {p.badge && (
+                        // Live work pulses; concluded work reads as a quiet, factual status.
+                        <span
+                          className={`inline-flex items-center gap-1.5 text-[10px] font-medium px-2 py-0.5 rounded-full border ${
+                            p.badgeLive
+                              ? "text-violet-300 bg-violet-500/10 border-violet-400/30"
+                              : "text-gray-400 bg-white/5 border-white/15"
+                          }`}
+                        >
+                          <span
+                            className={`w-1 h-1 rounded-full ${
+                              p.badgeLive ? "bg-violet-400 animate-pulse" : "bg-gray-500"
+                            }`}
+                          />
+                          {p.badge}
+                        </span>
+                      )}
                     </div>
 
                     <h3 className={`font-heading text-2xl md:text-3xl font-bold text-white leading-tight transition-colors duration-200 ${accent.text}`}>
@@ -151,18 +170,27 @@ const Projects = () => {
                         ))}
                       </div>
 
-                      <Link
-                        to={p.link}
+                      {/* Visual affordance only — the real link is the card-wide overlay below */}
+                      <span
+                        aria-hidden="true"
                         className="inline-flex items-center justify-center gap-2 bg-white text-black px-5 py-2.5 rounded-full font-bold text-sm
-                          hover:bg-[#d6f928] hover:scale-[1.02] active:scale-[0.99] transition-[transform,background-color] duration-200
+                          group-hover:bg-[#d6f928] transition-colors duration-200
                           shadow-[0_0_20px_rgba(255,255,255,0.12)] w-full sm:w-fit whitespace-nowrap"
                       >
                         Read case study
-                        <ArrowRight size={16} />
-                      </Link>
+                        <ArrowRight size={16} className="group-hover:translate-x-0.5 transition-transform duration-200" />
+                      </span>
                     </div>
                   </div>
                 </div>
+
+                {/* Card-wide link — one link per card, covering the whole surface.
+                    Kept transform-free so it can't re-anchor and flicker on hover. */}
+                <Link
+                  to={p.link}
+                  aria-label={`Read the ${p.title} case study — ${p.subtitle}`}
+                  className="absolute inset-0 z-10 focus:outline-none"
+                />
               </article>
             );
           })}

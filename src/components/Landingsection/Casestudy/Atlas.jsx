@@ -815,8 +815,8 @@ const AtlasEcosystem = () => {
                     <div className="max-w-3xl">
                         <Badge>[ The Real Story ]</Badge>
                         <h2 className="font-heading text-4xl md:text-5xl font-bold text-white leading-tight mb-8">
-                            Systems thinking.{" "}
-                            <span className="text-gray-400">Then I built the system.</span>
+                            The layout was never the decision.{" "}
+                            <span className="text-gray-400">The data model was.</span>
                         </h2>
                         <p className="text-gray-400 text-base leading-relaxed mb-5">
                             The most impactful decision wasn&apos;t a layout &mdash; it was the data architecture.
@@ -839,9 +839,9 @@ const AtlasEcosystem = () => {
                 <div className="max-w-7xl mx-auto flex flex-col md:flex-row items-center justify-between gap-6">
                     <div>
                         <p className="text-xs font-mono text-gray-600 uppercase tracking-widest mb-2">Next Case Study</p>
-                        <p className="font-heading text-2xl font-bold text-white">GoDiverse: Supplier Profile Builder</p>
+                        <p className="font-heading text-2xl font-bold text-white">Carter: Ad Platform Redesign &amp; 0-to-1 DSP</p>
                     </div>
-                    <Link to="/Projects/GoDiverse" className="text-[#d6f928] font-medium text-sm border border-[#d6f928]/20 bg-[#d6f928]/5 px-6 py-3 rounded-full hover:bg-[#d6f928]/10 transition-colors whitespace-nowrap">
+                    <Link to="/Projects/carter" className="text-[#d6f928] font-medium text-sm border border-[#d6f928]/20 bg-[#d6f928]/5 px-6 py-3 rounded-full hover:bg-[#d6f928]/10 transition-colors whitespace-nowrap">
                         View Case Study &rarr;
                     </Link>
                 </div>

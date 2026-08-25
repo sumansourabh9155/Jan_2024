@@ -1,5 +1,5 @@
-import { Link } from "react-router-dom";
 import { ArrowRight } from "lucide-react";
+import { Link } from "react-router-dom";
 import suman from "../../assets/Img/suman.jpg";
 
 const capabilities = ["Product Design", "Design Systems", "AI-Native UX", "Design-to-Code"];
@@ -59,7 +59,7 @@ const HeroSection = () => {
 
           {/* Headline — what I do, in one glance */}
           <h1 className="font-heading text-4xl sm:text-5xl xl:text-6xl font-extrabold text-white leading-[1.08] tracking-tight mb-5">
-            I Build 0-to-1 products {" "}
+            I Build 0-to-1 and 1-100 products {" "}
             <span className="text-transparent bg-clip-text bg-gradient-to-r from-white via-gray-200 to-gray-500">
               and ship development myself.
             </span>

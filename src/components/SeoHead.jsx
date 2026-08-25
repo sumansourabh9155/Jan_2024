@@ -52,11 +52,11 @@ const caseStudiesItemList = {
       position: 2,
       item: {
         "@type": "CreativeWork",
-        name: "Atlas — CMS Architecture & 0-to-1 Site Builder",
-        url: `${SITE_URL}/Projects/atlas`,
+        name: "Poppins — Conversational Finance App for iOS",
+        url: `${SITE_URL}/Projects/poppins`,
         description:
-          "Unifying 130+ clinic websites under a relational CMS with a phased rollout and a no-code site builder.",
-        about: "Healthcare / Enterprise CMS",
+          "Designing an iOS conversational finance assistant around one explainable Safe to Spend figure and a two-voice system — and the decision to stop at v1 scope.",
+        about: "iOS / Consumer Fintech",
       },
     },
     {
@@ -64,11 +64,11 @@ const caseStudiesItemList = {
       position: 3,
       item: {
         "@type": "CreativeWork",
-        name: "GoDiverse — 1-Page Profile Builder with AI Assist",
-        url: `${SITE_URL}/Projects/GoDiverse`,
+        name: "Atlas — CMS Architecture & 0-to-1 Site Builder",
+        url: `${SITE_URL}/Projects/atlas`,
         description:
-          "Scoping a constraint-driven one-page builder with AI-assisted content for a supplier-diversity platform.",
-        about: "SaaS / AI Integration",
+          "Unifying 130+ clinic websites under a relational CMS with a phased rollout and a no-code site builder.",
+        about: "Healthcare / Enterprise CMS",
       },
     },
   ],
