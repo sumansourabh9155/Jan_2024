@@ -2,74 +2,38 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
     <loc>https://www.sumansourabh.com/</loc>
-    <lastmod>2026-01-15</lastmod>
+    <lastmod>2026-08-25</lastmod>
     <changefreq>weekly</changefreq>
     <priority>1.0</priority>
   </url>
   <url>
-    <loc>https://www.sumansourabh.com/projects</loc>
-    <lastmod>2026-01-15</lastmod>
-    <changefreq>weekly</changefreq>
+    <loc>https://www.sumansourabh.com/carter</loc>
+    <lastmod>2026-08-25</lastmod>
+    <changefreq>monthly</changefreq>
     <priority>0.9</priority>
-  </url>
-  <url>
-    <loc>https://www.sumansourabh.com/contact</loc>
-    <lastmod>2026-01-15</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
-  </url>
-  <url>
-    <loc>https://www.sumansourabh.com/resume</loc>
-    <lastmod>2026-01-15</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
-  </url>
-  <url>
-    <loc>https://www.sumansourabh.com/resource</loc>
-    <lastmod>2026-01-15</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  <url>
-    <loc>https://www.sumansourabh.com/Raikar</loc>
-    <lastmod>2026-01-15</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
-  </url>
-  <url>
-    <loc>https://www.sumansourabh.com/CarterRedesign</loc>
-    <lastmod>2026-01-15</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
-  </url>
-  <url>
-    <loc>https://www.sumansourabh.com/atlas</loc>
-    <lastmod>2026-01-15</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
-  </url>
-  <url>
-    <loc>https://www.sumansourabh.com/simfluent</loc>
-    <lastmod>2026-08-03</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.8</priority>
   </url>
   <url>
     <loc>https://www.sumansourabh.com/poppins</loc>
     <lastmod>2026-08-25</lastmod>
     <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
+    <priority>0.9</priority>
   </url>
   <url>
-    <loc>https://www.sumansourabh.com/carterdsp</loc>
-    <lastmod>2026-01-15</lastmod>
+    <loc>https://www.sumansourabh.com/atlas</loc>
+    <lastmod>2026-08-25</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.9</priority>
+  </url>
+  <url>
+    <loc>https://www.sumansourabh.com/resume</loc>
+    <lastmod>2026-08-25</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://www.sumansourabh.com/cartercampaign</loc>
-    <lastmod>2026-01-15</lastmod>
+    <loc>https://www.sumansourabh.com/contact</loc>
+    <lastmod>2026-08-25</lastmod>
     <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
+    <priority>0.7</priority>
   </url>
 </urlset>
