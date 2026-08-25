@@ -1,4 +1,6 @@
-import { Helmet, HelmetProvider } from "react-helmet-async";
+import { HelmetProvider } from "react-helmet-async";
+
+import useSeo from "./useSeo";
 
 const SITE_URL = "https://www.sumansourabh.com";
 
@@ -79,7 +81,7 @@ const SeoHead = ({
   description = "Product Designer with a CS/ML background — end-to-end design of 0-to-1 AI products across AdTech and HealthTech, design systems, and shipping the UI in React.",
   keywords = "product designer, ui/ux designer, product design portfolio, design systems, interaction design, AI-native design, UX research, usability testing, Figma, React",
   canonicalUrl = SITE_URL,
-  ogImage = `${SITE_URL}/android-chrome-512x512.png`,
+  ogImage = `${SITE_URL}/og-image.png`,
   includeSchemas = ["person", "caseStudies"],
 }) => {
   const schemaMap = {
@@ -87,39 +89,16 @@ const SeoHead = ({
     caseStudies: caseStudiesItemList,
   };
 
-  return (
-    <Helmet>
-      {/* Primary Meta */}
-      <title>{title}</title>
-      <meta name="description" content={description} />
-      {keywords && <meta name="keywords" content={keywords} />}
-      <link rel="canonical" href={canonicalUrl} />
+  useSeo({
+    title,
+    description,
+    keywords,
+    canonicalUrl,
+    ogImage,
+    jsonLd: includeSchemas.map((key) => schemaMap[key]).filter(Boolean),
+  });
 
-      {/* Open Graph */}
-      <meta property="og:type" content="website" />
-      <meta property="og:title" content={title} />
-      <meta property="og:description" content={description} />
-      <meta property="og:url" content={canonicalUrl} />
-      <meta property="og:image" content={ogImage} />
-      <meta property="og:locale" content="en_US" />
-      <meta property="og:site_name" content="Suman Sourabh — Product Designer" />
-
-      {/* Twitter Card */}
-      <meta name="twitter:card" content="summary_large_image" />
-      <meta name="twitter:title" content={title} />
-      <meta name="twitter:description" content={description} />
-      <meta name="twitter:image" content={ogImage} />
-
-      {/* JSON-LD Structured Data */}
-      {includeSchemas.map((key) =>
-        schemaMap[key] ? (
-          <script key={key} type="application/ld+json">
-            {JSON.stringify(schemaMap[key])}
-          </script>
-        ) : null
-      )}
-    </Helmet>
-  );
+  return null;
 };
 
 export { SeoHead, HelmetProvider };

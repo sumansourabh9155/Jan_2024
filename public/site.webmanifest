@@ -1,0 +1,12 @@
+{
+  "name": "Suman Sourabh — Product Designer",
+  "short_name": "Suman Sourabh",
+  "icons": [
+    { "src": "/favicon-32x32.png", "sizes": "32x32", "type": "image/png" },
+    { "src": "/android-chrome-512x512.png", "sizes": "512x512", "type": "image/png" }
+  ],
+  "theme_color": "#050505",
+  "background_color": "#050505",
+  "display": "standalone",
+  "start_url": "/"
+}

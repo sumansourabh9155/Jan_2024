@@ -12,7 +12,8 @@ const Resume = () => {
         title="Resume: Suman Sourabh — Product Designer | AI-Native & 0-to-1"
         description="Experience of Suman Sourabh, a Product Designer with a CS/ML background. End-to-end design of 0-to-1 AI products across AdTech and HealthTech, design systems, and shipping the UI in React."
         keywords="resume, product designer, ui/ux designer, shyftlabs, 0-to-1 products, design systems, AI-native design, experience"
-        ogImage={profilePic}
+        /* profilePic is a hashed bundle path — social crawlers need an absolute
+           URL, so fall back to the site-wide OG card. */
         canonicalUrl="https://www.sumansourabh.com/resume"
       />
       <Navbar />

@@ -27,6 +27,7 @@ dist-ssr
 .env
 *.env
 *.env.*
+!.env.example
 
 # Private interview-prep material — never publish
 METRICS_LEDGER.md

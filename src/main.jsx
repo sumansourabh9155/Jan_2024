@@ -5,6 +5,7 @@ import { Navigate, Route, BrowserRouter as Router, Routes } from "react-router-d
 import React, { Suspense } from "react";
 
 import AnimatedCursor from "react-animated-cursor";
+import Analytics from "./components/Analytics";
 import App from "./App";
 import { HelmetProvider } from "react-helmet-async";
 import LandingPage from "./pages/LandingPage";
@@ -167,6 +168,8 @@ root.render(
             <Route path="*" element={<NotFound />} />
           </Routes>
         </Suspense>
+        {/* After <Routes> so the page's title is already set when the hit fires. */}
+        <Analytics />
       </Router>
     </div>
   </HelmetProvider>

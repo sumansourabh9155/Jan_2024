@@ -1,34 +1,33 @@
+import useSeo from "./useSeo";
 
-import { Helmet } from 'react-helmet-async';
+/**
+ * Per-page SEO for the case studies.
+ *
+ * `url` is accepted as an alias for `canonicalUrl` because several case studies
+ * were already passing `url` — under the old component that prop was silently
+ * ignored, so those pages shipped with no canonical at all.
+ */
+const SEO = ({
+  title,
+  description,
+  image,
+  keywords,
+  name,
+  canonicalUrl = null,
+  url = null,
+  noindex = false,
+}) => {
+  useSeo({
+    title,
+    description,
+    keywords,
+    canonicalUrl: canonicalUrl || url,
+    ogImage: image,
+    twitterCreator: name,
+    noindex,
+  });
 
-const SEO = ({ title, description, image, keywords, name, canonicalUrl = null, noindex = false }) => {
-  return (
-    <Helmet>
-      {/* Standard metadata tags */}
-      <title>{title}</title>
-      <meta name="description" content={description} />
-      <meta name="keywords" content={keywords} />
-
-      {/* Crawling restrictions */}
-      {noindex && <meta name="robots" content="noindex, nofollow" />}
-
-      {/* Canonical URL */}
-      {canonicalUrl && <link rel="canonical" href={canonicalUrl} />}
-
-      {/* Open Graph tags (Facebook, LinkedIn, etc.) */}
-      <meta property="og:type" content="website" />
-      <meta property="og:title" content={title} />
-      <meta property="og:description" content={description} />
-      {canonicalUrl && <meta property="og:url" content={canonicalUrl} />}
-
-      {/* Twitter Card tags */}
-      <meta name="twitter:card" content="summary_large_image" />
-      <meta name="twitter:creator" content={name} />
-      <meta name="twitter:title" content={title} />
-      <meta name="twitter:description" content={description} />
-      <meta name="twitter:image" content={image} />
-    </Helmet>
-  );
+  return null;
 };
 
 export default SEO;

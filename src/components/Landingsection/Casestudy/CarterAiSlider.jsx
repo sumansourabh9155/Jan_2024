@@ -137,8 +137,9 @@ const CarterAiSlider = () => {
         </div>
       </div>
 
-      {/* Progress dots (compact, scrollable if many) */}
-      <div className="flex flex-wrap gap-1.5 px-4 pb-4 pt-1 justify-center">
+      {/* Progress dots — the visual stays small, but each button carries vertical
+          padding so the touch target clears the 24px minimum on mobile. */}
+      <div className="flex flex-wrap gap-0.5 px-4 pb-2 pt-0 justify-center">
         {slides.map((_, i) => (
           <button
             key={i}
@@ -146,8 +147,12 @@ const CarterAiSlider = () => {
             onClick={() => go(i)}
             aria-label={`Go to screen ${i + 1}`}
             aria-current={i === index}
-            className={`h-1.5 rounded-full transition-all ${i === index ? "w-6 bg-[#d6f928]" : "w-1.5 bg-white/20 hover:bg-white/40"}`}
-          />
+            className="group/dot flex items-center justify-center py-3 px-1 focus:outline-none focus-visible:ring-2 focus-visible:ring-[#d6f928]/60 rounded"
+          >
+            <span
+              className={`block h-1.5 rounded-full transition-all ${i === index ? "w-6 bg-[#d6f928]" : "w-1.5 bg-white/20 group-hover/dot:bg-white/50"}`}
+            />
+          </button>
         ))}
       </div>
     </div>
