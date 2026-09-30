@@ -16,27 +16,27 @@ const Faq = () => {
     {
       question: "What's your AI work, specifically?",
       answer:
-        "On Carter I designed the conversational UX for an agentic campaign assistant on the Claude API — the clarification, confirmation, and recovery patterns that decide whether an agent feels trustworthy or just fast. Campaign launch went from 2.5 hours to 30 minutes. On Poppins I designed a conversational finance assistant built on two depths of a single voice, each with separate jobs and an explicit list of what it never says, because the tone that works for \"you hit your savings goal\" is unbearable attached to \"you are overdrawn.\" The part I care most about is the unglamorous part: what the interface does when the model is wrong, uncertain, or slow.",
+        "On Carter I designed an agentic AI campaign assistant on the Claude API that drafts a campaign from a brief, with human review of every section and per-network spec checks — the clarification, confirmation, and recovery patterns that decide whether an agent feels trustworthy or just fast. Campaign launch went from 1.5 hours to 30 minutes. On Poppins I designed a conversational finance assistant built on two depths of a single voice, each with separate jobs and an explicit list of what it never says, because the tone that works for \"you hit your savings goal\" is unbearable attached to \"you are overdrawn.\" The part I care most about is the unglamorous part: what the interface does when the model is wrong, uncertain, or slow.",
     },
     {
       question: "What design work have you actually shipped?",
       answer:
-        "Carter (B2B ad-tech) — redesigned the campaign activation funnel and built the component library adopted across every product; campaign abandonment down 68% from a 27% baseline, measured over ~6 months post-rollout. Atlas (veterinary healthcare) — unified 130–150 clinic sites under one relational CMS with a 6-template system and a 0-to-1 no-code site builder; booking conversion up 29%. Poppins (consumer iOS) — a conversational finance app taken from whiteboard to interactive prototype, then killed at v1 when the wedge didn't hold. Research, interaction design, and UI on all three — and on Atlas I shipped the flows in code myself.",
+        "Carter (B2B ad-tech) — design across 12 DSP integrations as one of two designers, an agentic AI campaign assistant, and a multi-DSP launcher unifying 12 workflows into one form; 4.6/5 usability. Atlas (healthcare) — a 130-clinic network unified under one relational CMS with 6 WCAG 2.1 AA templates and a 0-to-1 no-code site builder; booking conversion up 16%, organic traffic up 41%. Poppins (consumer iOS) — a conversational finance app taken from concept to hi-fi prototypes, then concluded before build when the business case didn't hold. Research, interaction design, and UI on all three.",
     },
     {
       question: "Why did Poppins get killed?",
       answer:
-        "Because we couldn't defend the wedge. We'd bet on proactive delivery — money surfacing in the messaging thread people already read. Under scrutiny that didn't hold: a delivery channel is a feature, not a moat, and cheap for a funded incumbent to copy once it's proven. Everything genuinely differentiated lived in voice, sequencing, and interaction quality — real design value, but a fragile business defence. We stopped at the end of v1 scope, before engineering investment. What I'd change is the order: we validated the experience exhaustively and the wedge late. Now I go at the assumption that kills the project first.",
+        "Because we couldn't defend the wedge. We'd bet on proactive delivery — money surfacing in the messaging thread people already read. Under scrutiny that didn't hold: a delivery channel is a feature, not a moat, and cheap for a funded incumbent to copy once it's proven. Everything genuinely differentiated lived in voice, sequencing, and interaction quality — real design value, but a fragile business defence. We concluded it before build, so no engineering was spent. What I'd change is the order: we validated the experience exhaustively and the wedge late. Now I go at the assumption that kills the project first.",
     },
     {
-      question: "Only three years — are you senior enough?",
+      question: "Only two and a half years — are you senior enough?",
       answer:
-        "Three-plus by date, and the scope has been wider than the tenure suggests: two 0-to-1 launches, one 1-to-100 scaling programme, the company-wide design system, and a 130–150 site network with around 25 engineers on the other side of the handoff. I've also had to win a prioritisation argument against a VP of Sales using funnel data rather than taste. If a role asks for four years, read one case study and judge from the work — that's a fairer test than the date on my CV.",
+        "Two and a half by date, and the scope has been wider than the tenure suggests: a 0-to-1 healthcare CMS across a 130-clinic network, design across 12 DSP integrations on a live retail-media platform, and the company-wide design system used by five products. I've also had to take a stalled-draft problem to leadership with interviews, session recordings, and SQL rather than taste, and get it prioritised. If a role asks for more years, read one case study and judge from the work — that's a fairer test than the date on my CV.",
     },
     {
       question: "What kind of role are you looking for?",
       answer:
-        "Product Designer or Senior Product Designer somewhere design owns the problem from research through shipped UI, and AI is part of the product rather than a bolt-on. Company size matters much less to me than that — I've worked small enough to talk to every user directly, and on a network serving 130–150 locations. Bonus if I sit close to engineering.",
+        "Product Designer or Senior Product Designer somewhere design owns the problem from research through shipped UI, and AI is part of the product rather than a bolt-on. Company size matters much less to me than that — I've worked small enough to talk to every user directly, and inside an 80+ person org. Bonus if I sit close to engineering.",
     },
     {
       question: "Remote, hybrid, or on-site?",

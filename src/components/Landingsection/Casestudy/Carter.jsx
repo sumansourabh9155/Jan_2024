@@ -122,6 +122,14 @@ const Badge = ({ children }) => (
     </div>
 );
 
+// Subsection marker — deliberately quieter than Badge so a decision inside a
+// chapter doesn't read as a chapter of its own.
+const SubLabel = ({ children }) => (
+    <p className="text-[11px] font-mono text-gray-500 tracking-widest uppercase mb-4">
+        {children}
+    </p>
+);
+
 const StatCard = ({ value, label, icon }) => (
     <div className="bg-white/5 border border-white/10 rounded-2xl p-6 space-y-3">
         {icon && (
@@ -171,10 +179,10 @@ const CarterEcosystem = () => {
                             Carter <span className="text-gray-500 font-light">Ecosystem</span>
                         </h1>
                         <p className="text-lg text-gray-400 font-light leading-relaxed max-w-xl mx-auto">
-                            Carter is a unified operating system for commerce media. Phase 1 —
-                            redesigned an inconsistent, wireframe-grade platform and built its design
-                            system. Phase 2 — designed the multi-DSP orchestration and AI-agent features
-                            and optimized the flows, as the sole designer.
+                            Carter is a unified operating system for commerce media. I led design
+                            across 12 DSP integrations as one of two designers — redesigning an
+                            inconsistent, wireframe-grade platform, building its design system, and
+                            designing the multi-DSP orchestration and AI-agent features.
                         </p>
                     </div>
 
@@ -214,7 +222,7 @@ const CarterEcosystem = () => {
                             <p className="text-xs text-gray-500 uppercase tracking-widest mb-2">
                                 Design Team
                             </p>
-                            <p className="text-white font-medium">2 (P1) → Solo (P2)</p>
+                            <p className="text-white font-medium">1 of 2 designers</p>
                         </div>
                     </div>
 
@@ -235,6 +243,66 @@ const CarterEcosystem = () => {
                             </span>
                         ))}
                     </div>
+
+                    {/* The short version — the whole arc before the detail starts, for
+                        anyone who reads one screen and decides from it. */}
+                    <div className="mt-12 max-w-3xl mx-auto bg-white/5 border border-white/10 rounded-2xl p-6 md:p-8">
+                        <p className="text-[11px] font-mono text-gray-500 tracking-widest uppercase mb-6">
+                            The short version
+                        </p>
+                        <dl className="space-y-5">
+                            {[
+                                {
+                                    k: "The problem",
+                                    v: (
+                                        <>
+                                            A live platform that was quietly losing people &mdash; advertisers{" "}
+                                            <span className="text-white font-medium">stalled in draft</span> and never
+                                            reached a launched campaign.
+                                        </>
+                                    ),
+                                },
+                                {
+                                    k: "The call",
+                                    v: (
+                                        <>
+                                            Find out why before building anything new. Interviews, session recordings
+                                            and SQL funnel analysis, then{" "}
+                                            <span className="text-white font-medium">got leadership to prioritise the fix</span>.
+                                        </>
+                                    ),
+                                },
+                                {
+                                    k: "What I owned",
+                                    v: (
+                                        <>
+                                            Research, IA, interaction design, the design system, and design QA &mdash;{" "}
+                                            <span className="text-white font-medium">one of two designers</span> across
+                                            12 DSP integrations in a 12-person core team.
+                                        </>
+                                    ),
+                                },
+                                {
+                                    k: "The outcome",
+                                    v: (
+                                        <>
+                                            Draft abandonment <span className="text-white font-medium">down 8%</span>,
+                                            campaign launch <span className="text-white font-medium">3× faster</span>,
+                                            engineering <span className="text-white font-medium">30% faster</span> off
+                                            the design system, <span className="text-white font-medium">4.6/5</span> usability.
+                                        </>
+                                    ),
+                                },
+                            ].map((row) => (
+                                <div key={row.k} className="flex flex-col sm:flex-row gap-1 sm:gap-6">
+                                    <dt className="text-xs font-mono text-[#d6f928] uppercase tracking-wider sm:w-36 shrink-0 sm:pt-0.5">
+                                        {row.k}
+                                    </dt>
+                                    <dd className="text-gray-400 text-sm leading-relaxed">{row.v}</dd>
+                                </div>
+                            ))}
+                        </dl>
+                    </div>
                 </div>
             </section>
 
@@ -242,7 +310,7 @@ const CarterEcosystem = () => {
             <section className="bg-black py-24 px-4 border-t border-white/10">
                 <div className="max-w-7xl mx-auto">
                     <div className="max-w-3xl mb-20">
-                        <Badge>[ How I Owned the Design ]</Badge>
+                        <Badge>[ 01 &mdash; Context &amp; My Role ]</Badge>
                         <h2 className="font-heading text-4xl md:text-5xl font-bold text-white leading-tight mb-6">
                             One Designer.{" "}
                             <span className="text-gray-400">Research to shipped UI.</span>
@@ -255,14 +323,13 @@ const CarterEcosystem = () => {
                                 {" "}
                                 read the codebase, run user research, and ship the UI myself
                             </span>
-                            . Day to day I worked with an{" "}
-                            <span className="text-white font-medium">~8-person frontend and QA group</span>{" "}
-                            (4 on frontend); the wider product org — 50+ engineers across backend, data,
-                            and ML — ran their own tracks. Design stayed lean: Phase 1 ran with{" "}
-                            <span className="text-white font-medium">two designers</span>, myself and a senior
-                            designer I worked under — by Phase 2 I was the{" "}
-                            <span className="text-white font-medium">sole designer</span>, the single owner of
-                            every screen that shipped.
+                            . Day to day I worked with a{" "}
+                            <span className="text-white font-medium">12-person core team</span>{" "}
+                            inside an 80+ person org; the wider product group ran their own tracks. Design
+                            stayed lean throughout &mdash; I was{" "}
+                            <span className="text-white font-medium">one of two designers</span> covering
+                            12 DSP integrations, which is why the work had to be systematised rather than
+                            drawn screen by screen.
                         </p>
                         <p className="text-gray-500 text-sm leading-relaxed mt-4">
                             Timeline note: I moved onto Carter after leading the first stage of{" "}
@@ -298,7 +365,7 @@ const CarterEcosystem = () => {
                                     Embedded with Engineering
                                 </h4>
                                 <p className="text-gray-400 text-xs leading-relaxed">
-                                    Partnered daily with a 4-person frontend team inside a 50+ engineer
+                                    Partnered daily with the frontend team inside an 80+ person
                                     org — specs and design QA on every ticket.
                                 </p>
                             </div>
@@ -503,7 +570,7 @@ const CarterEcosystem = () => {
 
                     {/* Strategic Bet */}
                     <div className="max-w-3xl mb-20">
-                        <Badge>[ The Strategic Bet ]</Badge>
+                        <Badge>[ 02 &mdash; The Call I Made ]</Badge>
                         <h2 className="font-heading text-4xl md:text-5xl font-bold text-white leading-tight mb-6">
                             The team wanted features.{" "}
                             <span className="text-gray-400">
@@ -616,7 +683,7 @@ const CarterEcosystem = () => {
                                 fontFamily="monospace"
                                 fontSize="7"
                             >
-                                4x REV
+                                ACTIVATION
                             </text>
                             {/* C bar */}
                             <rect
@@ -692,15 +759,16 @@ const CarterEcosystem = () => {
 
                         <p className="text-gray-400 text-base leading-relaxed mb-5">
                             I scored the backlog using RICE — reach, impact, confidence,
-                            effort — and the data was clear: fixing campaign activation had 4x
-                            the revenue impact of any new feature.
+                            effort — and the picture was clear: the largest win available
+                            wasn&apos;t a new feature, it was the campaigns already being
+                            started and never finished.
                         </p>
                         <p className="text-gray-400 text-base leading-relaxed">
                             The VP of Sales pushed back — &ldquo;we need feature X for the
-                            Kroger deal.&rdquo; I walked leadership through the churn
-                            correlation: 27% abandonment meant we were losing clients faster
-                            than Sales could close them. They gave me two sprints to prove it.
-                            The numbers did the rest.
+                            Kroger deal.&rdquo; I walked leadership through what the interviews,
+                            session recordings and funnel query actually showed: advertisers
+                            stalling in draft, repeatedly, at the same step. That got the fix
+                            prioritised ahead of the roadmap.
                         </p>
                     </div>
 
@@ -735,14 +803,14 @@ const CarterEcosystem = () => {
                                 <AlertTriangle size={18} className="text-red-400" />
                             </div>
                             <h4 className="font-heading text-2xl font-bold text-white mb-2">
-                                27%
+                                Stalled drafts
                             </h4>
                             <p className="text-white text-sm font-medium mb-2">
-                                Activation Drop-off
+                                Campaigns started, never launched
                             </p>
                             <p className="text-gray-400 text-xs leading-relaxed">
-                                Users dropped after Step 2 of campaign builder. Directly
-                                impacting TTV and LTV:CAC.
+                                Advertisers dropped at the same step of the campaign builder
+                                and left the draft sitting. Directly impacting time to value.
                             </p>
                         </div>
                         <div className="bg-red-950/20 border border-red-500/15 rounded-2xl p-6">
@@ -779,7 +847,8 @@ const CarterEcosystem = () => {
 
                     {/* ——— DECISION 1: THE DESIGN SYSTEM ——— */}
                     <div className="mb-24">
-                        <Badge>[ Product Decision 1 — Design System ]</Badge>
+                        <Badge>[ 03 &mdash; What I Designed ]</Badge>
+                        <SubLabel>Decision 1 &middot; Design System</SubLabel>
                         <h3 className="font-heading text-3xl font-bold text-white mb-4">
                             The UI looked like a wireframe.{" "}
                             <span className="text-gray-400">So I built the system underneath it.</span>
@@ -787,7 +856,7 @@ const CarterEcosystem = () => {
                         <p className="text-gray-400 text-base leading-relaxed max-w-3xl mb-10">
                             The platform had no visual consistency &mdash; spacing, colour and components drifted
                             screen to screen, and much of it still read like a mid-fi wireframe. Redesigning screens
-                            one at a time wouldn&apos;t hold, because twelve teams were building UI independently and
+                            one at a time wouldn&apos;t hold, because every team was building UI independently and
                             re-solving the same problems. So the first call wasn&apos;t a screen, it was the layer
                             underneath: a governed component library with design tokens, documented states, an 8pt
                             grid and WCAG 2.1 AA baked in &mdash; with design-to-code parity in Storybook, so every
@@ -807,7 +876,7 @@ const CarterEcosystem = () => {
                                 icon={<Layers size={18} className="text-[#d6f928]" />}
                             />
                             <StatCard
-                                value="+50%"
+                                value="+30%"
                                 label="Faster shipping velocity once engineering built from shared components."
                                 icon={<Zap size={18} className="text-yellow-400" />}
                             />
@@ -950,12 +1019,12 @@ const CarterEcosystem = () => {
                             </p>
                             <p className="text-gray-400 text-sm leading-relaxed">
                                 First version of AI budget nudges auto-filled spend amounts.
-                                Under 10% interaction — users didn&apos;t trust automated inputs
-                                on day one. Iterated: switched to{" "}
+                                Advertisers didn&apos;t trust automated inputs on day one and
+                                largely left them alone. Reworked it into{" "}
                                 <span className="text-white font-medium">
-                                    contextual recommendations alongside manual controls
+                                    suggestions sitting beside manual controls
                                 </span>
-                                . Adoption jumped to 38%.
+                                &nbsp;— the model proposes, the advertiser still decides.
                             </p>
                         </div>
                     </div>
@@ -988,29 +1057,37 @@ const CarterEcosystem = () => {
                     {/* Phase 1 Outcomes */}
                     <div className="bg-gradient-to-br from-white/[0.05] to-transparent border border-white/10 backdrop-blur-md rounded-2xl p-8 md:p-10">
                         <Badge>[ Phase 1 — Business Outcomes ]</Badge>
-                        <p className="text-gray-400 text-sm mb-10 max-w-2xl">
-                            Fixing activation before building new features delivered
-                            compounding returns.
+                        {/* Stated as a chain rather than a scoreboard — each number is the
+                            cause of the next one, which is the actual argument. */}
+                        <p className="text-gray-400 text-sm leading-relaxed mb-10 max-w-2xl">
+                            These are one chain, not separate results. Rebuilding the dense form as a short
+                            guided flow cut <span className="text-white font-medium">draft abandonment 8%</span>,
+                            so more of the campaigns advertisers started actually reached launch. The agentic
+                            assistant then took the launch itself from{" "}
+                            <span className="text-white font-medium">1.5 hours to 30 minutes</span>. In parallel,
+                            the component library made engineering{" "}
+                            <span className="text-white font-medium">30% faster</span>, which is what let a
+                            two-designer team keep pace with 12 DSP integrations.
                         </p>
                         <div className="grid grid-cols-2 md:grid-cols-4 gap-6">
                             <StatCard
-                                value="1 → 3"
-                                label="Enterprise clients on the platform after activation and retention were fixed."
+                                value="4.6/5"
+                                label="Usability score, task-based sessions."
                                 icon={<TrendingUp size={18} className="text-green-400" />}
                             />
                             <StatCard
-                                value="50%"
+                                value="30%"
                                 label="Faster shipping velocity from component infrastructure."
                                 icon={<Zap size={18} className="text-yellow-400" />}
                             />
                             <StatCard
-                                value="&darr; 68%"
-                                label="Campaign abandonment — down from the 27% baseline after the funnel redesign."
+                                value="&darr; 8%"
+                                label="Draft abandonment after the guided-flow rebuild."
                                 icon={<Target size={18} className="text-blue-400" />}
                             />
                             <StatCard
-                                value="2x"
-                                label="Faster onboarding — 3 hours down to under 90 minutes."
+                                value="3&times;"
+                                label="Faster campaign launch — 1.5 hours down to 30 minutes."
                                 icon={<Clock size={18} className="text-purple-400" />}
                             />
                         </div>
@@ -1198,7 +1275,7 @@ const CarterEcosystem = () => {
 
                     {/* Strategic Bet */}
                     <div className="max-w-3xl mb-20">
-                        <Badge>[ The Strategic Bet ]</Badge>
+                        <Badge>[ 05 &mdash; Scaling The Bet ]</Badge>
                         <h2 className="font-heading text-4xl md:text-5xl font-bold text-white leading-tight mb-6">
                             Phase 1 earned trust.{" "}
                             <span className="text-gray-400">
@@ -1211,11 +1288,11 @@ const CarterEcosystem = () => {
                             unified DSP existed for retail media at this scale.
                         </p>
                         <p className="text-gray-400 text-base leading-relaxed">
-                            Built a one-pager for leadership: TAM sizing, build vs. buy
-                            analysis, 6-month phased roadmap. The data point that closed it —
-                            advertisers active on 3+ networks showed roughly{" "}
-                            <span className="text-white font-medium">4× the LTV</span> of
-                            single-network clients in our analysis. CTO greenlit it in one meeting.
+                            Built the case for leadership: where the gap was, what it would
+                            take to close it, and a phased roadmap to get there. The argument
+                            that landed was simple — advertisers already running on several
+                            networks were the ones asking, and they were the accounts worth
+                            keeping.
                         </p>
                     </div>
 
@@ -1277,11 +1354,11 @@ const CarterEcosystem = () => {
                                 {[
                                     {
                                         icon: <Zap size={16} className="text-[#d6f928]" />,
-                                        text: "Reduce cross-network setup time by 60-70%",
+                                        text: "A cross-network launch should cost one campaign's time",
                                     },
                                     {
                                         icon: <CheckCircle2 size={16} className="text-[#d6f928]" />,
-                                        text: "95%+ creative compliance through guided spec validation",
+                                        text: "Creative compliance through per-network spec validation",
                                     },
                                     {
                                         icon: <Target size={16} className="text-[#d6f928]" />,
@@ -1311,7 +1388,7 @@ const CarterEcosystem = () => {
                                 What I Said No To
                             </h4>
                             <p className="text-gray-400 text-sm leading-relaxed">
-                                14 modules on the wishlist. I scoped MVP to 6. Cut{" "}
+                                A long module wishlist, scoped down to what shipped. Cut{" "}
                                 <span className="text-white font-medium">
                                     real-time bidding
                                 </span>{" "}
@@ -1338,7 +1415,7 @@ const CarterEcosystem = () => {
                         <h3 className="font-heading text-3xl font-bold text-white mb-4">
                             Campaign creation:{" "}
                             <span className="text-gray-400 font-light">
-                                2.5 hours &rarr; 30 minutes.
+                                1.5 hours &rarr; 30 minutes.
                             </span>
                         </h3>
                         <p className="text-gray-400 text-base leading-relaxed max-w-3xl mb-8">
@@ -1358,7 +1435,7 @@ const CarterEcosystem = () => {
                         <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
                             <StatCard
                                 value="5x"
-                                label="Operational efficiency — campaign launch time cut from 2.5 hours to 30 minutes."
+                                label="Operational efficiency — campaign launch time cut from 1.5 hours to 30 minutes."
                                 icon={<Zap size={18} className="text-[#d6f928]" />}
                             />
                             <StatCard
@@ -1487,20 +1564,27 @@ const CarterEcosystem = () => {
                             </video>
                             <div className="w-full md:w-1/2">
                                 <Badge>[ Phase 2 — Impact at Launch ]</Badge>
-                                <p className="text-gray-500 text-sm mb-8">
-                                    Validated through alpha client sessions.
+                                {/* Why the setup-time number matters, not just what it was. */}
+                                <p className="text-gray-400 text-sm leading-relaxed mb-8">
+                                    Setup time was the constraint that actually mattered: running a campaign
+                                    across every network meant repeating the same work per network, so advertisers
+                                    ran fewer, larger, blunter campaigns than they wanted to. Unifying{" "}
+                                    <span className="text-white font-medium">12 workflows into one form</span>,
+                                    with one master creative auto-adapted per network, means a cross-network
+                                    launch now takes one campaign&apos;s time. Validated through task-based
+                                    sessions with alpha clients.
                                 </p>
                                 <div className="space-y-6">
                                     {[
                                         {
-                                            value: "60-70%",
-                                            label: "Faster Setup",
-                                            desc: "3.5 hours per channel → 45 minutes total",
+                                            value: "12 → 1",
+                                            label: "Workflows Unified",
+                                            desc: "One form for every network integration",
                                         },
                                         {
-                                            value: "50%",
-                                            label: "Fewer Errors",
-                                            desc: "Real-time spec validation and auto-resize",
+                                            value: "1 creative",
+                                            label: "Auto-Adapted",
+                                            desc: "One master, reshaped to each network's specs",
                                         },
                                         {
                                             value: "4.6/5",
@@ -1508,9 +1592,9 @@ const CarterEcosystem = () => {
                                             desc: "Task-based sessions with alpha clients",
                                         },
                                         {
-                                            value: "40%",
-                                            label: "Cycle Reduction",
-                                            desc: "4+ hours weekly → under 90 minutes",
+                                            value: "3&times;",
+                                            label: "Faster Launch",
+                                            desc: "1.5 hours → 30 minutes with the AI assistant",
                                         },
                                     ].map((item, i) => (
                                         <div
@@ -1538,7 +1622,7 @@ const CarterEcosystem = () => {
             <section className="bg-[#050505] py-24 px-4 border-t border-white/10">
                 <div className="max-w-7xl mx-auto">
                     <div className="max-w-3xl">
-                        <Badge>[ The Real Story ]</Badge>
+                        <Badge>[ 09 &mdash; What I&apos;d Do Differently ]</Badge>
                         <h2 className="font-heading text-4xl md:text-5xl font-bold text-white leading-tight mb-8">
                             The hardest call wasn&apos;t a screen.{" "}
                             <span className="text-gray-400">
@@ -1554,7 +1638,7 @@ const CarterEcosystem = () => {
                         </p>
                         <p className="text-gray-400 text-base leading-relaxed">
                             After that the work was ordinary in the best sense: interviews and session
-                            recordings, a design system so twelve teams stopped re-solving the same problems,
+                            recordings, a design system so teams stopped re-solving the same problems,
                             specs and QA with the frontend group, and every screen in Phase 2 owned end to end.
                         </p>
                     </div>

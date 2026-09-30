@@ -15,6 +15,9 @@ import ScrollToHash from "./components/ScrollToHash";
 
 // Lazy load pages for performance optimization
 const Carter = React.lazy(() => import("./components/Landingsection/Casestudy/Carter"));
+// Interview presentation for the Carter case study — its own route so it can be
+// shared as a link and presented full-screen. noindex; not linked from the site.
+const CarterDeck = React.lazy(() => import("./pages/CarterDeck"));
 const Resume = React.lazy(() => import("./pages/Resume"));
 const Contact = React.lazy(() => import("./pages/Contact"));
 // const Blog = React.lazy(() => import("./pages/Blog")); // Commented intentionally
@@ -131,6 +134,8 @@ root.render(
             //   </ProtectedRoute>
             // }
             />
+            {/* Must precede /carter so the more specific path wins. */}
+            <Route path="/carter/present" element={<CarterDeck />} />
             <Route
               path="/carter"
               element={<Carter />}

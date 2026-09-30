@@ -48,7 +48,7 @@ const AtlasEcosystem = () => {
         <div className="text-white bg-[#050505]">
             <SEO
                 title="Atlas: CMS Architecture & 0-to-1 Site Builder — Product Design Case Study"
-                description="How I owned the design for a 130–150 clinic veterinary network — standardizing digital infrastructure, designing a relational CMS, and a 0-to-1 no-code site builder."
+                description="How I owned the design for a 130-clinic veterinary network — standardizing digital infrastructure, designing a relational CMS, and a 0-to-1 no-code site builder."
                 keywords="product design case study, Atlas, veterinary, CMS design, site builder, multi-location, healthcare, design systems, information architecture, phased rollout"
                 url="https://www.sumansourabh.com/atlas"
             />
@@ -63,7 +63,7 @@ const AtlasEcosystem = () => {
                             Atlas <span className="text-gray-500 font-light">Veterinary Network</span>
                         </h1>
                         <p className="text-lg text-gray-400 font-light leading-relaxed max-w-xl mx-auto">
-                            Transformed 130&ndash;150 disconnected clinic websites into a unified digital ecosystem — standardized architecture, relational CMS, and a 0-to-1 no-code builder.
+                            Transformed 130 disconnected clinic websites into a unified digital ecosystem — standardized architecture, relational CMS, and a 0-to-1 no-code builder.
                         </p>
                     </div>
 
@@ -106,14 +106,14 @@ const AtlasEcosystem = () => {
                     <div className="max-w-3xl mb-20">
                         <Badge>[ How I Owned the Design ]</Badge>
                         <h2 className="font-heading text-4xl md:text-5xl font-bold text-white leading-tight mb-6">
-                            130&ndash;150 clinics. 3 phases.{" "}
+                            130 clinics. 3 phases.{" "}
                             <span className="text-gray-400">One designer driving all three.</span>
                         </h2>
                         <p className="text-gray-400 text-base leading-relaxed">
                             Atlas needed someone who could understand the <span className="text-white font-medium">data architecture, design the user experience, and coordinate engineering delivery</span> — simultaneously.
                             I owned the design across all three phases: standardization, CMS architecture, and the 0-to-1 site builder.
-                            The build team was around <span className="text-white font-medium">25 engineers</span> plus an SEO
-                            specialist, working in 2-week sprints &mdash; I was the{" "}
+                            The build team was <span className="text-white font-medium">8 people with 2 PMs</span>,
+                            working in 2-week sprints &mdash; I was the{" "}
                             <span className="text-white font-medium">only designer on it</span>, which is why the
                             architecture decisions and the interface decisions had to be the same decisions.
                         </p>
@@ -205,7 +205,7 @@ const AtlasEcosystem = () => {
                             <rect key={i} x={235 + i * 26} y={25} width="20" height="30" rx="3" stroke="#d6f928" strokeOpacity="0.35" strokeWidth="0.5" fill="#d6f928" fillOpacity="0.05" />
                         ))}
                         {/* Labels */}
-                        <text x="30" y="78" fontFamily="monospace" fontSize="7" fill="#d6f928" fillOpacity="0.25">130&ndash;150 clinics</text>
+                        <text x="30" y="78" fontFamily="monospace" fontSize="7" fill="#d6f928" fillOpacity="0.25">130 clinics</text>
                         <text x="125" y="78" fontFamily="monospace" fontSize="7" fill="#d6f928" fillOpacity="0.25">funnel</text>
                         <text x="270" y="78" fontFamily="monospace" fontSize="7" fill="#d6f928" fillOpacity="0.25">6 templates</text>
                     </svg>
@@ -214,7 +214,7 @@ const AtlasEcosystem = () => {
                     <div className="max-w-3xl mb-20">
                         <Badge>[ The Strategic Bet ]</Badge>
                         <h2 className="font-heading text-4xl md:text-5xl font-bold text-white leading-tight mb-6">
-                            130&ndash;150 clinics wanted custom.{" "}
+                            130 clinics wanted custom.{" "}
                             <span className="text-gray-400">I standardized to 6 templates.</span>
                         </h2>
                         <p className="text-gray-400 text-base leading-relaxed mb-5">
@@ -300,7 +300,7 @@ const AtlasEcosystem = () => {
                         </p>
                         <div className="grid grid-cols-2 md:grid-cols-4 gap-6">
                             <StatCard value="&uarr; 41%" label="Organic search traffic increase within 6 months." icon={<TrendingUp size={18} className="text-green-400" />} />
-                            <StatCard value="&uarr; 29%" label="Booking conversion rate improvement." icon={<Target size={18} className="text-blue-400" />} />
+                            <StatCard value="&uarr; 16%" label="Booking conversion rate improvement." icon={<Target size={18} className="text-blue-400" />} />
                             <StatCard value="&uarr; 74%" label="Pages successfully indexed by Google." icon={<Globe size={18} className="text-purple-400" />} />
                             <StatCard value="100+" label="Clinics launched under the new architecture." icon={<Zap size={18} className="text-yellow-400" />} />
                         </div>
@@ -608,16 +608,15 @@ const AtlasEcosystem = () => {
                             is what made the CMS possible and what gave the site builder its power.
                         </p>
                         <p className="text-gray-400 text-base leading-relaxed mb-5">
-                            The real test came afterwards. The same five-archetype model and content architecture
-                            were applied to a second, larger network of roughly{" "}
-                            <span className="text-white font-medium">350 clinics</span> &mdash; without redesigning
-                            the system. A structure that only fits the network it was drawn for isn&apos;t
-                            architecture; it&apos;s a template. This one held.
+                            The real test came afterwards. The same template model and content architecture were{" "}
+                            <span className="text-white font-medium">reused for a larger network</span> &mdash;
+                            without redesigning the system. A structure that only fits the network it was drawn
+                            for isn&apos;t architecture; it&apos;s a template. This one held.
                         </p>
                         <p className="text-gray-400 text-base leading-relaxed">
                             Three phases. I wrote the design specs, defined the phased rollout, worked with
                             engineering through delivery, and shipped the design across all of them &mdash; which is
-                            what made 130&ndash;150 clinics feel like one ecosystem, and made the next 350 possible.
+                            what made 130 clinics feel like one ecosystem, and made the next network possible.
                         </p>
                     </div>
                 </div>

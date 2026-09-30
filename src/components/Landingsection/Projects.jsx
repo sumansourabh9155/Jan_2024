@@ -11,17 +11,17 @@ import { Link } from "react-router-dom";
 const projectData = [
   {
     title: "Carter",
-    subtitle: "Ad Platform Redesign & 0-to-1 DSP Launch",
+    subtitle: "Retail-Media DSP — Scaling a Live Platform",
     category: "Ad-Tech · B2B · SaaS",
     link: "/carter",
     image: BannerCarter,
     icon: <Layout size={16} className="text-blue-400" />,
     accent: "blue",
     summary:
-      "Advertisers stalled in a dense, single-screen setup. The call: split it into a guided 5-stage flow — trading more steps for fewer decisions each, betting completion mattered more than speed.",
+      "Advertisers stalled in a dense, single-screen setup. The call: rebuild it as a short guided flow — trading more steps for fewer decisions each, betting completion mattered more than speed.",
     stats: [
       { value: "4.6/5", label: "Usability score" },
-      { value: "−68%", label: "Campaign abandonment" },
+      { value: "3×", label: "Faster campaign launch" },
     ],
   },
   {
@@ -37,22 +37,22 @@ const projectData = [
       "Finance apps lead with net worth — a number that answers nothing about today. The call: one Safe to Spend figure that always shows its arithmetic, and two named voices so reassurance and opportunity never sound the same.",
     stats: [
       { value: "Full process", label: "whiteboard → hi-fi" },
-      { value: "Killed at v1", label: "wedge wasn't defensible" },
+      { value: "Concluded", label: "stopped before build" },
     ],
   },
   {
     title: "Atlas",
-    subtitle: "CMS Architecture Across 130–150 Locations",
+    subtitle: "0-to-1 CMS + Booking Across a 130-Clinic Network",
     category: "Enterprise CMS · Healthcare",
     link: "/atlas",
     image: BannerAtlas,
     icon: <BarChart2 size={16} className="text-[#d6f928]" />,
     accent: "lime",
     summary:
-      "130–150 clinics each wanted a bespoke site. The call: standardize to 6 templates instead — the trade-off that made the whole network maintainable without gutting local identity.",
+      "A 130-clinic network each wanting a bespoke site. The call: standardize to 6 templates instead — the trade-off that made the whole network maintainable without gutting local identity.",
     stats: [
       { value: "+41%", label: "Organic traffic" },
-      { value: "+29%", label: "Bookings" },
+      { value: "+16%", label: "Booking conversion" },
     ],
   },
 ];

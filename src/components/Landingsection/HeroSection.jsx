@@ -4,10 +4,12 @@ import suman from "../../assets/Img/suman.jpg";
 
 const capabilities = ["Product Design", "Design Systems", "AI-Native UX", "Design-to-Code"];
 
+// Every figure here is on the resume verbatim. Nothing on this site should
+// state a number he would have to reconcile with that PDF in an interview.
 const proof = [
-  { value: "4.6/5", label: "usability · 0-to-1 platform" },
-  { value: "850+", label: "Figma community copies" },
-  { value: "3+ yrs", label: "shipping 0-to-1 products" },
+  { value: "4.6/5", label: "usability · Carter DSP" },
+  { value: "1,200+", label: "Figma community copies" },
+  { value: "2.5+ yrs", label: "end-to-end product design" },
 ];
 
 const HeroSection = () => {

@@ -69,7 +69,7 @@ const caseStudiesItemList = {
         name: "Atlas — CMS Architecture & 0-to-1 Site Builder",
         url: `${SITE_URL}/atlas`,
         description:
-          "Unifying 130–150 clinic websites under a relational CMS with a phased rollout and a no-code site builder.",
+          "Unifying a 130-clinic network under a relational CMS with a phased rollout and a no-code site builder.",
         about: "Healthcare / Enterprise CMS",
       },
     },
@@ -83,6 +83,9 @@ const SeoHead = ({
   canonicalUrl = SITE_URL,
   ogImage = `${SITE_URL}/og-image.png`,
   includeSchemas = ["person", "caseStudies"],
+  // useSeo has always supported this; the wrapper was dropping it silently, so
+  // no page could opt out of indexing.
+  noindex = false,
 }) => {
   const schemaMap = {
     person: personSchema,
@@ -95,6 +98,7 @@ const SeoHead = ({
     keywords,
     canonicalUrl,
     ogImage,
+    noindex,
     jsonLd: includeSchemas.map((key) => schemaMap[key]).filter(Boolean),
   });
 

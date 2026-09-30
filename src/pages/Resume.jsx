@@ -21,9 +21,9 @@ const RESUME_PDF = "/Suman_Sourabh_Product_Designer_Resume.pdf";
 // on this site, so a reviewer can click through instead of taking it on faith.
 const PROOF = [
   { value: "4.6/5", label: "Usability score", where: "Carter", to: "/carter" },
-  { value: "−68%", label: "Funnel abandonment", where: "Carter", to: "/carter" },
-  { value: "+29%", label: "Booking conversion", where: "Atlas", to: "/atlas" },
-  { value: "+50%", label: "Engineering velocity", where: "Design system", to: "/carter" },
+  { value: "3×", label: "Faster campaign launch", where: "Carter", to: "/carter" },
+  { value: "+16%", label: "Booking conversion", where: "Atlas", to: "/atlas" },
+  { value: "+30%", label: "Shipping velocity", where: "Design system", to: "/carter" },
 ];
 
 // Grouped rather than a flat chip cloud — recruiters scan for a category first,
@@ -73,29 +73,29 @@ const SHYFTLABS = {
   tracks: [
     {
       name: "Design System",
-      context: "Tonal, TryCarter, SkipTheGroomer + all products",
+      context: "Carter, Atlas, Simfluent, Tonal, SkipTheGroomer",
       points: [
-        "Architected the company-wide component library — tokens, variables, states, and documentation — adopted across every product; increased engineering shipping velocity by 50% and eliminated design-code drift.",
+        "Architected the company-wide component library — tokens, variables, states, and documentation — adopted across every product; increased shipping velocity 30% and reduced design-code drift.",
       ],
     },
     {
       name: "Carter",
-      context: "Retail Media DSP · 1-to-100 scaling",
+      context: "Retail-media DSP · scaling a live platform",
       to: "/carter",
       points: [
-        "Led end-to-end design scaling a retail-media demand-side platform 1-to-100 with an 8-person cross-functional team, redesigning core campaign flows through user flows, wireframes, and high-fidelity prototypes; scored 4.6/5 in usability testing.",
-        "Designed the conversational UX for an agentic AI campaign assistant (Claude API), with clarification, confirmation, and recovery patterns that cut campaign launch time from 2.5 hours to 30 minutes (5×).",
-        "Ran user interviews and SQL funnel analysis to locate activation drop-off; redesigned the flow and reduced campaign abandonment by 68%.",
-        "Designed a single-form multi-DSP launcher consolidating 5–6 platform workflows into one, cutting ops overhead per campaign by ~60%.",
+        "Led design across 12 DSP integrations as 1 of 2 designers in an 80+ person org (12-person core team); scored 4.6/5 in usability testing.",
+        "Designed an agentic AI campaign assistant (Claude API) that drafts campaigns from a brief, with human review of every section and per-network spec checks; cut launch time 3× (1.5 hrs → 30 min).",
+        "Found why campaigns stalled in draft via interviews, session recordings, and SQL funnel analysis; got leadership to prioritize the fix and rebuilt the form as a short guided flow, cutting draft abandonment 8%.",
+        "Designed a multi-DSP launcher unifying 12 workflows into one form, with one master creative auto-adapted per network; cross-network launch now takes one campaign's time.",
       ],
     },
     {
       name: "Atlas",
-      context: "0-to-1 Healthcare CMS + Booking · 130–150 clinic ecosystem",
+      context: "0-to-1 healthcare CMS + booking · 130-clinic network · 8-person team, 2 PMs",
       to: "/atlas",
       points: [
-        "Designed a 6-template modular system — five clinical archetypes plus the parent brand site — covering clinical and marketing use cases; lifted booking conversion 29% and organic traffic 41% through structured content UX.",
-        "Re-architected key user flows and shipped them in code myself, closing the design-to-development loop and simplifying the data-flow and API integration architecture.",
+        "Solo-designed 6 WCAG 2.1 AA templates; +16% booking conversion, +41% organic traffic; reused for a larger network.",
+        "Designed a relational B2B CMS — edit content, SEO, and reviews once, update everywhere — plus a 0-to-1 no-code site builder, and prototyped data flows as Claude artifacts from schemas and PRDs to confirm feasibility before Figma.",
       ],
     },
   ],
@@ -129,7 +129,7 @@ const EARLY = [
 ];
 
 const ACHIEVEMENTS = [
-  "Workshop designs copied 850+ times on Figma Community; a landing-page design replicated 500+ times.",
+  "Figma Community designs copied 1,200+ times; one landing-page design replicated 500+ times.",
   "Led 3 public design seminars at LPU, 150–200 attendees each, including hands-on Figma practice sessions.",
   "Won the Kotlin Hackathon conducted by Google for students.",
   "Founded a profitable D2C bedsheet business — ₹60,000 profit in the first month.",
@@ -165,8 +165,8 @@ const Resume = () => {
   return (
     <div className="bg-black text-white min-h-screen">
       <SeoHead
-        title="Resume: Suman Sourabh — Product Designer | Interaction Design & AI-Native UX"
-        description="Product & Interaction Designer with 3+ years designing AI products end-to-end — 0-to-1 launches and 1-to-100 scaling across AdTech, HealthTech, and CMS. Research, interaction design, design systems, and shipping the UI in React."
+        title="Resume: Suman Sourabh — Product Designer | B2B SaaS & AI Products"
+        description="Product Designer with 2.5+ years of end-to-end design, from 0-to-1 builds to scaling live platforms, across B2B SaaS, agentic AI, and conversational products in AdTech, HealthTech, and CMS."
         keywords="resume, product designer, interaction designer, ui/ux designer, shyftlabs, 0-to-1 products, design systems, AI-native design, agentic UX, React, experience"
         /* profilePic is a hashed bundle path — social crawlers need an absolute
            URL, so fall back to the site-wide OG card. */
@@ -184,9 +184,9 @@ const Resume = () => {
               <span className="font-medium text-gray-400"> Product Designer</span>
             </h1>
             <p className="text-sm text-gray-400 mt-3 max-w-2xl mx-auto leading-relaxed">
-              Interaction Design &amp; AI-Native UX. 3+ years designing AI products
-              end-to-end — 0-to-1 launches and 1-to-100 scaling across AdTech,
-              HealthTech, and CMS. Rare edge:{" "}
+              B2B SaaS &amp; AI Products. 2.5+ years of end-to-end design, from 0-to-1
+              builds to scaling live platforms, across AdTech, HealthTech, and CMS.
+              Rare edge:{" "}
               <span className="text-white">I ship what I design.</span>
             </p>
 
@@ -265,7 +265,7 @@ const Resume = () => {
             <div className="bg-white/5 border border-white/10 rounded-2xl p-6 backdrop-blur-md shadow-lg flex flex-col justify-between">
               <div>
                 <p className="text-md font-semibold text-gray-300">
-                  Product &amp; Interaction Designer — AI-Native &amp; 0-to-1 Products.
+                  Product Designer — B2B SaaS &amp; AI Products.
                 </p>
                 <p className="text-sm text-gray-500 mt-1">
                   B.Tech. Computer Science Engineering — Machine Learning specialization
