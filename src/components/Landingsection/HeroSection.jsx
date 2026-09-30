@@ -61,15 +61,15 @@ const HeroSection = () => {
 
           {/* Headline — what I do, in one glance */}
           <h1 className="font-heading text-4xl sm:text-5xl xl:text-6xl font-extrabold text-white leading-[1.08] tracking-tight mb-5">
-            I Build 0-to-1 and 1-100 products {" "}
+            I Design 0-to-1 and 1-100 products {" "}
             <span className="text-transparent bg-clip-text bg-gradient-to-r from-white via-gray-200 to-gray-500">
-              and ship development myself.
+              and ship End to End myself.
             </span>
           </h1>
 
           {/* One-line who-I-am */}
           <p className="text-base text-gray-400 max-w-xl mx-auto lg:mx-0 font-light leading-relaxed mb-6">
-            Product Designer with a <span className="text-white font-medium">CS/ML background</span>. I take AI
+            <span className="text-white font-medium"> Product Designer </span> with a CS/ML background. I take AI
             products from <span className="text-white font-medium">user research to a launched, polished interface</span> —
             interaction, design systems, and the product build.
           </p>
