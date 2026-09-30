@@ -1,6 +1,6 @@
-import { useState, useEffect, useRef } from "react";
+import { ArrowRight, Menu, X } from "lucide-react";
 import { Link, useLocation } from "react-router-dom";
-import { Menu, X, ArrowRight } from "lucide-react";
+import { useEffect, useRef, useState } from "react";
 
 const Navbar = () => {
   const [isVisible, setIsVisible] = useState(true);
@@ -63,7 +63,7 @@ const Navbar = () => {
             </div>
             <div className="flex flex-col">
               <span className="text-white font-medium text-sm leading-none tracking-wide">Suman Sourabh</span>
-              <span className={`text-[10px] font-mono mt-0.5 transition-colors ${location.pathname === "/" ? "text-[#d6f928]" : "text-gray-500 group-hover:text-[#d6f928]"}`}>Product · AI-Native · CS/ML</span>
+              <span className={`text-[10px] font-mono mt-0.5 transition-colors ${location.pathname === "/" ? "text-[#d6f928]" : "text-gray-500 group-hover:text-[#d6f928]"}`}>Product Designer · AI-Native </span>
             </div>
           </Link>
 
@@ -80,9 +80,9 @@ const Navbar = () => {
                   to={to}
                   className={`px-4 py-1.5 rounded-full text-xs font-medium transition-all duration-300
                   ${isActive
-                    ? "bg-[#d6f928] text-black shadow-[0_0_15px_rgba(214,249,40,0.4)]"
-                    : "text-gray-400 hover:text-white hover:bg-white/5"
-                  }`}
+                      ? "bg-[#d6f928] text-black shadow-[0_0_15px_rgba(214,249,40,0.4)]"
+                      : "text-gray-400 hover:text-white hover:bg-white/5"
+                    }`}
                 >
                   {text}
                 </Link>
@@ -127,9 +127,9 @@ const Navbar = () => {
                   to={to}
                   className={`px-4 py-3 rounded-xl text-sm font-medium transition-colors
                     ${isActive
-                    ? "bg-white/10 text-[#d6f928] border border-[#d6f928]/20"
-                    : "text-gray-400 hover:text-white hover:bg-white/5"
-                  }`}
+                      ? "bg-white/10 text-[#d6f928] border border-[#d6f928]/20"
+                      : "text-gray-400 hover:text-white hover:bg-white/5"
+                    }`}
                 >
                   {text}
                 </Link>
