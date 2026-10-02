@@ -58,7 +58,7 @@ const AtlasEcosystem = () => {
             <section className="bg-[#050505] pt-32 pb-24 px-4">
                 <div className="max-w-7xl mx-auto">
                     <div className="text-center max-w-3xl mx-auto mb-20">
-                        <Badge>[ Healthcare &middot; Multi-Location &middot; 0-to-1 Builder ]</Badge>
+                        <Badge>[ Veterinary Care &middot; Multi-Location &middot; 0-to-1 Builder ]</Badge>
                         <h1 className="font-heading text-5xl md:text-7xl font-extrabold text-white tracking-tight leading-none mb-6">
                             Atlas <span className="text-gray-500 font-light">Veterinary Network</span>
                         </h1>
@@ -107,7 +107,7 @@ const AtlasEcosystem = () => {
                         <Badge>[ How I Owned the Design ]</Badge>
                         <h2 className="font-heading text-4xl md:text-5xl font-bold text-white leading-tight mb-6">
                             130 clinics. 3 phases.{" "}
-                            <span className="text-gray-400">One designer driving all three.</span>
+                            <span className="text-gray-400">Sole designer on an 8-person team.</span>
                         </h2>
                         <p className="text-gray-400 text-base leading-relaxed">
                             Atlas needed someone who could understand the <span className="text-white font-medium">data architecture, design the user experience, and coordinate engineering delivery</span> — simultaneously.
@@ -378,7 +378,7 @@ const AtlasEcosystem = () => {
                             under the old system, their bio existed as three separate copy-paste entries. One email change meant three manual updates. Multiplied across hundreds of specialists, this was an SEO crisis &mdash; Google detected near-duplicate content at scale and penalized the entire domain.
                         </p>
                         <p className="text-gray-400 text-base leading-relaxed">
-                            WordPress, Contentful, Webflow &mdash; none handled the relational complexity of a multi-tenant healthcare network.
+                            WordPress, Contentful, Webflow &mdash; none handled the relational complexity of a multi-tenant veterinary network.
                             The product call: <span className="text-white font-medium">build a proprietary headless CMS</span> engineered for Atlas&apos;s operational model.
                         </p>
                     </div>

@@ -312,7 +312,7 @@ const CarterEcosystem = () => {
                     <div className="max-w-3xl mb-20">
                         <Badge>[ 01 &mdash; Context &amp; My Role ]</Badge>
                         <h2 className="font-heading text-4xl md:text-5xl font-bold text-white leading-tight mb-6">
-                            One Designer.{" "}
+                            Two designers. Twelve integrations.{" "}
                             <span className="text-gray-400">Research to shipped UI.</span>
                         </h2>
                         <p className="text-gray-400 text-base leading-relaxed">

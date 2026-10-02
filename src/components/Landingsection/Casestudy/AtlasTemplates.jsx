@@ -83,10 +83,13 @@ const AtlasTemplates = () => {
               entirely, so it isn't one of the clinic archetypes shown here. */}
           <div className="mb-10">
             <h4 className="text-gray-400 uppercase tracking-widest text-xs font-semibold mb-2">The Architecture</h4>
-            <h2 className="font-heading text-2xl md:text-4xl font-bold tracking-tight">The 5 Clinic Templates</h2>
+            <h2 className="font-heading text-2xl md:text-4xl font-bold tracking-tight">
+              The 6 Templates
+            </h2>
             <p className="text-gray-500 text-sm mt-3 max-w-md">
-              Every clinic in the network maps to one of these five. A sixth template covers
-              the parent brand site.
+              <span className="text-gray-300">Five clinic archetypes</span> &mdash; shown here, every
+              clinic maps to one of them &mdash; plus a sixth for the parent brand site, which
+              introduces the group rather than converting a local visit.
             </p>
           </div>
 

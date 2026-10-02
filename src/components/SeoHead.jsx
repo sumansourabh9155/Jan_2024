@@ -70,7 +70,7 @@ const caseStudiesItemList = {
         url: `${SITE_URL}/atlas`,
         description:
           "Unifying a 130-clinic network under a relational CMS with a phased rollout and a no-code site builder.",
-        about: "Healthcare / Enterprise CMS",
+        about: "Veterinary Care / Enterprise CMS",
       },
     },
   ],

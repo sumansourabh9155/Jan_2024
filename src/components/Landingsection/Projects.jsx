@@ -43,7 +43,7 @@ const projectData = [
   {
     title: "Atlas",
     subtitle: "0-to-1 CMS + Booking Across a 130-Clinic Network",
-    category: "Enterprise CMS · Healthcare",
+    category: "Enterprise CMS · Veterinary Care",
     link: "/atlas",
     image: BannerAtlas,
     icon: <BarChart2 size={16} className="text-[#d6f928]" />,
@@ -86,7 +86,7 @@ const Projects = () => {
             Real Products. <span className="text-gray-500">Real Decisions.</span>
           </h2>
           <p className="text-gray-300 mt-4 text-base leading-relaxed">
-            Three products across ad-tech, consumer fintech, and healthcare — the user
+            Three products across ad-tech, consumer fintech, and veterinary care — the user
             problem, the design call I made, and what it produced.
           </p>
           <p className="text-gray-600 mt-3 text-xs">

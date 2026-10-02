@@ -21,7 +21,7 @@ const Faq = () => {
     {
       question: "What design work have you actually shipped?",
       answer:
-        "Carter (B2B ad-tech) — design across 12 DSP integrations as one of two designers, an agentic AI campaign assistant, and a multi-DSP launcher unifying 12 workflows into one form; 4.6/5 usability. Atlas (healthcare) — a 130-clinic network unified under one relational CMS with 6 WCAG 2.1 AA templates and a 0-to-1 no-code site builder; booking conversion up 16%, organic traffic up 41%. Poppins (consumer iOS) — a conversational finance app taken from concept to hi-fi prototypes, then concluded before build when the business case didn't hold. Research, interaction design, and UI on all three.",
+        "Carter (B2B ad-tech) — design across 12 DSP integrations as one of two designers, an agentic AI campaign assistant, and a multi-DSP launcher unifying 12 workflows into one form; 4.6/5 usability. Atlas (veterinary care) — a 130-clinic network unified under one relational CMS with 6 WCAG 2.1 AA templates and a 0-to-1 no-code site builder; booking conversion up 16%, organic traffic up 41%. Poppins (consumer iOS) — a conversational finance app taken from concept to hi-fi prototypes, then concluded before build when the business case didn't hold. Research, interaction design, and UI on all three.",
     },
     {
       question: "Why did Poppins get killed?",
@@ -29,9 +29,9 @@ const Faq = () => {
         "Because we couldn't defend the wedge. We'd bet on proactive delivery — money surfacing in the messaging thread people already read. Under scrutiny that didn't hold: a delivery channel is a feature, not a moat, and cheap for a funded incumbent to copy once it's proven. Everything genuinely differentiated lived in voice, sequencing, and interaction quality — real design value, but a fragile business defence. We concluded it before build, so no engineering was spent. What I'd change is the order: we validated the experience exhaustively and the wedge late. Now I go at the assumption that kills the project first.",
     },
     {
-      question: "Only two and a half years — are you senior enough?",
+      question: "What level of role are you targeting?",
       answer:
-        "Two and a half by date, and the scope has been wider than the tenure suggests: a 0-to-1 healthcare CMS across a 130-clinic network, design across 12 DSP integrations on a live retail-media platform, and the company-wide design system used by five products. I've also had to take a stalled-draft problem to leadership with interviews, session recordings, and SQL rather than taste, and get it prioritised. If a role asks for more years, read one case study and judge from the work — that's a fairer test than the date on my CV.",
+        "Product Designer or Senior Product Designer, on scope rather than title. In two and a half years I've taken a 0-to-1 veterinary-care CMS across a 130-clinic network from nothing to launch, led design across 12 DSP integrations on a live retail-media platform as one of two designers, and built the company-wide design system now used by five products. I've also taken a stalled-draft problem to leadership with interviews, session recordings, and SQL rather than taste, and got it prioritised ahead of the roadmap. Read one case study and judge the decisions — that's a fairer test than the date on my CV.",
     },
     {
       question: "What kind of role are you looking for?",
