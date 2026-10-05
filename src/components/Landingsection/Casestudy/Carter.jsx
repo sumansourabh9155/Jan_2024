@@ -131,6 +131,27 @@ const SubLabel = ({ children }) => (
     </p>
 );
 
+// A screen placed next to the argument it settles. The caption is required in
+// practice: these used to sit three-in-a-row at the end of Phase 2 with nothing
+// saying what any of them proved.
+const Shot = ({ label, src, alt, caption }) => (
+    <figure className="mb-20">
+        <Badge>[ {label} ]</Badge>
+        <img
+            loading="lazy"
+            decoding="async"
+            src={src}
+            alt={alt}
+            className="rounded-2xl w-full border border-white/10 mt-2"
+        />
+        {caption && (
+            <figcaption className="text-gray-400 text-sm leading-relaxed mt-4 max-w-3xl">
+                {caption}
+            </figcaption>
+        )}
+    </figure>
+);
+
 const StatCard = ({ value, label, icon }) => (
     <div className="bg-white/5 border border-white/10 rounded-2xl p-6 space-y-3">
         {icon && (
@@ -1324,6 +1345,14 @@ const CarterEcosystem = () => {
                         </p>
                     </div>
 
+                    {/* Answers the quote directly above it: which channel is working. */}
+                    <Shot
+                        label="Cross-Network Performance"
+                        src={campaigndetail}
+                        alt="Carter DSP — campaign performance across channels, with keyword, geo and device breakdowns and an optimisation panel"
+                        caption="The answer to the quote above. Revenue and delivery per channel in one place, with the keyword, geo, language and device breakdowns underneath — and an optimisation panel that proposes changes but leaves the advertiser to accept or reject each one."
+                    />
+
                     {/* Market Gap + North Stars */}
                     <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mb-20">
                         <div className="bg-white/5 border border-white/10 rounded-2xl p-8">
@@ -1384,6 +1413,23 @@ const CarterEcosystem = () => {
                         </div>
                     </div>
 
+                    {/* Answers the north star directly above: a cross-network launch
+                        should cost one campaign's time. */}
+                    <Shot
+                        label="Multi-DSP Campaign Launcher"
+                        src={CampaignDSP}
+                        alt="Carter DSP — the single campaign creation flow: objective, creative, budget and pacing, targeting, placements, ad detail"
+                        caption="One form for every network. Objective, creative, budget and pacing, targeting, placements — each step asks once and fans the answer out to each network's own spec, instead of repeating the entire setup per platform."
+                    />
+
+                    {/* Answers the "budget splits done manually" gap listed above. */}
+                    <Shot
+                        label="Media Plan &amp; Budget Distribution"
+                        src={mediaplan}
+                        alt="Carter DSP — media plan summary with per-network ad item breakdown, and a bulk budget distribution modal"
+                        caption="Where the budget split stops being manual. The plan summarises every ad item per network, and bulk distribution allocates a total across platforms with the split visible — so a reallocation is a decision someone can see and argue with, not a spreadsheet edit nobody notices."
+                    />
+
                     {/* What I Said No To */}
                     <div className="bg-white/5 border border-white/10 rounded-2xl p-8 max-w-4xl mb-20 flex flex-col md:flex-row gap-4 md:gap-6">
                         <div className="w-12 h-12 rounded-xl bg-orange-500/10 border border-orange-500/20 flex items-center justify-center flex-shrink-0">
@@ -1440,7 +1486,7 @@ const CarterEcosystem = () => {
                         </p>
                         <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
                             <StatCard
-                                value="5x"
+                                value="3&times;"
                                 label="Operational efficiency — campaign launch time cut from 1.5 hours to 30 minutes."
                                 icon={<Zap size={18} className="text-[#d6f928]" />}
                             />
@@ -1519,40 +1565,6 @@ const CarterEcosystem = () => {
                                     ))}
                                 </div>
                             </div>
-                        </div>
-                    </div>
-
-                    {/* DSP Screens */}
-                    <div className="space-y-12 mb-20">
-                        <div>
-                            <Badge>[ Cross-Network Campaign View ]</Badge>
-                            <img
-                                loading="lazy"
-                                decoding="async"
-                                src={CampaignDSP}
-                                alt="DSP — Campaign Dashboard"
-                                className="rounded-2xl w-full border border-white/10 mt-2"
-                            />
-                        </div>
-                        <div>
-                            <Badge>[ Campaign Detail & Performance ]</Badge>
-                            <img
-                                loading="lazy"
-                                decoding="async"
-                                src={campaigndetail}
-                                alt="DSP — Campaign Details"
-                                className="rounded-2xl w-full border border-white/10 mt-2"
-                            />
-                        </div>
-                        <div>
-                            <Badge>[ Media Planning Canvas ]</Badge>
-                            <img
-                                loading="lazy"
-                                decoding="async"
-                                src={mediaplan}
-                                alt="DSP — Media Planning"
-                                className="rounded-2xl w-full border border-white/10 mt-2"
-                            />
                         </div>
                     </div>
 
