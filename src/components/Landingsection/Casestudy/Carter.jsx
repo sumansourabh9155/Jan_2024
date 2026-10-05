@@ -23,6 +23,7 @@ import Aditem from "../../../assets/cartercampigh/aditem.png";
 import CampaignCreationImg from "../../../assets/cartercampigh/campaign.png";
 import CampaignDSP from "../../../assets/dsp/campaign.png";
 import CarterAiSlider from "./CarterAiSlider";
+import CarterGetStarted from "./CarterGetStarted";
 // ================= ASSETS =================
 import Carterimg from "../../../assets/CarterRedesign/carter.png";
 import DSL from "../../../assets/CarterRedesign/dsl.png";
@@ -309,6 +310,11 @@ const CarterEcosystem = () => {
             {/* ================= WHY I HAD PM AUTHORITY ================= */}
             <section className="bg-black py-24 px-4 border-t border-white/10">
                 <div className="max-w-7xl mx-auto">
+                    {/* Product tour first: the Get Started flow doubles as the
+                        introduction to the platform, so it runs ahead of the role
+                        and the decisions rather than being buried among them. */}
+                    <CarterGetStarted />
+
                     <div className="max-w-3xl mb-20">
                         <Badge>[ 01 &mdash; Context &amp; My Role ]</Badge>
                         <h2 className="font-heading text-4xl md:text-5xl font-bold text-white leading-tight mb-6">

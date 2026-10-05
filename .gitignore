@@ -31,3 +31,7 @@ dist-ssr
 
 # Private interview-prep material — never publish
 METRICS_LEDGER.md
+
+# Full-res masters for the Carter Get Started strip — the optimized
+# .webp files next to them are what ship.
+src/assets/carter-getstarted/originals/
