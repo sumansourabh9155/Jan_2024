@@ -1,110 +1,85 @@
 import { memo } from "react";
-import { Quote, ArrowRight } from "lucide-react";
-// Keep your existing imports
-import rgv from "../../assets/Img/rgv.png";
+import { ArrowRight } from "lucide-react";
 import sam from "../../assets/Img/sam.png";
 
-// Optimization 1: Use memo to prevent re-renders from parent scroll events
+/**
+ * A single client quote, set as a dark full-bleed pull-quote band.
+ *
+ * Sits on the warm cream band, which is what separates it from the white
+ * sections either side. A dark band was tried here and pulled too hard
+ * against the rest of the page.
+ *
+ * It used to be a section heading ("What People I've Worked With Say") above a
+ * bordered card that opened with its own headline — two headings for one quote.
+ */
 const Testimonial = memo(() => {
     return (
-        <section className="bg-surface-2 py-32 px-6 relative overflow-hidden flex justify-center">
+        <section
+            aria-label="Client testimonial"
+            className="bg-cream py-24 px-6"
+        >
+            <div className="max-w-6xl mx-auto">
+                <p className="text-[11px] uppercase tracking-[0.22em] text-ink-faint mb-12">
+                    What people I&apos;ve worked with say
+                </p>
 
-            <div className="max-w-7xl w-full relative z-10">
+                <div className="grid gap-12 lg:grid-cols-[minmax(0,0.42fr)_minmax(0,1fr)] lg:gap-16 lg:items-start">
 
-                {/* Header Section */}
-                <div className="flex flex-col md:flex-row justify-between items-end mb-16 gap-6">
+                    <figure className="max-w-[15rem] lg:max-w-none">
+                        <img
+                            src={sam}
+                            alt="Samira Pujari, Founder of RaikarsGoodVibes"
+                            loading="lazy"
+                            decoding="async"
+                            className="w-full aspect-[4/5] object-cover rounded-sm"
+                        />
+                    </figure>
+
                     <div>
-                        <div className="inline-flex items-center gap-2 text-xs font-mono text-accent-ink tracking-widest uppercase mb-6">
-                            [ Social Proof ]
+                        {/* The quote carries the serif, so it reads as a voice
+                            rather than as another UI heading. */}
+                        <blockquote
+                            className="font-display font-normal text-ink text-[1.75rem] sm:text-[2.375rem] leading-[1.25] tracking-[-0.01em]"
+                            style={{ hangingPunctuation: "first", textIndent: "-0.42em" }}
+                        >
+                            &ldquo;He is the person who, if he commits,{" "}
+                            <span className="italic text-ink-faint">delivers with utmost excellence.</span>&rdquo;
+                        </blockquote>
+
+                        <div className="text-ink-muted text-[0.9375rem] leading-[1.7] space-y-4 mt-8 max-w-xl">
+                            <p>
+                                Suman worked on our dream project as a Lead. His gift to perfect the
+                                designs was seen from the very beginning — from understanding the
+                                founder&apos;s vision to executing the minutest details.
+                            </p>
+                            <p>
+                                His sincerity and dedication to execute plans despite numerous hurdles
+                                is what makes him a true winner. I believe his grit will carve his mark
+                                in this industry.
+                            </p>
                         </div>
-                        <h2 className="font-heading text-4xl md:text-5xl font-bold text-ink leading-tight">
-                            What People I&apos;ve <br />
-                            <span className="text-ink-faint">Worked With Say.</span>
-                        </h2>
+
+                        <figcaption className="mt-10 border-t border-line pt-6 flex flex-wrap items-baseline justify-between gap-4">
+                            <div>
+                                <p className="text-ink font-medium text-[0.9375rem]">Samira Pujari</p>
+                                <p className="text-ink-faint text-[0.8125rem] mt-1">
+                                    Founder, RaikarsGoodVibes — art &amp; décor brand strategy
+                                </p>
+                            </div>
+                            <a
+                                href="/contact"
+                                className="inline-flex items-center gap-2 text-[0.9375rem] font-medium text-ink underline underline-offset-[6px] decoration-line-strong hover:decoration-ink transition-colors"
+                            >
+                                Get in touch <ArrowRight size={16} />
+                            </a>
+                        </figcaption>
                     </div>
                 </div>
-
-                {/* The Feature Testimonial Card */}
-                <div className="relative bg-surface-2 border border-line rounded-3xl p-8 md:p-12 lg:p-16 overflow-hidden group">
-
-                    {/* Giant Watermark Quote Icon */}
-                    <Quote className="absolute top-10 left-10 text-ink/5 w-48 h-48 -rotate-12 pointer-events-none" />
-
-                    <div className="relative z-10 flex flex-col lg:flex-row gap-12 lg:gap-20 items-center">
-
-                        {/* Image Section (Left) */}
-                        <div className="w-full lg:w-1/3 relative">
-                            <div className="relative aspect-[4/5] rounded-2xl overflow-hidden border border-line shadow-2xl">
-                                {/* Optimization 2 & 3: Lazy load, Async decode, and GPU hint for animation */}
-                                <img
-                                    src={sam}
-                                    alt="Samira Pujari - Founder of RaikarsGoodVibes who achieved brand strategy success through product design partnership"
-                                    loading="lazy"
-                                    decoding="async"
-                                    className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105 will-change-transform"
-                                />
-                                {/* Scrim. A photo is its own context: text sitting on one
-                                    needs a dark scrim and light type regardless of the page
-                                    theme. Inverting this to white washed the photo out. */}
-                                <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/20 to-transparent pointer-events-none"></div>
-
-                                {/* Name on Image */}
-                                <div className="absolute bottom-6 left-6 text-left">
-                                    <p className="text-white font-bold text-lg">Samira Pujari</p>
-                                    <p className="text-white/80 text-xs uppercase tracking-wider">Founder, RaikarsGoodVibes</p>
-                                </div>
-                            </div>
-
-                            {/* Brand Logo Floating Badge */}
-                            {/* Optimization 4: transform-gpu for smoother rendering */}
-                            <div className="absolute -bottom-6 -right-6 w-32 bg-[#dab853] p-4 rounded-xl shadow-[0_10px_30px_rgba(0,0,0,0.18)] border border-line rotate-3 group-hover:rotate-0 transition-transform duration-500 transform-gpu">
-                                <img
-                                    src={rgv}
-                                    alt="RaikarsGoodVibes brand logo - art and decor brand that scaled through strategic product design"
-                                    loading="lazy"
-                                    decoding="async"
-                                    className="w-full h-auto object-contain mix-blend-multiply"
-                                />
-                            </div>
-                        </div>
-
-                        {/* Content Section (Right) */}
-                        <div className="w-full lg:w-2/3 text-left">
-                            {/* The "Hook" Headline */}
-                            <h2 className="font-heading text-2xl md:text-3xl lg:text-4xl font-medium text-ink leading-snug mb-8">
-                                &quot;He is the person who, if he commits, <span className="text-accent-ink border-b border-accent-ink/35 pb-1">delivers with utmost excellence.</span>&quot;
-                            </h2>
-
-                            {/* The Full Quote (Muted) */}
-                            <div className="text-ink-muted text-sm md:text-base leading-relaxed space-y-4 max-w-2xl">
-                                <p>
-                                    &quot;Suman worked on our dream project as a Lead. His gift to perfect the designs was seen from the very beginning—from understanding the founder&apos;s vision to executing the minutest details.&quot;
-                                </p>
-                                <p>
-                                    &quot;His sincerity and dedication to execute plans despite numerous hurdles is what makes him a true winner. I believe his grit will carve his mark in this industry.&quot;
-                                </p>
-                            </div>
-
-                            {/* CTA within the card */}
-                            <div className="mt-10 pt-8 border-t border-line flex flex-wrap gap-6 items-center">
-                                <a href="/contact" className="flex items-center gap-2 text-ink hover:text-accent-ink transition-colors font-medium">
-                                    Get in Touch <ArrowRight size={18} />
-                                </a>
-                                <span className="text-ink-ghost text-sm hidden md:inline">|</span>
-                                <p className="text-ink-faint text-sm">
-                                    Art & Décor Brand Strategy
-                                </p>
-                            </div>
-                        </div>
-
-                    </div>
-                </div>
-
             </div>
         </section>
     );
 });
 
-Testimonial.displayName = 'Testimonial';
+Testimonial.displayName = "Testimonial";
 
 export default Testimonial;

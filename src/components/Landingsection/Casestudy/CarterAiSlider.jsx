@@ -79,7 +79,7 @@ const CarterAiSlider = () => {
       onMouseEnter={() => setPlaying(false)}
       onMouseLeave={() => setPlaying(!prefersReduced)}
       onFocus={() => setPlaying(false)}
-      className="relative rounded-2xl border border-line bg-surface-2 overflow-hidden focus:outline-none focus-visible:ring-2 focus-visible:ring-accent-ink/50"
+      className="relative rounded-sm border border-line bg-surface-2 overflow-hidden focus:outline-none focus-visible:ring-2 focus-visible:ring-accent-ink/50"
     >
       {/* Stage — full frame visible, never cropped */}
       <div className="relative bg-surface-3 flex items-center justify-center aspect-[1440/860]">
@@ -102,7 +102,7 @@ const CarterAiSlider = () => {
           type="button"
           onClick={() => setPlaying((p) => !p)}
           aria-label={playing ? "Pause autoplay" : "Play autoplay"}
-          className="w-8 h-8 rounded-full border border-line bg-surface text-ink shadow-[0_1px_3px_rgba(0,0,0,0.08)] flex items-center justify-center hover:border-accent-ink/45 hover:text-accent-ink transition-colors shrink-0"
+          className="w-8 h-8 rounded-full border border-line bg-surface text-ink shadow-[0_1px_3px_rgba(0,0,0,0.08)] flex items-center justify-center hover:border-line-strong hover:bg-surface-2 transition-colors shrink-0"
         >
           {playing ? <Pause size={14} /> : <Play size={14} />}
         </button>
@@ -113,7 +113,7 @@ const CarterAiSlider = () => {
             {active.caption || "Guided campaign setup"}
           </p>
         </div>
-        <span className="text-xs font-mono text-ink-faint shrink-0 tabular-nums">
+        <span className="text-[11px] tracking-[0.12em] text-ink-faint shrink-0 tabular">
           {String(index + 1).padStart(2, "0")} / {String(count).padStart(2, "0")}
         </span>
 
@@ -122,7 +122,7 @@ const CarterAiSlider = () => {
             type="button"
             onClick={prev}
             aria-label="Previous screen"
-            className="w-8 h-8 rounded-full border border-line bg-surface text-ink shadow-[0_1px_3px_rgba(0,0,0,0.08)] flex items-center justify-center hover:border-accent-ink/45 hover:text-accent-ink transition-colors"
+            className="w-8 h-8 rounded-full border border-line bg-surface text-ink shadow-[0_1px_3px_rgba(0,0,0,0.08)] flex items-center justify-center hover:border-line-strong hover:bg-surface-2 transition-colors"
           >
             <ChevronLeft size={16} />
           </button>
@@ -130,7 +130,7 @@ const CarterAiSlider = () => {
             type="button"
             onClick={next}
             aria-label="Next screen"
-            className="w-8 h-8 rounded-full border border-line bg-surface text-ink shadow-[0_1px_3px_rgba(0,0,0,0.08)] flex items-center justify-center hover:border-accent-ink/45 hover:text-accent-ink transition-colors"
+            className="w-8 h-8 rounded-full border border-line bg-surface text-ink shadow-[0_1px_3px_rgba(0,0,0,0.08)] flex items-center justify-center hover:border-line-strong hover:bg-surface-2 transition-colors"
           >
             <ChevronRight size={16} />
           </button>
@@ -150,7 +150,7 @@ const CarterAiSlider = () => {
             className="group/dot flex items-center justify-center py-3 px-1 focus:outline-none focus-visible:ring-2 focus-visible:ring-accent-ink/50 rounded"
           >
             <span
-              className={`block h-1.5 rounded-full transition-all ${i === index ? "w-6 bg-accent-ink" : "w-1.5 bg-line-strong group-hover/dot:bg-ink-faint"}`}
+              className={`block h-1.5 rounded-full transition-all ${i === index ? "w-6 bg-ink" : "w-1.5 bg-line-strong group-hover/dot:bg-ink-faint"}`}
             />
           </button>
         ))}

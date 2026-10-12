@@ -1,137 +1,148 @@
-import { ArrowUpRight, Github, Linkedin, Mail } from "lucide-react";
-
+import { ArrowUpRight } from "lucide-react";
 import { Link } from "react-router-dom";
 
+/**
+ * Site footer — shared by every page.
+ *
+ * Was a bold sans headline with a lime clause, three monospace column headers
+ * and a white grid pattern left over from the dark build (which rendered as
+ * nothing on a light page). Now it closes the page the way the rest of it
+ * speaks: one serif line, the email as the primary action, links as plain
+ * lists.
+ */
 const Footer = () => {
     const currentYear = new Date().getFullYear();
+    const EMAIL = "sumansourabh9155@gmail.com";
 
     const links = {
         explore: [
-            { name: "Case Studies", url: "/#case-studies" },
-            { name: "Design Work", url: "/#design-gallery" },
-            { name: "About", url: "/resume#about" },
-            { name: "Resume", url: "/resume" },
+            { name: "Selected work", url: "/#case-studies" },
+            { name: "Design work", url: "/#design-gallery" },
+            { name: "About & resume", url: "/resume" },
             { name: "Contact", url: "/contact" },
-        ],
-        social: [
-            { name: "LinkedIn", url: "https://www.linkedin.com/in/sumansourabh9155/", icon: <Linkedin size={16} /> },
-            { name: "GitHub", url: "https://github.com/sumansourabh9155", icon: <Github size={16} /> },
         ],
         caseStudies: [
             { name: "Carter", url: "/carter" },
             { name: "Poppins", url: "/poppins" },
             { name: "Atlas", url: "/atlas" },
-        ]
+            { name: "Simfluent", url: "/simfluent" },
+            { name: "GoDiverse", url: "/GoDiverse" },
+        ],
+        social: [
+            { name: "LinkedIn", url: "https://www.linkedin.com/in/sumansourabh9155/" },
+            { name: "GitHub", url: "https://github.com/sumansourabh9155" },
+        ],
     };
 
+    const colHead = "text-[11px] uppercase tracking-[0.22em] text-ink-faint mb-5";
+    const colLink = "text-[0.9375rem] text-ink-muted hover:text-ink transition-colors";
+
     return (
-        <footer className="bg-surface-2 border-t border-line relative overflow-hidden pt-20 pb-10">
-            {/* Background Grid (Consistent with Hero) */}
-            <div
-                className="absolute inset-0 opacity-[0.03] pointer-events-none"
-                style={{
-                    backgroundImage: `linear-gradient(#ffffff 1px, transparent 1px), linear-gradient(90deg, #ffffff 1px, transparent 1px)`,
-                    backgroundSize: '40px 40px'
-                }}
-            ></div>
+        <footer className="bg-surface bg-plusgrid pb-10">
+            <div aria-hidden="true" className="rule-double" />
+            <div className="px-6">
+                <div className="max-w-6xl mx-auto pt-20 pb-16">
 
-            <div className="max-w-7xl mx-auto px-6 relative z-10">
+                {/* The close. One statement, one action. */}
+                <div className="grid gap-10 lg:grid-cols-[minmax(0,1.1fr)_minmax(0,0.9fr)] lg:gap-16 lg:items-end">
+                    <h2 className="font-display font-normal text-ink text-[2.25rem] sm:text-[3rem] leading-[1.1] tracking-[-0.01em] [text-wrap:balance]">
+                        Looking for a designer who{" "}
+                        <span className="text-ink-faint italic">ships what they design?</span>
+                    </h2>
 
-                {/* Top Section: The Final CTA */}
-                <div className="flex flex-col md:flex-row justify-between items-start md:items-end gap-10 mb-20 border-b border-line pb-16">
-                    <div className="max-w-xl">
-                        <h2 className="font-heading text-3xl md:text-4xl font-bold text-ink mb-6">
-                            Looking for a designer who <span className="text-accent-ink">ships what they design?</span>
-                        </h2>
-                        <p className="text-ink-muted font-light">
-                            I embed into teams, close the strategy-execution gap, and ship products that move metrics.
-                            Let&apos;s see if there&apos;s a fit.
+                    <div className="lg:text-right">
+                        <p className="text-ink-muted text-[0.9375rem] leading-[1.7] mb-6 lg:ml-auto max-w-sm">
+                            I embed into teams, close the strategy-execution gap, and ship
+                            products that move metrics.
                         </p>
-                    </div>
-                    <div>
-                        <Link to="/contact">
-                            <button className="group bg-ink text-surface px-8 py-4 rounded-full font-bold text-lg hover:bg-accent hover:text-ink transition-all shadow-[0_6px_20px_rgba(0,0,0,0.12)] flex items-center gap-2">
-                                Get in Touch
-                                <ArrowUpRight className="group-hover:translate-x-1 group-hover:-translate-y-1 transition-transform" />
-                            </button>
-                        </Link>
+                        {/* The address itself is the affordance — a mail link people can
+                            read, copy and trust, rather than a button that hides it. */}
+                        <a
+                            href={`mailto:${EMAIL}`}
+                            className="group inline-flex items-center gap-2 font-display text-[1.375rem] sm:text-[1.625rem] text-ink border-b border-line-strong hover:border-ink transition-colors pb-1 break-all"
+                        >
+                            {EMAIL}
+                            <ArrowUpRight
+                                size={20}
+                                className="shrink-0 transition-transform duration-200 group-hover:translate-x-0.5 group-hover:-translate-y-0.5"
+                            />
+                        </a>
                     </div>
                 </div>
 
-                {/* Middle Section: Links */}
-                <div className="grid grid-cols-1 md:grid-cols-12 gap-12 mb-20">
+                </div>
+            </div>
+            <div aria-hidden="true" className="rule-double" />
+            <div className="px-6">
+                <div className="max-w-6xl mx-auto">
 
-                    {/* Column 1: Brand (4 Cols) */}
-                    <div className="md:col-span-5">
-                        <Link to="/" className="inline-block text-2xl font-bold text-ink mb-4">
-                            Suman <span className="text-ink-faint">Sourabh</span>
-                        </Link>
-                        <p className="text-sm text-ink-faint mb-6 max-w-sm">
-                            Product Designer with a CS/ML background. I design 0-to-1 AI products end-to-end and ship the UI myself—no gap between design and engineering.
+                {/* Links */}
+                <div className="grid grid-cols-2 md:grid-cols-4 gap-10 py-16">
+                    <div className="col-span-2 md:col-span-1">
+                        <p className={colHead}>Suman Sourabh</p>
+                        <p className="text-[0.9375rem] text-ink-muted leading-[1.7] max-w-xs">
+                            Product Designer with a CS/ML background. I design 0-to-1 AI
+                            products end to end and ship the interface myself.
                         </p>
-                        <a
-                            href="mailto:sumansourabh9155@gmail.com"
-                            className="flex items-center gap-2 text-ink hover:text-accent-ink transition-colors"
-                        >
-                            <Mail size={16} /> sumansourabh9155@gmail.com
-                        </a>
                     </div>
 
-                    {/* Column 2: Explore (3 Cols) */}
-                    <div className="md:col-span-3">
-                        <h4 className="text-xs font-mono text-ink-faint uppercase tracking-widest mb-6">Explore</h4>
-                        <ul className="space-y-4">
-                            {links.explore.map((link) => (
-                                <li key={link.name}>
-                                    <Link to={link.url} className="text-sm text-ink-muted hover:text-ink transition-colors">
-                                        {link.name}
-                                    </Link>
+                    <div>
+                        <p className={colHead}>Explore</p>
+                        <ul className="space-y-3">
+                            {links.explore.map((l) => (
+                                <li key={l.name}>
+                                    <Link to={l.url} className={colLink}>{l.name}</Link>
                                 </li>
                             ))}
                         </ul>
                     </div>
 
-                    {/* Column 3: Social (2 Cols) */}
-                    <div className="md:col-span-2">
-                        <h4 className="text-xs font-mono text-ink-faint uppercase tracking-widest mb-6">Connect</h4>
-                        <ul className="space-y-4">
-                            {links.social.map((link) => (
-                                <li key={link.name}>
+                    <div>
+                        <p className={colHead}>Case studies</p>
+                        <ul className="space-y-3">
+                            {links.caseStudies.map((l) => (
+                                <li key={l.name}>
+                                    <Link to={l.url} className={colLink}>{l.name}</Link>
+                                </li>
+                            ))}
+                        </ul>
+                    </div>
+
+                    <div>
+                        <p className={colHead}>Elsewhere</p>
+                        <ul className="space-y-3">
+                            {links.social.map((l) => (
+                                <li key={l.name}>
                                     <a
-                                        href={link.url}
+                                        href={l.url}
                                         target="_blank"
-                                        rel="noopener noreferrer"
-                                        className="flex items-center gap-2 text-sm text-ink-muted hover:text-accent-ink transition-colors"
+                                        rel="me noopener noreferrer"
+                                        className={`${colLink} inline-flex items-center gap-1.5`}
                                     >
-                                        {link.icon} {link.name}
+                                        {l.name}
+                                        <ArrowUpRight size={13} className="text-ink-faint" />
                                     </a>
                                 </li>
                             ))}
                         </ul>
                     </div>
-
-                    {/* Column 4: Case Studies (2 Cols) */}
-                    <div className="md:col-span-2">
-                        <h4 className="text-xs font-mono text-ink-faint uppercase tracking-widest mb-6">Case Studies</h4>
-                        <ul className="space-y-4">
-                            {links.caseStudies.map((link) => (
-                                <li key={link.name}>
-                                    <Link to={link.url} className="text-sm text-ink-muted hover:text-ink transition-colors">
-                                        {link.name}
-                                    </Link>
-                                </li>
-                            ))}
-                        </ul>
-                    </div>
                 </div>
 
-                {/* Bottom Section: Copyright */}
-                <div className="flex flex-col  items-center pt-8 border-t border-line-soft">
+                </div>
+            </div>
+            <div aria-hidden="true" className="rule-double" />
+            <div className="px-6">
+                <div className="max-w-6xl mx-auto">
+
+                <div className="flex flex-wrap gap-x-6 gap-y-2 justify-between pt-8">
                     <p className="text-xs text-ink-ghost">
-                        © {currentYear} Suman Sourabh. All Rights Reserved.
+                        © {currentYear} Suman Sourabh · Noida, India · Open to Product Design roles
+                    </p>
+                    <p className="text-xs text-ink-ghost">
+                        Designed and built by me, in React and Tailwind.
                     </p>
                 </div>
-
+                </div>
             </div>
         </footer>
     );

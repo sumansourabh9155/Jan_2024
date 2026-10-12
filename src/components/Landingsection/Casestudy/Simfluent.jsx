@@ -1,15 +1,16 @@
-import { Link } from "react-router-dom";
 import Navbar from "../../Navbar";
 import Footer from "../../Footer";
 import SEO from "../../SEO";
 import {
     Mail, Users, LayoutGrid, GitBranch, Globe,
     CheckCircle2, Palette, Bot, Target, Clock,
-    ArrowRight, Building2, ShieldCheck, Eye, BarChart3, Map,
-    AlertTriangle, Timer
+    Building2, ShieldCheck, Eye, BarChart3, Map, Timer
 } from "lucide-react";
 
 import SimfluentSlider from "./SimfluentSlider";
+import {
+    Badge, IconCard, Figure, Decision, MetaList, Finding, Note, NextCase,
+} from "./CaseStudyUI";
 
 // Curated screens — also used inline next to the decision each one proves.
 import ShotDashboard from "../../../assets/simfluent/screens/1-Morning-triage-dashboard.png";
@@ -21,64 +22,9 @@ import ShotJdReview from "../../../assets/simfluent/screens/6-Parsed-job-awaitin
 import ShotPosting from "../../../assets/simfluent/screens/7-Multi-board-posting-and-scoring-weights.png";
 import ShotCardPattern from "../../../assets/simfluent/ui-card-pattern.png";
 
-// ================= REUSABLE COMPONENTS =================
-
-const Badge = ({ children }) => (
-    <div className="inline-flex items-center gap-2 text-xs font-mono text-accent-ink tracking-widest uppercase mb-6 bg-accent/15 px-3 py-1 rounded border border-accent-ink/30">
-        {children}
-    </div>
-);
-
-const IconCard = ({ icon, title, children }) => (
-    <div className="bg-surface-3/70 border border-line rounded-2xl p-6 flex gap-4">
-        <div className="w-10 h-10 rounded-xl bg-surface border border-line flex items-center justify-center flex-shrink-0">
-            {icon}
-        </div>
-        <div>
-            <h4 className="text-ink font-semibold text-sm mb-1">{title}</h4>
-            <p className="text-ink-muted text-xs leading-relaxed">{children}</p>
-        </div>
-    </div>
-);
-
-const Figure = ({ src, alt, caption }) => (
-    <figure className="my-10">
-        <img
-            loading="lazy"
-            decoding="async"
-            src={src}
-            alt={alt}
-            className="rounded-2xl w-full border border-line bg-surface-2"
-        />
-        {caption && (
-            <figcaption className="text-ink-faint text-xs mt-3 max-w-2xl leading-relaxed">
-                {caption}
-            </figcaption>
-        )}
-    </figure>
-);
-
-// A decision block: number + icon + headline + body, with optional figure.
-const Decision = ({ n, icon, tone, title, children }) => (
-    <div className="mb-20">
-        <div className="flex items-center gap-4 mb-6">
-            <div className={`w-11 h-11 rounded-xl border flex items-center justify-center ${tone}`}>
-                {icon}
-            </div>
-            <div className="text-xs font-mono text-ink-ghost uppercase tracking-widest">
-                Decision {String(n).padStart(2, "0")}
-            </div>
-        </div>
-        <h3 className="font-heading text-2xl md:text-3xl font-bold text-ink mb-4 max-w-3xl leading-snug">
-            {title}
-        </h3>
-        {children}
-    </div>
-);
-
 const Simfluent = () => {
     return (
-        <div className="text-ink bg-surface-2">
+        <div className="font-ui text-ink bg-surface">
             <SEO
                 title="Simfluent: AI-Native Recruitment & Resource-Ops Platform — Product Design Case Study"
                 description="Designing Simfluent (in progress) — a recruitment platform built around the real bottleneck: waiting. Email becomes a structured pipeline, SLAs surface stalled candidates, and Mavik, the AI layer, drafts jobs and scores résumés without ever deciding."
@@ -86,72 +32,63 @@ const Simfluent = () => {
                 canonicalUrl="https://www.sumansourabh.com/simfluent"
             />
             <Navbar />
+            <main id="main">
 
             {/* ================= HERO ================= */}
-            <section className="bg-surface-2 pt-32 pb-24 px-4">
-                <div className="max-w-7xl mx-auto">
-                    <div className="text-center max-w-3xl mx-auto mb-14">
-                        <Badge>[ HR Tech &middot; B2B SaaS &middot; AI-Native ]</Badge>
+            <section className="bg-surface bg-plusgrid pt-32 pb-24 px-6">
+                <div className="max-w-6xl mx-auto">
+                    {/* Left-aligned, like every other page on the site. A centred
+                        column here was the one place the site changed axis, and it
+                        made the case study read as a separate microsite. */}
+                    <div className="max-w-3xl mb-12">
+                        <Badge>HR Tech &middot; B2B SaaS &middot; AI-Native</Badge>
 
-                        <div className="flex justify-center mb-6">
-                            <span className="inline-flex items-center gap-2 text-xs font-medium text-violet-700 bg-violet-500/10 border border-violet-400/30 px-3 py-1 rounded-full">
-                                <span className="w-1.5 h-1.5 rounded-full bg-violet-400 animate-pulse" />
-                                In progress &mdash; shipping now
-                            </span>
-                        </div>
-
-                        <h1 className="font-heading text-5xl md:text-7xl font-extrabold text-ink tracking-tight leading-none mb-6">
+                        <h1 className="font-display text-[3.25rem] md:text-7xl font-normal text-ink tracking-[-0.02em] leading-[0.95] mb-6">
                             Simfluent
                         </h1>
-                        <p className="text-lg text-ink-muted font-light leading-relaxed max-w-2xl mx-auto">
+                        <p className="text-lg text-ink-muted leading-[1.6] max-w-2xl">
                             A recruitment and resource-operations platform for a staffing business placing
                             engineers with US companies. Built around the bottleneck nobody was tracking:
                             <span className="text-ink font-medium"> the time candidates spend waiting.</span>
+                        </p>
+
+                        <p className="mt-7 inline-flex items-center gap-2.5 text-[0.8125rem] text-ink-faint">
+                            <span aria-hidden="true" className="w-1.5 h-1.5 rounded-full bg-ink/40" />
+                            In progress &mdash; shipping now
                         </p>
                     </div>
 
                     <img
                         src={ShotDashboard}
                         alt="Simfluent dashboard — a daily triage view showing active jobs, items needing action, and pending hiring-manager decisions"
-                        className="rounded-2xl w-full border border-line bg-surface-2"
+                        className="rounded-sm w-full border border-line bg-surface-2"
                     />
 
-                    {/* Snapshot Strip */}
-                    <div className="grid grid-cols-2 md:grid-cols-4 gap-6 mt-12 mb-8">
-                        <div className="bg-surface-3/70 border border-line rounded-2xl p-5 text-center">
-                            <p className="text-xs text-ink-faint uppercase tracking-widest mb-2">Company</p>
-                            <p className="text-ink font-medium">Shyftlabs</p>
-                        </div>
-                        <div className="bg-surface-3/70 border border-line rounded-2xl p-5 text-center">
-                            <p className="text-xs text-ink-faint uppercase tracking-widest mb-2">My Role</p>
-                            <p className="text-ink font-medium">Product Designer</p>
-                        </div>
-                        <div className="bg-surface-3/70 border border-line rounded-2xl p-5 text-center">
-                            <p className="text-xs text-ink-faint uppercase tracking-widest mb-2">Users</p>
-                            <p className="text-ink font-medium">Recruiters, HMs, Leadership</p>
-                        </div>
-                        <div className="bg-surface-3/70 border border-line rounded-2xl p-5 text-center">
-                            <p className="text-xs text-ink-faint uppercase tracking-widest mb-2">Status</p>
-                            <p className="text-ink font-medium">Active build</p>
-                        </div>
-                    </div>
+                    {/* Was four bordered boxes in a row. Same four facts, read as a
+                        caption under the screen rather than as a dashboard above it. */}
+                    <MetaList
+                        className="mt-12"
+                        items={[
+                            { term: "Company", value: "Shyftlabs" },
+                            { term: "My role", value: "Product Designer" },
+                            { term: "Users", value: "Recruiters, HMs, Leadership" },
+                            { term: "Status", value: "Active build" },
+                        ]}
+                    />
 
-                    <div className="flex flex-wrap gap-2 justify-center">
-                        {["Figma", "Design Tokens", "React", "Tailwind CSS", "LLM / RAG", "Stakeholder Research"].map((tool) => (
-                            <span key={tool} className="text-xs px-3 py-1 bg-surface-3/70 text-ink-faint border border-line rounded-full">
-                                {tool}
-                            </span>
-                        ))}
-                    </div>
+                    <p className="mt-8 text-[0.8125rem] text-ink-faint leading-[1.7] max-w-2xl">
+                        <span className="text-ink-ghost">Tools &middot; </span>
+                        {["Figma", "Design Tokens", "React", "Tailwind CSS", "LLM / RAG", "Stakeholder Research"].join(" · ")}
+                    </p>
                 </div>
             </section>
 
             {/* ================= THE PROBLEM ================= */}
-            <section className="bg-surface py-24 px-4 border-t border-line">
-                <div className="max-w-7xl mx-auto">
+            <section className="bg-cream py-24 px-6">
+                <div className="max-w-6xl mx-auto">
                     <div className="max-w-3xl mb-16">
-                        <Badge>[ The Problem ]</Badge>
-                        <h2 className="font-heading text-4xl md:text-5xl font-bold text-ink leading-tight mb-6">
+                        <Badge>The Problem</Badge>
+                        <h2 className="font-display text-4xl md:text-5xl font-normal text-ink leading-tight mb-6">
                             Hiring lived in inboxes.{" "}
                             <span className="text-ink-muted">Nobody could see the pipeline.</span>
                         </h2>
@@ -169,17 +106,17 @@ const Simfluent = () => {
                     </div>
 
                     <div className="grid grid-cols-1 md:grid-cols-4 gap-6">
-                        <IconCard icon={<Users size={18} className="text-violet-700" />} title="Recruiters / HR">
+                        <IconCard icon={<Users size={18} className="text-ink-faint" />} title="Recruiters / HR">
                             An 8&ndash;10 person team owning candidates end to end &mdash; who needed their queue and
                             workload legible, not buried in mail.
                         </IconCard>
-                        <IconCard icon={<Target size={18} className="text-blue-700" />} title="Hiring Managers">
+                        <IconCard icon={<Target size={18} className="text-ink-faint" />} title="Hiring Managers">
                             Track requested roles and see where each candidate actually is &mdash; without chasing.
                         </IconCard>
-                        <IconCard icon={<Building2 size={18} className="text-accent-ink" />} title="Leadership / VP">
+                        <IconCard icon={<Building2 size={18} className="text-ink-faint" />} title="Leadership / VP">
                             One live view of headcount, placements, and pipeline health &mdash; without asking anyone.
                         </IconCard>
-                        <IconCard icon={<Globe size={18} className="text-orange-600" />} title="Client Companies">
+                        <IconCard icon={<Globe size={18} className="text-ink-faint" />} title="Client Companies">
                             The US companies being staffed &mdash; their interviews and assignments feed the timeline.
                         </IconCard>
                     </div>
@@ -187,11 +124,11 @@ const Simfluent = () => {
             </section>
 
             {/* ================= RESEARCH & DEFINITION ================= */}
-            <section className="bg-surface-2 py-24 px-4 border-t border-line">
-                <div className="max-w-7xl mx-auto">
+            <section className="bg-surface py-24 px-6">
+                <div className="max-w-6xl mx-auto">
                     <div className="max-w-3xl mb-16">
-                        <Badge>[ Research & Definition ]</Badge>
-                        <h2 className="font-heading text-4xl md:text-5xl font-bold text-ink leading-tight mb-6">
+                        <Badge>Research & Definition</Badge>
+                        <h2 className="font-display text-4xl md:text-5xl font-normal text-ink leading-tight mb-6">
                             Screens came last.{" "}
                             <span className="text-ink-muted">The research came first.</span>
                         </h2>
@@ -203,22 +140,22 @@ const Simfluent = () => {
                     </div>
 
                     <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-                        <IconCard icon={<Users size={18} className="text-violet-700" />} title="Built with the people who own the problem">
+                        <IconCard icon={<Users size={18} className="text-ink-faint" />} title="Built with the people who own the problem">
                             Worked directly with the Senior VP who owns the business end to end &mdash; the bird&apos;s-eye
                             view and the direct line to the US client company &mdash; and the 8&ndash;10-person recruiting team
                             who&apos;d use this daily. Requirements came from the floor, not a brief.
                         </IconCard>
-                        <IconCard icon={<Eye size={18} className="text-blue-700" />} title="Watched behaviour, not just opinions">
+                        <IconCard icon={<Eye size={18} className="text-ink-faint" />} title="Watched behaviour, not just opinions">
                             Ran interviews and observed how recruiters actually work: which components they reached for,
                             what information they hunted for at each step, and which metrics genuinely drove decisions
                             versus which just filled a dashboard.
                         </IconCard>
-                        <IconCard icon={<BarChart3 size={18} className="text-accent-ink" />} title="Benchmarked the category">
+                        <IconCard icon={<BarChart3 size={18} className="text-ink-faint" />} title="Benchmarked the category">
                             Studied established recruitment and ATS platforms &mdash; what they surface and measure &mdash;
                             then filtered hard: kept the metrics and patterns that fit our staffing model, cut the noise.
                             Simfluent shows what helps recruiters act, not everything it&apos;s possible to show.
                         </IconCard>
-                        <IconCard icon={<Map size={18} className="text-orange-600" />} title="Turned it into a map, then flows">
+                        <IconCard icon={<Map size={18} className="text-ink-faint" />} title="Turned it into a map, then flows">
                             All of it fed a bird&apos;s-eye view of the platform and a prioritised feature list &mdash; the
                             backbone the flows and screens were designed against. Definition first; UI second.
                         </IconCard>
@@ -227,11 +164,11 @@ const Simfluent = () => {
             </section>
 
             {/* ================= THE INSIGHT ================= */}
-            <section className="bg-surface py-24 px-4 border-t border-line">
-                <div className="max-w-7xl mx-auto">
+            <section className="bg-cream py-24 px-6">
+                <div className="max-w-6xl mx-auto">
                     <div className="max-w-3xl mb-6">
-                        <Badge>[ The Insight ]</Badge>
-                        <h2 className="font-heading text-4xl md:text-5xl font-bold text-ink leading-tight mb-6">
+                        <Badge>The Insight</Badge>
+                        <h2 className="font-display text-4xl md:text-5xl font-normal text-ink leading-tight mb-6">
                             The bottleneck wasn&apos;t sourcing.{" "}
                             <span className="text-ink-muted">It was waiting.</span>
                         </h2>
@@ -248,41 +185,23 @@ const Simfluent = () => {
                         </p>
                     </div>
 
-                    {/* Evidence trio */}
-                    <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mt-12 mb-4">
-                        <div className="bg-red-500/10 border border-red-500/15 rounded-2xl p-6">
-                            <div className="w-10 h-10 rounded-xl bg-red-500/10 border border-red-500/20 flex items-center justify-center mb-4">
-                                <Clock size={18} className="text-red-700" />
-                            </div>
-                            <h4 className="font-heading text-2xl font-bold text-ink mb-2">Slowest stage</h4>
-                            <p className="text-ink text-sm font-medium mb-2">Hiring-manager decisions</p>
-                            <p className="text-ink-muted text-xs leading-relaxed">
-                                The stage that consistently ran past its target and held up everything downstream &mdash;
-                                so it gets its own panel, its own SLA, and a visible count of what&apos;s pending.
-                            </p>
-                        </div>
-                        <div className="bg-red-500/10 border border-red-500/15 rounded-2xl p-6">
-                            <div className="w-10 h-10 rounded-xl bg-red-500/10 border border-red-500/20 flex items-center justify-center mb-4">
-                                <AlertTriangle size={18} className="text-red-700" />
-                            </div>
-                            <h4 className="font-heading text-2xl font-bold text-ink mb-2">Silent stalls</h4>
-                            <p className="text-ink text-sm font-medium mb-2">Nobody owned the follow-up</p>
-                            <p className="text-ink-muted text-xs leading-relaxed">
-                                Offers went out and simply went quiet. Decks were &ldquo;about to be sent&rdquo; for weeks.
-                                No system flagged it, because no system knew a clock had started.
-                            </p>
-                        </div>
-                        <div className="bg-red-500/10 border border-red-500/15 rounded-2xl p-6">
-                            <div className="w-10 h-10 rounded-xl bg-red-500/10 border border-red-500/20 flex items-center justify-center mb-4">
-                                <Timer size={18} className="text-red-700" />
-                            </div>
-                            <h4 className="font-heading text-2xl font-bold text-ink mb-2">Invisible load</h4>
-                            <p className="text-ink text-sm font-medium mb-2">Uneven recruiter workload</p>
-                            <p className="text-ink-muted text-xs leading-relaxed">
-                                Some recruiters carried far more active candidates than others. Without a workload
-                                view, rebalancing was guesswork &mdash; and the overloaded queue was where things stalled.
-                            </p>
-                        </div>
+                    {/* Evidence trio. Was three filled red panels — on a white page
+                        that reads as an error state rather than as research. The
+                        weighted rule carries "this is what was going wrong" without
+                        the page sounding an alarm. */}
+                    <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mt-12 mb-4">
+                        <Finding value="Slowest stage" title="Hiring-manager decisions">
+                            The stage that consistently ran past its target and held up everything downstream &mdash;
+                            so it gets its own panel, its own SLA, and a visible count of what&apos;s pending.
+                        </Finding>
+                        <Finding value="Silent stalls" title="Nobody owned the follow-up">
+                            Offers went out and simply went quiet. Decks were &ldquo;about to be sent&rdquo; for weeks.
+                            No system flagged it, because no system knew a clock had started.
+                        </Finding>
+                        <Finding value="Invisible load" title="Uneven recruiter workload">
+                            Some recruiters carried far more active candidates than others. Without a workload
+                            view, rebalancing was guesswork &mdash; and the overloaded queue was where things stalled.
+                        </Finding>
                     </div>
 
                     <Figure
@@ -294,19 +213,18 @@ const Simfluent = () => {
             </section>
 
             {/* ================= DESIGN DECISIONS ================= */}
-            <section className="bg-surface-2 py-24 px-4 border-t border-line">
-                <div className="max-w-7xl mx-auto">
+            <section className="bg-surface py-24 px-6">
+                <div className="max-w-6xl mx-auto">
                     <div className="max-w-3xl mb-20">
-                        <Badge>[ How I&apos;m Designing It ]</Badge>
-                        <h2 className="font-heading text-4xl md:text-5xl font-bold text-ink leading-tight">
+                        <Badge>How I&apos;m Designing It</Badge>
+                        <h2 className="font-display text-4xl md:text-5xl font-normal text-ink leading-tight">
                             Six decisions doing the heavy lifting.
                         </h2>
                     </div>
 
                     <Decision
                         n={1}
-                        icon={<LayoutGrid size={20} className="text-violet-700" />}
-                        tone="bg-violet-500/10 border-violet-400/20"
+                        icon={<LayoutGrid size={20} className="text-ink-faint" />}
                         title="The dashboard answers “what needs me?” — not “how are we doing?”"
                     >
                         <p className="text-ink-muted text-base leading-relaxed max-w-3xl mb-5">
@@ -331,8 +249,7 @@ const Simfluent = () => {
 
                     <Decision
                         n={2}
-                        icon={<Timer size={20} className="text-red-700" />}
-                        tone="bg-red-500/10 border-red-400/20"
+                        icon={<Timer size={20} className="text-ink-faint" />}
                         title="Time is a first-class citizen, not a timestamp."
                     >
                         <p className="text-ink-muted text-base leading-relaxed max-w-3xl">
@@ -347,8 +264,7 @@ const Simfluent = () => {
 
                     <Decision
                         n={3}
-                        icon={<Bot size={20} className="text-accent-ink" />}
-                        tone="bg-accent/25 border-accent-ink/30"
+                        icon={<Bot size={20} className="text-ink-faint" />}
                         title="AI drafts. Humans decide. The seam is always visible."
                     >
                         <p className="text-ink-muted text-base leading-relaxed max-w-3xl mb-5">
@@ -379,8 +295,7 @@ const Simfluent = () => {
 
                     <Decision
                         n={4}
-                        icon={<GitBranch size={20} className="text-blue-700" />}
-                        tone="bg-blue-500/10 border-blue-400/20"
+                        icon={<GitBranch size={20} className="text-ink-faint" />}
                         title="One loop: draft a role, publish it everywhere, work the pipeline."
                     >
                         <p className="text-ink-muted text-base leading-relaxed max-w-3xl mb-5">
@@ -404,8 +319,7 @@ const Simfluent = () => {
 
                     <Decision
                         n={5}
-                        icon={<Mail size={20} className="text-orange-600" />}
-                        tone="bg-orange-500/10 border-orange-400/20"
+                        icon={<Mail size={20} className="text-ink-faint" />}
                         title="Email becomes the record — without becoming the interface."
                     >
                         <p className="text-ink-muted text-base leading-relaxed max-w-3xl mb-5">
@@ -432,8 +346,7 @@ const Simfluent = () => {
 
                     <Decision
                         n={6}
-                        icon={<Palette size={20} className="text-emerald-800" />}
-                        tone="bg-emerald-500/10 border-emerald-400/20"
+                        icon={<Palette size={20} className="text-ink-faint" />}
                         title="A design system underneath — because it keeps growing."
                     >
                         <p className="text-ink-muted text-base leading-relaxed max-w-3xl mb-5">
@@ -458,11 +371,11 @@ const Simfluent = () => {
             </section>
 
             {/* ================= SCREEN FLOW ================= */}
-            <section className="bg-surface py-24 px-4 border-t border-line">
-                <div className="max-w-7xl mx-auto">
+            <section className="bg-cream py-24 px-6">
+                <div className="max-w-6xl mx-auto">
                     <div className="max-w-3xl mb-10">
-                        <Badge>[ The Product ]</Badge>
-                        <h2 className="font-heading text-3xl md:text-4xl font-bold text-ink leading-tight mb-4">
+                        <Badge>The Product</Badge>
+                        <h2 className="font-display text-3xl md:text-4xl font-normal text-ink leading-tight mb-4">
                             Simfluent, screen by screen.
                         </h2>
                         <p className="text-ink-muted text-base leading-relaxed">
@@ -481,11 +394,11 @@ const Simfluent = () => {
             </section>
 
             {/* ================= WHERE IT STANDS ================= */}
-            <section className="bg-surface-2 py-24 px-4 border-t border-line">
-                <div className="max-w-7xl mx-auto">
+            <section className="bg-surface py-24 px-6">
+                <div className="max-w-6xl mx-auto">
                     <div className="max-w-3xl mb-12">
-                        <Badge>[ Where It Stands ]</Badge>
-                        <h2 className="font-heading text-4xl md:text-5xl font-bold text-ink leading-tight mb-6">
+                        <Badge>Where It Stands</Badge>
+                        <h2 className="font-display text-4xl md:text-5xl font-normal text-ink leading-tight mb-6">
                             Shipping now &mdash; so no vanity metrics.
                         </h2>
                         <p className="text-ink-muted text-base leading-relaxed">
@@ -495,11 +408,11 @@ const Simfluent = () => {
                         </p>
                     </div>
 
-                    <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-                        <div className="bg-surface-3/70 border border-line rounded-2xl p-8">
+                    <div className="grid grid-cols-1 md:grid-cols-2 gap-10 md:gap-14">
+                        <div className="border-t border-line pt-6">
                             <div className="flex items-center gap-2 mb-5">
-                                <CheckCircle2 size={18} className="text-accent-ink" />
-                                <p className="text-ink font-semibold text-sm uppercase tracking-widest">Designed &amp; in build</p>
+                                <CheckCircle2 size={16} className="text-ink-faint" />
+                                <p className="text-ink text-[11px] uppercase tracking-[0.18em]">Designed &amp; in build</p>
                             </div>
                             <ul className="space-y-3 text-ink-muted text-sm leading-relaxed">
                                 <li>&bull; Triage dashboard, with a separate organisation-wide view</li>
@@ -513,10 +426,10 @@ const Simfluent = () => {
                                 <li>&bull; The token-based design system and card patterns</li>
                             </ul>
                         </div>
-                        <div className="bg-surface-3/70 border border-line rounded-2xl p-8">
+                        <div className="border-t border-line pt-6">
                             <div className="flex items-center gap-2 mb-5">
-                                <Clock size={18} className="text-violet-700" />
-                                <p className="text-ink font-semibold text-sm uppercase tracking-widest">Still ahead</p>
+                                <Clock size={16} className="text-ink-faint" />
+                                <p className="text-ink text-[11px] uppercase tracking-[0.18em]">Still ahead</p>
                             </div>
                             <ul className="space-y-3 text-ink-muted text-sm leading-relaxed">
                                 <li>&bull; Resource management &mdash; who&apos;s placed where, across clients</li>
@@ -530,24 +443,23 @@ const Simfluent = () => {
                     </div>
 
                     {/* What I'd do differently */}
-                    <div className="mt-10 bg-surface-3/60 border border-dashed border-line rounded-xl p-6 max-w-3xl">
-                        <p className="text-ink-ghost text-xs uppercase tracking-widest mb-2 font-mono">Caught in review</p>
-                        <p className="text-ink-muted text-sm leading-relaxed">
-                            Shipping features at different times let the AI pick up more than one name across the
-                            product &mdash; you&apos;ll still spot an older label in some of the screens above. Small
-                            thing, but it reads as a big one: users shouldn&apos;t have to wonder whether they&apos;re
-                            dealing with one system or three. We&apos;ve settled on <span className="text-ink font-medium">Mavik</span> as
-                            the single name, and aligning the remaining surfaces and microcopy is in the queue.
-                        </p>
-                    </div>
+                    <Note label="Caught in review" className="mt-14">
+                        Shipping features at different times let the AI pick up more than one name across the
+                        product &mdash; you&apos;ll still spot an older label in some of the screens above. Small
+                        thing, but it reads as a big one: users shouldn&apos;t have to wonder whether they&apos;re
+                        dealing with one system or three. We&apos;ve settled on <span className="text-ink font-medium">Mavik</span> as
+                        the single name, and aligning the remaining surfaces and microcopy is in the queue.
+                    </Note>
 
-                    {/* Design signal */}
-                    <div className="mt-10 bg-accent/15 border border-accent-ink/30 rounded-2xl p-8">
-                        <div className="flex items-center gap-2 mb-3">
-                            <ShieldCheck size={16} className="text-accent-ink" />
-                            <p className="text-accent-ink text-xs uppercase tracking-widest font-mono font-semibold">Why this one matters</p>
+                    {/* Design signal. Was a lime panel — the last filled block on
+                        the page, and the loudest thing on it. The closing argument
+                        earns its weight from being set large, not from a fill. */}
+                    <div className="mt-16 border-t border-line pt-10">
+                        <div className="flex items-center gap-2 mb-5">
+                            <ShieldCheck size={16} className="text-ink-faint" />
+                            <p className="text-ink-faint text-[11px] uppercase tracking-[0.18em]">Why this one matters</p>
                         </div>
-                        <p className="text-ink text-base leading-relaxed max-w-3xl">
+                        <p className="font-display font-normal text-ink text-[1.5rem] md:text-[2rem] leading-[1.3] tracking-[-0.01em] max-w-3xl [text-wrap:balance]">
                             This is the messiest, most real problem in the portfolio &mdash; multi-role, high-volume,
                             email-driven, AI-assisted, shipping under real constraints. The design work here is less
                             about a beautiful screen and more about making a complex operational system legible,
@@ -558,18 +470,8 @@ const Simfluent = () => {
             </section>
 
             {/* ================= NEXT CASE STUDY ================= */}
-            <section className="bg-surface-2 py-16 px-4 border-t border-line">
-                <div className="max-w-7xl mx-auto flex flex-col md:flex-row items-center justify-between gap-6">
-                    <div>
-                        <p className="text-xs font-mono text-ink-ghost uppercase tracking-widest mb-2">Next Case Study</p>
-                        <p className="font-heading text-2xl font-bold text-ink">Atlas: CMS Architecture Across 130+ Locations</p>
-                    </div>
-                    <Link to="/atlas" className="text-accent-ink font-medium text-sm border border-accent-ink/30 bg-accent/15 px-6 py-3 rounded-full hover:bg-accent/25 transition-colors whitespace-nowrap flex items-center gap-2">
-                        View Case Study <ArrowRight size={16} />
-                    </Link>
-                </div>
-            </section>
-
+            <NextCase to="/atlas" title="Atlas: CMS Architecture Across 130+ Locations" />
+            </main>
             <Footer />
         </div>
     );

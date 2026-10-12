@@ -20,10 +20,11 @@ import {
     Users
 } from "lucide-react";
 
+import { Badge, IconCard, Decision, MetaList, NextCase } from "./CaseStudyUI";
+
 // Every image here earns its place next to a specific argument. No carousels.
 import Cover from "../../../assets/poppins/cover.png";
 import Footer from "../../Footer";
-import { Link } from "react-router-dom";
 import Navbar from "../../Navbar";
 import SEO from "../../SEO";
 import ShotBankAsk from "../../../assets/poppins/04-onboarding/3-The-bank-ask.png";
@@ -71,37 +72,8 @@ const PROTOTYPES = [
 ];
 
 // ================= SHARED BITS =================
-
-const Badge = ({ children }) => (
-    <div className="inline-flex items-center gap-2 text-xs font-mono text-accent-ink tracking-widest uppercase mb-6 bg-accent/15 px-3 py-1 rounded border border-accent-ink/30">
-        {children}
-    </div>
-);
-
-const IconCard = ({ icon, title, children }) => (
-    <div className="bg-surface-3/70 border border-line rounded-2xl p-6 flex gap-4">
-        <div className="w-10 h-10 rounded-xl bg-surface border border-line flex items-center justify-center flex-shrink-0">
-            {icon}
-        </div>
-        <div>
-            <h4 className="text-ink font-semibold text-sm mb-1">{title}</h4>
-            <p className="text-ink-muted text-xs leading-relaxed">{children}</p>
-        </div>
-    </div>
-);
-
-const Decision = ({ n, icon, tone, title, children }) => (
-    <div className="mb-16">
-        <div className="flex items-center gap-4 mb-6">
-            <div className={`w-11 h-11 rounded-xl border flex items-center justify-center ${tone}`}>{icon}</div>
-            <div className="text-xs font-mono text-ink-ghost uppercase tracking-widest">
-                Decision {String(n).padStart(2, "0")}
-            </div>
-        </div>
-        <h3 className="font-heading text-2xl md:text-3xl font-bold text-ink mb-4 max-w-3xl leading-snug">{title}</h3>
-        {children}
-    </div>
-);
+// Badge, IconCard and Decision now come from CaseStudyUI — they were identical
+// copies of the ones in the other four case studies.
 
 // Prose and the screen it describes, side by side — a phone screenshot is tall and
 // narrow, so stacking it wastes an enormous amount of vertical space.
@@ -135,7 +107,7 @@ const SplitFigure = ({ src, alt, caption, children }) => (
 // long page doesn't add five thousand pixels to this one.
 const ScrollFrame = ({ src, alt, caption, url, height = "h-[560px]" }) => (
     <figure className="my-10">
-        <div className="rounded-2xl overflow-hidden border border-line shadow-2xl bg-surface-3">
+        <div className="rounded-sm overflow-hidden border border-line bg-surface-3">
             <div className="flex items-center gap-3 px-4 py-3 bg-surface-3 border-b border-line">
                 <div className="flex items-center gap-1.5 shrink-0">
                     <span className="w-3 h-3 rounded-full bg-[#ff5f57]" />
@@ -166,7 +138,7 @@ const FigureWide = ({ src, alt, caption }) => (
             decoding="async"
             src={src}
             alt={alt}
-            className="rounded-2xl w-full border border-line bg-surface-2"
+            className="rounded-sm w-full border border-line bg-surface-2"
         />
         {caption && (
             <figcaption className="text-ink-faint text-xs mt-3 max-w-2xl leading-relaxed">{caption}</figcaption>
@@ -185,10 +157,10 @@ const FigureRow = ({ items, caption, cols = "sm:grid-cols-3", width = "", phone 
                             <img loading="lazy" decoding="async" src={it.src} alt={it.alt} className="rounded-[13px] w-full block" />
                         </div>
                     ) : (
-                        <img loading="lazy" decoding="async" src={it.src} alt={it.alt} className="rounded-xl w-full border border-line bg-surface-2" />
+                        <img loading="lazy" decoding="async" src={it.src} alt={it.alt} className="rounded-sm w-full border border-line bg-surface-2" />
                     )}
                     {it.label && (
-                        <p className="text-[11px] font-mono uppercase tracking-widest text-ink-ghost mt-2.5 text-center">{it.label}</p>
+                        <p className="text-[11px] uppercase tracking-[0.18em] text-ink-ghost mt-2.5 text-center">{it.label}</p>
                     )}
                 </div>
             ))}
@@ -201,8 +173,8 @@ const FigureRow = ({ items, caption, cols = "sm:grid-cols-3", width = "", phone 
 
 // Verbatim product copy — the voice system made visible.
 const Voice = ({ who, children }) => (
-    <div className="bg-surface-2 border border-line rounded-xl p-5">
-        <p className={`text-[10px] font-mono uppercase tracking-widest mb-2 ${who === "spotter" ? "text-emerald-800" : "text-ink-faint"}`}>
+    <div className="border-l-2 border-line-strong pl-5 py-1">
+        <p className={`text-[10px] uppercase tracking-[0.18em] mb-2 ${who === "spotter" ? "text-ink-faint" : "text-ink-faint"}`}>
             {who === "spotter" ? "The Spotter" : "The Steady Hand"}
         </p>
         <p className="text-ink-soft text-sm leading-relaxed italic">{children}</p>
@@ -211,20 +183,20 @@ const Voice = ({ who, children }) => (
 
 // One of the four people the onboarding was written against.
 const Persona = ({ name, meta, types, feels, converts }) => (
-    <div className="bg-surface-3/70 border border-line rounded-2xl p-6">
+    <div className="border-t border-line pt-5">
         <p className="text-ink font-semibold text-sm">{name}</p>
         <p className="text-ink-faint text-xs mb-4">{meta}</p>
         <dl className="space-y-3">
             <div>
-                <dt className="text-[10px] font-mono uppercase tracking-widest text-ink-ghost mb-1">Types</dt>
+                <dt className="text-[10px] uppercase tracking-[0.18em] text-ink-ghost mb-1">Types</dt>
                 <dd className="text-ink-soft text-xs leading-relaxed italic">&ldquo;{types}&rdquo;</dd>
             </div>
             <div>
-                <dt className="text-[10px] font-mono uppercase tracking-widest text-ink-ghost mb-1">Arrives feeling</dt>
+                <dt className="text-[10px] uppercase tracking-[0.18em] text-ink-ghost mb-1">Arrives feeling</dt>
                 <dd className="text-ink-muted text-xs leading-relaxed">{feels}</dd>
             </div>
             <div>
-                <dt className="text-[10px] font-mono uppercase tracking-widest text-emerald-800 mb-1">What converts them</dt>
+                <dt className="text-[10px] uppercase tracking-[0.18em] text-ink-faint mb-1">What converts them</dt>
                 <dd className="text-ink-soft text-xs leading-relaxed">{converts}</dd>
             </div>
         </dl>
@@ -233,14 +205,14 @@ const Persona = ({ name, meta, types, feels, converts }) => (
 
 const Rule = ({ children }) => (
     <li className="flex gap-3 text-ink-muted text-sm leading-relaxed">
-        <Ban size={15} className="text-red-700/70 shrink-0 mt-0.5" />
+        <Ban size={15} className="text-ink-faint/70 shrink-0 mt-0.5" />
         <span>{children}</span>
     </li>
 );
 
 const Poppins = () => {
     return (
-        <div className="text-ink bg-surface-2">
+        <div className="font-ui text-ink bg-surface">
             <SEO
                 title="Poppins: A Conversational Finance App — Product Design Case Study"
                 description="Designing Poppins, an iOS conversational finance assistant: market and competitor research, four user archetypes, a permission ladder where every ask is earned, five intent-matched bank asks, and mobile micro-interaction craft — plus the decision to stop."
@@ -248,71 +220,62 @@ const Poppins = () => {
                 canonicalUrl="https://www.sumansourabh.com/poppins"
             />
             <Navbar />
+            <main id="main">
 
             {/* ================= HERO ================= */}
-            <section className="bg-surface-2 pt-32 pb-24 px-4">
-                <div className="max-w-7xl mx-auto">
-                    <div className="text-center max-w-3xl mx-auto mb-14">
-                        <Badge>[ iOS &middot; Consumer Fintech &middot; Conversational UI ]</Badge>
+            <section className="bg-surface bg-plusgrid pt-32 pb-24 px-6">
+                <div className="max-w-6xl mx-auto">
+                    {/* Left-aligned, on the page's own margin — the rest of the
+                        site never centres a column. */}
+                    <div className="max-w-3xl mb-12">
+                        <Badge>iOS &middot; Consumer Fintech &middot; Conversational UI</Badge>
 
-                        <div className="flex justify-center mb-6">
-                            <span className="inline-flex items-center gap-2 text-xs font-medium text-ink-soft bg-surface-3/70 border border-line px-3 py-1 rounded-full">
-                                <span className="w-1.5 h-1.5 rounded-full bg-ink-ghost" />
-                                Concluded &mdash; not shipped
-                            </span>
-                        </div>
-
-                        <h1 className="font-heading text-5xl md:text-7xl font-extrabold text-ink tracking-tight leading-none mb-6">
+                        <h1 className="font-display text-[3.25rem] md:text-7xl font-normal text-ink tracking-[-0.02em] leading-[0.95] mb-6">
                             Poppins
                         </h1>
-                        <p className="text-lg text-ink-muted font-light leading-relaxed max-w-2xl mx-auto">
+                        <p className="text-lg text-ink-muted leading-[1.6] max-w-2xl">
                             A conversational finance app built on one idea: replace the dashboard with
                             <span className="text-ink font-medium"> a single number you can trust</span>, and earn
                             every permission before asking for it. Three months of research-led design &mdash;
                             whiteboard to high fidelity &mdash; and a deliberate decision not to build it.
+                        </p>
+
+                        <p className="mt-7 inline-flex items-center gap-2.5 text-[0.8125rem] text-ink-faint">
+                            <span aria-hidden="true" className="w-1.5 h-1.5 rounded-full bg-ink/40" />
+                            Concluded &mdash; not shipped
                         </p>
                     </div>
 
                     <img
                         src={Cover}
                         alt="Poppins — a conversational finance app for iOS"
-                        className="rounded-2xl w-full object-cover border border-line"
+                        className="rounded-sm w-full object-cover border border-line"
                     />
 
-                    <div className="grid grid-cols-2 md:grid-cols-4 gap-6 mt-12 mb-8">
-                        <div className="bg-surface-3/70 border border-line rounded-2xl p-5 text-center">
-                            <p className="text-xs text-ink-faint uppercase tracking-widest mb-2">My Role</p>
-                            <p className="text-ink font-medium">Product Designer</p>
-                        </div>
-                        <div className="bg-surface-3/70 border border-line rounded-2xl p-5 text-center">
-                            <p className="text-xs text-ink-faint uppercase tracking-widest mb-2">Platform</p>
-                            <p className="text-ink font-medium">iOS + Marketing Site</p>
-                        </div>
-                        <div className="bg-surface-3/70 border border-line rounded-2xl p-5 text-center">
-                            <p className="text-xs text-ink-faint uppercase tracking-widest mb-2">Duration</p>
-                            <p className="text-ink font-medium">~3 Months</p>
-                        </div>
-                        <div className="bg-surface-3/70 border border-line rounded-2xl p-5 text-center">
-                            <p className="text-xs text-ink-faint uppercase tracking-widest mb-2">Outcome</p>
-                            <p className="text-ink font-medium">Stopped at v1 scope</p>
-                        </div>
-                    </div>
+                    <MetaList
+                        className="mt-12"
+                        items={[
+                            { term: "My role", value: "Product Designer" },
+                            { term: "Platform", value: "iOS + Marketing Site" },
+                            { term: "Duration", value: "~3 Months" },
+                            { term: "Outcome", value: "Stopped at v1 scope" },
+                        ]}
+                    />
 
-                    <div className="flex flex-wrap gap-2 justify-center">
-                        {["Figma", "FigJam", "Whiteboarding", "iOS / HIG", "Conversation Design", "Competitive Research", "Plaid", "Flowcharting"].map((t) => (
-                            <span key={t} className="text-xs px-3 py-1 bg-surface-3/70 text-ink-faint border border-line rounded-full">{t}</span>
-                        ))}
-                    </div>
+                    <p className="mt-8 text-[0.8125rem] text-ink-faint leading-[1.7] max-w-2xl">
+                        <span className="text-ink-ghost">Tools &middot; </span>
+                        {["Figma", "FigJam", "Whiteboarding", "iOS / HIG", "Conversation Design", "Competitive Research", "Plaid", "Flowcharting"].join(" · ")}
+                    </p>
                 </div>
             </section>
 
             {/* ================= PROTOTYPES ================= */}
-            <section className="bg-surface py-16 px-4 border-t border-line">
-                <div className="max-w-7xl mx-auto">
+            <section className="bg-cream py-16 px-6">
+                <div className="max-w-6xl mx-auto">
                     <div className="flex flex-col lg:flex-row lg:items-end lg:justify-between gap-4 mb-8">
                         <div className="max-w-2xl">
-                            <Badge>[ Try It ]</Badge>
-                            <h2 className="font-heading text-3xl md:text-4xl font-bold text-ink leading-tight mb-3">
+                            <Badge>Try It</Badge>
+                            <h2 className="font-display text-3xl md:text-4xl font-normal text-ink leading-tight mb-3">
                                 Three working prototypes.
                             </h2>
                             <p className="text-ink-muted text-base leading-relaxed">
@@ -330,18 +293,18 @@ const Poppins = () => {
                                 href={p.href}
                                 target="_blank"
                                 rel="noopener noreferrer"
-                                className="group bg-surface-3/70 border border-line rounded-2xl p-6 flex flex-col justify-between gap-6
-                                    hover:border-emerald-400/40 hover:bg-surface-3 transition-colors
-                                    focus:outline-none focus-visible:ring-2 focus-visible:ring-emerald-700/60"
+                                className="group border-t border-line pt-5 flex flex-col justify-between gap-6
+                                    hover:border-ink/40 hover:bg-surface-3 transition-colors
+                                    focus:outline-none focus-visible:ring-2 focus-visible:ring-accent-ink/60"
                             >
                                 <div>
-                                    <div className="w-10 h-10 rounded-xl bg-emerald-500/10 border border-emerald-400/20 flex items-center justify-center mb-4">
-                                        <PlayCircle size={18} className="text-emerald-800" />
+                                    <div className="text-ink-faint mb-4">
+                                        <PlayCircle size={18} className="text-ink-faint" />
                                     </div>
                                     <h3 className="text-ink font-semibold text-base mb-1.5">{p.name}</h3>
                                     <p className="text-ink-muted text-xs leading-relaxed">{p.desc}</p>
                                 </div>
-                                <span className="inline-flex items-center gap-2 text-xs font-mono uppercase tracking-widest text-emerald-800">
+                                <span className="inline-flex items-center gap-2 text-[11px] uppercase tracking-[0.18em] text-ink-faint">
                                     Open prototype
                                     <ExternalLink size={13} className="group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-transform" />
                                 </span>
@@ -353,11 +316,11 @@ const Poppins = () => {
             </section>
 
             {/* ================= PROBLEM ================= */}
-            <section className="bg-surface py-16 px-4 border-t border-line">
-                <div className="max-w-7xl mx-auto">
+            <section className="bg-surface py-16 px-6">
+                <div className="max-w-6xl mx-auto">
                     <div className="max-w-3xl mb-16">
-                        <Badge>[ The Problem ]</Badge>
-                        <h2 className="font-heading text-4xl md:text-5xl font-bold text-ink leading-tight mb-6">
+                        <Badge>The Problem</Badge>
+                        <h2 className="font-display text-4xl md:text-5xl font-normal text-ink leading-tight mb-6">
                             Nobody wants a dashboard.{" "}
                             <span className="text-ink-muted">They want to stop worrying.</span>
                         </h2>
@@ -377,15 +340,15 @@ const Poppins = () => {
                     </div>
 
                     <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-                        <IconCard icon={<Users size={18} className="text-emerald-800" />} title="Who it was for">
+                        <IconCard icon={<Users size={18} className="text-ink-faint" />} title="Who it was for">
                             The organised-but-stretched professional. Earns steadily, has a loan or two, financially
                             literate enough to care &mdash; and far too busy to maintain a spreadsheet.
                         </IconCard>
-                        <IconCard icon={<Clock size={18} className="text-blue-700" />} title="The jobs to be done">
+                        <IconCard icon={<Clock size={18} className="text-ink-faint" />} title="The jobs to be done">
                             &ldquo;Tell me if I can afford this, quickly and honestly.&rdquo; &ldquo;Warn me before
                             something lapses.&rdquo; &ldquo;Tell me if my goal is realistic.&rdquo;
                         </IconCard>
-                        <IconCard icon={<ShieldCheck size={18} className="text-accent-ink" />} title="The hard constraint">
+                        <IconCard icon={<ShieldCheck size={18} className="text-ink-faint" />} title="The hard constraint">
                             Money is the most trust-sensitive category in consumer software. Every design decision
                             had to survive the question <em>&ldquo;why should I believe this number?&rdquo;</em>
                         </IconCard>
@@ -394,11 +357,11 @@ const Poppins = () => {
             </section>
 
             {/* ================= MARKET RESEARCH ================= */}
-            <section className="bg-surface-2 py-16 px-4 border-t border-line">
-                <div className="max-w-7xl mx-auto">
+            <section className="bg-cream py-16 px-6">
+                <div className="max-w-6xl mx-auto">
                     <div className="max-w-3xl mb-12">
-                        <Badge>[ Research &mdash; The Market ]</Badge>
-                        <h2 className="font-heading text-4xl md:text-5xl font-bold text-ink leading-tight mb-6">
+                        <Badge>Research &mdash; The Market</Badge>
+                        <h2 className="font-display text-4xl md:text-5xl font-normal text-ink leading-tight mb-6">
                             We started by proving{" "}
                             <span className="text-ink-muted">we weren&apos;t needed.</span>
                         </h2>
@@ -417,12 +380,12 @@ const Poppins = () => {
                     </div>
 
                     <div className="overflow-x-auto mb-12">
-                        <table className="w-full min-w-[680px] text-sm border border-line rounded-2xl overflow-hidden">
+                        <table className="w-full min-w-[680px] text-sm border border-line rounded-sm overflow-hidden">
                             <thead>
                                 <tr className="bg-surface-3/70">
-                                    <th className="text-left p-4 text-xs font-mono uppercase tracking-widest text-ink-faint font-medium">Product</th>
-                                    <th className="text-left p-4 text-xs font-mono uppercase tracking-widest text-ink-faint font-medium">Strength</th>
-                                    <th className="text-left p-4 text-xs font-mono uppercase tracking-widest text-ink-faint font-medium">The gap we saw</th>
+                                    <th className="text-left p-4 text-[11px] uppercase tracking-[0.18em] text-ink-faint font-medium">Product</th>
+                                    <th className="text-left p-4 text-[11px] uppercase tracking-[0.18em] text-ink-faint font-medium">Strength</th>
+                                    <th className="text-left p-4 text-[11px] uppercase tracking-[0.18em] text-ink-faint font-medium">The gap we saw</th>
                                 </tr>
                             </thead>
                             <tbody className="text-ink-muted">
@@ -446,8 +409,8 @@ const Poppins = () => {
                                     <td className="p-4">Authoritative balances</td>
                                     <td className="p-4">Built to serve the bank, not the person. History, not guidance.</td>
                                 </tr>
-                                <tr className="border-t border-line bg-emerald-500/5">
-                                    <td className="p-4 text-emerald-800 font-medium">Poppins</td>
+                                <tr className="border-t border-line bg-ink/[0.04]">
+                                    <td className="p-4 text-ink-faint font-medium">Poppins</td>
                                     <td className="p-4 text-ink-soft">Proactive, cross-domain, delivered where people already are</td>
                                     <td className="p-4 text-ink-soft">Connects bills, documents, balance and calendar &mdash; and reasons across all four.</td>
                                 </tr>
@@ -456,23 +419,23 @@ const Poppins = () => {
                     </div>
 
                     <div className="max-w-3xl">
-                        <h3 className="font-heading text-2xl font-bold text-ink mb-4">The behavioural finding that shaped the product</h3>
+                        <h3 className="font-ui text-2xl font-medium text-ink mb-4">The behavioural finding that shaped the product</h3>
                         <p className="text-ink-muted text-base leading-relaxed mb-6">
                             Every competitor made the same assumption: that the product is the app, and the job is
                             getting people back into it. But mobile attention doesn&apos;t work that way any more.
                             Push notifications are routinely dismissed or disabled; messaging apps are not.
                         </p>
                         <div className="grid grid-cols-1 sm:grid-cols-3 gap-4 mb-6">
-                            <div className="bg-surface-3/70 border border-line rounded-2xl p-5">
-                                <p className="font-heading text-3xl font-bold text-emerald-800 mb-1">~98%</p>
+                            <div className="border-t border-line pt-5">
+                                <p className="font-ui text-3xl font-medium text-ink-faint mb-1">~98%</p>
                                 <p className="text-ink-muted text-xs leading-relaxed">Reported open rate for a WhatsApp business message</p>
                             </div>
-                            <div className="bg-surface-3/70 border border-line rounded-2xl p-5">
-                                <p className="font-heading text-3xl font-bold text-ink-faint mb-1">7&ndash;9%</p>
+                            <div className="border-t border-line pt-5">
+                                <p className="font-ui text-3xl font-medium text-ink-faint mb-1">7&ndash;9%</p>
                                 <p className="text-ink-muted text-xs leading-relaxed">Push-notification open rate in financial services</p>
                             </div>
-                            <div className="bg-surface-3/70 border border-line rounded-2xl p-5">
-                                <p className="font-heading text-3xl font-bold text-ink mb-1">&lt;60s</p>
+                            <div className="border-t border-line pt-5">
+                                <p className="font-ui text-3xl font-medium text-ink mb-1">&lt;60s</p>
                                 <p className="text-ink-muted text-xs leading-relaxed">To first useful message, with no install required</p>
                             </div>
                         </div>
@@ -513,11 +476,11 @@ const Poppins = () => {
             </section>
 
             {/* ================= SEGMENTS + PERSONAS ================= */}
-            <section className="bg-surface py-16 px-4 border-t border-line">
-                <div className="max-w-7xl mx-auto">
+            <section className="bg-surface py-16 px-6">
+                <div className="max-w-6xl mx-auto">
                     <div className="max-w-3xl mb-12">
-                        <Badge>[ Research &mdash; Who We Designed For ]</Badge>
-                        <h2 className="font-heading text-4xl md:text-5xl font-bold text-ink leading-tight mb-6">
+                        <Badge>Research &mdash; Who We Designed For</Badge>
+                        <h2 className="font-display text-4xl md:text-5xl font-normal text-ink leading-tight mb-6">
                             Four segments, ranked &mdash;{" "}
                             <span className="text-ink-muted">then written against by name.</span>
                         </h2>
@@ -535,10 +498,10 @@ const Poppins = () => {
                             { p: "03", name: "Coupled Up", age: "25–45", why: "Shared budgets and household view. The incumbent's strongest segment — so the hardest to win and the most valuable to take.", state: "Later" },
                             { p: "04", name: "Side Hustlers", age: "22–40", why: "Irregular income is underserved everywhere and they advocate loudly — but the complexity didn't belong in v1.", state: "Deferred" },
                         ].map((s) => (
-                            <div key={s.p} className={`rounded-2xl p-6 border ${s.state === "v1 focus" ? "bg-emerald-500/5 border-emerald-400/25" : "bg-surface-3/70 border-line"}`}>
+                            <div key={s.p} className={`rounded-sm p-6 border ${s.state === "v1 focus" ? "bg-ink/[0.04] border-ink/25" : "bg-surface-3/70 border-line"}`}>
                                 <div className="flex items-center justify-between mb-3">
-                                    <span className="text-xs font-mono text-ink-ghost">{s.p}</span>
-                                    <span className={`text-[10px] font-mono uppercase tracking-widest px-2 py-0.5 rounded-full border ${s.state === "v1 focus" ? "text-emerald-800 border-emerald-400/30 bg-emerald-500/10" : "text-ink-faint border-line bg-surface-3/70"}`}>
+                                    <span className="text-[11px] text-ink-ghost tabular">{s.p}</span>
+                                    <span className={`text-[10px] uppercase tracking-[0.18em] px-2 py-0.5 rounded-full border ${s.state === "v1 focus" ? "text-surface border-ink bg-ink" : "text-ink-faint border-line bg-surface-3/70"}`}>
                                         {s.state}
                                     </span>
                                 </div>
@@ -550,7 +513,7 @@ const Poppins = () => {
                     </div>
 
                     <div className="max-w-3xl mb-8">
-                        <h3 className="font-heading text-2xl font-bold text-ink mb-4">The four people the first screen was written for</h3>
+                        <h3 className="font-ui text-2xl font-medium text-ink mb-4">The four people the first screen was written for</h3>
                         <p className="text-ink-muted text-base leading-relaxed mb-4">
                             Segments are useful for prioritisation and useless for writing copy. So the opening
                             conversation was designed against four specific people &mdash; what each one types,
@@ -597,8 +560,8 @@ const Poppins = () => {
                         />
                     </div>
 
-                    <div className="bg-accent/15 border border-accent-ink/30 rounded-2xl p-6 max-w-3xl">
-                        <p className="text-accent-ink text-xs uppercase tracking-widest mb-2 font-mono font-semibold">The constraint this produced</p>
+                    <div className="border-l-2 border-ink/70 pl-6 max-w-3xl">
+                        <p className="text-ink-faint text-[11px] uppercase tracking-[0.18em] mb-2">The constraint this produced</p>
                         <p className="text-ink text-base leading-relaxed">
                             James generated the single most useful rule in the project:{" "}
                             <span className="italic">if the second message says &ldquo;connect your account to find
@@ -611,11 +574,11 @@ const Poppins = () => {
             </section>
 
             {/* ================= EMOTIONAL REGISTER ================= */}
-            <section className="bg-surface-2 py-16 px-4 border-t border-line">
-                <div className="max-w-7xl mx-auto">
+            <section className="bg-cream py-16 px-6">
+                <div className="max-w-6xl mx-auto">
                     <div className="max-w-3xl mb-10">
-                        <Badge>[ Research &mdash; Emotional State ]</Badge>
-                        <h2 className="font-heading text-4xl md:text-5xl font-bold text-ink leading-tight mb-6">
+                        <Badge>Research &mdash; Emotional State</Badge>
+                        <h2 className="font-display text-4xl md:text-5xl font-normal text-ink leading-tight mb-6">
                             People arrive in one of four states.{" "}
                             <span className="text-ink-muted">None of them want to be labelled.</span>
                         </h2>
@@ -634,16 +597,16 @@ const Poppins = () => {
                     </div>
 
                     <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mb-10">
-                        <div className="bg-surface-3/70 border border-line rounded-2xl p-6">
-                            <p className="text-xs font-mono text-emerald-800 mb-2">01 &mdash; Acknowledge</p>
+                        <div className="border-t border-line pt-5">
+                            <p className="text-[11px] text-ink-faint tabular mb-2">01 &mdash; Acknowledge</p>
                             <p className="text-ink text-sm font-medium mb-2">Reflect the situation without naming it</p>
                             <p className="text-ink-muted text-xs leading-relaxed">
                                 &ldquo;Most people find the same thing&rdquo; is acknowledgment. It makes the feeling
                                 normal without making it the user&apos;s identity.
                             </p>
                         </div>
-                        <div className="bg-surface-3/70 border border-line rounded-2xl p-6">
-                            <p className="text-xs font-mono text-emerald-800 mb-2">02 &mdash; Give a real fact</p>
+                        <div className="border-t border-line pt-5">
+                            <p className="text-[11px] text-ink-faint tabular mb-2">02 &mdash; Give a real fact</p>
                             <p className="text-ink text-sm font-medium mb-2">Something specific to hold onto</p>
                             <p className="text-ink-muted text-xs leading-relaxed">
                                 A number, a named pattern, a comparison to their own history. Sympathy is cheap;
@@ -651,8 +614,8 @@ const Poppins = () => {
                                 knowledgeable rather than merely kind.
                             </p>
                         </div>
-                        <div className="bg-surface-3/70 border border-line rounded-2xl p-6">
-                            <p className="text-xs font-mono text-emerald-800 mb-2">03 &mdash; Offer one option</p>
+                        <div className="border-t border-line pt-5">
+                            <p className="text-[11px] text-ink-faint tabular mb-2">03 &mdash; Offer one option</p>
                             <p className="text-ink text-sm font-medium mb-2">Framed as a choice, never a requirement</p>
                             <p className="text-ink-muted text-xs leading-relaxed">
                                 &ldquo;Worth a look&rdquo; rather than &ldquo;you need to.&rdquo; The decision stays
@@ -687,11 +650,11 @@ const Poppins = () => {
             </section>
 
             {/* ================= DISCOVERY ================= */}
-            <section className="bg-surface py-16 px-4 border-t border-line">
-                <div className="max-w-7xl mx-auto">
+            <section className="bg-surface py-16 px-6">
+                <div className="max-w-6xl mx-auto">
                     <div className="max-w-3xl mb-4">
-                        <Badge>[ Discovery ]</Badge>
-                        <h2 className="font-heading text-4xl md:text-5xl font-bold text-ink leading-tight mb-6">
+                        <Badge>Discovery</Badge>
+                        <h2 className="font-display text-4xl md:text-5xl font-normal text-ink leading-tight mb-6">
                             It started on a wall,{" "}
                             <span className="text-ink-muted">not in Figma.</span>
                         </h2>
@@ -719,10 +682,10 @@ const Poppins = () => {
                     />
 
                     <div className="max-w-3xl mt-12">
-                        <h3 className="font-heading text-2xl font-bold text-ink mb-6">Two findings that shaped the interface</h3>
+                        <h3 className="font-ui text-2xl font-medium text-ink mb-6">Two findings that shaped the interface</h3>
                         <div className="space-y-6">
-                            <div className="bg-surface-3/70 border border-line rounded-2xl p-6">
-                                <p className="text-[10px] font-mono uppercase tracking-widest text-emerald-800 mb-2">Finding 01</p>
+                            <div className="border-t border-line pt-5">
+                                <p className="text-[10px] uppercase tracking-[0.18em] text-ink-faint mb-2">Finding 01</p>
                                 <p className="text-ink font-medium text-sm mb-2">A blank prompt box intimidates people.</p>
                                 <p className="text-ink-muted text-sm leading-relaxed">
                                     &ldquo;What would you like to ask?&rdquo; is a design failure disguised as
@@ -731,8 +694,8 @@ const Poppins = () => {
                                     Just uploaded an insurance document? A pill appears offering to ask about that policy.
                                 </p>
                             </div>
-                            <div className="bg-surface-3/70 border border-line rounded-2xl p-6">
-                                <p className="text-[10px] font-mono uppercase tracking-widest text-emerald-800 mb-2">Finding 02</p>
+                            <div className="border-t border-line pt-5">
+                                <p className="text-[10px] uppercase tracking-[0.18em] text-ink-faint mb-2">Finding 02</p>
                                 <p className="text-ink font-medium text-sm mb-2">Chat has to be omnipresent <em>and</em> omni-aware.</p>
                                 <p className="text-ink-muted text-sm leading-relaxed">
                                     A chat that forgets where you are makes you re-explain yourself. If someone is
@@ -748,11 +711,11 @@ const Poppins = () => {
             </section>
 
             {/* ================= THE LOOP ================= */}
-            <section className="bg-surface-2 py-16 px-4 border-t border-line">
-                <div className="max-w-7xl mx-auto">
+            <section className="bg-cream py-16 px-6">
+                <div className="max-w-6xl mx-auto">
                     <div className="max-w-3xl mb-4">
-                        <Badge>[ Architecture ]</Badge>
-                        <h2 className="font-heading text-4xl md:text-5xl font-bold text-ink leading-tight mb-6">
+                        <Badge>Architecture</Badge>
+                        <h2 className="font-display text-4xl md:text-5xl font-normal text-ink leading-tight mb-6">
                             One loop the whole product hangs off.
                         </h2>
                         <p className="text-ink-muted text-base leading-relaxed mb-5">
@@ -778,7 +741,7 @@ const Poppins = () => {
                     />
 
                     <div className="max-w-3xl mt-14 mb-2">
-                        <h3 className="font-heading text-2xl font-bold text-ink mb-4">Where the conversations connect</h3>
+                        <h3 className="font-ui text-2xl font-medium text-ink mb-4">Where the conversations connect</h3>
                         <p className="text-ink-muted text-base leading-relaxed">
                             The harder problem sat underneath the loop: several separate conversations can feed the
                             same goal, and a goal can be revisited months later from a new one. Mapping which chats
@@ -795,7 +758,7 @@ const Poppins = () => {
                     />
 
                     <div className="max-w-3xl mt-14 mb-2">
-                        <h3 className="font-heading text-2xl font-bold text-ink mb-4">The same loop, as screens</h3>
+                        <h3 className="font-ui text-2xl font-medium text-ink mb-4">The same loop, as screens</h3>
                         <p className="text-ink-muted text-base leading-relaxed">
                             A trip to Japan, end to end. The plan states the trade-off in words rather than hiding it
                             &mdash; <span className="text-ink font-medium">the car fund pauses</span> &mdash; the
@@ -817,11 +780,11 @@ const Poppins = () => {
             </section>
 
             {/* ================= DECISIONS ================= */}
-            <section className="bg-surface py-16 px-4 border-t border-line">
-                <div className="max-w-7xl mx-auto">
+            <section className="bg-surface py-16 px-6">
+                <div className="max-w-6xl mx-auto">
                     <div className="max-w-3xl mb-14">
-                        <Badge>[ Design Decisions ]</Badge>
-                        <h2 className="font-heading text-4xl md:text-5xl font-bold text-ink leading-tight">
+                        <Badge>Design Decisions</Badge>
+                        <h2 className="font-display text-4xl md:text-5xl font-normal text-ink leading-tight">
                             Seven decisions that defined the product.
                         </h2>
                     </div>
@@ -829,8 +792,7 @@ const Poppins = () => {
                     {/* 1 — Safe to Spend */}
                     <Decision
                         n={1}
-                        icon={<Calculator size={20} className="text-emerald-800" />}
-                        tone="bg-emerald-500/10 border-emerald-400/20"
+                        icon={<Calculator size={20} className="text-ink-faint" />}
                         title="Replace the dashboard with one number — and always show its arithmetic."
                     >
                         <SplitFigure
@@ -856,8 +818,7 @@ const Poppins = () => {
                     {/* 2 — Two voices */}
                     <Decision
                         n={2}
-                        icon={<MessageSquare size={20} className="text-blue-700" />}
-                        tone="bg-blue-500/10 border-blue-400/20"
+                        icon={<MessageSquare size={20} className="text-ink-faint" />}
                         title="One voice, two depths — because reassurance and opportunity can't sound the same."
                     >
                         <SplitFigure
@@ -883,7 +844,7 @@ const Poppins = () => {
                         </SplitFigure>
 
                         <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 mb-8">
-                            <div className="bg-surface-3/70 border border-line rounded-2xl p-6">
+                            <div className="border-t border-line pt-5">
                                 <h4 className="text-ink font-semibold text-sm mb-2">The Steady Hand</h4>
                                 <p className="text-ink-muted text-xs leading-relaxed mb-4">
                                     The default for everything the product sends. Reports what it noticed and stops.
@@ -894,7 +855,7 @@ const Poppins = () => {
                                     when you have a moment.
                                 </Voice>
                             </div>
-                            <div className="bg-surface-3/70 border border-line rounded-2xl p-6">
+                            <div className="border-t border-line pt-5">
                                 <h4 className="text-ink font-semibold text-sm mb-2">The Spotter</h4>
                                 <p className="text-ink-muted text-xs leading-relaxed mb-4">
                                     Activates when the user leans in and wants the pattern behind a tip. Leads with
@@ -907,8 +868,8 @@ const Poppins = () => {
                             </div>
                         </div>
 
-                        <div className="bg-surface-3/60 border border-dashed border-line rounded-xl p-5 max-w-3xl">
-                            <p className="text-ink-ghost text-xs uppercase tracking-widest mb-2 font-mono">The test every line had to pass</p>
+                        <div className="border-l-2 border-line-strong pl-5 max-w-3xl">
+                            <p className="text-ink-ghost text-[11px] uppercase tracking-[0.18em] mb-2">The test every line had to pass</p>
                             <p className="text-ink-muted text-sm leading-relaxed">
                                 Does this sound like someone who has seen everything and is surprised by none of it
                                 &mdash; or does it sound like an app?
@@ -920,8 +881,7 @@ const Poppins = () => {
                     {/* 3 — Permission ladder */}
                     <Decision
                         n={3}
-                        icon={<Route size={20} className="text-accent-ink" />}
-                        tone="bg-accent/25 border-accent-ink/30"
+                        icon={<Route size={20} className="text-ink-faint" />}
                         title="Every permission is downstream of desire, never upstream of it."
                     >
                         <p className="text-ink-muted text-base leading-relaxed max-w-3xl mb-5">
@@ -941,12 +901,12 @@ const Poppins = () => {
                         </p>
 
                         <div className="overflow-x-auto mb-8">
-                            <table className="w-full min-w-[560px] text-sm border border-line rounded-2xl overflow-hidden">
+                            <table className="w-full min-w-[560px] text-sm border border-line rounded-sm overflow-hidden">
                                 <thead>
                                     <tr className="bg-surface-3/70">
-                                        <th className="text-left p-4 text-xs font-mono uppercase tracking-widest text-ink-faint font-medium">Model</th>
-                                        <th className="text-left p-4 text-xs font-mono uppercase tracking-widest text-ink-faint font-medium">Structure</th>
-                                        <th className="text-left p-4 text-xs font-mono uppercase tracking-widest text-ink-faint font-medium">Effect</th>
+                                        <th className="text-left p-4 text-[11px] uppercase tracking-[0.18em] text-ink-faint font-medium">Model</th>
+                                        <th className="text-left p-4 text-[11px] uppercase tracking-[0.18em] text-ink-faint font-medium">Structure</th>
+                                        <th className="text-left p-4 text-[11px] uppercase tracking-[0.18em] text-ink-faint font-medium">Effect</th>
                                     </tr>
                                 </thead>
                                 <tbody>
@@ -955,8 +915,8 @@ const Poppins = () => {
                                         <td className="p-4 text-ink-muted">Step-based, linear, permission-first</td>
                                         <td className="p-4 text-ink-muted">Logical but cold. Drop-off concentrated at step 2. No first value moment.</td>
                                     </tr>
-                                    <tr className="border-t border-line-soft bg-emerald-500/5">
-                                        <td className="p-4 text-emerald-800 font-medium">v2 &mdash; conversation</td>
+                                    <tr className="border-t border-line-soft bg-ink/[0.04]">
+                                        <td className="p-4 text-ink-faint font-medium">v2 &mdash; conversation</td>
                                         <td className="p-4 text-ink-soft">Desire-first. Chat opens immediately; every ask follows a real answer</td>
                                         <td className="p-4 text-ink-soft">Trust built before anything is requested. Permission follows desire.</td>
                                     </tr>
@@ -970,7 +930,7 @@ const Poppins = () => {
                         <div className="flex flex-wrap items-center gap-2 mb-8">
                             {["Phone number", "Free Q&A", "Email → bills", "Reminders", "Bank", "Vault"].map((step, i, arr) => (
                                 <span key={step} className="flex items-center gap-2">
-                                    <span className="text-xs font-mono text-ink-soft bg-surface-3/70 border border-line px-3 py-1.5 rounded-full">{step}</span>
+                                    <span className="text-[0.8125rem] text-ink-soft border-b border-line-strong pb-0.5">{step}</span>
                                     {i < arr.length - 1 && <ArrowRight size={13} className="text-ink-ghost" />}
                                 </span>
                             ))}
@@ -999,8 +959,7 @@ const Poppins = () => {
                     {/* 4 — Five bank asks */}
                     <Decision
                         n={4}
-                        icon={<Landmark size={20} className="text-violet-700" />}
-                        tone="bg-violet-500/10 border-violet-400/20"
+                        icon={<Landmark size={20} className="text-ink-faint" />}
                         title="Five different bank asks — one per worry the user arrived with."
                     >
                         <p className="text-ink-muted text-base leading-relaxed max-w-3xl mb-5">
@@ -1019,10 +978,10 @@ const Poppins = () => {
                                 { t: "The Guess and Reveal", w: "Where does my money go?", p: "Prediction instinct", d: "Makes a specific guess from city and context — a phone bill, a forgotten subscription — then offers to check if it's right." },
                                 { t: "The Worry Remover", w: "Debt costing me", p: "Relief seeking", d: "Leads with the cost of doing nothing, then frames connection as the fastest route out." },
                             ].map((s) => (
-                                <div key={s.t} className="bg-surface-3/70 border border-line rounded-2xl p-5">
+                                <div key={s.t} className="border-t border-line pt-5">
                                     <div className="flex items-start justify-between gap-3 mb-2">
                                         <p className="text-ink font-semibold text-sm">{s.t}</p>
-                                        <span className="text-[10px] font-mono uppercase tracking-widest text-violet-700 border border-violet-400/25 bg-violet-500/10 px-2 py-0.5 rounded-full whitespace-nowrap">{s.p}</span>
+                                        <span className="text-[10px] uppercase tracking-[0.18em] text-ink-faint border border-violet-400/25 bg-violet-500/10 px-2 py-0.5 rounded-full whitespace-nowrap">{s.p}</span>
                                     </div>
                                     <p className="text-ink-faint text-xs mb-2">Triggered by: <span className="text-ink-muted">{s.w}</span></p>
                                     <p className="text-ink-muted text-xs leading-relaxed">{s.d}</p>
@@ -1038,7 +997,7 @@ const Poppins = () => {
                             <p className="text-ink-muted text-base leading-relaxed mb-5">
                                 All five share one line, and it&apos;s the most important sentence in the product:
                             </p>
-                            <div className="bg-surface-2 border border-line rounded-xl p-5 mb-6">
+                            <div className="border-l-2 border-line-strong pl-5 py-1 mb-6">
                                 <p className="text-ink-soft text-sm leading-relaxed italic">
                                     I connect read-only through Plaid &mdash; the same technology used by Venmo,
                                     Robinhood and most major financial apps. I can see your balance and transactions.
@@ -1059,8 +1018,7 @@ const Poppins = () => {
                     {/* 5 — Micro-interaction craft */}
                     <Decision
                         n={5}
-                        icon={<Smartphone size={20} className="text-orange-600" />}
-                        tone="bg-orange-500/10 border-orange-400/20"
+                        icon={<Smartphone size={20} className="text-ink-faint" />}
                         title="The first screen is won or lost in details most specs don't mention."
                     >
                         <SplitFigure
@@ -1082,41 +1040,41 @@ const Poppins = () => {
                         </SplitFigure>
 
                         <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mb-8">
-                            <IconCard icon={<PenTool size={18} className="text-orange-600" />} title="The cursor does not blink">
+                            <IconCard icon={<PenTool size={18} className="text-ink-faint" />} title="The cursor does not blink">
                                 A blinking cursor tells people they&apos;re expected to compose something formal, like
                                 a search query. Chips load first; the input bar is there for those who want it, not as
                                 the primary call to action. It removes the &ldquo;what am I supposed to
                                 say?&rdquo; freeze.
                             </IconCard>
-                            <IconCard icon={<Clock size={18} className="text-orange-600" />} title="Chips stagger in at ~50ms">
+                            <IconCard icon={<Clock size={18} className="text-ink-faint" />} title="Chips stagger in at ~50ms">
                                 Each option appears just after the last. Fast enough not to feel slow, slow enough
                                 that the product reads as <em>presenting options thoughtfully</em> rather than
                                 rendering a form.
                             </IconCard>
-                            <IconCard icon={<MessageSquare size={18} className="text-orange-600" />} title="&ldquo;Let me type it&rdquo; is always last">
+                            <IconCard icon={<MessageSquare size={18} className="text-ink-faint" />} title="&ldquo;Let me type it&rdquo; is always last">
                                 Position signals hierarchy. Typed answers are welcome, but the chips are the easier
                                 path. The people who do type write things like <em>&ldquo;I just got laid
                                     off&rdquo;</em> &mdash; the highest-intent input in the whole flow.
                             </IconCard>
-                            <IconCard icon={<Ban size={18} className="text-orange-600" />} title="No skip button here">
+                            <IconCard icon={<Ban size={18} className="text-ink-faint" />} title="No skip button here">
                                 The question is easy enough that nobody needs to skip it. Offering a skip is an
                                 invitation to disengage before any value has been delivered.
                             </IconCard>
                         </div>
 
-                        <div className="bg-surface-3/70 border border-line rounded-2xl p-6 max-w-3xl mb-8">
+                        <div className="border-t border-line pt-5 max-w-3xl mb-8">
                             <p className="text-ink font-medium text-sm mb-3">The expected behaviour distribution &mdash; and a design response for each</p>
                             <div className="space-y-3 text-sm">
                                 <div className="flex gap-4">
-                                    <span className="font-heading text-lg font-bold text-emerald-800 w-14 shrink-0 tabular-nums">~70%</span>
+                                    <span className="font-ui text-lg font-medium text-ink-faint w-14 shrink-0 tabular-nums">~70%</span>
                                     <p className="text-ink-muted text-xs leading-relaxed pt-1">Tap a chip immediately. The chips are the primary path, so they get the visual weight.</p>
                                 </div>
                                 <div className="flex gap-4">
-                                    <span className="font-heading text-lg font-bold text-blue-700 w-14 shrink-0 tabular-nums">~20%</span>
+                                    <span className="font-ui text-lg font-medium text-ink-faint w-14 shrink-0 tabular-nums">~20%</span>
                                     <p className="text-ink-muted text-xs leading-relaxed pt-1">Type their own answer. Highest-intent group &mdash; every typed reply is treated as a gift and produces the most personalised second message.</p>
                                 </div>
                                 <div className="flex gap-4">
-                                    <span className="font-heading text-lg font-bold text-ink-faint w-14 shrink-0 tabular-nums">~10%</span>
+                                    <span className="font-ui text-lg font-medium text-ink-faint w-14 shrink-0 tabular-nums">~10%</span>
                                     <p className="text-ink-muted text-xs leading-relaxed pt-1">Pause and do nothing. One nudge after eight seconds: <em>&ldquo;No rush — or just tap whichever feels closest.&rdquo;</em> Then silence.</p>
                                 </div>
                             </div>
@@ -1133,8 +1091,7 @@ const Poppins = () => {
                     {/* 6 — Constraints */}
                     <Decision
                         n={6}
-                        icon={<Ban size={20} className="text-red-700" />}
-                        tone="bg-red-500/10 border-red-400/20"
+                        icon={<Ban size={20} className="text-ink-faint" />}
                         title="The rules were written as prohibitions, because that's what holds under pressure."
                     >
                         <p className="text-ink-muted text-base leading-relaxed max-w-3xl mb-8">
@@ -1150,7 +1107,7 @@ const Poppins = () => {
                             <Rule><span className="text-ink">Never use the words &ldquo;setup&rdquo; or &ldquo;onboarding.&rdquo;</span> Both remind the user they&apos;re configuring software rather than talking to someone.</Rule>
                             <Rule><span className="text-ink">Never frame a decline as a loss.</span> The product works at every level of connection; it just works better with more. No &ldquo;you&apos;re missing out&rdquo; language, ever.</Rule>
                         </ul>
-                        <div className="bg-surface-3/70 border border-line rounded-2xl p-6 max-w-3xl">
+                        <div className="border-t border-line pt-5 max-w-3xl">
                             <p className="text-ink font-medium text-sm mb-2">One small rule that mattered more than it looks</p>
                             <p className="text-ink-muted text-sm leading-relaxed">
                                 Every decline option in the product uses the same three words:{" "}
@@ -1165,8 +1122,7 @@ const Poppins = () => {
                     {/* 7 — Failure states */}
                     <Decision
                         n={7}
-                        icon={<AlertTriangle size={20} className="text-red-700" />}
-                        tone="bg-red-500/10 border-red-400/20"
+                        icon={<AlertTriangle size={20} className="text-ink-faint" />}
                         title="Design the empty and broken states first — that's where trust is won."
                     >
                         <SplitFigure
@@ -1186,20 +1142,20 @@ const Poppins = () => {
                             </p>
                         </SplitFigure>
                         <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mb-8 max-w-4xl">
-                            <IconCard icon={<AlertTriangle size={18} className="text-red-700" />} title="Missing data is never zero">
+                            <IconCard icon={<AlertTriangle size={18} className="text-ink-faint" />} title="Missing data is never zero">
                                 If debts can&apos;t be read, net worth shows them as <span className="text-ink font-medium">unknown</span>,
                                 clearly flagged. Silently treating missing data as zero would produce a confident,
                                 wrong, and actively harmful number.
                             </IconCard>
-                            <IconCard icon={<Sparkles size={18} className="text-blue-700" />} title="Low confidence asks, never guesses">
+                            <IconCard icon={<Sparkles size={18} className="text-ink-faint" />} title="Low confidence asks, never guesses">
                                 When document extraction or a free-text answer is ambiguous, the interface surfaces
                                 the field for confirmation instead of saving a guess.
                             </IconCard>
-                            <IconCard icon={<CalendarDays size={18} className="text-emerald-800" />} title="No permission is a dead end">
+                            <IconCard icon={<CalendarDays size={18} className="text-ink-faint" />} title="No permission is a dead end">
                                 Calendar declined? Goals still work in-app and reminders fall back to messaging.
                                 A refused permission degrades a feature; it never blocks one.
                             </IconCard>
-                            <IconCard icon={<FileText size={18} className="text-orange-600" />} title="Empty says what to do next">
+                            <IconCard icon={<FileText size={18} className="text-ink-faint" />} title="Empty says what to do next">
                                 With nothing linked, the app doesn&apos;t show a zero &mdash; it says it doesn&apos;t
                                 have enough yet, states what it can still do with what you&apos;ve told it, and offers
                                 the two next steps.
@@ -1210,11 +1166,11 @@ const Poppins = () => {
             </section>
 
             {/* ================= INSTRUMENTATION ================= */}
-            <section className="bg-surface-2 py-16 px-4 border-t border-line">
-                <div className="max-w-7xl mx-auto">
+            <section className="bg-cream py-16 px-6">
+                <div className="max-w-6xl mx-auto">
                     <div className="max-w-3xl mb-10">
-                        <Badge>[ How We&apos;d Know It Worked ]</Badge>
-                        <h2 className="font-heading text-4xl md:text-5xl font-bold text-ink leading-tight mb-6">
+                        <Badge>How We&apos;d Know It Worked</Badge>
+                        <h2 className="font-display text-4xl md:text-5xl font-normal text-ink leading-tight mb-6">
                             Every target came with{" "}
                             <span className="text-ink-muted">a diagnosis for missing it.</span>
                         </h2>
@@ -1227,43 +1183,43 @@ const Poppins = () => {
                     </div>
 
                     <div className="overflow-x-auto mb-8">
-                        <table className="w-full min-w-[720px] text-sm border border-line rounded-2xl overflow-hidden">
+                        <table className="w-full min-w-[720px] text-sm border border-line rounded-sm overflow-hidden">
                             <thead>
                                 <tr className="bg-surface-3/70">
-                                    <th className="text-left p-4 text-xs font-mono uppercase tracking-widest text-ink-faint font-medium">Signal</th>
-                                    <th className="text-left p-4 text-xs font-mono uppercase tracking-widest text-ink-faint font-medium">Target</th>
-                                    <th className="text-left p-4 text-xs font-mono uppercase tracking-widest text-ink-faint font-medium">If it came in low, the design conclusion</th>
+                                    <th className="text-left p-4 text-[11px] uppercase tracking-[0.18em] text-ink-faint font-medium">Signal</th>
+                                    <th className="text-left p-4 text-[11px] uppercase tracking-[0.18em] text-ink-faint font-medium">Target</th>
+                                    <th className="text-left p-4 text-[11px] uppercase tracking-[0.18em] text-ink-faint font-medium">If it came in low, the design conclusion</th>
                                 </tr>
                             </thead>
                             <tbody className="text-ink-muted">
                                 <tr className="border-t border-line-soft">
                                     <td className="p-4 text-ink font-medium">Opening question answered</td>
-                                    <td className="p-4 font-mono text-emerald-800">&gt;90%</td>
+                                    <td className="p-4 tabular text-ink-faint">&gt;90%</td>
                                     <td className="p-4">The question is wrong, or the chips aren&apos;t landing.</td>
                                 </tr>
                                 <tr className="border-t border-line-soft">
                                     <td className="p-4 text-ink font-medium">Bank connected, session 1</td>
-                                    <td className="p-4 font-mono text-emerald-800">&gt;45%</td>
+                                    <td className="p-4 tabular text-ink-faint">&gt;45%</td>
                                     <td className="p-4">The second message isn&apos;t specific enough, or the ask is routed to the wrong worry.</td>
                                 </tr>
                                 <tr className="border-t border-line-soft">
                                     <td className="p-4 text-ink font-medium">Email connected after bank decline</td>
-                                    <td className="p-4 font-mono text-emerald-800">&gt;55%</td>
+                                    <td className="p-4 tabular text-ink-faint">&gt;55%</td>
                                     <td className="p-4">The pivot reads as a consolation prize rather than a smaller step.</td>
                                 </tr>
                                 <tr className="border-t border-line-soft">
                                     <td className="p-4 text-ink font-medium">Bank re-offer after bills found</td>
-                                    <td className="p-4 font-mono text-emerald-800">&gt;70%</td>
+                                    <td className="p-4 tabular text-ink-faint">&gt;70%</td>
                                     <td className="p-4">The bills list isn&apos;t creating the &ldquo;am I covered?&rdquo; question.</td>
                                 </tr>
                                 <tr className="border-t border-line-soft">
                                     <td className="p-4 text-ink font-medium">Reminder opt-in</td>
-                                    <td className="p-4 font-mono text-emerald-800">&gt;65%</td>
+                                    <td className="p-4 tabular text-ink-faint">&gt;65%</td>
                                     <td className="p-4">The offer is arriving at the wrong moment in the session.</td>
                                 </tr>
-                                <tr className="border-t border-line bg-emerald-500/5">
-                                    <td className="p-4 text-emerald-800 font-medium">Reached Safe to Spend in session 1</td>
-                                    <td className="p-4 font-mono text-emerald-800">&gt;45%</td>
+                                <tr className="border-t border-line bg-ink/[0.04]">
+                                    <td className="p-4 text-ink-faint font-medium">Reached Safe to Spend in session 1</td>
+                                    <td className="p-4 tabular text-ink-faint">&gt;45%</td>
                                     <td className="p-4 text-ink-soft">The north star. Reaching the payoff in the first session was expected to be worth roughly triple the 60-day retention.</td>
                                 </tr>
                             </tbody>
@@ -1271,13 +1227,13 @@ const Poppins = () => {
                     </div>
 
                     <div className="grid grid-cols-1 md:grid-cols-2 gap-6 max-w-4xl">
-                        <IconCard icon={<Gauge size={18} className="text-emerald-800" />} title="The canary was chosen deliberately">
+                        <IconCard icon={<Gauge size={18} className="text-ink-faint" />} title="The canary was chosen deliberately">
                             Total bank connection at seven days &mdash; not day one &mdash; because it captures both
                             the people who connect immediately and the people who come back through the email
                             bridge. Measuring only session one would have made a working two-path architecture look
                             broken.
                         </IconCard>
-                        <IconCard icon={<Target size={18} className="text-blue-700" />} title="Two paths, measured separately">
+                        <IconCard icon={<Target size={18} className="text-ink-faint" />} title="Two paths, measured separately">
                             Because a decline was designed as a route rather than a failure, each path needed its
                             own funnel. A blended number would have hidden which of the two was actually weak.
                         </IconCard>
@@ -1292,11 +1248,11 @@ const Poppins = () => {
             </section>
 
             {/* ================= SITE ================= */}
-            <section className="bg-surface py-16 px-4 border-t border-line">
-                <div className="max-w-7xl mx-auto">
+            <section className="bg-surface py-16 px-6">
+                <div className="max-w-6xl mx-auto">
                     <div className="max-w-3xl mb-4">
-                        <Badge>[ Marketing Site ]</Badge>
-                        <h2 className="font-heading text-3xl md:text-4xl font-bold text-ink leading-tight mb-4">
+                        <Badge>Marketing Site</Badge>
+                        <h2 className="font-display text-3xl md:text-4xl font-normal text-ink leading-tight mb-4">
                             Same promise, different room.
                         </h2>
                         <p className="text-ink-muted text-base leading-relaxed">
@@ -1316,11 +1272,11 @@ const Poppins = () => {
             </section>
 
             {/* ================= THE KILL ================= */}
-            <section className="bg-surface-2 py-16 px-4 border-t border-line">
-                <div className="max-w-7xl mx-auto">
+            <section className="bg-cream py-16 px-6">
+                <div className="max-w-6xl mx-auto">
                     <div className="max-w-3xl">
-                        <Badge>[ The Decision to Stop ]</Badge>
-                        <h2 className="font-heading text-4xl md:text-5xl font-bold text-ink leading-tight mb-6">
+                        <Badge>The Decision to Stop</Badge>
+                        <h2 className="font-display text-4xl md:text-5xl font-normal text-ink leading-tight mb-6">
                             We had a product.{" "}
                             <span className="text-ink-muted">We didn&apos;t have a wedge.</span>
                         </h2>
@@ -1345,8 +1301,8 @@ const Poppins = () => {
                             call, and I&apos;d make it faster next time.
                         </p>
 
-                        <div className="bg-accent/15 border border-accent-ink/30 rounded-2xl p-8 mb-10">
-                            <p className="text-accent-ink text-xs uppercase tracking-widest mb-3 font-mono font-semibold">What I&apos;d do differently</p>
+                        <div className="border-l-2 border-ink/70 pl-6 mb-10">
+                            <p className="text-ink-faint text-[11px] uppercase tracking-[0.18em] mb-3">What I&apos;d do differently</p>
                             <p className="text-ink text-base leading-relaxed">
                                 We validated the <em>experience</em> exhaustively and the <em>wedge</em> late. Testing
                                 the differentiator in two weeks &mdash; before three months of design &mdash; would
@@ -1355,7 +1311,7 @@ const Poppins = () => {
                             </p>
                         </div>
 
-                        <h3 className="font-heading text-2xl font-bold text-ink mb-5">What carried forward</h3>
+                        <h3 className="font-ui text-2xl font-medium text-ink mb-5">What carried forward</h3>
                         <ul className="space-y-3 text-ink-muted text-sm leading-relaxed mb-6">
                             <li>&bull; <span className="text-ink">Never show a number you can&apos;t explain.</span> Now a default in anything I design that surfaces a computed figure.</li>
                             <li>&bull; <span className="text-ink">Write the prohibitions, not just the principles.</span> &ldquo;Never show a progress bar&rdquo; survived deadline pressure in a way &ldquo;keep it conversational&rdquo; would not have.</li>
@@ -1372,18 +1328,8 @@ const Poppins = () => {
             </section>
 
             {/* ================= NEXT ================= */}
-            <section className="bg-surface-2 py-16 px-4 border-t border-line">
-                <div className="max-w-7xl mx-auto flex flex-col md:flex-row items-center justify-between gap-6">
-                    <div>
-                        <p className="text-xs font-mono text-ink-ghost uppercase tracking-widest mb-2">Next Case Study</p>
-                        <p className="font-heading text-2xl font-bold text-ink">Atlas: CMS Architecture Across 130+ Locations</p>
-                    </div>
-                    <Link to="/atlas" className="text-accent-ink font-medium text-sm border border-accent-ink/30 bg-accent/15 px-6 py-3 rounded-full hover:bg-accent/25 transition-colors whitespace-nowrap flex items-center gap-2">
-                        View Case Study <ArrowRight size={16} />
-                    </Link>
-                </div>
-            </section>
-
+            <NextCase to="/atlas" title="Atlas: CMS Architecture Across 130+ Locations" />
+            </main>
             <Footer />
         </div>
     );

@@ -64,9 +64,9 @@ const AtlasCmsSlider = () => {
   // case study reads intentionally rather than looking broken mid-build).
   if (count === 0) {
     return (
-      <div className="rounded-2xl border-2 border-dashed border-accent-ink/35 bg-surface-2 aspect-[1440/860] flex flex-col items-center justify-center text-center px-6">
-        <div className="w-12 h-12 rounded-xl bg-accent/25 border border-accent-ink/30 flex items-center justify-center mb-4">
-          <ImageIcon size={22} className="text-accent-ink/70" />
+      <div className="rounded-sm border border-dashed border-line-strong bg-surface-2 aspect-[1440/860] flex flex-col items-center justify-center text-center px-6">
+        <div className="w-12 h-12 rounded-sm border border-line flex items-center justify-center mb-4">
+          <ImageIcon size={22} className="text-ink-faint" />
         </div>
         <p className="text-ink font-medium mb-1">CMS 2.0 screenshots go here</p>
         <p className="text-ink-faint text-sm max-w-md">
@@ -92,7 +92,7 @@ const AtlasCmsSlider = () => {
       onMouseEnter={() => setPlaying(false)}
       onMouseLeave={() => setPlaying(!prefersReduced)}
       onFocus={() => setPlaying(false)}
-      className="relative rounded-2xl border border-line bg-surface-2 overflow-hidden focus:outline-none focus-visible:ring-2 focus-visible:ring-accent-ink/50"
+      className="relative rounded-sm border border-line bg-surface-2 overflow-hidden focus:outline-none focus-visible:ring-2 focus-visible:ring-accent-ink/50"
     >
       {/* Stage — full frame visible, never cropped */}
       <div className="relative bg-surface-2 flex items-center justify-center aspect-[1440/860]">
@@ -115,7 +115,7 @@ const AtlasCmsSlider = () => {
           type="button"
           onClick={() => setPlaying((p) => !p)}
           aria-label={playing ? "Pause autoplay" : "Play autoplay"}
-          className="w-8 h-8 rounded-full border border-line bg-surface text-ink shadow-[0_1px_3px_rgba(0,0,0,0.08)] flex items-center justify-center hover:border-accent-ink/45 hover:text-accent-ink transition-colors shrink-0"
+          className="w-8 h-8 rounded-full border border-line bg-surface text-ink shadow-[0_1px_3px_rgba(0,0,0,0.08)] flex items-center justify-center hover:border-line-strong hover:bg-surface-2 transition-colors shrink-0"
         >
           {playing ? <Pause size={14} /> : <Play size={14} />}
         </button>
@@ -125,7 +125,7 @@ const AtlasCmsSlider = () => {
             {active.caption || "CMS 2.0"}
           </p>
         </div>
-        <span className="text-xs font-mono text-ink-faint shrink-0 tabular-nums">
+        <span className="text-[11px] tracking-[0.12em] text-ink-faint shrink-0 tabular">
           {String(index + 1).padStart(2, "0")} / {String(count).padStart(2, "0")}
         </span>
 
@@ -134,7 +134,7 @@ const AtlasCmsSlider = () => {
             type="button"
             onClick={prev}
             aria-label="Previous screen"
-            className="w-8 h-8 rounded-full border border-line bg-surface text-ink shadow-[0_1px_3px_rgba(0,0,0,0.08)] flex items-center justify-center hover:border-accent-ink/45 hover:text-accent-ink transition-colors"
+            className="w-8 h-8 rounded-full border border-line bg-surface text-ink shadow-[0_1px_3px_rgba(0,0,0,0.08)] flex items-center justify-center hover:border-line-strong hover:bg-surface-2 transition-colors"
           >
             <ChevronLeft size={16} />
           </button>
@@ -142,7 +142,7 @@ const AtlasCmsSlider = () => {
             type="button"
             onClick={next}
             aria-label="Next screen"
-            className="w-8 h-8 rounded-full border border-line bg-surface text-ink shadow-[0_1px_3px_rgba(0,0,0,0.08)] flex items-center justify-center hover:border-accent-ink/45 hover:text-accent-ink transition-colors"
+            className="w-8 h-8 rounded-full border border-line bg-surface text-ink shadow-[0_1px_3px_rgba(0,0,0,0.08)] flex items-center justify-center hover:border-line-strong hover:bg-surface-2 transition-colors"
           >
             <ChevronRight size={16} />
           </button>
@@ -158,7 +158,7 @@ const AtlasCmsSlider = () => {
             onClick={() => go(i)}
             aria-label={`Go to screen ${i + 1}`}
             aria-current={i === index}
-            className={`h-1.5 rounded-full transition-all ${i === index ? "w-6 bg-accent-ink" : "w-1.5 bg-line-strong hover:bg-ink-faint"}`}
+            className={`h-1.5 rounded-full transition-all ${i === index ? "w-6 bg-ink" : "w-1.5 bg-line-strong hover:bg-ink-faint"}`}
           />
         ))}
       </div>

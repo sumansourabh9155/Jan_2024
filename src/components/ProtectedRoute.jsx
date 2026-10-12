@@ -83,23 +83,23 @@ const ProtectedRoute = ({ children, correctPassword }) => {
       <div className="relative z-10 w-full max-w-md">
         {/* Lock icon */}
         <div className="flex justify-center mb-8">
-          <div className="w-16 h-16 rounded-2xl bg-surface-3/70 border border-line flex items-center justify-center backdrop-blur-md">
-            <Lock size={28} className="text-accent-ink" />
+          <div className="flex items-center justify-center">
+            <Lock size={26} className="text-ink-faint" />
           </div>
         </div>
 
         {/* Heading */}
-        <h2 className="font-heading text-2xl md:text-3xl font-bold text-center mb-2">
+        <h2 className="font-display text-3xl md:text-4xl font-normal text-center mb-3">
           This case study is protected
         </h2>
         <p className="text-ink-faint text-center text-sm mb-10">
           Enter the password to view the full breakdown.
         </p>
         {/* Hint card */}
-        <div className="bg-surface-3/70 border border-line rounded-2xl p-6 backdrop-blur-md mb-4">
+        <div className="border-t border-line pt-6 mb-4">
           <div className="flex items-start gap-4">
-            <div className="flex-shrink-0 w-10 h-10 rounded-lg bg-accent/25 border border-accent-ink/30 flex items-center justify-center mt-0.5">
-              <FileText size={18} className="text-accent-ink" />
+            <div className="flex-shrink-0 mt-0.5">
+              <FileText size={18} className="text-ink-faint" />
             </div>
             <div>
               <p className="text-sm text-ink-soft leading-relaxed">
@@ -124,7 +124,7 @@ const ProtectedRoute = ({ children, correctPassword }) => {
           </div>
           <button
             type="submit"
-            className="w-full bg-ink text-surface py-4 rounded-xl font-bold text-base hover:bg-accent hover:text-ink transition-all shadow-[0_6px_20px_rgba(0,0,0,0.12)]"
+            className="w-full bg-ink text-surface py-4 rounded-xl font-bold text-base hover:bg-ink-soft transition-all shadow-[0_6px_20px_rgba(0,0,0,0.12)]"
           >
             Unlock Case Study
           </button>

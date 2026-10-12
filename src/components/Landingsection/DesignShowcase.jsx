@@ -66,20 +66,23 @@ const DesignShowcase = () => {
       id="design-gallery"
       aria-labelledby="design-showcase-heading"
       data-testid="design-showcase-section"
-      className="scroll-mt-24 bg-surface-2 py-24 border-t border-line overflow-hidden"
+      className="scroll-mt-24 bg-surface bg-dotfield py-24 px-6 overflow-hidden"
     >
-      <div className="max-w-7xl mx-auto px-4">
+      {/* The gutter belongs on the section, not inside the container. Inside
+          it, the padding was indenting the content a further 21px, so this
+          section started 21px right of every other one on the page. */}
+      <div className="max-w-6xl mx-auto">
         {/* Header + arrows */}
         <div className="flex flex-col md:flex-row md:items-end justify-between gap-6 mb-10">
           <div className="max-w-2xl">
-            <div className="inline-flex items-center gap-2 text-xs font-mono text-accent-ink tracking-widest uppercase mb-4">
-              [ Selected Design Work ]
-            </div>
+            <p className="text-[11px] uppercase tracking-[0.22em] text-ink-faint mb-5">
+              Selected design work
+            </p>
             <h2
               id="design-showcase-heading"
-              className="font-heading text-4xl md:text-5xl font-bold text-ink leading-tight"
+              className="font-display text-4xl md:text-5xl font-normal text-ink leading-tight [text-wrap:balance]"
             >
-              Craft. <span className="text-ink-faint">Not just process.</span>
+              Craft. <span className="text-ink-faint italic">Not just process.</span>
             </h2>
             <p className="text-ink-muted mt-4 text-base leading-relaxed">
               Interfaces, brand systems, and marketing design. Scroll through — click any shot to enlarge.
@@ -92,7 +95,7 @@ const DesignShowcase = () => {
               onClick={() => scrollByCard(-1)}
               disabled={atStart}
               aria-label="Previous designs"
-              className={`${arrowClass} border-line text-ink bg-surface shadow-[0_1px_3px_rgba(0,0,0,0.08)] hover:border-accent-ink/45 hover:text-accent-ink`}
+              className={`${arrowClass} border-line text-ink bg-surface shadow-[0_1px_3px_rgba(0,0,0,0.08)] hover:border-line-strong hover:bg-surface-2`}
             >
               <ChevronLeft size={18} />
             </button>
@@ -101,18 +104,25 @@ const DesignShowcase = () => {
               onClick={() => scrollByCard(1)}
               disabled={atEnd}
               aria-label="Next designs"
-              className={`${arrowClass} border-line text-ink bg-surface shadow-[0_1px_3px_rgba(0,0,0,0.08)] hover:border-accent-ink/45 hover:text-accent-ink`}
+              className={`${arrowClass} border-line text-ink bg-surface shadow-[0_1px_3px_rgba(0,0,0,0.08)] hover:border-line-strong hover:bg-surface-2`}
             >
               <ChevronRight size={18} />
             </button>
           </div>
         </div>
 
-        {/* Horizontal carousel — inside the container so it lines up with the headline */}
+        {/*
+          The track starts on the page's left margin but runs off the right
+          edge of the screen instead of stopping at the container. Clipped to
+          the container it ended symmetrically on both sides, which read as a
+          centred block rather than a left-aligned shelf — and it wasted the
+          width. The negative right margin cancels the container's own gutter.
+        */}
         <div
           ref={trackRef}
           onScroll={syncArrows}
           className="flex gap-5 overflow-x-auto snap-x snap-mandatory scroll-smooth pb-4
+            -mr-6 pr-6 lg:-mr-[max(1.5rem,calc((100vw-72rem)/2))] lg:pr-[max(1.5rem,calc((100vw-72rem)/2))]
             [&::-webkit-scrollbar]:hidden"
           style={{ scrollbarWidth: "none", msOverflowStyle: "none" }}
         >
@@ -127,22 +137,22 @@ const DesignShowcase = () => {
               focus:outline-none focus-visible:ring-2 focus-visible:ring-accent-ink/50 rounded-2xl"
           >
             {/* Image container — object-contain keeps the whole design visible */}
-            <div className="rounded-2xl border border-line bg-surface-3/70 group-hover:border-line-strong transition-colors overflow-hidden">
-              <div className="aspect-[16/10] flex items-center justify-center p-3">
+            <div className="rounded-sm bg-surface-3 overflow-hidden">
+              <div className="aspect-[16/10] flex items-center justify-center">
                 <img
                   src={s.img}
                   alt={`${s.title} — product design work by Suman Sourabh`}
                   loading="lazy"
                   decoding="async"
-                  className="max-w-full max-h-full w-auto h-auto object-contain rounded-lg
-                    transition-transform duration-500 group-hover:scale-[1.03] will-change-transform"
+                  className="max-w-full max-h-full w-auto h-auto object-contain
+                    transition-transform duration-[900ms] ease-out group-hover:scale-[1.02] will-change-transform"
                 />
               </div>
             </div>
 
             {/* Caption below the image, so nothing covers the work */}
             <div className="mt-3 px-1">
-              <p className="text-[10px] font-mono uppercase tracking-widest text-ink-faint group-hover:text-accent-ink transition-colors">
+              <p className="text-[10px] uppercase tracking-[0.18em] text-ink-faint group-hover:text-ink-muted transition-colors">
                 {s.tag}
               </p>
               <p className="text-ink font-semibold text-sm mt-0.5">{s.title}</p>
@@ -168,7 +178,7 @@ const DesignShowcase = () => {
             type="button"
             onClick={close}
             aria-label="Close"
-            className="absolute top-5 right-5 w-10 h-10 rounded-full bg-surface border border-line text-ink flex items-center justify-center hover:bg-accent transition-colors"
+            className="absolute top-5 right-5 w-10 h-10 rounded-full bg-surface border border-line text-ink flex items-center justify-center hover:bg-surface-2 transition-colors"
           >
             <X size={18} />
           </button>
@@ -181,7 +191,7 @@ const DesignShowcase = () => {
             {/* Caption sits on the dark scrim, not the page, so it takes light
                 type. The page tokens would be near-invisible here. */}
             <figcaption className="mt-4 text-center">
-              <p className="text-[10px] font-mono uppercase tracking-widest text-accent mb-1">{active.tag}</p>
+              <p className="text-[10px] uppercase tracking-[0.18em] text-accent mb-1">{active.tag}</p>
               <p className="text-white font-semibold text-sm">{active.title}</p>
             </figcaption>
           </figure>

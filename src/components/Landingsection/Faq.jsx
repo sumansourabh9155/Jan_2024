@@ -60,56 +60,55 @@ const Faq = () => {
   };
 
   return (
-    <section aria-labelledby="faq-heading" className="bg-surface-2 py-24 px-4 relative overflow-hidden border-t border-line">
+    <section aria-labelledby="faq-heading" className="bg-cream py-24 px-6 relative overflow-hidden">
 
 
-      <div className="max-w-3xl mx-auto relative z-10">
+      {/* Same max-w-6xl measure and the same two-column split as Speaking, so
+          this section's left edge lands on the page's margin like every other.
+          It was max-w-3xl centred, which floated it inboard of everything and
+          was the one block breaking the page's alignment. */}
+      <div className="max-w-6xl mx-auto relative z-10 grid gap-10 lg:grid-cols-[minmax(0,0.9fr)_minmax(0,1.1fr)] lg:gap-16 lg:items-start">
 
-        {/* Header */}
-        <div className="text-center mb-16">
-          <div className="inline-flex items-center gap-2 text-xs font-mono text-accent-ink tracking-widest uppercase mb-6 bg-accent/15 px-3 py-1 rounded border border-accent-ink/30">
-            [ FAQ ]
-          </div>
-          <h2 id="faq-heading" className="font-heading text-3xl md:text-4xl font-bold text-ink mb-4">
-            Before you <span className="text-ink-faint font-light">reach out.</span>
+        <div>
+          <p className="text-[11px] uppercase tracking-[0.22em] text-ink-faint mb-5">
+            FAQ
+          </p>
+          <h2 id="faq-heading" className="font-display text-4xl md:text-5xl font-normal text-ink leading-[1.1] mb-6 [text-wrap:balance]">
+            Before you <span className="text-ink-faint italic">reach out.</span>
           </h2>
-          <p className="text-ink-muted max-w-xl mx-auto">
+          <p className="text-ink-muted text-[0.9375rem] leading-[1.7] max-w-md">
             The questions recruiters and hiring managers usually ask first — answered up front, so we can skip straight to the work on our first call.
           </p>
         </div>
 
-        {/* FAQ List */}
-        <div className="space-y-4">
+        <div>
+
+        {/* Nine questions as hairline rows rather than nine bordered, filled,
+            shadowed cards with gaps between them. Same content, a third less
+            page, and it stops reading as a settings screen. */}
+        <div className="border-b border-line">
           {faqData.map((faq, index) => {
             const isOpen = openIndex === index;
             const panelId = `faq-panel-${index}`;
             const buttonId = `faq-button-${index}`;
             return (
-              <div
-                key={index}
-                className={`group border rounded-2xl transition-[background-color,border-color,box-shadow] duration-300 overflow-hidden
-                ${isOpen
-                    ? "bg-surface-2 border-accent-ink/45 shadow-[0_5px_20px_rgba(0,0,0,0.08)]"
-                    : "bg-surface-3/70 border-line hover:border-line-strong"
-                  }
-              `}
-              >
+              <div key={index} className="group border-t border-line">
                 <button
                   id={buttonId}
                   type="button"
                   aria-expanded={isOpen}
                   aria-controls={panelId}
-                  className="flex items-center justify-between w-full text-left p-6"
+                  className="flex items-center justify-between gap-6 w-full text-left py-5"
                   onClick={() => toggleFaq(index)}
                 >
-                  <span className={`font-medium text-lg transition-colors ${isOpen ? "text-ink" : "text-ink-soft"}`}>
+                  <span className={`text-[1.0625rem] transition-colors ${isOpen ? "text-ink font-medium" : "text-ink-soft group-hover:text-ink"}`}>
                     {faq.question}
                   </span>
                   <span
                     aria-hidden="true"
-                    className={`transition-transform duration-300 ${isOpen ? "rotate-180 text-accent-ink" : "text-ink-faint"}`}
+                    className={`shrink-0 transition-transform duration-300 ${isOpen ? "rotate-180 text-ink" : "text-ink-faint"}`}
                   >
-                    {isOpen ? <Minus size={20} /> : <Plus size={20} />}
+                    {isOpen ? <Minus size={18} /> : <Plus size={18} />}
                   </span>
                 </button>
 
@@ -123,7 +122,7 @@ const Faq = () => {
                   className={`grid transition-[grid-template-rows] duration-300 ease-out ${isOpen ? "grid-rows-[1fr] opacity-100" : "grid-rows-[0fr] opacity-0 invisible"}`}
                 >
                   <div className="overflow-hidden">
-                    <p className="p-6 pt-0 text-ink-muted leading-relaxed text-sm md:text-base border-t border-line-soft mt-2">
+                    <p className="pb-6 pr-10 text-ink-muted leading-[1.7] text-[0.9375rem] max-w-2xl">
                       {faq.answer}
                     </p>
                   </div>
@@ -131,6 +130,7 @@ const Faq = () => {
               </div>
             );
           })}
+          </div>
         </div>
 
       </div>

@@ -1,22 +1,148 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
-*{
-        font-family: "IBM Plex Sans", sans-serif;
+
+/* The universal selector used to set font-family here. That applies the font
+   to every element DIRECTLY rather than letting it inherit, so any wrapper
+   that set a different face was silently overridden on all of its children —
+   only elements carrying their own font class escaped. Reset stays, font moves
+   to body where it can cascade. */
+* {
         margin: 0;
         padding: 0;
         box-sizing: border-box;
 }
+
 html, body {
         font-size: 14px;
         background-color: #FFFFFF;
         color: #101418;
+        font-family: Inter, "IBM Plex Sans", system-ui, sans-serif;
+        -webkit-font-smoothing: antialiased;
+        -moz-osx-font-smoothing: grayscale;
 }
 
 /* Browser UI (form controls, scrollbars) should render light too, otherwise
    Chrome keeps painting dark widgets over a light page. */
 :root {
         color-scheme: light;
+}
+
+/* ---------------------------------------------------------------------------
+   Craft layer
+   ------------------------------------------------------------------------ */
+
+/* Descenders shouldn't be sliced by their own underline. */
+a {
+        text-underline-position: from-font;
+        text-decoration-skip-ink: auto;
+}
+
+/* Keyboard users get a ring; mouse users don't get one after clicking. */
+:focus-visible {
+        outline: 2px solid #5E7000;
+        outline-offset: 2px;
+        border-radius: 2px;
+}
+
+::selection {
+        background: #D6F928;
+        color: #101418;
+}
+
+/* Figures line up in columns instead of drifting. */
+dt, .tabular {
+        font-variant-numeric: tabular-nums;
+}
+
+html {
+        scroll-behavior: smooth;
+}
+
+/* Honour the OS setting. Transitions that give feedback on a control stay
+   (they're sub-perceptual at this speed); everything decorative stops. */
+@media (prefers-reduced-motion: reduce) {
+        html {
+                scroll-behavior: auto;
+        }
+        *, *::before, *::after {
+                animation-duration: 0.01ms !important;
+                animation-iteration-count: 1 !important;
+                transition-duration: 0.01ms !important;
+                scroll-behavior: auto !important;
+        }
+}
+
+/* ---------------------------------------------------------------------------
+   Shared motifs
+   ------------------------------------------------------------------------ */
+
+/**
+ * Plus grid — the hero and the footer.
+ *
+ * A cross at each 72px intersection with the box lines left almost invisible
+ * underneath. Drawn as an SVG tile rather than stacked gradients because a
+ * gradient fills its whole tile in one axis: you can make lines that way, but
+ * not a short mark that stops. The cross is what registers; the lines only
+ * make it feel measured rather than scattered.
+ *
+ * Deliberately below the threshold of attention — it should read as paper
+ * texture, never compete with a word on top of it.
+ */
+.bg-plusgrid {
+        background-image:
+                url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='72' height='72'%3E%3Cpath d='M36 31v10M31 36h10' stroke='%23101418' stroke-opacity='0.085' stroke-width='1'/%3E%3C/svg%3E"),
+                linear-gradient(to right, rgba(16, 20, 24, 0.015) 1px, transparent 1px),
+                linear-gradient(to bottom, rgba(16, 20, 24, 0.015) 1px, transparent 1px);
+        background-size: 72px 72px, 72px 72px, 72px 72px;
+        background-position: 36px 36px, 0 0, 0 0;
+}
+
+/**
+ * Dot field — the other light sections.
+ *
+ * Dots only, no lines, on a tighter pitch. Quieter than the plus grid so the
+ * two never compete: the hero and footer are gridded, the middle of the page
+ * just has tooth.
+ */
+.bg-dotfield {
+        background-image: radial-gradient(circle at 1px 1px, rgba(16, 20, 24, 0.065) 1px, transparent 0);
+        background-size: 26px 26px;
+}
+
+/**
+ * Cell highlight. A single square that snaps to whichever 72px cell the
+ * pointer is in. Position comes from two custom properties set directly on
+ * the element, so moving the pointer never re-renders React.
+ */
+.cell-hover::after {
+        content: "";
+        position: absolute;
+        left: var(--cell-x, -999px);
+        top: var(--cell-y, -999px);
+        width: 72px;
+        height: 72px;
+        background: rgba(16, 20, 24, 0.03);
+        opacity: 0;
+        transition: opacity 220ms ease-out;
+        pointer-events: none;
+}
+
+.cell-hover:hover::after {
+        opacity: 1;
+}
+
+@media (hover: none) {
+        .cell-hover::after { display: none; }
+}
+
+/* Double rule: two hairlines with a hair of space between them. Used to
+   bracket the header and to separate footer blocks — one line divides, two
+   read as a deliberate band edge. */
+.rule-double {
+        height: 6px;
+        border-top: 1px solid rgba(0, 0, 0, 0.10);
+        border-bottom: 1px solid rgba(0, 0, 0, 0.10);
 }
 
 /* Hide scrollbar for horizontal scroll containers */

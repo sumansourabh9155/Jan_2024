@@ -54,7 +54,7 @@ const AtlasTaxonomy = () => {
   const activeType = activeCat.types.find(t => t.id === activeTypeId) || activeCat.types[0];
 
   return (
-    <div className="w-full bg-surface-2 border border-line rounded-2xl overflow-hidden font-sans relative">
+    <div className="w-full bg-surface-2 border border-line rounded-sm overflow-hidden font-ui relative">
       {/* Background grid */}
       <div
         className="absolute inset-0 opacity-[0.03] pointer-events-none"
@@ -67,8 +67,8 @@ const AtlasTaxonomy = () => {
       <div className="p-8 md:p-12 relative z-10">
         <div className="space-y-8">
           <div className="space-y-3 max-w-3xl">
-            <h3 className="text-sm font-mono text-accent-ink tracking-widest uppercase mb-2">Relational Taxonomy</h3>
-            <h3 className="font-heading text-3xl font-bold text-ink">
+            <h3 className="text-[11px] text-ink-faint tracking-[0.18em] uppercase mb-2">Relational Taxonomy</h3>
+            <h3 className="font-ui text-3xl font-medium text-ink">
               Building the taxonomy that connects<br />
               <span className="text-ink-muted font-light">services, specialists, and locations.</span>
             </h3>
@@ -86,7 +86,7 @@ const AtlasTaxonomy = () => {
 
           {/* Level 1: Categories */}
           <div className="flex-1 flex flex-col justify-center gap-4 relative">
-            <div className="text-xs font-mono text-ink-faint mb-2 uppercase tracking-wider">Level 1: Category</div>
+            <div className="text-[11px] text-ink-faint tabular mb-2 uppercase tracking-wider">Level 1: Category</div>
             {taxonomyData.map(cat => (
               <div
                 key={cat.id}
@@ -94,7 +94,7 @@ const AtlasTaxonomy = () => {
                   setActiveCatId(cat.id);
                   setActiveTypeId(cat.types[0].id);
                 }}
-                className={`p-4 rounded-xl cursor-pointer transition-all duration-300 border backdrop-blur-md relative ${activeCatId === cat.id
+                className={`p-4 rounded-sm cursor-pointer transition-all duration-300 border relative ${activeCatId === cat.id
                   ? "bg-surface border-accent-ink/45 shadow-[0_5px_20px_rgba(0,0,0,0.08)] translate-x-2"
                   : "bg-surface-3/70 border-line hover:border-line-strong hover:bg-surface-3"
                   }`}
@@ -104,7 +104,7 @@ const AtlasTaxonomy = () => {
                 </h4>
                 {/* Connecting Line Anchor */}
                 {activeCatId === cat.id && (
-                  <div className="absolute top-1/2 -right-6 w-6 h-px bg-accent-ink/50 hidden md:block"></div>
+                  <div className="absolute top-1/2 -right-6 w-6 h-px bg-line-strong hidden md:block"></div>
                 )}
               </div>
             ))}
@@ -117,12 +117,12 @@ const AtlasTaxonomy = () => {
 
           {/* Level 2: Types */}
           <div className="flex-[1.2] flex flex-col justify-center gap-3 relative">
-            <div className="text-xs font-mono text-ink-faint mb-2 uppercase tracking-wider">Level 2: Service Type</div>
+            <div className="text-[11px] text-ink-faint tabular mb-2 uppercase tracking-wider">Level 2: Service Type</div>
             {activeCat.types.map(type => (
               <div
                 key={type.id}
                 onMouseEnter={() => setActiveTypeId(type.id)}
-                className={`p-4 rounded-xl cursor-pointer transition-all duration-300 border backdrop-blur-md relative ${activeTypeId === type.id
+                className={`p-4 rounded-sm cursor-pointer transition-all duration-300 border relative ${activeTypeId === type.id
                   ? "bg-surface border-accent-ink/40 shadow-[0_4px_15px_rgba(0,0,0,0.08)] translate-x-1"
                   : "bg-surface-3/70 border-transparent hover:border-line-strong"
                   }`}
@@ -136,7 +136,7 @@ const AtlasTaxonomy = () => {
                   )}
                 </div>
                 {activeTypeId === type.id && type.details.length > 0 && (
-                  <div className="absolute top-1/2 -right-8 w-8 h-px bg-accent/40 hidden md:block"></div>
+                  <div className="absolute top-1/2 -right-8 w-8 h-px bg-line-strong hidden md:block"></div>
                 )}
               </div>
             ))}
@@ -150,7 +150,7 @@ const AtlasTaxonomy = () => {
 
           {/* Level 3: Details */}
           <div className="flex-1 flex flex-col justify-center gap-3">
-            <div className="text-xs font-mono text-ink-faint mb-2 uppercase tracking-wider h-4">
+            <div className="text-[11px] text-ink-faint tabular mb-2 uppercase tracking-wider h-4">
               {activeType.details.length > 0 ? "Level 3: Offerings" : ""}
             </div>
 
@@ -164,7 +164,7 @@ const AtlasTaxonomy = () => {
                 </div>
               ))
             ) : (
-              <div className="p-4 border border-line-soft bg-surface-3/60 rounded-xl text-center flex items-center justify-center h-full min-h-[100px] text-ink-faint text-sm">
+              <div className="p-4 border border-line-soft bg-surface-3/60 rounded-sm text-center flex items-center justify-center h-full min-h-[100px] text-ink-faint text-sm">
                 Inherits standard details <br />from {activeType.name}
               </div>
             )}
@@ -174,13 +174,13 @@ const AtlasTaxonomy = () => {
 
         {/* Level 4: Metadata Tags */}
         <div className="mt-12 pt-8 border-t border-line">
-          <div className="text-xs font-mono text-ink-faint mb-4 uppercase tracking-wider">Level 4: Global Attributes</div>
+          <div className="text-[11px] text-ink-faint tabular mb-4 uppercase tracking-wider">Level 4: Global Attributes</div>
           <div className="flex flex-wrap gap-6">
             {metadata.map((meta, idx) => (
               // Was a near-black panel left over from the dark build — a black
               // card mid-page, and accent-ink on it measured 3.1:1, under AA.
               <div key={idx} className="flex-1 min-w-[200px] bg-surface-3 border border-line rounded-lg p-4">
-                <div className="text-accent-ink text-xs font-semibold mb-3">{meta.label}</div>
+                <div className="text-ink-faint text-[11px] uppercase tracking-[0.18em] mb-3">{meta.label}</div>
                 <div className="flex flex-wrap gap-2">
                   {meta.values.map((val, vIdx) => (
                     <span key={vIdx} className="text-xs bg-surface-3/70 border border-line px-2 py-1 rounded-md text-ink-soft">

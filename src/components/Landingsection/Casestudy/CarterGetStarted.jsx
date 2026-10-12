@@ -153,7 +153,7 @@ const CarterGetStarted = () => {
         return (
             <div className="mb-20">
                 <Header />
-                <div className="h-[520px] rounded-2xl border border-dashed border-line bg-surface-3/60 flex flex-col items-center justify-center gap-3 text-center px-6">
+                <div className="h-[520px] rounded-sm border border-dashed border-line bg-surface-3/60 flex flex-col items-center justify-center gap-3 text-center px-6">
                     <ImageIcon size={26} className="text-ink-ghost" />
                     <p className="text-ink-muted text-sm font-medium">
                         Get Started screens go here
@@ -174,7 +174,7 @@ const CarterGetStarted = () => {
         <div className="mb-20">
             <Header />
 
-            <div className="relative rounded-2xl border border-line bg-surface-2 overflow-hidden">
+            <div className="relative rounded-sm border border-line bg-surface-2 overflow-hidden">
                 {/* Stage — fixed height, scrolls sideways. Nothing is cropped. */}
                 <div
                     ref={trackRef}
@@ -226,7 +226,7 @@ const CarterGetStarted = () => {
                                 (active.step ? `Step ${active.step}` : "Get Started flow")}
                         </p>
                     </div>
-                    <span className="text-xs font-mono text-ink-faint shrink-0 tabular-nums">
+                    <span className="text-[11px] text-ink-faint tabular shrink-0 tabular-nums">
                         {String(index + 1).padStart(2, "0")} / {String(count).padStart(2, "0")}
                     </span>
 
@@ -236,7 +236,7 @@ const CarterGetStarted = () => {
                             onClick={() => go(index - 1)}
                             disabled={atStart}
                             aria-label="Previous screen"
-                            className="w-8 h-8 rounded-full border border-line bg-surface text-ink shadow-[0_1px_3px_rgba(0,0,0,0.08)] flex items-center justify-center transition-colors enabled:hover:border-accent-ink/45 enabled:hover:text-accent-ink disabled:opacity-30"
+                            className="w-8 h-8 rounded-full border border-line bg-surface text-ink shadow-[0_1px_3px_rgba(0,0,0,0.08)] flex items-center justify-center transition-colors enabled:hover:border-line-strong enabled:hover:bg-surface-2 disabled:opacity-30"
                         >
                             <ChevronLeft size={16} />
                         </button>
@@ -245,7 +245,7 @@ const CarterGetStarted = () => {
                             onClick={() => go(index + 1)}
                             disabled={atEnd}
                             aria-label="Next screen"
-                            className="w-8 h-8 rounded-full border border-line bg-surface text-ink shadow-[0_1px_3px_rgba(0,0,0,0.08)] flex items-center justify-center transition-colors enabled:hover:border-accent-ink/45 enabled:hover:text-accent-ink disabled:opacity-30"
+                            className="w-8 h-8 rounded-full border border-line bg-surface text-ink shadow-[0_1px_3px_rgba(0,0,0,0.08)] flex items-center justify-center transition-colors enabled:hover:border-line-strong enabled:hover:bg-surface-2 disabled:opacity-30"
                         >
                             <ChevronRight size={16} />
                         </button>
@@ -264,7 +264,7 @@ const CarterGetStarted = () => {
                             className="group/dot flex items-center justify-center py-3 px-1 focus:outline-none focus-visible:ring-2 focus-visible:ring-accent-ink/50 rounded"
                         >
                             <span
-                                className={`block h-1.5 rounded-full transition-all ${i === index ? "w-6 bg-accent-ink" : "w-1.5 bg-line-strong group-hover/dot:bg-ink-faint"}`}
+                                className={`block h-1.5 rounded-full transition-all ${i === index ? "w-6 bg-ink" : "w-1.5 bg-line-strong group-hover/dot:bg-ink-faint"}`}
                             />
                         </button>
                     ))}
@@ -287,10 +287,10 @@ const CarterGetStarted = () => {
 
 const Header = () => (
     <div className="max-w-2xl mb-5">
-        <p className="text-[11px] font-mono text-ink-faint tracking-widest uppercase mb-3">
+        <p className="text-[11px] text-ink-faint tracking-[0.18em] uppercase mb-3">
             The Get Started flow
         </p>
-        <h3 className="font-heading text-2xl md:text-3xl font-bold text-ink leading-snug mb-3">
+        <h3 className="font-ui text-2xl md:text-3xl font-medium text-ink leading-snug mb-3">
             What a new advertiser sees first.
         </h3>
         <p className="text-ink-muted text-sm leading-relaxed">

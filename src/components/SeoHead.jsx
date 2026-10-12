@@ -16,6 +16,18 @@ const personSchema = {
     "https://www.linkedin.com/in/sumansourabh9155/",
     "https://github.com/sumansourabh9155",
   ],
+  // Stated because the resume and the FAQ both state it. Schema should only
+  // ever assert what the page itself says.
+  address: {
+    "@type": "PostalAddress",
+    addressLocality: "Noida",
+    addressRegion: "Uttar Pradesh",
+    addressCountry: "IN",
+  },
+  alumniOf: {
+    "@type": "CollegeOrUniversity",
+    name: "Lovely Professional University",
+  },
   knowsAbout: [
     "Product Design",
     "UX Design",

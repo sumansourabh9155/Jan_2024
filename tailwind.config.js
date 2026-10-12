@@ -7,6 +7,21 @@ export default {
   theme: {
     extend: {
       /**
+       * Landing-page editorial pairing.
+       *
+       * Deliberately NOT wired to `font-heading`: that class is used 113 times
+       * across the site but was never defined, so it has always been a no-op.
+       * Defining it would restyle every case study at once. These are new
+       * tokens, applied only by the landing page components.
+       *
+       *   display  the big statements. One weight, set large and light.
+       *   ui       everything else on the landing page: body, labels, buttons.
+       */
+      fontFamily: {
+        display: ['"Instrument Serif"', 'Georgia', 'serif'],
+        ui: ['Inter', 'system-ui', 'sans-serif'],
+      },
+      /**
        * Light-theme semantic palette.
        *
        * The site was built dark with hardcoded values (bg-black, text-white,
@@ -22,6 +37,12 @@ export default {
         surface: '#FFFFFF',
         'surface-2': '#F7F7F4',
         'surface-3': '#EFEFEA',
+
+        // Warm stone, for the landing page's alternating bands. surface-2 is a
+        // neutral grey — next to white it reads as "slightly dirty" rather than
+        // as a deliberate tone. This has enough yellow to read as paper.
+        // Every ink tone clears AA on it (ink 16.7:1, accent-ink 5.0:1).
+        cream: '#F6F3EC',
 
         // Text, most prominent to faintest. The two quietest tones are darker
         // than a direct swap from the dark theme would suggest: #9AA3AE read

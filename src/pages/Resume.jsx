@@ -145,19 +145,32 @@ const trackDownload = () => {
   }
 };
 
-const SectionCard = ({ eyebrow, title, subtitle, children, id }) => (
+// Each section was a raised glass card — `bg-surface-3/70` + `backdrop-blur` +
+// `shadow-md`, a dark-theme idiom that on a white page reads as five grey
+// rectangles stacked down the screen. They are bands now, like every other
+// page on the site: a rule, an eyebrow, a serif head.
+//
+// `bandIndex` alternates white and cream in the same rhythm as the landing
+// page, so the resume reads as the same document as the rest of the site.
+const SectionCard = ({ eyebrow, title, subtitle, children, id, band = 0 }) => (
   <section
     id={id}
-    className="scroll-mt-24 bg-surface-3/70 border border-line backdrop-blur-md rounded-2xl p-6 md:p-8 mb-12 shadow-md"
+    className={`scroll-mt-24 px-6 py-20 ${band % 2 ? "bg-cream" : "bg-surface"}`}
   >
-    <div className="inline-flex items-center gap-2 text-sm text-ink mb-2">
-      <span className="text-ink-muted">◎</span> {eyebrow}
+    <div className="max-w-6xl mx-auto">
+      <p className="text-[11px] uppercase tracking-[0.22em] text-ink-faint mb-5">
+        {eyebrow}
+      </p>
+      <h2
+        className={`font-display font-normal text-ink text-4xl md:text-5xl leading-[1.1] tracking-[-0.01em] [text-wrap:balance] ${subtitle ? "mb-3" : "mb-10"}`}
+      >
+        {title}
+      </h2>
+      {subtitle && (
+        <p className="text-[0.9375rem] text-ink-muted leading-[1.7] mb-10 max-w-3xl">{subtitle}</p>
+      )}
+      {children}
     </div>
-    <h2 className={`text-2xl font-light text-ink ${subtitle ? "mb-2" : "mb-6"}`}>
-      {title}
-    </h2>
-    {subtitle && <p className="text-sm text-ink-muted mb-6 max-w-3xl">{subtitle}</p>}
-    {children}
   </section>
 );
 
@@ -173,17 +186,19 @@ const Resume = () => {
         canonicalUrl="https://www.sumansourabh.com/resume"
       />
       <Navbar />
-      <main className="max-w-6xl mx-auto px-4 sm:px-6 pt-20">
-        <section className="pt-24 pb-16">
-          <div className="text-center mb-12">
-            <span className="inline-flex items-center px-4 py-1 rounded-full text-sm bg-surface-3 border border-line backdrop-blur-md mb-4">
-              ◎ Product Designer
-            </span>
-            <h1 className="text-4xl font-light">
+      <main id="main">
+        <section className="bg-surface bg-plusgrid px-6 pt-36 pb-20">
+          <div className="max-w-6xl mx-auto">
+          {/* Left-aligned, on the page's own margin, like every other page. */}
+          <div className="max-w-3xl mb-14">
+            <p className="text-[11px] uppercase tracking-[0.22em] text-ink-faint mb-5">
+              Product Designer
+            </p>
+            <h1 className="font-display text-[3rem] md:text-[4rem] font-normal leading-[0.98] tracking-[-0.02em]">
               Suman Sourabh,
-              <span className="font-medium text-ink-muted"> Product Designer</span>
+              <span className="text-ink-faint italic"> Product Designer</span>
             </h1>
-            <p className="text-sm text-ink-muted mt-3 max-w-2xl mx-auto leading-relaxed">
+            <p className="text-[0.9375rem] text-ink-muted mt-6 max-w-2xl leading-[1.7]">
               B2B SaaS &amp; AI Products. 2.5+ years of end-to-end design, from 0-to-1
               builds to scaling live platforms, across AdTech, HealthTech, and CMS.
               Rare edge:{" "}
@@ -195,47 +210,47 @@ const Resume = () => {
               href={RESUME_PDF}
               download
               onClick={trackDownload}
-              className="mt-6 inline-flex items-center gap-2 bg-ink text-surface px-6 py-3 rounded-full font-bold text-sm
-                hover:bg-accent hover:text-ink hover:scale-[1.02] active:scale-[0.99] transition-[transform,background-color,color] duration-200
-                shadow-[0_6px_20px_rgba(0,0,0,0.14)]"
+              className="mt-8 inline-flex items-center gap-2 bg-ink text-surface px-6 py-3 rounded-full font-medium text-[0.9375rem]
+                hover:bg-ink-soft active:scale-[0.99] transition-[transform,background-color,color] duration-200"
             >
               <Download size={16} />
               Download Resume (PDF)
             </a>
           </div>
 
-          {/* Proof strip — the four numbers, each linked to the case study it came from */}
-          <div className="grid grid-cols-2 md:grid-cols-4 gap-3 mb-12">
+          {/* Proof strip — the four numbers, each linked to the case study it
+              came from. Figures in sans and tabular so the column compares. */}
+          <div className="grid grid-cols-2 md:grid-cols-4 gap-x-8 gap-y-8 mb-16">
             {PROOF.map((p) => (
               <Link
                 key={p.label}
                 to={p.to}
-                className="bg-surface-3/70 border border-line rounded-xl p-4 text-center hover:bg-surface-3 hover:border-line-strong transition-colors"
+                className="group border-t border-line pt-5 hover:border-ink transition-colors"
               >
-                <div className="text-2xl font-semibold text-accent-ink">{p.value}</div>
-                <div className="text-xs text-ink-soft mt-1">{p.label}</div>
-                <div className="text-[10px] font-mono uppercase tracking-widest text-ink-faint mt-1">
+                <div className="text-[2rem] font-medium text-ink leading-none tracking-[-0.02em] tabular">{p.value}</div>
+                <div className="text-[0.8125rem] text-ink-soft mt-3 leading-[1.6]">{p.label}</div>
+                <div className="text-[11px] uppercase tracking-[0.18em] text-ink-faint mt-2 group-hover:text-ink transition-colors">
                   {p.where}
                 </div>
               </Link>
             ))}
           </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-10">
-            {/* LEFT - Profile Card */}
-            <div className="bg-surface-3/70 border border-line rounded-2xl p-6 backdrop-blur-md shadow-lg">
-              <div className="relative rounded-xl overflow-hidden mb-4 aspect-square">
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-12 md:gap-16">
+            {/* LEFT - Profile */}
+            <div className="border-t border-line pt-8">
+              <div className="relative overflow-hidden mb-6 aspect-square rounded-sm">
                 <img
                   src={profilePic}
                   alt="Suman Sourabh"
-                  className="rounded-xl w-full h-full object-cover"
+                  className="rounded-sm w-full h-full object-cover"
                 />
-                <div className="absolute bottom-3 left-3 text-xs text-ink bg-surface-3/80 backdrop-blur px-2 py-0.5 rounded-full flex items-center gap-2">
-                  <span className="w-2 h-2 bg-green-600 rounded-full" />
-                  Open to design roles
-                </div>
               </div>
-              <h2 className="text-lg font-semibold">Hello, I am Suman Sourabh</h2>
+              <p className="text-[0.8125rem] text-ink-faint flex items-center gap-2.5 mb-5">
+                <span aria-hidden="true" className="w-1.5 h-1.5 bg-ink/40 rounded-full shrink-0" />
+                Open to design roles
+              </p>
+              <h2 className="font-display text-[1.5rem] font-normal leading-tight">Hello, I am Suman Sourabh</h2>
               {/* py-1 on each row rather than space-y on the parent — it keeps the
                   same visual rhythm while lifting the links to a 26px tap target. */}
               <div className="mt-3 text-sm text-ink-muted">
@@ -262,43 +277,49 @@ const Resume = () => {
             </div>
 
             {/* RIGHT - Summary */}
-            <div className="bg-surface-3/70 border border-line rounded-2xl p-6 backdrop-blur-md shadow-lg flex flex-col justify-between">
+            <div className="border-t border-line pt-8 flex flex-col justify-between">
               <div>
-                <p className="text-md font-semibold text-ink-soft">
+                <p className="text-[0.9375rem] font-medium text-ink">
                   Product Designer — B2B SaaS &amp; AI Products.
                 </p>
-                <p className="text-sm text-ink-faint mt-1">
+                <p className="text-[0.8125rem] text-ink-faint mt-1.5">
                   B.Tech. Computer Science Engineering — Machine Learning specialization
                 </p>
-                <p className="text-sm text-ink-muted mt-4 leading-relaxed">
+                <p className="text-[0.9375rem] text-ink-muted mt-6 leading-[1.7]">
                   I design across the full arc: discovery and user research through user
                   flows, wireframes, interaction design, high-fidelity prototypes, design
                   systems, and post-launch iteration.
                 </p>
-                <p className="text-sm text-ink-muted mt-3 leading-relaxed">
+                <p className="text-[0.9375rem] text-ink-muted mt-4 leading-[1.7]">
                   My CS + ML degree is the edge — I build in React and Tailwind, and I
                   design agentic, conversational AI experiences that engineers can
                   implement and models can actually serve.
                 </p>
               </div>
-              <div className="flex flex-col sm:flex-row gap-3 mt-6">
-                <Link to="/contact" className="flex-1">
-                  <button className="bg-ink text-surface w-full py-2 rounded-full text-sm font-medium hover:bg-ink-soft transition-colors">
-                    Connect with me
-                  </button>
+              <div className="flex flex-wrap gap-x-7 gap-y-3 mt-8">
+                {/* Two underlined text actions rather than two pills. The one
+                    filled control on this page is the resume download, which is
+                    the thing a recruiter is here for. */}
+                <Link
+                  to="/contact"
+                  className="text-[0.9375rem] text-ink border-b border-line-strong hover:border-ink transition-colors pb-0.5"
+                >
+                  Connect with me
                 </Link>
-                <Link to="/#case-studies" className="flex-1">
-                  <button className="border border-line text-ink w-full py-2 rounded-full text-sm font-medium hover:bg-surface-3 transition">
-                    See the work
-                  </button>
+                <Link
+                  to="/#case-studies"
+                  className="text-[0.9375rem] text-ink border-b border-line-strong hover:border-ink transition-colors pb-0.5"
+                >
+                  See the work
                 </Link>
               </div>
             </div>
           </div>
+          </div>
         </section>
 
         {/* About / How I Work — moved here from the landing page */}
-        <SectionCard
+        <SectionCard band={1}
           id="about"
           eyebrow="How I Work"
           title={
@@ -328,33 +349,33 @@ const Resume = () => {
             </p>
           </div>
           <div className="mt-8 grid grid-cols-1 md:grid-cols-3 gap-4">
-            <div className="bg-surface-3/70 border border-line rounded-lg p-4">
-              <Layers size={22} className="text-blue-700 mb-2" />
-              <h4 className="text-sm font-semibold text-ink mb-1">End-to-End Design</h4>
-              <p className="text-xs text-ink-muted">Research, interaction, visual, and design systems — I own the full design lifecycle, not just the handoff.</p>
+            <div className="border-t border-line pt-5">
+              <Layers size={22} className="text-ink-faint mb-3" />
+              <h4 className="text-[0.9375rem] font-medium text-ink mb-2">End-to-End Design</h4>
+              <p className="text-[0.8125rem] text-ink-muted leading-[1.7]">Research, interaction, visual, and design systems — I own the full design lifecycle, not just the handoff.</p>
             </div>
-            <div className="bg-surface-3/70 border border-line rounded-lg p-4">
-              <Sparkles size={22} className="text-green-800 mb-2" />
-              <h4 className="text-sm font-semibold text-ink mb-1">AI-Native UX</h4>
-              <p className="text-xs text-ink-muted">I design agentic and conversational experiences — clarification, confirmation, and recovery patterns that models can actually serve.</p>
+            <div className="border-t border-line pt-5">
+              <Sparkles size={22} className="text-ink-faint mb-3" />
+              <h4 className="text-[0.9375rem] font-medium text-ink mb-2">AI-Native UX</h4>
+              <p className="text-[0.8125rem] text-ink-muted leading-[1.7]">I design agentic and conversational experiences — clarification, confirmation, and recovery patterns that models can actually serve.</p>
             </div>
-            <div className="bg-surface-3/70 border border-line rounded-lg p-4">
-              <Code size={22} className="text-yellow-700 mb-2" />
-              <h4 className="text-sm font-semibold text-ink mb-1">Design Engineer Edge</h4>
-              <p className="text-xs text-ink-muted">CS/ML degree. I prototype in React and Tailwind, so I ship what I design — zero design-to-code drift.</p>
+            <div className="border-t border-line pt-5">
+              <Code size={22} className="text-ink-faint mb-3" />
+              <h4 className="text-[0.9375rem] font-medium text-ink mb-2">Design Engineer Edge</h4>
+              <p className="text-[0.8125rem] text-ink-muted leading-[1.7]">CS/ML degree. I prototype in React and Tailwind, so I ship what I design — zero design-to-code drift.</p>
             </div>
           </div>
         </SectionCard>
 
         {/* Experience */}
-        <SectionCard eyebrow="Work Experience" title="Where I’ve Worked">
+        <SectionCard band={2} eyebrow="Work Experience" title="Where I’ve Worked">
           {/* Current role, broken out by product track */}
           <div className="border-l border-line pl-5 md:pl-6">
             <div className="flex flex-col md:flex-row md:items-baseline md:justify-between gap-1 mb-2">
-              <h3 className="text-lg font-semibold text-ink">
+              <h3 className="text-[1.125rem] font-medium text-ink">
                 {SHYFTLABS.role} · {SHYFTLABS.company}
               </h3>
-              <p className="text-xs font-mono uppercase tracking-widest text-ink-faint whitespace-nowrap">
+              <p className="text-[11px] uppercase tracking-[0.18em] text-ink-faint whitespace-nowrap tabular">
                 {SHYFTLABS.duration}
               </p>
             </div>
@@ -366,17 +387,17 @@ const Resume = () => {
               {SHYFTLABS.tracks.map((track) => (
                 <div
                   key={track.name}
-                  className="bg-surface-3/70 border border-line rounded-xl p-5"
+                  className="border-t border-line pt-5"
                 >
                   {/* items-center, not items-baseline: the link carries py-2 for a
                       28px tap target, and centring keeps that padding symmetric. */}
                   <div className="flex flex-wrap items-center gap-x-3 gap-y-1 mb-3">
-                    <h4 className="text-sm font-semibold text-ink">{track.name}</h4>
+                    <h4 className="text-[0.9375rem] font-medium text-ink">{track.name}</h4>
                     <span className="text-xs text-ink-faint">{track.context}</span>
                     {track.to && (
                       <Link
                         to={track.to}
-                        className="text-xs text-accent-ink hover:underline ml-auto whitespace-nowrap py-2"
+                        className="text-[0.8125rem] text-ink-faint hover:text-ink transition-colors ml-auto whitespace-nowrap py-2 border-b border-line-strong"
                       >
                         Read the case study →
                       </Link>
@@ -397,7 +418,7 @@ const Resume = () => {
         </SectionCard>
 
         {/* Freelance & early experience */}
-        <SectionCard
+        <SectionCard band={3}
           eyebrow="Freelance & Early Experience"
           title="Before and alongside"
           subtitle="Consulting and studio work — where I learned to own scope end to end with no one above me to catch it."
@@ -406,10 +427,10 @@ const Resume = () => {
             {EARLY.map((job) => (
               <div key={job.company}>
                 <div className="flex flex-col md:flex-row md:items-baseline md:justify-between gap-1">
-                  <h3 className="text-base font-semibold text-ink">
+                  <h3 className="text-[1.0625rem] font-medium text-ink">
                     {job.role} · {job.company}
                   </h3>
-                  <p className="text-xs font-mono uppercase tracking-widest text-ink-faint whitespace-nowrap">
+                  <p className="text-[11px] uppercase tracking-[0.18em] text-ink-faint whitespace-nowrap tabular">
                     {job.duration}
                   </p>
                 </div>
@@ -427,18 +448,18 @@ const Resume = () => {
         </SectionCard>
 
         {/* Skills */}
-        <SectionCard eyebrow="Capabilities" title="What I actually do">
+        <SectionCard band={4} eyebrow="Capabilities" title="What I actually do">
           <div className="space-y-6">
             {SKILLS.map((s) => (
               <div key={s.group}>
-                <h3 className="text-xs font-mono uppercase tracking-widest text-accent-ink mb-3">
+                <h3 className="text-[11px] uppercase tracking-[0.18em] text-ink-faint mb-3">
                   {s.group}
                 </h3>
                 <div className="flex flex-wrap gap-2">
                   {s.items.map((item) => (
                     <span
                       key={item}
-                      className="text-xs text-ink-soft bg-surface-3/70 border border-line px-3 py-1 rounded-md"
+                      className="text-[0.8125rem] text-ink-soft border-b border-line pb-0.5"
                     >
                       {item}
                     </span>
@@ -450,16 +471,15 @@ const Resume = () => {
         </SectionCard>
 
         {/* Education + Community, side by side to keep the page tight */}
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mb-12">
-          <section className="bg-surface-3/70 border border-line backdrop-blur-md rounded-2xl p-6 md:p-8 shadow-md">
-            <div className="inline-flex items-center gap-2 text-sm text-ink mb-2">
-              <span className="text-ink-muted">◎</span> Education
-            </div>
-            <h2 className="text-2xl font-light mb-6 text-ink">Where I trained</h2>
-            <div className="flex gap-4">
-              <div className="w-10 h-10 rounded-lg bg-accent/25 border border-accent-ink/30 flex items-center justify-center shrink-0">
-                <GraduationCap size={18} className="text-accent-ink" />
-              </div>
+        <div className="bg-cream px-6 py-20">
+          <div className="max-w-6xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-12 md:gap-16">
+          <section>
+            <p className="text-[11px] uppercase tracking-[0.22em] text-ink-faint mb-5">
+              Education
+            </p>
+            <h2 className="font-display text-[2rem] font-normal mb-8 text-ink leading-tight">Where I trained</h2>
+            <div className="flex gap-4 border-t border-line pt-6">
+              <GraduationCap size={18} className="text-ink-faint shrink-0 mt-0.5" />
               <div>
                 <h3 className="text-sm font-semibold text-ink leading-snug">
                   B.Tech Computer Science Engineering
@@ -478,28 +498,29 @@ const Resume = () => {
             </p>
           </section>
 
-          <section className="bg-surface-3/70 border border-line backdrop-blur-md rounded-2xl p-6 md:p-8 shadow-md">
-            <div className="inline-flex items-center gap-2 text-sm text-ink mb-2">
-              <span className="text-ink-muted">◎</span> Community &amp; Achievements
-            </div>
-            <h2 className="text-2xl font-light mb-6 text-ink">
+          <section>
+            <p className="text-[11px] uppercase tracking-[0.22em] text-ink-faint mb-5">
+              Community &amp; Achievements
+            </p>
+            <h2 className="font-display text-[2rem] font-normal mb-8 text-ink leading-tight">
               Outside the day job
             </h2>
-            <ul className="space-y-4">
+            <ul className="space-y-4 border-t border-line pt-6">
               {ACHIEVEMENTS.map((a) => (
-                <li key={a} className="flex gap-3 text-sm text-ink-muted leading-relaxed">
-                  <Trophy size={14} className="text-accent-ink shrink-0 mt-1" />
+                <li key={a} className="flex gap-3 text-[0.9375rem] text-ink-muted leading-[1.7]">
+                  <Trophy size={14} className="text-ink-faint shrink-0 mt-1.5" />
                   <span>{a}</span>
                 </li>
               ))}
             </ul>
             <Link
               to="/#speaking"
-              className="inline-block text-xs text-accent-ink hover:underline mt-6 pt-6 border-t border-line w-full"
+              className="inline-block text-[0.8125rem] text-ink border-b border-line-strong hover:border-ink transition-colors mt-8 pb-0.5"
             >
               See photos from the seminars →
             </Link>
           </section>
+          </div>
         </div>
       </main>
       <Footer />

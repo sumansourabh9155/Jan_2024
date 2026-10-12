@@ -365,7 +365,7 @@ export default function ExpenseDashboard() {
 
               <button
                 onClick={() => setIsModalOpen(true)}
-                className="flex items-center gap-2 bg-ink text-surface px-4 py-2.5 rounded-lg font-bold text-sm hover:bg-accent hover:text-ink transition-colors shadow-lg shadow-line"
+                className="flex items-center gap-2 bg-ink text-surface px-4 py-2.5 rounded-lg font-bold text-sm hover:bg-ink-soft transition-colors shadow-lg shadow-line"
               >
                 <Plus size={18} />
                 <span>Add</span>
@@ -920,7 +920,7 @@ export default function ExpenseDashboard() {
                 <button
                   type="submit"
                   disabled={submitting}
-                  className="w-full bg-ink text-surface font-bold py-3 rounded-lg hover:bg-accent hover:text-ink transition-colors mt-2 disabled:opacity-50"
+                  className="w-full bg-ink text-surface font-bold py-3 rounded-lg hover:bg-ink-soft transition-colors mt-2 disabled:opacity-50"
                 >
                   {submitting ? "Saving..." : "Save Transaction"}
                 </button>

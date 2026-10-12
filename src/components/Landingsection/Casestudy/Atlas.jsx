@@ -27,25 +27,11 @@ import Sitebuilder from "../../../assets/atlas/Sitebuilder.png";
 import Templatemanager from "../../../assets/atlas/Templatemanager.png";
 
 
-// ================= REUSABLE COMPONENTS =================
-
-const Badge = ({ children }) => (
-    <div className="inline-flex items-center gap-2 text-xs font-mono text-accent-ink tracking-widest uppercase mb-6 bg-accent/15 px-3 py-1 rounded border border-accent-ink/30">
-        {children}
-    </div>
-);
-
-const StatCard = ({ value, label, icon }) => (
-    <div className="bg-surface-3/70 border border-line rounded-2xl p-6 space-y-3">
-        {icon && <div className="w-10 h-10 rounded-xl bg-surface border border-line flex items-center justify-center">{icon}</div>}
-        <p className="font-heading text-3xl font-bold text-ink">{value}</p>
-        <p className="text-sm text-ink-muted leading-snug">{label}</p>
-    </div>
-);
+import { Badge, StatCard, MetaList, Finding, NextCase } from "./CaseStudyUI";
 
 const AtlasEcosystem = () => {
     return (
-        <div className="text-ink bg-surface-2">
+        <div className="font-ui text-ink bg-surface">
             <SEO
                 title="Atlas: CMS Architecture & 0-to-1 Site Builder — Product Design Case Study"
                 description="How I owned the design for a 130-clinic veterinary network — standardizing digital infrastructure, designing a relational CMS, and a 0-to-1 no-code site builder."
@@ -53,59 +39,49 @@ const AtlasEcosystem = () => {
                 url="https://www.sumansourabh.com/atlas"
             />
             <Navbar />
+            <main id="main">
 
             {/* ================= HERO ================= */}
-            <section className="bg-surface-2 pt-32 pb-24 px-4">
-                <div className="max-w-7xl mx-auto">
-                    <div className="text-center max-w-3xl mx-auto mb-20">
-                        <Badge>[ Veterinary Care &middot; Multi-Location &middot; 0-to-1 Builder ]</Badge>
-                        <h1 className="font-heading text-5xl md:text-7xl font-extrabold text-ink tracking-tight leading-none mb-6">
-                            Atlas <span className="text-ink-faint font-light">Veterinary Network</span>
+            <section className="bg-surface bg-plusgrid pt-32 pb-24 px-6">
+                <div className="max-w-6xl mx-auto">
+                    {/* Left-aligned, on the page's own margin — the rest of the
+                        site never centres a column. */}
+                    <div className="max-w-3xl mb-12">
+                        <Badge>Veterinary Care &middot; Multi-Location &middot; 0-to-1 Builder</Badge>
+                        <h1 className="font-display text-[3.25rem] md:text-7xl font-normal text-ink tracking-[-0.02em] leading-[0.95] mb-6">
+                            Atlas <span className="text-ink-faint">Veterinary Network</span>
                         </h1>
-                        <p className="text-lg text-ink-muted font-light leading-relaxed max-w-xl mx-auto">
+                        <p className="text-lg text-ink-muted leading-[1.6] max-w-2xl">
                             Transformed 130 disconnected clinic websites into a unified digital ecosystem — standardized architecture, relational CMS, and a 0-to-1 no-code builder.
                         </p>
                     </div>
 
-                    <img src={Banner} alt="Atlas Digital Ecosystem" className="rounded-2xl w-full object-cover border border-line" />
+                    <img src={Banner} alt="Atlas Digital Ecosystem" className="rounded-sm w-full object-cover border border-line" />
 
-                    {/* Snapshot Strip */}
-                    <div className="grid grid-cols-2 md:grid-cols-4 gap-6 mt-12">
-                        <div className="bg-surface-3/70 border border-line rounded-2xl p-5 text-center">
-                            <p className="text-xs text-ink-faint uppercase tracking-widest mb-2">Company</p>
-                            <p className="text-ink font-medium">Shyftlabs</p>
-                        </div>
-                        <div className="bg-surface-3/70 border border-line rounded-2xl p-5 text-center">
-                            <p className="text-xs text-ink-faint uppercase tracking-widest mb-2">My Role</p>
-                            <p className="text-ink font-medium">Product Designer</p>
-                        </div>
-                        <div className="bg-surface-3/70 border border-line rounded-2xl p-5 text-center">
-                            <p className="text-xs text-ink-faint uppercase tracking-widest mb-2">Platform</p>
-                            <p className="text-ink font-medium">Web, CMS, SaaS Builder</p>
-                        </div>
-                        <div className="bg-surface-3/70 border border-line rounded-2xl p-5 text-center">
-                            <p className="text-xs text-ink-faint uppercase tracking-widest mb-2">Duration</p>
-                            <p className="text-ink font-medium">3 Phases, Two Stints</p>
-                        </div>
-                    </div>
+                    <MetaList
+                        className="mt-12"
+                        items={[
+                            { term: "Company", value: "Shyftlabs" },
+                            { term: "My role", value: "Product Designer" },
+                            { term: "Platform", value: "Web, CMS, SaaS Builder" },
+                            { term: "Duration", value: "3 Phases, Two Stints" },
+                        ]}
+                    />
 
                     {/* Tools Stack */}
-                    <div className="flex flex-wrap gap-2 mt-8 justify-center">
-                        {["Jira", "Figma", "Google Analytics", "Hotjar", "WordPress Audit", "React", "Tailwind CSS"].map((tool) => (
-                            <span key={tool} className="text-xs px-3 py-1 bg-surface-3/70 text-ink-faint border border-line rounded-full">
-                                {tool}
-                            </span>
-                        ))}
-                    </div>
+                    <p className="mt-8 text-[0.8125rem] text-ink-faint leading-[1.7] max-w-2xl">
+                        <span className="text-ink-ghost">Tools &middot; </span>
+                        {["Jira", "Figma", "Google Analytics", "Hotjar", "WordPress Audit", "React", "Tailwind CSS"].join(" · ")}
+                    </p>
                 </div>
             </section>
 
             {/* ================= WHY I OWNED PRODUCT DECISIONS ================= */}
-            <section className="bg-surface py-24 px-4 border-t border-line">
-                <div className="max-w-7xl mx-auto">
+            <section className="bg-cream py-24 px-6">
+                <div className="max-w-6xl mx-auto">
                     <div className="max-w-3xl mb-20">
-                        <Badge>[ How I Owned the Design ]</Badge>
-                        <h2 className="font-heading text-4xl md:text-5xl font-bold text-ink leading-tight mb-6">
+                        <Badge>How I Owned the Design</Badge>
+                        <h2 className="font-display text-4xl md:text-5xl font-normal text-ink leading-tight mb-6">
                             130 clinics. 3 phases.{" "}
                             <span className="text-ink-muted">Sole designer on an 8-person team.</span>
                         </h2>
@@ -119,34 +95,34 @@ const AtlasEcosystem = () => {
                         </p>
                         <p className="text-ink-faint text-sm leading-relaxed mt-4">
                             Timeline note: I led the first stage here for roughly six months, moved to{" "}
-                            <Link to="/carter" className="text-ink-soft underline underline-offset-2 hover:text-accent-ink transition-colors">Carter</Link>{" "}
+                            <Link to="/carter" className="text-ink-soft underline underline-offset-2 hover:text-ink transition-colors">Carter</Link>{" "}
                             while supporting this part-time, then returned full-time as the later phases ramped up.
                         </p>
                     </div>
 
                     {/* What I Owned — Icon Cards */}
                     <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mb-16">
-                        <div className="bg-surface-3/70 border border-line rounded-2xl p-6 flex gap-4">
-                            <div className="w-10 h-10 rounded-xl bg-blue-500/10 border border-blue-500/20 flex items-center justify-center flex-shrink-0">
-                                <FileText size={18} className="text-blue-700" />
+                        <div className="border-t border-line pt-5 flex gap-4">
+                            <div className="text-ink-faint flex-shrink-0">
+                                <FileText size={18} className="text-ink-faint" />
                             </div>
                             <div>
                                 <h4 className="text-ink font-semibold text-sm mb-1">Specs &amp; Phased Rollout</h4>
                                 <p className="text-ink-muted text-xs leading-relaxed">Wrote design specs for each phase. Defined scope, acceptance criteria, and rollout strategy for every location in the network.</p>
                             </div>
                         </div>
-                        <div className="bg-surface-3/70 border border-line rounded-2xl p-6 flex gap-4">
-                            <div className="w-10 h-10 rounded-xl bg-accent/25 border border-accent-ink/30 flex items-center justify-center flex-shrink-0">
-                                <Database size={18} className="text-accent-ink" />
+                        <div className="border-t border-line pt-5 flex gap-4">
+                            <div className="text-ink-faint flex-shrink-0">
+                                <Database size={18} className="text-ink-faint" />
                             </div>
                             <div>
                                 <h4 className="text-ink font-semibold text-sm mb-1">Data Architecture</h4>
                                 <p className="text-ink-muted text-xs leading-relaxed">Designed the relational taxonomy — services, specialists, locations as connected nodes, not static pages.</p>
                             </div>
                         </div>
-                        <div className="bg-surface-3/70 border border-line rounded-2xl p-6 flex gap-4">
-                            <div className="w-10 h-10 rounded-xl bg-orange-500/10 border border-orange-500/20 flex items-center justify-center flex-shrink-0">
-                                <Blocks size={18} className="text-orange-600" />
+                        <div className="border-t border-line pt-5 flex gap-4">
+                            <div className="text-ink-faint flex-shrink-0">
+                                <Blocks size={18} className="text-ink-faint" />
                             </div>
                             <div>
                                 <h4 className="text-ink font-semibold text-sm mb-1">0-to-1 Product</h4>
@@ -163,18 +139,19 @@ const AtlasEcosystem = () => {
             </section>
 
             {/* ================= PHASE 1 ================= */}
-            <section className="bg-surface-2 py-24 px-4 border-t border-line">
-                <div className="max-w-7xl mx-auto">
+            <section className="bg-surface py-24 px-6">
+                <div className="max-w-6xl mx-auto">
 
                     {/* Phase Divider */}
                     <div className="flex items-center gap-6 mb-20">
-                        <div className="text-xs font-mono text-ink-ghost uppercase tracking-widest whitespace-nowrap">Phase 01</div>
+                        <div className="text-[11px] text-ink-ghost uppercase tracking-[0.18em] whitespace-nowrap">Phase 01</div>
                         <div className="h-px bg-surface-3 flex-grow"></div>
-                        <div className="text-xs font-mono text-ink-ghost uppercase tracking-widest whitespace-nowrap">Standardization</div>
+                        <div className="text-[11px] text-ink-ghost uppercase tracking-[0.18em] whitespace-nowrap">Standardization</div>
                     </div>
 
                     {/* Concept Vector — Consolidation: chaos → order */}
-                    <svg className="w-full h-20 my-6" viewBox="0 0 400 80" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <div className="overflow-x-auto my-6">
+<svg className="w-full h-auto max-w-3xl min-w-[560px]" viewBox="0 0 400 80" fill="none" xmlns="http://www.w3.org/2000/svg">
                         <defs>
                             <linearGradient id="atlas-lime-grad-01" x1="0" y1="40" x2="400" y2="40" gradientUnits="userSpaceOnUse">
                                 <stop stopColor="#5E7000" stopOpacity="0.3" />
@@ -205,15 +182,16 @@ const AtlasEcosystem = () => {
                             <rect key={i} x={235 + i * 26} y={25} width="20" height="30" rx="3" stroke="#5E7000" strokeOpacity="0.85" strokeWidth="0.5" fill="#5E7000" fillOpacity="0.13" />
                         ))}
                         {/* Labels */}
-                        <text x="30" y="78" fontFamily="monospace" fontSize="7" fill="#5E7000" fillOpacity="0.65">130 clinics</text>
-                        <text x="125" y="78" fontFamily="monospace" fontSize="7" fill="#5E7000" fillOpacity="0.65">funnel</text>
-                        <text x="270" y="78" fontFamily="monospace" fontSize="7" fill="#5E7000" fillOpacity="0.65">6 templates</text>
+                        <text x="30" y="78" fontFamily="monospace" fontSize="7" fill="#5E7000" fillOpacity="1">130 clinics</text>
+                        <text x="125" y="78" fontFamily="monospace" fontSize="7" fill="#5E7000" fillOpacity="1">funnel</text>
+                        <text x="270" y="78" fontFamily="monospace" fontSize="7" fill="#5E7000" fillOpacity="1">6 templates</text>
                     </svg>
+</div>
 
                     {/* Strategic Bet */}
                     <div className="max-w-3xl mb-20">
-                        <Badge>[ The Strategic Bet ]</Badge>
-                        <h2 className="font-heading text-4xl md:text-5xl font-bold text-ink leading-tight mb-6">
+                        <Badge>The Strategic Bet</Badge>
+                        <h2 className="font-display text-4xl md:text-5xl font-normal text-ink leading-tight mb-6">
                             130 clinics wanted custom.{" "}
                             <span className="text-ink-muted">I standardized to 6 templates.</span>
                         </h2>
@@ -229,9 +207,9 @@ const AtlasEcosystem = () => {
                     </div>
 
                     {/* Discovery */}
-                    <div className="bg-surface-3/70 border border-line rounded-2xl p-8 max-w-4xl mb-20 flex flex-col md:flex-row gap-4 md:gap-6">
-                        <div className="w-12 h-12 rounded-xl bg-purple-500/10 border border-purple-500/20 flex items-center justify-center flex-shrink-0">
-                            <Search size={20} className="text-purple-600" />
+                    <div className="border-t border-line pt-6 max-w-4xl mb-20 flex flex-col md:flex-row gap-4 md:gap-6">
+                        <div className="text-ink-faint flex-shrink-0">
+                            <Search size={20} className="text-ink-faint" />
                         </div>
                         <div>
                             <h4 className="text-ink font-semibold mb-3">Discovery</h4>
@@ -246,31 +224,16 @@ const AtlasEcosystem = () => {
                     </div>
 
                     {/* Audit Findings */}
-                    <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mb-20">
-                        <div className="bg-red-500/10 border border-red-500/15 rounded-2xl p-6">
-                            <div className="w-10 h-10 rounded-xl bg-red-500/10 border border-red-500/20 flex items-center justify-center mb-4">
-                                <Globe size={18} className="text-red-700" />
-                            </div>
-                            <h4 className="font-heading text-2xl font-bold text-ink mb-2">Zero</h4>
-                            <p className="text-ink text-sm font-medium mb-2">SEO Governance</p>
-                            <p className="text-ink-muted text-xs leading-relaxed">Duplicate content across sister clinics. Missing schema markup. Google penalizing Atlas for same doctor bios on 40+ pages.</p>
-                        </div>
-                        <div className="bg-red-500/10 border border-red-500/15 rounded-2xl p-6">
-                            <div className="w-10 h-10 rounded-xl bg-red-500/10 border border-red-500/20 flex items-center justify-center mb-4">
-                                <AlertTriangle size={18} className="text-red-700" />
-                            </div>
-                            <h4 className="font-heading text-2xl font-bold text-ink mb-2">Critical</h4>
-                            <p className="text-ink text-sm font-medium mb-2">Emergency Abandonment</p>
-                            <p className="text-ink-muted text-xs leading-relaxed">Pet owners in crisis couldn&apos;t find hours, address, or phone. Low-contrast text, no mobile optimization. UI as an obstacle.</p>
-                        </div>
-                        <div className="bg-red-500/10 border border-red-500/15 rounded-2xl p-6">
-                            <div className="w-10 h-10 rounded-xl bg-red-500/10 border border-red-500/20 flex items-center justify-center mb-4">
-                                <Shield size={18} className="text-red-700" />
-                            </div>
-                            <h4 className="font-heading text-2xl font-bold text-ink mb-2">Days</h4>
-                            <p className="text-ink text-sm font-medium mb-2">IT as Gatekeeper</p>
-                            <p className="text-ink-muted text-xs leading-relaxed">Updating clinic hours or adding staff required an IT ticket and days of wait. Local teams had zero autonomy.</p>
-                        </div>
+                    <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mb-20">
+                        <Finding value="Zero" title="SEO Governance" icon={<Globe size={18} />}>
+                            Duplicate content across sister clinics. Missing schema markup. Google penalizing Atlas for same doctor bios on 40+ pages.
+                        </Finding>
+                        <Finding value="Critical" title="Emergency Abandonment" icon={<AlertTriangle size={18} />}>
+                            Pet owners in crisis couldn&apos;t find hours, address, or phone. Low-contrast text, no mobile optimization. UI as an obstacle.
+                        </Finding>
+                        <Finding value="Days" title="IT as Gatekeeper" icon={<Shield size={18} />}>
+                            Updating clinic hours or adding staff required an IT ticket and days of wait. Local teams had zero autonomy.
+                        </Finding>
                     </div>
 
                     {/* Taxonomy */}
@@ -278,8 +241,8 @@ const AtlasEcosystem = () => {
 
                     {/* Template Architecture */}
                     <div className="mt-20 mb-10 max-w-3xl">
-                        <Badge>[ Product Decision &mdash; Template Architecture ]</Badge>
-                        <h3 className="font-heading text-3xl font-bold text-ink mb-4">
+                        <Badge>Product Decision &mdash; Template Architecture</Badge>
+                        <h3 className="font-ui text-3xl font-medium text-ink mb-4">
                             Not one template. <span className="text-ink-muted">Five clinical realities.</span>
                         </h3>
                         <p className="text-ink-muted text-base leading-relaxed">
@@ -293,16 +256,16 @@ const AtlasEcosystem = () => {
                     <AtlasTemplates />
 
                     {/* Phase 1 Outcomes */}
-                    <div className="mt-20 bg-gradient-to-br from-surface-3 to-transparent border border-line backdrop-blur-md rounded-2xl p-8 md:p-10">
-                        <Badge>[ Phase 1 &mdash; Business Outcomes ]</Badge>
+                    <div className="mt-20 border-t border-line pt-10">
+                        <Badge>Phase 1 &mdash; Business Outcomes</Badge>
                         <p className="text-ink-muted text-sm mb-10 max-w-2xl">
                             Standardization wasn&apos;t glamorous. But better structure meant better crawlability, better UX, and a data model that could scale.
                         </p>
                         <div className="grid grid-cols-2 md:grid-cols-4 gap-6">
-                            <StatCard value="&uarr; 41%" label="Organic search traffic increase within 6 months." icon={<TrendingUp size={18} className="text-green-800" />} />
-                            <StatCard value="&uarr; 16%" label="Booking conversion rate improvement." icon={<Target size={18} className="text-blue-700" />} />
-                            <StatCard value="&uarr; 74%" label="Pages successfully indexed by Google." icon={<Globe size={18} className="text-purple-600" />} />
-                            <StatCard value="100+" label="Clinics launched under the new architecture." icon={<Zap size={18} className="text-yellow-700" />} />
+                            <StatCard value="&uarr; 41%" label="Organic search traffic increase within 6 months." icon={<TrendingUp size={18} className="text-ink" />} />
+                            <StatCard value="&uarr; 16%" label="Booking conversion rate improvement." icon={<Target size={18} className="text-ink-faint" />} />
+                            <StatCard value="&uarr; 74%" label="Pages successfully indexed by Google." icon={<Globe size={18} className="text-ink-faint" />} />
+                            <StatCard value="100+" label="Clinics launched under the new architecture." icon={<Zap size={18} className="text-ink-faint" />} />
                         </div>
                         <p className="text-ink-ghost text-xs mt-6">Figures are internal metrics measured post-launch over the phase window.</p>
                     </div>
@@ -310,18 +273,19 @@ const AtlasEcosystem = () => {
             </section>
 
             {/* ================= PHASE 2 ================= */}
-            <section className="bg-surface py-24 px-4 border-t border-line">
-                <div className="max-w-7xl mx-auto">
+            <section className="bg-cream py-24 px-6">
+                <div className="max-w-6xl mx-auto">
 
                     {/* Phase Divider */}
                     <div className="flex items-center gap-6 mb-20">
-                        <div className="text-xs font-mono text-ink-ghost uppercase tracking-widest whitespace-nowrap">Phase 02</div>
+                        <div className="text-[11px] text-ink-ghost uppercase tracking-[0.18em] whitespace-nowrap">Phase 02</div>
                         <div className="h-px bg-surface-3 flex-grow"></div>
-                        <div className="text-xs font-mono text-ink-ghost uppercase tracking-widest whitespace-nowrap">Relational CMS</div>
+                        <div className="text-[11px] text-ink-ghost uppercase tracking-[0.18em] whitespace-nowrap">Relational CMS</div>
                     </div>
 
                     {/* Phase 02 Vector — relational data model: nodes → connected graph */}
-                    <svg className="w-full h-20 my-6" viewBox="0 0 400 80" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <div className="overflow-x-auto my-6">
+<svg className="w-full h-auto max-w-3xl min-w-[560px]" viewBox="0 0 400 80" fill="none" xmlns="http://www.w3.org/2000/svg">
                         <defs>
                             <radialGradient id="atlas-node-center" cx="50%" cy="50%" r="50%">
                                 <stop offset="0%" stopColor="#3b82f6" stopOpacity="0.5" />
@@ -337,7 +301,7 @@ const AtlasEcosystem = () => {
                             <circle key={i} cx={18 + i * 22} cy={35} r="9"
                                 fill="#ef4444" fillOpacity="0.16" stroke="#ef4444" strokeOpacity="0.65" strokeWidth="0.8" />
                         ))}
-                        <text x="14" y="55" fontFamily="monospace" fontSize="6" fill="#101418" fillOpacity="0.52">3 copies</text>
+                        <text x="14" y="55" fontFamily="monospace" fontSize="6" fill="#101418" fillOpacity="0.82">3 copies</text>
                         <line x1="80" y1="15" x2="80" y2="60" stroke="#101418" strokeOpacity="0.16" strokeWidth="0.5" strokeDasharray="2 3" />
                         {/* Arrow */}
                         <line x1="88" y1="35" x2="120" y2="35" stroke="#3b82f6" strokeOpacity="0.78" strokeWidth="0.8" />
@@ -345,7 +309,7 @@ const AtlasEcosystem = () => {
                         {/* Central record */}
                         <circle cx="160" cy="35" r="14" fill="url(#atlas-node-center)" stroke="#3b82f6" strokeOpacity="0.85" strokeWidth="1.5" filter="url(#atlas-cms-glow)" />
                         <circle cx="160" cy="35" r="4" fill="#3b82f6" fillOpacity="0.85" />
-                        <text x="160" y="64" textAnchor="middle" fontFamily="monospace" fontSize="7" fill="#101418" fillOpacity="0.78">1 RECORD</text>
+                        <text x="160" y="64" textAnchor="middle" fontFamily="monospace" fontSize="7" fill="#101418" fillOpacity="0.82">1 RECORD</text>
                         {/* Lines to leaf nodes */}
                         {[[210, 15], [230, 35], [210, 55]].map(([nx, ny], i) => (
                             <line key={i} x1="174" y1="35" x2={nx} y2={ny}
@@ -356,20 +320,21 @@ const AtlasEcosystem = () => {
                             <circle key={i} cx={nx} cy={ny} r="8"
                                 fill="#5E7000" fillOpacity="0.13" stroke="#5E7000" strokeOpacity="0.78" strokeWidth="0.8" />
                         ))}
-                        <text x="220" y="72" textAnchor="middle" fontFamily="monospace" fontSize="7" fill="#5E7000" fillOpacity="0.65">cascades</text>
+                        <text x="220" y="72" textAnchor="middle" fontFamily="monospace" fontSize="7" fill="#5E7000" fillOpacity="1">cascades</text>
                         {/* Label stack */}
                         {[["SPEC", 260, 22], ["LOC", 292, 35], ["SVC", 260, 48]].map(([label, lx, ly]) => (
-                            <text key={label} x={lx} y={ly} textAnchor="middle" fontFamily="monospace" fontSize="6" fill="#101418" fillOpacity="0.52">{label}</text>
+                            <text key={label} x={lx} y={ly} textAnchor="middle" fontFamily="monospace" fontSize="6" fill="#101418" fillOpacity="0.82">{label}</text>
                         ))}
                         {/* Benefit callout */}
-                        <text x="350" y="28" textAnchor="middle" fontFamily="monospace" fontSize="8" fill="#5E7000" fillOpacity="0.85" filter="url(#atlas-cms-glow)">0</text>
-                        <text x="350" y="40" textAnchor="middle" fontFamily="monospace" fontSize="6" fill="#101418" fillOpacity="0.52">duplicates</text>
+                        <text x="350" y="28" textAnchor="middle" fontFamily="monospace" fontSize="8" fill="#5E7000" fillOpacity="1" filter="url(#atlas-cms-glow)">0</text>
+                        <text x="350" y="40" textAnchor="middle" fontFamily="monospace" fontSize="6" fill="#101418" fillOpacity="0.82">duplicates</text>
                     </svg>
+</div>
 
                     {/* Strategic Bet */}
                     <div className="max-w-3xl mb-20">
-                        <Badge>[ The Strategic Bet ]</Badge>
-                        <h2 className="font-heading text-4xl md:text-5xl font-bold text-ink leading-tight mb-6">
+                        <Badge>The Strategic Bet</Badge>
+                        <h2 className="font-display text-4xl md:text-5xl font-normal text-ink leading-tight mb-6">
                             Build vs. Buy.{" "}
                             <span className="text-ink-muted">Every off-the-shelf CMS failed the test.</span>
                         </h2>
@@ -384,9 +349,9 @@ const AtlasEcosystem = () => {
                     </div>
 
                     {/* What I Said No To */}
-                    <div className="bg-surface-3/70 border border-line rounded-2xl p-8 max-w-4xl mb-20 flex flex-col md:flex-row gap-4 md:gap-6">
-                        <div className="w-12 h-12 rounded-xl bg-orange-500/10 border border-orange-500/20 flex items-center justify-center flex-shrink-0">
-                            <AlertTriangle size={20} className="text-orange-600" />
+                    <div className="border-t border-line pt-6 max-w-4xl mb-20 flex flex-col md:flex-row gap-4 md:gap-6">
+                        <div className="text-ink-faint flex-shrink-0">
+                            <AlertTriangle size={20} className="text-ink-faint" />
                         </div>
                         <div>
                             <h4 className="text-ink font-semibold mb-3">What I Said No To</h4>
@@ -399,40 +364,40 @@ const AtlasEcosystem = () => {
                         </div>
                     </div>
 
-                    <img loading="lazy" decoding="async" src={Charcount} alt="Atlas Content Architecture" className="rounded-2xl w-full border border-line mb-20" />
+                    <img loading="lazy" decoding="async" src={Charcount} alt="Atlas Content Architecture" className="rounded-sm w-full border border-line mb-20" />
 
                     {/* CMS Architecture Cards */}
                     <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mb-20">
-                        <div className="bg-surface-3/70 border border-line rounded-2xl p-6 flex gap-4">
-                            <div className="w-10 h-10 rounded-xl bg-blue-500/10 border border-blue-500/20 flex items-center justify-center flex-shrink-0">
-                                <Database size={18} className="text-blue-700" />
+                        <div className="border-t border-line pt-5 flex gap-4">
+                            <div className="text-ink-faint flex-shrink-0">
+                                <Database size={18} className="text-ink-faint" />
                             </div>
                             <div>
                                 <h4 className="text-ink font-semibold text-sm mb-1">Singular Sources of Truth</h4>
                                 <p className="text-ink-muted text-xs leading-relaxed">Every specialist, service, and location as a single data record. Update centrally, cascade instantly to every linked clinic page.</p>
                             </div>
                         </div>
-                        <div className="bg-surface-3/70 border border-line rounded-2xl p-6 flex gap-4">
-                            <div className="w-10 h-10 rounded-xl bg-purple-500/10 border border-purple-500/20 flex items-center justify-center flex-shrink-0">
-                                <GitBranch size={18} className="text-purple-600" />
+                        <div className="border-t border-line pt-5 flex gap-4">
+                            <div className="text-ink-faint flex-shrink-0">
+                                <GitBranch size={18} className="text-ink-faint" />
                             </div>
                             <div>
                                 <h4 className="text-ink font-semibold text-sm mb-1">Relational Content Linking</h4>
                                 <p className="text-ink-muted text-xs leading-relaxed">CMS mapped relationships &mdash; specialists to certifications, services to locations. Google&apos;s schema finally understood Atlas as an interconnected ecosystem.</p>
                             </div>
                         </div>
-                        <div className="bg-surface-3/70 border border-line rounded-2xl p-6 flex gap-4">
-                            <div className="w-10 h-10 rounded-xl bg-accent/25 border border-accent-ink/30 flex items-center justify-center flex-shrink-0">
-                                <Blocks size={18} className="text-accent-ink" />
+                        <div className="border-t border-line pt-5 flex gap-4">
+                            <div className="text-ink-faint flex-shrink-0">
+                                <Blocks size={18} className="text-ink-faint" />
                             </div>
                             <div>
                                 <h4 className="text-ink font-semibold text-sm mb-1">Block-Level Architecture</h4>
                                 <p className="text-ink-muted text-xs leading-relaxed">Modular block system instead of rigid page forms. Clinics assemble pages from pre-approved blocks &mdash; doctor spotlights, service cards &mdash; without code.</p>
                             </div>
                         </div>
-                        <div className="bg-surface-3/70 border border-line rounded-2xl p-6 flex gap-4">
-                            <div className="w-10 h-10 rounded-xl bg-orange-500/10 border border-orange-500/20 flex items-center justify-center flex-shrink-0">
-                                <Layers size={18} className="text-orange-600" />
+                        <div className="border-t border-line pt-5 flex gap-4">
+                            <div className="text-ink-faint flex-shrink-0">
+                                <Layers size={18} className="text-ink-faint" />
                             </div>
                             <div>
                                 <h4 className="text-ink font-semibold text-sm mb-1">Parent-Child Hierarchy</h4>
@@ -443,8 +408,8 @@ const AtlasEcosystem = () => {
 
                     {/* Branding System */}
                     <div className="max-w-3xl mb-10">
-                        <Badge>[ Product Decision &mdash; Branding System ]</Badge>
-                        <h3 className="font-heading text-3xl font-bold text-ink mb-4">
+                        <Badge>Product Decision &mdash; Branding System</Badge>
+                        <h3 className="font-ui text-3xl font-medium text-ink mb-4">
                             Clinic-level theme customization.{" "}
                             <span className="text-ink-muted">Identity without chaos.</span>
                         </h3>
@@ -455,15 +420,15 @@ const AtlasEcosystem = () => {
                     </div>
 
                     {/* Phase 2 Outcomes */}
-                    <div className="bg-gradient-to-br from-surface-3 to-transparent border border-line backdrop-blur-md rounded-2xl p-8 md:p-10">
-                        <Badge>[ Phase 2 &mdash; Business Outcomes ]</Badge>
+                    <div className="border-t border-line pt-10">
+                        <Badge>Phase 2 &mdash; Business Outcomes</Badge>
                         <p className="text-ink-muted text-sm mb-10 max-w-2xl">
                             The relational CMS collapsed an operational nightmare into a manageable workflow and gave Google the structured data it needed.
                         </p>
                         <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-                            <StatCard value="45%" label="Reduction in user navigational friction via session analysis." icon={<TrendingUp size={18} className="text-green-800" />} />
-                            <StatCard value="Zero" label="Duplicate content penalties after canonicalization." icon={<CheckCircle2 size={18} className="text-blue-700" />} />
-                            <StatCard value="Hours" label="Time to integrate a newly acquired clinic." icon={<Zap size={18} className="text-yellow-700" />} />
+                            <StatCard value="45%" label="Reduction in user navigational friction via session analysis." icon={<TrendingUp size={18} className="text-ink" />} />
+                            <StatCard value="Zero" label="Duplicate content penalties after canonicalization." icon={<CheckCircle2 size={18} className="text-ink-faint" />} />
+                            <StatCard value="Hours" label="Time to integrate a newly acquired clinic." icon={<Zap size={18} className="text-ink-faint" />} />
                         </div>
                         <p className="text-ink-ghost text-xs mt-6">Figures are internal metrics measured post-launch over the phase window.</p>
                     </div>
@@ -471,18 +436,19 @@ const AtlasEcosystem = () => {
             </section>
 
             {/* ================= PHASE 3 ================= */}
-            <section className="bg-surface-2 py-24 px-4 border-t border-line">
-                <div className="max-w-7xl mx-auto">
+            <section className="bg-surface py-24 px-6">
+                <div className="max-w-6xl mx-auto">
 
                     {/* Phase Divider */}
                     <div className="flex items-center gap-6 mb-20">
-                        <div className="text-xs font-mono text-ink-ghost uppercase tracking-widest whitespace-nowrap">Phase 03</div>
+                        <div className="text-[11px] text-ink-ghost uppercase tracking-[0.18em] whitespace-nowrap">Phase 03</div>
                         <div className="h-px bg-surface-3 flex-grow"></div>
-                        <div className="text-xs font-mono text-ink-ghost uppercase tracking-widest whitespace-nowrap">0-to-1 Site Builder</div>
+                        <div className="text-[11px] text-ink-ghost uppercase tracking-[0.18em] whitespace-nowrap">0-to-1 Site Builder</div>
                     </div>
 
                     {/* Phase 03 Vector — sprint backlog clogged → self-serve builder */}
-                    <svg className="w-full h-20 my-6" viewBox="0 0 400 80" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <div className="overflow-x-auto my-6">
+<svg className="w-full h-auto max-w-3xl min-w-[560px]" viewBox="0 0 400 80" fill="none" xmlns="http://www.w3.org/2000/svg">
                         <defs>
                             <linearGradient id="atlas-p3-bar" x1="0" y1="0" x2="1" y2="0">
                                 <stop offset="0%" stopColor="#ef4444" stopOpacity="0.3" />
@@ -502,7 +468,7 @@ const AtlasEcosystem = () => {
                             <rect key={i} x={8} y={8 + i * 13} width={70 - i * 5} height={9} rx="2"
                                 fill="url(#atlas-p3-bar)" stroke="#ef4444" strokeOpacity={0.3 - i * 0.04} strokeWidth="0.7" />
                         ))}
-                        <text x="40" y="76" textAnchor="middle" fontFamily="monospace" fontSize="7" fill="#101418" fillOpacity="0.52">eng queue</text>
+                        <text x="40" y="76" textAnchor="middle" fontFamily="monospace" fontSize="7" fill="#101418" fillOpacity="0.82">eng queue</text>
                         {/* Arrow */}
                         <line x1="88" y1="40" x2="130" y2="40" stroke="#101418" strokeOpacity="0.52" strokeWidth="0.8" strokeDasharray="4 3" />
                         <polygon points="130,37 138,40 130,43" fill="#101418" fillOpacity="0.39" />
@@ -513,21 +479,22 @@ const AtlasEcosystem = () => {
                             <rect key={i} x={x} y={y} width={w} height={h} rx="2"
                                 fill="#3b82f6" fillOpacity="0.18" stroke="#3b82f6" strokeOpacity="0.52" strokeWidth="0.5" />
                         ))}
-                        <text x="200" y="76" textAnchor="middle" fontFamily="monospace" fontSize="7" fill="#101418" fillOpacity="0.52">no-code builder</text>
+                        <text x="200" y="76" textAnchor="middle" fontFamily="monospace" fontSize="7" fill="#101418" fillOpacity="0.82">no-code builder</text>
                         {/* Arrow to outcome */}
                         <line x1="258" y1="40" x2="292" y2="40" stroke="#5E7000" strokeOpacity="0.78" strokeWidth="0.8" />
                         <polygon points="292,37 300,40 292,43" fill="#5E7000" fillOpacity="0.78" />
                         {/* Outcome: 0 tickets */}
                         <circle cx="330" cy="40" r="22" fill="url(#atlas-p3-win)" stroke="#5E7000" strokeOpacity="0.85" strokeWidth="1.2" filter="url(#atlas-p3-glow)" />
-                        <text x="330" y="37" textAnchor="middle" fontFamily="monospace" fontSize="12" fill="#5E7000" fillOpacity="0.6">0</text>
-                        <text x="330" y="49" textAnchor="middle" fontFamily="monospace" fontSize="6" fill="#101418" fillOpacity="0.65">tickets</text>
-                        <text x="330" y="76" textAnchor="middle" fontFamily="monospace" fontSize="7" fill="#5E7000" fillOpacity="0.78">100% reduction</text>
+                        <text x="330" y="37" textAnchor="middle" fontFamily="monospace" fontSize="12" fill="#5E7000" fillOpacity="1">0</text>
+                        <text x="330" y="49" textAnchor="middle" fontFamily="monospace" fontSize="6" fill="#101418" fillOpacity="0.82">tickets</text>
+                        <text x="330" y="76" textAnchor="middle" fontFamily="monospace" fontSize="7" fill="#5E7000" fillOpacity="1">100% reduction</text>
                     </svg>
+</div>
 
                     {/* Strategic Bet */}
                     <div className="max-w-3xl mb-20">
-                        <Badge>[ The Strategic Bet ]</Badge>
-                        <h2 className="font-heading text-4xl md:text-5xl font-bold text-ink leading-tight mb-6">
+                        <Badge>The Strategic Bet</Badge>
+                        <h2 className="font-display text-4xl md:text-5xl font-normal text-ink leading-tight mb-6">
                             Templates handled 90%.{" "}
                             <span className="text-ink-muted">The 10% was killing engineering.</span>
                         </h2>
@@ -542,22 +509,22 @@ const AtlasEcosystem = () => {
                         </p>
                     </div>
 
-                    <img loading="lazy" decoding="async" src={Sitebuilder} alt="Atlas No-Code Site Builder" className="rounded-2xl w-full border border-line mb-20" />
+                    <img loading="lazy" decoding="async" src={Sitebuilder} alt="Atlas No-Code Site Builder" className="rounded-sm w-full border border-line mb-20" />
 
                     {/* Builder Product Decisions */}
                     <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mb-20">
-                        <div className="bg-surface-3/70 border border-line rounded-2xl p-6 flex gap-4">
-                            <div className="w-10 h-10 rounded-xl bg-accent/25 border border-accent-ink/30 flex items-center justify-center flex-shrink-0">
-                                <Shield size={18} className="text-accent-ink" />
+                        <div className="border-t border-line pt-5 flex gap-4">
+                            <div className="text-ink-faint flex-shrink-0">
+                                <Shield size={18} className="text-ink-faint" />
                             </div>
                             <div>
                                 <h4 className="text-ink font-semibold text-sm mb-1">Invisible Constraints</h4>
                                 <p className="text-ink-muted text-xs leading-relaxed">Every block pre-governed by the design system. Managers choose layout and content &mdash; not colors, not typography. Creative freedom with zero brand violations.</p>
                             </div>
                         </div>
-                        <div className="bg-surface-3/70 border border-line rounded-2xl p-6 flex gap-4">
-                            <div className="w-10 h-10 rounded-xl bg-purple-500/10 border border-purple-500/20 flex items-center justify-center flex-shrink-0">
-                                <Database size={18} className="text-purple-600" />
+                        <div className="border-t border-line pt-5 flex gap-4">
+                            <div className="text-ink-faint flex-shrink-0">
+                                <Database size={18} className="text-ink-faint" />
                             </div>
                             <div>
                                 <h4 className="text-ink font-semibold text-sm mb-1">Relational Components</h4>
@@ -566,11 +533,11 @@ const AtlasEcosystem = () => {
                         </div>
                     </div>
 
-                    <img loading="lazy" decoding="async" src={Templatemanager} alt="Atlas Template Manager" className="rounded-2xl w-full border border-line mb-20" />
+                    <img loading="lazy" decoding="async" src={Templatemanager} alt="Atlas Template Manager" className="rounded-sm w-full border border-line mb-20" />
 
                     {/* What didn't work */}
-                    <div className="mb-20 bg-surface-3/60 border border-dashed border-line rounded-xl p-5 max-w-3xl">
-                        <p className="text-ink-ghost text-xs uppercase tracking-widest mb-2 font-mono">What didn&apos;t work first</p>
+                    <div className="mb-20 border-l-2 border-line-strong pl-5 max-w-3xl">
+                        <p className="text-ink-ghost text-[11px] uppercase tracking-[0.18em] mb-2">What didn&apos;t work first</p>
                         <p className="text-ink-muted text-sm leading-relaxed">
                             First version of the builder gave managers full section reordering. Result: pages with CTAs buried below the fold and hero sections mid-page.
                             Iterated: switched to <span className="text-ink font-medium">fixed structural zones with flexible content blocks inside them</span>. Layout integrity preserved, creative freedom maintained.
@@ -578,15 +545,15 @@ const AtlasEcosystem = () => {
                     </div>
 
                     {/* Phase 3 Outcomes */}
-                    <div className="bg-gradient-to-br from-surface-3 to-transparent border border-line backdrop-blur-md rounded-2xl p-8 md:p-10">
-                        <Badge>[ Phase 3 &mdash; Business Outcomes ]</Badge>
+                    <div className="border-t border-line pt-10">
+                        <Badge>Phase 3 &mdash; Business Outcomes</Badge>
                         <p className="text-ink-muted text-sm mb-10 max-w-2xl">
                             The site builder changed the power dynamic between central IT and local clinic teams. Marketing finally moved at the speed of marketing.
                         </p>
                         <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-                            <StatCard value="~0" label="Engineering tickets for routine custom pages, once teams self-served." icon={<CheckCircle2 size={18} className="text-green-800" />} />
-                            <StatCard value="Hours" label="Time to launch a custom marketing campaign." icon={<Zap size={18} className="text-yellow-700" />} />
-                            <StatCard value="Zero" label="Brand or accessibility breakages across 50+ pages." icon={<Shield size={18} className="text-blue-700" />} />
+                            <StatCard value="~0" label="Engineering tickets for routine custom pages, once teams self-served." icon={<CheckCircle2 size={18} className="text-ink" />} />
+                            <StatCard value="Hours" label="Time to launch a custom marketing campaign." icon={<Zap size={18} className="text-ink-faint" />} />
+                            <StatCard value="Zero" label="Brand or accessibility breakages across 50+ pages." icon={<Shield size={18} className="text-ink-faint" />} />
                         </div>
                         <p className="text-ink-ghost text-xs mt-6">Figures are internal metrics measured post-launch over the phase window.</p>
                     </div>
@@ -594,11 +561,11 @@ const AtlasEcosystem = () => {
             </section>
 
             {/* ================= CLOSING ================= */}
-            <section className="bg-surface-2 py-24 px-4 border-t border-line">
-                <div className="max-w-7xl mx-auto">
+            <section className="bg-cream py-24 px-6">
+                <div className="max-w-6xl mx-auto">
                     <div className="max-w-3xl">
-                        <Badge>[ The Real Story ]</Badge>
-                        <h2 className="font-heading text-4xl md:text-5xl font-bold text-ink leading-tight mb-8">
+                        <Badge>The Real Story</Badge>
+                        <h2 className="font-display text-4xl md:text-5xl font-normal text-ink leading-tight mb-8">
                             The layout was never the decision.{" "}
                             <span className="text-ink-muted">The data model was.</span>
                         </h2>
@@ -623,18 +590,8 @@ const AtlasEcosystem = () => {
             </section>
 
             {/* ================= NEXT CASE STUDY ================= */}
-            <section className="bg-surface-2 py-16 px-4 border-t border-line">
-                <div className="max-w-7xl mx-auto flex flex-col md:flex-row items-center justify-between gap-6">
-                    <div>
-                        <p className="text-xs font-mono text-ink-ghost uppercase tracking-widest mb-2">Next Case Study</p>
-                        <p className="font-heading text-2xl font-bold text-ink">Carter: Ad Platform Redesign &amp; 0-to-1 DSP</p>
-                    </div>
-                    <Link to="/carter" className="text-accent-ink font-medium text-sm border border-accent-ink/30 bg-accent/15 px-6 py-3 rounded-full hover:bg-accent/25 transition-colors whitespace-nowrap">
-                        View Case Study &rarr;
-                    </Link>
-                </div>
-            </section>
-
+            <NextCase to="/carter" title="Carter: Ad Platform Redesign & 0-to-1 DSP" />
+            </main>
             <Footer />
         </div>
     );

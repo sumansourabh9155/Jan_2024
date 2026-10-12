@@ -12,7 +12,7 @@ const templateData = [
     title: "Multi-Location Template",
     description: "Fully responsive mobile-first design optimized for on-the-go pet owners. Prioritizes click-to-call, directions, and fast-loading content.",
     image: Mobile,
-    accentColor: "border-orange-500/40",
+    accentColor: "border-line-strong",
     tag: "Mobile + Spec + ER"
   },
   {
@@ -20,7 +20,7 @@ const templateData = [
     title: "Specialty Clinic",
     description: "Designed to highlight advanced medical capabilities, doctor credentials, and referral forms for other veterinarians.",
     image: Spec,
-    accentColor: "border-purple-500/40",
+    accentColor: "border-line-strong",
     tag: "Specialty"
   },
   {
@@ -28,7 +28,7 @@ const templateData = [
     title: "Emergency Clinic (ER)",
     description: "High-contrast, action-oriented design. Prioritizes 'Call Now' and 'Get Directions' functionalities for high-stress triage situations.",
     image: ER,
-    accentColor: "border-red-500/40",
+    accentColor: "border-line-strong",
     tag: "ER"
   },
   {
@@ -36,7 +36,7 @@ const templateData = [
     title: "Specialty + Emergency Hybrid",
     description: "A complex dual-funnel architecture that seamlessly routes urgent cases to the ER while allowing specialty clients to research chronic care.",
     image: SpecEr,
-    accentColor: "border-orange-500/40",
+    accentColor: "border-line-strong",
     tag: "Spec + ER"
   },
   {
@@ -44,7 +44,7 @@ const templateData = [
     title: "General Practice (GP)",
     description: "Standardized layout optimized for wellness, preventive care, and routine checkups. Focuses on easy booking flows and localized SEO.",
     image: GP,
-    accentColor: "border-emerald-500/40",
+    accentColor: "border-line-strong",
     tag: "GP"
   }
 ];
@@ -65,7 +65,7 @@ const AtlasTemplates = () => {
   const activeTemplate = templateData[activeIndex];
 
   return (
-    <div className="w-full bg-surface-2 rounded-3xl border border-line p-8 md:p-12 font-sans text-ink my-12">
+    <div className="w-full bg-surface-2 rounded-sm border border-line p-8 md:p-12 font-ui text-ink my-12">
       <style>{`
         .atlas-browser-scroll::-webkit-scrollbar { width: 11px; }
         .atlas-browser-scroll::-webkit-scrollbar-track { background: #363636; }
@@ -83,7 +83,7 @@ const AtlasTemplates = () => {
               entirely, so it isn't one of the clinic archetypes shown here. */}
           <div className="mb-10">
             <h4 className="text-ink-muted uppercase tracking-widest text-xs font-semibold mb-2">The Architecture</h4>
-            <h2 className="font-heading text-2xl md:text-4xl font-bold tracking-tight">
+            <h2 className="font-display text-2xl md:text-4xl font-normal tracking-tight">
               The 6 Templates
             </h2>
             <p className="text-ink-faint text-sm mt-3 max-w-md">
@@ -100,7 +100,7 @@ const AtlasTemplates = () => {
                 <div
                   key={item.id}
                   onClick={() => handleSelect(index)}
-                  className={`border-b border-line last:border-0 py-5 cursor-pointer transition-all duration-200 rounded-xl px-4 -mx-4 ${isActive ? 'bg-surface-3/80' : 'hover:bg-surface-3/60'}`}
+                  className={`border-b border-line last:border-0 py-5 cursor-pointer transition-all duration-200 rounded-sm px-4 -mx-4 ${isActive ? 'bg-surface-3/80' : 'hover:bg-surface-3/60'}`}
                 >
                   <div className="flex gap-4 items-start">
                     <div className="mt-0.5 shrink-0">
@@ -133,7 +133,7 @@ const AtlasTemplates = () => {
         {/* Right Side: Mac Browser Mockup */}
         <div className={`flex-[0.9] w-full transition-opacity duration-200 ${fade ? 'opacity-100' : 'opacity-0'}`}>
           {/* Browser chrome */}
-          <div className="rounded-2xl overflow-hidden border border-line shadow-2xl bg-surface-3">
+          <div className="rounded-sm overflow-hidden border border-line bg-surface-3">
             {/* Title bar */}
             <div className="flex items-center gap-3 px-4 py-3 bg-surface-3 border-b border-line">
               {/* Traffic lights */}

@@ -1,160 +1,210 @@
-import { ArrowRight, Menu, X } from "lucide-react";
+import { Menu, X } from "lucide-react";
 import { Link, useLocation } from "react-router-dom";
 import { useEffect, useRef, useState } from "react";
+
+/**
+ * Site header — shared by every page.
+ *
+ * Previously a floating pill: monospace job title, a lime capsule for the
+ * active link, a circled "S" monogram and a heavy shadow. That vocabulary read
+ * as a developer tool. This keeps the same behaviour (hide on scroll down,
+ * show on scroll up) but states it as type: the name, a quiet set of links,
+ * one control.
+ */
+// Outside the component so the scroll handler can read them without the
+// effect re-running on every render.
+const HEADER_H = 76;
+
+const navLinks = [
+  { to: "/#case-studies", text: "Case studies" },
+  { to: "/#design-gallery", text: "Design" },
+  { to: "/resume", text: "About" },
+];
+
+// A case study is the work, so reading one should light up Work. Without this
+// the nav went blank the moment you followed a project link — the reader lost
+// any sense of where they were in the site.
+const CASE_STUDY_PATHS = ["/carter", "/poppins", "/atlas", "/simfluent", "/godiverse"];
 
 const Navbar = () => {
   const [isVisible, setIsVisible] = useState(true);
   const lastScrollY = useRef(0);
-  const ticking = useRef(false);
+  const ticking = useRef(0);
   const [isMenuOpen, setIsMenuOpen] = useState(false);
+  const [activeSection, setActiveSection] = useState(null);
   const location = useLocation();
 
-  // Smart Scroll Logic: Hides on scroll down, shows on scroll up.
-  // rAF-throttled + passive listener + ref-based prev scroll so the
-  // effect registers once (no re-bind on every scroll tick).
+  // One rAF-throttled scroll handler drives both the hide-on-scroll bar and
+  // the active-section indicator.
+  //
+  // The indicator used to come from location.hash, which only changes when
+  // someone clicks a link — so scrolling straight past a section never lit it
+  // up, and the nav was wrong for most of the page.
+  //
+  // An IntersectionObserver would be the usual tool, but this reuses a handler
+  // that already runs on every scroll, so the extra cost is two
+  // getBoundingClientRect calls per frame, and unlike IO it is observable in
+  // a headless browser, which is how it got tested.
   useEffect(() => {
-    const onScroll = () => {
-      if (ticking.current) return;
-      ticking.current = true;
-      window.requestAnimationFrame(() => {
-        const y = window.scrollY;
-        if (y > lastScrollY.current && y > 100) {
-          setIsVisible(false);
-        } else {
-          setIsVisible(true);
+    const onLanding = location.pathname === "/";
+    const ids = navLinks.filter((l) => l.to.startsWith("/#")).map((l) => l.to.slice(2));
+
+    const read = () => {
+      const y = window.scrollY;
+      if (y > lastScrollY.current && y > 100) setIsVisible(false);
+      else setIsVisible(true);
+      lastScrollY.current = y;
+
+      if (!onLanding) {
+        setActiveSection(null);
+      } else {
+        // A reading line a third of the way down the content area: a section
+        // is "current" once it crosses that, not when its first pixel appears.
+        const line = HEADER_H + (window.innerHeight - HEADER_H) * 0.35;
+        let current = null;
+        for (const id of ids) {
+          const el = document.getElementById(id);
+          if (!el) continue;
+          const r = el.getBoundingClientRect();
+          if (r.top <= line && r.bottom > line) {
+            current = id;
+            break;
+          }
         }
-        lastScrollY.current = y;
-        ticking.current = false;
-      });
+        // Identical state bails out of the re-render, so this is free on the
+        // frames where nothing changed — which is most of them.
+        setActiveSection((prev) => (prev === current ? prev : current));
+      }
     };
 
+    // Cancel-and-reschedule rather than a boolean lock. A lock that only
+    // clears inside the rAF callback deadlocks whenever frames are throttled
+    // — a hidden tab drops to roughly 2Hz, so one pending frame would swallow
+    // every scroll until it finally ran. This also coalesces to the latest
+    // scroll position per frame instead of the first.
+    const onScroll = () => {
+      cancelAnimationFrame(ticking.current);
+      ticking.current = requestAnimationFrame(read);
+    };
+
+    read(); // set the correct state before the first scroll
     window.addEventListener("scroll", onScroll, { passive: true });
-    return () => window.removeEventListener("scroll", onScroll);
-  }, []);
+    return () => {
+      cancelAnimationFrame(ticking.current);
+      window.removeEventListener("scroll", onScroll);
+    };
+  }, [location.pathname]);
 
   // Close mobile menu on route change
   useEffect(() => {
     setIsMenuOpen(false);
   }, [location]);
 
-  const navLinks = [
-    { to: "/#case-studies", text: "Case Studies" },
-    { to: "/#design-gallery", text: "Design Work" },
-    { to: "/resume", text: "About / Resume" },
-    // { to: "/resume", text: "Profile" },        // Renamed from "About Me" (more professional)
-  ];
+  const onCaseStudy = CASE_STUDY_PATHS.includes(location.pathname.toLowerCase());
+
+  const isActive = (to) => {
+    if (!to.startsWith("/#")) return location.pathname === to;
+    // On the landing page the scroll position decides; on a case study the
+    // Work link stands in for the section the reader came from.
+    if (to === "/#case-studies" && onCaseStudy) return true;
+    return location.pathname === "/" && activeSection === to.slice(2);
+  };
+
+  // "page" is for a link to the current page. A link to a section within the
+  // current page — or, on a case study, to the listing that page belongs to —
+  // is "location".
+  const currentFor = (to) =>
+    !isActive(to) ? undefined : to.startsWith("/#") ? "location" : "page";
 
   return (
-    <div className="flex justify-center w-full">
-      <div
-        className={`fixed z-50 w-[95%] md:max-w-7xl transition-all duration-500 ease-in-out
-          ${isVisible ? "translate-y-6 opacity-100" : "-translate-y-full opacity-0"}
-        `}
-      >
-        {/* The bar floats over whatever it is scrolling across, so it needs a
-            real shadow to separate. 0.5 black was a dark-theme value — over a
-            light page it read as a grey bruise rather than a lift. */}
-        <header className="relative flex items-center justify-between px-6 py-3 bg-surface-2/95 backdrop-blur-xl border border-line rounded-full shadow-[0_6px_24px_rgba(0,0,0,0.10)]">
+    <div
+      className={`fixed top-0 left-0 right-0 z-50 transition-transform duration-500 ease-out
+        ${isVisible ? "translate-y-0" : "-translate-y-full"}`}
+    >
+      {/* Double rule above and below, so the header reads as a banded strip
+          rather than as a bar with a single line under it. Letting it go
+          transparent at the top left it with no edge at all. */}
+      <div aria-hidden="true" className="rule-double bg-surface" />
+      <header className="bg-surface px-6">
+        {/* Gutter on the header, container inside it — same as every section,
+            so the name sits on the page's own left margin instead of 21px
+            inboard of it. */}
+        <div className="max-w-6xl mx-auto py-4 flex items-center justify-between gap-6">
 
-          {/* Left: Logo */}
-          <Link
-            to="/"
-            className="flex items-center gap-2 group"
-          >
-            {/* Solid plate, not a tint: the olive mark only clears AA against
-                a near-white backdrop, and this bar floats over whatever it is
-                scrolling across. */}
-            <div className={`relative flex items-center justify-center w-8 h-8 rounded-full bg-surface border transition-colors ${location.pathname === "/" ? "border-accent-ink/45" : "border-line group-hover:border-accent-ink/45"}`}>
-              <span className={`font-mono font-bold text-xs transition-colors ${location.pathname === "/" ? "text-accent-ink" : "text-ink group-hover:text-accent-ink"}`}>S</span>
-            </div>
-            <div className="flex flex-col">
-              <span className="text-ink font-medium text-sm leading-none tracking-wide">Suman Sourabh</span>
-              <span className={`text-[10px] font-mono mt-0.5 transition-colors ${location.pathname === "/" ? "text-accent-ink" : "text-ink-faint group-hover:text-accent-ink"}`}>Product Designer · AI-Native </span>
-            </div>
+          <Link to="/" className="group shrink-0">
+            <span className="block font-display text-[1.375rem] leading-none text-ink transition-colors group-hover:text-ink-muted">
+              Suman Sourabh
+            </span>
+            <span className="block text-[8.5px] uppercase tracking-[0.22em] text-ink-faint mt-1.5">
+              Product Designer · AI-Native
+            </span>
           </Link>
 
-          {/* Middle: Desktop Nav */}
-          <nav aria-label="Main navigation" className="hidden md:flex items-center gap-1 bg-surface-3/70 px-2 py-1 rounded-full border border-line-soft">
-            {navLinks.map(({ to, text }) => {
-              // Hash links all share the "/" path, so derive active state from the hash.
-              const isActive = to.startsWith("/#")
-                ? location.pathname === "/" && location.hash === to.slice(1)
-                : location.pathname === to;
-              return (
-                <Link
-                  key={to}
-                  to={to}
-                  className={`px-4 py-1.5 rounded-full text-xs font-medium transition-all duration-300
-                  ${isActive
-                      ? "bg-accent text-ink shadow-[0_4px_15px_rgba(0,0,0,0.08)]"
-                      : "text-ink-muted hover:text-ink hover:bg-surface-3/70"
-                    }`}
-                >
-                  {text}
-                </Link>
-              );
-            })}
+          <nav aria-label="Main navigation" className="hidden md:flex items-center gap-8">
+            {navLinks.map(({ to, text }) => (
+              <Link
+                key={to}
+                to={to}
+                aria-current={currentFor(to)}
+                // The active state is an underline, not a filled capsule —
+                // weight and rule, no layout shift.
+                className={`text-[0.9375rem] transition-colors pb-0.5 border-b ${isActive(to)
+                    ? "text-ink border-ink"
+                    : "text-ink-muted border-transparent hover:text-ink hover:border-line-strong"
+                  }`}
+              >
+                {text}
+              </Link>
+            ))}
+            {/* A text link, not a filled pill. The solid button was the
+                heaviest thing in the bar and pulled the eye away from the
+                work. Underlined so it still reads as the action — and it's a
+                text-decoration, which distinguishes it from the border-b the
+                nav links use for their active state. */}
+            <Link
+              to="/contact"
+              className="text-[0.9375rem] text-ink underline underline-offset-[6px] decoration-line-strong hover:decoration-ink transition-colors"
+            >
+              Get in touch
+            </Link>
           </nav>
 
-          {/* Right: CTA Button */}
-          <div className="hidden md:flex items-center">
-            <Link
-              to="/contact"
-              className="group flex items-center gap-2 px-5 py-2 text-xs font-semibold bg-ink text-surface border border-transparent rounded-full hover:bg-ink-soft transition-all active:scale-95"
-            >
-              Let&apos;s Work Together
-              <ArrowRight size={14} className="group-hover:translate-x-0.5 transition-transform" />
-            </Link>
-          </div>
-
-          {/* Mobile Toggle */}
           <button
             onClick={() => setIsMenuOpen(!isMenuOpen)}
-            className="md:hidden p-2 text-ink-muted hover:text-ink transition-colors"
+            aria-expanded={isMenuOpen}
+            aria-label={isMenuOpen ? "Close menu" : "Open menu"}
+            className="md:hidden -mr-2 p-2 text-ink"
           >
-            {isMenuOpen ? <X size={24} /> : <Menu size={24} />}
+            {isMenuOpen ? <X size={22} /> : <Menu size={22} />}
           </button>
-        </header>
-
-        {/* Mobile Menu Dropdown */}
-        <div
-          className={`md:hidden absolute top-full left-0 w-full mt-2 bg-surface-2 border border-line rounded-2xl overflow-hidden shadow-2xl transition-all duration-300 origin-top
-            ${isMenuOpen ? "opacity-100 scale-100 max-h-96" : "opacity-0 scale-95 max-h-0 pointer-events-none"}
-            `}
-        >
-          <div className="p-4 flex flex-col gap-2">
-            {navLinks.map(({ to, text }) => {
-              const isActive = to.startsWith("/#")
-                ? location.pathname === "/" && location.hash === to.slice(1)
-                : location.pathname === to;
-              return (
-                <Link
-                  key={to}
-                  to={to}
-                  className={`px-4 py-3 rounded-xl text-sm font-medium transition-colors
-                    ${isActive
-                      ? "bg-surface-3 text-accent-ink border border-accent-ink/30"
-                      : "text-ink-muted hover:text-ink hover:bg-surface-3/70"
-                    }`}
-                >
-                  {text}
-                </Link>
-              );
-            })}
-
-            <div className="h-px bg-surface-3 my-2"></div>
-
-            <Link
-              to="/contact"
-              // Darken on hover. Dropping opacity blends the button toward the
-              // page, which on white made it fade out instead of respond.
-              className="flex items-center justify-center gap-2 px-4 py-3 text-sm font-bold bg-accent text-ink rounded-xl hover:bg-accent-ink hover:text-surface transition-colors"
-            >
-              Let&apos;s Work Together <ArrowRight size={16} />
-            </Link>
-          </div>
         </div>
+      </header>
+      <div aria-hidden="true" className="rule-double bg-surface" />
 
+      {/* Mobile menu */}
+      <div
+        className={`md:hidden overflow-hidden bg-surface border-b border-line transition-[max-height,opacity] duration-300
+          ${isMenuOpen ? "max-h-80 opacity-100" : "max-h-0 opacity-0"}`}
+      >
+        <nav aria-label="Mobile navigation" className="px-6 py-4 flex flex-col">
+          {navLinks.map(({ to, text }) => (
+            <Link
+              key={to}
+              to={to}
+              aria-current={currentFor(to)}
+              className={`py-3 text-base border-b border-line last:border-b-0 ${isActive(to) ? "text-ink font-medium" : "text-ink-muted"
+                }`}
+            >
+              {text}
+            </Link>
+          ))}
+          <Link
+            to="/contact"
+            className="mt-4 mb-2 text-center text-[0.9375rem] font-medium bg-ink text-surface px-5 py-3 rounded-full"
+          >
+            Get in touch
+          </Link>
+        </nav>
       </div>
     </div>
   );
