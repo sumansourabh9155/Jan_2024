@@ -30,22 +30,22 @@ import Templatemanager from "../../../assets/atlas/Templatemanager.png";
 // ================= REUSABLE COMPONENTS =================
 
 const Badge = ({ children }) => (
-    <div className="inline-flex items-center gap-2 text-xs font-mono text-[#d6f928] tracking-widest uppercase mb-6 bg-[#d6f928]/5 px-3 py-1 rounded border border-[#d6f928]/20">
+    <div className="inline-flex items-center gap-2 text-xs font-mono text-accent-ink tracking-widest uppercase mb-6 bg-accent/15 px-3 py-1 rounded border border-accent-ink/30">
         {children}
     </div>
 );
 
 const StatCard = ({ value, label, icon }) => (
-    <div className="bg-white/5 border border-white/10 rounded-2xl p-6 space-y-3">
-        {icon && <div className="w-10 h-10 rounded-xl bg-white/5 border border-white/10 flex items-center justify-center">{icon}</div>}
-        <p className="font-heading text-3xl font-bold text-white">{value}</p>
-        <p className="text-sm text-gray-400 leading-snug">{label}</p>
+    <div className="bg-surface-3/70 border border-line rounded-2xl p-6 space-y-3">
+        {icon && <div className="w-10 h-10 rounded-xl bg-surface border border-line flex items-center justify-center">{icon}</div>}
+        <p className="font-heading text-3xl font-bold text-ink">{value}</p>
+        <p className="text-sm text-ink-muted leading-snug">{label}</p>
     </div>
 );
 
 const AtlasEcosystem = () => {
     return (
-        <div className="text-white bg-[#050505]">
+        <div className="text-ink bg-surface-2">
             <SEO
                 title="Atlas: CMS Architecture & 0-to-1 Site Builder — Product Design Case Study"
                 description="How I owned the design for a 130-clinic veterinary network — standardizing digital infrastructure, designing a relational CMS, and a 0-to-1 no-code site builder."
@@ -55,44 +55,44 @@ const AtlasEcosystem = () => {
             <Navbar />
 
             {/* ================= HERO ================= */}
-            <section className="bg-[#050505] pt-32 pb-24 px-4">
+            <section className="bg-surface-2 pt-32 pb-24 px-4">
                 <div className="max-w-7xl mx-auto">
                     <div className="text-center max-w-3xl mx-auto mb-20">
                         <Badge>[ Veterinary Care &middot; Multi-Location &middot; 0-to-1 Builder ]</Badge>
-                        <h1 className="font-heading text-5xl md:text-7xl font-extrabold text-white tracking-tight leading-none mb-6">
-                            Atlas <span className="text-gray-500 font-light">Veterinary Network</span>
+                        <h1 className="font-heading text-5xl md:text-7xl font-extrabold text-ink tracking-tight leading-none mb-6">
+                            Atlas <span className="text-ink-faint font-light">Veterinary Network</span>
                         </h1>
-                        <p className="text-lg text-gray-400 font-light leading-relaxed max-w-xl mx-auto">
+                        <p className="text-lg text-ink-muted font-light leading-relaxed max-w-xl mx-auto">
                             Transformed 130 disconnected clinic websites into a unified digital ecosystem — standardized architecture, relational CMS, and a 0-to-1 no-code builder.
                         </p>
                     </div>
 
-                    <img src={Banner} alt="Atlas Digital Ecosystem" className="rounded-2xl w-full object-cover border border-white/10" />
+                    <img src={Banner} alt="Atlas Digital Ecosystem" className="rounded-2xl w-full object-cover border border-line" />
 
                     {/* Snapshot Strip */}
                     <div className="grid grid-cols-2 md:grid-cols-4 gap-6 mt-12">
-                        <div className="bg-white/5 border border-white/10 rounded-2xl p-5 text-center">
-                            <p className="text-xs text-gray-500 uppercase tracking-widest mb-2">Company</p>
-                            <p className="text-white font-medium">Shyftlabs</p>
+                        <div className="bg-surface-3/70 border border-line rounded-2xl p-5 text-center">
+                            <p className="text-xs text-ink-faint uppercase tracking-widest mb-2">Company</p>
+                            <p className="text-ink font-medium">Shyftlabs</p>
                         </div>
-                        <div className="bg-white/5 border border-white/10 rounded-2xl p-5 text-center">
-                            <p className="text-xs text-gray-500 uppercase tracking-widest mb-2">My Role</p>
-                            <p className="text-white font-medium">Product Designer</p>
+                        <div className="bg-surface-3/70 border border-line rounded-2xl p-5 text-center">
+                            <p className="text-xs text-ink-faint uppercase tracking-widest mb-2">My Role</p>
+                            <p className="text-ink font-medium">Product Designer</p>
                         </div>
-                        <div className="bg-white/5 border border-white/10 rounded-2xl p-5 text-center">
-                            <p className="text-xs text-gray-500 uppercase tracking-widest mb-2">Platform</p>
-                            <p className="text-white font-medium">Web, CMS, SaaS Builder</p>
+                        <div className="bg-surface-3/70 border border-line rounded-2xl p-5 text-center">
+                            <p className="text-xs text-ink-faint uppercase tracking-widest mb-2">Platform</p>
+                            <p className="text-ink font-medium">Web, CMS, SaaS Builder</p>
                         </div>
-                        <div className="bg-white/5 border border-white/10 rounded-2xl p-5 text-center">
-                            <p className="text-xs text-gray-500 uppercase tracking-widest mb-2">Duration</p>
-                            <p className="text-white font-medium">3 Phases, Two Stints</p>
+                        <div className="bg-surface-3/70 border border-line rounded-2xl p-5 text-center">
+                            <p className="text-xs text-ink-faint uppercase tracking-widest mb-2">Duration</p>
+                            <p className="text-ink font-medium">3 Phases, Two Stints</p>
                         </div>
                     </div>
 
                     {/* Tools Stack */}
                     <div className="flex flex-wrap gap-2 mt-8 justify-center">
                         {["Jira", "Figma", "Google Analytics", "Hotjar", "WordPress Audit", "React", "Tailwind CSS"].map((tool) => (
-                            <span key={tool} className="text-xs px-3 py-1 bg-white/5 text-gray-500 border border-white/10 rounded-full">
+                            <span key={tool} className="text-xs px-3 py-1 bg-surface-3/70 text-ink-faint border border-line rounded-full">
                                 {tool}
                             </span>
                         ))}
@@ -101,84 +101,84 @@ const AtlasEcosystem = () => {
             </section>
 
             {/* ================= WHY I OWNED PRODUCT DECISIONS ================= */}
-            <section className="bg-black py-24 px-4 border-t border-white/10">
+            <section className="bg-surface py-24 px-4 border-t border-line">
                 <div className="max-w-7xl mx-auto">
                     <div className="max-w-3xl mb-20">
                         <Badge>[ How I Owned the Design ]</Badge>
-                        <h2 className="font-heading text-4xl md:text-5xl font-bold text-white leading-tight mb-6">
+                        <h2 className="font-heading text-4xl md:text-5xl font-bold text-ink leading-tight mb-6">
                             130 clinics. 3 phases.{" "}
-                            <span className="text-gray-400">Sole designer on an 8-person team.</span>
+                            <span className="text-ink-muted">Sole designer on an 8-person team.</span>
                         </h2>
-                        <p className="text-gray-400 text-base leading-relaxed">
-                            Atlas needed someone who could understand the <span className="text-white font-medium">data architecture, design the user experience, and coordinate engineering delivery</span> — simultaneously.
+                        <p className="text-ink-muted text-base leading-relaxed">
+                            Atlas needed someone who could understand the <span className="text-ink font-medium">data architecture, design the user experience, and coordinate engineering delivery</span> — simultaneously.
                             I owned the design across all three phases: standardization, CMS architecture, and the 0-to-1 site builder.
-                            The build team was <span className="text-white font-medium">8 people with 2 PMs</span>,
+                            The build team was <span className="text-ink font-medium">8 people with 2 PMs</span>,
                             working in 2-week sprints &mdash; I was the{" "}
-                            <span className="text-white font-medium">only designer on it</span>, which is why the
+                            <span className="text-ink font-medium">only designer on it</span>, which is why the
                             architecture decisions and the interface decisions had to be the same decisions.
                         </p>
-                        <p className="text-gray-500 text-sm leading-relaxed mt-4">
+                        <p className="text-ink-faint text-sm leading-relaxed mt-4">
                             Timeline note: I led the first stage here for roughly six months, moved to{" "}
-                            <Link to="/carter" className="text-gray-300 underline underline-offset-2 hover:text-[#d6f928] transition-colors">Carter</Link>{" "}
+                            <Link to="/carter" className="text-ink-soft underline underline-offset-2 hover:text-accent-ink transition-colors">Carter</Link>{" "}
                             while supporting this part-time, then returned full-time as the later phases ramped up.
                         </p>
                     </div>
 
                     {/* What I Owned — Icon Cards */}
                     <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mb-16">
-                        <div className="bg-white/5 border border-white/10 rounded-2xl p-6 flex gap-4">
+                        <div className="bg-surface-3/70 border border-line rounded-2xl p-6 flex gap-4">
                             <div className="w-10 h-10 rounded-xl bg-blue-500/10 border border-blue-500/20 flex items-center justify-center flex-shrink-0">
-                                <FileText size={18} className="text-blue-400" />
+                                <FileText size={18} className="text-blue-700" />
                             </div>
                             <div>
-                                <h4 className="text-white font-semibold text-sm mb-1">Specs &amp; Phased Rollout</h4>
-                                <p className="text-gray-400 text-xs leading-relaxed">Wrote design specs for each phase. Defined scope, acceptance criteria, and rollout strategy for every location in the network.</p>
+                                <h4 className="text-ink font-semibold text-sm mb-1">Specs &amp; Phased Rollout</h4>
+                                <p className="text-ink-muted text-xs leading-relaxed">Wrote design specs for each phase. Defined scope, acceptance criteria, and rollout strategy for every location in the network.</p>
                             </div>
                         </div>
-                        <div className="bg-white/5 border border-white/10 rounded-2xl p-6 flex gap-4">
-                            <div className="w-10 h-10 rounded-xl bg-[#d6f928]/10 border border-[#d6f928]/20 flex items-center justify-center flex-shrink-0">
-                                <Database size={18} className="text-[#d6f928]" />
+                        <div className="bg-surface-3/70 border border-line rounded-2xl p-6 flex gap-4">
+                            <div className="w-10 h-10 rounded-xl bg-accent/25 border border-accent-ink/30 flex items-center justify-center flex-shrink-0">
+                                <Database size={18} className="text-accent-ink" />
                             </div>
                             <div>
-                                <h4 className="text-white font-semibold text-sm mb-1">Data Architecture</h4>
-                                <p className="text-gray-400 text-xs leading-relaxed">Designed the relational taxonomy — services, specialists, locations as connected nodes, not static pages.</p>
+                                <h4 className="text-ink font-semibold text-sm mb-1">Data Architecture</h4>
+                                <p className="text-ink-muted text-xs leading-relaxed">Designed the relational taxonomy — services, specialists, locations as connected nodes, not static pages.</p>
                             </div>
                         </div>
-                        <div className="bg-white/5 border border-white/10 rounded-2xl p-6 flex gap-4">
+                        <div className="bg-surface-3/70 border border-line rounded-2xl p-6 flex gap-4">
                             <div className="w-10 h-10 rounded-xl bg-orange-500/10 border border-orange-500/20 flex items-center justify-center flex-shrink-0">
-                                <Blocks size={18} className="text-orange-400" />
+                                <Blocks size={18} className="text-orange-600" />
                             </div>
                             <div>
-                                <h4 className="text-white font-semibold text-sm mb-1">0-to-1 Product</h4>
-                                <p className="text-gray-400 text-xs leading-relaxed">Scoped, spec&apos;d, and shipped the no-code site builder from scratch. Zero engineering tickets for custom pages.</p>
+                                <h4 className="text-ink font-semibold text-sm mb-1">0-to-1 Product</h4>
+                                <p className="text-ink-muted text-xs leading-relaxed">Scoped, spec&apos;d, and shipped the no-code site builder from scratch. Zero engineering tickets for custom pages.</p>
                             </div>
                         </div>
                     </div>
 
-                    <p className="text-white border-l-4 border-[#d6f928]/40 pl-6 italic font-light text-base max-w-3xl">
+                    <p className="text-ink border-l-4 border-accent-ink/40 pl-6 italic font-light text-base max-w-3xl">
                         &ldquo;We&apos;re acquiring clinics faster than we can bring them into the network properly. Our digital infrastructure is a bottleneck to growth.&rdquo;
-                        <span className="text-gray-500 not-italic block mt-2 text-sm">&mdash; Atlas Leadership</span>
+                        <span className="text-ink-faint not-italic block mt-2 text-sm">&mdash; Atlas Leadership</span>
                     </p>
                 </div>
             </section>
 
             {/* ================= PHASE 1 ================= */}
-            <section className="bg-[#050505] py-24 px-4 border-t border-white/10">
+            <section className="bg-surface-2 py-24 px-4 border-t border-line">
                 <div className="max-w-7xl mx-auto">
 
                     {/* Phase Divider */}
                     <div className="flex items-center gap-6 mb-20">
-                        <div className="text-xs font-mono text-gray-600 uppercase tracking-widest whitespace-nowrap">Phase 01</div>
-                        <div className="h-px bg-white/10 flex-grow"></div>
-                        <div className="text-xs font-mono text-gray-600 uppercase tracking-widest whitespace-nowrap">Standardization</div>
+                        <div className="text-xs font-mono text-ink-ghost uppercase tracking-widest whitespace-nowrap">Phase 01</div>
+                        <div className="h-px bg-surface-3 flex-grow"></div>
+                        <div className="text-xs font-mono text-ink-ghost uppercase tracking-widest whitespace-nowrap">Standardization</div>
                     </div>
 
                     {/* Concept Vector — Consolidation: chaos → order */}
                     <svg className="w-full h-20 my-6" viewBox="0 0 400 80" fill="none" xmlns="http://www.w3.org/2000/svg">
                         <defs>
                             <linearGradient id="atlas-lime-grad-01" x1="0" y1="40" x2="400" y2="40" gradientUnits="userSpaceOnUse">
-                                <stop stopColor="#d6f928" stopOpacity="0.3" />
-                                <stop offset="1" stopColor="#d6f928" stopOpacity="0.05" />
+                                <stop stopColor="#5E7000" stopOpacity="0.3" />
+                                <stop offset="1" stopColor="#5E7000" stopOpacity="0.05" />
                             </linearGradient>
                             <filter id="atlas-glow-lime-01">
                                 <feGaussianBlur stdDeviation="3" result="blur" />
@@ -191,55 +191,55 @@ const AtlasEcosystem = () => {
                             [10, 52], [38, 20], [48, 45], [25, 70], [58, 35], [32, 55], [12, 25], [52, 28], [40, 72], [20, 48],
                             [65, 15], [30, 10], [8, 60], [46, 38], [55, 5], [36, 48], [14, 34], [50, 55], [22, 15], [42, 32]
                         ].map(([cx, cy], i) => (
-                            <circle key={i} cx={cx} cy={cy} r="1.5" fill="#d6f928" fillOpacity={0.15 + Math.random() * 0.25} />
+                            <circle key={i} cx={cx} cy={cy} r="1.5" fill="#5E7000" fillOpacity={0.35 + Math.random() * 0.35} />
                         ))}
                         {/* Funnel shape */}
-                        <path d="M100 5 L160 30 L160 50 L100 75 Z" stroke="#d6f928" strokeOpacity="0.2" strokeWidth="0.5" fill="#d6f928" fillOpacity="0.03" />
-                        <line x1="80" y1="40" x2="160" y2="40" stroke="#d6f928" strokeOpacity="0.15" strokeWidth="0.5" strokeDasharray="3 3" />
+                        <path d="M100 5 L160 30 L160 50 L100 75 Z" stroke="#5E7000" strokeOpacity="0.52" strokeWidth="0.5" fill="#5E7000" fillOpacity="0.08" />
+                        <line x1="80" y1="40" x2="160" y2="40" stroke="#5E7000" strokeOpacity="0.39" strokeWidth="0.5" strokeDasharray="3 3" />
                         {/* Arrow */}
-                        <line x1="160" y1="40" x2="210" y2="40" stroke="#d6f928" strokeOpacity="0.3" strokeWidth="0.5" filter="url(#atlas-glow-lime-01)" />
-                        <polygon points="210,37 218,40 210,43" fill="#d6f928" fillOpacity="0.3" />
+                        <line x1="160" y1="40" x2="210" y2="40" stroke="#5E7000" strokeOpacity="0.78" strokeWidth="0.5" filter="url(#atlas-glow-lime-01)" />
+                        <polygon points="210,37 218,40 210,43" fill="#5E7000" fillOpacity="0.78" />
                         {/* 6 organized template boxes — narrower pitch than five so the
                             row still lands inside the 400-unit viewBox. */}
                         {[0, 1, 2, 3, 4, 5].map((i) => (
-                            <rect key={i} x={235 + i * 26} y={25} width="20" height="30" rx="3" stroke="#d6f928" strokeOpacity="0.35" strokeWidth="0.5" fill="#d6f928" fillOpacity="0.05" />
+                            <rect key={i} x={235 + i * 26} y={25} width="20" height="30" rx="3" stroke="#5E7000" strokeOpacity="0.85" strokeWidth="0.5" fill="#5E7000" fillOpacity="0.13" />
                         ))}
                         {/* Labels */}
-                        <text x="30" y="78" fontFamily="monospace" fontSize="7" fill="#d6f928" fillOpacity="0.25">130 clinics</text>
-                        <text x="125" y="78" fontFamily="monospace" fontSize="7" fill="#d6f928" fillOpacity="0.25">funnel</text>
-                        <text x="270" y="78" fontFamily="monospace" fontSize="7" fill="#d6f928" fillOpacity="0.25">6 templates</text>
+                        <text x="30" y="78" fontFamily="monospace" fontSize="7" fill="#5E7000" fillOpacity="0.65">130 clinics</text>
+                        <text x="125" y="78" fontFamily="monospace" fontSize="7" fill="#5E7000" fillOpacity="0.65">funnel</text>
+                        <text x="270" y="78" fontFamily="monospace" fontSize="7" fill="#5E7000" fillOpacity="0.65">6 templates</text>
                     </svg>
 
                     {/* Strategic Bet */}
                     <div className="max-w-3xl mb-20">
                         <Badge>[ The Strategic Bet ]</Badge>
-                        <h2 className="font-heading text-4xl md:text-5xl font-bold text-white leading-tight mb-6">
+                        <h2 className="font-heading text-4xl md:text-5xl font-bold text-ink leading-tight mb-6">
                             130 clinics wanted custom.{" "}
-                            <span className="text-gray-400">I standardized to 6 templates.</span>
+                            <span className="text-ink-muted">I standardized to 6 templates.</span>
                         </h2>
-                        <p className="text-gray-400 text-base leading-relaxed mb-5">
+                        <p className="text-ink-muted text-base leading-relaxed mb-5">
                             The instinct was to move fast &mdash; pick one template, deploy everywhere. I pushed back.
                             A General Practice clinic in rural Montana and a Specialty oncology center in Chicago serve fundamentally different users under different emotional states.
                         </p>
-                        <p className="text-gray-400 text-base leading-relaxed">
-                            But a bespoke design per clinic was equally unsustainable. The product call: <span className="text-white font-medium">map every clinic to one of 5 clinical archetypes</span> &mdash;
-                            GP, Specialty, ER, Hybrid, Multi-Location &mdash; plus a <span className="text-white font-medium">sixth template for the parent brand site</span> that sits above the network and does a different job: introduce the group, not convert a local visit.
+                        <p className="text-ink-muted text-base leading-relaxed">
+                            But a bespoke design per clinic was equally unsustainable. The product call: <span className="text-ink font-medium">map every clinic to one of 5 clinical archetypes</span> &mdash;
+                            GP, Specialty, ER, Hybrid, Multi-Location &mdash; plus a <span className="text-ink font-medium">sixth template for the parent brand site</span> that sits above the network and does a different job: introduce the group, not convert a local visit.
                             Any newly acquired clinic onboarded in days, not months. No custom design work, no IT bottleneck.
                         </p>
                     </div>
 
                     {/* Discovery */}
-                    <div className="bg-white/5 border border-white/10 rounded-2xl p-8 max-w-4xl mb-20 flex flex-col md:flex-row gap-4 md:gap-6">
+                    <div className="bg-surface-3/70 border border-line rounded-2xl p-8 max-w-4xl mb-20 flex flex-col md:flex-row gap-4 md:gap-6">
                         <div className="w-12 h-12 rounded-xl bg-purple-500/10 border border-purple-500/20 flex items-center justify-center flex-shrink-0">
-                            <Search size={20} className="text-purple-400" />
+                            <Search size={20} className="text-purple-600" />
                         </div>
                         <div>
-                            <h4 className="text-white font-semibold mb-3">Discovery</h4>
-                            <p className="text-gray-400 text-sm leading-relaxed">
+                            <h4 className="text-ink font-semibold mb-3">Discovery</h4>
+                            <p className="text-ink-muted text-sm leading-relaxed">
                                 Weeks of auditing &mdash; categorizing clinic types, mapping user journeys, running heuristic evaluations on worst-performing sites.
-                                Key insight: <span className="text-white font-medium">the most engaged ER users were elderly pet owners</span>.
+                                Key insight: <span className="text-ink font-medium">the most engaged ER users were elderly pet owners</span>.
                                 A 70-year-old whose dog collapsed at 2am can&apos;t parse cluttered navigation.
-                                That grounded every decision in <span className="text-white font-medium">WCAG 2.1 AA as a non-negotiable baseline</span> &mdash;
+                                That grounded every decision in <span className="text-ink font-medium">WCAG 2.1 AA as a non-negotiable baseline</span> &mdash;
                                 high-contrast palettes, generous typography, time-critical info above the fold on every template.
                             </p>
                         </div>
@@ -247,29 +247,29 @@ const AtlasEcosystem = () => {
 
                     {/* Audit Findings */}
                     <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mb-20">
-                        <div className="bg-red-950/20 border border-red-500/15 rounded-2xl p-6">
+                        <div className="bg-red-500/10 border border-red-500/15 rounded-2xl p-6">
                             <div className="w-10 h-10 rounded-xl bg-red-500/10 border border-red-500/20 flex items-center justify-center mb-4">
-                                <Globe size={18} className="text-red-400" />
+                                <Globe size={18} className="text-red-700" />
                             </div>
-                            <h4 className="font-heading text-2xl font-bold text-white mb-2">Zero</h4>
-                            <p className="text-white text-sm font-medium mb-2">SEO Governance</p>
-                            <p className="text-gray-400 text-xs leading-relaxed">Duplicate content across sister clinics. Missing schema markup. Google penalizing Atlas for same doctor bios on 40+ pages.</p>
+                            <h4 className="font-heading text-2xl font-bold text-ink mb-2">Zero</h4>
+                            <p className="text-ink text-sm font-medium mb-2">SEO Governance</p>
+                            <p className="text-ink-muted text-xs leading-relaxed">Duplicate content across sister clinics. Missing schema markup. Google penalizing Atlas for same doctor bios on 40+ pages.</p>
                         </div>
-                        <div className="bg-red-950/20 border border-red-500/15 rounded-2xl p-6">
+                        <div className="bg-red-500/10 border border-red-500/15 rounded-2xl p-6">
                             <div className="w-10 h-10 rounded-xl bg-red-500/10 border border-red-500/20 flex items-center justify-center mb-4">
-                                <AlertTriangle size={18} className="text-red-400" />
+                                <AlertTriangle size={18} className="text-red-700" />
                             </div>
-                            <h4 className="font-heading text-2xl font-bold text-white mb-2">Critical</h4>
-                            <p className="text-white text-sm font-medium mb-2">Emergency Abandonment</p>
-                            <p className="text-gray-400 text-xs leading-relaxed">Pet owners in crisis couldn&apos;t find hours, address, or phone. Low-contrast text, no mobile optimization. UI as an obstacle.</p>
+                            <h4 className="font-heading text-2xl font-bold text-ink mb-2">Critical</h4>
+                            <p className="text-ink text-sm font-medium mb-2">Emergency Abandonment</p>
+                            <p className="text-ink-muted text-xs leading-relaxed">Pet owners in crisis couldn&apos;t find hours, address, or phone. Low-contrast text, no mobile optimization. UI as an obstacle.</p>
                         </div>
-                        <div className="bg-red-950/20 border border-red-500/15 rounded-2xl p-6">
+                        <div className="bg-red-500/10 border border-red-500/15 rounded-2xl p-6">
                             <div className="w-10 h-10 rounded-xl bg-red-500/10 border border-red-500/20 flex items-center justify-center mb-4">
-                                <Shield size={18} className="text-red-400" />
+                                <Shield size={18} className="text-red-700" />
                             </div>
-                            <h4 className="font-heading text-2xl font-bold text-white mb-2">Days</h4>
-                            <p className="text-white text-sm font-medium mb-2">IT as Gatekeeper</p>
-                            <p className="text-gray-400 text-xs leading-relaxed">Updating clinic hours or adding staff required an IT ticket and days of wait. Local teams had zero autonomy.</p>
+                            <h4 className="font-heading text-2xl font-bold text-ink mb-2">Days</h4>
+                            <p className="text-ink text-sm font-medium mb-2">IT as Gatekeeper</p>
+                            <p className="text-ink-muted text-xs leading-relaxed">Updating clinic hours or adding staff required an IT ticket and days of wait. Local teams had zero autonomy.</p>
                         </div>
                     </div>
 
@@ -279,10 +279,10 @@ const AtlasEcosystem = () => {
                     {/* Template Architecture */}
                     <div className="mt-20 mb-10 max-w-3xl">
                         <Badge>[ Product Decision &mdash; Template Architecture ]</Badge>
-                        <h3 className="font-heading text-3xl font-bold text-white mb-4">
-                            Not one template. <span className="text-gray-400">Five clinical realities.</span>
+                        <h3 className="font-heading text-3xl font-bold text-ink mb-4">
+                            Not one template. <span className="text-ink-muted">Five clinical realities.</span>
                         </h3>
-                        <p className="text-gray-400 text-base leading-relaxed">
+                        <p className="text-ink-muted text-base leading-relaxed">
                             After mapping every clinic type, we landed on 6 templates covering the entire Atlas universe &mdash;
                             five clinical archetypes, plus one for the parent brand site.
                             Any newly acquired clinic maps to an archetype within the first week. The templates weren&apos;t rigid &mdash;
@@ -293,31 +293,31 @@ const AtlasEcosystem = () => {
                     <AtlasTemplates />
 
                     {/* Phase 1 Outcomes */}
-                    <div className="mt-20 bg-gradient-to-br from-white/[0.05] to-transparent border border-white/10 backdrop-blur-md rounded-2xl p-8 md:p-10">
+                    <div className="mt-20 bg-gradient-to-br from-surface-3 to-transparent border border-line backdrop-blur-md rounded-2xl p-8 md:p-10">
                         <Badge>[ Phase 1 &mdash; Business Outcomes ]</Badge>
-                        <p className="text-gray-400 text-sm mb-10 max-w-2xl">
+                        <p className="text-ink-muted text-sm mb-10 max-w-2xl">
                             Standardization wasn&apos;t glamorous. But better structure meant better crawlability, better UX, and a data model that could scale.
                         </p>
                         <div className="grid grid-cols-2 md:grid-cols-4 gap-6">
-                            <StatCard value="&uarr; 41%" label="Organic search traffic increase within 6 months." icon={<TrendingUp size={18} className="text-green-400" />} />
-                            <StatCard value="&uarr; 16%" label="Booking conversion rate improvement." icon={<Target size={18} className="text-blue-400" />} />
-                            <StatCard value="&uarr; 74%" label="Pages successfully indexed by Google." icon={<Globe size={18} className="text-purple-400" />} />
-                            <StatCard value="100+" label="Clinics launched under the new architecture." icon={<Zap size={18} className="text-yellow-400" />} />
+                            <StatCard value="&uarr; 41%" label="Organic search traffic increase within 6 months." icon={<TrendingUp size={18} className="text-green-800" />} />
+                            <StatCard value="&uarr; 16%" label="Booking conversion rate improvement." icon={<Target size={18} className="text-blue-700" />} />
+                            <StatCard value="&uarr; 74%" label="Pages successfully indexed by Google." icon={<Globe size={18} className="text-purple-600" />} />
+                            <StatCard value="100+" label="Clinics launched under the new architecture." icon={<Zap size={18} className="text-yellow-700" />} />
                         </div>
-                        <p className="text-gray-600 text-xs mt-6">Figures are internal metrics measured post-launch over the phase window.</p>
+                        <p className="text-ink-ghost text-xs mt-6">Figures are internal metrics measured post-launch over the phase window.</p>
                     </div>
                 </div>
             </section>
 
             {/* ================= PHASE 2 ================= */}
-            <section className="bg-black py-24 px-4 border-t border-white/10">
+            <section className="bg-surface py-24 px-4 border-t border-line">
                 <div className="max-w-7xl mx-auto">
 
                     {/* Phase Divider */}
                     <div className="flex items-center gap-6 mb-20">
-                        <div className="text-xs font-mono text-gray-600 uppercase tracking-widest whitespace-nowrap">Phase 02</div>
-                        <div className="h-px bg-white/10 flex-grow"></div>
-                        <div className="text-xs font-mono text-gray-600 uppercase tracking-widest whitespace-nowrap">Relational CMS</div>
+                        <div className="text-xs font-mono text-ink-ghost uppercase tracking-widest whitespace-nowrap">Phase 02</div>
+                        <div className="h-px bg-surface-3 flex-grow"></div>
+                        <div className="text-xs font-mono text-ink-ghost uppercase tracking-widest whitespace-nowrap">Relational CMS</div>
                     </div>
 
                     {/* Phase 02 Vector — relational data model: nodes → connected graph */}
@@ -335,108 +335,108 @@ const AtlasEcosystem = () => {
                         {/* Isolated copies — before */}
                         {[0, 1, 2].map((i) => (
                             <circle key={i} cx={18 + i * 22} cy={35} r="9"
-                                fill="#ef4444" fillOpacity="0.06" stroke="#ef4444" strokeOpacity="0.25" strokeWidth="0.8" />
+                                fill="#ef4444" fillOpacity="0.16" stroke="#ef4444" strokeOpacity="0.65" strokeWidth="0.8" />
                         ))}
-                        <text x="14" y="55" fontFamily="monospace" fontSize="6" fill="white" fillOpacity="0.2">3 copies</text>
-                        <line x1="80" y1="15" x2="80" y2="60" stroke="white" strokeOpacity="0.06" strokeWidth="0.5" strokeDasharray="2 3" />
+                        <text x="14" y="55" fontFamily="monospace" fontSize="6" fill="#101418" fillOpacity="0.52">3 copies</text>
+                        <line x1="80" y1="15" x2="80" y2="60" stroke="#101418" strokeOpacity="0.16" strokeWidth="0.5" strokeDasharray="2 3" />
                         {/* Arrow */}
-                        <line x1="88" y1="35" x2="120" y2="35" stroke="#3b82f6" strokeOpacity="0.3" strokeWidth="0.8" />
-                        <polygon points="120,32 128,35 120,38" fill="#3b82f6" fillOpacity="0.3" />
+                        <line x1="88" y1="35" x2="120" y2="35" stroke="#3b82f6" strokeOpacity="0.78" strokeWidth="0.8" />
+                        <polygon points="120,32 128,35 120,38" fill="#3b82f6" fillOpacity="0.78" />
                         {/* Central record */}
-                        <circle cx="160" cy="35" r="14" fill="url(#atlas-node-center)" stroke="#3b82f6" strokeOpacity="0.5" strokeWidth="1.5" filter="url(#atlas-cms-glow)" />
-                        <circle cx="160" cy="35" r="4" fill="#3b82f6" fillOpacity="0.5" />
-                        <text x="160" y="64" textAnchor="middle" fontFamily="monospace" fontSize="7" fill="white" fillOpacity="0.3">1 RECORD</text>
+                        <circle cx="160" cy="35" r="14" fill="url(#atlas-node-center)" stroke="#3b82f6" strokeOpacity="0.85" strokeWidth="1.5" filter="url(#atlas-cms-glow)" />
+                        <circle cx="160" cy="35" r="4" fill="#3b82f6" fillOpacity="0.85" />
+                        <text x="160" y="64" textAnchor="middle" fontFamily="monospace" fontSize="7" fill="#101418" fillOpacity="0.78">1 RECORD</text>
                         {/* Lines to leaf nodes */}
                         {[[210, 15], [230, 35], [210, 55]].map(([nx, ny], i) => (
                             <line key={i} x1="174" y1="35" x2={nx} y2={ny}
-                                stroke="#d6f928" strokeOpacity="0.2" strokeWidth="0.7" />
+                                stroke="#5E7000" strokeOpacity="0.52" strokeWidth="0.7" />
                         ))}
                         {/* Leaf nodes */}
                         {[[210, 15], [230, 35], [210, 55]].map(([nx, ny], i) => (
                             <circle key={i} cx={nx} cy={ny} r="8"
-                                fill="#d6f928" fillOpacity="0.05" stroke="#d6f928" strokeOpacity="0.3" strokeWidth="0.8" />
+                                fill="#5E7000" fillOpacity="0.13" stroke="#5E7000" strokeOpacity="0.78" strokeWidth="0.8" />
                         ))}
-                        <text x="220" y="72" textAnchor="middle" fontFamily="monospace" fontSize="7" fill="#d6f928" fillOpacity="0.25">cascades</text>
+                        <text x="220" y="72" textAnchor="middle" fontFamily="monospace" fontSize="7" fill="#5E7000" fillOpacity="0.65">cascades</text>
                         {/* Label stack */}
                         {[["SPEC", 260, 22], ["LOC", 292, 35], ["SVC", 260, 48]].map(([label, lx, ly]) => (
-                            <text key={label} x={lx} y={ly} textAnchor="middle" fontFamily="monospace" fontSize="6" fill="white" fillOpacity="0.2">{label}</text>
+                            <text key={label} x={lx} y={ly} textAnchor="middle" fontFamily="monospace" fontSize="6" fill="#101418" fillOpacity="0.52">{label}</text>
                         ))}
                         {/* Benefit callout */}
-                        <text x="350" y="28" textAnchor="middle" fontFamily="monospace" fontSize="8" fill="#d6f928" fillOpacity="0.5" filter="url(#atlas-cms-glow)">0</text>
-                        <text x="350" y="40" textAnchor="middle" fontFamily="monospace" fontSize="6" fill="white" fillOpacity="0.2">duplicates</text>
+                        <text x="350" y="28" textAnchor="middle" fontFamily="monospace" fontSize="8" fill="#5E7000" fillOpacity="0.85" filter="url(#atlas-cms-glow)">0</text>
+                        <text x="350" y="40" textAnchor="middle" fontFamily="monospace" fontSize="6" fill="#101418" fillOpacity="0.52">duplicates</text>
                     </svg>
 
                     {/* Strategic Bet */}
                     <div className="max-w-3xl mb-20">
                         <Badge>[ The Strategic Bet ]</Badge>
-                        <h2 className="font-heading text-4xl md:text-5xl font-bold text-white leading-tight mb-6">
+                        <h2 className="font-heading text-4xl md:text-5xl font-bold text-ink leading-tight mb-6">
                             Build vs. Buy.{" "}
-                            <span className="text-gray-400">Every off-the-shelf CMS failed the test.</span>
+                            <span className="text-ink-muted">Every off-the-shelf CMS failed the test.</span>
                         </h2>
-                        <p className="text-gray-400 text-base leading-relaxed mb-5">
+                        <p className="text-ink-muted text-base leading-relaxed mb-5">
                             Templates were live. But keeping them accurate across the whole network was impossible. A specialist practicing across three locations &mdash;
                             under the old system, their bio existed as three separate copy-paste entries. One email change meant three manual updates. Multiplied across hundreds of specialists, this was an SEO crisis &mdash; Google detected near-duplicate content at scale and penalized the entire domain.
                         </p>
-                        <p className="text-gray-400 text-base leading-relaxed">
+                        <p className="text-ink-muted text-base leading-relaxed">
                             WordPress, Contentful, Webflow &mdash; none handled the relational complexity of a multi-tenant veterinary network.
-                            The product call: <span className="text-white font-medium">build a proprietary headless CMS</span> engineered for Atlas&apos;s operational model.
+                            The product call: <span className="text-ink font-medium">build a proprietary headless CMS</span> engineered for Atlas&apos;s operational model.
                         </p>
                     </div>
 
                     {/* What I Said No To */}
-                    <div className="bg-white/5 border border-white/10 rounded-2xl p-8 max-w-4xl mb-20 flex flex-col md:flex-row gap-4 md:gap-6">
+                    <div className="bg-surface-3/70 border border-line rounded-2xl p-8 max-w-4xl mb-20 flex flex-col md:flex-row gap-4 md:gap-6">
                         <div className="w-12 h-12 rounded-xl bg-orange-500/10 border border-orange-500/20 flex items-center justify-center flex-shrink-0">
-                            <AlertTriangle size={20} className="text-orange-400" />
+                            <AlertTriangle size={20} className="text-orange-600" />
                         </div>
                         <div>
-                            <h4 className="text-white font-semibold mb-3">What I Said No To</h4>
-                            <p className="text-gray-400 text-sm leading-relaxed">
-                                Stakeholders wanted <span className="text-white font-medium">per-clinic custom workflows</span> (unsustainable at that scale),
-                                <span className="text-white font-medium"> real-time chat integration</span> (6-month build, unclear adoption),
-                                and <span className="text-white font-medium">patient portal login</span> (compliance risk, out of scope for Phase 2).
+                            <h4 className="text-ink font-semibold mb-3">What I Said No To</h4>
+                            <p className="text-ink-muted text-sm leading-relaxed">
+                                Stakeholders wanted <span className="text-ink font-medium">per-clinic custom workflows</span> (unsustainable at that scale),
+                                <span className="text-ink font-medium"> real-time chat integration</span> (6-month build, unclear adoption),
+                                and <span className="text-ink font-medium">patient portal login</span> (compliance risk, out of scope for Phase 2).
                                 Each cut went into the PRD&apos;s parking lot with the specific signal that would reopen it.
                             </p>
                         </div>
                     </div>
 
-                    <img loading="lazy" decoding="async" src={Charcount} alt="Atlas Content Architecture" className="rounded-2xl w-full border border-white/10 mb-20" />
+                    <img loading="lazy" decoding="async" src={Charcount} alt="Atlas Content Architecture" className="rounded-2xl w-full border border-line mb-20" />
 
                     {/* CMS Architecture Cards */}
                     <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mb-20">
-                        <div className="bg-white/5 border border-white/10 rounded-2xl p-6 flex gap-4">
+                        <div className="bg-surface-3/70 border border-line rounded-2xl p-6 flex gap-4">
                             <div className="w-10 h-10 rounded-xl bg-blue-500/10 border border-blue-500/20 flex items-center justify-center flex-shrink-0">
-                                <Database size={18} className="text-blue-400" />
+                                <Database size={18} className="text-blue-700" />
                             </div>
                             <div>
-                                <h4 className="text-white font-semibold text-sm mb-1">Singular Sources of Truth</h4>
-                                <p className="text-gray-400 text-xs leading-relaxed">Every specialist, service, and location as a single data record. Update centrally, cascade instantly to every linked clinic page.</p>
+                                <h4 className="text-ink font-semibold text-sm mb-1">Singular Sources of Truth</h4>
+                                <p className="text-ink-muted text-xs leading-relaxed">Every specialist, service, and location as a single data record. Update centrally, cascade instantly to every linked clinic page.</p>
                             </div>
                         </div>
-                        <div className="bg-white/5 border border-white/10 rounded-2xl p-6 flex gap-4">
+                        <div className="bg-surface-3/70 border border-line rounded-2xl p-6 flex gap-4">
                             <div className="w-10 h-10 rounded-xl bg-purple-500/10 border border-purple-500/20 flex items-center justify-center flex-shrink-0">
-                                <GitBranch size={18} className="text-purple-400" />
+                                <GitBranch size={18} className="text-purple-600" />
                             </div>
                             <div>
-                                <h4 className="text-white font-semibold text-sm mb-1">Relational Content Linking</h4>
-                                <p className="text-gray-400 text-xs leading-relaxed">CMS mapped relationships &mdash; specialists to certifications, services to locations. Google&apos;s schema finally understood Atlas as an interconnected ecosystem.</p>
+                                <h4 className="text-ink font-semibold text-sm mb-1">Relational Content Linking</h4>
+                                <p className="text-ink-muted text-xs leading-relaxed">CMS mapped relationships &mdash; specialists to certifications, services to locations. Google&apos;s schema finally understood Atlas as an interconnected ecosystem.</p>
                             </div>
                         </div>
-                        <div className="bg-white/5 border border-white/10 rounded-2xl p-6 flex gap-4">
-                            <div className="w-10 h-10 rounded-xl bg-[#d6f928]/10 border border-[#d6f928]/20 flex items-center justify-center flex-shrink-0">
-                                <Blocks size={18} className="text-[#d6f928]" />
+                        <div className="bg-surface-3/70 border border-line rounded-2xl p-6 flex gap-4">
+                            <div className="w-10 h-10 rounded-xl bg-accent/25 border border-accent-ink/30 flex items-center justify-center flex-shrink-0">
+                                <Blocks size={18} className="text-accent-ink" />
                             </div>
                             <div>
-                                <h4 className="text-white font-semibold text-sm mb-1">Block-Level Architecture</h4>
-                                <p className="text-gray-400 text-xs leading-relaxed">Modular block system instead of rigid page forms. Clinics assemble pages from pre-approved blocks &mdash; doctor spotlights, service cards &mdash; without code.</p>
+                                <h4 className="text-ink font-semibold text-sm mb-1">Block-Level Architecture</h4>
+                                <p className="text-ink-muted text-xs leading-relaxed">Modular block system instead of rigid page forms. Clinics assemble pages from pre-approved blocks &mdash; doctor spotlights, service cards &mdash; without code.</p>
                             </div>
                         </div>
-                        <div className="bg-white/5 border border-white/10 rounded-2xl p-6 flex gap-4">
+                        <div className="bg-surface-3/70 border border-line rounded-2xl p-6 flex gap-4">
                             <div className="w-10 h-10 rounded-xl bg-orange-500/10 border border-orange-500/20 flex items-center justify-center flex-shrink-0">
-                                <Layers size={18} className="text-orange-400" />
+                                <Layers size={18} className="text-orange-600" />
                             </div>
                             <div>
-                                <h4 className="text-white font-semibold text-sm mb-1">Parent-Child Hierarchy</h4>
-                                <p className="text-gray-400 text-xs leading-relaxed">Multi-location groups get parent-child pages. Parent presents unified narrative; child locations inherit brand elements automatically.</p>
+                                <h4 className="text-ink font-semibold text-sm mb-1">Parent-Child Hierarchy</h4>
+                                <p className="text-ink-muted text-xs leading-relaxed">Multi-location groups get parent-child pages. Parent presents unified narrative; child locations inherit brand elements automatically.</p>
                             </div>
                         </div>
                     </div>
@@ -444,41 +444,41 @@ const AtlasEcosystem = () => {
                     {/* Branding System */}
                     <div className="max-w-3xl mb-10">
                         <Badge>[ Product Decision &mdash; Branding System ]</Badge>
-                        <h3 className="font-heading text-3xl font-bold text-white mb-4">
+                        <h3 className="font-heading text-3xl font-bold text-ink mb-4">
                             Clinic-level theme customization.{" "}
-                            <span className="text-gray-400">Identity without chaos.</span>
+                            <span className="text-ink-muted">Identity without chaos.</span>
                         </h3>
-                        <p className="text-gray-400 text-base leading-relaxed">
+                        <p className="text-ink-muted text-base leading-relaxed">
                             Newly acquired clinics wanted to keep their legacy identity. The product call: let clinics adjust primary/secondary color palettes within the CMS.
-                            The design system auto-mapped choices to WCAG-compliant shades &mdash; <span className="text-white font-medium">branding freedom without breaking accessibility</span>.
+                            The design system auto-mapped choices to WCAG-compliant shades &mdash; <span className="text-ink font-medium">branding freedom without breaking accessibility</span>.
                         </p>
                     </div>
 
                     {/* Phase 2 Outcomes */}
-                    <div className="bg-gradient-to-br from-white/[0.05] to-transparent border border-white/10 backdrop-blur-md rounded-2xl p-8 md:p-10">
+                    <div className="bg-gradient-to-br from-surface-3 to-transparent border border-line backdrop-blur-md rounded-2xl p-8 md:p-10">
                         <Badge>[ Phase 2 &mdash; Business Outcomes ]</Badge>
-                        <p className="text-gray-400 text-sm mb-10 max-w-2xl">
+                        <p className="text-ink-muted text-sm mb-10 max-w-2xl">
                             The relational CMS collapsed an operational nightmare into a manageable workflow and gave Google the structured data it needed.
                         </p>
                         <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-                            <StatCard value="45%" label="Reduction in user navigational friction via session analysis." icon={<TrendingUp size={18} className="text-green-400" />} />
-                            <StatCard value="Zero" label="Duplicate content penalties after canonicalization." icon={<CheckCircle2 size={18} className="text-blue-400" />} />
-                            <StatCard value="Hours" label="Time to integrate a newly acquired clinic." icon={<Zap size={18} className="text-yellow-400" />} />
+                            <StatCard value="45%" label="Reduction in user navigational friction via session analysis." icon={<TrendingUp size={18} className="text-green-800" />} />
+                            <StatCard value="Zero" label="Duplicate content penalties after canonicalization." icon={<CheckCircle2 size={18} className="text-blue-700" />} />
+                            <StatCard value="Hours" label="Time to integrate a newly acquired clinic." icon={<Zap size={18} className="text-yellow-700" />} />
                         </div>
-                        <p className="text-gray-600 text-xs mt-6">Figures are internal metrics measured post-launch over the phase window.</p>
+                        <p className="text-ink-ghost text-xs mt-6">Figures are internal metrics measured post-launch over the phase window.</p>
                     </div>
                 </div>
             </section>
 
             {/* ================= PHASE 3 ================= */}
-            <section className="bg-[#050505] py-24 px-4 border-t border-white/10">
+            <section className="bg-surface-2 py-24 px-4 border-t border-line">
                 <div className="max-w-7xl mx-auto">
 
                     {/* Phase Divider */}
                     <div className="flex items-center gap-6 mb-20">
-                        <div className="text-xs font-mono text-gray-600 uppercase tracking-widest whitespace-nowrap">Phase 03</div>
-                        <div className="h-px bg-white/10 flex-grow"></div>
-                        <div className="text-xs font-mono text-gray-600 uppercase tracking-widest whitespace-nowrap">0-to-1 Site Builder</div>
+                        <div className="text-xs font-mono text-ink-ghost uppercase tracking-widest whitespace-nowrap">Phase 03</div>
+                        <div className="h-px bg-surface-3 flex-grow"></div>
+                        <div className="text-xs font-mono text-ink-ghost uppercase tracking-widest whitespace-nowrap">0-to-1 Site Builder</div>
                     </div>
 
                     {/* Phase 03 Vector — sprint backlog clogged → self-serve builder */}
@@ -489,8 +489,8 @@ const AtlasEcosystem = () => {
                                 <stop offset="100%" stopColor="#ef4444" stopOpacity="0.05" />
                             </linearGradient>
                             <linearGradient id="atlas-p3-win" x1="0" y1="0" x2="1" y2="0">
-                                <stop offset="0%" stopColor="#d6f928" stopOpacity="0.3" />
-                                <stop offset="100%" stopColor="#d6f928" stopOpacity="0.05" />
+                                <stop offset="0%" stopColor="#5E7000" stopOpacity="0.3" />
+                                <stop offset="100%" stopColor="#5E7000" stopOpacity="0.05" />
                             </linearGradient>
                             <filter id="atlas-p3-glow">
                                 <feGaussianBlur stdDeviation="3" result="blur" />
@@ -502,118 +502,118 @@ const AtlasEcosystem = () => {
                             <rect key={i} x={8} y={8 + i * 13} width={70 - i * 5} height={9} rx="2"
                                 fill="url(#atlas-p3-bar)" stroke="#ef4444" strokeOpacity={0.3 - i * 0.04} strokeWidth="0.7" />
                         ))}
-                        <text x="40" y="76" textAnchor="middle" fontFamily="monospace" fontSize="7" fill="white" fillOpacity="0.2">eng queue</text>
+                        <text x="40" y="76" textAnchor="middle" fontFamily="monospace" fontSize="7" fill="#101418" fillOpacity="0.52">eng queue</text>
                         {/* Arrow */}
-                        <line x1="88" y1="40" x2="130" y2="40" stroke="white" strokeOpacity="0.2" strokeWidth="0.8" strokeDasharray="4 3" />
-                        <polygon points="130,37 138,40 130,43" fill="white" fillOpacity="0.15" />
+                        <line x1="88" y1="40" x2="130" y2="40" stroke="#101418" strokeOpacity="0.52" strokeWidth="0.8" strokeDasharray="4 3" />
+                        <polygon points="130,37 138,40 130,43" fill="#101418" fillOpacity="0.39" />
                         {/* Builder canvas */}
-                        <rect x="145" y="12" width="110" height="56" rx="4" fill="none" stroke="#3b82f6" strokeOpacity="0.2" strokeWidth="0.8" />
+                        <rect x="145" y="12" width="110" height="56" rx="4" fill="none" stroke="#3b82f6" strokeOpacity="0.52" strokeWidth="0.8" />
                         {/* Drag blocks inside */}
                         {[[150, 18, 40, 10], [196, 18, 52, 10], [150, 32, 60, 10], [150, 46, 45, 10]].map(([x, y, w, h], i) => (
                             <rect key={i} x={x} y={y} width={w} height={h} rx="2"
-                                fill="#3b82f6" fillOpacity="0.07" stroke="#3b82f6" strokeOpacity="0.2" strokeWidth="0.5" />
+                                fill="#3b82f6" fillOpacity="0.18" stroke="#3b82f6" strokeOpacity="0.52" strokeWidth="0.5" />
                         ))}
-                        <text x="200" y="76" textAnchor="middle" fontFamily="monospace" fontSize="7" fill="white" fillOpacity="0.2">no-code builder</text>
+                        <text x="200" y="76" textAnchor="middle" fontFamily="monospace" fontSize="7" fill="#101418" fillOpacity="0.52">no-code builder</text>
                         {/* Arrow to outcome */}
-                        <line x1="258" y1="40" x2="292" y2="40" stroke="#d6f928" strokeOpacity="0.3" strokeWidth="0.8" />
-                        <polygon points="292,37 300,40 292,43" fill="#d6f928" fillOpacity="0.3" />
+                        <line x1="258" y1="40" x2="292" y2="40" stroke="#5E7000" strokeOpacity="0.78" strokeWidth="0.8" />
+                        <polygon points="292,37 300,40 292,43" fill="#5E7000" fillOpacity="0.78" />
                         {/* Outcome: 0 tickets */}
-                        <circle cx="330" cy="40" r="22" fill="url(#atlas-p3-win)" stroke="#d6f928" strokeOpacity="0.35" strokeWidth="1.2" filter="url(#atlas-p3-glow)" />
-                        <text x="330" y="37" textAnchor="middle" fontFamily="monospace" fontSize="12" fill="#d6f928" fillOpacity="0.6">0</text>
-                        <text x="330" y="49" textAnchor="middle" fontFamily="monospace" fontSize="6" fill="white" fillOpacity="0.25">tickets</text>
-                        <text x="330" y="76" textAnchor="middle" fontFamily="monospace" fontSize="7" fill="#d6f928" fillOpacity="0.3">100% reduction</text>
+                        <circle cx="330" cy="40" r="22" fill="url(#atlas-p3-win)" stroke="#5E7000" strokeOpacity="0.85" strokeWidth="1.2" filter="url(#atlas-p3-glow)" />
+                        <text x="330" y="37" textAnchor="middle" fontFamily="monospace" fontSize="12" fill="#5E7000" fillOpacity="0.6">0</text>
+                        <text x="330" y="49" textAnchor="middle" fontFamily="monospace" fontSize="6" fill="#101418" fillOpacity="0.65">tickets</text>
+                        <text x="330" y="76" textAnchor="middle" fontFamily="monospace" fontSize="7" fill="#5E7000" fillOpacity="0.78">100% reduction</text>
                     </svg>
 
                     {/* Strategic Bet */}
                     <div className="max-w-3xl mb-20">
                         <Badge>[ The Strategic Bet ]</Badge>
-                        <h2 className="font-heading text-4xl md:text-5xl font-bold text-white leading-tight mb-6">
+                        <h2 className="font-heading text-4xl md:text-5xl font-bold text-ink leading-tight mb-6">
                             Templates handled 90%.{" "}
-                            <span className="text-gray-400">The 10% was killing engineering.</span>
+                            <span className="text-ink-muted">The 10% was killing engineering.</span>
                         </h2>
-                        <p className="text-gray-400 text-base leading-relaxed mb-5">
+                        <p className="text-ink-muted text-base leading-relaxed mb-5">
                             Phase 2 gave clinic teams content independence. But as Atlas grew, so did requests outside the framework &mdash;
                             community vaccination drives, new specialist landing pages, holiday hours. Every request landed in the engineering sprint queue.
                             Turnaround was days, sometimes weeks.
                         </p>
-                        <p className="text-gray-400 text-base leading-relaxed">
-                            The product call: build a <span className="text-white font-medium">0-to-1 drag-and-drop site builder</span> natively integrated with the CMS.
+                        <p className="text-ink-muted text-base leading-relaxed">
+                            The product call: build a <span className="text-ink font-medium">0-to-1 drag-and-drop site builder</span> natively integrated with the CMS.
                             Regional managers could build and publish custom pages &mdash; zero IT approval required. The design system enforced brand and accessibility rules invisibly.
                         </p>
                     </div>
 
-                    <img loading="lazy" decoding="async" src={Sitebuilder} alt="Atlas No-Code Site Builder" className="rounded-2xl w-full border border-white/10 mb-20" />
+                    <img loading="lazy" decoding="async" src={Sitebuilder} alt="Atlas No-Code Site Builder" className="rounded-2xl w-full border border-line mb-20" />
 
                     {/* Builder Product Decisions */}
                     <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mb-20">
-                        <div className="bg-white/5 border border-white/10 rounded-2xl p-6 flex gap-4">
-                            <div className="w-10 h-10 rounded-xl bg-[#d6f928]/10 border border-[#d6f928]/20 flex items-center justify-center flex-shrink-0">
-                                <Shield size={18} className="text-[#d6f928]" />
+                        <div className="bg-surface-3/70 border border-line rounded-2xl p-6 flex gap-4">
+                            <div className="w-10 h-10 rounded-xl bg-accent/25 border border-accent-ink/30 flex items-center justify-center flex-shrink-0">
+                                <Shield size={18} className="text-accent-ink" />
                             </div>
                             <div>
-                                <h4 className="text-white font-semibold text-sm mb-1">Invisible Constraints</h4>
-                                <p className="text-gray-400 text-xs leading-relaxed">Every block pre-governed by the design system. Managers choose layout and content &mdash; not colors, not typography. Creative freedom with zero brand violations.</p>
+                                <h4 className="text-ink font-semibold text-sm mb-1">Invisible Constraints</h4>
+                                <p className="text-ink-muted text-xs leading-relaxed">Every block pre-governed by the design system. Managers choose layout and content &mdash; not colors, not typography. Creative freedom with zero brand violations.</p>
                             </div>
                         </div>
-                        <div className="bg-white/5 border border-white/10 rounded-2xl p-6 flex gap-4">
+                        <div className="bg-surface-3/70 border border-line rounded-2xl p-6 flex gap-4">
                             <div className="w-10 h-10 rounded-xl bg-purple-500/10 border border-purple-500/20 flex items-center justify-center flex-shrink-0">
-                                <Database size={18} className="text-purple-400" />
+                                <Database size={18} className="text-purple-600" />
                             </div>
                             <div>
-                                <h4 className="text-white font-semibold text-sm mb-1">Relational Components</h4>
-                                <p className="text-gray-400 text-xs leading-relaxed">Drop in a &ldquo;Doctor Card&rdquo; &mdash; photo, bio, credentials auto-populate from the central record. Same relational layer powering the ecosystem.</p>
+                                <h4 className="text-ink font-semibold text-sm mb-1">Relational Components</h4>
+                                <p className="text-ink-muted text-xs leading-relaxed">Drop in a &ldquo;Doctor Card&rdquo; &mdash; photo, bio, credentials auto-populate from the central record. Same relational layer powering the ecosystem.</p>
                             </div>
                         </div>
                     </div>
 
-                    <img loading="lazy" decoding="async" src={Templatemanager} alt="Atlas Template Manager" className="rounded-2xl w-full border border-white/10 mb-20" />
+                    <img loading="lazy" decoding="async" src={Templatemanager} alt="Atlas Template Manager" className="rounded-2xl w-full border border-line mb-20" />
 
                     {/* What didn't work */}
-                    <div className="mb-20 bg-white/[0.02] border border-dashed border-white/10 rounded-xl p-5 max-w-3xl">
-                        <p className="text-gray-600 text-xs uppercase tracking-widest mb-2 font-mono">What didn&apos;t work first</p>
-                        <p className="text-gray-400 text-sm leading-relaxed">
+                    <div className="mb-20 bg-surface-3/60 border border-dashed border-line rounded-xl p-5 max-w-3xl">
+                        <p className="text-ink-ghost text-xs uppercase tracking-widest mb-2 font-mono">What didn&apos;t work first</p>
+                        <p className="text-ink-muted text-sm leading-relaxed">
                             First version of the builder gave managers full section reordering. Result: pages with CTAs buried below the fold and hero sections mid-page.
-                            Iterated: switched to <span className="text-white font-medium">fixed structural zones with flexible content blocks inside them</span>. Layout integrity preserved, creative freedom maintained.
+                            Iterated: switched to <span className="text-ink font-medium">fixed structural zones with flexible content blocks inside them</span>. Layout integrity preserved, creative freedom maintained.
                         </p>
                     </div>
 
                     {/* Phase 3 Outcomes */}
-                    <div className="bg-gradient-to-br from-white/[0.05] to-transparent border border-white/10 backdrop-blur-md rounded-2xl p-8 md:p-10">
+                    <div className="bg-gradient-to-br from-surface-3 to-transparent border border-line backdrop-blur-md rounded-2xl p-8 md:p-10">
                         <Badge>[ Phase 3 &mdash; Business Outcomes ]</Badge>
-                        <p className="text-gray-400 text-sm mb-10 max-w-2xl">
+                        <p className="text-ink-muted text-sm mb-10 max-w-2xl">
                             The site builder changed the power dynamic between central IT and local clinic teams. Marketing finally moved at the speed of marketing.
                         </p>
                         <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-                            <StatCard value="~0" label="Engineering tickets for routine custom pages, once teams self-served." icon={<CheckCircle2 size={18} className="text-green-400" />} />
-                            <StatCard value="Hours" label="Time to launch a custom marketing campaign." icon={<Zap size={18} className="text-yellow-400" />} />
-                            <StatCard value="Zero" label="Brand or accessibility breakages across 50+ pages." icon={<Shield size={18} className="text-blue-400" />} />
+                            <StatCard value="~0" label="Engineering tickets for routine custom pages, once teams self-served." icon={<CheckCircle2 size={18} className="text-green-800" />} />
+                            <StatCard value="Hours" label="Time to launch a custom marketing campaign." icon={<Zap size={18} className="text-yellow-700" />} />
+                            <StatCard value="Zero" label="Brand or accessibility breakages across 50+ pages." icon={<Shield size={18} className="text-blue-700" />} />
                         </div>
-                        <p className="text-gray-600 text-xs mt-6">Figures are internal metrics measured post-launch over the phase window.</p>
+                        <p className="text-ink-ghost text-xs mt-6">Figures are internal metrics measured post-launch over the phase window.</p>
                     </div>
                 </div>
             </section>
 
             {/* ================= CLOSING ================= */}
-            <section className="bg-[#050505] py-24 px-4 border-t border-white/10">
+            <section className="bg-surface-2 py-24 px-4 border-t border-line">
                 <div className="max-w-7xl mx-auto">
                     <div className="max-w-3xl">
                         <Badge>[ The Real Story ]</Badge>
-                        <h2 className="font-heading text-4xl md:text-5xl font-bold text-white leading-tight mb-8">
+                        <h2 className="font-heading text-4xl md:text-5xl font-bold text-ink leading-tight mb-8">
                             The layout was never the decision.{" "}
-                            <span className="text-gray-400">The data model was.</span>
+                            <span className="text-ink-muted">The data model was.</span>
                         </h2>
-                        <p className="text-gray-400 text-base leading-relaxed mb-5">
+                        <p className="text-ink-muted text-base leading-relaxed mb-5">
                             The most impactful decision wasn&apos;t a layout &mdash; it was the data architecture.
                             Making every specialist, service and location a relational node instead of a static page
                             is what made the CMS possible and what gave the site builder its power.
                         </p>
-                        <p className="text-gray-400 text-base leading-relaxed mb-5">
+                        <p className="text-ink-muted text-base leading-relaxed mb-5">
                             The real test came afterwards. The same template model and content architecture were{" "}
-                            <span className="text-white font-medium">reused for a larger network</span> &mdash;
+                            <span className="text-ink font-medium">reused for a larger network</span> &mdash;
                             without redesigning the system. A structure that only fits the network it was drawn
                             for isn&apos;t architecture; it&apos;s a template. This one held.
                         </p>
-                        <p className="text-gray-400 text-base leading-relaxed">
+                        <p className="text-ink-muted text-base leading-relaxed">
                             Three phases. I wrote the design specs, defined the phased rollout, worked with
                             engineering through delivery, and shipped the design across all of them &mdash; which is
                             what made 130 clinics feel like one ecosystem, and made the next network possible.
@@ -623,13 +623,13 @@ const AtlasEcosystem = () => {
             </section>
 
             {/* ================= NEXT CASE STUDY ================= */}
-            <section className="bg-[#050505] py-16 px-4 border-t border-white/10">
+            <section className="bg-surface-2 py-16 px-4 border-t border-line">
                 <div className="max-w-7xl mx-auto flex flex-col md:flex-row items-center justify-between gap-6">
                     <div>
-                        <p className="text-xs font-mono text-gray-600 uppercase tracking-widest mb-2">Next Case Study</p>
-                        <p className="font-heading text-2xl font-bold text-white">Carter: Ad Platform Redesign &amp; 0-to-1 DSP</p>
+                        <p className="text-xs font-mono text-ink-ghost uppercase tracking-widest mb-2">Next Case Study</p>
+                        <p className="font-heading text-2xl font-bold text-ink">Carter: Ad Platform Redesign &amp; 0-to-1 DSP</p>
                     </div>
-                    <Link to="/carter" className="text-[#d6f928] font-medium text-sm border border-[#d6f928]/20 bg-[#d6f928]/5 px-6 py-3 rounded-full hover:bg-[#d6f928]/10 transition-colors whitespace-nowrap">
+                    <Link to="/carter" className="text-accent-ink font-medium text-sm border border-accent-ink/30 bg-accent/15 px-6 py-3 rounded-full hover:bg-accent/25 transition-colors whitespace-nowrap">
                         View Case Study &rarr;
                     </Link>
                 </div>

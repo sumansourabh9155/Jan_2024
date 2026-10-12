@@ -15,7 +15,7 @@ const Faq = lazy(() => import("../components/Landingsection/Faq"));
 const Footer = lazy(() => import("../components/Footer"));
 
 // Minimal height placeholder so scroll position doesn't jump when a chunk streams in
-const SectionFallback = () => <div className="min-h-[400px] bg-[#050505]" />;
+const SectionFallback = () => <div className="min-h-[400px] bg-surface-2" />;
 
 const LandingPage = () => {
   return (

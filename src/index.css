@@ -9,7 +9,14 @@
 }
 html, body {
         font-size: 14px;
-        background-color: #000000;
+        background-color: #FFFFFF;
+        color: #101418;
+}
+
+/* Browser UI (form controls, scrollbars) should render light too, otherwise
+   Chrome keeps painting dark widgets over a light page. */
+:root {
+        color-scheme: light;
 }
 
 /* Hide scrollbar for horizontal scroll containers */

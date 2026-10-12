@@ -15,7 +15,7 @@ const projectData = [
     category: "Ad-Tech · B2B · SaaS",
     link: "/carter",
     image: BannerCarter,
-    icon: <Layout size={16} className="text-blue-400" />,
+    icon: <Layout size={16} className="text-blue-700" />,
     accent: "blue",
     summary:
       "Advertisers stalled in a dense, single-screen setup. The call: rebuild it as a short guided flow — trading more steps for fewer decisions each, betting completion mattered more than speed.",
@@ -30,7 +30,7 @@ const projectData = [
     category: "iOS · Consumer Fintech",
     link: "/poppins",
     image: BannerPoppins,
-    icon: <Smartphone size={16} className="text-emerald-300" />,
+    icon: <Smartphone size={16} className="text-emerald-800" />,
     accent: "emerald",
     badge: "Concluded",
     summary:
@@ -46,7 +46,7 @@ const projectData = [
     category: "Enterprise CMS · Veterinary Care",
     link: "/atlas",
     image: BannerAtlas,
-    icon: <BarChart2 size={16} className="text-[#d6f928]" />,
+    icon: <BarChart2 size={16} className="text-accent-ink" />,
     accent: "lime",
     summary:
       "A 130-clinic network each wanting a bespoke site. The call: standardize to 6 templates instead — the trade-off that made the whole network maintainable without gutting local identity.",
@@ -57,12 +57,15 @@ const projectData = [
   },
 ];
 
+// Per-card accent. Only the border and the heading carry colour on hover —
+// the lift itself is a neutral shadow. A tinted shadow was a dark-theme glow:
+// blue-500 at 10% over white is invisible, and the lime one read as a smudge.
 const accentMap = {
-  blue: { border: "hover:border-blue-400/40", glow: "hover:shadow-blue-500/10", text: "group-hover:text-blue-300" },
-  lime: { border: "hover:border-[#d6f928]/40", glow: "hover:shadow-[#d6f928]/10", text: "group-hover:text-[#d6f928]" },
-  purple: { border: "hover:border-purple-400/40", glow: "hover:shadow-purple-500/10", text: "group-hover:text-purple-300" },
-  violet: { border: "hover:border-violet-400/40", glow: "hover:shadow-violet-500/10", text: "group-hover:text-violet-300" },
-  emerald: { border: "hover:border-emerald-400/40", glow: "hover:shadow-emerald-500/10", text: "group-hover:text-emerald-300" },
+  blue: { border: "hover:border-blue-500/50", text: "group-hover:text-blue-700" },
+  lime: { border: "hover:border-accent-ink/50", text: "group-hover:text-accent-ink" },
+  purple: { border: "hover:border-purple-500/50", text: "group-hover:text-purple-700" },
+  violet: { border: "hover:border-violet-500/50", text: "group-hover:text-violet-700" },
+  emerald: { border: "hover:border-emerald-600/50", text: "group-hover:text-emerald-800" },
 };
 
 const Projects = () => {
@@ -71,25 +74,25 @@ const Projects = () => {
       id="case-studies"
       aria-labelledby="case-studies-heading"
       data-testid="projects-section"
-      className="scroll-mt-24 py-24 px-4 bg-black border-t border-white/10"
+      className="scroll-mt-24 py-24 px-4 bg-surface border-t border-line"
     >
       <div className="max-w-7xl mx-auto">
         {/* Section header */}
         <div className="mb-12 max-w-3xl">
-          <div className="inline-flex items-center gap-2 text-xs font-mono text-[#d6f928] tracking-widest uppercase mb-4">
+          <div className="inline-flex items-center gap-2 text-xs font-mono text-accent-ink tracking-widest uppercase mb-4">
             [ Case Studies ]
           </div>
           <h2
             id="case-studies-heading"
-            className="font-heading text-4xl md:text-5xl font-bold text-white leading-tight"
+            className="font-heading text-4xl md:text-5xl font-bold text-ink leading-tight"
           >
-            Real Products. <span className="text-gray-500">Real Decisions.</span>
+            Real Products. <span className="text-ink-faint">Real Decisions.</span>
           </h2>
-          <p className="text-gray-300 mt-4 text-base leading-relaxed">
+          <p className="text-ink-soft mt-4 text-base leading-relaxed">
             Three products across ad-tech, consumer fintech, and veterinary care — the user
             problem, the design call I made, and what it produced.
           </p>
-          <p className="text-gray-600 mt-3 text-xs">
+          <p className="text-ink-ghost mt-3 text-xs">
             Figures are internal metrics measured post-launch.
           </p>
         </div>
@@ -103,17 +106,17 @@ const Projects = () => {
             return (
               <article
                 key={p.title}
-                className={`group relative bg-white/5 border border-white/10 rounded-2xl overflow-hidden backdrop-blur-sm
+                className={`group relative bg-surface-3/70 border border-line rounded-2xl overflow-hidden backdrop-blur-sm
                   transition-[transform,box-shadow,border-color] duration-300 will-change-transform
-                  hover:-translate-y-1 hover:shadow-xl ${accent.glow} ${accent.border}
-                  focus-within:ring-2 focus-within:ring-[#d6f928]/50`}
+                  hover:-translate-y-1 hover:shadow-[0_14px_40px_rgba(0,0,0,0.12)] ${accent.border}
+                  focus-within:ring-2 focus-within:ring-accent-ink/60`}
               >
                 <div
                   className={`grid grid-cols-1 lg:grid-cols-[minmax(0,1.1fr)_minmax(0,1fr)] lg:min-h-[260px]
                     ${flip ? "lg:[&>*:first-child]:order-2" : ""}`}
                 >
                   {/* Image side — the whole card is the link, so this isn't interactive itself */}
-                  <div className="block overflow-hidden bg-black/40 h-48 sm:h-56 lg:h-full">
+                  <div className="block overflow-hidden bg-surface-3/70 h-48 sm:h-56 lg:h-full">
                     <img
                       src={p.image}
                       alt={`${p.title} — ${p.subtitle}`}
@@ -127,22 +130,22 @@ const Projects = () => {
                   <div className="p-6 md:p-8 flex flex-col justify-center">
                     {/* Meta */}
                     <div className="flex items-center gap-2.5 mb-3">
-                      <div className="bg-white/5 border border-white/10 rounded-full p-1.5 flex items-center justify-center">
+                      <div className="bg-surface border border-line rounded-full p-1.5 flex items-center justify-center">
                         {p.icon}
                       </div>
-                      <span className="text-[10px] font-mono text-gray-500 uppercase tracking-widest">
+                      <span className="text-[10px] font-mono text-ink-faint uppercase tracking-widest">
                         {p.category}
                       </span>
                       {p.badge && (
                         // Live work pulses; concluded work reads as a quiet, factual status.
                         <span
                           className={`inline-flex items-center gap-1.5 text-[10px] font-medium px-2 py-0.5 rounded-full border ${p.badgeLive
-                              ? "text-violet-300 bg-violet-500/10 border-violet-400/30"
-                              : "text-gray-400 bg-white/5 border-white/15"
+                              ? "text-violet-700 bg-violet-500/10 border-violet-400/30"
+                              : "text-ink-muted bg-surface-3/70 border-line"
                             }`}
                         >
                           <span
-                            className={`w-1 h-1 rounded-full ${p.badgeLive ? "bg-violet-400 animate-pulse" : "bg-gray-500"
+                            className={`w-1 h-1 rounded-full ${p.badgeLive ? "bg-violet-400 animate-pulse" : "bg-ink-faint"
                               }`}
                           />
                           {p.badge}
@@ -150,20 +153,20 @@ const Projects = () => {
                       )}
                     </div>
 
-                    <h3 className={`font-heading text-2xl md:text-3xl font-bold text-white leading-tight transition-colors duration-200 ${accent.text}`}>
+                    <h3 className={`font-heading text-2xl md:text-3xl font-bold text-ink leading-tight transition-colors duration-200 ${accent.text}`}>
                       {p.title}
                     </h3>
-                    <p className="text-gray-400 text-sm mt-1">{p.subtitle}</p>
+                    <p className="text-ink-muted text-sm mt-1">{p.subtitle}</p>
 
-                    <p className="text-gray-300 text-sm leading-relaxed mt-3">{p.summary}</p>
+                    <p className="text-ink-soft text-sm leading-relaxed mt-3">{p.summary}</p>
 
                     {/* Outcome stats + CTA on one row to keep the card compact */}
                     <div className="mt-5 flex flex-wrap items-center justify-between gap-x-6 gap-y-4">
                       <div className="flex flex-wrap items-center gap-x-5 gap-y-2">
                         {p.stats.map((s) => (
                           <div key={s.label}>
-                            <span className="font-heading text-lg font-bold text-white">{s.value}</span>
-                            <span className="text-[11px] text-gray-500 ml-1.5">{s.label}</span>
+                            <span className="font-heading text-lg font-bold text-ink">{s.value}</span>
+                            <span className="text-[11px] text-ink-faint ml-1.5">{s.label}</span>
                           </div>
                         ))}
                       </div>
@@ -171,9 +174,12 @@ const Projects = () => {
                       {/* Visual affordance only — the real link is the card-wide overlay below */}
                       <span
                         aria-hidden="true"
-                        className="inline-flex items-center justify-center gap-2 bg-white text-black px-5 py-2.5 rounded-full font-bold text-sm
-                          group-hover:bg-[#d6f928] transition-colors duration-200
-                          shadow-[0_0_20px_rgba(255,255,255,0.12)] w-full sm:w-fit whitespace-nowrap"
+                        // The text has to invert with the fill. Lime is a light
+                        // colour: leaving the label white on hover dropped it to
+                        // ~1.4:1 — the CTA went blank under the cursor.
+                        className="inline-flex items-center justify-center gap-2 bg-ink text-surface px-5 py-2.5 rounded-full font-bold text-sm
+                          group-hover:bg-accent group-hover:text-ink transition-colors duration-200
+                          shadow-[0_6px_20px_rgba(0,0,0,0.14)] w-full sm:w-fit whitespace-nowrap"
                       >
                         Read case study
                         <ArrowRight size={16} className="group-hover:translate-x-0.5 transition-transform duration-200" />

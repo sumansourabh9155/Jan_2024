@@ -60,22 +60,22 @@ const Speaking = () => {
     <section
       id="speaking"
       aria-labelledby="speaking-heading"
-      className="scroll-mt-24 bg-[#050505] border-t border-white/10 py-24 px-4"
+      className="scroll-mt-24 bg-surface-2 border-t border-line py-24 px-4"
     >
       <div className="max-w-7xl mx-auto">
         {/* Header */}
         <div className="max-w-3xl mb-12">
-          <div className="inline-flex items-center gap-2 text-xs font-mono text-[#d6f928] tracking-widest uppercase mb-4">
+          <div className="inline-flex items-center gap-2 text-xs font-mono text-accent-ink tracking-widest uppercase mb-4">
             [ Talks &amp; Workshops ]
           </div>
           <h2
             id="speaking-heading"
-            className="font-heading text-4xl md:text-5xl font-bold text-white leading-tight mb-4"
+            className="font-heading text-4xl md:text-5xl font-bold text-ink leading-tight mb-4"
           >
             I teach this,{" "}
-            <span className="text-gray-500">not just do it.</span>
+            <span className="text-ink-faint">not just do it.</span>
           </h2>
-          <p className="text-gray-300 text-base leading-relaxed">
+          <p className="text-ink-soft text-base leading-relaxed">
             Alongside the product work I&apos;ve run three design workshops for students &mdash; colour
             theory, Figma, and how to take an idea from a blank canvas to something you can click.
             Explaining a design decision to a room of two hundred people who have never made one is
@@ -88,19 +88,19 @@ const Speaking = () => {
           {TALKS.map((t) => (
             <div
               key={t.title}
-              className="bg-white/5 border border-white/10 rounded-2xl p-6 flex flex-col"
+              className="bg-surface-3/70 border border-line rounded-2xl p-6 flex flex-col"
             >
               <div className="flex items-center justify-between gap-3 mb-3">
-                <div className="w-9 h-9 rounded-lg bg-[#d6f928]/10 border border-[#d6f928]/20 flex items-center justify-center shrink-0">
-                  <Mic size={16} className="text-[#d6f928]" />
+                <div className="w-9 h-9 rounded-lg bg-accent/25 border border-accent-ink/30 flex items-center justify-center shrink-0">
+                  <Mic size={16} className="text-accent-ink" />
                 </div>
-                <span className="text-[10px] font-mono uppercase tracking-widest text-gray-500 whitespace-nowrap">
+                <span className="text-[10px] font-mono uppercase tracking-widest text-ink-faint whitespace-nowrap">
                   {t.when}
                 </span>
               </div>
-              <h3 className="text-white font-semibold text-sm leading-snug mb-1">{t.title}</h3>
-              <p className="text-gray-500 text-xs mb-3">{t.org}</p>
-              <p className="text-gray-400 text-xs leading-relaxed mt-auto">{t.note}</p>
+              <h3 className="text-ink font-semibold text-sm leading-snug mb-1">{t.title}</h3>
+              <p className="text-ink-faint text-xs mb-3">{t.org}</p>
+              <p className="text-ink-muted text-xs leading-relaxed mt-auto">{t.note}</p>
             </div>
           ))}
         </div>
@@ -111,7 +111,7 @@ const Speaking = () => {
           {GALLERY.map((g) => (
             <div
               key={g.alt}
-              className={`relative rounded-xl overflow-hidden border border-white/10 aspect-[4/3] ${g.fit === "contain" ? "bg-white/[0.04]" : "bg-black/40"
+              className={`relative rounded-xl overflow-hidden border border-line aspect-[4/3] ${g.fit === "contain" ? "bg-surface-3/80" : "bg-surface-3/70"
                 }`}
             >
               <img
@@ -127,19 +127,19 @@ const Speaking = () => {
 
         {/* Why it's here */}
         <div className="mt-10 flex flex-col sm:flex-row gap-4">
-          <div className="flex items-start gap-3 bg-white/5 border border-white/10 rounded-2xl p-5 flex-1">
-            <Users size={16} className="text-[#d6f928] shrink-0 mt-0.5" />
-            <p className="text-gray-400 text-xs leading-relaxed">
+          <div className="flex items-start gap-3 bg-surface-3/70 border border-line rounded-2xl p-5 flex-1">
+            <Users size={16} className="text-accent-ink shrink-0 mt-0.5" />
+            <p className="text-ink-muted text-xs leading-relaxed">
               Three sessions, each for{" "}
-              <span className="text-white font-medium">150&ndash;200 attendees</span>, mostly in
+              <span className="text-ink font-medium">150&ndash;200 attendees</span>, mostly in
               full computer labs working along live.
             </p>
           </div>
-          <div className="flex items-start gap-3 bg-white/5 border border-white/10 rounded-2xl p-5 flex-1">
-            <Presentation size={16} className="text-[#d6f928] shrink-0 mt-0.5" />
-            <p className="text-gray-400 text-xs leading-relaxed">
+          <div className="flex items-start gap-3 bg-surface-3/70 border border-line rounded-2xl p-5 flex-1">
+            <Presentation size={16} className="text-accent-ink shrink-0 mt-0.5" />
+            <p className="text-ink-muted text-xs leading-relaxed">
               Teaching forces the thing every design review needs:{" "}
-              <span className="text-white font-medium">saying why, in plain language</span>, to
+              <span className="text-ink font-medium">saying why, in plain language</span>, to
               someone who does not already agree with you.
             </p>
           </div>

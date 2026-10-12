@@ -133,14 +133,14 @@ const CATEGORIES = [
 ];
 
 const CAT_STYLES = {
-  observe:   "bg-emerald-500/10 text-emerald-400 border border-emerald-500/20",
-  inquire:   "bg-purple-500/10 text-purple-400 border border-purple-500/20",
-  analyze:   "bg-orange-500/10 text-orange-400 border border-orange-500/20",
-  frame:     "bg-sky-500/10 text-sky-400 border border-sky-500/20",
-  mindset:   "bg-[#d6f928]/10 text-[#d6f928] border border-[#d6f928]/20",
-  coach:     "bg-violet-500/10 text-violet-400 border border-violet-500/20",
-  social:    "bg-rose-500/10 text-rose-400 border border-rose-500/20",
-  strategic: "bg-amber-500/10 text-amber-400 border border-amber-500/20",
+  observe:   "bg-emerald-500/10 text-emerald-800 border border-emerald-500/20",
+  inquire:   "bg-purple-500/10 text-purple-600 border border-purple-500/20",
+  analyze:   "bg-orange-500/10 text-orange-600 border border-orange-500/20",
+  frame:     "bg-sky-500/10 text-sky-600 border border-sky-500/20",
+  mindset:   "bg-accent/25 text-accent-ink border border-accent-ink/30",
+  coach:     "bg-violet-500/10 text-violet-600 border border-violet-500/20",
+  social:    "bg-rose-500/10 text-rose-600 border border-rose-500/20",
+  strategic: "bg-amber-500/10 text-amber-700 border border-amber-500/20",
 };
 
 // ════════════════════════════════════════
@@ -330,7 +330,7 @@ export default function InquiryProtocol() {
   if (!card) return null;
 
   return (
-    <div className="flex flex-col h-screen w-full bg-[#050505] text-white select-none overflow-hidden">
+    <div className="flex flex-col h-screen w-full bg-surface-2 text-ink select-none overflow-hidden">
       <Helmet>
         <meta name="robots" content="noindex, nofollow" />
         <title>Inquiry Protocol — Suman Sourabh</title>
@@ -338,11 +338,11 @@ export default function InquiryProtocol() {
 
       {/* Top bar */}
       <div className="max-w-5xl w-full mx-auto px-4 md:px-8 flex justify-between items-center pt-6 md:pt-10 pb-4 md:pb-6 shrink-0">
-        <span className="text-xs md:text-sm font-mono font-bold tracking-[0.15em] uppercase text-[#d6f928]">
+        <span className="text-xs md:text-sm font-mono font-bold tracking-[0.15em] uppercase text-accent-ink">
           The Inquiry Protocol
         </span>
-        <span className="text-xs md:text-sm text-gray-600 font-mono">
-          <span className="text-white">{seen.size}</span> / {deck.length}
+        <span className="text-xs md:text-sm text-ink-ghost font-mono">
+          <span className="text-ink">{seen.size}</span> / {deck.length}
         </span>
       </div>
 
@@ -355,8 +355,8 @@ export default function InquiryProtocol() {
               onClick={() => setFilter(c.key)}
               className={`shrink-0 px-3 md:px-4 py-1.5 md:py-2 rounded-full text-[0.72rem] md:text-xs font-mono border transition-all duration-150
                 ${filter === c.key
-                  ? "border-[#d6f928]/40 text-[#d6f928] bg-[#d6f928]/10"
-                  : "border-white/10 text-gray-500 bg-white/5 hover:text-gray-300"
+                  ? "border-accent-ink/40 text-accent-ink bg-accent/25"
+                  : "border-line text-ink-faint bg-surface-3/70 hover:text-ink-soft"
                 }`}
             >
               {c.label}
@@ -375,7 +375,7 @@ export default function InquiryProtocol() {
       >
         <div
           ref={cardRef}
-          className={`w-full max-w-[460px] md:max-w-3xl bg-white/[0.04] border border-white/10 rounded-2xl md:rounded-3xl p-8 md:p-14 min-h-[300px] md:min-h-[400px] flex flex-col justify-center cursor-grab ${cardAnim}`}
+          className={`w-full max-w-[460px] md:max-w-3xl bg-surface-3/80 border border-line rounded-2xl md:rounded-3xl p-8 md:p-14 min-h-[300px] md:min-h-[400px] flex flex-col justify-center cursor-grab ${cardAnim}`}
         >
           {!flipped ? (
             /* ── FRONT ── */
@@ -384,22 +384,22 @@ export default function InquiryProtocol() {
                 {card.cat}
               </span>
               <p className="font-heading text-xl md:text-3xl lg:text-4xl font-medium leading-relaxed md:leading-snug mb-6 md:mb-10">{card.q}</p>
-              <p className="text-xs md:text-sm text-gray-600 italic">{card.src}</p>
+              <p className="text-xs md:text-sm text-ink-ghost italic">{card.src}</p>
             </div>
           ) : (
             /* ── BACK ── */
             <div className="flex flex-col justify-center flex-1 gap-3 md:gap-5">
-              <p className="text-[0.65rem] md:text-xs font-bold tracking-[0.1em] uppercase text-gray-500 font-mono">
+              <p className="text-[0.65rem] md:text-xs font-bold tracking-[0.1em] uppercase text-ink-faint font-mono">
                 Why this matters
               </p>
-              <p className="text-[0.95rem] md:text-lg leading-relaxed text-gray-400">{card.back}</p>
-              <p className="text-[0.65rem] md:text-xs font-bold tracking-[0.1em] uppercase text-gray-500 mt-1 font-mono">
+              <p className="text-[0.95rem] md:text-lg leading-relaxed text-ink-muted">{card.back}</p>
+              <p className="text-[0.65rem] md:text-xs font-bold tracking-[0.1em] uppercase text-ink-faint mt-1 font-mono">
                 When to use it
               </p>
-              <div className="text-[0.85rem] md:text-base leading-relaxed text-white p-3 md:p-5 bg-white/5 rounded-lg md:rounded-xl border-l-[3px] border-[#d6f928]/50">
+              <div className="text-[0.85rem] md:text-base leading-relaxed text-ink p-3 md:p-5 bg-surface-3/70 rounded-lg md:rounded-xl border-l-[3px] border-accent-ink/45">
                 {card.use}
               </div>
-              <p className="text-xs md:text-sm text-gray-600 italic mt-2">
+              <p className="text-xs md:text-sm text-ink-ghost italic mt-2">
                 {card.src} — {card.book}
               </p>
             </div>
@@ -415,10 +415,10 @@ export default function InquiryProtocol() {
               key={i}
               className={`h-1 md:h-1.5 rounded-full transition-all duration-150 ${
                 i === idx
-                  ? "w-3 md:w-5 bg-[#d6f928]"
+                  ? "w-3 md:w-5 bg-accent"
                   : seen.has(i)
-                  ? "w-1 md:w-1.5 bg-[#d6f928]/30"
-                  : "w-1 md:w-1.5 bg-white/10"
+                  ? "w-1 md:w-1.5 bg-accent/30"
+                  : "w-1 md:w-1.5 bg-surface-3"
               }`}
             />
           ))}
@@ -426,7 +426,7 @@ export default function InquiryProtocol() {
       )}
 
       {/* Hint */}
-      <div className={`text-center text-[0.68rem] md:text-xs text-gray-600 font-mono pb-2 md:pb-4 shrink-0 transition-opacity duration-500 ${hintVisible ? "" : "opacity-0 pointer-events-none"}`}>
+      <div className={`text-center text-[0.68rem] md:text-xs text-ink-ghost font-mono pb-2 md:pb-4 shrink-0 transition-opacity duration-500 ${hintVisible ? "" : "opacity-0 pointer-events-none"}`}>
         swipe or tap &middot; arrows to navigate &middot; space to flip
       </div>
 
@@ -434,19 +434,19 @@ export default function InquiryProtocol() {
       <div className="flex justify-center items-center gap-8 md:gap-12 pb-6 md:pb-10 shrink-0">
         <button
           onClick={prev}
-          className="w-12 h-12 md:w-14 md:h-14 rounded-full border border-white/10 bg-white/5 text-gray-500 flex items-center justify-center hover:border-white/20 hover:text-gray-300 transition-all"
+          className="w-12 h-12 md:w-14 md:h-14 rounded-full border border-line bg-surface-3/70 text-ink-faint flex items-center justify-center hover:border-line-strong hover:text-ink-soft transition-all"
         >
           <ChevronLeft />
         </button>
         <button
           onClick={flip}
-          className="w-14 h-14 md:w-16 md:h-16 rounded-full border border-[#d6f928]/30 bg-[#d6f928]/5 text-[#d6f928] flex items-center justify-center hover:bg-[#d6f928]/10 transition-all"
+          className="w-14 h-14 md:w-16 md:h-16 rounded-full border border-accent-ink/35 bg-accent/15 text-accent-ink flex items-center justify-center hover:bg-accent/25 transition-all"
         >
           <FlipIcon />
         </button>
         <button
           onClick={next}
-          className="w-12 h-12 md:w-14 md:h-14 rounded-full border border-white/10 bg-white/5 text-gray-500 flex items-center justify-center hover:border-white/20 hover:text-gray-300 transition-all"
+          className="w-12 h-12 md:w-14 md:h-14 rounded-full border border-line bg-surface-3/70 text-ink-faint flex items-center justify-center hover:border-line-strong hover:text-ink-soft transition-all"
         >
           <ChevronRight />
         </button>

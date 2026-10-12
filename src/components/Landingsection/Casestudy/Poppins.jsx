@@ -73,19 +73,19 @@ const PROTOTYPES = [
 // ================= SHARED BITS =================
 
 const Badge = ({ children }) => (
-    <div className="inline-flex items-center gap-2 text-xs font-mono text-[#d6f928] tracking-widest uppercase mb-6 bg-[#d6f928]/5 px-3 py-1 rounded border border-[#d6f928]/20">
+    <div className="inline-flex items-center gap-2 text-xs font-mono text-accent-ink tracking-widest uppercase mb-6 bg-accent/15 px-3 py-1 rounded border border-accent-ink/30">
         {children}
     </div>
 );
 
 const IconCard = ({ icon, title, children }) => (
-    <div className="bg-white/5 border border-white/10 rounded-2xl p-6 flex gap-4">
-        <div className="w-10 h-10 rounded-xl bg-white/5 border border-white/10 flex items-center justify-center flex-shrink-0">
+    <div className="bg-surface-3/70 border border-line rounded-2xl p-6 flex gap-4">
+        <div className="w-10 h-10 rounded-xl bg-surface border border-line flex items-center justify-center flex-shrink-0">
             {icon}
         </div>
         <div>
-            <h4 className="text-white font-semibold text-sm mb-1">{title}</h4>
-            <p className="text-gray-400 text-xs leading-relaxed">{children}</p>
+            <h4 className="text-ink font-semibold text-sm mb-1">{title}</h4>
+            <p className="text-ink-muted text-xs leading-relaxed">{children}</p>
         </div>
     </div>
 );
@@ -94,11 +94,11 @@ const Decision = ({ n, icon, tone, title, children }) => (
     <div className="mb-16">
         <div className="flex items-center gap-4 mb-6">
             <div className={`w-11 h-11 rounded-xl border flex items-center justify-center ${tone}`}>{icon}</div>
-            <div className="text-xs font-mono text-gray-600 uppercase tracking-widest">
+            <div className="text-xs font-mono text-ink-ghost uppercase tracking-widest">
                 Decision {String(n).padStart(2, "0")}
             </div>
         </div>
-        <h3 className="font-heading text-2xl md:text-3xl font-bold text-white mb-4 max-w-3xl leading-snug">{title}</h3>
+        <h3 className="font-heading text-2xl md:text-3xl font-bold text-ink mb-4 max-w-3xl leading-snug">{title}</h3>
         {children}
     </div>
 );
@@ -114,7 +114,7 @@ const SplitFigure = ({ src, alt, caption, children }) => (
             <div className="min-w-0">{children}</div>
             <figure className="mx-auto sm:mx-0 w-[216px]">
                 {/* The phone is seated on a panel so it sits on something. */}
-                <div className="rounded-[22px] bg-white/[0.04] border border-white/10 p-2.5">
+                <div className="rounded-[22px] bg-surface-3/80 border border-line p-2.5">
                     <img
                         loading="lazy"
                         decoding="async"
@@ -124,7 +124,7 @@ const SplitFigure = ({ src, alt, caption, children }) => (
                     />
                 </div>
                 {caption && (
-                    <figcaption className="text-gray-500 text-[11px] mt-3 leading-relaxed">{caption}</figcaption>
+                    <figcaption className="text-ink-faint text-[11px] mt-3 leading-relaxed">{caption}</figcaption>
                 )}
             </figure>
         </div>
@@ -135,24 +135,24 @@ const SplitFigure = ({ src, alt, caption, children }) => (
 // long page doesn't add five thousand pixels to this one.
 const ScrollFrame = ({ src, alt, caption, url, height = "h-[560px]" }) => (
     <figure className="my-10">
-        <div className="rounded-2xl overflow-hidden border border-white/10 shadow-2xl bg-[#1e1e1e]">
-            <div className="flex items-center gap-3 px-4 py-3 bg-[#2a2a2a] border-b border-white/10">
+        <div className="rounded-2xl overflow-hidden border border-line shadow-2xl bg-surface-3">
+            <div className="flex items-center gap-3 px-4 py-3 bg-surface-3 border-b border-line">
                 <div className="flex items-center gap-1.5 shrink-0">
                     <span className="w-3 h-3 rounded-full bg-[#ff5f57]" />
                     <span className="w-3 h-3 rounded-full bg-[#febc2e]" />
                     <span className="w-3 h-3 rounded-full bg-[#28c840]" />
                 </div>
-                <div className="flex-1 flex items-center gap-2 bg-[#3a3a3a] rounded-md px-3 py-1.5 mx-4 min-w-0">
-                    <span className="text-gray-400 text-xs font-mono truncate">{url}</span>
+                <div className="flex-1 flex items-center gap-2 bg-surface-3 rounded-md px-3 py-1.5 mx-4 min-w-0">
+                    <span className="text-ink-muted text-xs font-mono truncate">{url}</span>
                 </div>
             </div>
-            <div className={`${height} overflow-y-auto overflow-x-hidden bg-white`}>
+            <div className={`${height} overflow-y-auto overflow-x-hidden bg-surface`}>
                 <img src={src} alt={alt} loading="lazy" decoding="async" className="w-full block" />
             </div>
         </div>
         {caption && (
-            <figcaption className="text-gray-500 text-xs mt-3 max-w-2xl leading-relaxed">
-                {caption} <span className="text-gray-600">Scroll inside the window to see the full page.</span>
+            <figcaption className="text-ink-faint text-xs mt-3 max-w-2xl leading-relaxed">
+                {caption} <span className="text-ink-ghost">Scroll inside the window to see the full page.</span>
             </figcaption>
         )}
     </figure>
@@ -166,10 +166,10 @@ const FigureWide = ({ src, alt, caption }) => (
             decoding="async"
             src={src}
             alt={alt}
-            className="rounded-2xl w-full border border-white/10 bg-[#0d0d0f]"
+            className="rounded-2xl w-full border border-line bg-surface-2"
         />
         {caption && (
-            <figcaption className="text-gray-500 text-xs mt-3 max-w-2xl leading-relaxed">{caption}</figcaption>
+            <figcaption className="text-ink-faint text-xs mt-3 max-w-2xl leading-relaxed">{caption}</figcaption>
         )}
     </figure>
 );
@@ -181,66 +181,66 @@ const FigureRow = ({ items, caption, cols = "sm:grid-cols-3", width = "", phone 
             {items.map((it) => (
                 <div key={it.alt}>
                     {phone ? (
-                        <div className="rounded-[20px] bg-white/[0.04] border border-white/10 p-2">
+                        <div className="rounded-[20px] bg-surface-3 border border-line-strong p-2">
                             <img loading="lazy" decoding="async" src={it.src} alt={it.alt} className="rounded-[13px] w-full block" />
                         </div>
                     ) : (
-                        <img loading="lazy" decoding="async" src={it.src} alt={it.alt} className="rounded-xl w-full border border-white/10 bg-[#0d0d0f]" />
+                        <img loading="lazy" decoding="async" src={it.src} alt={it.alt} className="rounded-xl w-full border border-line bg-surface-2" />
                     )}
                     {it.label && (
-                        <p className="text-[11px] font-mono uppercase tracking-widest text-gray-600 mt-2.5 text-center">{it.label}</p>
+                        <p className="text-[11px] font-mono uppercase tracking-widest text-ink-ghost mt-2.5 text-center">{it.label}</p>
                     )}
                 </div>
             ))}
         </div>
         {caption && (
-            <figcaption className="text-gray-500 text-xs mt-4 max-w-2xl leading-relaxed">{caption}</figcaption>
+            <figcaption className="text-ink-faint text-xs mt-4 max-w-2xl leading-relaxed">{caption}</figcaption>
         )}
     </figure>
 );
 
 // Verbatim product copy — the voice system made visible.
 const Voice = ({ who, children }) => (
-    <div className="bg-[#0d0d0f] border border-white/10 rounded-xl p-5">
-        <p className={`text-[10px] font-mono uppercase tracking-widest mb-2 ${who === "spotter" ? "text-emerald-300" : "text-gray-500"}`}>
+    <div className="bg-surface-2 border border-line rounded-xl p-5">
+        <p className={`text-[10px] font-mono uppercase tracking-widest mb-2 ${who === "spotter" ? "text-emerald-800" : "text-ink-faint"}`}>
             {who === "spotter" ? "The Spotter" : "The Steady Hand"}
         </p>
-        <p className="text-gray-200 text-sm leading-relaxed italic">{children}</p>
+        <p className="text-ink-soft text-sm leading-relaxed italic">{children}</p>
     </div>
 );
 
 // One of the four people the onboarding was written against.
 const Persona = ({ name, meta, types, feels, converts }) => (
-    <div className="bg-white/5 border border-white/10 rounded-2xl p-6">
-        <p className="text-white font-semibold text-sm">{name}</p>
-        <p className="text-gray-500 text-xs mb-4">{meta}</p>
+    <div className="bg-surface-3/70 border border-line rounded-2xl p-6">
+        <p className="text-ink font-semibold text-sm">{name}</p>
+        <p className="text-ink-faint text-xs mb-4">{meta}</p>
         <dl className="space-y-3">
             <div>
-                <dt className="text-[10px] font-mono uppercase tracking-widest text-gray-600 mb-1">Types</dt>
-                <dd className="text-gray-300 text-xs leading-relaxed italic">&ldquo;{types}&rdquo;</dd>
+                <dt className="text-[10px] font-mono uppercase tracking-widest text-ink-ghost mb-1">Types</dt>
+                <dd className="text-ink-soft text-xs leading-relaxed italic">&ldquo;{types}&rdquo;</dd>
             </div>
             <div>
-                <dt className="text-[10px] font-mono uppercase tracking-widest text-gray-600 mb-1">Arrives feeling</dt>
-                <dd className="text-gray-400 text-xs leading-relaxed">{feels}</dd>
+                <dt className="text-[10px] font-mono uppercase tracking-widest text-ink-ghost mb-1">Arrives feeling</dt>
+                <dd className="text-ink-muted text-xs leading-relaxed">{feels}</dd>
             </div>
             <div>
-                <dt className="text-[10px] font-mono uppercase tracking-widest text-emerald-300/70 mb-1">What converts them</dt>
-                <dd className="text-gray-300 text-xs leading-relaxed">{converts}</dd>
+                <dt className="text-[10px] font-mono uppercase tracking-widest text-emerald-800 mb-1">What converts them</dt>
+                <dd className="text-ink-soft text-xs leading-relaxed">{converts}</dd>
             </div>
         </dl>
     </div>
 );
 
 const Rule = ({ children }) => (
-    <li className="flex gap-3 text-gray-400 text-sm leading-relaxed">
-        <Ban size={15} className="text-red-400/70 shrink-0 mt-0.5" />
+    <li className="flex gap-3 text-ink-muted text-sm leading-relaxed">
+        <Ban size={15} className="text-red-700/70 shrink-0 mt-0.5" />
         <span>{children}</span>
     </li>
 );
 
 const Poppins = () => {
     return (
-        <div className="text-white bg-[#050505]">
+        <div className="text-ink bg-surface-2">
             <SEO
                 title="Poppins: A Conversational Finance App — Product Design Case Study"
                 description="Designing Poppins, an iOS conversational finance assistant: market and competitor research, four user archetypes, a permission ladder where every ask is earned, five intent-matched bank asks, and mobile micro-interaction craft — plus the decision to stop."
@@ -250,24 +250,24 @@ const Poppins = () => {
             <Navbar />
 
             {/* ================= HERO ================= */}
-            <section className="bg-[#050505] pt-32 pb-24 px-4">
+            <section className="bg-surface-2 pt-32 pb-24 px-4">
                 <div className="max-w-7xl mx-auto">
                     <div className="text-center max-w-3xl mx-auto mb-14">
                         <Badge>[ iOS &middot; Consumer Fintech &middot; Conversational UI ]</Badge>
 
                         <div className="flex justify-center mb-6">
-                            <span className="inline-flex items-center gap-2 text-xs font-medium text-gray-300 bg-white/5 border border-white/15 px-3 py-1 rounded-full">
-                                <span className="w-1.5 h-1.5 rounded-full bg-gray-400" />
+                            <span className="inline-flex items-center gap-2 text-xs font-medium text-ink-soft bg-surface-3/70 border border-line px-3 py-1 rounded-full">
+                                <span className="w-1.5 h-1.5 rounded-full bg-ink-ghost" />
                                 Concluded &mdash; not shipped
                             </span>
                         </div>
 
-                        <h1 className="font-heading text-5xl md:text-7xl font-extrabold text-white tracking-tight leading-none mb-6">
+                        <h1 className="font-heading text-5xl md:text-7xl font-extrabold text-ink tracking-tight leading-none mb-6">
                             Poppins
                         </h1>
-                        <p className="text-lg text-gray-400 font-light leading-relaxed max-w-2xl mx-auto">
+                        <p className="text-lg text-ink-muted font-light leading-relaxed max-w-2xl mx-auto">
                             A conversational finance app built on one idea: replace the dashboard with
-                            <span className="text-white font-medium"> a single number you can trust</span>, and earn
+                            <span className="text-ink font-medium"> a single number you can trust</span>, and earn
                             every permission before asking for it. Three months of research-led design &mdash;
                             whiteboard to high fidelity &mdash; and a deliberate decision not to build it.
                         </p>
@@ -276,46 +276,46 @@ const Poppins = () => {
                     <img
                         src={Cover}
                         alt="Poppins — a conversational finance app for iOS"
-                        className="rounded-2xl w-full object-cover border border-white/10"
+                        className="rounded-2xl w-full object-cover border border-line"
                     />
 
                     <div className="grid grid-cols-2 md:grid-cols-4 gap-6 mt-12 mb-8">
-                        <div className="bg-white/5 border border-white/10 rounded-2xl p-5 text-center">
-                            <p className="text-xs text-gray-500 uppercase tracking-widest mb-2">My Role</p>
-                            <p className="text-white font-medium">Product Designer</p>
+                        <div className="bg-surface-3/70 border border-line rounded-2xl p-5 text-center">
+                            <p className="text-xs text-ink-faint uppercase tracking-widest mb-2">My Role</p>
+                            <p className="text-ink font-medium">Product Designer</p>
                         </div>
-                        <div className="bg-white/5 border border-white/10 rounded-2xl p-5 text-center">
-                            <p className="text-xs text-gray-500 uppercase tracking-widest mb-2">Platform</p>
-                            <p className="text-white font-medium">iOS + Marketing Site</p>
+                        <div className="bg-surface-3/70 border border-line rounded-2xl p-5 text-center">
+                            <p className="text-xs text-ink-faint uppercase tracking-widest mb-2">Platform</p>
+                            <p className="text-ink font-medium">iOS + Marketing Site</p>
                         </div>
-                        <div className="bg-white/5 border border-white/10 rounded-2xl p-5 text-center">
-                            <p className="text-xs text-gray-500 uppercase tracking-widest mb-2">Duration</p>
-                            <p className="text-white font-medium">~3 Months</p>
+                        <div className="bg-surface-3/70 border border-line rounded-2xl p-5 text-center">
+                            <p className="text-xs text-ink-faint uppercase tracking-widest mb-2">Duration</p>
+                            <p className="text-ink font-medium">~3 Months</p>
                         </div>
-                        <div className="bg-white/5 border border-white/10 rounded-2xl p-5 text-center">
-                            <p className="text-xs text-gray-500 uppercase tracking-widest mb-2">Outcome</p>
-                            <p className="text-white font-medium">Stopped at v1 scope</p>
+                        <div className="bg-surface-3/70 border border-line rounded-2xl p-5 text-center">
+                            <p className="text-xs text-ink-faint uppercase tracking-widest mb-2">Outcome</p>
+                            <p className="text-ink font-medium">Stopped at v1 scope</p>
                         </div>
                     </div>
 
                     <div className="flex flex-wrap gap-2 justify-center">
                         {["Figma", "FigJam", "Whiteboarding", "iOS / HIG", "Conversation Design", "Competitive Research", "Plaid", "Flowcharting"].map((t) => (
-                            <span key={t} className="text-xs px-3 py-1 bg-white/5 text-gray-500 border border-white/10 rounded-full">{t}</span>
+                            <span key={t} className="text-xs px-3 py-1 bg-surface-3/70 text-ink-faint border border-line rounded-full">{t}</span>
                         ))}
                     </div>
                 </div>
             </section>
 
             {/* ================= PROTOTYPES ================= */}
-            <section className="bg-black py-16 px-4 border-t border-white/10">
+            <section className="bg-surface py-16 px-4 border-t border-line">
                 <div className="max-w-7xl mx-auto">
                     <div className="flex flex-col lg:flex-row lg:items-end lg:justify-between gap-4 mb-8">
                         <div className="max-w-2xl">
                             <Badge>[ Try It ]</Badge>
-                            <h2 className="font-heading text-3xl md:text-4xl font-bold text-white leading-tight mb-3">
+                            <h2 className="font-heading text-3xl md:text-4xl font-bold text-ink leading-tight mb-3">
                                 Three working prototypes.
                             </h2>
-                            <p className="text-gray-400 text-base leading-relaxed">
+                            <p className="text-ink-muted text-base leading-relaxed">
                                 The flows below were built as interactive prototypes, not static frames &mdash; the
                                 conversation, the plan modelling, and the way an insight is delivered all needed to be
                                 felt in sequence to know whether they worked.
@@ -330,62 +330,62 @@ const Poppins = () => {
                                 href={p.href}
                                 target="_blank"
                                 rel="noopener noreferrer"
-                                className="group bg-white/5 border border-white/10 rounded-2xl p-6 flex flex-col justify-between gap-6
-                                    hover:border-emerald-400/40 hover:bg-white/[0.07] transition-colors
-                                    focus:outline-none focus-visible:ring-2 focus-visible:ring-emerald-300/50"
+                                className="group bg-surface-3/70 border border-line rounded-2xl p-6 flex flex-col justify-between gap-6
+                                    hover:border-emerald-400/40 hover:bg-surface-3 transition-colors
+                                    focus:outline-none focus-visible:ring-2 focus-visible:ring-emerald-700/60"
                             >
                                 <div>
                                     <div className="w-10 h-10 rounded-xl bg-emerald-500/10 border border-emerald-400/20 flex items-center justify-center mb-4">
-                                        <PlayCircle size={18} className="text-emerald-300" />
+                                        <PlayCircle size={18} className="text-emerald-800" />
                                     </div>
-                                    <h3 className="text-white font-semibold text-base mb-1.5">{p.name}</h3>
-                                    <p className="text-gray-400 text-xs leading-relaxed">{p.desc}</p>
+                                    <h3 className="text-ink font-semibold text-base mb-1.5">{p.name}</h3>
+                                    <p className="text-ink-muted text-xs leading-relaxed">{p.desc}</p>
                                 </div>
-                                <span className="inline-flex items-center gap-2 text-xs font-mono uppercase tracking-widest text-emerald-300">
+                                <span className="inline-flex items-center gap-2 text-xs font-mono uppercase tracking-widest text-emerald-800">
                                     Open prototype
                                     <ExternalLink size={13} className="group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-transform" />
                                 </span>
                             </a>
                         ))}
                     </div>
-                    <p className="text-gray-600 text-xs mt-4">Opens in Figma, in a new tab.</p>
+                    <p className="text-ink-ghost text-xs mt-4">Opens in Figma, in a new tab.</p>
                 </div>
             </section>
 
             {/* ================= PROBLEM ================= */}
-            <section className="bg-black py-16 px-4 border-t border-white/10">
+            <section className="bg-surface py-16 px-4 border-t border-line">
                 <div className="max-w-7xl mx-auto">
                     <div className="max-w-3xl mb-16">
                         <Badge>[ The Problem ]</Badge>
-                        <h2 className="font-heading text-4xl md:text-5xl font-bold text-white leading-tight mb-6">
+                        <h2 className="font-heading text-4xl md:text-5xl font-bold text-ink leading-tight mb-6">
                             Nobody wants a dashboard.{" "}
-                            <span className="text-gray-400">They want to stop worrying.</span>
+                            <span className="text-ink-muted">They want to stop worrying.</span>
                         </h2>
-                        <p className="text-gray-400 text-base leading-relaxed mb-5">
+                        <p className="text-ink-muted text-base leading-relaxed mb-5">
                             A person&apos;s financial life is spread across six places at once &mdash; cash in one
                             bank app, a card in another, a loan with a servicer, investments on a brokerage, bills
                             in the inbox, and the insurance policy in a drawer. The cost isn&apos;t inconvenience.
-                            It&apos;s <span className="text-white font-medium">a permanent low-grade anxiety</span> about
+                            It&apos;s <span className="text-ink font-medium">a permanent low-grade anxiety</span> about
                             money you can&apos;t answer without twenty minutes of mental arithmetic.
                         </p>
-                        <p className="text-gray-400 text-base leading-relaxed">
+                        <p className="text-ink-muted text-base leading-relaxed">
                             Existing tools split into two camps, and neither solves it: passive dashboards that show
                             numbers and offer no guidance, or trackers that demand manual entry nobody sustains.
                             Both answer <em>&ldquo;what happened?&rdquo;</em> The question people actually ask is
-                            <span className="text-white font-medium"> &ldquo;am I okay, and can I afford this?&rdquo;</span>
+                            <span className="text-ink font-medium"> &ldquo;am I okay, and can I afford this?&rdquo;</span>
                         </p>
                     </div>
 
                     <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-                        <IconCard icon={<Users size={18} className="text-emerald-300" />} title="Who it was for">
+                        <IconCard icon={<Users size={18} className="text-emerald-800" />} title="Who it was for">
                             The organised-but-stretched professional. Earns steadily, has a loan or two, financially
                             literate enough to care &mdash; and far too busy to maintain a spreadsheet.
                         </IconCard>
-                        <IconCard icon={<Clock size={18} className="text-blue-400" />} title="The jobs to be done">
+                        <IconCard icon={<Clock size={18} className="text-blue-700" />} title="The jobs to be done">
                             &ldquo;Tell me if I can afford this, quickly and honestly.&rdquo; &ldquo;Warn me before
                             something lapses.&rdquo; &ldquo;Tell me if my goal is realistic.&rdquo;
                         </IconCard>
-                        <IconCard icon={<ShieldCheck size={18} className="text-[#d6f928]" />} title="The hard constraint">
+                        <IconCard icon={<ShieldCheck size={18} className="text-accent-ink" />} title="The hard constraint">
                             Money is the most trust-sensitive category in consumer software. Every design decision
                             had to survive the question <em>&ldquo;why should I believe this number?&rdquo;</em>
                         </IconCard>
@@ -394,21 +394,21 @@ const Poppins = () => {
             </section>
 
             {/* ================= MARKET RESEARCH ================= */}
-            <section className="bg-[#050505] py-16 px-4 border-t border-white/10">
+            <section className="bg-surface-2 py-16 px-4 border-t border-line">
                 <div className="max-w-7xl mx-auto">
                     <div className="max-w-3xl mb-12">
                         <Badge>[ Research &mdash; The Market ]</Badge>
-                        <h2 className="font-heading text-4xl md:text-5xl font-bold text-white leading-tight mb-6">
+                        <h2 className="font-heading text-4xl md:text-5xl font-bold text-ink leading-tight mb-6">
                             We started by proving{" "}
-                            <span className="text-gray-400">we weren&apos;t needed.</span>
+                            <span className="text-ink-muted">we weren&apos;t needed.</span>
                         </h2>
-                        <p className="text-gray-400 text-base leading-relaxed mb-5">
+                        <p className="text-ink-muted text-base leading-relaxed mb-5">
                             The first work wasn&apos;t design, it was a competitive teardown. Personal finance is one
                             of the most crowded categories in consumer software, so the honest question up front was
                             not &ldquo;what should we build?&rdquo; but{" "}
-                            <span className="text-white font-medium">&ldquo;what does nobody already do?&rdquo;</span>
+                            <span className="text-ink font-medium">&ldquo;what does nobody already do?&rdquo;</span>
                         </p>
-                        <p className="text-gray-400 text-base leading-relaxed">
+                        <p className="text-ink-muted text-base leading-relaxed">
                             One market condition made the question worth asking at all: Mint&apos;s shutdown had
                             displaced a large installed base of users who were actively shopping for a replacement.
                             A crowded market with a freshly unsettled population is a genuinely different proposition
@@ -417,73 +417,73 @@ const Poppins = () => {
                     </div>
 
                     <div className="overflow-x-auto mb-12">
-                        <table className="w-full min-w-[680px] text-sm border border-white/10 rounded-2xl overflow-hidden">
+                        <table className="w-full min-w-[680px] text-sm border border-line rounded-2xl overflow-hidden">
                             <thead>
-                                <tr className="bg-white/5">
-                                    <th className="text-left p-4 text-xs font-mono uppercase tracking-widest text-gray-500 font-medium">Product</th>
-                                    <th className="text-left p-4 text-xs font-mono uppercase tracking-widest text-gray-500 font-medium">Strength</th>
-                                    <th className="text-left p-4 text-xs font-mono uppercase tracking-widest text-gray-500 font-medium">The gap we saw</th>
+                                <tr className="bg-surface-3/70">
+                                    <th className="text-left p-4 text-xs font-mono uppercase tracking-widest text-ink-faint font-medium">Product</th>
+                                    <th className="text-left p-4 text-xs font-mono uppercase tracking-widest text-ink-faint font-medium">Strength</th>
+                                    <th className="text-left p-4 text-xs font-mono uppercase tracking-widest text-ink-faint font-medium">The gap we saw</th>
                                 </tr>
                             </thead>
-                            <tbody className="text-gray-400">
-                                <tr className="border-t border-white/5">
-                                    <td className="p-4 text-white font-medium">Monarch</td>
+                            <tbody className="text-ink-muted">
+                                <tr className="border-t border-line-soft">
+                                    <td className="p-4 text-ink font-medium">Monarch</td>
                                     <td className="p-4">Beautiful dashboard, strong net-worth tracking</td>
                                     <td className="p-4">Everything lives inside the app. No proactive delivery, no document layer.</td>
                                 </tr>
-                                <tr className="border-t border-white/5">
-                                    <td className="p-4 text-white font-medium">Cleo</td>
+                                <tr className="border-t border-line-soft">
+                                    <td className="p-4 text-ink font-medium">Cleo</td>
                                     <td className="p-4">Personality-led chat, strong with under-25s</td>
                                     <td className="p-4">Locked in its own app. No vault, no calendar, no cross-domain reasoning.</td>
                                 </tr>
-                                <tr className="border-t border-white/5">
-                                    <td className="p-4 text-white font-medium">Mint / YNAB</td>
+                                <tr className="border-t border-line-soft">
+                                    <td className="p-4 text-ink font-medium">Mint / YNAB</td>
                                     <td className="p-4">Budgeting discipline</td>
                                     <td className="p-4">Budget-first. Nothing proactive, nothing for life admin.</td>
                                 </tr>
-                                <tr className="border-t border-white/5">
-                                    <td className="p-4 text-white font-medium">Bank apps</td>
+                                <tr className="border-t border-line-soft">
+                                    <td className="p-4 text-ink font-medium">Bank apps</td>
                                     <td className="p-4">Authoritative balances</td>
                                     <td className="p-4">Built to serve the bank, not the person. History, not guidance.</td>
                                 </tr>
-                                <tr className="border-t border-white/10 bg-emerald-500/5">
-                                    <td className="p-4 text-emerald-300 font-medium">Poppins</td>
-                                    <td className="p-4 text-gray-300">Proactive, cross-domain, delivered where people already are</td>
-                                    <td className="p-4 text-gray-300">Connects bills, documents, balance and calendar &mdash; and reasons across all four.</td>
+                                <tr className="border-t border-line bg-emerald-500/5">
+                                    <td className="p-4 text-emerald-800 font-medium">Poppins</td>
+                                    <td className="p-4 text-ink-soft">Proactive, cross-domain, delivered where people already are</td>
+                                    <td className="p-4 text-ink-soft">Connects bills, documents, balance and calendar &mdash; and reasons across all four.</td>
                                 </tr>
                             </tbody>
                         </table>
                     </div>
 
                     <div className="max-w-3xl">
-                        <h3 className="font-heading text-2xl font-bold text-white mb-4">The behavioural finding that shaped the product</h3>
-                        <p className="text-gray-400 text-base leading-relaxed mb-6">
+                        <h3 className="font-heading text-2xl font-bold text-ink mb-4">The behavioural finding that shaped the product</h3>
+                        <p className="text-ink-muted text-base leading-relaxed mb-6">
                             Every competitor made the same assumption: that the product is the app, and the job is
                             getting people back into it. But mobile attention doesn&apos;t work that way any more.
                             Push notifications are routinely dismissed or disabled; messaging apps are not.
                         </p>
                         <div className="grid grid-cols-1 sm:grid-cols-3 gap-4 mb-6">
-                            <div className="bg-white/5 border border-white/10 rounded-2xl p-5">
-                                <p className="font-heading text-3xl font-bold text-emerald-300 mb-1">~98%</p>
-                                <p className="text-gray-400 text-xs leading-relaxed">Reported open rate for a WhatsApp business message</p>
+                            <div className="bg-surface-3/70 border border-line rounded-2xl p-5">
+                                <p className="font-heading text-3xl font-bold text-emerald-800 mb-1">~98%</p>
+                                <p className="text-ink-muted text-xs leading-relaxed">Reported open rate for a WhatsApp business message</p>
                             </div>
-                            <div className="bg-white/5 border border-white/10 rounded-2xl p-5">
-                                <p className="font-heading text-3xl font-bold text-gray-500 mb-1">7&ndash;9%</p>
-                                <p className="text-gray-400 text-xs leading-relaxed">Push-notification open rate in financial services</p>
+                            <div className="bg-surface-3/70 border border-line rounded-2xl p-5">
+                                <p className="font-heading text-3xl font-bold text-ink-faint mb-1">7&ndash;9%</p>
+                                <p className="text-ink-muted text-xs leading-relaxed">Push-notification open rate in financial services</p>
                             </div>
-                            <div className="bg-white/5 border border-white/10 rounded-2xl p-5">
-                                <p className="font-heading text-3xl font-bold text-white mb-1">&lt;60s</p>
-                                <p className="text-gray-400 text-xs leading-relaxed">To first useful message, with no install required</p>
+                            <div className="bg-surface-3/70 border border-line rounded-2xl p-5">
+                                <p className="font-heading text-3xl font-bold text-ink mb-1">&lt;60s</p>
+                                <p className="text-ink-muted text-xs leading-relaxed">To first useful message, with no install required</p>
                             </div>
                         </div>
-                        <p className="text-gray-400 text-base leading-relaxed mb-4">
+                        <p className="text-ink-muted text-base leading-relaxed mb-4">
                             That gap reframed the delivery channel as a product decision rather than a notification
                             setting. If the app is where you <em>look things up</em> and messaging is where you
                             actually <em>get told</em>, then the reminder belongs in the thread, not behind an icon
                             badge. It also inherits something the app can&apos;t buy: fifteen years of accumulated
                             trust in the channel itself.
                         </p>
-                        <p className="text-gray-600 text-xs leading-relaxed">
+                        <p className="text-ink-ghost text-xs leading-relaxed">
                             Figures are published industry benchmarks used to frame the decision, not our own
                             measurements &mdash; the product never shipped, so we had none.
                         </p>
@@ -501,10 +501,10 @@ const Poppins = () => {
                     />
 
                     <div className="max-w-3xl mt-2">
-                        <p className="text-gray-400 text-base leading-relaxed">
+                        <p className="text-ink-muted text-base leading-relaxed">
                             This turned out to be the hardest writing in the project. Inside the app you can lean on
                             hierarchy, colour and position to carry meaning. In a message thread you have{" "}
-                            <span className="text-white font-medium">one paragraph and no second chance</span> &mdash;
+                            <span className="text-ink font-medium">one paragraph and no second chance</span> &mdash;
                             which is exactly why the voice rules had to be written down before this surface could be
                             designed at all.
                         </p>
@@ -513,15 +513,15 @@ const Poppins = () => {
             </section>
 
             {/* ================= SEGMENTS + PERSONAS ================= */}
-            <section className="bg-black py-16 px-4 border-t border-white/10">
+            <section className="bg-surface py-16 px-4 border-t border-line">
                 <div className="max-w-7xl mx-auto">
                     <div className="max-w-3xl mb-12">
                         <Badge>[ Research &mdash; Who We Designed For ]</Badge>
-                        <h2 className="font-heading text-4xl md:text-5xl font-bold text-white leading-tight mb-6">
+                        <h2 className="font-heading text-4xl md:text-5xl font-bold text-ink leading-tight mb-6">
                             Four segments, ranked &mdash;{" "}
-                            <span className="text-gray-400">then written against by name.</span>
+                            <span className="text-ink-muted">then written against by name.</span>
                         </h2>
-                        <p className="text-gray-400 text-base leading-relaxed">
+                        <p className="text-ink-muted text-base leading-relaxed">
                             We identified four segments, then deliberately sequenced them rather than designing for
                             all four at once. Ordering forced the product to be excellent for one group first and
                             adequate for the rest, which is a design constraint as much as a go-to-market one.
@@ -535,33 +535,33 @@ const Poppins = () => {
                             { p: "03", name: "Coupled Up", age: "25–45", why: "Shared budgets and household view. The incumbent's strongest segment — so the hardest to win and the most valuable to take.", state: "Later" },
                             { p: "04", name: "Side Hustlers", age: "22–40", why: "Irregular income is underserved everywhere and they advocate loudly — but the complexity didn't belong in v1.", state: "Deferred" },
                         ].map((s) => (
-                            <div key={s.p} className={`rounded-2xl p-6 border ${s.state === "v1 focus" ? "bg-emerald-500/5 border-emerald-400/25" : "bg-white/5 border-white/10"}`}>
+                            <div key={s.p} className={`rounded-2xl p-6 border ${s.state === "v1 focus" ? "bg-emerald-500/5 border-emerald-400/25" : "bg-surface-3/70 border-line"}`}>
                                 <div className="flex items-center justify-between mb-3">
-                                    <span className="text-xs font-mono text-gray-600">{s.p}</span>
-                                    <span className={`text-[10px] font-mono uppercase tracking-widest px-2 py-0.5 rounded-full border ${s.state === "v1 focus" ? "text-emerald-300 border-emerald-400/30 bg-emerald-500/10" : "text-gray-500 border-white/10 bg-white/5"}`}>
+                                    <span className="text-xs font-mono text-ink-ghost">{s.p}</span>
+                                    <span className={`text-[10px] font-mono uppercase tracking-widest px-2 py-0.5 rounded-full border ${s.state === "v1 focus" ? "text-emerald-800 border-emerald-400/30 bg-emerald-500/10" : "text-ink-faint border-line bg-surface-3/70"}`}>
                                         {s.state}
                                     </span>
                                 </div>
-                                <p className="text-white font-semibold text-sm">{s.name}</p>
-                                <p className="text-gray-500 text-xs mb-3">{s.age}</p>
-                                <p className="text-gray-400 text-xs leading-relaxed">{s.why}</p>
+                                <p className="text-ink font-semibold text-sm">{s.name}</p>
+                                <p className="text-ink-faint text-xs mb-3">{s.age}</p>
+                                <p className="text-ink-muted text-xs leading-relaxed">{s.why}</p>
                             </div>
                         ))}
                     </div>
 
                     <div className="max-w-3xl mb-8">
-                        <h3 className="font-heading text-2xl font-bold text-white mb-4">The four people the first screen was written for</h3>
-                        <p className="text-gray-400 text-base leading-relaxed mb-4">
+                        <h3 className="font-heading text-2xl font-bold text-ink mb-4">The four people the first screen was written for</h3>
+                        <p className="text-ink-muted text-base leading-relaxed mb-4">
                             Segments are useful for prioritisation and useless for writing copy. So the opening
                             conversation was designed against four specific people &mdash; what each one types,
                             what each one is feeling when they arrive, and{" "}
-                            <span className="text-white font-medium">the exact moment each one decides to stay</span>.
+                            <span className="text-ink font-medium">the exact moment each one decides to stay</span>.
                             That last column is what made the flow testable: if a moment converts nobody, it has no
                             reason to exist.
                         </p>
-                        <p className="text-gray-500 text-sm leading-relaxed">
+                        <p className="text-ink-faint text-sm leading-relaxed">
                             These came out of user interviews run by our product lead; I worked from the transcripts
-                            and built the flow against them. <span className="text-gray-400">Names and identifying
+                            and built the flow against them. <span className="text-ink-muted">Names and identifying
                             details are anonymised.</span>
                         </p>
                     </div>
@@ -597,9 +597,9 @@ const Poppins = () => {
                         />
                     </div>
 
-                    <div className="bg-[#d6f928]/5 border border-[#d6f928]/20 rounded-2xl p-6 max-w-3xl">
-                        <p className="text-[#d6f928] text-xs uppercase tracking-widest mb-2 font-mono font-semibold">The constraint this produced</p>
-                        <p className="text-white text-base leading-relaxed">
+                    <div className="bg-accent/15 border border-accent-ink/30 rounded-2xl p-6 max-w-3xl">
+                        <p className="text-accent-ink text-xs uppercase tracking-widest mb-2 font-mono font-semibold">The constraint this produced</p>
+                        <p className="text-ink text-base leading-relaxed">
                             James generated the single most useful rule in the project:{" "}
                             <span className="italic">if the second message says &ldquo;connect your account to find
                                 out&rdquo;, James leaves.</span> One sceptical archetype turned a vague ambition
@@ -611,22 +611,22 @@ const Poppins = () => {
             </section>
 
             {/* ================= EMOTIONAL REGISTER ================= */}
-            <section className="bg-[#050505] py-16 px-4 border-t border-white/10">
+            <section className="bg-surface-2 py-16 px-4 border-t border-line">
                 <div className="max-w-7xl mx-auto">
                     <div className="max-w-3xl mb-10">
                         <Badge>[ Research &mdash; Emotional State ]</Badge>
-                        <h2 className="font-heading text-4xl md:text-5xl font-bold text-white leading-tight mb-6">
+                        <h2 className="font-heading text-4xl md:text-5xl font-bold text-ink leading-tight mb-6">
                             People arrive in one of four states.{" "}
-                            <span className="text-gray-400">None of them want to be labelled.</span>
+                            <span className="text-ink-muted">None of them want to be labelled.</span>
                         </h2>
-                        <p className="text-gray-400 text-base leading-relaxed mb-5">
-                            Users open a finance app feeling <span className="text-white font-medium">anxious,
+                        <p className="text-ink-muted text-base leading-relaxed mb-5">
+                            Users open a finance app feeling <span className="text-ink font-medium">anxious,
                                 confused, behind, or overwhelmed</span> &mdash; and the failure mode of every product in
                             the category is to either amplify that feeling or dismiss it. &ldquo;You&apos;re
                             overspending&rdquo; is a label. &ldquo;Don&apos;t worry, you&apos;re fine&rdquo; is
                             dismissal. Neither is what the person came for.
                         </p>
-                        <p className="text-gray-400 text-base leading-relaxed">
+                        <p className="text-ink-muted text-base leading-relaxed">
                             So the response pattern was specified as a fixed three-part structure, in order. Once
                             written down it stopped being a matter of taste and became something any piece of copy
                             could be checked against before it shipped.
@@ -634,27 +634,27 @@ const Poppins = () => {
                     </div>
 
                     <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mb-10">
-                        <div className="bg-white/5 border border-white/10 rounded-2xl p-6">
-                            <p className="text-xs font-mono text-emerald-300 mb-2">01 &mdash; Acknowledge</p>
-                            <p className="text-white text-sm font-medium mb-2">Reflect the situation without naming it</p>
-                            <p className="text-gray-400 text-xs leading-relaxed">
+                        <div className="bg-surface-3/70 border border-line rounded-2xl p-6">
+                            <p className="text-xs font-mono text-emerald-800 mb-2">01 &mdash; Acknowledge</p>
+                            <p className="text-ink text-sm font-medium mb-2">Reflect the situation without naming it</p>
+                            <p className="text-ink-muted text-xs leading-relaxed">
                                 &ldquo;Most people find the same thing&rdquo; is acknowledgment. It makes the feeling
                                 normal without making it the user&apos;s identity.
                             </p>
                         </div>
-                        <div className="bg-white/5 border border-white/10 rounded-2xl p-6">
-                            <p className="text-xs font-mono text-emerald-300 mb-2">02 &mdash; Give a real fact</p>
-                            <p className="text-white text-sm font-medium mb-2">Something specific to hold onto</p>
-                            <p className="text-gray-400 text-xs leading-relaxed">
+                        <div className="bg-surface-3/70 border border-line rounded-2xl p-6">
+                            <p className="text-xs font-mono text-emerald-800 mb-2">02 &mdash; Give a real fact</p>
+                            <p className="text-ink text-sm font-medium mb-2">Something specific to hold onto</p>
+                            <p className="text-ink-muted text-xs leading-relaxed">
                                 A number, a named pattern, a comparison to their own history. Sympathy is cheap;
                                 specific information is rare, and it&apos;s what makes the product feel
                                 knowledgeable rather than merely kind.
                             </p>
                         </div>
-                        <div className="bg-white/5 border border-white/10 rounded-2xl p-6">
-                            <p className="text-xs font-mono text-emerald-300 mb-2">03 &mdash; Offer one option</p>
-                            <p className="text-white text-sm font-medium mb-2">Framed as a choice, never a requirement</p>
-                            <p className="text-gray-400 text-xs leading-relaxed">
+                        <div className="bg-surface-3/70 border border-line rounded-2xl p-6">
+                            <p className="text-xs font-mono text-emerald-800 mb-2">03 &mdash; Offer one option</p>
+                            <p className="text-ink text-sm font-medium mb-2">Framed as a choice, never a requirement</p>
+                            <p className="text-ink-muted text-xs leading-relaxed">
                                 &ldquo;Worth a look&rdquo; rather than &ldquo;you need to.&rdquo; The decision stays
                                 with the user. The goal is that they leave clearer &mdash; not fixed.
                             </p>
@@ -662,7 +662,7 @@ const Poppins = () => {
                     </div>
 
                     <div className="max-w-3xl">
-                        <p className="text-gray-400 text-sm leading-relaxed mb-4">
+                        <p className="text-ink-muted text-sm leading-relaxed mb-4">
                             The same structure, applied to four different opening worries, produced four different
                             answers &mdash; each leading with a benchmark rather than a question back:
                         </p>
@@ -678,7 +678,7 @@ const Poppins = () => {
                                 feels.
                             </Voice>
                         </div>
-                        <p className="text-gray-500 text-xs mt-4 leading-relaxed">
+                        <p className="text-ink-faint text-xs mt-4 leading-relaxed">
                             &ldquo;$600 a year&rdquo; is visceral in a way &ldquo;20% APR&rdquo; is not. Choosing the
                             unit the user actually feels was a recurring copy decision throughout.
                         </p>
@@ -687,18 +687,18 @@ const Poppins = () => {
             </section>
 
             {/* ================= DISCOVERY ================= */}
-            <section className="bg-black py-16 px-4 border-t border-white/10">
+            <section className="bg-surface py-16 px-4 border-t border-line">
                 <div className="max-w-7xl mx-auto">
                     <div className="max-w-3xl mb-4">
                         <Badge>[ Discovery ]</Badge>
-                        <h2 className="font-heading text-4xl md:text-5xl font-bold text-white leading-tight mb-6">
+                        <h2 className="font-heading text-4xl md:text-5xl font-bold text-ink leading-tight mb-6">
                             It started on a wall,{" "}
-                            <span className="text-gray-400">not in Figma.</span>
+                            <span className="text-ink-muted">not in Figma.</span>
                         </h2>
-                        <p className="text-gray-400 text-base leading-relaxed">
+                        <p className="text-ink-muted text-base leading-relaxed">
                             Before any screen existed we mapped the product by hand &mdash; what a person actually
                             asks, in what order, and what the system needs to know to answer honestly. Working on a
-                            wall kept the arguments about <span className="text-white font-medium">structure</span> rather
+                            wall kept the arguments about <span className="text-ink font-medium">structure</span> rather
                             than layout, which is where they belonged.
                         </p>
                     </div>
@@ -719,25 +719,25 @@ const Poppins = () => {
                     />
 
                     <div className="max-w-3xl mt-12">
-                        <h3 className="font-heading text-2xl font-bold text-white mb-6">Two findings that shaped the interface</h3>
+                        <h3 className="font-heading text-2xl font-bold text-ink mb-6">Two findings that shaped the interface</h3>
                         <div className="space-y-6">
-                            <div className="bg-white/5 border border-white/10 rounded-2xl p-6">
-                                <p className="text-[10px] font-mono uppercase tracking-widest text-emerald-300 mb-2">Finding 01</p>
-                                <p className="text-white font-medium text-sm mb-2">A blank prompt box intimidates people.</p>
-                                <p className="text-gray-400 text-sm leading-relaxed">
+                            <div className="bg-surface-3/70 border border-line rounded-2xl p-6">
+                                <p className="text-[10px] font-mono uppercase tracking-widest text-emerald-800 mb-2">Finding 01</p>
+                                <p className="text-ink font-medium text-sm mb-2">A blank prompt box intimidates people.</p>
+                                <p className="text-ink-muted text-sm leading-relaxed">
                                     &ldquo;What would you like to ask?&rdquo; is a design failure disguised as
                                     flexibility &mdash; users freeze. The fix became a rule: the chat always offers
-                                    <span className="text-white font-medium"> contextual starter pills based on current state</span>.
+                                    <span className="text-ink font-medium"> contextual starter pills based on current state</span>.
                                     Just uploaded an insurance document? A pill appears offering to ask about that policy.
                                 </p>
                             </div>
-                            <div className="bg-white/5 border border-white/10 rounded-2xl p-6">
-                                <p className="text-[10px] font-mono uppercase tracking-widest text-emerald-300 mb-2">Finding 02</p>
-                                <p className="text-white font-medium text-sm mb-2">Chat has to be omnipresent <em>and</em> omni-aware.</p>
-                                <p className="text-gray-400 text-sm leading-relaxed">
+                            <div className="bg-surface-3/70 border border-line rounded-2xl p-6">
+                                <p className="text-[10px] font-mono uppercase tracking-widest text-emerald-800 mb-2">Finding 02</p>
+                                <p className="text-ink font-medium text-sm mb-2">Chat has to be omnipresent <em>and</em> omni-aware.</p>
+                                <p className="text-ink-muted text-sm leading-relaxed">
                                     A chat that forgets where you are makes you re-explain yourself. If someone is
                                     viewing their health policy in the Vault and taps chat, it should already know
-                                    &mdash; <span className="text-white font-medium">the context carries into the conversation</span>,
+                                    &mdash; <span className="text-ink font-medium">the context carries into the conversation</span>,
                                     not the other way round.
                                 </p>
                             </div>
@@ -748,25 +748,25 @@ const Poppins = () => {
             </section>
 
             {/* ================= THE LOOP ================= */}
-            <section className="bg-[#050505] py-16 px-4 border-t border-white/10">
+            <section className="bg-surface-2 py-16 px-4 border-t border-line">
                 <div className="max-w-7xl mx-auto">
                     <div className="max-w-3xl mb-4">
                         <Badge>[ Architecture ]</Badge>
-                        <h2 className="font-heading text-4xl md:text-5xl font-bold text-white leading-tight mb-6">
+                        <h2 className="font-heading text-4xl md:text-5xl font-bold text-ink leading-tight mb-6">
                             One loop the whole product hangs off.
                         </h2>
-                        <p className="text-gray-400 text-base leading-relaxed mb-5">
+                        <p className="text-ink-muted text-base leading-relaxed mb-5">
                             Everything resolves to a single value loop:{" "}
-                            <span className="text-white font-medium">Chat &rarr; Plan &rarr; Goal &rarr; Calendar</span>.
+                            <span className="text-ink font-medium">Chat &rarr; Plan &rarr; Goal &rarr; Calendar</span>.
                             You describe something you want, the system models it against your whole financial
                             picture, you commit to it, and it lands in the calendar you already check.
                         </p>
-                        <p className="text-gray-400 text-base leading-relaxed">
+                        <p className="text-ink-muted text-base leading-relaxed">
                             Mapping it as a logic flow &mdash; not a happy-path storyboard &mdash; is what surfaced
                             the decisions that mattered. Two came straight out of the diagram: committing to a goal
-                            had to <span className="text-white font-medium">feel like a decision, not a form submission</span>;
+                            had to <span className="text-ink font-medium">feel like a decision, not a form submission</span>;
                             and when two goals compete for the same monthly surplus, the system has to
-                            <span className="text-white font-medium"> say so before confirming</span> rather than
+                            <span className="text-ink font-medium"> say so before confirming</span> rather than
                             quietly create both.
                         </p>
                     </div>
@@ -778,12 +778,12 @@ const Poppins = () => {
                     />
 
                     <div className="max-w-3xl mt-14 mb-2">
-                        <h3 className="font-heading text-2xl font-bold text-white mb-4">Where the conversations connect</h3>
-                        <p className="text-gray-400 text-base leading-relaxed">
+                        <h3 className="font-heading text-2xl font-bold text-ink mb-4">Where the conversations connect</h3>
+                        <p className="text-ink-muted text-base leading-relaxed">
                             The harder problem sat underneath the loop: several separate conversations can feed the
                             same goal, and a goal can be revisited months later from a new one. Mapping which chats
                             resolve into which goals is what established that{" "}
-                            <span className="text-white font-medium">context has to persist across sessions</span>{" "}
+                            <span className="text-ink font-medium">context has to persist across sessions</span>{" "}
                             rather than living inside a single thread &mdash; closer to a workspace than a chat log.
                         </p>
                     </div>
@@ -795,10 +795,10 @@ const Poppins = () => {
                     />
 
                     <div className="max-w-3xl mt-14 mb-2">
-                        <h3 className="font-heading text-2xl font-bold text-white mb-4">The same loop, as screens</h3>
-                        <p className="text-gray-400 text-base leading-relaxed">
+                        <h3 className="font-heading text-2xl font-bold text-ink mb-4">The same loop, as screens</h3>
+                        <p className="text-ink-muted text-base leading-relaxed">
                             A trip to Japan, end to end. The plan states the trade-off in words rather than hiding it
-                            &mdash; <span className="text-white font-medium">the car fund pauses</span> &mdash; the
+                            &mdash; <span className="text-ink font-medium">the car fund pauses</span> &mdash; the
                             commit screen shows exactly what is being agreed to, and the dates land in the calendar
                             the person already checks.
                         </p>
@@ -817,11 +817,11 @@ const Poppins = () => {
             </section>
 
             {/* ================= DECISIONS ================= */}
-            <section className="bg-black py-16 px-4 border-t border-white/10">
+            <section className="bg-surface py-16 px-4 border-t border-line">
                 <div className="max-w-7xl mx-auto">
                     <div className="max-w-3xl mb-14">
                         <Badge>[ Design Decisions ]</Badge>
-                        <h2 className="font-heading text-4xl md:text-5xl font-bold text-white leading-tight">
+                        <h2 className="font-heading text-4xl md:text-5xl font-bold text-ink leading-tight">
                             Seven decisions that defined the product.
                         </h2>
                     </div>
@@ -829,7 +829,7 @@ const Poppins = () => {
                     {/* 1 — Safe to Spend */}
                     <Decision
                         n={1}
-                        icon={<Calculator size={20} className="text-emerald-300" />}
+                        icon={<Calculator size={20} className="text-emerald-800" />}
                         tone="bg-emerald-500/10 border-emerald-400/20"
                         title="Replace the dashboard with one number — and always show its arithmetic."
                     >
@@ -838,17 +838,17 @@ const Poppins = () => {
                             alt="Poppins Safe to Spend explanation screen: available balance minus bills, savings commitment and recurring expenses, with the prior two weeks shown for comparison"
                             caption="Available balance, minus bills due, minus the savings commitment, minus recurring expenses — with last week and a month ago underneath."
                         >
-                            <p className="text-gray-400 text-base leading-relaxed mb-5">
+                            <p className="text-ink-muted text-base leading-relaxed mb-5">
                                 Net worth is the metric finance apps lead with, and it&apos;s the wrong one: it&apos;s
                                 slow-moving, emotionally loaded, and answers nothing about today. The product decision
-                                was to lead with <span className="text-white font-medium">Safe to Spend</span> &mdash; what
+                                was to lead with <span className="text-ink font-medium">Safe to Spend</span> &mdash; what
                                 is genuinely free to use this week, after everything already committed.
                             </p>
-                            <p className="text-gray-400 text-base leading-relaxed">
+                            <p className="text-ink-muted text-base leading-relaxed">
                                 One number invites exactly one question: <em>says who?</em> So the number is never shown
                                 alone. Tapping it opens the full subtraction, plus the same figure for the previous week
                                 and a month ago, so it reads as a trend rather than a verdict. The principle we held to:{" "}
-                                <span className="text-white font-medium">never show a number you can&apos;t explain.</span>
+                                <span className="text-ink font-medium">never show a number you can&apos;t explain.</span>
                             </p>
                         </SplitFigure>
                     </Decision>
@@ -856,7 +856,7 @@ const Poppins = () => {
                     {/* 2 — Two voices */}
                     <Decision
                         n={2}
-                        icon={<MessageSquare size={20} className="text-blue-400" />}
+                        icon={<MessageSquare size={20} className="text-blue-700" />}
                         tone="bg-blue-500/10 border-blue-400/20"
                         title="One voice, two depths — because reassurance and opportunity can't sound the same."
                     >
@@ -865,27 +865,27 @@ const Poppins = () => {
                             alt="Poppins chat showing The Spotter answering whether a trip to Japan is affordable, leading with the answer and the monthly figure"
                             caption="The Spotter, activated — labelled in the interface so the user knows which voice is speaking."
                         >
-                            <p className="text-gray-400 text-base leading-relaxed mb-5">
+                            <p className="text-ink-muted text-base leading-relaxed mb-5">
                                 An assistant that talks about money has one hard problem: the same cheerful tone that
                                 works for &ldquo;you hit your savings goal&rdquo; is unbearable attached to &ldquo;you
                                 are overdrawn.&rdquo; A single register either patronises people in bad moments or
                                 under-sells the good ones.
                             </p>
-                            <p className="text-gray-400 text-base leading-relaxed">
+                            <p className="text-ink-muted text-base leading-relaxed">
                                 The character brief settled it before any copy was written: Poppins is{" "}
-                                <span className="text-white font-medium">a navigator reading a map, not a teacher marking
+                                <span className="text-ink font-medium">a navigator reading a map, not a teacher marking
                                     homework</span> &mdash; reading numbers the way a doctor reads a chart. Calm, specific,
                                 surprised by nothing. From that came two depths of the same voice, with separate jobs,
                                 separate contexts, and an explicit list of things each one never says &mdash; and
-                                crucially, <span className="text-white font-medium">there is no personality setting</span>.
+                                crucially, <span className="text-ink font-medium">there is no personality setting</span>.
                                 The depth adapts to the moment rather than to a preference the user has to manage.
                             </p>
                         </SplitFigure>
 
                         <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 mb-8">
-                            <div className="bg-white/5 border border-white/10 rounded-2xl p-6">
-                                <h4 className="text-white font-semibold text-sm mb-2">The Steady Hand</h4>
-                                <p className="text-gray-400 text-xs leading-relaxed mb-4">
+                            <div className="bg-surface-3/70 border border-line rounded-2xl p-6">
+                                <h4 className="text-ink font-semibold text-sm mb-2">The Steady Hand</h4>
+                                <p className="text-ink-muted text-xs leading-relaxed mb-4">
                                     The default for everything the product sends. Reports what it noticed and stops.
                                     Never congratulates, never scolds, never manufactures urgency to earn a tap.
                                 </p>
@@ -894,9 +894,9 @@ const Poppins = () => {
                                     when you have a moment.
                                 </Voice>
                             </div>
-                            <div className="bg-white/5 border border-white/10 rounded-2xl p-6">
-                                <h4 className="text-white font-semibold text-sm mb-2">The Spotter</h4>
-                                <p className="text-gray-400 text-xs leading-relaxed mb-4">
+                            <div className="bg-surface-3/70 border border-line rounded-2xl p-6">
+                                <h4 className="text-ink font-semibold text-sm mb-2">The Spotter</h4>
+                                <p className="text-ink-muted text-xs leading-relaxed mb-4">
                                     Activates when the user leans in and wants the pattern behind a tip. Leads with
                                     the answer, shows the trade-off, and hands back once the decision is made.
                                 </p>
@@ -907,9 +907,9 @@ const Poppins = () => {
                             </div>
                         </div>
 
-                        <div className="bg-white/[0.02] border border-dashed border-white/10 rounded-xl p-5 max-w-3xl">
-                            <p className="text-gray-600 text-xs uppercase tracking-widest mb-2 font-mono">The test every line had to pass</p>
-                            <p className="text-gray-400 text-sm leading-relaxed">
+                        <div className="bg-surface-3/60 border border-dashed border-line rounded-xl p-5 max-w-3xl">
+                            <p className="text-ink-ghost text-xs uppercase tracking-widest mb-2 font-mono">The test every line had to pass</p>
+                            <p className="text-ink-muted text-sm leading-relaxed">
                                 Does this sound like someone who has seen everything and is surprised by none of it
                                 &mdash; or does it sound like an app?
                             </p>
@@ -920,62 +920,62 @@ const Poppins = () => {
                     {/* 3 — Permission ladder */}
                     <Decision
                         n={3}
-                        icon={<Route size={20} className="text-[#d6f928]" />}
-                        tone="bg-[#d6f928]/10 border-[#d6f928]/20"
+                        icon={<Route size={20} className="text-accent-ink" />}
+                        tone="bg-accent/25 border-accent-ink/30"
                         title="Every permission is downstream of desire, never upstream of it."
                     >
-                        <p className="text-gray-400 text-base leading-relaxed max-w-3xl mb-5">
+                        <p className="text-ink-muted text-base leading-relaxed max-w-3xl mb-5">
                             The first onboarding was a wizard: step one, step two, step three. Each step asked for
                             something before demonstrating why it was worth giving &mdash; email before the user had
                             seen a single bill, bank before they had any reason to trust the product. The result was
                             a funnel rather than a conversation, and people who declined a step were left with a
                             visibly broken experience.
                         </p>
-                        <p className="text-gray-400 text-base leading-relaxed max-w-3xl mb-8">
+                        <p className="text-ink-muted text-base leading-relaxed max-w-3xl mb-8">
                             The rebuild inverted it. Nothing is asked until the product has earned the right to ask,
                             and every permission is motivated by something the user has already said they want to
                             see. The consequence is that{" "}
-                            <span className="text-white font-medium">onboarding stops being setup and becomes the
+                            <span className="text-ink font-medium">onboarding stops being setup and becomes the
                                 first real session</span> &mdash; by the time it ends, the person has already experienced
                             the core value.
                         </p>
 
                         <div className="overflow-x-auto mb-8">
-                            <table className="w-full min-w-[560px] text-sm border border-white/10 rounded-2xl overflow-hidden">
+                            <table className="w-full min-w-[560px] text-sm border border-line rounded-2xl overflow-hidden">
                                 <thead>
-                                    <tr className="bg-white/5">
-                                        <th className="text-left p-4 text-xs font-mono uppercase tracking-widest text-gray-500 font-medium">Model</th>
-                                        <th className="text-left p-4 text-xs font-mono uppercase tracking-widest text-gray-500 font-medium">Structure</th>
-                                        <th className="text-left p-4 text-xs font-mono uppercase tracking-widest text-gray-500 font-medium">Effect</th>
+                                    <tr className="bg-surface-3/70">
+                                        <th className="text-left p-4 text-xs font-mono uppercase tracking-widest text-ink-faint font-medium">Model</th>
+                                        <th className="text-left p-4 text-xs font-mono uppercase tracking-widest text-ink-faint font-medium">Structure</th>
+                                        <th className="text-left p-4 text-xs font-mono uppercase tracking-widest text-ink-faint font-medium">Effect</th>
                                     </tr>
                                 </thead>
                                 <tbody>
-                                    <tr className="border-t border-white/5">
-                                        <td className="p-4 text-gray-500 font-medium">v1 &mdash; wizard</td>
-                                        <td className="p-4 text-gray-400">Step-based, linear, permission-first</td>
-                                        <td className="p-4 text-gray-400">Logical but cold. Drop-off concentrated at step 2. No first value moment.</td>
+                                    <tr className="border-t border-line-soft">
+                                        <td className="p-4 text-ink-faint font-medium">v1 &mdash; wizard</td>
+                                        <td className="p-4 text-ink-muted">Step-based, linear, permission-first</td>
+                                        <td className="p-4 text-ink-muted">Logical but cold. Drop-off concentrated at step 2. No first value moment.</td>
                                     </tr>
-                                    <tr className="border-t border-white/5 bg-emerald-500/5">
-                                        <td className="p-4 text-emerald-300 font-medium">v2 &mdash; conversation</td>
-                                        <td className="p-4 text-gray-300">Desire-first. Chat opens immediately; every ask follows a real answer</td>
-                                        <td className="p-4 text-gray-300">Trust built before anything is requested. Permission follows desire.</td>
+                                    <tr className="border-t border-line-soft bg-emerald-500/5">
+                                        <td className="p-4 text-emerald-800 font-medium">v2 &mdash; conversation</td>
+                                        <td className="p-4 text-ink-soft">Desire-first. Chat opens immediately; every ask follows a real answer</td>
+                                        <td className="p-4 text-ink-soft">Trust built before anything is requested. Permission follows desire.</td>
                                     </tr>
                                 </tbody>
                             </table>
                         </div>
 
-                        <p className="text-gray-400 text-base leading-relaxed max-w-3xl mb-6">
+                        <p className="text-ink-muted text-base leading-relaxed max-w-3xl mb-6">
                             That produced a six-rung ladder, each rung paid for by the one before it:
                         </p>
                         <div className="flex flex-wrap items-center gap-2 mb-8">
                             {["Phone number", "Free Q&A", "Email → bills", "Reminders", "Bank", "Vault"].map((step, i, arr) => (
                                 <span key={step} className="flex items-center gap-2">
-                                    <span className="text-xs font-mono text-gray-300 bg-white/5 border border-white/10 px-3 py-1.5 rounded-full">{step}</span>
-                                    {i < arr.length - 1 && <ArrowRight size={13} className="text-gray-600" />}
+                                    <span className="text-xs font-mono text-ink-soft bg-surface-3/70 border border-line px-3 py-1.5 rounded-full">{step}</span>
+                                    {i < arr.length - 1 && <ArrowRight size={13} className="text-ink-ghost" />}
                                 </span>
                             ))}
                         </div>
-                        <p className="text-gray-400 text-base leading-relaxed max-w-3xl">
+                        <p className="text-ink-muted text-base leading-relaxed max-w-3xl">
                             The ordering is not arbitrary. The vault is deliberately held back to day three or four
                             &mdash; introducing it in the first session tips the experience from{" "}
                             <em>this is useful</em> to <em>this is a lot</em>. And the calendar is never offered
@@ -999,15 +999,15 @@ const Poppins = () => {
                     {/* 4 — Five bank asks */}
                     <Decision
                         n={4}
-                        icon={<Landmark size={20} className="text-violet-300" />}
+                        icon={<Landmark size={20} className="text-violet-700" />}
                         tone="bg-violet-500/10 border-violet-400/20"
                         title="Five different bank asks — one per worry the user arrived with."
                     >
-                        <p className="text-gray-400 text-base leading-relaxed max-w-3xl mb-5">
+                        <p className="text-ink-muted text-base leading-relaxed max-w-3xl mb-5">
                             Every product like this dies at the same screen: <em>connect your bank</em>. The usual
                             approach is to write one persuasive version and A/B test the button. We took a different
                             view: the user has already told us what they&apos;re worried about, so the ask should be
-                            <span className="text-white font-medium"> the natural way to answer that specific
+                            <span className="text-ink font-medium"> the natural way to answer that specific
                                 worry</span> &mdash; and each version leans on a different, named psychological lever.
                         </p>
 
@@ -1019,13 +1019,13 @@ const Poppins = () => {
                                 { t: "The Guess and Reveal", w: "Where does my money go?", p: "Prediction instinct", d: "Makes a specific guess from city and context — a phone bill, a forgotten subscription — then offers to check if it's right." },
                                 { t: "The Worry Remover", w: "Debt costing me", p: "Relief seeking", d: "Leads with the cost of doing nothing, then frames connection as the fastest route out." },
                             ].map((s) => (
-                                <div key={s.t} className="bg-white/5 border border-white/10 rounded-2xl p-5">
+                                <div key={s.t} className="bg-surface-3/70 border border-line rounded-2xl p-5">
                                     <div className="flex items-start justify-between gap-3 mb-2">
-                                        <p className="text-white font-semibold text-sm">{s.t}</p>
-                                        <span className="text-[10px] font-mono uppercase tracking-widest text-violet-300 border border-violet-400/25 bg-violet-500/10 px-2 py-0.5 rounded-full whitespace-nowrap">{s.p}</span>
+                                        <p className="text-ink font-semibold text-sm">{s.t}</p>
+                                        <span className="text-[10px] font-mono uppercase tracking-widest text-violet-700 border border-violet-400/25 bg-violet-500/10 px-2 py-0.5 rounded-full whitespace-nowrap">{s.p}</span>
                                     </div>
-                                    <p className="text-gray-500 text-xs mb-2">Triggered by: <span className="text-gray-400">{s.w}</span></p>
-                                    <p className="text-gray-400 text-xs leading-relaxed">{s.d}</p>
+                                    <p className="text-ink-faint text-xs mb-2">Triggered by: <span className="text-ink-muted">{s.w}</span></p>
+                                    <p className="text-ink-muted text-xs leading-relaxed">{s.d}</p>
                                 </div>
                             ))}
                         </div>
@@ -1035,21 +1035,21 @@ const Poppins = () => {
                             alt="Poppins bank connection screen leading with read-only limits, encryption details, and a skip option"
                             caption="Read-only stated before any benefit, the security specifics visible rather than buried in a policy link, and 'Skip for now' given real weight."
                         >
-                            <p className="text-gray-400 text-base leading-relaxed mb-5">
+                            <p className="text-ink-muted text-base leading-relaxed mb-5">
                                 All five share one line, and it&apos;s the most important sentence in the product:
                             </p>
-                            <div className="bg-[#0d0d0f] border border-white/10 rounded-xl p-5 mb-6">
-                                <p className="text-gray-200 text-sm leading-relaxed italic">
+                            <div className="bg-surface-2 border border-line rounded-xl p-5 mb-6">
+                                <p className="text-ink-soft text-sm leading-relaxed italic">
                                     I connect read-only through Plaid &mdash; the same technology used by Venmo,
                                     Robinhood and most major financial apps. I can see your balance and transactions.
-                                    <span className="text-white font-medium not-italic"> I can never move money or make
+                                    <span className="text-ink font-medium not-italic"> I can never move money or make
                                         changes. Ever.</span>
                                 </p>
                             </div>
-                            <p className="text-gray-400 text-base leading-relaxed">
+                            <p className="text-ink-muted text-base leading-relaxed">
                                 The limit of the permission leads, not the benefit. Borrowing recognisable names does the
                                 trust work that an unknown brand can&apos;t do on its own, and{" "}
-                                <span className="text-white font-medium">&ldquo;Ever.&rdquo;</span> as a one-word sentence
+                                <span className="text-ink font-medium">&ldquo;Ever.&rdquo;</span> as a one-word sentence
                                 was a deliberate rhythm choice &mdash; a decline that feels punished is a decline you
                                 only get once.
                             </p>
@@ -1059,7 +1059,7 @@ const Poppins = () => {
                     {/* 5 — Micro-interaction craft */}
                     <Decision
                         n={5}
-                        icon={<Smartphone size={20} className="text-orange-400" />}
+                        icon={<Smartphone size={20} className="text-orange-600" />}
                         tone="bg-orange-500/10 border-orange-400/20"
                         title="The first screen is won or lost in details most specs don't mention."
                     >
@@ -1068,63 +1068,63 @@ const Poppins = () => {
                             alt="Poppins opening chat screen with suggestion chips offered below the assistant's first question"
                             caption="Poppins speaks first, and the chips arrive before the input bar asks anything of you."
                         >
-                            <p className="text-gray-400 text-base leading-relaxed mb-5">
+                            <p className="text-ink-muted text-base leading-relaxed mb-5">
                                 The opening moment is a chat with four suggestion chips. Nothing about that is
                                 remarkable &mdash; and yet almost all of its performance lives in decisions at the
                                 hundred-millisecond scale. These were specified deliberately, because on mobile they
                                 are the difference between a conversation and a form.
                             </p>
-                            <p className="text-gray-400 text-base leading-relaxed">
+                            <p className="text-ink-muted text-base leading-relaxed">
                                 Everything on this screen is arranged so that{" "}
-                                <span className="text-white font-medium">the cheapest possible action is also the most
+                                <span className="text-ink font-medium">the cheapest possible action is also the most
                                     useful one</span> &mdash; which is the entire job of a first screen.
                             </p>
                         </SplitFigure>
 
                         <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mb-8">
-                            <IconCard icon={<PenTool size={18} className="text-orange-400" />} title="The cursor does not blink">
+                            <IconCard icon={<PenTool size={18} className="text-orange-600" />} title="The cursor does not blink">
                                 A blinking cursor tells people they&apos;re expected to compose something formal, like
                                 a search query. Chips load first; the input bar is there for those who want it, not as
                                 the primary call to action. It removes the &ldquo;what am I supposed to
                                 say?&rdquo; freeze.
                             </IconCard>
-                            <IconCard icon={<Clock size={18} className="text-orange-400" />} title="Chips stagger in at ~50ms">
+                            <IconCard icon={<Clock size={18} className="text-orange-600" />} title="Chips stagger in at ~50ms">
                                 Each option appears just after the last. Fast enough not to feel slow, slow enough
                                 that the product reads as <em>presenting options thoughtfully</em> rather than
                                 rendering a form.
                             </IconCard>
-                            <IconCard icon={<MessageSquare size={18} className="text-orange-400" />} title="&ldquo;Let me type it&rdquo; is always last">
+                            <IconCard icon={<MessageSquare size={18} className="text-orange-600" />} title="&ldquo;Let me type it&rdquo; is always last">
                                 Position signals hierarchy. Typed answers are welcome, but the chips are the easier
                                 path. The people who do type write things like <em>&ldquo;I just got laid
                                     off&rdquo;</em> &mdash; the highest-intent input in the whole flow.
                             </IconCard>
-                            <IconCard icon={<Ban size={18} className="text-orange-400" />} title="No skip button here">
+                            <IconCard icon={<Ban size={18} className="text-orange-600" />} title="No skip button here">
                                 The question is easy enough that nobody needs to skip it. Offering a skip is an
                                 invitation to disengage before any value has been delivered.
                             </IconCard>
                         </div>
 
-                        <div className="bg-white/5 border border-white/10 rounded-2xl p-6 max-w-3xl mb-8">
-                            <p className="text-white font-medium text-sm mb-3">The expected behaviour distribution &mdash; and a design response for each</p>
+                        <div className="bg-surface-3/70 border border-line rounded-2xl p-6 max-w-3xl mb-8">
+                            <p className="text-ink font-medium text-sm mb-3">The expected behaviour distribution &mdash; and a design response for each</p>
                             <div className="space-y-3 text-sm">
                                 <div className="flex gap-4">
-                                    <span className="font-heading text-lg font-bold text-emerald-300 w-14 shrink-0 tabular-nums">~70%</span>
-                                    <p className="text-gray-400 text-xs leading-relaxed pt-1">Tap a chip immediately. The chips are the primary path, so they get the visual weight.</p>
+                                    <span className="font-heading text-lg font-bold text-emerald-800 w-14 shrink-0 tabular-nums">~70%</span>
+                                    <p className="text-ink-muted text-xs leading-relaxed pt-1">Tap a chip immediately. The chips are the primary path, so they get the visual weight.</p>
                                 </div>
                                 <div className="flex gap-4">
-                                    <span className="font-heading text-lg font-bold text-blue-400 w-14 shrink-0 tabular-nums">~20%</span>
-                                    <p className="text-gray-400 text-xs leading-relaxed pt-1">Type their own answer. Highest-intent group &mdash; every typed reply is treated as a gift and produces the most personalised second message.</p>
+                                    <span className="font-heading text-lg font-bold text-blue-700 w-14 shrink-0 tabular-nums">~20%</span>
+                                    <p className="text-ink-muted text-xs leading-relaxed pt-1">Type their own answer. Highest-intent group &mdash; every typed reply is treated as a gift and produces the most personalised second message.</p>
                                 </div>
                                 <div className="flex gap-4">
-                                    <span className="font-heading text-lg font-bold text-gray-500 w-14 shrink-0 tabular-nums">~10%</span>
-                                    <p className="text-gray-400 text-xs leading-relaxed pt-1">Pause and do nothing. One nudge after eight seconds: <em>&ldquo;No rush — or just tap whichever feels closest.&rdquo;</em> Then silence.</p>
+                                    <span className="font-heading text-lg font-bold text-ink-faint w-14 shrink-0 tabular-nums">~10%</span>
+                                    <p className="text-ink-muted text-xs leading-relaxed pt-1">Pause and do nothing. One nudge after eight seconds: <em>&ldquo;No rush — or just tap whichever feels closest.&rdquo;</em> Then silence.</p>
                                 </div>
                             </div>
                         </div>
 
-                        <p className="text-gray-400 text-base leading-relaxed max-w-3xl">
+                        <p className="text-ink-muted text-base leading-relaxed max-w-3xl">
                             One further decision came out of this: chip selection is worth instrumenting on its own,
-                            because <span className="text-white font-medium">what people say is bothering them is
+                            because <span className="text-ink font-medium">what people say is bothering them is
                                 also the answer to what the marketing should lead with</span>. The first screen doubles
                             as continuous positioning research.
                         </p>
@@ -1133,28 +1133,28 @@ const Poppins = () => {
                     {/* 6 — Constraints */}
                     <Decision
                         n={6}
-                        icon={<Ban size={20} className="text-red-400" />}
+                        icon={<Ban size={20} className="text-red-700" />}
                         tone="bg-red-500/10 border-red-400/20"
                         title="The rules were written as prohibitions, because that's what holds under pressure."
                     >
-                        <p className="text-gray-400 text-base leading-relaxed max-w-3xl mb-8">
+                        <p className="text-ink-muted text-base leading-relaxed max-w-3xl mb-8">
                             Positive principles bend when a deadline arrives. Prohibitions don&apos;t. So the flow
                             was governed by an explicit list of things never to do &mdash; each one a real temptation
                             with a real reason it was refused.
                         </p>
                         <ul className="space-y-4 max-w-3xl mb-8">
-                            <Rule><span className="text-white">Never show a progress bar.</span> This is a conversation, not a wizard. &ldquo;Step 3 of 5&rdquo; breaks the illusion instantly.</Rule>
-                            <Rule><span className="text-white">Never ask two permissions at once.</span> One moment, one ask, one answer. Sequential asks build trust; parallel asks destroy it.</Rule>
-                            <Rule><span className="text-white">Never repeat a declined ask in the same session.</span> If someone declines the bank, offer email instead &mdash; and if they decline that too, let the empty Safe to Spend card do the asking. Trust the absent number to motivate, not repeated copy.</Rule>
-                            <Rule><span className="text-white">Never say &ldquo;connect your account to find out more.&rdquo;</span> That&apos;s a deflection dressed as a next step. The second message must deliver real value with zero calls to action.</Rule>
-                            <Rule><span className="text-white">Never use the words &ldquo;setup&rdquo; or &ldquo;onboarding.&rdquo;</span> Both remind the user they&apos;re configuring software rather than talking to someone.</Rule>
-                            <Rule><span className="text-white">Never frame a decline as a loss.</span> The product works at every level of connection; it just works better with more. No &ldquo;you&apos;re missing out&rdquo; language, ever.</Rule>
+                            <Rule><span className="text-ink">Never show a progress bar.</span> This is a conversation, not a wizard. &ldquo;Step 3 of 5&rdquo; breaks the illusion instantly.</Rule>
+                            <Rule><span className="text-ink">Never ask two permissions at once.</span> One moment, one ask, one answer. Sequential asks build trust; parallel asks destroy it.</Rule>
+                            <Rule><span className="text-ink">Never repeat a declined ask in the same session.</span> If someone declines the bank, offer email instead &mdash; and if they decline that too, let the empty Safe to Spend card do the asking. Trust the absent number to motivate, not repeated copy.</Rule>
+                            <Rule><span className="text-ink">Never say &ldquo;connect your account to find out more.&rdquo;</span> That&apos;s a deflection dressed as a next step. The second message must deliver real value with zero calls to action.</Rule>
+                            <Rule><span className="text-ink">Never use the words &ldquo;setup&rdquo; or &ldquo;onboarding.&rdquo;</span> Both remind the user they&apos;re configuring software rather than talking to someone.</Rule>
+                            <Rule><span className="text-ink">Never frame a decline as a loss.</span> The product works at every level of connection; it just works better with more. No &ldquo;you&apos;re missing out&rdquo; language, ever.</Rule>
                         </ul>
-                        <div className="bg-white/5 border border-white/10 rounded-2xl p-6 max-w-3xl">
-                            <p className="text-white font-medium text-sm mb-2">One small rule that mattered more than it looks</p>
-                            <p className="text-gray-400 text-sm leading-relaxed">
+                        <div className="bg-surface-3/70 border border-line rounded-2xl p-6 max-w-3xl">
+                            <p className="text-ink font-medium text-sm mb-2">One small rule that mattered more than it looks</p>
+                            <p className="text-ink-muted text-sm leading-relaxed">
                                 Every decline option in the product uses the same three words:{" "}
-                                <span className="text-white font-medium">&ldquo;Not right now.&rdquo;</span> No
+                                <span className="text-ink font-medium">&ldquo;Not right now.&rdquo;</span> No
                                 &ldquo;maybe later&rdquo;, no &ldquo;I&apos;ll think about it&rdquo;, no
                                 &ldquo;not yet&rdquo;. Standardising to a single phrase makes declining feel like a
                                 normal, expected action rather than a decision the product is quietly grading.
@@ -1165,7 +1165,7 @@ const Poppins = () => {
                     {/* 7 — Failure states */}
                     <Decision
                         n={7}
-                        icon={<AlertTriangle size={20} className="text-red-400" />}
+                        icon={<AlertTriangle size={20} className="text-red-700" />}
                         tone="bg-red-500/10 border-red-400/20"
                         title="Design the empty and broken states first — that's where trust is won."
                     >
@@ -1174,32 +1174,32 @@ const Poppins = () => {
                             alt="Poppins empty state reading 'Not enough data yet' with two next steps offered rather than a zero balance"
                             caption="It doesn't show a confident zero — it says what it doesn't have, and offers exactly two ways forward."
                         >
-                            <p className="text-gray-400 text-base leading-relaxed mb-5">
+                            <p className="text-ink-muted text-base leading-relaxed mb-5">
                                 In a finance product, the degraded state <em>is</em> the product for a large share of
                                 users: no bank linked, one account of four connected, a login expired, a document the
                                 parser couldn&apos;t read confidently. So failure states were specified alongside each
                                 feature rather than after it.
                             </p>
-                            <p className="text-gray-400 text-base leading-relaxed">
+                            <p className="text-ink-muted text-base leading-relaxed">
                                 This is the screen most users meet first, and getting it wrong costs more than any
                                 polished happy path can earn back.
                             </p>
                         </SplitFigure>
                         <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mb-8 max-w-4xl">
-                            <IconCard icon={<AlertTriangle size={18} className="text-red-400" />} title="Missing data is never zero">
-                                If debts can&apos;t be read, net worth shows them as <span className="text-white font-medium">unknown</span>,
+                            <IconCard icon={<AlertTriangle size={18} className="text-red-700" />} title="Missing data is never zero">
+                                If debts can&apos;t be read, net worth shows them as <span className="text-ink font-medium">unknown</span>,
                                 clearly flagged. Silently treating missing data as zero would produce a confident,
                                 wrong, and actively harmful number.
                             </IconCard>
-                            <IconCard icon={<Sparkles size={18} className="text-blue-400" />} title="Low confidence asks, never guesses">
+                            <IconCard icon={<Sparkles size={18} className="text-blue-700" />} title="Low confidence asks, never guesses">
                                 When document extraction or a free-text answer is ambiguous, the interface surfaces
                                 the field for confirmation instead of saving a guess.
                             </IconCard>
-                            <IconCard icon={<CalendarDays size={18} className="text-emerald-300" />} title="No permission is a dead end">
+                            <IconCard icon={<CalendarDays size={18} className="text-emerald-800" />} title="No permission is a dead end">
                                 Calendar declined? Goals still work in-app and reminders fall back to messaging.
                                 A refused permission degrades a feature; it never blocks one.
                             </IconCard>
-                            <IconCard icon={<FileText size={18} className="text-orange-400" />} title="Empty says what to do next">
+                            <IconCard icon={<FileText size={18} className="text-orange-600" />} title="Empty says what to do next">
                                 With nothing linked, the app doesn&apos;t show a zero &mdash; it says it doesn&apos;t
                                 have enough yet, states what it can still do with what you&apos;ve told it, and offers
                                 the two next steps.
@@ -1210,80 +1210,80 @@ const Poppins = () => {
             </section>
 
             {/* ================= INSTRUMENTATION ================= */}
-            <section className="bg-[#050505] py-16 px-4 border-t border-white/10">
+            <section className="bg-surface-2 py-16 px-4 border-t border-line">
                 <div className="max-w-7xl mx-auto">
                     <div className="max-w-3xl mb-10">
                         <Badge>[ How We&apos;d Know It Worked ]</Badge>
-                        <h2 className="font-heading text-4xl md:text-5xl font-bold text-white leading-tight mb-6">
+                        <h2 className="font-heading text-4xl md:text-5xl font-bold text-ink leading-tight mb-6">
                             Every target came with{" "}
-                            <span className="text-gray-400">a diagnosis for missing it.</span>
+                            <span className="text-ink-muted">a diagnosis for missing it.</span>
                         </h2>
-                        <p className="text-gray-400 text-base leading-relaxed mb-5">
+                        <p className="text-ink-muted text-base leading-relaxed mb-5">
                             A metric without a threshold is decoration, and a threshold without a diagnosis is
                             just a number to feel bad about. So each measure was specified with a target{" "}
-                            <span className="text-white font-medium">and the design conclusion to draw if it came in
+                            <span className="text-ink font-medium">and the design conclusion to draw if it came in
                                 low</span> &mdash; which is what makes it instrumentation rather than reporting.
                         </p>
                     </div>
 
                     <div className="overflow-x-auto mb-8">
-                        <table className="w-full min-w-[720px] text-sm border border-white/10 rounded-2xl overflow-hidden">
+                        <table className="w-full min-w-[720px] text-sm border border-line rounded-2xl overflow-hidden">
                             <thead>
-                                <tr className="bg-white/5">
-                                    <th className="text-left p-4 text-xs font-mono uppercase tracking-widest text-gray-500 font-medium">Signal</th>
-                                    <th className="text-left p-4 text-xs font-mono uppercase tracking-widest text-gray-500 font-medium">Target</th>
-                                    <th className="text-left p-4 text-xs font-mono uppercase tracking-widest text-gray-500 font-medium">If it came in low, the design conclusion</th>
+                                <tr className="bg-surface-3/70">
+                                    <th className="text-left p-4 text-xs font-mono uppercase tracking-widest text-ink-faint font-medium">Signal</th>
+                                    <th className="text-left p-4 text-xs font-mono uppercase tracking-widest text-ink-faint font-medium">Target</th>
+                                    <th className="text-left p-4 text-xs font-mono uppercase tracking-widest text-ink-faint font-medium">If it came in low, the design conclusion</th>
                                 </tr>
                             </thead>
-                            <tbody className="text-gray-400">
-                                <tr className="border-t border-white/5">
-                                    <td className="p-4 text-white font-medium">Opening question answered</td>
-                                    <td className="p-4 font-mono text-emerald-300">&gt;90%</td>
+                            <tbody className="text-ink-muted">
+                                <tr className="border-t border-line-soft">
+                                    <td className="p-4 text-ink font-medium">Opening question answered</td>
+                                    <td className="p-4 font-mono text-emerald-800">&gt;90%</td>
                                     <td className="p-4">The question is wrong, or the chips aren&apos;t landing.</td>
                                 </tr>
-                                <tr className="border-t border-white/5">
-                                    <td className="p-4 text-white font-medium">Bank connected, session 1</td>
-                                    <td className="p-4 font-mono text-emerald-300">&gt;45%</td>
+                                <tr className="border-t border-line-soft">
+                                    <td className="p-4 text-ink font-medium">Bank connected, session 1</td>
+                                    <td className="p-4 font-mono text-emerald-800">&gt;45%</td>
                                     <td className="p-4">The second message isn&apos;t specific enough, or the ask is routed to the wrong worry.</td>
                                 </tr>
-                                <tr className="border-t border-white/5">
-                                    <td className="p-4 text-white font-medium">Email connected after bank decline</td>
-                                    <td className="p-4 font-mono text-emerald-300">&gt;55%</td>
+                                <tr className="border-t border-line-soft">
+                                    <td className="p-4 text-ink font-medium">Email connected after bank decline</td>
+                                    <td className="p-4 font-mono text-emerald-800">&gt;55%</td>
                                     <td className="p-4">The pivot reads as a consolation prize rather than a smaller step.</td>
                                 </tr>
-                                <tr className="border-t border-white/5">
-                                    <td className="p-4 text-white font-medium">Bank re-offer after bills found</td>
-                                    <td className="p-4 font-mono text-emerald-300">&gt;70%</td>
+                                <tr className="border-t border-line-soft">
+                                    <td className="p-4 text-ink font-medium">Bank re-offer after bills found</td>
+                                    <td className="p-4 font-mono text-emerald-800">&gt;70%</td>
                                     <td className="p-4">The bills list isn&apos;t creating the &ldquo;am I covered?&rdquo; question.</td>
                                 </tr>
-                                <tr className="border-t border-white/5">
-                                    <td className="p-4 text-white font-medium">Reminder opt-in</td>
-                                    <td className="p-4 font-mono text-emerald-300">&gt;65%</td>
+                                <tr className="border-t border-line-soft">
+                                    <td className="p-4 text-ink font-medium">Reminder opt-in</td>
+                                    <td className="p-4 font-mono text-emerald-800">&gt;65%</td>
                                     <td className="p-4">The offer is arriving at the wrong moment in the session.</td>
                                 </tr>
-                                <tr className="border-t border-white/10 bg-emerald-500/5">
-                                    <td className="p-4 text-emerald-300 font-medium">Reached Safe to Spend in session 1</td>
-                                    <td className="p-4 font-mono text-emerald-300">&gt;45%</td>
-                                    <td className="p-4 text-gray-300">The north star. Reaching the payoff in the first session was expected to be worth roughly triple the 60-day retention.</td>
+                                <tr className="border-t border-line bg-emerald-500/5">
+                                    <td className="p-4 text-emerald-800 font-medium">Reached Safe to Spend in session 1</td>
+                                    <td className="p-4 font-mono text-emerald-800">&gt;45%</td>
+                                    <td className="p-4 text-ink-soft">The north star. Reaching the payoff in the first session was expected to be worth roughly triple the 60-day retention.</td>
                                 </tr>
                             </tbody>
                         </table>
                     </div>
 
                     <div className="grid grid-cols-1 md:grid-cols-2 gap-6 max-w-4xl">
-                        <IconCard icon={<Gauge size={18} className="text-emerald-300" />} title="The canary was chosen deliberately">
+                        <IconCard icon={<Gauge size={18} className="text-emerald-800" />} title="The canary was chosen deliberately">
                             Total bank connection at seven days &mdash; not day one &mdash; because it captures both
                             the people who connect immediately and the people who come back through the email
                             bridge. Measuring only session one would have made a working two-path architecture look
                             broken.
                         </IconCard>
-                        <IconCard icon={<Target size={18} className="text-blue-400" />} title="Two paths, measured separately">
+                        <IconCard icon={<Target size={18} className="text-blue-700" />} title="Two paths, measured separately">
                             Because a decline was designed as a route rather than a failure, each path needed its
                             own funnel. A blended number would have hidden which of the two was actually weak.
                         </IconCard>
                     </div>
 
-                    <p className="text-gray-600 text-xs mt-8 max-w-3xl">
+                    <p className="text-ink-ghost text-xs mt-8 max-w-3xl">
                         These were design targets, not results. The product was never released, so none of them were
                         ever measured &mdash; they are included because the thresholds and diagnoses shaped what got
                         designed, not because they were achieved.
@@ -1292,14 +1292,14 @@ const Poppins = () => {
             </section>
 
             {/* ================= SITE ================= */}
-            <section className="bg-black py-16 px-4 border-t border-white/10">
+            <section className="bg-surface py-16 px-4 border-t border-line">
                 <div className="max-w-7xl mx-auto">
                     <div className="max-w-3xl mb-4">
                         <Badge>[ Marketing Site ]</Badge>
-                        <h2 className="font-heading text-3xl md:text-4xl font-bold text-white leading-tight mb-4">
+                        <h2 className="font-heading text-3xl md:text-4xl font-bold text-ink leading-tight mb-4">
                             Same promise, different room.
                         </h2>
-                        <p className="text-gray-400 text-base leading-relaxed">
+                        <p className="text-ink-muted text-base leading-relaxed">
                             The site had one job the app didn&apos;t: earn enough trust for a stranger to consider
                             connecting a bank account. So it leads with the product&apos;s limits &mdash; read-only
                             access, no data selling &mdash; and states the pricing plainly, because in this category
@@ -1316,38 +1316,38 @@ const Poppins = () => {
             </section>
 
             {/* ================= THE KILL ================= */}
-            <section className="bg-[#050505] py-16 px-4 border-t border-white/10">
+            <section className="bg-surface-2 py-16 px-4 border-t border-line">
                 <div className="max-w-7xl mx-auto">
                     <div className="max-w-3xl">
                         <Badge>[ The Decision to Stop ]</Badge>
-                        <h2 className="font-heading text-4xl md:text-5xl font-bold text-white leading-tight mb-6">
+                        <h2 className="font-heading text-4xl md:text-5xl font-bold text-ink leading-tight mb-6">
                             We had a product.{" "}
-                            <span className="text-gray-400">We didn&apos;t have a wedge.</span>
+                            <span className="text-ink-muted">We didn&apos;t have a wedge.</span>
                         </h2>
-                        <p className="text-gray-400 text-base leading-relaxed mb-5">
+                        <p className="text-ink-muted text-base leading-relaxed mb-5">
                             We knew the category was crowded from the first week &mdash; the teardown was the first
                             piece of work we did, and the entire strategy was built around finding one defensible
                             thing the incumbents didn&apos;t do. We believed it was proactive delivery: money
                             surfacing in the messaging thread people already read, backed by a document layer nobody
                             else had.
                         </p>
-                        <p className="text-gray-400 text-base leading-relaxed mb-5">
+                        <p className="text-ink-muted text-base leading-relaxed mb-5">
                             Under scrutiny that wedge didn&apos;t hold. A delivery channel is a feature, not a moat
                             &mdash; cheap for a funded incumbent to copy once it&apos;s proven, and not on its own a
                             reason to move your financial life. Everything genuinely differentiated about Poppins
-                            lived in <span className="text-white font-medium">voice, sequencing and interaction
+                            lived in <span className="text-ink font-medium">voice, sequencing and interaction
                                 quality</span>, which is real design value but a fragile business defence. Meanwhile the
                             thing we&apos;d compete on hardest &mdash; breadth and reliability of account coverage
                             &mdash; was the part we controlled least.
                         </p>
-                        <p className="text-gray-400 text-base leading-relaxed mb-10">
+                        <p className="text-ink-muted text-base leading-relaxed mb-10">
                             So we stopped at the end of v1 scope, before engineering investment. That was the right
                             call, and I&apos;d make it faster next time.
                         </p>
 
-                        <div className="bg-[#d6f928]/5 border border-[#d6f928]/20 rounded-2xl p-8 mb-10">
-                            <p className="text-[#d6f928] text-xs uppercase tracking-widest mb-3 font-mono font-semibold">What I&apos;d do differently</p>
-                            <p className="text-white text-base leading-relaxed">
+                        <div className="bg-accent/15 border border-accent-ink/30 rounded-2xl p-8 mb-10">
+                            <p className="text-accent-ink text-xs uppercase tracking-widest mb-3 font-mono font-semibold">What I&apos;d do differently</p>
+                            <p className="text-ink text-base leading-relaxed">
                                 We validated the <em>experience</em> exhaustively and the <em>wedge</em> late. Testing
                                 the differentiator in two weeks &mdash; before three months of design &mdash; would
                                 have reached the same answer far cheaper. Now I try to identify the single assumption
@@ -1355,15 +1355,15 @@ const Poppins = () => {
                             </p>
                         </div>
 
-                        <h3 className="font-heading text-2xl font-bold text-white mb-5">What carried forward</h3>
-                        <ul className="space-y-3 text-gray-400 text-sm leading-relaxed mb-6">
-                            <li>&bull; <span className="text-white">Never show a number you can&apos;t explain.</span> Now a default in anything I design that surfaces a computed figure.</li>
-                            <li>&bull; <span className="text-white">Write the prohibitions, not just the principles.</span> &ldquo;Never show a progress bar&rdquo; survived deadline pressure in a way &ldquo;keep it conversational&rdquo; would not have.</li>
-                            <li>&bull; <span className="text-white">Put a permission downstream of a desire.</span> Anything I ask a user for now has to follow something they&apos;ve already said they want.</li>
-                            <li>&bull; <span className="text-white">Pair every target with its diagnosis.</span> A metric that can&apos;t tell you what to change isn&apos;t worth instrumenting.</li>
-                            <li>&bull; <span className="text-white">Specify failure alongside the feature.</span> The degraded state is the real product for more users than the happy path is.</li>
+                        <h3 className="font-heading text-2xl font-bold text-ink mb-5">What carried forward</h3>
+                        <ul className="space-y-3 text-ink-muted text-sm leading-relaxed mb-6">
+                            <li>&bull; <span className="text-ink">Never show a number you can&apos;t explain.</span> Now a default in anything I design that surfaces a computed figure.</li>
+                            <li>&bull; <span className="text-ink">Write the prohibitions, not just the principles.</span> &ldquo;Never show a progress bar&rdquo; survived deadline pressure in a way &ldquo;keep it conversational&rdquo; would not have.</li>
+                            <li>&bull; <span className="text-ink">Put a permission downstream of a desire.</span> Anything I ask a user for now has to follow something they&apos;ve already said they want.</li>
+                            <li>&bull; <span className="text-ink">Pair every target with its diagnosis.</span> A metric that can&apos;t tell you what to change isn&apos;t worth instrumenting.</li>
+                            <li>&bull; <span className="text-ink">Specify failure alongside the feature.</span> The degraded state is the real product for more users than the happy path is.</li>
                         </ul>
-                        <p className="text-gray-600 text-xs">
+                        <p className="text-ink-ghost text-xs">
                             No outcome metrics appear in this case study: the product was never released, so there
                             are none to report. All figures shown in screens are sample data.
                         </p>
@@ -1372,13 +1372,13 @@ const Poppins = () => {
             </section>
 
             {/* ================= NEXT ================= */}
-            <section className="bg-[#050505] py-16 px-4 border-t border-white/10">
+            <section className="bg-surface-2 py-16 px-4 border-t border-line">
                 <div className="max-w-7xl mx-auto flex flex-col md:flex-row items-center justify-between gap-6">
                     <div>
-                        <p className="text-xs font-mono text-gray-600 uppercase tracking-widest mb-2">Next Case Study</p>
-                        <p className="font-heading text-2xl font-bold text-white">Atlas: CMS Architecture Across 130+ Locations</p>
+                        <p className="text-xs font-mono text-ink-ghost uppercase tracking-widest mb-2">Next Case Study</p>
+                        <p className="font-heading text-2xl font-bold text-ink">Atlas: CMS Architecture Across 130+ Locations</p>
                     </div>
-                    <Link to="/atlas" className="text-[#d6f928] font-medium text-sm border border-[#d6f928]/20 bg-[#d6f928]/5 px-6 py-3 rounded-full hover:bg-[#d6f928]/10 transition-colors whitespace-nowrap flex items-center gap-2">
+                    <Link to="/atlas" className="text-accent-ink font-medium text-sm border border-accent-ink/30 bg-accent/15 px-6 py-3 rounded-full hover:bg-accent/25 transition-colors whitespace-nowrap flex items-center gap-2">
                         View Case Study <ArrowRight size={16} />
                     </Link>
                 </div>

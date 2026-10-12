@@ -42,11 +42,11 @@ const isMouseDevice = window.matchMedia("(pointer: fine)").matches;
 const TOOLS_PASSWORD = import.meta.env.VITE_TOOLS_PASSWORD || null;
 
 const NotFound = () => (
-  <div className="flex flex-col items-center justify-center min-h-screen bg-black text-white gap-4 px-4 text-center">
-    <p className="font-mono text-xs text-[#d6f928] tracking-widest uppercase">[ 404 ]</p>
+  <div className="flex flex-col items-center justify-center min-h-screen bg-surface text-ink gap-4 px-4 text-center">
+    <p className="font-mono text-xs text-accent-ink tracking-widest uppercase">[ 404 ]</p>
     <h1 className="text-3xl font-bold">Page not found</h1>
-    <p className="text-gray-400 text-sm">The page you&apos;re looking for doesn&apos;t exist or has moved.</p>
-    <a href="/" className="mt-2 bg-white text-black px-6 py-3 rounded-full font-semibold text-sm hover:bg-gray-200 transition-colors">
+    <p className="text-ink-muted text-sm">The page you&apos;re looking for doesn&apos;t exist or has moved.</p>
+    <a href="/" className="mt-2 bg-ink text-surface px-6 py-3 rounded-full font-semibold text-sm hover:bg-ink-soft transition-colors">
       Back to home
     </a>
   </div>
@@ -62,8 +62,9 @@ root.render(
           showSystemCursor={false}
           innerSize={16}
           outerSize={60}
-          color="255, 255, 255"
-          outerAlpha={0.1}
+          // Ink, not white — a white cursor is invisible on a light page.
+          color="16, 20, 24"
+          outerAlpha={0.08}
           innerScale={0.7}
           outerScale={2}
           trailingSpeed={18}
@@ -84,7 +85,7 @@ root.render(
               options: {
                 innerSize: 12,
                 outerSize: 12,
-                color: "255, 255, 255",
+                color: "16, 20, 24",
                 outerAlpha: 0.3,
                 innerScale: 0.7,
                 outerScale: 5,
@@ -95,7 +96,7 @@ root.render(
       )}
       <Router>
         <ScrollToHash />
-        <Suspense fallback={<div className="flex items-center justify-center min-h-screen bg-black text-white">Loading...</div>}>
+        <Suspense fallback={<div className="flex items-center justify-center min-h-screen bg-surface text-ink">Loading...</div>}>
           <Routes>
             <Route path="/" element={<App />} />
             <Route path="/home" element={<LandingPage />} />

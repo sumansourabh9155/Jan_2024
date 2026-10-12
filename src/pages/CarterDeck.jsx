@@ -27,7 +27,7 @@ const RED = "#E0324B";
 const GREEN = "#1E9E4A";
 
 const Label = ({ children }) => (
-    <p className="text-lg md:text-xl font-medium mb-10 md:mb-14" style={{ color: "#A8B2BC" }}>
+    <p className="text-lg md:text-xl font-medium mb-10 md:mb-14" style={{ color: "#646F7B" }}>
         {children}
     </p>
 );
@@ -152,7 +152,7 @@ const SLIDES = [
         nav: "Carter — title",
         render: () => (
             <div>
-                <p className="text-lg md:text-xl font-medium mb-6" style={{ color: "#A8B2BC" }}>
+                <p className="text-lg md:text-xl font-medium mb-6" style={{ color: "#646F7B" }}>
                     Case study
                 </p>
                 <h1
@@ -164,7 +164,7 @@ const SLIDES = [
                 <p className="font-heading text-2xl md:text-4xl font-bold" style={{ color: "#6B7885" }}>
                     Retail media DSP · Product Designer
                 </p>
-                <p className="text-base md:text-lg mt-6" style={{ color: "#8B96A2" }}>
+                <p className="text-base md:text-lg mt-6" style={{ color: "#5A6672" }}>
                     Shyftlabs · 12 months, 2 phases
                 </p>
             </div>
@@ -270,7 +270,7 @@ const SLIDES = [
         render: () => (
             <Statement>
                 The team wanted features.{" "}
-                <span style={{ color: "#8B96A2" }}>I pushed to fix activation first.</span>
+                <span style={{ color: "#5A6672" }}>I pushed to fix activation first.</span>
             </Statement>
         ),
         note: "The most important slide. If they remember one thing, it should be that I argued against the roadmap with data and won two sprints to prove it.",
@@ -321,7 +321,7 @@ const SLIDES = [
         render: () => (
             <Statement>
                 Trade more steps for fewer decisions each.{" "}
-                <span style={{ color: "#8B96A2" }}>Completion over speed.</span>
+                <span style={{ color: "#5A6672" }}>Completion over speed.</span>
             </Statement>
         ),
         note: "Name the trade-off explicitly, including what it cost: the flow got longer. That's the point — I chose that.",
@@ -423,7 +423,7 @@ const SLIDES = [
         render: () => (
             <Statement>
                 The hardest call wasn&apos;t a screen.{" "}
-                <span style={{ color: "#8B96A2" }}>It was asking the team to stop building.</span>
+                <span style={{ color: "#5A6672" }}>It was asking the team to stop building.</span>
             </Statement>
         ),
         note: "Close on judgement, not craft. And the honest regret: I should have run the funnel analysis in week one instead of week five — the data was already there.",
@@ -530,7 +530,7 @@ const CarterDeck = () => {
                         onClick={() => setNotes((v) => !v)}
                         aria-pressed={notes}
                         className="p-2.5 rounded-lg transition-opacity"
-                        style={{ color: INK, opacity: notes ? 0.9 : 0.35 }}
+                        style={{ color: INK, opacity: notes ? 0.95 : 0.6 }}
                         title="Speaker notes (N)"
                     >
                         <StickyNote size={17} />
@@ -540,7 +540,7 @@ const CarterDeck = () => {
                         onClick={() => setOverview((v) => !v)}
                         aria-pressed={overview}
                         className="p-2.5 rounded-lg transition-opacity"
-                        style={{ color: INK, opacity: overview ? 0.9 : 0.35 }}
+                        style={{ color: INK, opacity: overview ? 0.95 : 0.6 }}
                         title="All slides (G)"
                     >
                         {overview ? <X size={17} /> : <Grid2x2 size={17} />}
@@ -565,7 +565,7 @@ const CarterDeck = () => {
                                     backgroundColor: idx === i ? "#E8ECF1" : "#FFFFFF",
                                 }}
                             >
-                                <span className="text-xs font-mono block mb-1.5" style={{ color: "#A8B2BC" }}>
+                                <span className="text-xs font-mono block mb-1.5" style={{ color: "#646F7B" }}>
                                     {String(idx + 1).padStart(2, "0")}
                                 </span>
                                 <span className="text-sm font-semibold leading-snug" style={{ color: INK }}>
@@ -589,7 +589,7 @@ const CarterDeck = () => {
                             className="shrink-0 border-t px-6 md:px-16 lg:px-24 py-5"
                             style={{ borderColor: "#DCE2E8", backgroundColor: "#EAEEF3" }}
                         >
-                            <p className="text-xs font-mono uppercase tracking-widest mb-2" style={{ color: "#A8B2BC" }}>
+                            <p className="text-xs font-mono uppercase tracking-widest mb-2" style={{ color: "#646F7B" }}>
                                 Say this
                             </p>
                             <p className="text-sm md:text-base leading-relaxed max-w-4xl" style={{ color: "#4A5560" }}>
@@ -622,7 +622,7 @@ const CarterDeck = () => {
                                 <ChevronRight size={20} />
                             </button>
                         </div>
-                        <p className="text-xs font-mono" style={{ color: "#A8B2BC" }}>
+                        <p className="text-xs font-mono" style={{ color: "#646F7B" }}>
                             {String(i + 1).padStart(2, "0")} / {SLIDES.length}
                             <span className="hidden md:inline"> · ← → move · N notes · G all slides</span>
                         </p>

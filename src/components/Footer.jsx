@@ -25,7 +25,7 @@ const Footer = () => {
     };
 
     return (
-        <footer className="bg-[#050505] border-t border-white/10 relative overflow-hidden pt-20 pb-10">
+        <footer className="bg-surface-2 border-t border-line relative overflow-hidden pt-20 pb-10">
             {/* Background Grid (Consistent with Hero) */}
             <div
                 className="absolute inset-0 opacity-[0.03] pointer-events-none"
@@ -38,19 +38,19 @@ const Footer = () => {
             <div className="max-w-7xl mx-auto px-6 relative z-10">
 
                 {/* Top Section: The Final CTA */}
-                <div className="flex flex-col md:flex-row justify-between items-start md:items-end gap-10 mb-20 border-b border-white/10 pb-16">
+                <div className="flex flex-col md:flex-row justify-between items-start md:items-end gap-10 mb-20 border-b border-line pb-16">
                     <div className="max-w-xl">
-                        <h2 className="font-heading text-3xl md:text-4xl font-bold text-white mb-6">
-                            Looking for a designer who <span className="text-[#d6f928]">ships what they design?</span>
+                        <h2 className="font-heading text-3xl md:text-4xl font-bold text-ink mb-6">
+                            Looking for a designer who <span className="text-accent-ink">ships what they design?</span>
                         </h2>
-                        <p className="text-gray-400 font-light">
+                        <p className="text-ink-muted font-light">
                             I embed into teams, close the strategy-execution gap, and ship products that move metrics.
                             Let&apos;s see if there&apos;s a fit.
                         </p>
                     </div>
                     <div>
                         <Link to="/contact">
-                            <button className="group bg-white text-black px-8 py-4 rounded-full font-bold text-lg hover:bg-[#d6f928] transition-all shadow-[0_0_20px_rgba(255,255,255,0.1)] flex items-center gap-2">
+                            <button className="group bg-ink text-surface px-8 py-4 rounded-full font-bold text-lg hover:bg-accent hover:text-ink transition-all shadow-[0_6px_20px_rgba(0,0,0,0.12)] flex items-center gap-2">
                                 Get in Touch
                                 <ArrowUpRight className="group-hover:translate-x-1 group-hover:-translate-y-1 transition-transform" />
                             </button>
@@ -63,15 +63,15 @@ const Footer = () => {
 
                     {/* Column 1: Brand (4 Cols) */}
                     <div className="md:col-span-5">
-                        <Link to="/" className="inline-block text-2xl font-bold text-white mb-4">
-                            Suman <span className="text-gray-500">Sourabh</span>
+                        <Link to="/" className="inline-block text-2xl font-bold text-ink mb-4">
+                            Suman <span className="text-ink-faint">Sourabh</span>
                         </Link>
-                        <p className="text-sm text-gray-500 mb-6 max-w-sm">
+                        <p className="text-sm text-ink-faint mb-6 max-w-sm">
                             Product Designer with a CS/ML background. I design 0-to-1 AI products end-to-end and ship the UI myself—no gap between design and engineering.
                         </p>
                         <a
                             href="mailto:sumansourabh9155@gmail.com"
-                            className="flex items-center gap-2 text-white hover:text-[#d6f928] transition-colors"
+                            className="flex items-center gap-2 text-ink hover:text-accent-ink transition-colors"
                         >
                             <Mail size={16} /> sumansourabh9155@gmail.com
                         </a>
@@ -79,11 +79,11 @@ const Footer = () => {
 
                     {/* Column 2: Explore (3 Cols) */}
                     <div className="md:col-span-3">
-                        <h4 className="text-xs font-mono text-gray-500 uppercase tracking-widest mb-6">Explore</h4>
+                        <h4 className="text-xs font-mono text-ink-faint uppercase tracking-widest mb-6">Explore</h4>
                         <ul className="space-y-4">
                             {links.explore.map((link) => (
                                 <li key={link.name}>
-                                    <Link to={link.url} className="text-sm text-gray-400 hover:text-white transition-colors">
+                                    <Link to={link.url} className="text-sm text-ink-muted hover:text-ink transition-colors">
                                         {link.name}
                                     </Link>
                                 </li>
@@ -93,7 +93,7 @@ const Footer = () => {
 
                     {/* Column 3: Social (2 Cols) */}
                     <div className="md:col-span-2">
-                        <h4 className="text-xs font-mono text-gray-500 uppercase tracking-widest mb-6">Connect</h4>
+                        <h4 className="text-xs font-mono text-ink-faint uppercase tracking-widest mb-6">Connect</h4>
                         <ul className="space-y-4">
                             {links.social.map((link) => (
                                 <li key={link.name}>
@@ -101,7 +101,7 @@ const Footer = () => {
                                         href={link.url}
                                         target="_blank"
                                         rel="noopener noreferrer"
-                                        className="flex items-center gap-2 text-sm text-gray-400 hover:text-[#d6f928] transition-colors"
+                                        className="flex items-center gap-2 text-sm text-ink-muted hover:text-accent-ink transition-colors"
                                     >
                                         {link.icon} {link.name}
                                     </a>
@@ -112,11 +112,11 @@ const Footer = () => {
 
                     {/* Column 4: Case Studies (2 Cols) */}
                     <div className="md:col-span-2">
-                        <h4 className="text-xs font-mono text-gray-500 uppercase tracking-widest mb-6">Case Studies</h4>
+                        <h4 className="text-xs font-mono text-ink-faint uppercase tracking-widest mb-6">Case Studies</h4>
                         <ul className="space-y-4">
                             {links.caseStudies.map((link) => (
                                 <li key={link.name}>
-                                    <Link to={link.url} className="text-sm text-gray-400 hover:text-white transition-colors">
+                                    <Link to={link.url} className="text-sm text-ink-muted hover:text-ink transition-colors">
                                         {link.name}
                                     </Link>
                                 </li>
@@ -126,8 +126,8 @@ const Footer = () => {
                 </div>
 
                 {/* Bottom Section: Copyright */}
-                <div className="flex flex-col  items-center pt-8 border-t border-white/5">
-                    <p className="text-xs text-gray-600">
+                <div className="flex flex-col  items-center pt-8 border-t border-line-soft">
+                    <p className="text-xs text-ink-ghost">
                         © {currentYear} Suman Sourabh. All Rights Reserved.
                     </p>
                 </div>

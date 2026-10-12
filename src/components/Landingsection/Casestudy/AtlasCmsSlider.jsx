@@ -64,15 +64,15 @@ const AtlasCmsSlider = () => {
   // case study reads intentionally rather than looking broken mid-build).
   if (count === 0) {
     return (
-      <div className="rounded-2xl border-2 border-dashed border-[#d6f928]/30 bg-[#0d0d0f] aspect-[1440/860] flex flex-col items-center justify-center text-center px-6">
-        <div className="w-12 h-12 rounded-xl bg-[#d6f928]/10 border border-[#d6f928]/20 flex items-center justify-center mb-4">
-          <ImageIcon size={22} className="text-[#d6f928]/70" />
+      <div className="rounded-2xl border-2 border-dashed border-accent-ink/35 bg-surface-2 aspect-[1440/860] flex flex-col items-center justify-center text-center px-6">
+        <div className="w-12 h-12 rounded-xl bg-accent/25 border border-accent-ink/30 flex items-center justify-center mb-4">
+          <ImageIcon size={22} className="text-accent-ink/70" />
         </div>
-        <p className="text-white font-medium mb-1">CMS 2.0 screenshots go here</p>
-        <p className="text-gray-500 text-sm max-w-md">
+        <p className="text-ink font-medium mb-1">CMS 2.0 screenshots go here</p>
+        <p className="text-ink-faint text-sm max-w-md">
           Drop curated frames into{" "}
-          <span className="font-mono text-gray-400">src/assets/atlas-cms/</span>{" "}
-          named <span className="font-mono text-gray-400">1.png, 2.png…</span> — they
+          <span className="font-mono text-ink-muted">src/assets/atlas-cms/</span>{" "}
+          named <span className="font-mono text-ink-muted">1.png, 2.png…</span> — they
           auto-load into this slider in order.
         </p>
       </div>
@@ -92,10 +92,10 @@ const AtlasCmsSlider = () => {
       onMouseEnter={() => setPlaying(false)}
       onMouseLeave={() => setPlaying(!prefersReduced)}
       onFocus={() => setPlaying(false)}
-      className="relative rounded-2xl border border-white/10 bg-[#0d0d0f] overflow-hidden focus:outline-none focus-visible:ring-2 focus-visible:ring-[#d6f928]/60"
+      className="relative rounded-2xl border border-line bg-surface-2 overflow-hidden focus:outline-none focus-visible:ring-2 focus-visible:ring-accent-ink/50"
     >
       {/* Stage — full frame visible, never cropped */}
-      <div className="relative bg-[#0d0d0f] flex items-center justify-center aspect-[1440/860]">
+      <div className="relative bg-surface-2 flex items-center justify-center aspect-[1440/860]">
         {slides.map((s, i) => (
           <img
             key={i}
@@ -110,22 +110,22 @@ const AtlasCmsSlider = () => {
       </div>
 
       {/* Control bar */}
-      <div className="flex items-center gap-3 px-4 py-3 border-t border-white/10 bg-black/40">
+      <div className="flex items-center gap-3 px-4 py-3 border-t border-line bg-surface-3/70">
         <button
           type="button"
           onClick={() => setPlaying((p) => !p)}
           aria-label={playing ? "Pause autoplay" : "Play autoplay"}
-          className="w-8 h-8 rounded-full border border-white/15 bg-white/5 text-white flex items-center justify-center hover:border-[#d6f928]/50 hover:text-[#d6f928] transition-colors shrink-0"
+          className="w-8 h-8 rounded-full border border-line bg-surface text-ink shadow-[0_1px_3px_rgba(0,0,0,0.08)] flex items-center justify-center hover:border-accent-ink/45 hover:text-accent-ink transition-colors shrink-0"
         >
           {playing ? <Pause size={14} /> : <Play size={14} />}
         </button>
 
         <div className="flex-1 min-w-0">
-          <p className="text-sm text-white truncate">
+          <p className="text-sm text-ink truncate">
             {active.caption || "CMS 2.0"}
           </p>
         </div>
-        <span className="text-xs font-mono text-gray-500 shrink-0 tabular-nums">
+        <span className="text-xs font-mono text-ink-faint shrink-0 tabular-nums">
           {String(index + 1).padStart(2, "0")} / {String(count).padStart(2, "0")}
         </span>
 
@@ -134,7 +134,7 @@ const AtlasCmsSlider = () => {
             type="button"
             onClick={prev}
             aria-label="Previous screen"
-            className="w-8 h-8 rounded-full border border-white/15 bg-white/5 text-white flex items-center justify-center hover:border-[#d6f928]/50 hover:text-[#d6f928] transition-colors"
+            className="w-8 h-8 rounded-full border border-line bg-surface text-ink shadow-[0_1px_3px_rgba(0,0,0,0.08)] flex items-center justify-center hover:border-accent-ink/45 hover:text-accent-ink transition-colors"
           >
             <ChevronLeft size={16} />
           </button>
@@ -142,7 +142,7 @@ const AtlasCmsSlider = () => {
             type="button"
             onClick={next}
             aria-label="Next screen"
-            className="w-8 h-8 rounded-full border border-white/15 bg-white/5 text-white flex items-center justify-center hover:border-[#d6f928]/50 hover:text-[#d6f928] transition-colors"
+            className="w-8 h-8 rounded-full border border-line bg-surface text-ink shadow-[0_1px_3px_rgba(0,0,0,0.08)] flex items-center justify-center hover:border-accent-ink/45 hover:text-accent-ink transition-colors"
           >
             <ChevronRight size={16} />
           </button>
@@ -158,7 +158,7 @@ const AtlasCmsSlider = () => {
             onClick={() => go(i)}
             aria-label={`Go to screen ${i + 1}`}
             aria-current={i === index}
-            className={`h-1.5 rounded-full transition-all ${i === index ? "w-6 bg-[#d6f928]" : "w-1.5 bg-white/20 hover:bg-white/40"}`}
+            className={`h-1.5 rounded-full transition-all ${i === index ? "w-6 bg-accent-ink" : "w-1.5 bg-line-strong hover:bg-ink-faint"}`}
           />
         ))}
       </div>

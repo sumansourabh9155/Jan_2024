@@ -66,22 +66,22 @@ const DesignShowcase = () => {
       id="design-gallery"
       aria-labelledby="design-showcase-heading"
       data-testid="design-showcase-section"
-      className="scroll-mt-24 bg-[#050505] py-24 border-t border-white/10 overflow-hidden"
+      className="scroll-mt-24 bg-surface-2 py-24 border-t border-line overflow-hidden"
     >
       <div className="max-w-7xl mx-auto px-4">
         {/* Header + arrows */}
         <div className="flex flex-col md:flex-row md:items-end justify-between gap-6 mb-10">
           <div className="max-w-2xl">
-            <div className="inline-flex items-center gap-2 text-xs font-mono text-[#d6f928] tracking-widest uppercase mb-4">
+            <div className="inline-flex items-center gap-2 text-xs font-mono text-accent-ink tracking-widest uppercase mb-4">
               [ Selected Design Work ]
             </div>
             <h2
               id="design-showcase-heading"
-              className="font-heading text-4xl md:text-5xl font-bold text-white leading-tight"
+              className="font-heading text-4xl md:text-5xl font-bold text-ink leading-tight"
             >
-              Craft. <span className="text-gray-500">Not just process.</span>
+              Craft. <span className="text-ink-faint">Not just process.</span>
             </h2>
-            <p className="text-gray-400 mt-4 text-base leading-relaxed">
+            <p className="text-ink-muted mt-4 text-base leading-relaxed">
               Interfaces, brand systems, and marketing design. Scroll through — click any shot to enlarge.
             </p>
           </div>
@@ -92,7 +92,7 @@ const DesignShowcase = () => {
               onClick={() => scrollByCard(-1)}
               disabled={atStart}
               aria-label="Previous designs"
-              className={`${arrowClass} border-white/15 text-white bg-white/5 hover:border-[#d6f928]/50 hover:text-[#d6f928]`}
+              className={`${arrowClass} border-line text-ink bg-surface shadow-[0_1px_3px_rgba(0,0,0,0.08)] hover:border-accent-ink/45 hover:text-accent-ink`}
             >
               <ChevronLeft size={18} />
             </button>
@@ -101,7 +101,7 @@ const DesignShowcase = () => {
               onClick={() => scrollByCard(1)}
               disabled={atEnd}
               aria-label="Next designs"
-              className={`${arrowClass} border-white/15 text-white bg-white/5 hover:border-[#d6f928]/50 hover:text-[#d6f928]`}
+              className={`${arrowClass} border-line text-ink bg-surface shadow-[0_1px_3px_rgba(0,0,0,0.08)] hover:border-accent-ink/45 hover:text-accent-ink`}
             >
               <ChevronRight size={18} />
             </button>
@@ -124,10 +124,10 @@ const DesignShowcase = () => {
             onClick={() => setActive(s)}
             aria-label={`Enlarge ${s.title}`}
             className="group snap-start flex-none w-[80vw] sm:w-[380px] lg:w-[440px] text-left cursor-pointer
-              focus:outline-none focus-visible:ring-2 focus-visible:ring-[#d6f928]/60 rounded-2xl"
+              focus:outline-none focus-visible:ring-2 focus-visible:ring-accent-ink/50 rounded-2xl"
           >
             {/* Image container — object-contain keeps the whole design visible */}
-            <div className="rounded-2xl border border-white/10 bg-white/[0.03] group-hover:border-white/25 transition-colors overflow-hidden">
+            <div className="rounded-2xl border border-line bg-surface-3/70 group-hover:border-line-strong transition-colors overflow-hidden">
               <div className="aspect-[16/10] flex items-center justify-center p-3">
                 <img
                   src={s.img}
@@ -142,10 +142,10 @@ const DesignShowcase = () => {
 
             {/* Caption below the image, so nothing covers the work */}
             <div className="mt-3 px-1">
-              <p className="text-[10px] font-mono uppercase tracking-widest text-gray-500 group-hover:text-[#d6f928] transition-colors">
+              <p className="text-[10px] font-mono uppercase tracking-widest text-ink-faint group-hover:text-accent-ink transition-colors">
                 {s.tag}
               </p>
-              <p className="text-white font-semibold text-sm mt-0.5">{s.title}</p>
+              <p className="text-ink font-semibold text-sm mt-0.5">{s.title}</p>
             </div>
             </button>
           ))}
@@ -159,13 +159,16 @@ const DesignShowcase = () => {
           aria-modal="true"
           aria-label={active.title}
           onClick={close}
-          className="fixed inset-0 z-[60] bg-black/90 backdrop-blur-sm flex items-center justify-center p-4 sm:p-8"
+          // A scrim's job is to push the page back, so it stays dark whatever
+          // the theme. At bg-surface/90 this was white over white: the lightbox
+          // opened with no separation from the gallery behind it.
+          className="fixed inset-0 z-[60] bg-black/80 backdrop-blur-sm flex items-center justify-center p-4 sm:p-8"
         >
           <button
             type="button"
             onClick={close}
             aria-label="Close"
-            className="absolute top-5 right-5 w-10 h-10 rounded-full bg-white/10 border border-white/20 text-white flex items-center justify-center hover:bg-white/20 transition-colors"
+            className="absolute top-5 right-5 w-10 h-10 rounded-full bg-surface border border-line text-ink flex items-center justify-center hover:bg-accent transition-colors"
           >
             <X size={18} />
           </button>
@@ -173,10 +176,12 @@ const DesignShowcase = () => {
             <img
               src={active.img}
               alt={`${active.title} — enlarged view`}
-              className="w-full max-h-[80vh] object-contain rounded-2xl border border-white/10"
+              className="w-full max-h-[80vh] object-contain rounded-2xl border border-white/15"
             />
+            {/* Caption sits on the dark scrim, not the page, so it takes light
+                type. The page tokens would be near-invisible here. */}
             <figcaption className="mt-4 text-center">
-              <p className="text-[10px] font-mono uppercase tracking-widest text-[#d6f928] mb-1">{active.tag}</p>
+              <p className="text-[10px] font-mono uppercase tracking-widest text-accent mb-1">{active.tag}</p>
               <p className="text-white font-semibold text-sm">{active.title}</p>
             </figcaption>
           </figure>

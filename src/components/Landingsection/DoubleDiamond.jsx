@@ -129,7 +129,7 @@ const DoubleDiamond = () => {
    return (
       <section
          aria-labelledby="methodology-heading"
-         className="w-full bg-[#050505] text-white py-24 px-4 relative overflow-hidden font-sans border-t border-white/10"
+         className="w-full bg-surface-2 text-ink py-20 px-4 relative overflow-hidden font-sans border-t border-line"
       >
 
          {/* =========================================================
@@ -149,7 +149,7 @@ const DoubleDiamond = () => {
 
          <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[700px] h-[700px] bg-blue-500/10 blur-[150px] rounded-full pointer-events-none" />
 
-         <div className="absolute top-[25%] left-[10%] w-[300px] h-[300px] bg-[#d6f928]/5 blur-[120px] rounded-full pointer-events-none" />
+         <div className="absolute top-[25%] left-[10%] w-[300px] h-[300px] bg-accent/15 blur-[120px] rounded-full pointer-events-none" />
 
 
          <div className="max-w-7xl mx-auto relative z-10">
@@ -159,11 +159,11 @@ const DoubleDiamond = () => {
                 HEADER
             ========================================================= */}
 
-            <div className="text-center mb-16">
+            <div className="text-center mb-10">
 
-               <div className="inline-flex items-center gap-2 text-xs font-mono text-[#d6f928] tracking-widest uppercase mb-4">
+               <div className="inline-flex items-center gap-2 text-xs font-mono text-accent-ink tracking-widest uppercase mb-3">
 
-                  <span className="w-1.5 h-1.5 bg-[#d6f928] rounded-full animate-pulse" />
+                  <span className="w-1.5 h-1.5 bg-accent rounded-full animate-pulse" />
 
                   [ How I Work ]
 
@@ -176,14 +176,12 @@ const DoubleDiamond = () => {
                >
                   Dual-Track Agile{' '}
 
-                  <span className="text-transparent bg-clip-text bg-gradient-to-r from-white to-gray-500">
-                     Workflow
-                  </span>
+                  <span className="text-ink-muted">Workflow</span>
 
                </h2>
 
 
-               <p className="text-gray-400 mt-4 max-w-2xl mx-auto leading-relaxed">
+               <p className="text-ink-muted mt-3 max-w-2xl mx-auto leading-relaxed">
                   Discovery and Delivery move together — continuously reducing
                   uncertainty while creating measurable product value.
                </p>
@@ -204,13 +202,13 @@ const DoubleDiamond = () => {
 
                <div className="relative">
 
-                  <div className="flex justify-center mb-7">
+                  <div className="flex justify-center mb-5">
 
-                     <div className="inline-flex items-center gap-3 border border-[#d6f928]/30 bg-[#d6f928]/5 px-5 py-2 rounded-full">
+                     <div className="inline-flex items-center gap-3 border border-accent-ink/35 bg-accent/15 px-5 py-2 rounded-full">
 
-                        <span className="w-2 h-2 bg-[#d6f928] rounded-full shadow-[0_0_10px_#d6f928]" />
+                        <span className="w-2 h-2 bg-accent-ink rounded-full" />
 
-                        <span className="text-[#d6f928] text-xs font-mono tracking-[0.2em] uppercase">
+                        <span className="text-accent-ink text-xs font-mono tracking-[0.2em] uppercase">
                            Discovery Track
                         </span>
 
@@ -223,7 +221,10 @@ const DoubleDiamond = () => {
 
                      {/* Main horizontal line */}
 
-                     <div className="absolute top-1/2 left-[8%] right-[8%] h-px bg-[#d6f928]/15" />
+                     {/* Only the gaps between cards show this, so a 15% lime
+                         tint rendered as nothing and the track read as four
+                         loose cards rather than one line. */}
+                     <div className="absolute top-1/2 left-[8%] right-[8%] h-px bg-accent-ink/25" />
 
 
                      {/* Animated flow */}
@@ -231,7 +232,7 @@ const DoubleDiamond = () => {
                      <div className="absolute top-1/2 left-[8%] right-[8%] h-px overflow-hidden">
 
                         <div
-                           className="w-24 h-px bg-gradient-to-r from-transparent via-[#d6f928] to-transparent"
+                           className="w-24 h-px bg-gradient-to-r from-transparent via-accent-ink/60 to-transparent"
                            style={{
                               animation: 'doubleDiamondFlow 2.5s linear infinite'
                            }}
@@ -260,25 +261,25 @@ const DoubleDiamond = () => {
 
                                  <div
                                     className={`
-                                       h-[150px]
+                                       h-full
                                        rounded-xl
                                        border
-                                       bg-[#111]/95
+                                       bg-surface/95
                                        backdrop-blur-md
                                        p-5
                                        transition-all
                                        duration-300
                                        ${
                                           active
-                                             ? 'border-[#d6f928]/60 -translate-y-2 shadow-[0_0_35px_rgba(214,249,40,0.10)]'
-                                             : 'border-white/10 group-hover:border-[#d6f928]/30'
+                                             ? 'border-accent-ink/50 -translate-y-2 shadow-[0_9px_35px_rgba(0,0,0,0.1)]'
+                                             : 'border-line group-hover:border-accent-ink/35'
                                        }
                                     `}
                                  >
 
                                     <div className="flex justify-between items-start">
 
-                                       <span className="text-[#d6f928] text-[10px] font-mono">
+                                       <span className="text-accent-ink text-[10px] font-mono">
                                           {stage.number}
                                        </span>
 
@@ -288,8 +289,8 @@ const DoubleDiamond = () => {
                                              w-2 h-2 rounded-full
                                              ${
                                                 active
-                                                   ? 'bg-[#d6f928] shadow-[0_0_10px_#d6f928]'
-                                                   : 'bg-white/20'
+                                                   ? 'bg-accent-ink'
+                                                   : 'bg-ink/15'
                                              }
                                           `}
                                        />
@@ -297,9 +298,9 @@ const DoubleDiamond = () => {
                                     </div>
 
 
-                                    <div className="mt-7">
+                                    <div className="mt-4">
 
-                                       <div className="text-gray-500 text-[9px] font-mono uppercase tracking-widest">
+                                       <div className="text-ink-faint text-[9px] font-mono uppercase tracking-widest">
                                           Discovery
                                        </div>
 
@@ -329,23 +330,23 @@ const DoubleDiamond = () => {
                    HANDOFF
                ===================================================== */}
 
-               <div className="flex items-center justify-center gap-4 py-8">
+               <div className="flex items-center justify-center gap-4 py-5">
 
-                  <div className="w-32 h-px bg-gradient-to-r from-transparent to-[#d6f928]/30" />
+                  <div className="w-32 h-px bg-gradient-to-r from-transparent to-accent-ink/40" />
 
 
-                  <div className="flex items-center gap-2 px-4 py-1.5 rounded-full border border-white/10 bg-white/[0.02]">
+                  <div className="flex items-center gap-2 px-4 py-1.5 rounded-full border border-line bg-surface-3/60">
 
-                     <span className="w-1.5 h-1.5 bg-[#d6f928] rounded-full" />
+                     <span className="w-1.5 h-1.5 bg-accent rounded-full" />
 
-                     <span className="text-[9px] font-mono text-gray-500 uppercase tracking-[0.2em]">
+                     <span className="text-[9px] font-mono text-ink-faint uppercase tracking-[0.2em]">
                         Validated → Ready to Build
                      </span>
 
                   </div>
 
 
-                  <div className="w-32 h-px bg-gradient-to-l from-transparent to-[#d6f928]/30" />
+                  <div className="w-32 h-px bg-gradient-to-l from-transparent to-accent-ink/40" />
 
                </div>
 
@@ -356,13 +357,13 @@ const DoubleDiamond = () => {
 
                <div className="relative">
 
-                  <div className="flex justify-center mb-7">
+                  <div className="flex justify-center mb-5">
 
-                     <div className="inline-flex items-center gap-3 border border-white/15 bg-white/[0.03] px-5 py-2 rounded-full">
+                     <div className="inline-flex items-center gap-3 border border-line bg-surface-3/70 px-5 py-2 rounded-full">
 
-                        <span className="w-2 h-2 bg-white/50 rounded-full" />
+                        <span className="w-2 h-2 bg-ink/60 rounded-full" />
 
-                        <span className="text-gray-300 text-xs font-mono tracking-[0.2em] uppercase">
+                        <span className="text-ink-soft text-xs font-mono tracking-[0.2em] uppercase">
                            Delivery Track
                         </span>
 
@@ -375,7 +376,7 @@ const DoubleDiamond = () => {
 
                      {/* Main horizontal line */}
 
-                     <div className="absolute top-1/2 left-[8%] right-[8%] h-px bg-white/10" />
+                     <div className="absolute top-1/2 left-[8%] right-[8%] h-px bg-line" />
 
 
                      {/* Cards */}
@@ -398,25 +399,25 @@ const DoubleDiamond = () => {
 
                                  <div
                                     className={`
-                                       h-[150px]
+                                       h-full
                                        rounded-xl
                                        border
-                                       bg-[#111]/95
+                                       bg-surface/95
                                        backdrop-blur-md
                                        p-5
                                        transition-all
                                        duration-300
                                        ${
                                           active
-                                             ? 'border-white/30 -translate-y-2 shadow-[0_0_30px_rgba(255,255,255,0.05)]'
-                                             : 'border-white/10 group-hover:border-white/20'
+                                             ? 'border-line-strong -translate-y-2 shadow-[0_8px_30px_rgba(0,0,0,0.1)]'
+                                             : 'border-line group-hover:border-line-strong'
                                        }
                                     `}
                                  >
 
                                     <div className="flex justify-between items-start">
 
-                                       <span className="text-gray-500 text-[10px] font-mono">
+                                       <span className="text-ink-faint text-[10px] font-mono">
                                           {stage.number}
                                        </span>
 
@@ -426,8 +427,8 @@ const DoubleDiamond = () => {
                                              w-2 h-2 rounded-full
                                              ${
                                                 active
-                                                   ? 'bg-white shadow-[0_0_10px_white]'
-                                                   : 'bg-white/20'
+                                                   ? 'bg-ink'
+                                                   : 'bg-ink/15'
                                              }
                                           `}
                                        />
@@ -435,9 +436,9 @@ const DoubleDiamond = () => {
                                     </div>
 
 
-                                    <div className="mt-7">
+                                    <div className="mt-4">
 
-                                       <div className="text-gray-500 text-[9px] font-mono uppercase tracking-widest">
+                                       <div className="text-ink-faint text-[9px] font-mono uppercase tracking-widest">
                                           Delivery
                                        </div>
 
@@ -467,19 +468,26 @@ const DoubleDiamond = () => {
                    FEEDBACK LOOP
                ===================================================== */}
 
-               <div className="flex justify-center mt-7">
+               {/* The loop line and the "hover to explore" hint were two
+                   stacked one-line rows costing ~75px between them. Same row:
+                   the cycle centred, the affordance trailing it. */}
+               <div className="relative flex justify-center mt-5">
 
                   <div className="flex items-center gap-3">
 
-                     <div className="w-20 h-px bg-gradient-to-r from-transparent to-[#d6f928]/30" />
+                     <div className="w-20 h-px bg-gradient-to-r from-transparent to-accent-ink/40" />
 
-                     <div className="text-[#d6f928] text-[9px] font-mono uppercase tracking-widest">
+                     <div className="text-accent-ink text-[9px] font-mono uppercase tracking-widest">
                         Release → Measure → Learn → Discover
                      </div>
 
-                     <div className="w-20 h-px bg-gradient-to-l from-transparent to-[#d6f928]/30" />
+                     <div className="w-20 h-px bg-gradient-to-l from-transparent to-accent-ink/40" />
 
                   </div>
+
+                  <span className="absolute right-0 top-1/2 -translate-y-1/2 hidden xl:inline text-[9px] font-mono text-ink-ghost uppercase tracking-[0.2em]">
+                     Hover any step to explore
+                  </span>
 
                </div>
 
@@ -488,11 +496,11 @@ const DoubleDiamond = () => {
                    DETAIL PANEL
                ===================================================== */}
 
-               <div className="mt-8 min-h-[150px]">
+               <div className="mt-6 min-h-[140px]">
 
                   <div
                      key={activeStage}
-                     className="relative bg-[#111] border border-white/10 rounded-xl p-6 overflow-hidden"
+                     className="relative bg-surface border border-line rounded-xl p-5 overflow-hidden"
                   >
 
                      {/* Top glow */}
@@ -502,8 +510,8 @@ const DoubleDiamond = () => {
                            absolute top-0 left-0 right-0 h-px
                            ${
                               isDiscovery
-                                 ? 'bg-gradient-to-r from-transparent via-[#d6f928] to-transparent'
-                                 : 'bg-gradient-to-r from-transparent via-white/40 to-transparent'
+                                 ? 'bg-gradient-to-r from-transparent via-accent-ink/60 to-transparent'
+                                 : 'bg-gradient-to-r from-transparent via-ink/25 to-transparent'
                            }
                         `}
                      />
@@ -521,8 +529,8 @@ const DoubleDiamond = () => {
                                  text-4xl font-mono font-bold
                                  ${
                                     isDiscovery
-                                       ? 'text-[#d6f928]/20'
-                                       : 'text-white/15'
+                                       ? 'text-accent-ink/70'
+                                       : 'text-ink/35'
                                  }
                               `}
                            >
@@ -543,8 +551,8 @@ const DoubleDiamond = () => {
                                     text-[10px] font-mono uppercase tracking-widest
                                     ${
                                        isDiscovery
-                                          ? 'text-[#d6f928]'
-                                          : 'text-gray-400'
+                                          ? 'text-accent-ink'
+                                          : 'text-ink-muted'
                                     }
                                  `}
                               >
@@ -554,12 +562,12 @@ const DoubleDiamond = () => {
                               </span>
 
 
-                              <span className="text-white/10">
+                              <span className="text-ink-ghost">
                                  /
                               </span>
 
 
-                              <span className="text-gray-500 text-[10px] font-mono">
+                              <span className="text-ink-faint text-[10px] font-mono">
                                  {activeData.label}
                               </span>
 
@@ -571,7 +579,7 @@ const DoubleDiamond = () => {
                            </h3>
 
 
-                           <p className="text-gray-400 text-sm mt-2 max-w-xl leading-relaxed">
+                           <p className="text-ink-muted text-sm mt-2 max-w-xl leading-relaxed">
                               {activeData.desc}
                            </p>
 
@@ -586,7 +594,7 @@ const DoubleDiamond = () => {
 
                               <span
                                  key={detail}
-                                 className="text-xs bg-white/[0.03] border border-white/10 rounded-md px-3 py-1.5 text-gray-300"
+                                 className="text-xs bg-surface-3/70 border border-line rounded-md px-3 py-1.5 text-ink-soft"
                               >
                                  {detail}
                               </span>
@@ -601,16 +609,6 @@ const DoubleDiamond = () => {
 
                </div>
 
-
-               {/* Hover hint */}
-
-               <div className="text-center mt-5">
-
-                  <span className="text-[9px] font-mono text-gray-600 uppercase tracking-[0.2em]">
-                     Hover over any step to explore
-                  </span>
-
-               </div>
 
             </div>
 
@@ -632,15 +630,15 @@ const DoubleDiamond = () => {
 
                {/* Mobile Connector */}
 
-               <div className="flex items-center gap-3 my-10">
+               <div className="flex items-center gap-3 my-7">
 
-                  <div className="flex-1 h-px bg-white/10" />
+                  <div className="flex-1 h-px bg-line" />
 
-                  <span className="text-[#d6f928] text-[9px] font-mono uppercase tracking-widest">
+                  <span className="text-accent-ink text-[9px] font-mono uppercase tracking-widest">
                      Validated → Build
                   </span>
 
-                  <div className="flex-1 h-px bg-white/10" />
+                  <div className="flex-1 h-px bg-line" />
 
                </div>
 
@@ -659,17 +657,20 @@ const DoubleDiamond = () => {
                 FOOTER
             ========================================================= */}
 
-            <div className="text-center mt-14">
+            {/* Mobile only. On desktop this said the same thing as the feedback
+                loop line sitting just above it — two cycle summaries ~100px
+                apart. The mobile tracks have no loop line, so it stays there. */}
+            <div className="text-center mt-10 lg:hidden">
 
                <div className="inline-flex items-center gap-3">
 
-                  <span className="w-8 h-px bg-white/10" />
+                  <span className="w-8 h-px bg-line" />
 
-                  <span className="text-gray-600 text-[9px] font-mono uppercase tracking-[0.25em]">
+                  <span className="text-ink-ghost text-[9px] font-mono uppercase tracking-[0.25em]">
                      Discover → Validate → Deliver → Measure → Repeat
                   </span>
 
-                  <span className="w-8 h-px bg-white/10" />
+                  <span className="w-8 h-px bg-line" />
 
                </div>
 
@@ -717,15 +718,15 @@ const MobileTrack = ({
 
          {/* Track Header */}
 
-         <div className="flex items-center gap-3 mb-7">
+         <div className="flex items-center gap-3 mb-5">
 
             <div
                className={`
                   w-9 h-9 rounded-lg border flex items-center justify-center
                   ${
                      discovery
-                        ? 'border-[#d6f928]/30 bg-[#d6f928]/5'
-                        : 'border-white/10 bg-white/5'
+                        ? 'border-accent-ink/35 bg-accent/15'
+                        : 'border-line bg-surface'
                   }
                `}
             >
@@ -735,8 +736,8 @@ const MobileTrack = ({
                      w-2 h-2 rounded-full
                      ${
                         discovery
-                           ? 'bg-[#d6f928] shadow-[0_0_10px_#d6f928]'
-                           : 'bg-white/50'
+                           ? 'bg-accent-ink'
+                           : 'bg-ink/60'
                      }
                   `}
                />
@@ -751,8 +752,8 @@ const MobileTrack = ({
                      text-[9px] font-mono uppercase tracking-widest
                      ${
                         discovery
-                           ? 'text-[#d6f928]'
-                           : 'text-gray-500'
+                           ? 'text-accent-ink'
+                           : 'text-ink-faint'
                      }
                   `}
                >
@@ -783,14 +784,14 @@ const MobileTrack = ({
                   absolute left-[6px] top-0 bottom-0 w-px opacity-30
                   ${
                      discovery
-                        ? 'bg-gradient-to-b from-[#d6f928] to-transparent'
-                        : 'bg-gradient-to-b from-white/40 to-transparent'
+                        ? 'bg-gradient-to-b from-accent-ink to-transparent'
+                        : 'bg-gradient-to-b from-ink to-transparent'
                   }
                `}
             />
 
 
-            <div className="space-y-5">
+            <div className="space-y-4">
 
                {stages.map((stage) => {
 
@@ -814,9 +815,9 @@ const MobileTrack = ({
                               ${
                                  active
                                     ? discovery
-                                       ? 'bg-[#d6f928] shadow-[0_0_12px_#d6f928]'
-                                       : 'bg-white shadow-[0_0_12px_white]'
-                                    : 'bg-[#222] border border-white/20'
+                                       ? 'bg-accent-ink'
+                                       : 'bg-ink'
+                                    : 'bg-surface-3 border border-line-strong'
                               }
                            `}
                         />
@@ -830,9 +831,9 @@ const MobileTrack = ({
                               ${
                                  active
                                     ? discovery
-                                       ? 'border-[#d6f928]/40 bg-[#d6f928]/[0.03]'
-                                       : 'border-white/25 bg-white/[0.03]'
-                                    : 'border-white/10 bg-white/[0.02]'
+                                       ? 'border-accent-ink/40 bg-accent/[0.03]'
+                                       : 'border-line bg-surface-3/70'
+                                    : 'border-line bg-surface-3/60'
                               }
                            `}
                         >
@@ -846,8 +847,8 @@ const MobileTrack = ({
                                     text-[10px] font-mono
                                     ${
                                        discovery
-                                          ? 'text-[#d6f928]'
-                                          : 'text-gray-500'
+                                          ? 'text-accent-ink'
+                                          : 'text-ink-faint'
                                     }
                                  `}
                               >
@@ -855,7 +856,7 @@ const MobileTrack = ({
                               </span>
 
 
-                              <span className="text-gray-500 text-xs">
+                              <span className="text-ink-faint text-xs">
                                  {active ? '−' : '+'}
                               </span>
 
@@ -871,7 +872,7 @@ const MobileTrack = ({
 
                               <>
 
-                                 <p className="text-gray-400 text-xs mt-2 leading-relaxed">
+                                 <p className="text-ink-muted text-xs mt-2 leading-relaxed">
                                     {stage.desc}
                                  </p>
 
@@ -882,7 +883,7 @@ const MobileTrack = ({
 
                                        <span
                                           key={detail}
-                                          className="text-[10px] border border-white/10 bg-white/5 px-2.5 py-1 rounded-full text-gray-400"
+                                          className="text-[10px] border border-line bg-surface-3/70 px-2.5 py-1 rounded-full text-ink-muted"
                                        >
                                           {detail}
                                        </span>

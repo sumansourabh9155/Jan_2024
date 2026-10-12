@@ -65,7 +65,7 @@ const AtlasTemplates = () => {
   const activeTemplate = templateData[activeIndex];
 
   return (
-    <div className="w-full bg-[#0a0a0a] rounded-3xl border border-white/10 p-8 md:p-12 font-sans text-white my-12">
+    <div className="w-full bg-surface-2 rounded-3xl border border-line p-8 md:p-12 font-sans text-ink my-12">
       <style>{`
         .atlas-browser-scroll::-webkit-scrollbar { width: 11px; }
         .atlas-browser-scroll::-webkit-scrollbar-track { background: #363636; }
@@ -82,12 +82,12 @@ const AtlasTemplates = () => {
           {/* Five of the six — the sixth is the parent brand site, a different job
               entirely, so it isn't one of the clinic archetypes shown here. */}
           <div className="mb-10">
-            <h4 className="text-gray-400 uppercase tracking-widest text-xs font-semibold mb-2">The Architecture</h4>
+            <h4 className="text-ink-muted uppercase tracking-widest text-xs font-semibold mb-2">The Architecture</h4>
             <h2 className="font-heading text-2xl md:text-4xl font-bold tracking-tight">
               The 6 Templates
             </h2>
-            <p className="text-gray-500 text-sm mt-3 max-w-md">
-              <span className="text-gray-300">Five clinic archetypes</span> &mdash; shown here, every
+            <p className="text-ink-faint text-sm mt-3 max-w-md">
+              <span className="text-ink-soft">Five clinic archetypes</span> &mdash; shown here, every
               clinic maps to one of them &mdash; plus a sixth for the parent brand site, which
               introduces the group rather than converting a local visit.
             </p>
@@ -100,24 +100,24 @@ const AtlasTemplates = () => {
                 <div
                   key={item.id}
                   onClick={() => handleSelect(index)}
-                  className={`border-b border-white/10 last:border-0 py-5 cursor-pointer transition-all duration-200 rounded-xl px-4 -mx-4 ${isActive ? 'bg-white/[0.04]' : 'hover:bg-white/[0.02]'}`}
+                  className={`border-b border-line last:border-0 py-5 cursor-pointer transition-all duration-200 rounded-xl px-4 -mx-4 ${isActive ? 'bg-surface-3/80' : 'hover:bg-surface-3/60'}`}
                 >
                   <div className="flex gap-4 items-start">
                     <div className="mt-0.5 shrink-0">
-                      <CheckCircle2 className={`w-6 h-6 transition-all duration-300 ${isActive ? 'fill-[#d6f928] text-[#0a0a0a]' : 'text-gray-600'}`} />
+                      <CheckCircle2 className={`w-6 h-6 transition-all duration-300 ${isActive ? 'fill-[#d6f928] text-ink' : 'text-ink-ghost'}`} />
                     </div>
                     <div className="flex-1 -mt-0.5">
                       <div className="flex items-center gap-3">
-                        <h3 className={`text-xl font-bold transition-all duration-300 ${isActive ? 'text-white' : 'text-gray-400'}`}>
+                        <h3 className={`text-xl font-bold transition-all duration-300 ${isActive ? 'text-ink' : 'text-ink-muted'}`}>
                           {item.title}
                         </h3>
-                        <span className={`text-[10px] font-bold uppercase tracking-wider px-2 py-0.5 rounded-full border ${item.accentColor} text-gray-400`}>
+                        <span className={`text-[10px] font-bold uppercase tracking-wider px-2 py-0.5 rounded-full border ${item.accentColor} text-ink-muted`}>
                           {item.tag}
                         </span>
                       </div>
                       <div className={`grid transition-all duration-300 ease-in-out ${isActive ? 'grid-rows-[1fr] opacity-100 mt-2' : 'grid-rows-[0fr] opacity-0'}`}>
                         <div className="overflow-hidden">
-                          <p className="text-gray-400 leading-relaxed text-[15px] pt-1 pb-2">
+                          <p className="text-ink-muted leading-relaxed text-[15px] pt-1 pb-2">
                             {item.description}
                           </p>
                         </div>
@@ -133,9 +133,9 @@ const AtlasTemplates = () => {
         {/* Right Side: Mac Browser Mockup */}
         <div className={`flex-[0.9] w-full transition-opacity duration-200 ${fade ? 'opacity-100' : 'opacity-0'}`}>
           {/* Browser chrome */}
-          <div className="rounded-2xl overflow-hidden border border-white/10 shadow-2xl bg-[#1e1e1e]">
+          <div className="rounded-2xl overflow-hidden border border-line shadow-2xl bg-surface-3">
             {/* Title bar */}
-            <div className="flex items-center gap-3 px-4 py-3 bg-[#2a2a2a] border-b border-white/10">
+            <div className="flex items-center gap-3 px-4 py-3 bg-surface-3 border-b border-line">
               {/* Traffic lights */}
               <div className="flex items-center gap-1.5 shrink-0">
                 <span className="w-3 h-3 rounded-full bg-[#ff5f57] border border-[#e0443e]"></span>
@@ -144,13 +144,13 @@ const AtlasTemplates = () => {
               </div>
 
               {/* URL bar */}
-              <div className="flex-1 flex items-center gap-2 bg-[#3a3a3a] rounded-md px-3 py-1.5 mx-4">
+              <div className="flex-1 flex items-center gap-2 bg-surface-3 rounded-md px-3 py-1.5 mx-4">
                 {/* Lock icon */}
-                <svg className="w-3 h-3 text-gray-400 shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth="2.5">
+                <svg className="w-3 h-3 text-ink-muted shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth="2.5">
                   <rect x="3" y="11" width="18" height="11" rx="2" />
                   <path d="M7 11V7a5 5 0 0 1 10 0v4" />
                 </svg>
-                <span className="text-gray-400 text-xs font-mono truncate">
+                <span className="text-ink-muted text-xs font-mono truncate">
                   atlas.vet/{activeTemplate.title.toLowerCase()}
                 </span>
               </div>

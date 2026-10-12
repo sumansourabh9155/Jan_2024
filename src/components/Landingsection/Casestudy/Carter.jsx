@@ -66,7 +66,7 @@ const BeforeAfterSlider = ({ beforeSrc, afterSrc, beforeAlt, afterAlt }) => {
     return (
         <div
             ref={containerRef}
-            className="relative w-full rounded-2xl overflow-hidden select-none cursor-ew-resize border border-white/10"
+            className="relative w-full rounded-2xl overflow-hidden select-none cursor-ew-resize border border-line"
             onMouseDown={onMouseDown}
             onMouseMove={onMouseMove}
             onMouseUp={onMouseUp}
@@ -97,20 +97,20 @@ const BeforeAfterSlider = ({ beforeSrc, afterSrc, beforeAlt, afterAlt }) => {
 
             {/* Divider line */}
             <div
-                className="absolute top-0 bottom-0 w-0.5 bg-white/80 shadow-lg pointer-events-none"
+                className="absolute top-0 bottom-0 w-0.5 bg-surface/80 shadow-lg pointer-events-none"
                 style={{ left: `${pos}%`, transform: "translateX(-50%)" }}
             >
                 {/* Handle circle */}
-                <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-9 h-9 rounded-full bg-white shadow-xl flex items-center justify-center">
-                    <span className="text-black text-xs font-bold select-none">⇔</span>
+                <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-9 h-9 rounded-full bg-surface shadow-xl flex items-center justify-center">
+                    <span className="text-ink text-xs font-bold select-none">⇔</span>
                 </div>
             </div>
 
             {/* Labels */}
-            <span className="absolute top-3 left-3 text-xs font-mono uppercase tracking-widest text-white/70 bg-black/50 px-2 py-0.5 rounded pointer-events-none">
+            <span className="absolute top-3 left-3 text-xs font-mono uppercase tracking-widest text-ink/70 bg-surface-3/80 px-2 py-0.5 rounded pointer-events-none">
                 Before
             </span>
-            <span className="absolute top-3 right-3 text-xs font-mono uppercase tracking-widest text-[#d6f928] bg-black/50 px-2 py-0.5 rounded pointer-events-none">
+            <span className="absolute top-3 right-3 text-xs font-mono uppercase tracking-widest text-accent-ink bg-surface-3/80 px-2 py-0.5 rounded pointer-events-none">
                 After
             </span>
         </div>
@@ -118,7 +118,7 @@ const BeforeAfterSlider = ({ beforeSrc, afterSrc, beforeAlt, afterAlt }) => {
 };
 
 const Badge = ({ children }) => (
-    <div className="inline-flex items-center gap-2 text-xs font-mono text-[#d6f928] tracking-widest uppercase mb-6 bg-[#d6f928]/5 px-3 py-1 rounded border border-[#d6f928]/20">
+    <div className="inline-flex items-center gap-2 text-xs font-mono text-accent-ink tracking-widest uppercase mb-6 bg-accent/15 px-3 py-1 rounded border border-accent-ink/30">
         {children}
     </div>
 );
@@ -126,7 +126,7 @@ const Badge = ({ children }) => (
 // Subsection marker — deliberately quieter than Badge so a decision inside a
 // chapter doesn't read as a chapter of its own.
 const SubLabel = ({ children }) => (
-    <p className="text-[11px] font-mono text-gray-500 tracking-widest uppercase mb-4">
+    <p className="text-[11px] font-mono text-ink-faint tracking-widest uppercase mb-4">
         {children}
     </p>
 );
@@ -142,10 +142,10 @@ const Shot = ({ label, src, alt, caption }) => (
             decoding="async"
             src={src}
             alt={alt}
-            className="rounded-2xl w-full border border-white/10 mt-2"
+            className="rounded-2xl w-full border border-line mt-2"
         />
         {caption && (
-            <figcaption className="text-gray-400 text-sm leading-relaxed mt-4 max-w-3xl">
+            <figcaption className="text-ink-muted text-sm leading-relaxed mt-4 max-w-3xl">
                 {caption}
             </figcaption>
         )}
@@ -153,23 +153,23 @@ const Shot = ({ label, src, alt, caption }) => (
 );
 
 const StatCard = ({ value, label, icon }) => (
-    <div className="bg-white/5 border border-white/10 rounded-2xl p-6 space-y-3">
+    <div className="bg-surface-3/70 border border-line rounded-2xl p-6 space-y-3">
         {icon && (
-            <div className="w-10 h-10 rounded-xl bg-white/5 border border-white/10 flex items-center justify-center">
+            <div className="w-10 h-10 rounded-xl bg-surface border border-line flex items-center justify-center">
                 {icon}
             </div>
         )}
-        <p className="font-heading text-3xl font-bold text-white">{value}</p>
-        <p className="text-sm text-gray-400 leading-snug">{label}</p>
+        <p className="font-heading text-3xl font-bold text-ink">{value}</p>
+        <p className="text-sm text-ink-muted leading-snug">{label}</p>
     </div>
 );
 
 const MetricRow = ({ label, before, after, delta }) => (
-    <div className="flex items-center justify-between py-4 border-b border-white/5 last:border-0">
-        <span className="text-white text-sm font-medium w-2/5">{label}</span>
-        <span className="text-gray-500 text-sm w-1/5 text-center">{before}</span>
-        <span className="text-green-400 text-sm w-1/5 text-center">{after}</span>
-        <span className="text-green-400 text-sm font-semibold w-1/5 text-right">
+    <div className="flex items-center justify-between py-4 border-b border-line-soft last:border-0">
+        <span className="text-ink text-sm font-medium w-2/5">{label}</span>
+        <span className="text-ink-faint text-sm w-1/5 text-center">{before}</span>
+        <span className="text-green-800 text-sm w-1/5 text-center">{after}</span>
+        <span className="text-green-800 text-sm font-semibold w-1/5 text-right">
             {delta}
         </span>
     </div>
@@ -177,7 +177,7 @@ const MetricRow = ({ label, before, after, delta }) => (
 
 const CarterEcosystem = () => {
     return (
-        <div className="text-white bg-[#050505]">
+        <div className="text-ink bg-surface-2">
             <SEO
                 title="Carter — Platform Redesign, Design System & Commerce-Media Features — Product Design Case Study"
                 description="How I redesigned Carter's inconsistent platform, built its design system, and designed the cross-network campaign features for a unified commerce-media operating system."
@@ -187,20 +187,20 @@ const CarterEcosystem = () => {
             <Navbar />
 
             {/* ================= HERO ================= */}
-            <section className="bg-[#050505] pt-32 pb-24 px-4">
+            <section className="bg-surface-2 pt-32 pb-24 px-4">
                 <div className="max-w-7xl mx-auto">
                     <div className="text-center max-w-3xl mx-auto mb-20">
                         {/* Real Carter logo (from trycarter.com), inlined as SVG on a light chip so the blue reads */}
-                        <div className="inline-block bg-white rounded-xl px-4 py-2.5 mb-6 shadow-lg">
+                        <div className="inline-block bg-surface rounded-xl px-4 py-2.5 mb-6 shadow-lg">
                             <svg viewBox="0 0 136 41" width="116" height="35" fill="none" role="img" aria-label="Carter logo" className="block">
                                 <path fill="#0125BB" d="M19.715 33.078 13.252 37l-4.745-2.903 11.208-6.681zM1.312 12.32 13.591 5l4.75 2.898-12.079 7.345-4.95-2.924Zm7.271 4.313 12.284-7.325 4.745 2.898-12.078 7.345-4.956-2.924zM0 14.43l4.684 2.712v7.623L0 27.565zm26.72 22.287-4.669-2.795v-16.61L26.72 14.6zM6.662 32.63 1.424 29.5l4.787-2.856 5.442 3.104zm43.588.838c-7.452 0-12.96-5.58-12.96-13.068S42.87 7.332 50.394 7.332c1.98 0 3.708.432 5.544 1.404v6.228c-1.476-1.44-3.312-2.196-5.328-2.196-4.248 0-7.452 3.24-7.452 7.632 0 4.356 3.204 7.632 7.452 7.632 2.016 0 3.852-.756 5.328-2.196v6.192c-2.016 1.008-3.672 1.44-5.688 1.44m14.256-.036c-3.708 0-6.264-2.556-6.264-5.976 0-3.384 2.52-5.796 6.156-5.76 1.764.036 2.988.576 3.708 1.692.036-2.304-1.584-3.636-4.248-3.636-1.368 0-2.592.324-3.744 1.08v-4.464c1.476-.684 3.024-1.008 4.716-1.008 5.184 0 8.352 2.916 8.352 7.668V33h-4.86v-1.512c-.756 1.332-1.98 1.944-3.816 1.944m1.548-3.888c1.296 0 2.196-.9 2.196-2.124 0-1.188-.9-2.052-2.196-2.052s-2.196.864-2.196 2.088.9 2.088 2.196 2.088M76.007 33V15.828h5.4v2.412c.864-1.872 2.304-2.808 4.356-2.808.432 0 .72.036 1.152.18v5.544c-.684-.54-1.26-.792-2.016-.792-2.16 0-3.492 1.62-3.492 4.032V33zm21.766.468c-3.96 0-6.156-2.448-6.12-6.336v-6.84h-2.7v-4.464h2.7v-5.22h5.4v5.22h4.248v4.464h-4.248v6.048c0 1.476.756 2.196 2.16 2.196.72 0 1.44-.216 2.088-.684v4.752a7.6 7.6 0 0 1-3.528.864m15.199 0c-5.724 0-10.188-4.14-10.188-9.504 0-4.896 3.744-8.604 9.072-8.604 5.796 0 9.252 4.428 8.568 10.944h-11.556c.864 1.512 2.556 2.34 4.788 2.34 1.836 0 3.564-.54 5.256-1.62v4.824c-2.052 1.116-3.924 1.62-5.94 1.62m-4.608-10.908h6.984c-.396-1.908-1.728-3.096-3.6-3.096s-3.06 1.188-3.384 3.096M122.8 33V15.828h5.4v2.412c.864-1.872 2.304-2.808 4.356-2.808.432 0 .72.036 1.152.18v5.544c-.684-.54-1.26-.792-2.016-.792-2.16 0-3.492 1.62-3.492 4.032V33z" />
                             </svg>
                         </div>
                         <div><Badge>[ B2B SaaS &middot; Ad Tech &middot; Retail Media ]</Badge></div>
-                        <h1 className="font-heading text-5xl md:text-7xl font-extrabold text-white tracking-tight leading-none mb-6">
-                            Carter <span className="text-gray-500 font-light">Ecosystem</span>
+                        <h1 className="font-heading text-5xl md:text-7xl font-extrabold text-ink tracking-tight leading-none mb-6">
+                            Carter <span className="text-ink-faint font-light">Ecosystem</span>
                         </h1>
-                        <p className="text-lg text-gray-400 font-light leading-relaxed max-w-xl mx-auto">
+                        <p className="text-lg text-ink-muted font-light leading-relaxed max-w-xl mx-auto">
                             Carter is a unified operating system for commerce media. I led design
                             across 12 DSP integrations as one of two designers — redesigning an
                             inconsistent, wireframe-grade platform, building its design system, and
@@ -211,40 +211,40 @@ const CarterEcosystem = () => {
                     <img
                         src={Carterimg}
                         alt="Carter Platform Overview"
-                        className="rounded-2xl w-full object-cover border border-white/10"
+                        className="rounded-2xl w-full object-cover border border-line"
                     />
 
                     {/* Snapshot Strip */}
                     <div className="grid grid-cols-2 md:grid-cols-5 gap-6 mt-12">
-                        <div className="bg-white/5 border border-white/10 rounded-2xl p-5 text-center">
-                            <p className="text-xs text-gray-500 uppercase tracking-widest mb-2">
+                        <div className="bg-surface-3/70 border border-line rounded-2xl p-5 text-center">
+                            <p className="text-xs text-ink-faint uppercase tracking-widest mb-2">
                                 Company
                             </p>
-                            <p className="text-white font-medium">Shyftlabs</p>
+                            <p className="text-ink font-medium">Shyftlabs</p>
                         </div>
-                        <div className="bg-white/5 border border-white/10 rounded-2xl p-5 text-center">
-                            <p className="text-xs text-gray-500 uppercase tracking-widest mb-2">
+                        <div className="bg-surface-3/70 border border-line rounded-2xl p-5 text-center">
+                            <p className="text-xs text-ink-faint uppercase tracking-widest mb-2">
                                 My Role
                             </p>
-                            <p className="text-white font-medium"> Product Designer</p>
+                            <p className="text-ink font-medium"> Product Designer</p>
                         </div>
-                        <div className="bg-white/5 border border-white/10 rounded-2xl p-5 text-center">
-                            <p className="text-xs text-gray-500 uppercase tracking-widest mb-2">
+                        <div className="bg-surface-3/70 border border-line rounded-2xl p-5 text-center">
+                            <p className="text-xs text-ink-faint uppercase tracking-widest mb-2">
                                 Platform
                             </p>
-                            <p className="text-white font-medium">Desktop Web</p>
+                            <p className="text-ink font-medium">Desktop Web</p>
                         </div>
-                        <div className="bg-white/5 border border-white/10 rounded-2xl p-5 text-center">
-                            <p className="text-xs text-gray-500 uppercase tracking-widest mb-2">
+                        <div className="bg-surface-3/70 border border-line rounded-2xl p-5 text-center">
+                            <p className="text-xs text-ink-faint uppercase tracking-widest mb-2">
                                 Duration
                             </p>
-                            <p className="text-white font-medium">12 Months, 2 Phases</p>
+                            <p className="text-ink font-medium">12 Months, 2 Phases</p>
                         </div>
-                        <div className="bg-white/5 border border-white/10 rounded-2xl p-5 text-center">
-                            <p className="text-xs text-gray-500 uppercase tracking-widest mb-2">
+                        <div className="bg-surface-3/70 border border-line rounded-2xl p-5 text-center">
+                            <p className="text-xs text-ink-faint uppercase tracking-widest mb-2">
                                 Design Team
                             </p>
-                            <p className="text-white font-medium">1 of 2 designers</p>
+                            <p className="text-ink font-medium">1 of 2 designers</p>
                         </div>
                     </div>
 
@@ -259,7 +259,7 @@ const CarterEcosystem = () => {
                         ].map((tool) => (
                             <span
                                 key={tool}
-                                className="text-xs px-3 py-1 bg-white/5 text-gray-500 border border-white/10 rounded-full"
+                                className="text-xs px-3 py-1 bg-surface-3/70 text-ink-faint border border-line rounded-full"
                             >
                                 {tool}
                             </span>
@@ -268,8 +268,8 @@ const CarterEcosystem = () => {
 
                     {/* The short version — the whole arc before the detail starts, for
                         anyone who reads one screen and decides from it. */}
-                    <div className="mt-12 max-w-3xl mx-auto bg-white/5 border border-white/10 rounded-2xl p-6 md:p-8">
-                        <p className="text-[11px] font-mono text-gray-500 tracking-widest uppercase mb-6">
+                    <div className="mt-12 max-w-3xl mx-auto bg-surface-3/70 border border-line rounded-2xl p-6 md:p-8">
+                        <p className="text-[11px] font-mono text-ink-faint tracking-widest uppercase mb-6">
                             The short version
                         </p>
                         <dl className="space-y-5">
@@ -279,7 +279,7 @@ const CarterEcosystem = () => {
                                     v: (
                                         <>
                                             A live platform that was quietly losing people &mdash; advertisers{" "}
-                                            <span className="text-white font-medium">stalled in draft</span> and never
+                                            <span className="text-ink font-medium">stalled in draft</span> and never
                                             reached a launched campaign.
                                         </>
                                     ),
@@ -290,7 +290,7 @@ const CarterEcosystem = () => {
                                         <>
                                             Find out why before building anything new. Interviews, session recordings
                                             and SQL funnel analysis, then{" "}
-                                            <span className="text-white font-medium">got leadership to prioritise the fix</span>.
+                                            <span className="text-ink font-medium">got leadership to prioritise the fix</span>.
                                         </>
                                     ),
                                 },
@@ -299,7 +299,7 @@ const CarterEcosystem = () => {
                                     v: (
                                         <>
                                             Research, IA, interaction design, the design system, and design QA &mdash;{" "}
-                                            <span className="text-white font-medium">one of two designers</span> across
+                                            <span className="text-ink font-medium">one of two designers</span> across
                                             12 DSP integrations in a 12-person core team.
                                         </>
                                     ),
@@ -308,19 +308,19 @@ const CarterEcosystem = () => {
                                     k: "The outcome",
                                     v: (
                                         <>
-                                            Draft abandonment <span className="text-white font-medium">down 8%</span>,
-                                            campaign launch <span className="text-white font-medium">3× faster</span>,
-                                            engineering <span className="text-white font-medium">30% faster</span> off
-                                            the design system, <span className="text-white font-medium">4.6/5</span> usability.
+                                            Draft abandonment <span className="text-ink font-medium">down 8%</span>,
+                                            campaign launch <span className="text-ink font-medium">3× faster</span>,
+                                            engineering <span className="text-ink font-medium">30% faster</span> off
+                                            the design system, <span className="text-ink font-medium">4.6/5</span> usability.
                                         </>
                                     ),
                                 },
                             ].map((row) => (
                                 <div key={row.k} className="flex flex-col sm:flex-row gap-1 sm:gap-6">
-                                    <dt className="text-xs font-mono text-[#d6f928] uppercase tracking-wider sm:w-36 shrink-0 sm:pt-0.5">
+                                    <dt className="text-xs font-mono text-accent-ink uppercase tracking-wider sm:w-36 shrink-0 sm:pt-0.5">
                                         {row.k}
                                     </dt>
-                                    <dd className="text-gray-400 text-sm leading-relaxed">{row.v}</dd>
+                                    <dd className="text-ink-muted text-sm leading-relaxed">{row.v}</dd>
                                 </div>
                             ))}
                         </dl>
@@ -329,7 +329,7 @@ const CarterEcosystem = () => {
             </section>
 
             {/* ================= WHY I HAD PM AUTHORITY ================= */}
-            <section className="bg-black py-24 px-4 border-t border-white/10">
+            <section className="bg-surface py-24 px-4 border-t border-line">
                 <div className="max-w-7xl mx-auto">
                     {/* Product tour first: the Get Started flow doubles as the
                         introduction to the platform, so it runs ahead of the role
@@ -338,29 +338,29 @@ const CarterEcosystem = () => {
 
                     <div className="max-w-3xl mb-20">
                         <Badge>[ 01 &mdash; Context &amp; My Role ]</Badge>
-                        <h2 className="font-heading text-4xl md:text-5xl font-bold text-white leading-tight mb-6">
+                        <h2 className="font-heading text-4xl md:text-5xl font-bold text-ink leading-tight mb-6">
                             Two designers. Twelve integrations.{" "}
-                            <span className="text-gray-400">Research to shipped UI.</span>
+                            <span className="text-ink-muted">Research to shipped UI.</span>
                         </h2>
-                        <p className="text-gray-400 text-base leading-relaxed">
+                        <p className="text-ink-muted text-base leading-relaxed">
                             Carter had product-market fit but a product that was quietly
                             breaking people. The Product Head gave me design ownership because I
                             could
-                            <span className="text-white font-medium">
+                            <span className="text-ink font-medium">
                                 {" "}
                                 read the codebase, run user research, and ship the UI myself
                             </span>
                             . Day to day I worked with a{" "}
-                            <span className="text-white font-medium">12-person core team</span>{" "}
+                            <span className="text-ink font-medium">12-person core team</span>{" "}
                             inside an 80+ person org; the wider product group ran their own tracks. Design
                             stayed lean throughout &mdash; I was{" "}
-                            <span className="text-white font-medium">one of two designers</span> covering
+                            <span className="text-ink font-medium">one of two designers</span> covering
                             12 DSP integrations, which is why the work had to be systematised rather than
                             drawn screen by screen.
                         </p>
-                        <p className="text-gray-500 text-sm leading-relaxed mt-4">
+                        <p className="text-ink-faint text-sm leading-relaxed mt-4">
                             Timeline note: I moved onto Carter after leading the first stage of{" "}
-                            <Link to="/atlas" className="text-gray-300 underline underline-offset-2 hover:text-[#d6f928] transition-colors">Atlas</Link>,
+                            <Link to="/atlas" className="text-ink-soft underline underline-offset-2 hover:text-accent-ink transition-colors">Atlas</Link>,
                             and kept supporting Atlas part-time through Phase 1 here before returning to it
                             full-time later. The twelve months below are the Carter engagement window, not
                             twelve months of exclusive work.
@@ -369,43 +369,43 @@ const CarterEcosystem = () => {
 
                     {/* What I Owned — Icon Cards */}
                     <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mb-16">
-                        <div className="bg-white/5 border border-white/10 rounded-2xl p-6 flex gap-4">
+                        <div className="bg-surface-3/70 border border-line rounded-2xl p-6 flex gap-4">
                             <div className="w-10 h-10 rounded-xl bg-blue-500/10 border border-blue-500/20 flex items-center justify-center flex-shrink-0">
-                                <FileText size={18} className="text-blue-400" />
+                                <FileText size={18} className="text-blue-700" />
                             </div>
                             <div>
-                                <h4 className="text-white font-semibold text-sm mb-1">
+                                <h4 className="text-ink font-semibold text-sm mb-1">
                                     Specs & Scope
                                 </h4>
-                                <p className="text-gray-400 text-xs leading-relaxed">
+                                <p className="text-ink-muted text-xs leading-relaxed">
                                     Wrote detailed design specs and acceptance criteria. Helped
                                     prioritize what shipped and what didn&apos;t.
                                 </p>
                             </div>
                         </div>
-                        <div className="bg-white/5 border border-white/10 rounded-2xl p-6 flex gap-4">
-                            <div className="w-10 h-10 rounded-xl bg-[#d6f928]/10 border border-[#d6f928]/20 flex items-center justify-center flex-shrink-0">
-                                <Users size={18} className="text-[#d6f928]" />
+                        <div className="bg-surface-3/70 border border-line rounded-2xl p-6 flex gap-4">
+                            <div className="w-10 h-10 rounded-xl bg-accent/25 border border-accent-ink/30 flex items-center justify-center flex-shrink-0">
+                                <Users size={18} className="text-accent-ink" />
                             </div>
                             <div>
-                                <h4 className="text-white font-semibold text-sm mb-1">
+                                <h4 className="text-ink font-semibold text-sm mb-1">
                                     Embedded with Engineering
                                 </h4>
-                                <p className="text-gray-400 text-xs leading-relaxed">
+                                <p className="text-ink-muted text-xs leading-relaxed">
                                     Partnered daily with the frontend team inside an 80+ person
                                     org — specs and design QA on every ticket.
                                 </p>
                             </div>
                         </div>
-                        <div className="bg-white/5 border border-white/10 rounded-2xl p-6 flex gap-4">
+                        <div className="bg-surface-3/70 border border-line rounded-2xl p-6 flex gap-4">
                             <div className="w-10 h-10 rounded-xl bg-orange-500/10 border border-orange-500/20 flex items-center justify-center flex-shrink-0">
-                                <Bug size={18} className="text-orange-400" />
+                                <Bug size={18} className="text-orange-600" />
                             </div>
                             <div>
-                                <h4 className="text-white font-semibold text-sm mb-1">
+                                <h4 className="text-ink font-semibold text-sm mb-1">
                                     QA & Jira Process
                                 </h4>
-                                <p className="text-gray-400 text-xs leading-relaxed">
+                                <p className="text-ink-muted text-xs leading-relaxed">
                                     Structured acceptance criteria, expected behavior, and edge
                                     cases for every ticket.
                                 </p>
@@ -413,10 +413,10 @@ const CarterEcosystem = () => {
                         </div>
                     </div>
 
-                    <p className="text-white border-l-4 border-[#d6f928]/40 pl-6 italic font-light text-base max-w-3xl">
+                    <p className="text-ink border-l-4 border-accent-ink/40 pl-6 italic font-light text-base max-w-3xl">
                         &ldquo;The platform works, but nobody outside the team knows how to
                         use it confidently.&rdquo;
-                        <span className="text-gray-500 not-italic block mt-2 text-sm">
+                        <span className="text-ink-faint not-italic block mt-2 text-sm">
                             — Internal Stakeholder Interview
                         </span>
                     </p>
@@ -424,15 +424,15 @@ const CarterEcosystem = () => {
             </section>
 
             {/* ================= PHASE 1 ================= */}
-            <section className="bg-[#050505] py-24 px-4 border-t border-white/10">
+            <section className="bg-surface-2 py-24 px-4 border-t border-line">
                 <div className="max-w-7xl mx-auto">
                     {/* Phase Divider */}
                     <div className="flex items-center gap-6 mb-20">
-                        <div className="text-xs font-mono text-gray-600 uppercase tracking-widest whitespace-nowrap">
+                        <div className="text-xs font-mono text-ink-ghost uppercase tracking-widest whitespace-nowrap">
                             Phase 01
                         </div>
-                        <div className="h-px bg-white/10 flex-grow"></div>
-                        <div className="text-xs font-mono text-gray-600 uppercase tracking-widest whitespace-nowrap">
+                        <div className="h-px bg-surface-3 flex-grow"></div>
+                        <div className="text-xs font-mono text-ink-ghost uppercase tracking-widest whitespace-nowrap">
                             Redesign &amp; Design System
                         </div>
                     </div>
@@ -500,7 +500,7 @@ const CarterEcosystem = () => {
                             x="50"
                             y="62"
                             textAnchor="middle"
-                            fill="white"
+                            fill="#101418"
                             fillOpacity="0.3"
                             fontFamily="monospace"
                             fontSize="7"
@@ -518,12 +518,12 @@ const CarterEcosystem = () => {
                             strokeOpacity="0.4"
                             strokeWidth="1.5"
                         />
-                        <circle cx="150" cy="35" r="3" fill="#3b82f6" fillOpacity="0.5" />
+                        <circle cx="150" cy="35" r="3" fill="#3b82f6" fillOpacity="0.85" />
                         <text
                             x="150"
                             y="62"
                             textAnchor="middle"
-                            fill="white"
+                            fill="#101418"
                             fillOpacity="0.3"
                             fontFamily="monospace"
                             fontSize="7"
@@ -541,12 +541,12 @@ const CarterEcosystem = () => {
                             strokeOpacity="0.4"
                             strokeWidth="1.5"
                         />
-                        <circle cx="250" cy="35" r="3" fill="#3b82f6" fillOpacity="0.5" />
+                        <circle cx="250" cy="35" r="3" fill="#3b82f6" fillOpacity="0.85" />
                         <text
                             x="250"
                             y="62"
                             textAnchor="middle"
-                            fill="white"
+                            fill="#101418"
                             fillOpacity="0.3"
                             fontFamily="monospace"
                             fontSize="7"
@@ -558,19 +558,19 @@ const CarterEcosystem = () => {
                             cx="350"
                             cy="35"
                             r="10"
-                            fill="#d6f928"
+                            fill="#5E7000"
                             fillOpacity="0.15"
-                            stroke="#d6f928"
+                            stroke="#5E7000"
                             strokeOpacity="0.5"
                             strokeWidth="1.5"
                             filter="url(#p1GlowLime)"
                         />
-                        <circle cx="350" cy="35" r="3" fill="#d6f928" fillOpacity="0.6" />
+                        <circle cx="350" cy="35" r="3" fill="#5E7000" fillOpacity="0.6" />
                         <text
                             x="350"
                             y="62"
                             textAnchor="middle"
-                            fill="white"
+                            fill="#101418"
                             fillOpacity="0.3"
                             fontFamily="monospace"
                             fontSize="7"
@@ -590,7 +590,7 @@ const CarterEcosystem = () => {
                         />
                         <polygon
                             points="295,35 288,31 288,39"
-                            fill="#d6f928"
+                            fill="#5E7000"
                             fillOpacity="0.3"
                         />
                     </svg>
@@ -598,9 +598,9 @@ const CarterEcosystem = () => {
                     {/* Strategic Bet */}
                     <div className="max-w-3xl mb-20">
                         <Badge>[ 02 &mdash; The Call I Made ]</Badge>
-                        <h2 className="font-heading text-4xl md:text-5xl font-bold text-white leading-tight mb-6">
+                        <h2 className="font-heading text-4xl md:text-5xl font-bold text-ink leading-tight mb-6">
                             The team wanted features.{" "}
-                            <span className="text-gray-400">
+                            <span className="text-ink-muted">
                                 I pushed to fix activation first.
                             </span>
                         </h2>
@@ -614,8 +614,8 @@ const CarterEcosystem = () => {
                         >
                             <defs>
                                 <linearGradient id="riceWinGrad" x1="0" y1="0" x2="0" y2="1">
-                                    <stop offset="0%" stopColor="#d6f928" stopOpacity="0.3" />
-                                    <stop offset="100%" stopColor="#d6f928" stopOpacity="0.05" />
+                                    <stop offset="0%" stopColor="#5E7000" stopOpacity="0.3" />
+                                    <stop offset="100%" stopColor="#5E7000" stopOpacity="0.05" />
                                 </linearGradient>
                                 <filter
                                     id="riceGlow"
@@ -637,7 +637,7 @@ const CarterEcosystem = () => {
                                 y1="72"
                                 x2="360"
                                 y2="72"
-                                stroke="white"
+                                stroke="#101418"
                                 strokeOpacity="0.08"
                                 strokeWidth="1"
                             />
@@ -658,7 +658,7 @@ const CarterEcosystem = () => {
                                 x="80"
                                 y="82"
                                 textAnchor="middle"
-                                fill="white"
+                                fill="#101418"
                                 fillOpacity="0.25"
                                 fontFamily="monospace"
                                 fontSize="8"
@@ -669,7 +669,7 @@ const CarterEcosystem = () => {
                                 x="80"
                                 y="38"
                                 textAnchor="middle"
-                                fill="white"
+                                fill="#101418"
                                 fillOpacity="0.2"
                                 fontFamily="monospace"
                                 fontSize="7"
@@ -684,7 +684,7 @@ const CarterEcosystem = () => {
                                 height="58"
                                 rx="3"
                                 fill="url(#riceWinGrad)"
-                                stroke="#d6f928"
+                                stroke="#5E7000"
                                 strokeOpacity="0.5"
                                 strokeWidth="1.5"
                                 filter="url(#riceGlow)"
@@ -693,7 +693,7 @@ const CarterEcosystem = () => {
                                 x="160"
                                 y="82"
                                 textAnchor="middle"
-                                fill="#d6f928"
+                                fill="#5E7000"
                                 fillOpacity="0.4"
                                 fontFamily="monospace"
                                 fontSize="8"
@@ -705,7 +705,7 @@ const CarterEcosystem = () => {
                                 x="160"
                                 y="10"
                                 textAnchor="middle"
-                                fill="#d6f928"
+                                fill="#5E7000"
                                 fillOpacity="0.35"
                                 fontFamily="monospace"
                                 fontSize="7"
@@ -729,7 +729,7 @@ const CarterEcosystem = () => {
                                 x="240"
                                 y="82"
                                 textAnchor="middle"
-                                fill="white"
+                                fill="#101418"
                                 fillOpacity="0.25"
                                 fontFamily="monospace"
                                 fontSize="8"
@@ -740,7 +740,7 @@ const CarterEcosystem = () => {
                                 x="240"
                                 y="32"
                                 textAnchor="middle"
-                                fill="white"
+                                fill="#101418"
                                 fillOpacity="0.2"
                                 fontFamily="monospace"
                                 fontSize="7"
@@ -764,7 +764,7 @@ const CarterEcosystem = () => {
                                 x="320"
                                 y="82"
                                 textAnchor="middle"
-                                fill="white"
+                                fill="#101418"
                                 fillOpacity="0.25"
                                 fontFamily="monospace"
                                 fontSize="8"
@@ -775,7 +775,7 @@ const CarterEcosystem = () => {
                                 x="320"
                                 y="44"
                                 textAnchor="middle"
-                                fill="white"
+                                fill="#101418"
                                 fillOpacity="0.2"
                                 fontFamily="monospace"
                                 fontSize="7"
@@ -784,13 +784,13 @@ const CarterEcosystem = () => {
                             </text>
                         </svg>
 
-                        <p className="text-gray-400 text-base leading-relaxed mb-5">
+                        <p className="text-ink-muted text-base leading-relaxed mb-5">
                             I scored the backlog using RICE — reach, impact, confidence,
                             effort — and the picture was clear: the largest win available
                             wasn&apos;t a new feature, it was the campaigns already being
                             started and never finished.
                         </p>
-                        <p className="text-gray-400 text-base leading-relaxed">
+                        <p className="text-ink-muted text-base leading-relaxed">
                             The VP of Sales pushed back — &ldquo;we need feature X for the
                             Kroger deal.&rdquo; I walked leadership through what the interviews,
                             session recordings and funnel query actually showed: advertisers
@@ -800,21 +800,21 @@ const CarterEcosystem = () => {
                     </div>
 
                     {/* Discovery */}
-                    <div className="bg-white/5 border border-white/10 rounded-2xl p-8 max-w-4xl mb-20 flex flex-col md:flex-row gap-4 md:gap-6">
+                    <div className="bg-surface-3/70 border border-line rounded-2xl p-8 max-w-4xl mb-20 flex flex-col md:flex-row gap-4 md:gap-6">
                         <div className="w-12 h-12 rounded-xl bg-purple-500/10 border border-purple-500/20 flex items-center justify-center flex-shrink-0">
-                            <Search size={20} className="text-purple-400" />
+                            <Search size={20} className="text-purple-600" />
                         </div>
                         <div>
-                            <h4 className="text-white font-semibold mb-3">Discovery</h4>
-                            <p className="text-gray-400 text-sm leading-relaxed">
+                            <h4 className="text-ink font-semibold mb-3">Discovery</h4>
+                            <p className="text-ink-muted text-sm leading-relaxed">
                                 Interviewed{" "}
-                                <span className="text-white font-medium">
+                                <span className="text-ink font-medium">
                                     8 advertisers + 5 internal ops
                                 </span>{" "}
                                 over 2 weeks. Pulled 200+ session recordings from Hotjar. The
                                 key insight: users weren&apos;t confused by complexity — they
                                 had{" "}
-                                <span className="text-white font-medium">
+                                <span className="text-ink font-medium">
                                     no confidence signals
                                 </span>{" "}
                                 at any step. That reframed the problem from &ldquo;simplify the
@@ -825,47 +825,47 @@ const CarterEcosystem = () => {
 
                     {/* Audit Findings */}
                     <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mb-20">
-                        <div className="bg-red-950/20 border border-red-500/15 rounded-2xl p-6">
+                        <div className="bg-red-500/10 border border-red-500/15 rounded-2xl p-6">
                             <div className="w-10 h-10 rounded-xl bg-red-500/10 border border-red-500/20 flex items-center justify-center mb-4">
-                                <AlertTriangle size={18} className="text-red-400" />
+                                <AlertTriangle size={18} className="text-red-700" />
                             </div>
-                            <h4 className="font-heading text-2xl font-bold text-white mb-2">
+                            <h4 className="font-heading text-2xl font-bold text-ink mb-2">
                                 Stalled drafts
                             </h4>
-                            <p className="text-white text-sm font-medium mb-2">
+                            <p className="text-ink text-sm font-medium mb-2">
                                 Campaigns started, never launched
                             </p>
-                            <p className="text-gray-400 text-xs leading-relaxed">
+                            <p className="text-ink-muted text-xs leading-relaxed">
                                 Advertisers dropped at the same step of the campaign builder
                                 and left the draft sitting. Directly impacting time to value.
                             </p>
                         </div>
-                        <div className="bg-red-950/20 border border-red-500/15 rounded-2xl p-6">
+                        <div className="bg-red-500/10 border border-red-500/15 rounded-2xl p-6">
                             <div className="w-10 h-10 rounded-xl bg-red-500/10 border border-red-500/20 flex items-center justify-center mb-4">
-                                <Eye size={18} className="text-red-400" />
+                                <Eye size={18} className="text-red-700" />
                             </div>
-                            <h4 className="font-heading text-2xl font-bold text-white mb-2">
+                            <h4 className="font-heading text-2xl font-bold text-ink mb-2">
                                 0
                             </h4>
-                            <p className="text-white text-sm font-medium mb-2">
+                            <p className="text-ink text-sm font-medium mb-2">
                                 Actionable Insights
                             </p>
-                            <p className="text-gray-400 text-xs leading-relaxed">
+                            <p className="text-ink-muted text-xs leading-relaxed">
                                 Ad management was a legacy table. CTR down 40%? No guidance on
                                 what to do. Retention killer.
                             </p>
                         </div>
-                        <div className="bg-red-950/20 border border-red-500/15 rounded-2xl p-6">
+                        <div className="bg-red-500/10 border border-red-500/15 rounded-2xl p-6">
                             <div className="w-10 h-10 rounded-xl bg-red-500/10 border border-red-500/20 flex items-center justify-center mb-4">
-                                <Split size={18} className="text-red-400" />
+                                <Split size={18} className="text-red-700" />
                             </div>
-                            <h4 className="font-heading text-2xl font-bold text-white mb-2">
+                            <h4 className="font-heading text-2xl font-bold text-ink mb-2">
                                 12
                             </h4>
-                            <p className="text-white text-sm font-medium mb-2">
+                            <p className="text-ink text-sm font-medium mb-2">
                                 Teams, Zero Consistency
                             </p>
-                            <p className="text-gray-400 text-xs leading-relaxed">
+                            <p className="text-ink-muted text-xs leading-relaxed">
                                 Every team built UI independently. Engineering velocity bled out
                                 on rework.
                             </p>
@@ -876,11 +876,11 @@ const CarterEcosystem = () => {
                     <div className="mb-24">
                         <Badge>[ 03 &mdash; What I Designed ]</Badge>
                         <SubLabel>Decision 1 &middot; Design System</SubLabel>
-                        <h3 className="font-heading text-3xl font-bold text-white mb-4">
+                        <h3 className="font-heading text-3xl font-bold text-ink mb-4">
                             The UI looked like a wireframe.{" "}
-                            <span className="text-gray-400">So I built the system underneath it.</span>
+                            <span className="text-ink-muted">So I built the system underneath it.</span>
                         </h3>
-                        <p className="text-gray-400 text-base leading-relaxed max-w-3xl mb-10">
+                        <p className="text-ink-muted text-base leading-relaxed max-w-3xl mb-10">
                             The platform had no visual consistency &mdash; spacing, colour and components drifted
                             screen to screen, and much of it still read like a mid-fi wireframe. Redesigning screens
                             one at a time wouldn&apos;t hold, because every team was building UI independently and
@@ -894,23 +894,23 @@ const CarterEcosystem = () => {
                             decoding="async"
                             src={DSL}
                             alt="Carter Design System — tokens, components and documented states"
-                            className="rounded-2xl w-full border border-white/10 mb-10"
+                            className="rounded-2xl w-full border border-line mb-10"
                         />
                         <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
                             <StatCard
                                 value="1 library"
                                 label="Tokens, components, and documented states adopted across the platform."
-                                icon={<Layers size={18} className="text-[#d6f928]" />}
+                                icon={<Layers size={18} className="text-accent-ink" />}
                             />
                             <StatCard
                                 value="+30%"
                                 label="Faster shipping velocity once engineering built from shared components."
-                                icon={<Zap size={18} className="text-yellow-400" />}
+                                icon={<Zap size={18} className="text-yellow-700" />}
                             />
                             <StatCard
                                 value="Storybook"
                                 label="Design-to-code parity — the same component in Figma and in production."
-                                icon={<CheckCircle2 size={18} className="text-green-400" />}
+                                icon={<CheckCircle2 size={18} className="text-green-800" />}
                             />
                         </div>
                     </div>
@@ -918,10 +918,10 @@ const CarterEcosystem = () => {
                     {/* ——— DECISION 2: CAMPAIGN CREATION ——— */}
                     <div className="mb-24">
                         <Badge>[ Product Decision 2 — Activation Funnel Fix ]</Badge>
-                        <h3 className="font-heading text-3xl font-bold text-white mb-4">
+                        <h3 className="font-heading text-3xl font-bold text-ink mb-4">
                             From a form dump to a guided 5-stage flow
                         </h3>
-                        <p className="text-gray-400 text-base leading-relaxed max-w-3xl mb-10">
+                        <p className="text-ink-muted text-base leading-relaxed max-w-3xl mb-10">
                             Wrote the PRD, mapped every drop-off from session recordings.
                             Applied Hick&apos;s Law — reduced choices from 12 to 3 per step.
                             Each stage gave live validation and AI-powered budget
@@ -932,62 +932,62 @@ const CarterEcosystem = () => {
                             decoding="async"
                             src={CampaignCreationImg}
                             alt="Campaign Creation Redesign"
-                            className="rounded-2xl w-full border border-white/10 mb-12"
+                            className="rounded-2xl w-full border border-line mb-12"
                         />
 
                         {/* Product Calls — Icon Grid */}
                         <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mb-12">
-                            <div className="bg-white/5 border border-white/10 rounded-2xl p-6 flex gap-4">
+                            <div className="bg-surface-3/70 border border-line rounded-2xl p-6 flex gap-4">
                                 <div className="w-10 h-10 rounded-xl bg-blue-500/10 border border-blue-500/20 flex items-center justify-center flex-shrink-0">
-                                    <Layers size={18} className="text-blue-400" />
+                                    <Layers size={18} className="text-blue-700" />
                                 </div>
                                 <div>
-                                    <h4 className="text-white font-semibold text-sm mb-1">
+                                    <h4 className="text-ink font-semibold text-sm mb-1">
                                         Persistent Progress State
                                     </h4>
-                                    <p className="text-gray-400 text-xs leading-relaxed">
+                                    <p className="text-ink-muted text-xs leading-relaxed">
                                         Scoped in PRD. Users jump between steps without data loss.
                                         TTV dropped immediately.
                                     </p>
                                 </div>
                             </div>
-                            <div className="bg-white/5 border border-white/10 rounded-2xl p-6 flex gap-4">
+                            <div className="bg-surface-3/70 border border-line rounded-2xl p-6 flex gap-4">
                                 <div className="w-10 h-10 rounded-xl bg-green-500/10 border border-green-500/20 flex items-center justify-center flex-shrink-0">
-                                    <CheckCircle2 size={18} className="text-green-400" />
+                                    <CheckCircle2 size={18} className="text-green-800" />
                                 </div>
                                 <div>
-                                    <h4 className="text-white font-semibold text-sm mb-1">
+                                    <h4 className="text-ink font-semibold text-sm mb-1">
                                         Inline Validation
                                     </h4>
-                                    <p className="text-gray-400 text-xs leading-relaxed">
+                                    <p className="text-ink-muted text-xs leading-relaxed">
                                         Eliminated the #1 support ticket. Errors per field, not a
                                         post-submission wall.
                                     </p>
                                 </div>
                             </div>
-                            <div className="bg-white/5 border border-white/10 rounded-2xl p-6 flex gap-4">
-                                <div className="w-10 h-10 rounded-xl bg-[#d6f928]/10 border border-[#d6f928]/20 flex items-center justify-center flex-shrink-0">
-                                    <Cpu size={18} className="text-[#d6f928]" />
+                            <div className="bg-surface-3/70 border border-line rounded-2xl p-6 flex gap-4">
+                                <div className="w-10 h-10 rounded-xl bg-accent/25 border border-accent-ink/30 flex items-center justify-center flex-shrink-0">
+                                    <Cpu size={18} className="text-accent-ink" />
                                 </div>
                                 <div>
-                                    <h4 className="text-white font-semibold text-sm mb-1">
+                                    <h4 className="text-ink font-semibold text-sm mb-1">
                                         AI Budget Nudges
                                     </h4>
-                                    <p className="text-gray-400 text-xs leading-relaxed">
+                                    <p className="text-ink-muted text-xs leading-relaxed">
                                         Historical spend recommendations embedded in the flow.
                                         Contextual guidance, not a modal.
                                     </p>
                                 </div>
                             </div>
-                            <div className="bg-white/5 border border-white/10 rounded-2xl p-6 flex gap-4">
+                            <div className="bg-surface-3/70 border border-line rounded-2xl p-6 flex gap-4">
                                 <div className="w-10 h-10 rounded-xl bg-purple-500/10 border border-purple-500/20 flex items-center justify-center flex-shrink-0">
-                                    <BarChart2 size={18} className="text-purple-400" />
+                                    <BarChart2 size={18} className="text-purple-600" />
                                 </div>
                                 <div>
-                                    <h4 className="text-white font-semibold text-sm mb-1">
+                                    <h4 className="text-ink font-semibold text-sm mb-1">
                                         Pre-Launch Forecast
                                     </h4>
-                                    <p className="text-gray-400 text-xs leading-relaxed">
+                                    <p className="text-ink-muted text-xs leading-relaxed">
                                         Projected impressions, clicks, ROI. Gave advertisers
                                         conviction. Launch rate +20pts.
                                     </p>
@@ -995,21 +995,21 @@ const CarterEcosystem = () => {
                             </div>
                         </div>
 
-                        <div className="bg-white/5 border border-white/10 rounded-2xl p-8">
-                            <h4 className="text-white font-semibold text-sm mb-6">
+                        <div className="bg-surface-3/70 border border-line rounded-2xl p-8">
+                            <h4 className="text-ink font-semibold text-sm mb-6">
                                 Before vs. After
                             </h4>
-                            <div className="flex items-center justify-between pb-3 border-b border-white/10 mb-1">
-                                <span className="text-gray-500 text-xs uppercase tracking-widest w-2/5">
+                            <div className="flex items-center justify-between pb-3 border-b border-line mb-1">
+                                <span className="text-ink-faint text-xs uppercase tracking-widest w-2/5">
                                     Metric
                                 </span>
-                                <span className="text-gray-500 text-xs uppercase tracking-widest w-1/5 text-center">
+                                <span className="text-ink-faint text-xs uppercase tracking-widest w-1/5 text-center">
                                     Before
                                 </span>
-                                <span className="text-gray-500 text-xs uppercase tracking-widest w-1/5 text-center">
+                                <span className="text-ink-faint text-xs uppercase tracking-widest w-1/5 text-center">
                                     After
                                 </span>
-                                <span className="text-gray-500 text-xs uppercase tracking-widest w-1/5 text-right">
+                                <span className="text-ink-faint text-xs uppercase tracking-widest w-1/5 text-right">
                                     Delta
                                 </span>
                             </div>
@@ -1040,15 +1040,15 @@ const CarterEcosystem = () => {
                         </div>
 
                         {/* What didn't work */}
-                        <div className="mt-8 bg-white/[0.02] border border-dashed border-white/10 rounded-xl p-5 max-w-3xl">
-                            <p className="text-gray-600 text-xs uppercase tracking-widest mb-2 font-mono">
+                        <div className="mt-8 bg-surface-3/60 border border-dashed border-line rounded-xl p-5 max-w-3xl">
+                            <p className="text-ink-ghost text-xs uppercase tracking-widest mb-2 font-mono">
                                 What didn&apos;t work first
                             </p>
-                            <p className="text-gray-400 text-sm leading-relaxed">
+                            <p className="text-ink-muted text-sm leading-relaxed">
                                 First version of AI budget nudges auto-filled spend amounts.
                                 Advertisers didn&apos;t trust automated inputs on day one and
                                 largely left them alone. Reworked it into{" "}
-                                <span className="text-white font-medium">
+                                <span className="text-ink font-medium">
                                     suggestions sitting beside manual controls
                                 </span>
                                 &nbsp;— the model proposes, the advertiser still decides.
@@ -1059,13 +1059,13 @@ const CarterEcosystem = () => {
                     {/* ——— DECISION 3: AD ITEM MANAGEMENT ——— */}
                     <div className="mb-24">
                         <Badge>[ Product Decision 3 — Retention Feature ]</Badge>
-                        <h3 className="font-heading text-3xl font-bold text-white mb-4">
+                        <h3 className="font-heading text-3xl font-bold text-ink mb-4">
                             From a reporting table{" "}
-                            <span className="text-gray-400 font-light">
+                            <span className="text-ink-muted font-light">
                                 to an optimization engine.
                             </span>
                         </h3>
-                        <p className="text-gray-400 text-base leading-relaxed max-w-3xl mb-10">
+                        <p className="text-ink-muted text-base leading-relaxed max-w-3xl mb-10">
                             Card-based layout with pacing charts, proactive alerts, and
                             one-click actions. Product bet: move from passive reporting to
                             active guidance.
@@ -1082,43 +1082,43 @@ const CarterEcosystem = () => {
                     </div>
 
                     {/* Phase 1 Outcomes */}
-                    <div className="bg-gradient-to-br from-white/[0.05] to-transparent border border-white/10 backdrop-blur-md rounded-2xl p-8 md:p-10">
+                    <div className="bg-gradient-to-br from-surface-3 to-transparent border border-line backdrop-blur-md rounded-2xl p-8 md:p-10">
                         <Badge>[ Phase 1 — Business Outcomes ]</Badge>
                         {/* Stated as a chain rather than a scoreboard — each number is the
                             cause of the next one, which is the actual argument. */}
-                        <p className="text-gray-400 text-sm leading-relaxed mb-10 max-w-2xl">
+                        <p className="text-ink-muted text-sm leading-relaxed mb-10 max-w-2xl">
                             These are one chain, not separate results. Rebuilding the dense form as a short
-                            guided flow cut <span className="text-white font-medium">draft abandonment 8%</span>,
+                            guided flow cut <span className="text-ink font-medium">draft abandonment 8%</span>,
                             so more of the campaigns advertisers started actually reached launch. The agentic
                             assistant then took the launch itself from{" "}
-                            <span className="text-white font-medium">1.5 hours to 30 minutes</span>. In parallel,
+                            <span className="text-ink font-medium">1.5 hours to 30 minutes</span>. In parallel,
                             the component library made engineering{" "}
-                            <span className="text-white font-medium">30% faster</span>, which is what let a
+                            <span className="text-ink font-medium">30% faster</span>, which is what let a
                             two-designer team keep pace with 12 DSP integrations.
                         </p>
                         <div className="grid grid-cols-2 md:grid-cols-4 gap-6">
                             <StatCard
                                 value="4.6/5"
                                 label="Usability score, task-based sessions."
-                                icon={<TrendingUp size={18} className="text-green-400" />}
+                                icon={<TrendingUp size={18} className="text-green-800" />}
                             />
                             <StatCard
                                 value="30%"
                                 label="Faster shipping velocity from component infrastructure."
-                                icon={<Zap size={18} className="text-yellow-400" />}
+                                icon={<Zap size={18} className="text-yellow-700" />}
                             />
                             <StatCard
                                 value="&darr; 8%"
                                 label="Draft abandonment after the guided-flow rebuild."
-                                icon={<Target size={18} className="text-blue-400" />}
+                                icon={<Target size={18} className="text-blue-700" />}
                             />
                             <StatCard
                                 value="3&times;"
                                 label="Faster campaign launch — 1.5 hours down to 30 minutes."
-                                icon={<Clock size={18} className="text-purple-400" />}
+                                icon={<Clock size={18} className="text-purple-600" />}
                             />
                         </div>
-                        <p className="text-gray-600 text-xs mt-6">
+                        <p className="text-ink-ghost text-xs mt-6">
                             Figures are internal metrics measured post-launch over the phase window.
                         </p>
                     </div>
@@ -1126,15 +1126,15 @@ const CarterEcosystem = () => {
             </section>
 
             {/* ================= PHASE 2 ================= */}
-            <section className="bg-black py-24 px-4 border-t border-white/10">
+            <section className="bg-surface py-24 px-4 border-t border-line">
                 <div className="max-w-7xl mx-auto">
                     {/* Phase Divider */}
                     <div className="flex items-center gap-6 mb-20">
-                        <div className="text-xs font-mono text-gray-600 uppercase tracking-widest whitespace-nowrap">
+                        <div className="text-xs font-mono text-ink-ghost uppercase tracking-widest whitespace-nowrap">
                             Phase 02
                         </div>
-                        <div className="h-px bg-white/10 flex-grow"></div>
-                        <div className="text-xs font-mono text-gray-600 uppercase tracking-widest whitespace-nowrap">
+                        <div className="h-px bg-surface-3 flex-grow"></div>
+                        <div className="text-xs font-mono text-ink-ghost uppercase tracking-widest whitespace-nowrap">
                             Features &amp; Flow Optimization
                         </div>
                     </div>
@@ -1148,8 +1148,8 @@ const CarterEcosystem = () => {
                     >
                         <defs>
                             <linearGradient id="dsp-hub-grad" x1="0" y1="0" x2="1" y2="0">
-                                <stop offset="0%" stopColor="#d6f928" stopOpacity="0.4" />
-                                <stop offset="100%" stopColor="#d6f928" stopOpacity="0.1" />
+                                <stop offset="0%" stopColor="#5E7000" stopOpacity="0.4" />
+                                <stop offset="100%" stopColor="#5E7000" stopOpacity="0.1" />
                             </linearGradient>
                             <filter id="dsp-glow">
                                 <feGaussianBlur stdDeviation="4" result="blur" />
@@ -1181,7 +1181,7 @@ const CarterEcosystem = () => {
                             textAnchor="middle"
                             fontFamily="monospace"
                             fontSize="7"
-                            fill="white"
+                            fill="#101418"
                             fillOpacity="0.2"
                         >
                             4 NETWORKS
@@ -1194,7 +1194,7 @@ const CarterEcosystem = () => {
                                 y1={17 + i * 14}
                                 x2="160"
                                 y2="40"
-                                stroke="#d6f928"
+                                stroke="#5E7000"
                                 strokeOpacity="0.15"
                                 strokeWidth="0.6"
                                 strokeDasharray="4 3"
@@ -1205,21 +1205,21 @@ const CarterEcosystem = () => {
                             cx="160"
                             cy="40"
                             r="18"
-                            fill="#d6f928"
+                            fill="#5E7000"
                             fillOpacity="0.06"
-                            stroke="#d6f928"
+                            stroke="#5E7000"
                             strokeOpacity="0.4"
                             strokeWidth="1.5"
                             filter="url(#dsp-glow)"
                         />
-                        <circle cx="160" cy="40" r="6" fill="#d6f928" fillOpacity="0.25" />
+                        <circle cx="160" cy="40" r="6" fill="#5E7000" fillOpacity="0.65" />
                         <text
                             x="160"
                             y="76"
                             textAnchor="middle"
                             fontFamily="monospace"
                             fontSize="7"
-                            fill="#d6f928"
+                            fill="#5E7000"
                             fillOpacity="0.35"
                         >
                             DSP
@@ -1230,13 +1230,13 @@ const CarterEcosystem = () => {
                             y1="40"
                             x2="230"
                             y2="40"
-                            stroke="#d6f928"
+                            stroke="#5E7000"
                             strokeOpacity="0.3"
                             strokeWidth="0.8"
                         />
                         <polygon
                             points="230,37 238,40 230,43"
-                            fill="#d6f928"
+                            fill="#5E7000"
                             fillOpacity="0.3"
                         />
                         {/* Unified view */}
@@ -1247,7 +1247,7 @@ const CarterEcosystem = () => {
                             height="44"
                             rx="4"
                             fill="url(#dsp-hub-grad)"
-                            stroke="#d6f928"
+                            stroke="#5E7000"
                             strokeOpacity="0.2"
                             strokeWidth="0.8"
                         />
@@ -1259,7 +1259,7 @@ const CarterEcosystem = () => {
                                 width={94}
                                 height={7}
                                 rx="1"
-                                fill="#d6f928"
+                                fill="#5E7000"
                                 fillOpacity={0.06 + i * 0.01}
                             />
                         ))}
@@ -1269,7 +1269,7 @@ const CarterEcosystem = () => {
                             textAnchor="middle"
                             fontFamily="monospace"
                             fontSize="7"
-                            fill="#d6f928"
+                            fill="#5E7000"
                             fillOpacity="0.3"
                         >
                             UNIFIED VIEW
@@ -1281,7 +1281,7 @@ const CarterEcosystem = () => {
                             textAnchor="middle"
                             fontFamily="monospace"
                             fontSize="9"
-                            fill="#d6f928"
+                            fill="#5E7000"
                             fillOpacity="0.5"
                             filter="url(#dsp-glow)"
                         >
@@ -1293,7 +1293,7 @@ const CarterEcosystem = () => {
                             textAnchor="middle"
                             fontFamily="monospace"
                             fontSize="6"
-                            fill="white"
+                            fill="#101418"
                             fillOpacity="0.2"
                         >
                             LTV
@@ -1303,18 +1303,18 @@ const CarterEcosystem = () => {
                     {/* Strategic Bet */}
                     <div className="max-w-3xl mb-20">
                         <Badge>[ 05 &mdash; Scaling The Bet ]</Badge>
-                        <h2 className="font-heading text-4xl md:text-5xl font-bold text-white leading-tight mb-6">
+                        <h2 className="font-heading text-4xl md:text-5xl font-bold text-ink leading-tight mb-6">
                             Phase 1 earned trust.{" "}
-                            <span className="text-gray-400">
+                            <span className="text-ink-muted">
                                 I used it to expand the platform.
                             </span>
                         </h2>
-                        <p className="text-gray-400 text-base leading-relaxed mb-5">
+                        <p className="text-ink-muted text-base leading-relaxed mb-5">
                             After the redesign shipped, enterprise clients started asking for
                             cross-network campaign management. I ran competitive analysis — no
                             unified DSP existed for retail media at this scale.
                         </p>
-                        <p className="text-gray-400 text-base leading-relaxed">
+                        <p className="text-ink-muted text-base leading-relaxed">
                             Built the case for leadership: where the gap was, what it would
                             take to close it, and a phased roadmap to get there. The argument
                             that landed was simple — advertisers already running on several
@@ -1326,20 +1326,20 @@ const CarterEcosystem = () => {
                     {/* Context */}
                     <div className="max-w-3xl mb-20">
                         <Badge>[ Phase 2 — Cross-Network Features ]</Badge>
-                        <h2 className="font-heading text-4xl md:text-5xl font-bold text-white leading-tight mb-6">
+                        <h2 className="font-heading text-4xl md:text-5xl font-bold text-ink leading-tight mb-6">
                             One platform.{" "}
-                            <span className="text-gray-400">Every retail ad network.</span>
+                            <span className="text-ink-muted">Every retail ad network.</span>
                         </h2>
-                        <p className="text-gray-400 text-base leading-relaxed mb-5">
+                        <p className="text-ink-muted text-base leading-relaxed mb-5">
                             Carter&apos;s cross-network command center — plan, launch, and measure
                             campaigns across every retail media network in one place. I owned the
                             design of these features end-to-end — research, IA, interaction design,
                             and design QA alongside the frontend team.
                         </p>
-                        <p className="text-white border-l-4 border-[#d6f928]/40 pl-6 italic font-light text-base">
+                        <p className="text-ink border-l-4 border-accent-ink/40 pl-6 italic font-light text-base">
                             &ldquo;I spend 4 hours every Monday just pulling reports. I still
                             don&apos;t know which channel is working.&rdquo;
-                            <span className="text-gray-500 not-italic block mt-2 text-sm">
+                            <span className="text-ink-faint not-italic block mt-2 text-sm">
                                 — Enterprise Advertiser, User Research
                             </span>
                         </p>
@@ -1355,20 +1355,20 @@ const CarterEcosystem = () => {
 
                     {/* Market Gap + North Stars */}
                     <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mb-20">
-                        <div className="bg-white/5 border border-white/10 rounded-2xl p-8">
+                        <div className="bg-surface-3/70 border border-line rounded-2xl p-8">
                             <Badge>[ The Market Gap ]</Badge>
                             <div className="space-y-4 mt-2">
                                 {[
                                     {
-                                        icon: <BarChart2 size={16} className="text-red-400" />,
+                                        icon: <BarChart2 size={16} className="text-red-700" />,
                                         text: "No unified performance view across networks",
                                     },
                                     {
-                                        icon: <Layout size={16} className="text-red-400" />,
+                                        icon: <Layout size={16} className="text-red-700" />,
                                         text: "Creative uploaded per-network — massive duplication",
                                     },
                                     {
-                                        icon: <AlertTriangle size={16} className="text-red-400" />,
+                                        icon: <AlertTriangle size={16} className="text-red-700" />,
                                         text: "Budget splits done manually. Overspend on saturated segments",
                                     },
                                 ].map((item, i) => (
@@ -1376,35 +1376,35 @@ const CarterEcosystem = () => {
                                         <div className="w-8 h-8 rounded-lg bg-red-500/10 border border-red-500/20 flex items-center justify-center flex-shrink-0 mt-0.5">
                                             {item.icon}
                                         </div>
-                                        <p className="text-gray-400 text-sm leading-relaxed">
+                                        <p className="text-ink-muted text-sm leading-relaxed">
                                             {item.text}
                                         </p>
                                     </div>
                                 ))}
                             </div>
                         </div>
-                        <div className="bg-white/5 border border-white/10 rounded-2xl p-8">
+                        <div className="bg-surface-3/70 border border-line rounded-2xl p-8">
                             <Badge>[ North Star Metrics ]</Badge>
                             <div className="space-y-4 mt-2">
                                 {[
                                     {
-                                        icon: <Zap size={16} className="text-[#d6f928]" />,
+                                        icon: <Zap size={16} className="text-accent-ink" />,
                                         text: "A cross-network launch should cost one campaign's time",
                                     },
                                     {
-                                        icon: <CheckCircle2 size={16} className="text-[#d6f928]" />,
+                                        icon: <CheckCircle2 size={16} className="text-accent-ink" />,
                                         text: "Creative compliance through per-network spec validation",
                                     },
                                     {
-                                        icon: <Target size={16} className="text-[#d6f928]" />,
+                                        icon: <Target size={16} className="text-accent-ink" />,
                                         text: "Single KPI standard — one source of truth",
                                     },
                                 ].map((item, i) => (
                                     <div key={i} className="flex items-start gap-3">
-                                        <div className="w-8 h-8 rounded-lg bg-[#d6f928]/10 border border-[#d6f928]/20 flex items-center justify-center flex-shrink-0 mt-0.5">
+                                        <div className="w-8 h-8 rounded-lg bg-accent/25 border border-accent-ink/30 flex items-center justify-center flex-shrink-0 mt-0.5">
                                             {item.icon}
                                         </div>
-                                        <p className="text-gray-400 text-sm leading-relaxed">
+                                        <p className="text-ink-muted text-sm leading-relaxed">
                                             {item.text}
                                         </p>
                                     </div>
@@ -1431,26 +1431,26 @@ const CarterEcosystem = () => {
                     />
 
                     {/* What I Said No To */}
-                    <div className="bg-white/5 border border-white/10 rounded-2xl p-8 max-w-4xl mb-20 flex flex-col md:flex-row gap-4 md:gap-6">
+                    <div className="bg-surface-3/70 border border-line rounded-2xl p-8 max-w-4xl mb-20 flex flex-col md:flex-row gap-4 md:gap-6">
                         <div className="w-12 h-12 rounded-xl bg-orange-500/10 border border-orange-500/20 flex items-center justify-center flex-shrink-0">
-                            <Scissors size={20} className="text-orange-400" />
+                            <Scissors size={20} className="text-orange-600" />
                         </div>
                         <div>
-                            <h4 className="text-white font-semibold mb-3">
+                            <h4 className="text-ink font-semibold mb-3">
                                 What I Said No To
                             </h4>
-                            <p className="text-gray-400 text-sm leading-relaxed">
+                            <p className="text-ink-muted text-sm leading-relaxed">
                                 A long module wishlist, scoped down to what shipped. Cut{" "}
-                                <span className="text-white font-medium">
+                                <span className="text-ink font-medium">
                                     real-time bidding
                                 </span>{" "}
                                 (no data yet),
-                                <span className="text-white font-medium">
+                                <span className="text-ink font-medium">
                                     {" "}
                                     custom attribution
                                 </span>{" "}
                                 (3-month build, unclear ROI), and{" "}
-                                <span className="text-white font-medium">
+                                <span className="text-ink font-medium">
                                     white-label theming
                                 </span>{" "}
                                 (sales request, not user need). Every cut documented in the PRD
@@ -1464,17 +1464,17 @@ const CarterEcosystem = () => {
                         <Badge>
                             [ Product Decision &mdash; Agentic AI Campaign Assistant ]
                         </Badge>
-                        <h3 className="font-heading text-3xl font-bold text-white mb-4">
+                        <h3 className="font-heading text-3xl font-bold text-ink mb-4">
                             Campaign creation:{" "}
-                            <span className="text-gray-400 font-light">
+                            <span className="text-ink-muted font-light">
                                 1.5 hours &rarr; 30 minutes.
                             </span>
                         </h3>
-                        <p className="text-gray-400 text-base leading-relaxed max-w-3xl mb-8">
+                        <p className="text-ink-muted text-base leading-relaxed max-w-3xl mb-8">
                             Even with the guided flow, building a campaign still meant
                             manually translating a media brief into targeting, budgets, flight
                             dates, and creative slots. I designed and shipped an
-                            <span className="text-white font-medium">
+                            <span className="text-ink font-medium">
                                 {" "}
                                 agentic assistant on the Claude API
                             </span>
@@ -1488,23 +1488,23 @@ const CarterEcosystem = () => {
                             <StatCard
                                 value="3&times;"
                                 label="Operational efficiency — campaign launch time cut from 1.5 hours to 30 minutes."
-                                icon={<Zap size={18} className="text-[#d6f928]" />}
+                                icon={<Zap size={18} className="text-accent-ink" />}
                             />
                             <StatCard
                                 value="Draft, don't decide"
                                 label="The assistant proposes; the advertiser approves. Every AI output editable before launch."
-                                icon={<Cpu size={18} className="text-blue-400" />}
+                                icon={<Cpu size={18} className="text-blue-700" />}
                             />
                             <StatCard
                                 value="Spec-checked"
                                 label="Drafts validated against each network's specs before submission — errors caught pre-launch, not post."
-                                icon={<CheckCircle2 size={18} className="text-green-400" />}
+                                icon={<CheckCircle2 size={18} className="text-green-800" />}
                             />
                         </div>
 
                         {/* The assistant, screen by screen */}
                         <div className="mt-10">
-                            <p className="text-xs font-mono text-gray-500 uppercase tracking-widest mb-4">
+                            <p className="text-xs font-mono text-ink-faint uppercase tracking-widest mb-4">
                                 The flow, screen by screen
                             </p>
                             <CarterAiSlider />
@@ -1512,54 +1512,54 @@ const CarterEcosystem = () => {
                     </div>
 
                     {/* Video Walkthrough */}
-                    <div className="bg-white/5 border border-white/10 backdrop-blur-lg p-6 md:p-10 rounded-2xl mb-20">
+                    <div className="bg-surface-3/70 border border-line backdrop-blur-lg p-6 md:p-10 rounded-2xl mb-20">
                         <div className="flex flex-col md:flex-row gap-10 items-center">
                             <video
                                 controls
                                 autoPlay
                                 loop
                                 muted
-                                className="w-full md:w-1/2 rounded-2xl border border-white/10"
+                                className="w-full md:w-1/2 rounded-2xl border border-line"
                             >
                                 <source src={v1} type="video/mp4" />
                             </video>
                             <div className="w-full md:w-1/2">
                                 <Badge>[ Product Architecture ]</Badge>
-                                <h3 className="font-heading text-2xl font-bold text-white mb-6">
+                                <h3 className="font-heading text-2xl font-bold text-ink mb-6">
                                     Four bets that defined the DSP
                                 </h3>
                                 <div className="space-y-5">
                                     {[
                                         {
-                                            icon: <Layers size={16} className="text-blue-400" />,
+                                            icon: <Layers size={16} className="text-blue-700" />,
                                             title: "Unified Orchestration",
                                             desc: "One campaign pushed to all RMNs with auto-reformatting.",
                                         },
                                         {
-                                            icon: <Users size={16} className="text-purple-400" />,
+                                            icon: <Users size={16} className="text-purple-600" />,
                                             title: "Shared Targeting",
                                             desc: "Audience overlap detection across networks. First-of-its-kind.",
                                         },
                                         {
-                                            icon: <Layout size={16} className="text-orange-400" />,
+                                            icon: <Layout size={16} className="text-orange-600" />,
                                             title: "Dynamic Creative",
                                             desc: "One master asset → compliant variants for every network.",
                                         },
                                         {
-                                            icon: <TrendingUp size={16} className="text-green-400" />,
+                                            icon: <TrendingUp size={16} className="text-green-800" />,
                                             title: "Smart Budgeting",
                                             desc: "Real-time spend allocation based on performance signals.",
                                         },
                                     ].map((item, i) => (
                                         <div key={i} className="flex items-start gap-3">
-                                            <div className="w-8 h-8 rounded-lg bg-white/5 border border-white/10 flex items-center justify-center flex-shrink-0 mt-0.5">
+                                            <div className="w-8 h-8 rounded-lg bg-surface border border-line flex items-center justify-center flex-shrink-0 mt-0.5">
                                                 {item.icon}
                                             </div>
                                             <div>
-                                                <p className="text-white text-sm font-medium">
+                                                <p className="text-ink text-sm font-medium">
                                                     {item.title}
                                                 </p>
-                                                <p className="text-gray-400 text-xs">{item.desc}</p>
+                                                <p className="text-ink-muted text-xs">{item.desc}</p>
                                             </div>
                                         </div>
                                     ))}
@@ -1569,25 +1569,25 @@ const CarterEcosystem = () => {
                     </div>
 
                     {/* Phase 2 Impact */}
-                    <div className="bg-white/5 border border-white/10 backdrop-blur-md p-6 md:p-10 rounded-2xl">
+                    <div className="bg-surface-3/70 border border-line backdrop-blur-md p-6 md:p-10 rounded-2xl">
                         <div className="flex flex-col md:flex-row-reverse gap-10 items-center">
                             <video
                                 controls
                                 autoPlay
                                 loop
                                 muted
-                                className="w-full md:w-1/2 rounded-2xl border border-white/10"
+                                className="w-full md:w-1/2 rounded-2xl border border-line"
                             >
                                 <source src={v3} type="video/mp4" />
                             </video>
                             <div className="w-full md:w-1/2">
                                 <Badge>[ Phase 2 — Impact at Launch ]</Badge>
                                 {/* Why the setup-time number matters, not just what it was. */}
-                                <p className="text-gray-400 text-sm leading-relaxed mb-8">
+                                <p className="text-ink-muted text-sm leading-relaxed mb-8">
                                     Setup time was the constraint that actually mattered: running a campaign
                                     across every network meant repeating the same work per network, so advertisers
                                     ran fewer, larger, blunter campaigns than they wanted to. Unifying{" "}
-                                    <span className="text-white font-medium">12 workflows into one form</span>,
+                                    <span className="text-ink font-medium">12 workflows into one form</span>,
                                     with one master creative auto-adapted per network, means a cross-network
                                     launch now takes one campaign&apos;s time. Validated through task-based
                                     sessions with alpha clients.
@@ -1617,17 +1617,17 @@ const CarterEcosystem = () => {
                                     ].map((item, i) => (
                                         <div
                                             key={i}
-                                            className="border-b border-white/5 pb-5 last:border-0 last:pb-0"
+                                            className="border-b border-line-soft pb-5 last:border-0 last:pb-0"
                                         >
                                             <div className="flex items-baseline gap-3 mb-1">
-                                                <span className="font-heading text-xl font-bold text-white">
+                                                <span className="font-heading text-xl font-bold text-ink">
                                                     {item.value}
                                                 </span>
-                                                <span className="text-white text-sm font-medium">
+                                                <span className="text-ink text-sm font-medium">
                                                     {item.label}
                                                 </span>
                                             </div>
-                                            <p className="text-gray-400 text-xs">{item.desc}</p>
+                                            <p className="text-ink-muted text-xs">{item.desc}</p>
                                         </div>
                                     ))}
                                 </div>
@@ -1637,24 +1637,24 @@ const CarterEcosystem = () => {
                 </div>
             </section>
             {/* ================= CLOSING ================= */}
-            <section className="bg-[#050505] py-24 px-4 border-t border-white/10">
+            <section className="bg-surface-2 py-24 px-4 border-t border-line">
                 <div className="max-w-7xl mx-auto">
                     <div className="max-w-3xl">
                         <Badge>[ 09 &mdash; What I&apos;d Do Differently ]</Badge>
-                        <h2 className="font-heading text-4xl md:text-5xl font-bold text-white leading-tight mb-8">
+                        <h2 className="font-heading text-4xl md:text-5xl font-bold text-ink leading-tight mb-8">
                             The hardest call wasn&apos;t a screen.{" "}
-                            <span className="text-gray-400">
+                            <span className="text-ink-muted">
                                 It was asking the team to stop building.
                             </span>
                         </h2>
-                        <p className="text-gray-400 text-base leading-relaxed mb-5">
+                        <p className="text-ink-muted text-base leading-relaxed mb-5">
                             The roadmap was full of new features. The research said the product was
                             losing people before they ever reached one. Arguing for two sprints to fix
                             activation instead &mdash; on a team that wanted to ship &mdash; was the decision
                             everything else rested on, and it moved campaign launch rate by twenty
                             percentage points.
                         </p>
-                        <p className="text-gray-400 text-base leading-relaxed">
+                        <p className="text-ink-muted text-base leading-relaxed">
                             After that the work was ordinary in the best sense: interviews and session
                             recordings, a design system so teams stopped re-solving the same problems,
                             specs and QA with the frontend group, and every screen in Phase 2 owned end to end.
@@ -1664,19 +1664,19 @@ const CarterEcosystem = () => {
             </section>
 
             {/* ================= NEXT CASE STUDY ================= */}
-            <section className="bg-black py-16 px-4 border-t border-white/10">
+            <section className="bg-surface py-16 px-4 border-t border-line">
                 <div className="max-w-7xl mx-auto flex flex-col md:flex-row items-center justify-between gap-6">
                     <div>
-                        <p className="text-xs font-mono text-gray-600 uppercase tracking-widest mb-2">
+                        <p className="text-xs font-mono text-ink-ghost uppercase tracking-widest mb-2">
                             Next Case Study
                         </p>
-                        <p className="font-heading text-2xl font-bold text-white">
+                        <p className="font-heading text-2xl font-bold text-ink">
                             Poppins: A Conversational Finance App for iOS
                         </p>
                     </div>
                     <Link
                         to="/poppins"
-                        className="text-[#d6f928] font-medium text-sm border border-[#d6f928]/20 bg-[#d6f928]/5 px-6 py-3 rounded-full hover:bg-[#d6f928]/10 transition-colors whitespace-nowrap"
+                        className="text-accent-ink font-medium text-sm border border-accent-ink/30 bg-accent/15 px-6 py-3 rounded-full hover:bg-accent/25 transition-colors whitespace-nowrap"
                     >
                         View Case Study &rarr;
                     </Link>

@@ -62,15 +62,15 @@ const SimfluentSlider = () => {
   // No screenshots yet → intentional in-progress state (never null).
   if (count === 0) {
     return (
-      <div className="rounded-2xl border-2 border-dashed border-violet-400/30 bg-[#0d0d0f] aspect-[1440/860] flex flex-col items-center justify-center text-center px-6">
+      <div className="rounded-2xl border-2 border-dashed border-violet-400/30 bg-surface-2 aspect-[1440/860] flex flex-col items-center justify-center text-center px-6">
         <div className="w-12 h-12 rounded-xl bg-violet-500/10 border border-violet-500/20 flex items-center justify-center mb-4">
-          <ImageIcon size={22} className="text-violet-300/70" />
+          <ImageIcon size={22} className="text-violet-700/70" />
         </div>
-        <p className="text-white font-medium mb-1">Screens are being finalized as Simfluent ships</p>
-        <p className="text-gray-500 text-sm max-w-md">
+        <p className="text-ink font-medium mb-1">Screens are being finalized as Simfluent ships</p>
+        <p className="text-ink-faint text-sm max-w-md">
           Curated frames drop into{" "}
-          <span className="font-mono text-gray-400">src/assets/simfluent/screens/</span>{" "}
-          named <span className="font-mono text-gray-400">1.png, 2.png…</span> and auto-load into this slider.
+          <span className="font-mono text-ink-muted">src/assets/simfluent/screens/</span>{" "}
+          named <span className="font-mono text-ink-muted">1.png, 2.png…</span> and auto-load into this slider.
         </p>
       </div>
     );
@@ -89,10 +89,10 @@ const SimfluentSlider = () => {
       onMouseEnter={() => setPlaying(false)}
       onMouseLeave={() => setPlaying(!prefersReduced)}
       onFocus={() => setPlaying(false)}
-      className="relative rounded-2xl border border-white/10 bg-[#0d0d0f] overflow-hidden focus:outline-none focus-visible:ring-2 focus-visible:ring-[#d6f928]/60"
+      className="relative rounded-2xl border border-line bg-surface-2 overflow-hidden focus:outline-none focus-visible:ring-2 focus-visible:ring-accent-ink/50"
     >
       {/* Stage — full frame visible, never cropped */}
-      <div className="relative bg-[#0d0d0f] flex items-center justify-center aspect-[1440/860]">
+      <div className="relative bg-surface-2 flex items-center justify-center aspect-[1440/860]">
         {slides.map((s, i) => (
           <img
             key={i}
@@ -107,22 +107,22 @@ const SimfluentSlider = () => {
       </div>
 
       {/* Control bar */}
-      <div className="flex items-center gap-3 px-4 py-3 border-t border-white/10 bg-black/40">
+      <div className="flex items-center gap-3 px-4 py-3 border-t border-line bg-surface-3/70">
         <button
           type="button"
           onClick={() => setPlaying((p) => !p)}
           aria-label={playing ? "Pause autoplay" : "Play autoplay"}
-          className="w-8 h-8 rounded-full border border-white/15 bg-white/5 text-white flex items-center justify-center hover:border-[#d6f928]/50 hover:text-[#d6f928] transition-colors shrink-0"
+          className="w-8 h-8 rounded-full border border-line bg-surface text-ink shadow-[0_1px_3px_rgba(0,0,0,0.08)] flex items-center justify-center hover:border-accent-ink/45 hover:text-accent-ink transition-colors shrink-0"
         >
           {playing ? <Pause size={14} /> : <Play size={14} />}
         </button>
 
         <div className="flex-1 min-w-0">
-          <p className="text-sm text-white truncate">
+          <p className="text-sm text-ink truncate">
             {active.caption || "Simfluent"}
           </p>
         </div>
-        <span className="text-xs font-mono text-gray-500 shrink-0 tabular-nums">
+        <span className="text-xs font-mono text-ink-faint shrink-0 tabular-nums">
           {String(index + 1).padStart(2, "0")} / {String(count).padStart(2, "0")}
         </span>
 
@@ -131,7 +131,7 @@ const SimfluentSlider = () => {
             type="button"
             onClick={prev}
             aria-label="Previous screen"
-            className="w-8 h-8 rounded-full border border-white/15 bg-white/5 text-white flex items-center justify-center hover:border-[#d6f928]/50 hover:text-[#d6f928] transition-colors"
+            className="w-8 h-8 rounded-full border border-line bg-surface text-ink shadow-[0_1px_3px_rgba(0,0,0,0.08)] flex items-center justify-center hover:border-accent-ink/45 hover:text-accent-ink transition-colors"
           >
             <ChevronLeft size={16} />
           </button>
@@ -139,7 +139,7 @@ const SimfluentSlider = () => {
             type="button"
             onClick={next}
             aria-label="Next screen"
-            className="w-8 h-8 rounded-full border border-white/15 bg-white/5 text-white flex items-center justify-center hover:border-[#d6f928]/50 hover:text-[#d6f928] transition-colors"
+            className="w-8 h-8 rounded-full border border-line bg-surface text-ink shadow-[0_1px_3px_rgba(0,0,0,0.08)] flex items-center justify-center hover:border-accent-ink/45 hover:text-accent-ink transition-colors"
           >
             <ChevronRight size={16} />
           </button>
@@ -155,7 +155,7 @@ const SimfluentSlider = () => {
             onClick={() => go(i)}
             aria-label={`Go to screen ${i + 1}`}
             aria-current={i === index}
-            className={`h-1.5 rounded-full transition-all ${i === index ? "w-6 bg-[#d6f928]" : "w-1.5 bg-white/20 hover:bg-white/40"}`}
+            className={`h-1.5 rounded-full transition-all ${i === index ? "w-6 bg-accent-ink" : "w-1.5 bg-line-strong hover:bg-ink-faint"}`}
           />
         ))}
       </div>

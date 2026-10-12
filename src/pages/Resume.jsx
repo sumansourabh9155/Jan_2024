@@ -148,22 +148,22 @@ const trackDownload = () => {
 const SectionCard = ({ eyebrow, title, subtitle, children, id }) => (
   <section
     id={id}
-    className="scroll-mt-24 bg-white/5 border border-white/10 backdrop-blur-md rounded-2xl p-6 md:p-8 mb-12 shadow-md"
+    className="scroll-mt-24 bg-surface-3/70 border border-line backdrop-blur-md rounded-2xl p-6 md:p-8 mb-12 shadow-md"
   >
-    <div className="inline-flex items-center gap-2 text-sm text-white mb-2">
-      <span className="text-gray-400">◎</span> {eyebrow}
+    <div className="inline-flex items-center gap-2 text-sm text-ink mb-2">
+      <span className="text-ink-muted">◎</span> {eyebrow}
     </div>
-    <h2 className={`text-2xl font-light text-white ${subtitle ? "mb-2" : "mb-6"}`}>
+    <h2 className={`text-2xl font-light text-ink ${subtitle ? "mb-2" : "mb-6"}`}>
       {title}
     </h2>
-    {subtitle && <p className="text-sm text-gray-400 mb-6 max-w-3xl">{subtitle}</p>}
+    {subtitle && <p className="text-sm text-ink-muted mb-6 max-w-3xl">{subtitle}</p>}
     {children}
   </section>
 );
 
 const Resume = () => {
   return (
-    <div className="bg-black text-white min-h-screen">
+    <div className="bg-surface text-ink min-h-screen">
       <SeoHead
         title="Resume: Suman Sourabh — Product Designer | B2B SaaS & AI Products"
         description="Product Designer with 2.5+ years of end-to-end design, from 0-to-1 builds to scaling live platforms, across B2B SaaS, agentic AI, and conversational products in AdTech, HealthTech, and CMS."
@@ -176,18 +176,18 @@ const Resume = () => {
       <main className="max-w-6xl mx-auto px-4 sm:px-6 pt-20">
         <section className="pt-24 pb-16">
           <div className="text-center mb-12">
-            <span className="inline-flex items-center px-4 py-1 rounded-full text-sm bg-white/10 border border-white/10 backdrop-blur-md mb-4">
+            <span className="inline-flex items-center px-4 py-1 rounded-full text-sm bg-surface-3 border border-line backdrop-blur-md mb-4">
               ◎ Product Designer
             </span>
             <h1 className="text-4xl font-light">
               Suman Sourabh,
-              <span className="font-medium text-gray-400"> Product Designer</span>
+              <span className="font-medium text-ink-muted"> Product Designer</span>
             </h1>
-            <p className="text-sm text-gray-400 mt-3 max-w-2xl mx-auto leading-relaxed">
+            <p className="text-sm text-ink-muted mt-3 max-w-2xl mx-auto leading-relaxed">
               B2B SaaS &amp; AI Products. 2.5+ years of end-to-end design, from 0-to-1
               builds to scaling live platforms, across AdTech, HealthTech, and CMS.
               Rare edge:{" "}
-              <span className="text-white">I ship what I design.</span>
+              <span className="text-ink">I ship what I design.</span>
             </p>
 
             {/* Download resume PDF — the thing recruiters actually want */}
@@ -195,9 +195,9 @@ const Resume = () => {
               href={RESUME_PDF}
               download
               onClick={trackDownload}
-              className="mt-6 inline-flex items-center gap-2 bg-white text-black px-6 py-3 rounded-full font-bold text-sm
-                hover:bg-[#d6f928] hover:scale-[1.02] active:scale-[0.99] transition-[transform,background-color] duration-200
-                shadow-[0_0_20px_rgba(255,255,255,0.12)]"
+              className="mt-6 inline-flex items-center gap-2 bg-ink text-surface px-6 py-3 rounded-full font-bold text-sm
+                hover:bg-accent hover:text-ink hover:scale-[1.02] active:scale-[0.99] transition-[transform,background-color,color] duration-200
+                shadow-[0_6px_20px_rgba(0,0,0,0.14)]"
             >
               <Download size={16} />
               Download Resume (PDF)
@@ -210,11 +210,11 @@ const Resume = () => {
               <Link
                 key={p.label}
                 to={p.to}
-                className="bg-white/5 border border-white/10 rounded-xl p-4 text-center hover:bg-white/10 hover:border-white/20 transition-colors"
+                className="bg-surface-3/70 border border-line rounded-xl p-4 text-center hover:bg-surface-3 hover:border-line-strong transition-colors"
               >
-                <div className="text-2xl font-semibold text-[#d6f928]">{p.value}</div>
-                <div className="text-xs text-gray-300 mt-1">{p.label}</div>
-                <div className="text-[10px] font-mono uppercase tracking-widest text-gray-500 mt-1">
+                <div className="text-2xl font-semibold text-accent-ink">{p.value}</div>
+                <div className="text-xs text-ink-soft mt-1">{p.label}</div>
+                <div className="text-[10px] font-mono uppercase tracking-widest text-ink-faint mt-1">
                   {p.where}
                 </div>
               </Link>
@@ -223,59 +223,59 @@ const Resume = () => {
 
           <div className="grid grid-cols-1 md:grid-cols-2 gap-10">
             {/* LEFT - Profile Card */}
-            <div className="bg-white/5 border border-white/10 rounded-2xl p-6 backdrop-blur-md shadow-lg">
+            <div className="bg-surface-3/70 border border-line rounded-2xl p-6 backdrop-blur-md shadow-lg">
               <div className="relative rounded-xl overflow-hidden mb-4 aspect-square">
                 <img
                   src={profilePic}
                   alt="Suman Sourabh"
                   className="rounded-xl w-full h-full object-cover"
                 />
-                <div className="absolute bottom-3 left-3 text-xs text-white bg-black/50 backdrop-blur px-2 py-0.5 rounded-full flex items-center gap-2">
-                  <span className="w-2 h-2 bg-green-400 rounded-full" />
+                <div className="absolute bottom-3 left-3 text-xs text-ink bg-surface-3/80 backdrop-blur px-2 py-0.5 rounded-full flex items-center gap-2">
+                  <span className="w-2 h-2 bg-green-600 rounded-full" />
                   Open to design roles
                 </div>
               </div>
               <h2 className="text-lg font-semibold">Hello, I am Suman Sourabh</h2>
               {/* py-1 on each row rather than space-y on the parent — it keeps the
                   same visual rhythm while lifting the links to a 26px tap target. */}
-              <div className="mt-3 text-sm text-gray-400">
+              <div className="mt-3 text-sm text-ink-muted">
                 <p className="flex items-center gap-2 py-1">
-                  <MapPin size={14} className="text-gray-500 shrink-0" /> Noida, India
+                  <MapPin size={14} className="text-ink-faint shrink-0" /> Noida, India
                 </p>
                 <a
                   href="mailto:sumansourabh9155@gmail.com"
-                  className="flex items-center gap-2 py-1 hover:text-white transition-colors break-all"
+                  className="flex items-center gap-2 py-1 hover:text-ink transition-colors break-all"
                 >
-                  <Mail size={14} className="text-gray-500 shrink-0" />{" "}
+                  <Mail size={14} className="text-ink-faint shrink-0" />{" "}
                   sumansourabh9155@gmail.com
                 </a>
                 <a
                   href="https://www.linkedin.com/in/sumansourabh9155/"
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="flex items-center gap-2 py-1 hover:text-white transition-colors"
+                  className="flex items-center gap-2 py-1 hover:text-ink transition-colors"
                 >
-                  <Linkedin size={14} className="text-gray-500 shrink-0" />{" "}
+                  <Linkedin size={14} className="text-ink-faint shrink-0" />{" "}
                   linkedin.com/in/sumansourabh9155
                 </a>
               </div>
             </div>
 
             {/* RIGHT - Summary */}
-            <div className="bg-white/5 border border-white/10 rounded-2xl p-6 backdrop-blur-md shadow-lg flex flex-col justify-between">
+            <div className="bg-surface-3/70 border border-line rounded-2xl p-6 backdrop-blur-md shadow-lg flex flex-col justify-between">
               <div>
-                <p className="text-md font-semibold text-gray-300">
+                <p className="text-md font-semibold text-ink-soft">
                   Product Designer — B2B SaaS &amp; AI Products.
                 </p>
-                <p className="text-sm text-gray-500 mt-1">
+                <p className="text-sm text-ink-faint mt-1">
                   B.Tech. Computer Science Engineering — Machine Learning specialization
                 </p>
-                <p className="text-sm text-gray-400 mt-4 leading-relaxed">
+                <p className="text-sm text-ink-muted mt-4 leading-relaxed">
                   I design across the full arc: discovery and user research through user
                   flows, wireframes, interaction design, high-fidelity prototypes, design
                   systems, and post-launch iteration.
                 </p>
-                <p className="text-sm text-gray-400 mt-3 leading-relaxed">
+                <p className="text-sm text-ink-muted mt-3 leading-relaxed">
                   My CS + ML degree is the edge — I build in React and Tailwind, and I
                   design agentic, conversational AI experiences that engineers can
                   implement and models can actually serve.
@@ -283,12 +283,12 @@ const Resume = () => {
               </div>
               <div className="flex flex-col sm:flex-row gap-3 mt-6">
                 <Link to="/contact" className="flex-1">
-                  <button className="bg-white text-black w-full py-2 rounded-full text-sm font-medium hover:opacity-90 transition">
+                  <button className="bg-ink text-surface w-full py-2 rounded-full text-sm font-medium hover:bg-ink-soft transition-colors">
                     Connect with me
                   </button>
                 </Link>
                 <Link to="/#case-studies" className="flex-1">
-                  <button className="border border-white/20 text-white w-full py-2 rounded-full text-sm font-medium hover:bg-white/10 transition">
+                  <button className="border border-line text-ink w-full py-2 rounded-full text-sm font-medium hover:bg-surface-3 transition">
                     See the work
                   </button>
                 </Link>
@@ -304,44 +304,44 @@ const Resume = () => {
           title={
             <>
               One Designer.{" "}
-              <span className="text-gray-400">Every room in the building.</span>
+              <span className="text-ink-muted">Every room in the building.</span>
             </>
           }
         >
-          <div className="space-y-4 text-sm text-gray-300 leading-relaxed max-w-3xl">
+          <div className="space-y-4 text-sm text-ink-soft leading-relaxed max-w-3xl">
             <p>
               I design from the problem, not the pixels — I kept watching teams build the wrong thing
-              because nobody validated the problem first. My <span className="text-white font-medium">CS degree
+              because nobody validated the problem first. My <span className="text-ink font-medium">CS degree
               with an ML specialization</span> means I can read the codebase, prototype in React, and hand
               engineering designs they can actually ship.
             </p>
             <p>
               I don&apos;t design from opinions. I run user interviews, pull{" "}
-              <span className="text-white font-medium">behavioral data via SQL</span>, and validate with
+              <span className="text-ink font-medium">behavioral data via SQL</span>, and validate with
               usability testing. Nothing ships until the team can point to the research, the interview
               quote, or the usability finding behind it.
             </p>
             <p>
-              I&apos;ve designed and shipped <span className="text-white font-medium">AI-native experiences</span>{" "}
+              I&apos;ve designed and shipped <span className="text-ink font-medium">AI-native experiences</span>{" "}
               with Claude and Gemini, built design systems adopted across products, and closed the
               design-to-code loop myself in React and Tailwind. Craft and velocity — not one at the cost of the other.
             </p>
           </div>
           <div className="mt-8 grid grid-cols-1 md:grid-cols-3 gap-4">
-            <div className="bg-black/40 border border-white/10 rounded-lg p-4">
-              <Layers size={22} className="text-blue-400 mb-2" />
-              <h4 className="text-sm font-semibold text-white mb-1">End-to-End Design</h4>
-              <p className="text-xs text-gray-400">Research, interaction, visual, and design systems — I own the full design lifecycle, not just the handoff.</p>
+            <div className="bg-surface-3/70 border border-line rounded-lg p-4">
+              <Layers size={22} className="text-blue-700 mb-2" />
+              <h4 className="text-sm font-semibold text-ink mb-1">End-to-End Design</h4>
+              <p className="text-xs text-ink-muted">Research, interaction, visual, and design systems — I own the full design lifecycle, not just the handoff.</p>
             </div>
-            <div className="bg-black/40 border border-white/10 rounded-lg p-4">
-              <Sparkles size={22} className="text-green-400 mb-2" />
-              <h4 className="text-sm font-semibold text-white mb-1">AI-Native UX</h4>
-              <p className="text-xs text-gray-400">I design agentic and conversational experiences — clarification, confirmation, and recovery patterns that models can actually serve.</p>
+            <div className="bg-surface-3/70 border border-line rounded-lg p-4">
+              <Sparkles size={22} className="text-green-800 mb-2" />
+              <h4 className="text-sm font-semibold text-ink mb-1">AI-Native UX</h4>
+              <p className="text-xs text-ink-muted">I design agentic and conversational experiences — clarification, confirmation, and recovery patterns that models can actually serve.</p>
             </div>
-            <div className="bg-black/40 border border-white/10 rounded-lg p-4">
-              <Code size={22} className="text-yellow-400 mb-2" />
-              <h4 className="text-sm font-semibold text-white mb-1">Design Engineer Edge</h4>
-              <p className="text-xs text-gray-400">CS/ML degree. I prototype in React and Tailwind, so I ship what I design — zero design-to-code drift.</p>
+            <div className="bg-surface-3/70 border border-line rounded-lg p-4">
+              <Code size={22} className="text-yellow-700 mb-2" />
+              <h4 className="text-sm font-semibold text-ink mb-1">Design Engineer Edge</h4>
+              <p className="text-xs text-ink-muted">CS/ML degree. I prototype in React and Tailwind, so I ship what I design — zero design-to-code drift.</p>
             </div>
           </div>
         </SectionCard>
@@ -349,16 +349,16 @@ const Resume = () => {
         {/* Experience */}
         <SectionCard eyebrow="Work Experience" title="Where I’ve Worked">
           {/* Current role, broken out by product track */}
-          <div className="border-l border-white/10 pl-5 md:pl-6">
+          <div className="border-l border-line pl-5 md:pl-6">
             <div className="flex flex-col md:flex-row md:items-baseline md:justify-between gap-1 mb-2">
-              <h3 className="text-lg font-semibold text-white">
+              <h3 className="text-lg font-semibold text-ink">
                 {SHYFTLABS.role} · {SHYFTLABS.company}
               </h3>
-              <p className="text-xs font-mono uppercase tracking-widest text-gray-500 whitespace-nowrap">
+              <p className="text-xs font-mono uppercase tracking-widest text-ink-faint whitespace-nowrap">
                 {SHYFTLABS.duration}
               </p>
             </div>
-            <p className="text-sm text-gray-400 leading-relaxed max-w-3xl mb-6">
+            <p className="text-sm text-ink-muted leading-relaxed max-w-3xl mb-6">
               {SHYFTLABS.intro}
             </p>
 
@@ -366,26 +366,26 @@ const Resume = () => {
               {SHYFTLABS.tracks.map((track) => (
                 <div
                   key={track.name}
-                  className="bg-black/40 border border-white/10 rounded-xl p-5"
+                  className="bg-surface-3/70 border border-line rounded-xl p-5"
                 >
                   {/* items-center, not items-baseline: the link carries py-2 for a
                       28px tap target, and centring keeps that padding symmetric. */}
                   <div className="flex flex-wrap items-center gap-x-3 gap-y-1 mb-3">
-                    <h4 className="text-sm font-semibold text-white">{track.name}</h4>
-                    <span className="text-xs text-gray-500">{track.context}</span>
+                    <h4 className="text-sm font-semibold text-ink">{track.name}</h4>
+                    <span className="text-xs text-ink-faint">{track.context}</span>
                     {track.to && (
                       <Link
                         to={track.to}
-                        className="text-xs text-[#d6f928] hover:underline ml-auto whitespace-nowrap py-2"
+                        className="text-xs text-accent-ink hover:underline ml-auto whitespace-nowrap py-2"
                       >
                         Read the case study →
                       </Link>
                     )}
                   </div>
-                  <ul className="space-y-2 text-sm text-gray-400">
+                  <ul className="space-y-2 text-sm text-ink-muted">
                     {track.points.map((point) => (
                       <li key={point} className="flex gap-2.5 leading-relaxed">
-                        <span className="text-gray-600 shrink-0 mt-[3px]">—</span>
+                        <span className="text-ink-ghost shrink-0 mt-[3px]">—</span>
                         <span>{point}</span>
                       </li>
                     ))}
@@ -402,21 +402,21 @@ const Resume = () => {
           title="Before and alongside"
           subtitle="Consulting and studio work — where I learned to own scope end to end with no one above me to catch it."
         >
-          <div className="space-y-8 border-l border-white/10 pl-5 md:pl-6">
+          <div className="space-y-8 border-l border-line pl-5 md:pl-6">
             {EARLY.map((job) => (
               <div key={job.company}>
                 <div className="flex flex-col md:flex-row md:items-baseline md:justify-between gap-1">
-                  <h3 className="text-base font-semibold text-white">
+                  <h3 className="text-base font-semibold text-ink">
                     {job.role} · {job.company}
                   </h3>
-                  <p className="text-xs font-mono uppercase tracking-widest text-gray-500 whitespace-nowrap">
+                  <p className="text-xs font-mono uppercase tracking-widest text-ink-faint whitespace-nowrap">
                     {job.duration}
                   </p>
                 </div>
-                <ul className="mt-2 space-y-2 text-sm text-gray-400">
+                <ul className="mt-2 space-y-2 text-sm text-ink-muted">
                   {job.points.map((point) => (
                     <li key={point} className="flex gap-2.5 leading-relaxed">
-                      <span className="text-gray-600 shrink-0 mt-[3px]">—</span>
+                      <span className="text-ink-ghost shrink-0 mt-[3px]">—</span>
                       <span>{point}</span>
                     </li>
                   ))}
@@ -431,14 +431,14 @@ const Resume = () => {
           <div className="space-y-6">
             {SKILLS.map((s) => (
               <div key={s.group}>
-                <h3 className="text-xs font-mono uppercase tracking-widest text-[#d6f928] mb-3">
+                <h3 className="text-xs font-mono uppercase tracking-widest text-accent-ink mb-3">
                   {s.group}
                 </h3>
                 <div className="flex flex-wrap gap-2">
                   {s.items.map((item) => (
                     <span
                       key={item}
-                      className="text-xs text-gray-300 bg-black/40 border border-white/10 px-3 py-1 rounded-md"
+                      className="text-xs text-ink-soft bg-surface-3/70 border border-line px-3 py-1 rounded-md"
                     >
                       {item}
                     </span>
@@ -451,51 +451,51 @@ const Resume = () => {
 
         {/* Education + Community, side by side to keep the page tight */}
         <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mb-12">
-          <section className="bg-white/5 border border-white/10 backdrop-blur-md rounded-2xl p-6 md:p-8 shadow-md">
-            <div className="inline-flex items-center gap-2 text-sm text-white mb-2">
-              <span className="text-gray-400">◎</span> Education
+          <section className="bg-surface-3/70 border border-line backdrop-blur-md rounded-2xl p-6 md:p-8 shadow-md">
+            <div className="inline-flex items-center gap-2 text-sm text-ink mb-2">
+              <span className="text-ink-muted">◎</span> Education
             </div>
-            <h2 className="text-2xl font-light mb-6 text-white">Where I trained</h2>
+            <h2 className="text-2xl font-light mb-6 text-ink">Where I trained</h2>
             <div className="flex gap-4">
-              <div className="w-10 h-10 rounded-lg bg-[#d6f928]/10 border border-[#d6f928]/20 flex items-center justify-center shrink-0">
-                <GraduationCap size={18} className="text-[#d6f928]" />
+              <div className="w-10 h-10 rounded-lg bg-accent/25 border border-accent-ink/30 flex items-center justify-center shrink-0">
+                <GraduationCap size={18} className="text-accent-ink" />
               </div>
               <div>
-                <h3 className="text-sm font-semibold text-white leading-snug">
+                <h3 className="text-sm font-semibold text-ink leading-snug">
                   B.Tech Computer Science Engineering
                 </h3>
-                <p className="text-sm text-gray-400 mt-0.5">
+                <p className="text-sm text-ink-muted mt-0.5">
                   Machine Learning specialization
                 </p>
-                <p className="text-xs text-gray-500 mt-2">
+                <p className="text-xs text-ink-faint mt-2">
                   Lovely Professional University · Jalandhar, Punjab
                 </p>
               </div>
             </div>
-            <p className="text-xs text-gray-500 leading-relaxed mt-6 pt-6 border-t border-white/10">
+            <p className="text-xs text-ink-faint leading-relaxed mt-6 pt-6 border-t border-line">
               The degree is why I can read a codebase, write the SQL behind my own research,
               and design AI features with engineering at eye level.
             </p>
           </section>
 
-          <section className="bg-white/5 border border-white/10 backdrop-blur-md rounded-2xl p-6 md:p-8 shadow-md">
-            <div className="inline-flex items-center gap-2 text-sm text-white mb-2">
-              <span className="text-gray-400">◎</span> Community &amp; Achievements
+          <section className="bg-surface-3/70 border border-line backdrop-blur-md rounded-2xl p-6 md:p-8 shadow-md">
+            <div className="inline-flex items-center gap-2 text-sm text-ink mb-2">
+              <span className="text-ink-muted">◎</span> Community &amp; Achievements
             </div>
-            <h2 className="text-2xl font-light mb-6 text-white">
+            <h2 className="text-2xl font-light mb-6 text-ink">
               Outside the day job
             </h2>
             <ul className="space-y-4">
               {ACHIEVEMENTS.map((a) => (
-                <li key={a} className="flex gap-3 text-sm text-gray-400 leading-relaxed">
-                  <Trophy size={14} className="text-[#d6f928] shrink-0 mt-1" />
+                <li key={a} className="flex gap-3 text-sm text-ink-muted leading-relaxed">
+                  <Trophy size={14} className="text-accent-ink shrink-0 mt-1" />
                   <span>{a}</span>
                 </li>
               ))}
             </ul>
             <Link
               to="/#speaking"
-              className="inline-block text-xs text-[#d6f928] hover:underline mt-6 pt-6 border-t border-white/10 w-full"
+              className="inline-block text-xs text-accent-ink hover:underline mt-6 pt-6 border-t border-line w-full"
             >
               See photos from the seminars →
             </Link>

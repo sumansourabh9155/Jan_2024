@@ -51,24 +51,30 @@ const Navbar = () => {
           ${isVisible ? "translate-y-6 opacity-100" : "-translate-y-full opacity-0"}
         `}
       >
-        <header className="relative flex items-center justify-between px-6 py-3 bg-[#0a0a0a]/80 backdrop-blur-xl border border-white/10 rounded-full shadow-[0_8px_32px_rgba(0,0,0,0.5)]">
+        {/* The bar floats over whatever it is scrolling across, so it needs a
+            real shadow to separate. 0.5 black was a dark-theme value — over a
+            light page it read as a grey bruise rather than a lift. */}
+        <header className="relative flex items-center justify-between px-6 py-3 bg-surface-2/95 backdrop-blur-xl border border-line rounded-full shadow-[0_6px_24px_rgba(0,0,0,0.10)]">
 
           {/* Left: Logo */}
           <Link
             to="/"
             className="flex items-center gap-2 group"
           >
-            <div className={`relative flex items-center justify-center w-8 h-8 rounded-full bg-white/5 border transition-colors ${location.pathname === "/" ? "border-[#d6f928]/50" : "border-white/10 group-hover:border-[#d6f928]/50"}`}>
-              <span className={`font-mono font-bold text-xs transition-colors ${location.pathname === "/" ? "text-[#d6f928]" : "text-white group-hover:text-[#d6f928]"}`}>S</span>
+            {/* Solid plate, not a tint: the olive mark only clears AA against
+                a near-white backdrop, and this bar floats over whatever it is
+                scrolling across. */}
+            <div className={`relative flex items-center justify-center w-8 h-8 rounded-full bg-surface border transition-colors ${location.pathname === "/" ? "border-accent-ink/45" : "border-line group-hover:border-accent-ink/45"}`}>
+              <span className={`font-mono font-bold text-xs transition-colors ${location.pathname === "/" ? "text-accent-ink" : "text-ink group-hover:text-accent-ink"}`}>S</span>
             </div>
             <div className="flex flex-col">
-              <span className="text-white font-medium text-sm leading-none tracking-wide">Suman Sourabh</span>
-              <span className={`text-[10px] font-mono mt-0.5 transition-colors ${location.pathname === "/" ? "text-[#d6f928]" : "text-gray-500 group-hover:text-[#d6f928]"}`}>Product Designer · AI-Native </span>
+              <span className="text-ink font-medium text-sm leading-none tracking-wide">Suman Sourabh</span>
+              <span className={`text-[10px] font-mono mt-0.5 transition-colors ${location.pathname === "/" ? "text-accent-ink" : "text-ink-faint group-hover:text-accent-ink"}`}>Product Designer · AI-Native </span>
             </div>
           </Link>
 
           {/* Middle: Desktop Nav */}
-          <nav aria-label="Main navigation" className="hidden md:flex items-center gap-1 bg-white/5 px-2 py-1 rounded-full border border-white/5">
+          <nav aria-label="Main navigation" className="hidden md:flex items-center gap-1 bg-surface-3/70 px-2 py-1 rounded-full border border-line-soft">
             {navLinks.map(({ to, text }) => {
               // Hash links all share the "/" path, so derive active state from the hash.
               const isActive = to.startsWith("/#")
@@ -80,8 +86,8 @@ const Navbar = () => {
                   to={to}
                   className={`px-4 py-1.5 rounded-full text-xs font-medium transition-all duration-300
                   ${isActive
-                      ? "bg-[#d6f928] text-black shadow-[0_0_15px_rgba(214,249,40,0.4)]"
-                      : "text-gray-400 hover:text-white hover:bg-white/5"
+                      ? "bg-accent text-ink shadow-[0_4px_15px_rgba(0,0,0,0.08)]"
+                      : "text-ink-muted hover:text-ink hover:bg-surface-3/70"
                     }`}
                 >
                   {text}
@@ -94,7 +100,7 @@ const Navbar = () => {
           <div className="hidden md:flex items-center">
             <Link
               to="/contact"
-              className="group flex items-center gap-2 px-5 py-2 text-xs font-semibold bg-white text-black border border-transparent rounded-full hover:bg-gray-200 transition-all active:scale-95"
+              className="group flex items-center gap-2 px-5 py-2 text-xs font-semibold bg-ink text-surface border border-transparent rounded-full hover:bg-ink-soft transition-all active:scale-95"
             >
               Let&apos;s Work Together
               <ArrowRight size={14} className="group-hover:translate-x-0.5 transition-transform" />
@@ -104,7 +110,7 @@ const Navbar = () => {
           {/* Mobile Toggle */}
           <button
             onClick={() => setIsMenuOpen(!isMenuOpen)}
-            className="md:hidden p-2 text-gray-400 hover:text-white transition-colors"
+            className="md:hidden p-2 text-ink-muted hover:text-ink transition-colors"
           >
             {isMenuOpen ? <X size={24} /> : <Menu size={24} />}
           </button>
@@ -112,7 +118,7 @@ const Navbar = () => {
 
         {/* Mobile Menu Dropdown */}
         <div
-          className={`md:hidden absolute top-full left-0 w-full mt-2 bg-[#0a0a0a] border border-white/10 rounded-2xl overflow-hidden shadow-2xl transition-all duration-300 origin-top
+          className={`md:hidden absolute top-full left-0 w-full mt-2 bg-surface-2 border border-line rounded-2xl overflow-hidden shadow-2xl transition-all duration-300 origin-top
             ${isMenuOpen ? "opacity-100 scale-100 max-h-96" : "opacity-0 scale-95 max-h-0 pointer-events-none"}
             `}
         >
@@ -127,8 +133,8 @@ const Navbar = () => {
                   to={to}
                   className={`px-4 py-3 rounded-xl text-sm font-medium transition-colors
                     ${isActive
-                      ? "bg-white/10 text-[#d6f928] border border-[#d6f928]/20"
-                      : "text-gray-400 hover:text-white hover:bg-white/5"
+                      ? "bg-surface-3 text-accent-ink border border-accent-ink/30"
+                      : "text-ink-muted hover:text-ink hover:bg-surface-3/70"
                     }`}
                 >
                   {text}
@@ -136,11 +142,13 @@ const Navbar = () => {
               );
             })}
 
-            <div className="h-px bg-white/10 my-2"></div>
+            <div className="h-px bg-surface-3 my-2"></div>
 
             <Link
               to="/contact"
-              className="flex items-center justify-center gap-2 px-4 py-3 text-sm font-bold bg-[#d6f928] text-black rounded-xl hover:opacity-90 transition-opacity"
+              // Darken on hover. Dropping opacity blends the button toward the
+              // page, which on white made it fade out instead of respond.
+              className="flex items-center justify-center gap-2 px-4 py-3 text-sm font-bold bg-accent text-ink rounded-xl hover:bg-accent-ink hover:text-surface transition-colors"
             >
               Let&apos;s Work Together <ArrowRight size={16} />
             </Link>

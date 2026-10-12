@@ -245,27 +245,27 @@ export default function ExpenseDashboard() {
     const cat = category?.toLowerCase() || "";
     if (cat.includes("high") || cat.includes("loan"))
       return {
-        badge: "text-red-500 bg-red-500/10 border-red-500/20",
+        badge: "text-red-700 bg-red-500/10 border-red-500/20",
         bar: "bg-red-500",
-        text: "text-red-500",
+        text: "text-red-700",
       };
     if (cat.includes("salary"))
       return {
-        badge: "text-green-500 bg-green-500/10 border-green-500/20",
+        badge: "text-green-800 bg-green-500/10 border-green-500/20",
         bar: "bg-green-500",
-        text: "text-green-500",
+        text: "text-green-800",
       };
     if (cat.includes("shopping"))
       return {
-        badge: "text-yellow-500 bg-yellow-500/10 border-yellow-500/20",
+        badge: "text-yellow-700 bg-yellow-500/10 border-yellow-500/20",
         bar: "bg-yellow-500",
-        text: "text-yellow-500",
+        text: "text-yellow-700",
       };
     return {
       badge:
-        "text-gray-400 bg-white/5 border-white/5 group-hover:border-white/10",
-      bar: "bg-gradient-to-r from-gray-600 to-gray-400 group-hover:from-[#d6f928] group-hover:to-green-400",
-      text: "text-gray-300",
+        "text-ink-muted bg-surface-3/70 border-line-soft group-hover:border-line-strong",
+      bar: "bg-ink-muted group-hover:bg-accent-ink",
+      text: "text-ink-soft",
     };
   };
 
@@ -285,8 +285,8 @@ export default function ExpenseDashboard() {
 
   if (loading && allData.length === 0)
     return (
-      <div className="min-h-screen bg-[#050505] flex items-center justify-center text-gray-400">
-        <RefreshCw className="animate-spin text-[#d6f928]" size={32} />
+      <div className="min-h-screen bg-surface-2 flex items-center justify-center text-ink-muted">
+        <RefreshCw className="animate-spin text-accent-ink" size={32} />
       </div>
     );
 
@@ -300,7 +300,7 @@ export default function ExpenseDashboard() {
       />
       <Navbar />
 
-      <div className="min-h-screen pt-24 bg-[#050505] text-white font-sans selection:bg-[#d6f928] selection:text-black relative overflow-hidden">
+      <div className="min-h-screen pt-24 bg-surface-2 text-ink font-sans selection:bg-accent selection:text-ink relative overflow-hidden">
         <div
           className="fixed inset-0 opacity-[0.03] pointer-events-none"
           style={{
@@ -311,25 +311,25 @@ export default function ExpenseDashboard() {
         <div className="fixed top-0 left-1/2 -translate-x-1/2 w-[1000px] h-[600px] bg-blue-500/10 blur-[150px] rounded-full pointer-events-none"></div>
 
         <div className="max-w-7xl mx-auto px-6 py-12 relative z-10">
-          <div className="flex flex-col md:flex-row justify-between items-start md:items-end gap-6 mb-12 border-b border-white/10 pb-8">
+          <div className="flex flex-col md:flex-row justify-between items-start md:items-end gap-6 mb-12 border-b border-line pb-8">
             <div>
-              <div className="inline-flex items-center gap-2 text-xs font-mono text-[#d6f928] tracking-widest uppercase mb-3">
-                <span className="w-2 h-2 rounded-full bg-[#d6f928] animate-pulse"></span>
+              <div className="inline-flex items-center gap-2 text-xs font-mono text-accent-ink tracking-widest uppercase mb-3">
+                <span className="w-2 h-2 rounded-full bg-accent animate-pulse"></span>
                 Live Financial System
               </div>
-              <h1 className="text-4xl font-bold text-white tracking-tight">
-                Expense <span className="text-gray-500">Analytics</span>
+              <h1 className="text-4xl font-bold text-ink tracking-tight">
+                Expense <span className="text-ink-faint">Analytics</span>
               </h1>
             </div>
             <div className="flex items-center gap-3">
               <div className="relative group">
-                <div className="absolute left-3 top-1/2 -translate-y-1/2 text-gray-400 pointer-events-none">
+                <div className="absolute left-3 top-1/2 -translate-y-1/2 text-ink-muted pointer-events-none">
                   <Calendar size={14} />
                 </div>
                 <select
                   value={selectedMonth}
                   onChange={(e) => setSelectedMonth(e.target.value)}
-                  className="appearance-none bg-[#0a0a0a] border border-white/10 text-white py-2.5 pl-10 pr-10 rounded-lg text-sm font-medium focus:outline-none focus:border-white/30 focus:ring-1 focus:ring-white/20 transition-all cursor-pointer hover:bg-white/5 min-w-[180px]"
+                  className="appearance-none bg-surface-2 border border-line text-ink py-2.5 pl-10 pr-10 rounded-lg text-sm font-medium focus:outline-none focus:border-line-strong focus:ring-1 focus:ring-line-strong transition-all cursor-pointer hover:bg-surface-3/70 min-w-[180px]"
                 >
                   {availableMonths.map((month) => (
                     <option key={month} value={month}>
@@ -337,13 +337,13 @@ export default function ExpenseDashboard() {
                     </option>
                   ))}
                 </select>
-                <div className="absolute right-3 top-1/2 -translate-y-1/2 pointer-events-none text-gray-500">
+                <div className="absolute right-3 top-1/2 -translate-y-1/2 pointer-events-none text-ink-faint">
                   <ChevronDown size={12} />
                 </div>
               </div>
               <button
                 onClick={fetchData}
-                className="p-2.5 bg-[#0a0a0a] border border-white/10 text-gray-400 hover:text-white hover:border-white/30 rounded-lg transition-all group"
+                className="p-2.5 bg-surface-2 border border-line text-ink-muted hover:text-ink hover:border-line-strong rounded-lg transition-all group"
               >
                 <RefreshCw
                   size={18}
@@ -358,14 +358,14 @@ export default function ExpenseDashboard() {
                 href="https://docs.google.com/spreadsheets/d/16GyzSutUEa9KFAgaYHTNBfEh_04m7cVHkBvjGNFukOg/edit?usp=sharing"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="p-2.5 bg-[#0a0a0a] border border-white/10 text-gray-400 hover:text-white hover:border-white/30 rounded-lg transition-all group"
+                className="p-2.5 bg-surface-2 border border-line text-ink-muted hover:text-ink hover:border-line-strong rounded-lg transition-all group"
               >
                 Sheet
               </a>
 
               <button
                 onClick={() => setIsModalOpen(true)}
-                className="flex items-center gap-2 bg-white text-black px-4 py-2.5 rounded-lg font-bold text-sm hover:bg-[#d6f928] transition-colors shadow-lg shadow-white/5"
+                className="flex items-center gap-2 bg-ink text-surface px-4 py-2.5 rounded-lg font-bold text-sm hover:bg-accent hover:text-ink transition-colors shadow-lg shadow-line"
               >
                 <Plus size={18} />
                 <span>Add</span>
@@ -377,70 +377,70 @@ export default function ExpenseDashboard() {
             <div className="lg:col-span-2">
               <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mb-12">
                 {/* Card 1: Income */}
-                <div className="bg-white/5 border border-white/10 backdrop-blur-md rounded-2xl p-6 hover:border-white/20 transition-all group">
+                <div className="bg-surface-3/70 border border-line backdrop-blur-md rounded-2xl p-6 hover:border-line-strong transition-all group">
                   <div className="flex justify-between items-start mb-4">
                     <div className="w-10 h-10 bg-green-500/10 border border-green-500/20 rounded-lg flex items-center justify-center">
-                      <TrendingUp size={20} className="text-green-400" />
+                      <TrendingUp size={20} className="text-green-800" />
                     </div>
-                    <span className="text-xs font-mono text-green-400 bg-green-500/10 px-2 py-1 rounded">
+                    <span className="text-xs font-mono text-green-800 bg-green-500/10 px-2 py-1 rounded">
                       + Inflow
                     </span>
                   </div>
-                  <p className="text-sm text-gray-400 mb-1">Total Income</p>
-                  <h2 className="text-3xl font-bold text-green-500 font-mono tracking-tight group-hover:scale-105 transition-transform origin-left">
+                  <p className="text-sm text-ink-muted mb-1">Total Income</p>
+                  <h2 className="text-3xl font-bold text-green-800 font-mono tracking-tight group-hover:scale-105 transition-transform origin-left">
                     {formatCurrency(summary.income)}
                   </h2>
                 </div>
 
                 {/* Card 2: Expense */}
-                <div className="bg-white/5 border border-white/10 backdrop-blur-md rounded-2xl p-6 hover:border-white/20 transition-all group">
+                <div className="bg-surface-3/70 border border-line backdrop-blur-md rounded-2xl p-6 hover:border-line-strong transition-all group">
                   <div className="flex justify-between items-start mb-4">
                     <div className="w-10 h-10 bg-red-500/10 border border-red-500/20 rounded-lg flex items-center justify-center">
-                      <TrendingDown size={20} className="text-red-400" />
+                      <TrendingDown size={20} className="text-red-700" />
                     </div>
-                    <span className="text-xs font-mono text-red-400 bg-red-500/10 px-2 py-1 rounded">
+                    <span className="text-xs font-mono text-red-700 bg-red-500/10 px-2 py-1 rounded">
                       - Outflow
                     </span>
                   </div>
-                  <p className="text-sm text-gray-400 mb-1">Total Expenses</p>
-                  <h2 className="text-3xl font-bold text-red-500 font-mono tracking-tight group-hover:scale-105 transition-transform origin-left">
+                  <p className="text-sm text-ink-muted mb-1">Total Expenses</p>
+                  <h2 className="text-3xl font-bold text-red-700 font-mono tracking-tight group-hover:scale-105 transition-transform origin-left">
                     {formatCurrency(summary.expense)}
                   </h2>
                 </div>
 
                 {/* Card 3: Balance */}
-                <div className="bg-gradient-to-br from-white/10 to-white/5 border border-white/20 backdrop-blur-md rounded-2xl p-6 relative overflow-hidden group">
+                <div className="bg-surface-3 border border-line backdrop-blur-md rounded-2xl p-6 relative overflow-hidden group">
                   <div className="absolute top-0 right-0 w-32 h-32 bg-blue-500/20 blur-[50px] rounded-full pointer-events-none"></div>
 
                   <div className="flex justify-between items-start mb-4 relative z-10">
                     <div className="w-10 h-10 bg-blue-500/20 border border-blue-500/30 rounded-lg flex items-center justify-center">
-                      <Wallet size={20} className="text-blue-400" />
+                      <Wallet size={20} className="text-blue-700" />
                     </div>
                     <span
-                      className={`text-xs font-mono px-2 py-1 rounded ${summary.balance >= 0 ? "text-blue-400 bg-blue-500/10" : "text-red-400 bg-red-500/10"}`}
+                      className={`text-xs font-mono px-2 py-1 rounded ${summary.balance >= 0 ? "text-blue-700 bg-blue-500/10" : "text-red-700 bg-red-500/10"}`}
                     >
                       Net Position
                     </span>
                   </div>
-                  <p className="text-sm text-gray-300 mb-1 relative z-10">
+                  <p className="text-sm text-ink-soft mb-1 relative z-10">
                     Available Balance
                   </p>
                   <h2
-                    className={`text-3xl font-bold font-mono tracking-tight relative z-10 ${summary.balance >= 0 ? "text-white" : "text-red-400"}`}
+                    className={`text-3xl font-bold font-mono tracking-tight relative z-10 ${summary.balance >= 0 ? "text-ink" : "text-red-700"}`}
                   >
                     {formatCurrency(summary.balance)}
                   </h2>
                 </div>
               </div>
-              <div className=" bg-white/5 border border-white/10 backdrop-blur-md rounded-2xl p-6 hover:border-white/20  p-6">
+              <div className=" bg-surface-3/70 border border-line backdrop-blur-md rounded-2xl p-6 hover:border-line-strong  p-6">
                 <div className="flex items-center justify-between mb-6">
                   <div className="flex items-center gap-3">
-                    <Activity size={18} className="text-[#d6f928]" />
-                    <h3 className="font-bold text-lg text-white">
+                    <Activity size={18} className="text-accent-ink" />
+                    <h3 className="font-bold text-lg text-ink">
                       Daily Burn Rate
                     </h3>
                   </div>
-                  <span className="text-xs text-gray-500 font-mono uppercase tracking-widest">
+                  <span className="text-xs text-ink-faint font-mono uppercase tracking-widest">
                     Trend
                   </span>
                 </div>
@@ -460,19 +460,19 @@ export default function ExpenseDashboard() {
                         >
                           <stop
                             offset="5%"
-                            stopColor="#d6f928"
+                            stopColor="#5E7000"
                             stopOpacity={0.3}
                           />
                           <stop
                             offset="95%"
-                            stopColor="#d6f928"
+                            stopColor="#5E7000"
                             stopOpacity={0}
                           />
                         </linearGradient>
                       </defs>
                       <CartesianGrid
                         vertical={false}
-                        stroke="rgba(255,255,255,0.05)"
+                        stroke="rgba(0,0,0,0.07)"
                       />
                       <XAxis
                         dataKey="day"
@@ -489,25 +489,25 @@ export default function ExpenseDashboard() {
                       <Tooltip
                         content={({ active, payload, label }) =>
                           active && payload ? (
-                            <div className="bg-[#0a0a0a] border border-white/10 p-3 rounded-lg shadow-xl">
-                              <p className="text-gray-400 text-xs mb-1 font-mono">
+                            <div className="bg-surface-2 border border-line p-3 rounded-lg shadow-xl">
+                              <p className="text-ink-muted text-xs mb-1 font-mono">
                                 Day {label}
                               </p>
-                              <p className="text-white font-bold text-sm font-mono">
+                              <p className="text-ink font-bold text-sm font-mono">
                                 {formatCurrency(payload[0].value)}
                               </p>
                             </div>
                           ) : null
                         }
                         cursor={{
-                          stroke: "rgba(255,255,255,0.1)",
+                          stroke: "rgba(0,0,0,0.12)",
                           strokeWidth: 1,
                         }}
                       />
                       <Area
                         type="monotone"
                         dataKey="amount"
-                        stroke="#d6f928"
+                        stroke="#5E7000"
                         strokeWidth={2}
                         fillOpacity={1}
                         fill="url(#colorSplit)"
@@ -518,16 +518,16 @@ export default function ExpenseDashboard() {
               </div>
             </div>
             <div className="lg:col-span-1">
-              <div className="bg-white/5 border border-white/10 backdrop-blur-md rounded-2xl p-6 hover:border-white/20  p-6 h-full">
+              <div className="bg-surface-3/70 border border-line backdrop-blur-md rounded-2xl p-6 hover:border-line-strong  p-6 h-full">
                 <div className="flex items-center gap-3 mb-6">
-                  <PieChart size={18} className="text-gray-400" />
-                  <h3 className="font-bold text-lg text-white">Allocation</h3>
+                  <PieChart size={18} className="text-ink-muted" />
+                  <h3 className="font-bold text-lg text-ink">Allocation</h3>
                 </div>
 
                 <div className="space-y-6">
                   {categoryStats.length === 0 ? (
                     <div className="text-center py-10">
-                      <p className="text-gray-500 text-sm">No data recorded.</p>
+                      <p className="text-ink-faint text-sm">No data recorded.</p>
                     </div>
                   ) : (
                     categoryStats.map((cat, idx) => {
@@ -540,11 +540,11 @@ export default function ExpenseDashboard() {
                             >
                               {cat.name}
                             </span>
-                            <span className="font-mono text-xs text-gray-500 group-hover:text-white transition-colors">
+                            <span className="font-mono text-xs text-ink-faint group-hover:text-ink transition-colors">
                               {formatCurrency(cat.value)}
                             </span>
                           </div>
-                          <div className="w-full bg-white/5 rounded-sm h-1.5 overflow-hidden">
+                          <div className="w-full bg-surface-3/70 rounded-sm h-1.5 overflow-hidden">
                             <div
                               className={`h-full rounded-sm transition-all duration-1000 ease-out ${styles.bar}`}
                               style={{
@@ -562,15 +562,15 @@ export default function ExpenseDashboard() {
           </div>
 
           {/* LEDGER ROW - WITH ADVANCED FILTERS */}
-          <div className="bg-[#0a0a0a] border border-white/10 rounded-2xl overflow-hidden min-h-[500px] flex flex-col">
+          <div className="bg-surface-2 border border-line rounded-2xl overflow-hidden min-h-[500px] flex flex-col">
             {/* LEDGER HEADER & FILTERS */}
-            <div className="p-6 border-b border-white/5 space-y-6 bg-white/[0.02]">
+            <div className="p-6 border-b border-line-soft space-y-6 bg-surface-3/60">
               {/* Top Bar: Title + Search */}
               <div className="flex flex-col md:flex-row justify-between items-start md:items-center gap-4">
                 <div className="flex items-center gap-3">
-                  <ArrowUpRight size={18} className="text-purple-400" />
-                  <h3 className="font-bold text-lg text-white">Ledger</h3>
-                  <span className="text-xs font-mono text-gray-500 border border-white/10 px-2 py-1 rounded bg-black ml-2">
+                  <ArrowUpRight size={18} className="text-purple-600" />
+                  <h3 className="font-bold text-lg text-ink">Ledger</h3>
+                  <span className="text-xs font-mono text-ink-faint border border-line px-2 py-1 rounded bg-surface ml-2">
                     {ledgerTransactions.length} RECORDS
                   </span>
                 </div>
@@ -578,7 +578,7 @@ export default function ExpenseDashboard() {
                 {/* Search Bar */}
                 <div className="relative group w-full md:w-64">
                   <Search
-                    className="absolute left-3 top-1/2 -translate-y-1/2 text-gray-500 group-focus-within:text-[#d6f928] transition-colors"
+                    className="absolute left-3 top-1/2 -translate-y-1/2 text-ink-faint group-focus-within:text-accent-ink transition-colors"
                     size={14}
                   />
                   <input
@@ -586,7 +586,7 @@ export default function ExpenseDashboard() {
                     placeholder="Search ledger..."
                     value={searchQuery}
                     onChange={(e) => setSearchQuery(e.target.value)}
-                    className="w-full bg-black/50 border border-white/10 rounded-full py-2 pl-9 pr-4 text-xs text-white focus:outline-none focus:border-white/30 focus:ring-1 focus:ring-white/10 transition-all placeholder:text-gray-600"
+                    className="w-full bg-surface-3/80 border border-line rounded-full py-2 pl-9 pr-4 text-xs text-ink focus:outline-none focus:border-line-strong focus:ring-1 focus:ring-line transition-all placeholder:text-ink-ghost"
                   />
                 </div>
               </div>
@@ -598,13 +598,13 @@ export default function ExpenseDashboard() {
                   <select
                     value={typeFilter}
                     onChange={(e) => setTypeFilter(e.target.value)}
-                    className="w-full appearance-none bg-white/5 border border-white/10 rounded-lg py-2 pl-3 pr-8 text-xs text-gray-300 focus:outline-none focus:border-white/30 focus:text-white transition-colors cursor-pointer"
+                    className="w-full appearance-none bg-surface-3/70 border border-line rounded-lg py-2 pl-3 pr-8 text-xs text-ink-soft focus:outline-none focus:border-line-strong focus:text-ink transition-colors cursor-pointer"
                   >
                     <option value="All">All Types</option>
                     <option value="Income">Income Only</option>
                     <option value="Expense">Expense Only</option>
                   </select>
-                  <div className="absolute right-3 top-1/2 -translate-y-1/2 pointer-events-none text-gray-500">
+                  <div className="absolute right-3 top-1/2 -translate-y-1/2 pointer-events-none text-ink-faint">
                     <ChevronDown size={12} />
                   </div>
                 </div>
@@ -614,7 +614,7 @@ export default function ExpenseDashboard() {
                   <select
                     value={categoryFilter}
                     onChange={(e) => setCategoryFilter(e.target.value)}
-                    className="w-full appearance-none bg-white/5 border border-white/10 rounded-lg py-2 pl-3 pr-8 text-xs text-gray-300 focus:outline-none focus:border-white/30 focus:text-white transition-colors cursor-pointer"
+                    className="w-full appearance-none bg-surface-3/70 border border-line rounded-lg py-2 pl-3 pr-8 text-xs text-ink-soft focus:outline-none focus:border-line-strong focus:text-ink transition-colors cursor-pointer"
                   >
                     <option value="All">All Categories</option>
                     {uniqueCategories.map(
@@ -626,7 +626,7 @@ export default function ExpenseDashboard() {
                         ),
                     )}
                   </select>
-                  <div className="absolute right-3 top-1/2 -translate-y-1/2 pointer-events-none text-gray-500">
+                  <div className="absolute right-3 top-1/2 -translate-y-1/2 pointer-events-none text-ink-faint">
                     <ChevronDown size={12} />
                   </div>
                 </div>
@@ -636,7 +636,7 @@ export default function ExpenseDashboard() {
                   <select
                     value={modeFilter}
                     onChange={(e) => setModeFilter(e.target.value)}
-                    className="w-full appearance-none bg-white/5 border border-white/10 rounded-lg py-2 pl-3 pr-8 text-xs text-gray-300 focus:outline-none focus:border-white/30 focus:text-white transition-colors cursor-pointer"
+                    className="w-full appearance-none bg-surface-3/70 border border-line rounded-lg py-2 pl-3 pr-8 text-xs text-ink-soft focus:outline-none focus:border-line-strong focus:text-ink transition-colors cursor-pointer"
                   >
                     <option value="All">All Modes</option>
                     {uniqueModes.map(
@@ -648,7 +648,7 @@ export default function ExpenseDashboard() {
                         ),
                     )}
                   </select>
-                  <div className="absolute right-3 top-1/2 -translate-y-1/2 pointer-events-none text-gray-500">
+                  <div className="absolute right-3 top-1/2 -translate-y-1/2 pointer-events-none text-ink-faint">
                     <ChevronDown size={12} />
                   </div>
                 </div>
@@ -661,7 +661,7 @@ export default function ExpenseDashboard() {
                     onChange={(e) =>
                       setDateRange({ ...dateRange, start: e.target.value })
                     }
-                    className="w-full bg-white/5 border border-white/10 rounded-lg py-1.5 px-3 text-xs text-gray-300 focus:outline-none focus:border-white/30 focus:text-white transition-colors min-h-[34px]"
+                    className="w-full bg-surface-3/70 border border-line rounded-lg py-1.5 px-3 text-xs text-ink-soft focus:outline-none focus:border-line-strong focus:text-ink transition-colors min-h-[34px]"
                   />
                 </div>
 
@@ -673,11 +673,11 @@ export default function ExpenseDashboard() {
                     onChange={(e) =>
                       setDateRange({ ...dateRange, end: e.target.value })
                     }
-                    className="w-full bg-white/5 border border-white/10 rounded-lg py-1.5 px-3 text-xs text-gray-300 focus:outline-none focus:border-white/30 focus:text-white transition-colors min-h-[34px]"
+                    className="w-full bg-surface-3/70 border border-line rounded-lg py-1.5 px-3 text-xs text-ink-soft focus:outline-none focus:border-line-strong focus:text-ink transition-colors min-h-[34px]"
                   />
                   <button
                     onClick={resetFilters}
-                    className="px-3 bg-white/5 border border-white/10 rounded-lg hover:bg-white/10 hover:text-white text-gray-400 transition-colors"
+                    className="px-3 bg-surface-3/70 border border-line rounded-lg hover:bg-surface-3 hover:text-ink text-ink-muted transition-colors"
                     title="Reset Filters"
                   >
                     <RotateCcw size={14} />
@@ -688,7 +688,7 @@ export default function ExpenseDashboard() {
 
             <div className="overflow-x-auto flex-1">
               <table className="w-full text-left text-sm">
-                <thead className="bg-white/[0.02] text-xs uppercase text-gray-500 font-mono">
+                <thead className="bg-surface-3/60 text-xs uppercase text-ink-faint font-mono">
                   <tr>
                     <th className="px-6 py-4 font-normal tracking-wider w-32">
                       Date
@@ -704,16 +704,16 @@ export default function ExpenseDashboard() {
                     </th>
                   </tr>
                 </thead>
-                <tbody className="divide-y divide-white/5">
+                <tbody className="divide-y divide-line-soft">
                   {ledgerTransactions.map((t, idx) => {
                     const styles = getCategoryStyle(t.Category);
                     return (
                       <tr
                         key={idx}
-                        className="group hover:bg-white/5 transition-colors duration-200"
+                        className="group hover:bg-surface-3/70 transition-colors duration-200"
                       >
                         <td className="px-6 py-3 whitespace-nowrap align-center">
-                          <span className="font-mono text-gray-400 text-xs group-hover:text-white transition-colors">
+                          <span className="font-mono text-ink-muted text-xs group-hover:text-ink transition-colors">
                             {formatDate(t.Date)}
                           </span>
                         </td>
@@ -727,11 +727,11 @@ export default function ExpenseDashboard() {
                           </div>
                         </td>
                         <td className="px-6 py-3 align-center">
-                          <div className="text-gray-200 font-medium mb-1.5 flex items-center gap-2">
+                          <div className="text-ink-soft font-medium mb-1.5 flex items-center gap-2">
                             {t["Sub-Category"] || "Unspecified"}
                           </div>
                           {t["Sub-Category"] && (
-                            <span className="text-[10px] text-gray-600">
+                            <span className="text-[10px] text-ink-ghost">
                               {t.Description}
                             </span>
                           )}
@@ -739,12 +739,12 @@ export default function ExpenseDashboard() {
 
                         <td className="px-6 py-3 text-right align-center">
                           <span
-                            className={`font-mono text-sm font-bold tracking-tight ${t.Type === "Income" ? "text-[#d6f928]" : "text-white"}`}
+                            className={`font-mono text-sm font-bold tracking-tight ${t.Type === "Income" ? "text-accent-ink" : "text-ink"}`}
                           >
                             {t.Type === "Income" ? "+" : ""}
                             {formatCurrency(t.Amount)}
                           </span>
-                          <div className="flex items-center justify-end gap-1 mt-1 text-[10px] text-gray-600 uppercase tracking-wide">
+                          <div className="flex items-center justify-end gap-1 mt-1 text-[10px] text-ink-ghost uppercase tracking-wide">
                             <CreditCard size={10} /> {t["Payment Mode"]}
                           </div>
                         </td>
@@ -755,7 +755,7 @@ export default function ExpenseDashboard() {
                     <tr>
                       <td
                         colSpan="3"
-                        className="px-6 py-16 text-center text-gray-600 italic"
+                        className="px-6 py-16 text-center text-ink-ghost italic"
                       >
                         No transactions found matching your filters.
                       </td>
@@ -769,21 +769,23 @@ export default function ExpenseDashboard() {
 
         {/* MODAL */}
         {isModalOpen && (
-          <div className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/80 backdrop-blur-sm">
-            <div className="bg-[#111] border border-white/10 rounded-2xl w-full max-w-md shadow-2xl p-6 relative animate-in fade-in zoom-in duration-200">
+          // Dark scrim regardless of theme — a white one over a white page
+          // left the dialog with nothing to separate it from the dashboard.
+          <div className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/60 backdrop-blur-sm">
+            <div className="bg-surface border border-line rounded-2xl w-full max-w-md shadow-2xl p-6 relative animate-in fade-in zoom-in duration-200">
               <button
                 onClick={() => setIsModalOpen(false)}
-                className="absolute right-4 top-4 text-gray-500 hover:text-white transition-colors"
+                className="absolute right-4 top-4 text-ink-faint hover:text-ink transition-colors"
               >
                 <X size={20} />
               </button>
-              <h2 className="text-xl font-bold text-white mb-6">
+              <h2 className="text-xl font-bold text-ink mb-6">
                 Add Transaction
               </h2>
               <form onSubmit={handleAddTransaction} className="space-y-4">
                 {/* DATE PICKER (CRITICAL FIX) */}
                 <div>
-                  <label className="block text-xs text-gray-500 mb-1">
+                  <label className="block text-xs text-ink-faint mb-1">
                     Date
                   </label>
                   <input
@@ -792,7 +794,7 @@ export default function ExpenseDashboard() {
                     onChange={(e) =>
                       setFormData({ ...formData, date: e.target.value })
                     }
-                    className="w-full bg-black border border-white/10 rounded-lg py-2 px-3 text-white focus:border-white/40 focus:outline-none"
+                    className="w-full bg-surface border border-line rounded-lg py-2 px-3 text-ink focus:border-line-strong focus:outline-none"
                   />
                 </div>
 
@@ -802,7 +804,7 @@ export default function ExpenseDashboard() {
                       key={type}
                       type="button"
                       onClick={() => setFormData({ ...formData, type })}
-                      className={`py-2 rounded-lg text-sm font-bold border transition-all ${formData.type === type ? (type === "Expense" ? "bg-red-500/10 border-red-500 text-red-500" : "bg-green-500/10 border-green-500 text-green-500") : "bg-white/5 border-transparent text-gray-400 hover:bg-white/10"}`}
+                      className={`py-2 rounded-lg text-sm font-bold border transition-all ${formData.type === type ? (type === "Expense" ? "bg-red-500/10 border-red-500 text-red-700" : "bg-green-500/10 border-green-500 text-green-800") : "bg-surface-3/70 border-transparent text-ink-muted hover:bg-surface-3"}`}
                     >
                       {type}
                     </button>
@@ -810,11 +812,11 @@ export default function ExpenseDashboard() {
                 </div>
                 <div className="grid grid-cols-2 gap-4">
                   <div>
-                    <label className="block text-xs text-gray-500 mb-1">
+                    <label className="block text-xs text-ink-faint mb-1">
                       Amount
                     </label>
                     <div className="relative">
-                      <span className="absolute left-3 top-1/2 -translate-y-1/2 text-gray-400">
+                      <span className="absolute left-3 top-1/2 -translate-y-1/2 text-ink-muted">
                         ₹
                       </span>
                       <input
@@ -824,12 +826,12 @@ export default function ExpenseDashboard() {
                         onChange={(e) =>
                           setFormData({ ...formData, amount: e.target.value })
                         }
-                        className="w-full bg-black border border-white/10 rounded-lg py-2 pl-7 pr-3 text-white focus:border-white/40 focus:outline-none"
+                        className="w-full bg-surface border border-line rounded-lg py-2 pl-7 pr-3 text-ink focus:border-line-strong focus:outline-none"
                       />
                     </div>
                   </div>
                   <div>
-                    <label className="block text-xs text-gray-500 mb-1">
+                    <label className="block text-xs text-ink-faint mb-1">
                       Category
                     </label>
                     <select
@@ -837,7 +839,7 @@ export default function ExpenseDashboard() {
                       onChange={(e) =>
                         setFormData({ ...formData, category: e.target.value })
                       }
-                      className="w-full bg-black border border-white/10 rounded-lg py-2 px-3 text-white focus:border-white/40 focus:outline-none appearance-none"
+                      className="w-full bg-surface border border-line rounded-lg py-2 px-3 text-ink focus:border-line-strong focus:outline-none appearance-none"
                     >
                       {[
                         "Food",
@@ -858,7 +860,7 @@ export default function ExpenseDashboard() {
                   </div>
                 </div>
                 <div>
-                  <label className="block text-xs text-gray-500 mb-1">
+                  <label className="block text-xs text-ink-faint mb-1">
                     Description
                   </label>
                   <input
@@ -869,12 +871,12 @@ export default function ExpenseDashboard() {
                     onChange={(e) =>
                       setFormData({ ...formData, description: e.target.value })
                     }
-                    className="w-full bg-black border border-white/10 rounded-lg py-2 px-3 text-white focus:border-white/40 focus:outline-none"
+                    className="w-full bg-surface border border-line rounded-lg py-2 px-3 text-ink focus:border-line-strong focus:outline-none"
                   />
                 </div>
                 <div className="grid grid-cols-2 gap-4">
                   <div>
-                    <label className="block text-xs text-gray-500 mb-1">
+                    <label className="block text-xs text-ink-faint mb-1">
                       Payment Mode
                     </label>
                     <select
@@ -882,7 +884,7 @@ export default function ExpenseDashboard() {
                       onChange={(e) =>
                         setFormData({ ...formData, mode: e.target.value })
                       }
-                      className="w-full bg-black border border-white/10 rounded-lg py-2 px-3 text-white focus:border-white/40 focus:outline-none"
+                      className="w-full bg-surface border border-line rounded-lg py-2 px-3 text-ink focus:border-line-strong focus:outline-none"
                     >
                       {[
                         "UPI",
@@ -898,7 +900,7 @@ export default function ExpenseDashboard() {
                     </select>
                   </div>
                   <div>
-                    <label className="block text-xs text-gray-500 mb-1">
+                    <label className="block text-xs text-ink-faint mb-1">
                       Sub Category
                     </label>
                     <input
@@ -911,14 +913,14 @@ export default function ExpenseDashboard() {
                           sub_category: e.target.value,
                         })
                       }
-                      className="w-full bg-black border border-white/10 rounded-lg py-2 px-3 text-white focus:border-white/40 focus:outline-none"
+                      className="w-full bg-surface border border-line rounded-lg py-2 px-3 text-ink focus:border-line-strong focus:outline-none"
                     />
                   </div>
                 </div>
                 <button
                   type="submit"
                   disabled={submitting}
-                  className="w-full bg-white text-black font-bold py-3 rounded-lg hover:bg-[#d6f928] transition-colors mt-2 disabled:opacity-50"
+                  className="w-full bg-ink text-surface font-bold py-3 rounded-lg hover:bg-accent hover:text-ink transition-colors mt-2 disabled:opacity-50"
                 >
                   {submitting ? "Saving..." : "Save Transaction"}
                 </button>

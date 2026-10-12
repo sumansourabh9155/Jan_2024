@@ -153,16 +153,16 @@ const CarterGetStarted = () => {
         return (
             <div className="mb-20">
                 <Header />
-                <div className="h-[520px] rounded-2xl border border-dashed border-white/15 bg-white/[0.02] flex flex-col items-center justify-center gap-3 text-center px-6">
-                    <ImageIcon size={26} className="text-gray-600" />
-                    <p className="text-gray-400 text-sm font-medium">
+                <div className="h-[520px] rounded-2xl border border-dashed border-line bg-surface-3/60 flex flex-col items-center justify-center gap-3 text-center px-6">
+                    <ImageIcon size={26} className="text-ink-ghost" />
+                    <p className="text-ink-muted text-sm font-medium">
                         Get Started screens go here
                     </p>
-                    <p className="text-gray-600 text-xs max-w-sm leading-relaxed">
+                    <p className="text-ink-ghost text-xs max-w-sm leading-relaxed">
                         Add images to{" "}
-                        <code className="text-gray-400">src/assets/carter-getstarted/</code> as{" "}
-                        <code className="text-gray-400">1.webp</code>,{" "}
-                        <code className="text-gray-400">2.1.webp</code> … and they appear here
+                        <code className="text-ink-muted">src/assets/carter-getstarted/</code> as{" "}
+                        <code className="text-ink-muted">1.webp</code>,{" "}
+                        <code className="text-ink-muted">2.1.webp</code> … and they appear here
                         in order.
                     </p>
                 </div>
@@ -174,19 +174,19 @@ const CarterGetStarted = () => {
         <div className="mb-20">
             <Header />
 
-            <div className="relative rounded-2xl border border-white/10 bg-[#0d0d0f] overflow-hidden">
+            <div className="relative rounded-2xl border border-line bg-surface-2 overflow-hidden">
                 {/* Stage — fixed height, scrolls sideways. Nothing is cropped. */}
                 <div
                     ref={trackRef}
                     role="group"
                     aria-label="Carter Get Started flow — scroll sideways to see each screen"
                     tabIndex={0}
-                    className="carter-gs-track flex gap-4 overflow-x-auto overflow-y-hidden p-4 snap-x snap-mandatory focus:outline-none focus-visible:ring-2 focus-visible:ring-[#d6f928]/60 focus-visible:ring-inset"
+                    className="carter-gs-track flex gap-4 overflow-x-auto overflow-y-hidden p-4 snap-x snap-mandatory focus:outline-none focus-visible:ring-2 focus-visible:ring-accent-ink/50 focus-visible:ring-inset"
                 >
                     {slides.map((s, i) => (
                         <div
                             key={s.src}
-                            className="snap-start shrink-0 h-[clamp(300px,50vh,540px)] rounded-lg overflow-hidden border border-white/10 bg-black/40"
+                            className="snap-start shrink-0 h-[clamp(300px,50vh,540px)] rounded-lg overflow-hidden border border-line bg-surface-3/70"
                         >
                             <img
                                 src={s.src}
@@ -212,21 +212,21 @@ const CarterGetStarted = () => {
 
                 {/* Edge fades — hint that the strip continues sideways. */}
                 <div
-                    className={`pointer-events-none absolute left-0 top-0 bottom-[86px] w-10 bg-gradient-to-r from-[#0d0d0f] to-transparent transition-opacity duration-300 ${atStart ? "opacity-0" : "opacity-100"}`}
+                    className={`pointer-events-none absolute left-0 top-0 bottom-[86px] w-10 bg-gradient-to-r from-surface-2 to-transparent transition-opacity duration-300 ${atStart ? "opacity-0" : "opacity-100"}`}
                 />
                 <div
-                    className={`pointer-events-none absolute right-0 top-0 bottom-[86px] w-10 bg-gradient-to-l from-[#0d0d0f] to-transparent transition-opacity duration-300 ${atEnd ? "opacity-0" : "opacity-100"}`}
+                    className={`pointer-events-none absolute right-0 top-0 bottom-[86px] w-10 bg-gradient-to-l from-surface-2 to-transparent transition-opacity duration-300 ${atEnd ? "opacity-0" : "opacity-100"}`}
                 />
 
                 {/* Control bar — matches CarterAiSlider */}
-                <div className="flex items-center gap-3 px-4 py-3 border-t border-white/10 bg-black/40">
+                <div className="flex items-center gap-3 px-4 py-3 border-t border-line bg-surface-3/70">
                     <div className="flex-1 min-w-0">
-                        <p className="text-sm text-white truncate">
+                        <p className="text-sm text-ink truncate">
                             {active.caption ||
                                 (active.step ? `Step ${active.step}` : "Get Started flow")}
                         </p>
                     </div>
-                    <span className="text-xs font-mono text-gray-500 shrink-0 tabular-nums">
+                    <span className="text-xs font-mono text-ink-faint shrink-0 tabular-nums">
                         {String(index + 1).padStart(2, "0")} / {String(count).padStart(2, "0")}
                     </span>
 
@@ -236,7 +236,7 @@ const CarterGetStarted = () => {
                             onClick={() => go(index - 1)}
                             disabled={atStart}
                             aria-label="Previous screen"
-                            className="w-8 h-8 rounded-full border border-white/15 bg-white/5 text-white flex items-center justify-center transition-colors enabled:hover:border-[#d6f928]/50 enabled:hover:text-[#d6f928] disabled:opacity-30"
+                            className="w-8 h-8 rounded-full border border-line bg-surface text-ink shadow-[0_1px_3px_rgba(0,0,0,0.08)] flex items-center justify-center transition-colors enabled:hover:border-accent-ink/45 enabled:hover:text-accent-ink disabled:opacity-30"
                         >
                             <ChevronLeft size={16} />
                         </button>
@@ -245,7 +245,7 @@ const CarterGetStarted = () => {
                             onClick={() => go(index + 1)}
                             disabled={atEnd}
                             aria-label="Next screen"
-                            className="w-8 h-8 rounded-full border border-white/15 bg-white/5 text-white flex items-center justify-center transition-colors enabled:hover:border-[#d6f928]/50 enabled:hover:text-[#d6f928] disabled:opacity-30"
+                            className="w-8 h-8 rounded-full border border-line bg-surface text-ink shadow-[0_1px_3px_rgba(0,0,0,0.08)] flex items-center justify-center transition-colors enabled:hover:border-accent-ink/45 enabled:hover:text-accent-ink disabled:opacity-30"
                         >
                             <ChevronRight size={16} />
                         </button>
@@ -253,7 +253,7 @@ const CarterGetStarted = () => {
                 </div>
 
                 {/* Progress dots — small visual, 24px+ touch target via padding. */}
-                <div className="flex flex-wrap gap-0.5 px-4 pb-2 pt-0 justify-center bg-black/40">
+                <div className="flex flex-wrap gap-0.5 px-4 pb-2 pt-0 justify-center bg-surface-3/70">
                     {slides.map((s, i) => (
                         <button
                             key={s.src}
@@ -261,21 +261,21 @@ const CarterGetStarted = () => {
                             onClick={() => go(i)}
                             aria-label={`Go to step ${s.step || i + 1}`}
                             aria-current={i === index}
-                            className="group/dot flex items-center justify-center py-3 px-1 focus:outline-none focus-visible:ring-2 focus-visible:ring-[#d6f928]/60 rounded"
+                            className="group/dot flex items-center justify-center py-3 px-1 focus:outline-none focus-visible:ring-2 focus-visible:ring-accent-ink/50 rounded"
                         >
                             <span
-                                className={`block h-1.5 rounded-full transition-all ${i === index ? "w-6 bg-[#d6f928]" : "w-1.5 bg-white/20 group-hover/dot:bg-white/50"}`}
+                                className={`block h-1.5 rounded-full transition-all ${i === index ? "w-6 bg-accent-ink" : "w-1.5 bg-line-strong group-hover/dot:bg-ink-faint"}`}
                             />
                         </button>
                     ))}
                 </div>
 
                 <style>{`
-                    .carter-gs-track { scrollbar-width: thin; scrollbar-color: rgba(255,255,255,0.18) transparent; }
+                    .carter-gs-track { scrollbar-width: thin; scrollbar-color: rgba(0,0,0,0.20) transparent; }
                     .carter-gs-track::-webkit-scrollbar { height: 8px; }
                     .carter-gs-track::-webkit-scrollbar-track { background: transparent; }
                     .carter-gs-track::-webkit-scrollbar-thumb {
-                        background-color: rgba(255,255,255,0.18);
+                        background-color: rgba(0,0,0,0.20);
                         border-radius: 999px;
                     }
                     .carter-gs-track::-webkit-scrollbar-thumb:hover { background-color: rgba(214,249,40,0.4); }
@@ -287,13 +287,13 @@ const CarterGetStarted = () => {
 
 const Header = () => (
     <div className="max-w-2xl mb-5">
-        <p className="text-[11px] font-mono text-gray-500 tracking-widest uppercase mb-3">
+        <p className="text-[11px] font-mono text-ink-faint tracking-widest uppercase mb-3">
             The Get Started flow
         </p>
-        <h3 className="font-heading text-2xl md:text-3xl font-bold text-white leading-snug mb-3">
+        <h3 className="font-heading text-2xl md:text-3xl font-bold text-ink leading-snug mb-3">
             What a new advertiser sees first.
         </h3>
-        <p className="text-gray-400 text-sm leading-relaxed">
+        <p className="text-ink-muted text-sm leading-relaxed">
             Before the decisions below make sense, here is the product itself &mdash; the
             onboarding a new advertiser walks through on their way to a first live campaign.
         </p>
