@@ -145,6 +145,46 @@ html {
         border-bottom: 1px solid rgba(0, 0, 0, 0.10);
 }
 
+/* Marker swipe for a figure sitting inside a paragraph.
+
+   Taking the filled cards and coloured chips off these pages cost the metrics
+   the one thing that was making them loud, and bold-plus-darker alone doesn't
+   carry across a column of grey text — "+41%" read the same as every other
+   phrase around it.
+
+   A gradient rather than a background keeps the swipe to the bottom third of
+   the line, the way a highlighter actually lands, so it marks the number
+   without boxing it. `0.34em` is measured from the baseline, so it scales with
+   whatever size it's used at.
+
+   Monochrome on purpose. The brand lime would work here too — this is the one
+   use that would earn it — but it was pulled off the buttons for clashing, so
+   it isn't coming back without a word. Swapping it is this one rule. */
+.mark {
+        background-image: linear-gradient(
+                to top,
+                rgba(16, 20, 24, 0.11) 0,
+                rgba(16, 20, 24, 0.11) 0.34em,
+                transparent 0.34em
+        );
+        background-repeat: no-repeat;
+        padding: 0 0.08em;
+        /* `box-decoration-break` keeps the swipe intact when the phrase wraps
+           across two lines, instead of stretching one band behind both. */
+        -webkit-box-decoration-break: clone;
+        box-decoration-break: clone;
+}
+
+/* <summary> ships a disclosure triangle that can't be styled and doesn't match
+   anything else on the page. Both rules are needed: `display: block` kills the
+   marker in Safari and older WebKit, `list-style: none` everywhere else. */
+.reveal-summary {
+        list-style: none;
+}
+.reveal-summary::-webkit-details-marker {
+        display: none;
+}
+
 /* Hide scrollbar for horizontal scroll containers */
 .scrollbar-hide::-webkit-scrollbar { display: none; }
 .scrollbar-hide { -ms-overflow-style: none; scrollbar-width: none; }

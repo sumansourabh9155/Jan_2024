@@ -27,7 +27,9 @@ import Sitebuilder from "../../../assets/atlas/Sitebuilder.png";
 import Templatemanager from "../../../assets/atlas/Templatemanager.png";
 
 
-import { Badge, StatCard, MetaList, Finding, NextCase } from "./CaseStudyUI";
+import {
+    Badge, StatCard, MetaList, Finding, NextCase, Contents, Reveal, ShortVersion,
+} from "./CaseStudyUI";
 
 const AtlasEcosystem = () => {
     return (
@@ -56,10 +58,85 @@ const AtlasEcosystem = () => {
                         </p>
                     </div>
 
-                    <img src={Banner} alt="Atlas Digital Ecosystem" className="rounded-sm w-full object-cover border border-line" />
+                    {/* The thirty-second read. Numbers before the screenshot and
+                        before the metadata — the first question is whether the
+                        work worked. Labels are verbatim from the Phase 1 outcomes
+                        section below; nothing new is claimed up here. */}
+                    <div className="mt-14 grid grid-cols-2 lg:grid-cols-4 gap-x-8 gap-y-10">
+                        <StatCard value="&uarr; 41%" label="Organic search traffic increase within 6 months." />
+                        <StatCard value="&uarr; 16%" label="Booking conversion rate improvement." />
+                        <StatCard value="&uarr; 74%" label="Pages successfully indexed by Google." />
+                        <StatCard value="100+" label="Clinics launched under the new architecture." />
+                    </div>
 
+                    <img src={Banner} alt="Atlas Digital Ecosystem" className="mt-14 rounded-sm w-full object-cover border border-line" />
+
+                    <ShortVersion
+                        className="mt-14"
+                        rows={[
+                            {
+                                k: "The problem",
+                                v: (
+                                    <>
+                                        130 clinic websites with no shared architecture &mdash; duplicate content
+                                        across sister clinics, pet owners in crisis unable to find hours or a
+                                        phone number, and <span className="text-ink font-medium">every content
+                                        change gated behind an IT ticket</span>.
+                                    </>
+                                ),
+                            },
+                            {
+                                k: "The call",
+                                v: (
+                                    <>
+                                        Not one template, and not 130 bespoke ones. Map every clinic to one of{" "}
+                                        <span className="text-ink font-medium">5 clinical archetypes</span>, plus a
+                                        sixth for the parent brand &mdash; so a newly acquired clinic onboards in
+                                        days instead of months.
+                                    </>
+                                ),
+                            },
+                            {
+                                k: "What I owned",
+                                v: (
+                                    <>
+                                        Design across all three phases &mdash; standardisation, the relational CMS,
+                                        and the 0-to-1 no-code builder.{" "}
+                                        <span className="text-ink font-medium">Sole designer</span> on an 8-person
+                                        team with 2 PMs.
+                                    </>
+                                ),
+                            },
+                            {
+                                k: "The outcome",
+                                v: (
+                                    <>
+                                        Organic traffic <span className="mark text-ink font-medium">up 41%</span>,
+                                        booking conversion <span className="mark text-ink font-medium">up 16%</span>,
+                                        indexed pages <span className="mark text-ink font-medium">up 74%</span>, and{" "}
+                                        <span className="mark text-ink font-medium">100+ clinics</span> launched on
+                                        the new architecture.
+                                    </>
+                                ),
+                            },
+                        ]}
+                    />
+
+                    <Contents
+                        className="mt-14 max-w-3xl"
+                        items={[
+                            { to: "role", label: "How I owned it" },
+                            { to: "phase-1", label: "Phase 1 — Standardisation" },
+                            { to: "phase-2", label: "Phase 2 — Relational CMS" },
+                            { to: "phase-3", label: "Phase 3 — Site builder" },
+                            { to: "reflection", label: "The real story" },
+                        ]}
+                    />
+
+                    {/* Company, platform, duration, tools — real information, but
+                        nobody decides from it, so it closes the hero. */}
                     <MetaList
-                        className="mt-12"
+                        className="mt-14"
                         items={[
                             { term: "Company", value: "Shyftlabs" },
                             { term: "My role", value: "Product Designer" },
@@ -67,8 +144,6 @@ const AtlasEcosystem = () => {
                             { term: "Duration", value: "3 Phases, Two Stints" },
                         ]}
                     />
-
-                    {/* Tools Stack */}
                     <p className="mt-8 text-[0.8125rem] text-ink-faint leading-[1.7] max-w-2xl">
                         <span className="text-ink-ghost">Tools &middot; </span>
                         {["Jira", "Figma", "Google Analytics", "Hotjar", "WordPress Audit", "React", "Tailwind CSS"].join(" · ")}
@@ -77,9 +152,9 @@ const AtlasEcosystem = () => {
             </section>
 
             {/* ================= WHY I OWNED PRODUCT DECISIONS ================= */}
-            <section className="bg-cream py-24 px-6">
+            <section id="role" className="scroll-mt-24 bg-cream py-20 px-6">
                 <div className="max-w-6xl mx-auto">
-                    <div className="max-w-3xl mb-20">
+                    <div className="max-w-3xl mb-14">
                         <Badge>How I Owned the Design</Badge>
                         <h2 className="font-display text-4xl md:text-5xl font-normal text-ink leading-tight mb-6">
                             130 clinics. 3 phases.{" "}
@@ -88,7 +163,7 @@ const AtlasEcosystem = () => {
                         <p className="text-ink-muted text-base leading-relaxed">
                             Atlas needed someone who could understand the <span className="text-ink font-medium">data architecture, design the user experience, and coordinate engineering delivery</span> — simultaneously.
                             I owned the design across all three phases: standardization, CMS architecture, and the 0-to-1 site builder.
-                            The build team was <span className="text-ink font-medium">8 people with 2 PMs</span>,
+                            The build team was <span className="mark text-ink font-medium">8 people with 2 PMs</span>,
                             working in 2-week sprints &mdash; I was the{" "}
                             <span className="text-ink font-medium">only designer on it</span>, which is why the
                             architecture decisions and the interface decisions had to be the same decisions.
@@ -101,7 +176,7 @@ const AtlasEcosystem = () => {
                     </div>
 
                     {/* What I Owned — Icon Cards */}
-                    <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mb-16">
+                    <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mb-12">
                         <div className="border-t border-line pt-5 flex gap-4">
                             <div className="text-ink-faint flex-shrink-0">
                                 <FileText size={18} className="text-ink-faint" />
@@ -139,11 +214,11 @@ const AtlasEcosystem = () => {
             </section>
 
             {/* ================= PHASE 1 ================= */}
-            <section className="bg-surface py-24 px-6">
+            <section id="phase-1" className="scroll-mt-24 bg-surface py-20 px-6">
                 <div className="max-w-6xl mx-auto">
 
                     {/* Phase Divider */}
-                    <div className="flex items-center gap-6 mb-20">
+                    <div className="flex items-center gap-6 mb-14">
                         <div className="text-[11px] text-ink-ghost uppercase tracking-[0.18em] whitespace-nowrap">Phase 01</div>
                         <div className="h-px bg-surface-3 flex-grow"></div>
                         <div className="text-[11px] text-ink-ghost uppercase tracking-[0.18em] whitespace-nowrap">Standardization</div>
@@ -189,25 +264,27 @@ const AtlasEcosystem = () => {
 </div>
 
                     {/* Strategic Bet */}
-                    <div className="max-w-3xl mb-20">
+                    <div className="max-w-3xl mb-14">
                         <Badge>The Strategic Bet</Badge>
                         <h2 className="font-display text-4xl md:text-5xl font-normal text-ink leading-tight mb-6">
                             130 clinics wanted custom.{" "}
                             <span className="text-ink-muted">I standardized to 6 templates.</span>
                         </h2>
-                        <p className="text-ink-muted text-base leading-relaxed mb-5">
-                            The instinct was to move fast &mdash; pick one template, deploy everywhere. I pushed back.
-                            A General Practice clinic in rural Montana and a Specialty oncology center in Chicago serve fundamentally different users under different emotional states.
-                        </p>
-                        <p className="text-ink-muted text-base leading-relaxed">
-                            But a bespoke design per clinic was equally unsustainable. The product call: <span className="text-ink font-medium">map every clinic to one of 5 clinical archetypes</span> &mdash;
-                            GP, Specialty, ER, Hybrid, Multi-Location &mdash; plus a <span className="text-ink font-medium">sixth template for the parent brand site</span> that sits above the network and does a different job: introduce the group, not convert a local visit.
-                            Any newly acquired clinic onboarded in days, not months. No custom design work, no IT bottleneck.
-                        </p>
+                        <Reveal summary="Why six templates and not one, or a hundred">
+                            <p className="text-ink-muted text-base leading-relaxed mb-5">
+                                The instinct was to move fast &mdash; pick one template, deploy everywhere. I pushed back.
+                                A General Practice clinic in rural Montana and a Specialty oncology center in Chicago serve fundamentally different users under different emotional states.
+                            </p>
+                            <p className="text-ink-muted text-base leading-relaxed">
+                                But a bespoke design per clinic was equally unsustainable. The product call: <span className="mark text-ink font-medium">map every clinic to one of 5 clinical archetypes</span> &mdash;
+                                GP, Specialty, ER, Hybrid, Multi-Location &mdash; plus a <span className="text-ink font-medium">sixth template for the parent brand site</span> that sits above the network and does a different job: introduce the group, not convert a local visit.
+                                Any newly acquired clinic onboarded in days, not months. No custom design work, no IT bottleneck.
+                            </p>
+                        </Reveal>
                     </div>
 
                     {/* Discovery */}
-                    <div className="border-t border-line pt-6 max-w-4xl mb-20 flex flex-col md:flex-row gap-4 md:gap-6">
+                    <div className="border-t border-line pt-6 max-w-4xl mb-14 flex flex-col md:flex-row gap-4 md:gap-6">
                         <div className="text-ink-faint flex-shrink-0">
                             <Search size={20} className="text-ink-faint" />
                         </div>
@@ -217,14 +294,14 @@ const AtlasEcosystem = () => {
                                 Weeks of auditing &mdash; categorizing clinic types, mapping user journeys, running heuristic evaluations on worst-performing sites.
                                 Key insight: <span className="text-ink font-medium">the most engaged ER users were elderly pet owners</span>.
                                 A 70-year-old whose dog collapsed at 2am can&apos;t parse cluttered navigation.
-                                That grounded every decision in <span className="text-ink font-medium">WCAG 2.1 AA as a non-negotiable baseline</span> &mdash;
+                                That grounded every decision in <span className="mark text-ink font-medium">WCAG 2.1 AA as a non-negotiable baseline</span> &mdash;
                                 high-contrast palettes, generous typography, time-critical info above the fold on every template.
                             </p>
                         </div>
                     </div>
 
                     {/* Audit Findings */}
-                    <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mb-20">
+                    <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mb-14">
                         <Finding value="Zero" title="SEO Governance" icon={<Globe size={18} />}>
                             Duplicate content across sister clinics. Missing schema markup. Google penalizing Atlas for same doctor bios on 40+ pages.
                         </Finding>
@@ -273,11 +350,11 @@ const AtlasEcosystem = () => {
             </section>
 
             {/* ================= PHASE 2 ================= */}
-            <section className="bg-cream py-24 px-6">
+            <section id="phase-2" className="scroll-mt-24 bg-cream py-20 px-6">
                 <div className="max-w-6xl mx-auto">
 
                     {/* Phase Divider */}
-                    <div className="flex items-center gap-6 mb-20">
+                    <div className="flex items-center gap-6 mb-14">
                         <div className="text-[11px] text-ink-ghost uppercase tracking-[0.18em] whitespace-nowrap">Phase 02</div>
                         <div className="h-px bg-surface-3 flex-grow"></div>
                         <div className="text-[11px] text-ink-ghost uppercase tracking-[0.18em] whitespace-nowrap">Relational CMS</div>
@@ -332,24 +409,26 @@ const AtlasEcosystem = () => {
 </div>
 
                     {/* Strategic Bet */}
-                    <div className="max-w-3xl mb-20">
+                    <div className="max-w-3xl mb-14">
                         <Badge>The Strategic Bet</Badge>
                         <h2 className="font-display text-4xl md:text-5xl font-normal text-ink leading-tight mb-6">
                             Build vs. Buy.{" "}
                             <span className="text-ink-muted">Every off-the-shelf CMS failed the test.</span>
                         </h2>
-                        <p className="text-ink-muted text-base leading-relaxed mb-5">
-                            Templates were live. But keeping them accurate across the whole network was impossible. A specialist practicing across three locations &mdash;
-                            under the old system, their bio existed as three separate copy-paste entries. One email change meant three manual updates. Multiplied across hundreds of specialists, this was an SEO crisis &mdash; Google detected near-duplicate content at scale and penalized the entire domain.
-                        </p>
-                        <p className="text-ink-muted text-base leading-relaxed">
-                            WordPress, Contentful, Webflow &mdash; none handled the relational complexity of a multi-tenant veterinary network.
-                            The product call: <span className="text-ink font-medium">build a proprietary headless CMS</span> engineered for Atlas&apos;s operational model.
-                        </p>
+                        <Reveal summary="Why a relational CMS, not a page-based one">
+                            <p className="text-ink-muted text-base leading-relaxed mb-5">
+                                Templates were live. But keeping them accurate across the whole network was impossible. A specialist practicing across three locations &mdash;
+                                under the old system, their bio existed as three separate copy-paste entries. One email change meant three manual updates. Multiplied across hundreds of specialists, this was an SEO crisis &mdash; Google detected near-duplicate content at scale and penalized the entire domain.
+                            </p>
+                            <p className="text-ink-muted text-base leading-relaxed">
+                                WordPress, Contentful, Webflow &mdash; none handled the relational complexity of a multi-tenant veterinary network.
+                                The product call: <span className="text-ink font-medium">build a proprietary headless CMS</span> engineered for Atlas&apos;s operational model.
+                            </p>
+                        </Reveal>
                     </div>
 
                     {/* What I Said No To */}
-                    <div className="border-t border-line pt-6 max-w-4xl mb-20 flex flex-col md:flex-row gap-4 md:gap-6">
+                    <div className="border-t border-line pt-6 max-w-4xl mb-14 flex flex-col md:flex-row gap-4 md:gap-6">
                         <div className="text-ink-faint flex-shrink-0">
                             <AlertTriangle size={20} className="text-ink-faint" />
                         </div>
@@ -364,10 +443,10 @@ const AtlasEcosystem = () => {
                         </div>
                     </div>
 
-                    <img loading="lazy" decoding="async" src={Charcount} alt="Atlas Content Architecture" className="rounded-sm w-full border border-line mb-20" />
+                    <img loading="lazy" decoding="async" src={Charcount} alt="Atlas Content Architecture" className="rounded-sm w-full border border-line mb-14" />
 
                     {/* CMS Architecture Cards */}
-                    <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mb-20">
+                    <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mb-14">
                         <div className="border-t border-line pt-5 flex gap-4">
                             <div className="text-ink-faint flex-shrink-0">
                                 <Database size={18} className="text-ink-faint" />
@@ -436,11 +515,11 @@ const AtlasEcosystem = () => {
             </section>
 
             {/* ================= PHASE 3 ================= */}
-            <section className="bg-surface py-24 px-6">
+            <section id="phase-3" className="scroll-mt-24 bg-surface py-20 px-6">
                 <div className="max-w-6xl mx-auto">
 
                     {/* Phase Divider */}
-                    <div className="flex items-center gap-6 mb-20">
+                    <div className="flex items-center gap-6 mb-14">
                         <div className="text-[11px] text-ink-ghost uppercase tracking-[0.18em] whitespace-nowrap">Phase 03</div>
                         <div className="h-px bg-surface-3 flex-grow"></div>
                         <div className="text-[11px] text-ink-ghost uppercase tracking-[0.18em] whitespace-nowrap">0-to-1 Site Builder</div>
@@ -492,27 +571,29 @@ const AtlasEcosystem = () => {
 </div>
 
                     {/* Strategic Bet */}
-                    <div className="max-w-3xl mb-20">
+                    <div className="max-w-3xl mb-14">
                         <Badge>The Strategic Bet</Badge>
                         <h2 className="font-display text-4xl md:text-5xl font-normal text-ink leading-tight mb-6">
                             Templates handled 90%.{" "}
                             <span className="text-ink-muted">The 10% was killing engineering.</span>
                         </h2>
-                        <p className="text-ink-muted text-base leading-relaxed mb-5">
-                            Phase 2 gave clinic teams content independence. But as Atlas grew, so did requests outside the framework &mdash;
-                            community vaccination drives, new specialist landing pages, holiday hours. Every request landed in the engineering sprint queue.
-                            Turnaround was days, sometimes weeks.
-                        </p>
-                        <p className="text-ink-muted text-base leading-relaxed">
-                            The product call: build a <span className="text-ink font-medium">0-to-1 drag-and-drop site builder</span> natively integrated with the CMS.
-                            Regional managers could build and publish custom pages &mdash; zero IT approval required. The design system enforced brand and accessibility rules invisibly.
-                        </p>
+                        <Reveal summary="Why a no-code builder was the right third phase">
+                            <p className="text-ink-muted text-base leading-relaxed mb-5">
+                                Phase 2 gave clinic teams content independence. But as Atlas grew, so did requests outside the framework &mdash;
+                                community vaccination drives, new specialist landing pages, holiday hours. Every request landed in the engineering sprint queue.
+                                Turnaround was days, sometimes weeks.
+                            </p>
+                            <p className="text-ink-muted text-base leading-relaxed">
+                                The product call: build a <span className="mark text-ink font-medium">0-to-1 drag-and-drop site builder</span> natively integrated with the CMS.
+                                Regional managers could build and publish custom pages &mdash; zero IT approval required. The design system enforced brand and accessibility rules invisibly.
+                            </p>
+                        </Reveal>
                     </div>
 
-                    <img loading="lazy" decoding="async" src={Sitebuilder} alt="Atlas No-Code Site Builder" className="rounded-sm w-full border border-line mb-20" />
+                    <img loading="lazy" decoding="async" src={Sitebuilder} alt="Atlas No-Code Site Builder" className="rounded-sm w-full border border-line mb-14" />
 
                     {/* Builder Product Decisions */}
-                    <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mb-20">
+                    <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mb-14">
                         <div className="border-t border-line pt-5 flex gap-4">
                             <div className="text-ink-faint flex-shrink-0">
                                 <Shield size={18} className="text-ink-faint" />
@@ -533,10 +614,10 @@ const AtlasEcosystem = () => {
                         </div>
                     </div>
 
-                    <img loading="lazy" decoding="async" src={Templatemanager} alt="Atlas Template Manager" className="rounded-sm w-full border border-line mb-20" />
+                    <img loading="lazy" decoding="async" src={Templatemanager} alt="Atlas Template Manager" className="rounded-sm w-full border border-line mb-14" />
 
                     {/* What didn't work */}
-                    <div className="mb-20 border-l-2 border-line-strong pl-5 max-w-3xl">
+                    <div className="mb-14 border-l-2 border-line-strong pl-5 max-w-3xl">
                         <p className="text-ink-ghost text-[11px] uppercase tracking-[0.18em] mb-2">What didn&apos;t work first</p>
                         <p className="text-ink-muted text-sm leading-relaxed">
                             First version of the builder gave managers full section reordering. Result: pages with CTAs buried below the fold and hero sections mid-page.
@@ -561,7 +642,7 @@ const AtlasEcosystem = () => {
             </section>
 
             {/* ================= CLOSING ================= */}
-            <section className="bg-cream py-24 px-6">
+            <section id="reflection" className="scroll-mt-24 bg-cream py-20 px-6">
                 <div className="max-w-6xl mx-auto">
                     <div className="max-w-3xl">
                         <Badge>The Real Story</Badge>

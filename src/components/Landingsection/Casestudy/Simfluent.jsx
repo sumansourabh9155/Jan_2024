@@ -10,6 +10,7 @@ import {
 import SimfluentSlider from "./SimfluentSlider";
 import {
     Badge, IconCard, Figure, Decision, MetaList, Finding, Note, NextCase,
+    Contents, Reveal, ShortVersion,
 } from "./CaseStudyUI";
 
 // Curated screens — also used inline next to the decision each one proves.
@@ -49,7 +50,7 @@ const Simfluent = () => {
                         <p className="text-lg text-ink-muted leading-[1.6] max-w-2xl">
                             A recruitment and resource-operations platform for a staffing business placing
                             engineers with US companies. Built around the bottleneck nobody was tracking:
-                            <span className="text-ink font-medium"> the time candidates spend waiting.</span>
+                            <span className="mark text-ink font-medium"> the time candidates spend waiting.</span>
                         </p>
 
                         <p className="mt-7 inline-flex items-center gap-2.5 text-[0.8125rem] text-ink-faint">
@@ -64,10 +65,75 @@ const Simfluent = () => {
                         className="rounded-sm w-full border border-line bg-surface-2"
                     />
 
+                    {/* No row of outcome figures here, unlike the other studies —
+                        this one is still shipping and the page says so further
+                        down. Inventing a number to fill the slot is exactly the
+                        thing the "no vanity metrics" section refuses to do, so the
+                        short version carries the scan instead. */}
+                    <ShortVersion
+                        className="mt-14"
+                        rows={[
+                            {
+                                k: "The problem",
+                                v: (
+                                    <>
+                                        150&ndash;200 people in motion at any time, and hiring lived in
+                                        inboxes and spreadsheets &mdash;{" "}
+                                        <span className="text-ink font-medium">no single source of truth</span>{" "}
+                                        for what stage a candidate was at or who owned them.
+                                    </>
+                                ),
+                            },
+                            {
+                                k: "The insight",
+                                v: (
+                                    <>
+                                        The bottleneck wasn&apos;t sourcing, it was waiting. Candidates died
+                                        in the gaps between stages, and an email thread has no concept of
+                                        &ldquo;this has been sitting for eleven days.&rdquo;
+                                    </>
+                                ),
+                            },
+                            {
+                                k: "The call",
+                                v: (
+                                    <>
+                                        Make waiting impossible to ignore &mdash; elapsed time designed as
+                                        data, not metadata. And every AI output{" "}
+                                        <span className="text-ink font-medium">labelled, reversible, and
+                                        gated behind a person</span>.
+                                    </>
+                                ),
+                            },
+                            {
+                                k: "Where it stands",
+                                v: (
+                                    <>
+                                        In active build. No outcome numbers yet &mdash; the value here is the
+                                        systems design and the AI-interaction patterns, and measured results
+                                        get added once there is real data.
+                                    </>
+                                ),
+                            },
+                        ]}
+                    />
+
+                    <Contents
+                        className="mt-14 max-w-3xl"
+                        items={[
+                            { to: "problem", label: "The problem" },
+                            { to: "research", label: "Research & definition" },
+                            { to: "insight", label: "The insight" },
+                            { to: "decisions", label: "Six design decisions" },
+                            { to: "product", label: "The product" },
+                            { to: "status", label: "Where it stands" },
+                        ]}
+                    />
+
                     {/* Was four bordered boxes in a row. Same four facts, read as a
                         caption under the screen rather than as a dashboard above it. */}
                     <MetaList
-                        className="mt-12"
+                        className="mt-14"
                         items={[
                             { term: "Company", value: "Shyftlabs" },
                             { term: "My role", value: "Product Designer" },
@@ -84,9 +150,9 @@ const Simfluent = () => {
             </section>
 
             {/* ================= THE PROBLEM ================= */}
-            <section className="bg-cream py-24 px-6">
+            <section id="problem" className="scroll-mt-24 bg-cream py-20 px-6">
                 <div className="max-w-6xl mx-auto">
-                    <div className="max-w-3xl mb-16">
+                    <div className="max-w-3xl mb-12">
                         <Badge>The Problem</Badge>
                         <h2 className="font-display text-4xl md:text-5xl font-normal text-ink leading-tight mb-6">
                             Hiring lived in inboxes.{" "}
@@ -105,28 +171,30 @@ const Simfluent = () => {
                         </p>
                     </div>
 
-                    <div className="grid grid-cols-1 md:grid-cols-4 gap-6">
-                        <IconCard icon={<Users size={18} className="text-ink-faint" />} title="Recruiters / HR">
-                            An 8&ndash;10 person team owning candidates end to end &mdash; who needed their queue and
-                            workload legible, not buried in mail.
-                        </IconCard>
-                        <IconCard icon={<Target size={18} className="text-ink-faint" />} title="Hiring Managers">
-                            Track requested roles and see where each candidate actually is &mdash; without chasing.
-                        </IconCard>
-                        <IconCard icon={<Building2 size={18} className="text-ink-faint" />} title="Leadership / VP">
-                            One live view of headcount, placements, and pipeline health &mdash; without asking anyone.
-                        </IconCard>
-                        <IconCard icon={<Globe size={18} className="text-ink-faint" />} title="Client Companies">
-                            The US companies being staffed &mdash; their interviews and assignments feed the timeline.
-                        </IconCard>
-                    </div>
+                    <Reveal summary="Who the four user groups are, and what each needed">
+                        <div className="grid grid-cols-1 md:grid-cols-4 gap-6">
+                            <IconCard icon={<Users size={18} className="text-ink-faint" />} title="Recruiters / HR">
+                                An 8&ndash;10 person team owning candidates end to end &mdash; who needed their queue and
+                                workload legible, not buried in mail.
+                            </IconCard>
+                            <IconCard icon={<Target size={18} className="text-ink-faint" />} title="Hiring Managers">
+                                Track requested roles and see where each candidate actually is &mdash; without chasing.
+                            </IconCard>
+                            <IconCard icon={<Building2 size={18} className="text-ink-faint" />} title="Leadership / VP">
+                                One live view of headcount, placements, and pipeline health &mdash; without asking anyone.
+                            </IconCard>
+                            <IconCard icon={<Globe size={18} className="text-ink-faint" />} title="Client Companies">
+                                The US companies being staffed &mdash; their interviews and assignments feed the timeline.
+                            </IconCard>
+                        </div>
+                    </Reveal>
                 </div>
             </section>
 
             {/* ================= RESEARCH & DEFINITION ================= */}
-            <section className="bg-surface py-24 px-6">
+            <section id="research" className="scroll-mt-24 bg-surface py-20 px-6">
                 <div className="max-w-6xl mx-auto">
-                    <div className="max-w-3xl mb-16">
+                    <div className="max-w-3xl mb-12">
                         <Badge>Research & Definition</Badge>
                         <h2 className="font-display text-4xl md:text-5xl font-normal text-ink leading-tight mb-6">
                             Screens came last.{" "}
@@ -139,32 +207,34 @@ const Simfluent = () => {
                         </p>
                     </div>
 
-                    <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-                        <IconCard icon={<Users size={18} className="text-ink-faint" />} title="Built with the people who own the problem">
-                            Worked directly with the Senior VP who owns the business end to end &mdash; the bird&apos;s-eye
-                            view and the direct line to the US client company &mdash; and the 8&ndash;10-person recruiting team
-                            who&apos;d use this daily. Requirements came from the floor, not a brief.
-                        </IconCard>
-                        <IconCard icon={<Eye size={18} className="text-ink-faint" />} title="Watched behaviour, not just opinions">
-                            Ran interviews and observed how recruiters actually work: which components they reached for,
-                            what information they hunted for at each step, and which metrics genuinely drove decisions
-                            versus which just filled a dashboard.
-                        </IconCard>
-                        <IconCard icon={<BarChart3 size={18} className="text-ink-faint" />} title="Benchmarked the category">
-                            Studied established recruitment and ATS platforms &mdash; what they surface and measure &mdash;
-                            then filtered hard: kept the metrics and patterns that fit our staffing model, cut the noise.
-                            Simfluent shows what helps recruiters act, not everything it&apos;s possible to show.
-                        </IconCard>
-                        <IconCard icon={<Map size={18} className="text-ink-faint" />} title="Turned it into a map, then flows">
-                            All of it fed a bird&apos;s-eye view of the platform and a prioritised feature list &mdash; the
-                            backbone the flows and screens were designed against. Definition first; UI second.
-                        </IconCard>
-                    </div>
+                    <Reveal summary="How the research was run">
+                        <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+                            <IconCard icon={<Users size={18} className="text-ink-faint" />} title="Built with the people who own the problem">
+                                Worked directly with the Senior VP who owns the business end to end &mdash; the bird&apos;s-eye
+                                view and the direct line to the US client company &mdash; and the 8&ndash;10-person recruiting team
+                                who&apos;d use this daily. Requirements came from the floor, not a brief.
+                            </IconCard>
+                            <IconCard icon={<Eye size={18} className="text-ink-faint" />} title="Watched behaviour, not just opinions">
+                                Ran interviews and observed how recruiters actually work: which components they reached for,
+                                what information they hunted for at each step, and which metrics genuinely drove decisions
+                                versus which just filled a dashboard.
+                            </IconCard>
+                            <IconCard icon={<BarChart3 size={18} className="text-ink-faint" />} title="Benchmarked the category">
+                                Studied established recruitment and ATS platforms &mdash; what they surface and measure &mdash;
+                                then filtered hard: kept the metrics and patterns that fit our staffing model, cut the noise.
+                                Simfluent shows what helps recruiters act, not everything it&apos;s possible to show.
+                            </IconCard>
+                            <IconCard icon={<Map size={18} className="text-ink-faint" />} title="Turned it into a map, then flows">
+                                All of it fed a bird&apos;s-eye view of the platform and a prioritised feature list &mdash; the
+                                backbone the flows and screens were designed against. Definition first; UI second.
+                            </IconCard>
+                        </div>
+                    </Reveal>
                 </div>
             </section>
 
             {/* ================= THE INSIGHT ================= */}
-            <section className="bg-cream py-24 px-6">
+            <section id="insight" className="scroll-mt-24 bg-cream py-20 px-6">
                 <div className="max-w-6xl mx-auto">
                     <div className="max-w-3xl mb-6">
                         <Badge>The Insight</Badge>
@@ -181,7 +251,7 @@ const Simfluent = () => {
                         <p className="text-ink-muted text-base leading-relaxed">
                             Nothing in the old setup made that visible. An email thread has no concept of
                             &ldquo;this has been sitting for eleven days.&rdquo; So the design principle became:
-                            <span className="text-ink font-medium"> make waiting impossible to ignore.</span>
+                            <span className="mark text-ink font-medium"> make waiting impossible to ignore.</span>
                         </p>
                     </div>
 
@@ -213,16 +283,16 @@ const Simfluent = () => {
             </section>
 
             {/* ================= DESIGN DECISIONS ================= */}
-            <section className="bg-surface py-24 px-6">
+            <section id="decisions" className="scroll-mt-24 bg-surface py-20 px-6">
                 <div className="max-w-6xl mx-auto">
-                    <div className="max-w-3xl mb-20">
+                    <div className="max-w-3xl mb-14">
                         <Badge>How I&apos;m Designing It</Badge>
                         <h2 className="font-display text-4xl md:text-5xl font-normal text-ink leading-tight">
                             Six decisions doing the heavy lifting.
                         </h2>
                     </div>
 
-                    <Decision
+                    <Decision collapsible open
                         n={1}
                         icon={<LayoutGrid size={20} className="text-ink-faint" />}
                         title="The dashboard answers “what needs me?” — not “how are we doing?”"
@@ -247,7 +317,7 @@ const Simfluent = () => {
                         />
                     </Decision>
 
-                    <Decision
+                    <Decision collapsible
                         n={2}
                         icon={<Timer size={20} className="text-ink-faint" />}
                         title="Time is a first-class citizen, not a timestamp."
@@ -262,7 +332,7 @@ const Simfluent = () => {
                         </p>
                     </Decision>
 
-                    <Decision
+                    <Decision collapsible
                         n={3}
                         icon={<Bot size={20} className="text-ink-faint" />}
                         title="AI drafts. Humans decide. The seam is always visible."
@@ -293,7 +363,7 @@ const Simfluent = () => {
                         />
                     </Decision>
 
-                    <Decision
+                    <Decision collapsible
                         n={4}
                         icon={<GitBranch size={20} className="text-ink-faint" />}
                         title="One loop: draft a role, publish it everywhere, work the pipeline."
@@ -317,7 +387,7 @@ const Simfluent = () => {
                         />
                     </Decision>
 
-                    <Decision
+                    <Decision collapsible
                         n={5}
                         icon={<Mail size={20} className="text-ink-faint" />}
                         title="Email becomes the record — without becoming the interface."
@@ -344,7 +414,7 @@ const Simfluent = () => {
                         />
                     </Decision>
 
-                    <Decision
+                    <Decision collapsible
                         n={6}
                         icon={<Palette size={20} className="text-ink-faint" />}
                         title="A design system underneath — because it keeps growing."
@@ -371,7 +441,7 @@ const Simfluent = () => {
             </section>
 
             {/* ================= SCREEN FLOW ================= */}
-            <section className="bg-cream py-24 px-6">
+            <section id="product" className="scroll-mt-24 bg-cream py-20 px-6">
                 <div className="max-w-6xl mx-auto">
                     <div className="max-w-3xl mb-10">
                         <Badge>The Product</Badge>
@@ -394,7 +464,7 @@ const Simfluent = () => {
             </section>
 
             {/* ================= WHERE IT STANDS ================= */}
-            <section className="bg-surface py-24 px-6">
+            <section id="status" className="scroll-mt-24 bg-surface py-20 px-6">
                 <div className="max-w-6xl mx-auto">
                     <div className="max-w-3xl mb-12">
                         <Badge>Where It Stands</Badge>

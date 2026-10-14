@@ -222,13 +222,16 @@ const Resume = () => {
               came from. Figures in sans and tabular so the column compares. */}
           <div className="grid grid-cols-2 md:grid-cols-4 gap-x-8 gap-y-8 mb-16">
             {PROOF.map((p) => (
+              // These four are the most recruiter-facing numbers on the site —
+              // the first thing someone scanning the resume should hit. Same
+              // display register as the case studies' outcome figures.
               <Link
                 key={p.label}
                 to={p.to}
-                className="group border-t border-line pt-5 hover:border-ink transition-colors"
+                className="group border-t-2 border-ink pt-6"
               >
-                <div className="text-[2rem] font-medium text-ink leading-none tracking-[-0.02em] tabular">{p.value}</div>
-                <div className="text-[0.8125rem] text-ink-soft mt-3 leading-[1.6]">{p.label}</div>
+                <div className="text-[2.75rem] sm:text-[3.25rem] font-medium text-ink leading-[0.9] tracking-[-0.035em] tabular">{p.value}</div>
+                <div className="text-[0.8125rem] text-ink-soft mt-4 leading-[1.6]">{p.label}</div>
                 <div className="text-[11px] uppercase tracking-[0.18em] text-ink-faint mt-2 group-hover:text-ink transition-colors">
                   {p.where}
                 </div>

@@ -10,7 +10,6 @@ import {
     Layers,
     Layout,
     Scissors,
-    Search,
     Split,
     Target,
     TrendingUp,
@@ -38,7 +37,8 @@ import v1 from "../../../assets/dsp/1.mp4";
 import v3 from "../../../assets/dsp/3.mp4";
 
 import {
-    Badge, SubLabel, StatCard, MetaList, Finding, NextCase,
+    Badge, SubLabel, StatCard, MetaList, Finding, NextCase, Contents, Reveal,
+    ShortVersion,
 } from "./CaseStudyUI";
 
 // ================= REUSABLE COMPONENTS =================
@@ -125,7 +125,7 @@ const BeforeAfterSlider = ({ beforeSrc, afterSrc, beforeAlt, afterAlt }) => {
 // practice: these used to sit three-in-a-row at the end of Phase 2 with nothing
 // saying what any of them proved.
 const Shot = ({ label, src, alt, caption }) => (
-    <figure className="mb-20">
+    <figure className="mb-14">
         <Badge>{label}</Badge>
         <img
             loading="lazy"
@@ -142,12 +142,16 @@ const Shot = ({ label, src, alt, caption }) => (
     </figure>
 );
 
+// Before, after, and the change. All four cells used to be 14px, so the one
+// number the row exists to deliver — the delta — was the same size as its own
+// label. The movement is now the loudest thing in the row, and `tabular` keeps
+// the column of figures aligned on the decimal rather than ragged.
 const MetricRow = ({ label, before, after, delta }) => (
-    <div className="flex items-center justify-between py-4 border-b border-line-soft last:border-0">
+    <div className="flex items-center justify-between gap-4 py-5 border-b border-line-soft last:border-0">
         <span className="text-ink text-sm font-medium w-2/5">{label}</span>
-        <span className="text-ink-faint text-sm w-1/5 text-center">{before}</span>
-        <span className="text-ink text-sm w-1/5 text-center">{after}</span>
-        <span className="text-ink text-sm font-semibold w-1/5 text-right">
+        <span className="text-ink-faint text-sm w-1/5 text-center tabular">{before}</span>
+        <span className="text-ink-muted text-sm w-1/5 text-center tabular">{after}</span>
+        <span className="text-ink text-[1.375rem] font-medium w-1/5 text-right tracking-[-0.02em] tabular leading-none">
             {delta}
         </span>
     </div>
@@ -170,7 +174,7 @@ const CarterEcosystem = () => {
                 <div className="max-w-6xl mx-auto">
                     {/* Left-aligned, on the page's own margin — the rest of the
                         site never centres a column. */}
-                    <div className="max-w-3xl mb-12">
+                    <div className="max-w-3xl mb-10">
                         {/* Real Carter logo (from trycarter.com), inlined as SVG.
                             The raised chip it sat on was the only shadow left on
                             the site; the client's blue reads fine on white. */}
@@ -191,14 +195,99 @@ const CarterEcosystem = () => {
                         </p>
                     </div>
 
+                    {/* ── The thirty-second read ──────────────────────────────
+                        Order here is deliberate, and it is not the order a case
+                        study usually runs in. The four numbers come before the
+                        screenshot and before the project metadata, because the
+                        first question a recruiter has is "did the work work?" —
+                        not what tools I used.
+
+                        These numbers used to live eight screens down, inside the
+                        phase that produced each one. True to the narrative,
+                        useless to someone scanning.
+
+                        Labels are lifted verbatim from those phase sections — no
+                        new attribution invented up here, because two of these
+                        numbers are claimed by two different phases further down
+                        and that needs settling before it gets restated. */}
+                    <div className="mt-14 grid grid-cols-2 lg:grid-cols-4 gap-x-8 gap-y-10">
+                        <StatCard value="3&times;" label="Faster campaign launch — 1.5 hours down to 30 minutes." />
+                        <StatCard value="&darr; 8%" label="Draft abandonment after the guided-flow rebuild." />
+                        <StatCard value="30%" label="Faster shipping velocity from component infrastructure." />
+                        <StatCard value="4.6/5" label="Usability score, task-based sessions." />
+                    </div>
+
                     <img
                         src={Carterimg}
                         alt="Carter Platform Overview"
-                        className="rounded-sm w-full object-cover border border-line"
+                        className="mt-14 rounded-sm w-full object-cover border border-line"
                     />
 
+                    {/* The short version — the whole arc before the detail starts, for
+                        anyone who reads one screen and decides from it. */}
+                    <ShortVersion
+                        className="mt-14"
+                        rows={[
+                            {
+                                k: "The problem",
+                                v: (
+                                    <>
+                                        A live platform that was quietly losing people &mdash; advertisers{" "}
+                                        <span className="text-ink font-medium">stalled in draft</span> and never
+                                        reached a launched campaign.
+                                    </>
+                                ),
+                            },
+                            {
+                                k: "The call",
+                                v: (
+                                    <>
+                                        Find out why before building anything new. Interviews, session recordings
+                                        and SQL funnel analysis, then{" "}
+                                        <span className="text-ink font-medium">got leadership to prioritise the fix</span>.
+                                    </>
+                                ),
+                            },
+                            {
+                                k: "What I owned",
+                                v: (
+                                    <>
+                                        Research, IA, interaction design, the design system, and design QA &mdash;{" "}
+                                        <span className="text-ink font-medium">one of two designers</span> across
+                                        12 DSP integrations in a 12-person core team.
+                                    </>
+                                ),
+                            },
+                            {
+                                k: "The outcome",
+                                v: (
+                                    <>
+                                        Draft abandonment <span className="mark text-ink font-medium">down 8%</span>,
+                                        campaign launch <span className="mark text-ink font-medium">3× faster</span>,
+                                        engineering <span className="mark text-ink font-medium">30% faster</span> off
+                                        the design system, <span className="mark text-ink font-medium">4.6/5</span> usability.
+                                    </>
+                                ),
+                            },
+                        ]}
+                    />
+
+                    <Contents
+                        className="mt-14 max-w-3xl"
+                        items={[
+                            { to: "context", label: "Context & my role" },
+                            { to: "phase-1", label: "Phase 1 — Activation" },
+                            { to: "phase-2", label: "Phase 2 — Cross-network" },
+                            { to: "ai-assistant", label: "Agentic AI assistant" },
+                            { to: "reflection", label: "What I'd do differently" },
+                        ]}
+                    />
+
+                    {/* Company, platform, duration, tools. Real information, but
+                        nobody decides anything from it — so it closes the hero
+                        rather than sitting between the headline and the proof. */}
                     <MetaList
-                        className="mt-12"
+                        className="mt-14"
                         cols="md:grid-cols-5"
                         items={[
                             { term: "Company", value: "Shyftlabs" },
@@ -208,84 +297,22 @@ const CarterEcosystem = () => {
                             { term: "Design team", value: "1 of 2 designers" },
                         ]}
                     />
-
-                    {/* Tools Stack */}
                     <p className="mt-8 text-[0.8125rem] text-ink-faint leading-[1.7] max-w-2xl">
                         <span className="text-ink-ghost">Tools &middot; </span>
                         {["Jira", "Figma", "Storybook", "React", "Tailwind CSS"].join(" · ")}
                     </p>
-
-                    {/* The short version — the whole arc before the detail starts, for
-                        anyone who reads one screen and decides from it. */}
-                    <div className="mt-12 max-w-3xl mx-auto border-t border-line pt-5 md:p-8">
-                        <p className="text-[11px] text-ink-faint tracking-[0.18em] uppercase mb-6">
-                            The short version
-                        </p>
-                        <dl className="space-y-5">
-                            {[
-                                {
-                                    k: "The problem",
-                                    v: (
-                                        <>
-                                            A live platform that was quietly losing people &mdash; advertisers{" "}
-                                            <span className="text-ink font-medium">stalled in draft</span> and never
-                                            reached a launched campaign.
-                                        </>
-                                    ),
-                                },
-                                {
-                                    k: "The call",
-                                    v: (
-                                        <>
-                                            Find out why before building anything new. Interviews, session recordings
-                                            and SQL funnel analysis, then{" "}
-                                            <span className="text-ink font-medium">got leadership to prioritise the fix</span>.
-                                        </>
-                                    ),
-                                },
-                                {
-                                    k: "What I owned",
-                                    v: (
-                                        <>
-                                            Research, IA, interaction design, the design system, and design QA &mdash;{" "}
-                                            <span className="text-ink font-medium">one of two designers</span> across
-                                            12 DSP integrations in a 12-person core team.
-                                        </>
-                                    ),
-                                },
-                                {
-                                    k: "The outcome",
-                                    v: (
-                                        <>
-                                            Draft abandonment <span className="text-ink font-medium">down 8%</span>,
-                                            campaign launch <span className="text-ink font-medium">3× faster</span>,
-                                            engineering <span className="text-ink font-medium">30% faster</span> off
-                                            the design system, <span className="text-ink font-medium">4.6/5</span> usability.
-                                        </>
-                                    ),
-                                },
-                            ].map((row) => (
-                                <div key={row.k} className="flex flex-col sm:flex-row gap-1 sm:gap-6">
-                                    <dt className="text-[11px] text-ink-faint uppercase tracking-[0.18em] sm:w-36 shrink-0 sm:pt-1">
-                                        {row.k}
-                                    </dt>
-                                    <dd className="text-ink-muted text-sm leading-relaxed">{row.v}</dd>
-                                </div>
-                            ))}
-                        </dl>
-                    </div>
                 </div>
             </section>
 
             {/* ================= WHY I HAD PM AUTHORITY ================= */}
-            <section className="bg-cream py-24 px-6">
+            <section id="context" className="scroll-mt-24 bg-cream py-20 px-6">
                 <div className="max-w-6xl mx-auto">
                     {/* Product tour first: the Get Started flow doubles as the
                         introduction to the platform, so it runs ahead of the role
                         and the decisions rather than being buried among them. */}
                     <CarterGetStarted />
 
-                    <div className="max-w-3xl mb-20">
+                    <div className="max-w-3xl mb-14">
                         <Badge>01 &mdash; Context &amp; My Role</Badge>
                         <h2 className="font-display text-4xl md:text-5xl font-normal text-ink leading-tight mb-6">
                             Two designers. Twelve integrations.{" "}
@@ -300,7 +327,7 @@ const CarterEcosystem = () => {
                                 read the codebase, run user research, and ship the UI myself
                             </span>
                             . Day to day I worked with a{" "}
-                            <span className="text-ink font-medium">12-person core team</span>{" "}
+                            <span className="mark text-ink font-medium">12-person core team</span>{" "}
                             inside an 80+ person org; the wider product group ran their own tracks. Design
                             stayed lean throughout &mdash; I was{" "}
                             <span className="text-ink font-medium">one of two designers</span> covering
@@ -373,10 +400,10 @@ const CarterEcosystem = () => {
             </section>
 
             {/* ================= PHASE 1 ================= */}
-            <section className="bg-surface py-24 px-6">
+            <section id="phase-1" className="scroll-mt-24 bg-surface py-20 px-6">
                 <div className="max-w-6xl mx-auto">
                     {/* Phase Divider */}
-                    <div className="flex items-center gap-6 mb-20">
+                    <div className="flex items-center gap-6 mb-14">
                         <div className="text-[11px] text-ink-ghost uppercase tracking-[0.18em] whitespace-nowrap">
                             Phase 01
                         </div>
@@ -547,7 +574,7 @@ const CarterEcosystem = () => {
                     </div>
 
                     {/* Strategic Bet */}
-                    <div className="max-w-3xl mb-20">
+                    <div className="max-w-3xl mb-14">
                         <Badge>02 &mdash; The Call I Made</Badge>
                         <h2 className="font-display text-4xl md:text-5xl font-normal text-ink leading-tight mb-6">
                             The team wanted features.{" "}
@@ -737,31 +764,32 @@ const CarterEcosystem = () => {
                         </svg>
                         </div>
 
-                        <p className="text-ink-muted text-base leading-relaxed mb-5">
-                            I scored the backlog using RICE — reach, impact, confidence,
-                            effort — and the picture was clear: the largest win available
-                            wasn&apos;t a new feature, it was the campaigns already being
-                            started and never finished.
-                        </p>
-                        <p className="text-ink-muted text-base leading-relaxed">
-                            The VP of Sales pushed back — &ldquo;we need feature X for the
-                            Kroger deal.&rdquo; I walked leadership through what the interviews,
-                            session recordings and funnel query actually showed: advertisers
-                            stalling in draft, repeatedly, at the same step. That got the fix
-                            prioritised ahead of the roadmap.
-                        </p>
-                    </div>
+                        {/* The headline above states the call; this is the working
+                            behind it. Collapsed, because a recruiter scanning wants
+                            to know I made the call — and whoever is interviewing me
+                            wants to know how. Both are served without making the
+                            first reader scroll past the second one's answer. */}
+                        <Reveal summary="How I made the case to leadership">
+                            <p className="text-ink-muted text-base leading-relaxed mb-5">
+                                I scored the backlog using RICE — reach, impact, confidence,
+                                effort — and the picture was clear: the largest win available
+                                wasn&apos;t a new feature, it was the campaigns already being
+                                started and never finished.
+                            </p>
+                            <p className="text-ink-muted text-base leading-relaxed">
+                                The VP of Sales pushed back — &ldquo;we need feature X for the
+                                Kroger deal.&rdquo; I walked leadership through what the interviews,
+                                session recordings and funnel query actually showed: advertisers
+                                stalling in draft, repeatedly, at the same step. That got the fix
+                                prioritised ahead of the roadmap.
+                            </p>
+                        </Reveal>
 
-                    {/* Discovery */}
-                    <div className="border-t border-line pt-6 max-w-4xl mb-20 flex flex-col md:flex-row gap-4 md:gap-6">
-                        <div className="text-ink-faint flex-shrink-0">
-                            <Search size={20} className="text-ink-faint" />
-                        </div>
-                        <div>
-                            <h4 className="text-ink font-semibold mb-3">Discovery</h4>
-                            <p className="text-ink-muted text-sm leading-relaxed">
+                        {/* Discovery */}
+                        <Reveal summary="What discovery actually found">
+                            <p className="text-ink-muted text-base leading-relaxed">
                                 Interviewed{" "}
-                                <span className="text-ink font-medium">
+                                <span className="mark text-ink font-medium">
                                     8 advertisers + 5 internal ops
                                 </span>{" "}
                                 over 2 weeks. Pulled 200+ session recordings from Hotjar. The
@@ -773,11 +801,11 @@ const CarterEcosystem = () => {
                                 at any step. That reframed the problem from &ldquo;simplify the
                                 UI&rdquo; to &ldquo;add feedback at every decision point.&rdquo;
                             </p>
-                        </div>
+                        </Reveal>
                     </div>
 
                     {/* Audit Findings */}
-                    <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mb-20">
+                    <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mb-14">
                         <Finding
                             value="Stalled drafts"
                             title="Campaigns started, never launched"
@@ -797,22 +825,24 @@ const CarterEcosystem = () => {
                     </div>
 
                     {/* ——— DECISION 1: THE DESIGN SYSTEM ——— */}
-                    <div className="mb-24">
+                    <div className="mb-16">
                         <Badge>03 &mdash; What I Designed</Badge>
                         <SubLabel>Decision 1 &middot; Design System</SubLabel>
                         <h3 className="font-ui text-3xl font-medium text-ink mb-4">
                             The UI looked like a wireframe.{" "}
                             <span className="text-ink-muted">So I built the system underneath it.</span>
                         </h3>
-                        <p className="text-ink-muted text-base leading-relaxed max-w-3xl mb-10">
-                            The platform had no visual consistency &mdash; spacing, colour and components drifted
-                            screen to screen, and much of it still read like a mid-fi wireframe. Redesigning screens
-                            one at a time wouldn&apos;t hold, because every team was building UI independently and
-                            re-solving the same problems. So the first call wasn&apos;t a screen, it was the layer
-                            underneath: a governed component library with design tokens, documented states, an 8pt
-                            grid and WCAG 2.1 AA baked in &mdash; with design-to-code parity in Storybook, so every
-                            new screen inherited consistency by default.
-                        </p>
+                        <Reveal summary="Why a system, not a screen-by-screen redesign" className="max-w-3xl mb-10">
+                            <p className="text-ink-muted text-base leading-relaxed">
+                                The platform had no visual consistency &mdash; spacing, colour and components drifted
+                                screen to screen, and much of it still read like a mid-fi wireframe. Redesigning screens
+                                one at a time wouldn&apos;t hold, because every team was building UI independently and
+                                re-solving the same problems. So the first call wasn&apos;t a screen, it was the layer
+                                underneath: a governed component library with design tokens, documented states, an 8pt
+                                grid and WCAG 2.1 AA baked in &mdash; with design-to-code parity in Storybook, so every
+                                new screen inherited consistency by default.
+                            </p>
+                        </Reveal>
                         <img
                             loading="lazy"
                             decoding="async"
@@ -840,7 +870,7 @@ const CarterEcosystem = () => {
                     </div>
 
                     {/* ——— DECISION 2: CAMPAIGN CREATION ——— */}
-                    <div className="mb-24">
+                    <div className="mb-16">
                         <Badge>Product Decision 2 — Activation Funnel Fix</Badge>
                         <h3 className="font-ui text-3xl font-medium text-ink mb-4">
                             From a form dump to a guided 5-stage flow
@@ -856,11 +886,12 @@ const CarterEcosystem = () => {
                             decoding="async"
                             src={CampaignCreationImg}
                             alt="Campaign Creation Redesign"
-                            className="rounded-sm w-full border border-line mb-12"
+                            className="rounded-sm w-full border border-line mb-10"
                         />
 
-                        {/* Product Calls — Icon Grid */}
-                        <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mb-12">
+                        {/* Product Calls — detail behind the headline above. */}
+                        <Reveal summary="The four product calls inside the flow" className="mb-10">
+                        <div className="grid grid-cols-1 md:grid-cols-2 gap-6 pt-2">
                             <div className="border-t border-line pt-5 flex gap-4">
                                 <div className="text-ink-faint flex-shrink-0">
                                     <Layers size={18} className="text-ink-faint" />
@@ -919,10 +950,10 @@ const CarterEcosystem = () => {
                             </div>
                         </div>
 
-                        <div className="border-t border-line pt-6">
-                            <h4 className="text-ink font-semibold text-sm mb-6">
-                                Before vs. After
-                            </h4>
+                        </Reveal>
+
+                        <Reveal summary="Before and after, metric by metric">
+                        <div className="pt-2">
                             <div className="flex items-center justify-between pb-3 border-b border-line mb-1">
                                 <span className="text-ink-faint text-xs uppercase tracking-widest w-2/5">
                                     Metric
@@ -962,6 +993,7 @@ const CarterEcosystem = () => {
                                 delta="+20pts"
                             />
                         </div>
+                        </Reveal>
 
                         {/* What didn't work */}
                         <div className="mt-8 border-l-2 border-line-strong pl-5 max-w-3xl">
@@ -981,7 +1013,7 @@ const CarterEcosystem = () => {
                     </div>
 
                     {/* ——— DECISION 3: AD ITEM MANAGEMENT ——— */}
-                    <div className="mb-24">
+                    <div className="mb-16">
                         <Badge>Product Decision 3 — Retention Feature</Badge>
                         <h3 className="font-ui text-3xl font-medium text-ink mb-4">
                             From a reporting table{" "}
@@ -995,7 +1027,7 @@ const CarterEcosystem = () => {
                             active guidance.
                         </p>
 
-                        <div className="mb-12">
+                        <div className="mb-10">
                             <BeforeAfterSlider
                                 beforeSrc={Oldaditem}
                                 afterSrc={Aditem}
@@ -1012,12 +1044,12 @@ const CarterEcosystem = () => {
                             cause of the next one, which is the actual argument. */}
                         <p className="text-ink-muted text-sm leading-relaxed mb-10 max-w-2xl">
                             These are one chain, not separate results. Rebuilding the dense form as a short
-                            guided flow cut <span className="text-ink font-medium">draft abandonment 8%</span>,
+                            guided flow cut <span className="mark text-ink font-medium">draft abandonment 8%</span>,
                             so more of the campaigns advertisers started actually reached launch. The agentic
                             assistant then took the launch itself from{" "}
-                            <span className="text-ink font-medium">1.5 hours to 30 minutes</span>. In parallel,
+                            <span className="mark text-ink font-medium">1.5 hours to 30 minutes</span>. In parallel,
                             the component library made engineering{" "}
-                            <span className="text-ink font-medium">30% faster</span>, which is what let a
+                            <span className="mark text-ink font-medium">30% faster</span>, which is what let a
                             two-designer team keep pace with 12 DSP integrations.
                         </p>
                         <div className="grid grid-cols-2 md:grid-cols-4 gap-6">
@@ -1050,10 +1082,10 @@ const CarterEcosystem = () => {
             </section>
 
             {/* ================= PHASE 2 ================= */}
-            <section className="bg-cream py-24 px-6">
+            <section id="phase-2" className="scroll-mt-24 bg-cream py-20 px-6">
                 <div className="max-w-6xl mx-auto">
                     {/* Phase Divider */}
-                    <div className="flex items-center gap-6 mb-20">
+                    <div className="flex items-center gap-6 mb-14">
                         <div className="text-[11px] text-ink-ghost uppercase tracking-[0.18em] whitespace-nowrap">
                             Phase 02
                         </div>
@@ -1227,7 +1259,7 @@ const CarterEcosystem = () => {
                     </div>
 
                     {/* Strategic Bet */}
-                    <div className="max-w-3xl mb-20">
+                    <div className="max-w-3xl mb-14">
                         <Badge>05 &mdash; Scaling The Bet</Badge>
                         <h2 className="font-display text-4xl md:text-5xl font-normal text-ink leading-tight mb-6">
                             Phase 1 earned trust.{" "}
@@ -1235,22 +1267,24 @@ const CarterEcosystem = () => {
                                 I used it to expand the platform.
                             </span>
                         </h2>
-                        <p className="text-ink-muted text-base leading-relaxed mb-5">
-                            After the redesign shipped, enterprise clients started asking for
-                            cross-network campaign management. I ran competitive analysis — no
-                            unified DSP existed for retail media at this scale.
-                        </p>
-                        <p className="text-ink-muted text-base leading-relaxed">
-                            Built the case for leadership: where the gap was, what it would
-                            take to close it, and a phased roadmap to get there. The argument
-                            that landed was simple — advertisers already running on several
-                            networks were the ones asking, and they were the accounts worth
-                            keeping.
-                        </p>
+                        <Reveal summary="How the mandate expanded">
+                            <p className="text-ink-muted text-base leading-relaxed mb-5">
+                                After the redesign shipped, enterprise clients started asking for
+                                cross-network campaign management. I ran competitive analysis — no
+                                unified DSP existed for retail media at this scale.
+                            </p>
+                            <p className="text-ink-muted text-base leading-relaxed">
+                                Built the case for leadership: where the gap was, what it would
+                                take to close it, and a phased roadmap to get there. The argument
+                                that landed was simple — advertisers already running on several
+                                networks were the ones asking, and they were the accounts worth
+                                keeping.
+                            </p>
+                        </Reveal>
                     </div>
 
                     {/* Context */}
-                    <div className="max-w-3xl mb-20">
+                    <div className="max-w-3xl mb-14">
                         <Badge>Phase 2 — Cross-Network Features</Badge>
                         <h2 className="font-display text-4xl md:text-5xl font-normal text-ink leading-tight mb-6">
                             One platform.{" "}
@@ -1279,8 +1313,10 @@ const CarterEcosystem = () => {
                         caption="The answer to the quote above. Revenue and delivery per channel in one place, with the keyword, geo, language and device breakdowns underneath — and an optimisation panel that proposes changes but leaves the advertiser to accept or reject each one."
                     />
 
-                    {/* Market Gap + North Stars */}
-                    <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mb-20">
+                    {/* Market Gap + North Stars — the research that justified
+                        Phase 2. Supporting evidence, not the headline. */}
+                    <Reveal summary="The market gap, and the north stars I set against it" className="mb-14">
+                    <div className="grid grid-cols-1 md:grid-cols-2 gap-6 pt-2">
                         <div className="border-t border-line pt-6">
                             <Badge>The Market Gap</Badge>
                             <div className="space-y-4 mt-2">
@@ -1338,6 +1374,7 @@ const CarterEcosystem = () => {
                             </div>
                         </div>
                     </div>
+                    </Reveal>
 
                     {/* Answers the north star directly above: a cross-network launch
                         should cost one campaign's time. */}
@@ -1357,7 +1394,7 @@ const CarterEcosystem = () => {
                     />
 
                     {/* What I Said No To */}
-                    <div className="border-t border-line pt-6 max-w-4xl mb-20 flex flex-col md:flex-row gap-4 md:gap-6">
+                    <div className="border-t border-line pt-6 max-w-4xl mb-14 flex flex-col md:flex-row gap-4 md:gap-6">
                         <div className="text-ink-faint flex-shrink-0">
                             <Scissors size={20} className="text-ink-faint" />
                         </div>
@@ -1386,7 +1423,10 @@ const CarterEcosystem = () => {
                     </div>
 
                     {/* ——— AGENTIC AI CAMPAIGN ASSISTANT ——— */}
-                    <div className="mb-20">
+                    {/* Anchored and listed in the contents: this is the strongest
+                        story on the page and it sits eleven screens down. A jump
+                        link surfaces it without reordering the narrative. */}
+                    <div id="ai-assistant" className="scroll-mt-24 mb-14">
                         <Badge>Product Decision &mdash; Agentic AI Campaign Assistant</Badge>
                         <h3 className="font-ui text-3xl font-medium text-ink mb-4">
                             Campaign creation:{" "}
@@ -1436,7 +1476,7 @@ const CarterEcosystem = () => {
                     </div>
 
                     {/* Video Walkthrough */}
-                    <div className="border-t border-line pt-10 mb-20">
+                    <div className="border-t border-line pt-10 mb-14">
                         <div className="flex flex-col md:flex-row gap-10 items-center">
                             <video
                                 controls
@@ -1511,7 +1551,7 @@ const CarterEcosystem = () => {
                                     Setup time was the constraint that actually mattered: running a campaign
                                     across every network meant repeating the same work per network, so advertisers
                                     ran fewer, larger, blunter campaigns than they wanted to. Unifying{" "}
-                                    <span className="text-ink font-medium">12 workflows into one form</span>,
+                                    <span className="mark text-ink font-medium">12 workflows into one form</span>,
                                     with one master creative auto-adapted per network, means a cross-network
                                     launch now takes one campaign&apos;s time. Validated through task-based
                                     sessions with alpha clients.
@@ -1561,7 +1601,7 @@ const CarterEcosystem = () => {
                 </div>
             </section>
             {/* ================= CLOSING ================= */}
-            <section className="bg-surface py-24 px-6">
+            <section id="reflection" className="scroll-mt-24 bg-surface py-20 px-6">
                 <div className="max-w-6xl mx-auto">
                     <div className="max-w-3xl">
                         <Badge>09 &mdash; What I&apos;d Do Differently</Badge>

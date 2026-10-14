@@ -1,6 +1,6 @@
 import { useState } from 'react';
 
-const taxonomyData = [
+const baseCategories = [
   {
     id: "general",
     category: "General Practice",
@@ -40,6 +40,34 @@ const taxonomyData = [
   }
 ];
 
+/**
+ * Multi-Location is the composite archetype: a site that fronts several
+ * clinics carries every service category rather than one, so its Level 2 is
+ * the other four categories and its Level 3 is their service types.
+ *
+ * Derived from `baseCategories` rather than retyped. Copying the names would
+ * mean a service added to General Practice silently goes missing here — which
+ * is the exact failure mode the surrounding copy is describing: a static page
+ * becomes wrong the moment a service changes. The diagram shouldn't disprove
+ * its own argument.
+ *
+ * It also means a name reads as Level 2 in its own branch and Level 3 in this
+ * one. That is the archetype rolling up a level, not an inconsistency: for a
+ * single clinic the practice area IS the site, and for a multi-location group
+ * it is one of several things the site has to route between.
+ */
+const multiLocation = {
+  id: "multi",
+  category: "Multi-Location",
+  types: baseCategories.map((cat, i) => ({
+    id: `m${i + 1}`,
+    name: cat.category,
+    details: cat.types.map((type) => type.name)
+  }))
+};
+
+const taxonomyData = [...baseCategories, multiLocation];
+
 const metadata = [
   { label: "Service Type", values: ["Preventive", "Diagnostic", "Treatment"] },
   { label: "Species", values: ["Dogs", "Cats", "Exotic Pets"] },
@@ -59,7 +87,7 @@ const AtlasTaxonomy = () => {
       <div
         className="absolute inset-0 opacity-[0.03] pointer-events-none"
         style={{
-          backgroundImage: `linear-gradient(#ffffff 1px, transparent 1px), linear-gradient(90deg, #ffffff 1px, transparent 1px)`,
+          backgroundImage: `linear-gradient(rgba(16,20,24,0.6) 1px, transparent 1px), linear-gradient(90deg, rgba(16,20,24,0.6) 1px, transparent 1px)`,
           backgroundSize: '20px 20px'
         }}
       ></div>
@@ -95,7 +123,7 @@ const AtlasTaxonomy = () => {
                   setActiveTypeId(cat.types[0].id);
                 }}
                 className={`p-4 rounded-sm cursor-pointer transition-all duration-300 border relative ${activeCatId === cat.id
-                  ? "bg-surface border-accent-ink/45 shadow-[0_5px_20px_rgba(0,0,0,0.08)] translate-x-2"
+                  ? "bg-surface border-ink translate-x-2"
                   : "bg-surface-3/70 border-line hover:border-line-strong hover:bg-surface-3"
                   }`}
               >
@@ -112,7 +140,7 @@ const AtlasTaxonomy = () => {
 
           {/* Connective Line visual for desktop (CSS approx) */}
           <div className="hidden md:flex w-8 items-center justify-center relative">
-            <div className="w-px h-[80%] bg-gradient-to-b from-transparent via-accent-ink/45 to-transparent"></div>
+            <div className="w-px h-[80%] bg-gradient-to-b from-transparent via-line-strong to-transparent"></div>
           </div>
 
           {/* Level 2: Types */}
@@ -123,7 +151,7 @@ const AtlasTaxonomy = () => {
                 key={type.id}
                 onMouseEnter={() => setActiveTypeId(type.id)}
                 className={`p-4 rounded-sm cursor-pointer transition-all duration-300 border relative ${activeTypeId === type.id
-                  ? "bg-surface border-accent-ink/40 shadow-[0_4px_15px_rgba(0,0,0,0.08)] translate-x-1"
+                  ? "bg-surface border-ink/70 translate-x-1"
                   : "bg-surface-3/70 border-transparent hover:border-line-strong"
                   }`}
               >
@@ -132,7 +160,7 @@ const AtlasTaxonomy = () => {
                     {type.name}
                   </h5>
                   {type.details.length > 0 && (
-                    <span className="text-[10px] bg-surface-3 px-2 py-1 rounded text-ink-muted">Has Ext. Details</span>
+                    <span className="text-[10px] uppercase tracking-[0.14em] text-ink-faint">Has Ext. Details</span>
                   )}
                 </div>
                 {activeTypeId === type.id && type.details.length > 0 && (
@@ -144,7 +172,7 @@ const AtlasTaxonomy = () => {
 
           <div className="hidden md:flex w-8 items-center justify-center relative">
             {activeType.details.length > 0 && (
-              <div className="w-px h-[60%] bg-gradient-to-b from-transparent via-accent-ink/45 to-transparent"></div>
+              <div className="w-px h-[60%] bg-gradient-to-b from-transparent via-line-strong to-transparent"></div>
             )}
           </div>
 
@@ -158,7 +186,7 @@ const AtlasTaxonomy = () => {
               activeType.details.map((detail, idx) => (
                 <div
                   key={idx}
-                  className="p-3 pl-5 border-l-2 border-accent-ink/35 bg-gradient-to-r from-accent/25 to-transparent rounded-r-lg"
+                  className="p-3 pl-5 border-l-2 border-ink/70 bg-ink/[0.04] rounded-r-sm"
                 >
                   <p className="text-sm text-ink-soft">{detail}</p>
                 </div>
@@ -179,11 +207,11 @@ const AtlasTaxonomy = () => {
             {metadata.map((meta, idx) => (
               // Was a near-black panel left over from the dark build — a black
               // card mid-page, and accent-ink on it measured 3.1:1, under AA.
-              <div key={idx} className="flex-1 min-w-[200px] bg-surface-3 border border-line rounded-lg p-4">
+              <div key={idx} className="flex-1 min-w-[200px] border-t border-line pt-5">
                 <div className="text-ink-faint text-[11px] uppercase tracking-[0.18em] mb-3">{meta.label}</div>
                 <div className="flex flex-wrap gap-2">
                   {meta.values.map((val, vIdx) => (
-                    <span key={vIdx} className="text-xs bg-surface-3/70 border border-line px-2 py-1 rounded-md text-ink-soft">
+                    <span key={vIdx} className="text-[0.8125rem] text-ink-soft border-b border-line pb-0.5">
                       {val}
                     </span>
                   ))}

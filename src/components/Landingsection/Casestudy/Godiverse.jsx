@@ -10,7 +10,9 @@ import {
 // ================= ASSETS =================
 import Banner from "../../../assets/Godiverse/Banner.png";
 
-import { Badge, StatCard, MetaList, NextCase } from "./CaseStudyUI";
+import {
+    Badge, StatCard, MetaList, NextCase, Contents, ShortVersion,
+} from "./CaseStudyUI";
 
 const Godiverse = () => {
     return (
@@ -41,13 +43,81 @@ const Godiverse = () => {
                         </p>
                     </div>
 
+                    {/* The thirty-second read. Labels verbatim from the Outcomes
+                        section below — the first is explicitly a design target,
+                        not a measured result, and it stays labelled that way. */}
+                    <div className="mt-14 grid grid-cols-3 gap-x-8 gap-y-10">
+                        <StatCard value="&lt; 8 min" label="Design target: signup to first shared profile." />
+                        <StatCard value="3-in-1" label="Distribution — link, PDF, and print from a single build." />
+                        <StatCard value="3" label="Optional AI touchpoints — summary, bullets, skills — each editable by the user." />
+                    </div>
+
                     {/* Hero Image */}
-                    <img src={Banner} alt="GoDiverse Resume Builder" className="rounded-sm w-full border border-line" />
+                    <img src={Banner} alt="GoDiverse Resume Builder" className="mt-14 rounded-sm w-full border border-line" />
+
+                    <ShortVersion
+                        className="mt-14"
+                        rows={[
+                            {
+                                k: "The problem",
+                                v: (
+                                    <>
+                                        Suppliers on a diversity platform had no fast way to present
+                                        themselves &mdash; and a profile nobody can share, print or send as a
+                                        PDF is a profile that never leaves the platform.
+                                    </>
+                                ),
+                            },
+                            {
+                                k: "The call",
+                                v: (
+                                    <>
+                                        Treat <span className="text-ink font-medium">one page as the design
+                                        strategy</span>, not a limitation &mdash; it forces every decision
+                                        toward clarity and speed, and makes three distribution channels out
+                                        of a single build.
+                                    </>
+                                ),
+                            },
+                            {
+                                k: "What I owned",
+                                v: (
+                                    <>
+                                        Hired as a designer and ended up scoping the product: industry
+                                        research, the AI integration points, and every screen. Two months,
+                                        blank brief to buildable spec.
+                                    </>
+                                ),
+                            },
+                            {
+                                k: "The outcome",
+                                v: (
+                                    <>
+                                        A share-first pitching tool &mdash;{" "}
+                                        <span className="mark text-ink font-medium">link, PDF and print</span>{" "}
+                                        from one build, with three optional AI touchpoints the user can always
+                                        edit.
+                                    </>
+                                ),
+                            },
+                        ]}
+                    />
+
+                    <Contents
+                        className="mt-14 max-w-3xl"
+                        items={[
+                            { to: "context", label: "Context" },
+                            { to: "research", label: "Research" },
+                            { to: "decisions", label: "Design decisions" },
+                            { to: "outcomes", label: "Outcomes" },
+                            { to: "reflection", label: "The real story" },
+                        ]}
+                    />
 
                     {/* Was four bordered boxes in a row. Same four facts, read as a
                         caption under the screen rather than as a dashboard above it. */}
                     <MetaList
-                        className="mt-12"
+                        className="mt-14"
                         items={[
                             { term: "Company", value: "GoDiverse" },
                             { term: "My role", value: "UI/UX Consultant → Design Lead" },
@@ -71,9 +141,9 @@ const Godiverse = () => {
             </section>
 
             {/* ================= WHY I OWNED PRODUCT DECISIONS ================= */}
-            <section className="bg-cream py-24 px-6">
+            <section id="context" className="scroll-mt-24 bg-cream py-20 px-6">
                 <div className="max-w-6xl mx-auto">
-                    <div className="max-w-3xl mb-16">
+                    <div className="max-w-3xl mb-12">
                         <Badge>Context</Badge>
                         <h2 className="font-display text-4xl md:text-5xl font-normal text-ink leading-tight mb-6">
                             Hired as a designer.{" "}
@@ -119,11 +189,11 @@ const Godiverse = () => {
             </section>
 
             {/* ================= PRODUCT STRATEGY ================= */}
-            <section className="bg-surface py-24 px-6">
+            <section id="research" className="scroll-mt-24 bg-surface py-20 px-6">
                 <div className="max-w-6xl mx-auto">
 
                     {/* The Problem */}
-                    <div className="max-w-3xl mb-20">
+                    <div className="max-w-3xl mb-14">
                         <Badge>The Problem</Badge>
                         <h2 className="font-display text-4xl md:text-5xl font-normal text-ink leading-tight mb-6">
                             Resume builders are either too complex{" "}
@@ -173,13 +243,13 @@ const Godiverse = () => {
                         </p>
                         <p className="text-ink-muted text-base leading-relaxed">
                             Neither solved the core job-to-be-done:
-                            create a <span className="text-ink font-medium">professional, distinctive 1-page profile in under 10 minutes</span>,
+                            create a <span className="mark text-ink font-medium">professional, distinctive 1-page profile in under 10 minutes</span>,
                             then share it instantly &mdash; by link, PDF, or print.
                         </p>
                     </div>
 
                     {/* Competitive Insight Cards */}
-                    <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mb-20">
+                    <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mb-14">
                         <div className="border-t border-line pt-5">
                             <div className="flex items-center gap-3 mb-4">
                                 <div className="text-ink-faint">
@@ -204,11 +274,11 @@ const Godiverse = () => {
             </section>
 
             {/* ================= PRODUCT DECISIONS + AI + DESIGN (SINGLE FLOW) ================= */}
-            <section className="bg-cream py-24 px-6">
+            <section id="decisions" className="scroll-mt-24 bg-cream py-20 px-6">
                 <div className="max-w-6xl mx-auto">
 
                     {/* Strategic Bet */}
-                    <div className="max-w-3xl mb-20">
+                    <div className="max-w-3xl mb-14">
                         <Badge>The Strategic Bet</Badge>
                         <h2 className="font-display text-4xl md:text-5xl font-normal text-ink leading-tight mb-6">
                             One page. One flow.{" "}
@@ -276,7 +346,7 @@ const Godiverse = () => {
                     </div>
 
                     {/* Distribution Triad */}
-                    <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mb-20">
+                    <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mb-14">
                         <div className="border-t border-line pt-5 space-y-3">
                             <div className="text-ink-faint">
                                 <Share2 size={18} className="text-ink-faint" />
@@ -306,7 +376,7 @@ const Godiverse = () => {
                         Every feature scoped against one question: does this help someone go from blank page to shared resume faster?
                     </p>
 
-                    <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mb-20">
+                    <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mb-14">
                         <div className="border-t border-line pt-5 flex gap-4">
                             <div className="text-ink-faint flex-shrink-0">
                                 <FileText size={18} className="text-ink-faint" />
@@ -395,7 +465,7 @@ const Godiverse = () => {
                     </svg>
 </div>
 
-                    <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mb-20">
+                    <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mb-14">
                         <div className="border-t border-line pt-5 space-y-3">
                             <div className="text-ink-faint">
                                 <Sparkles size={18} className="text-ink-faint" />
@@ -420,7 +490,7 @@ const Godiverse = () => {
                     </div>
 
                     {/* What didn't work + What I said no to */}
-                    <div className="flex flex-col md:flex-row gap-6 mb-20">
+                    <div className="flex flex-col md:flex-row gap-6 mb-14">
                         <div className="flex-1 border-l-2 border-line-strong pl-5">
                             <p className="text-ink-ghost text-[11px] uppercase tracking-[0.18em] mb-2">What didn&apos;t work first</p>
                             <p className="text-ink-muted text-sm leading-relaxed">
@@ -456,7 +526,7 @@ const Godiverse = () => {
             </section>
 
             {/* ================= OUTCOMES ================= */}
-            <section className="bg-surface py-24 px-6">
+            <section id="outcomes" className="scroll-mt-24 bg-surface py-20 px-6">
                 <div className="max-w-6xl mx-auto">
                     <div className="border-t border-line pt-10">
                         <Badge>Outcomes</Badge>
@@ -473,7 +543,7 @@ const Godiverse = () => {
             </section>
 
             {/* ================= CLOSING ================= */}
-            <section className="bg-cream py-24 px-6">
+            <section id="reflection" className="scroll-mt-24 bg-cream py-20 px-6">
                 <div className="max-w-6xl mx-auto">
                     <div className="max-w-3xl">
                         <Badge>The Real Story</Badge>

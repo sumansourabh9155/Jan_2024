@@ -100,14 +100,19 @@ export const IconCard = ({ icon, title, children }) => (
 
 /* A number that matters. Sans and tabular, not serif: these are figures to be
    read and compared, and the lining numerals in a display serif are harder
-   work at a glance than Inter's. */
+   work at a glance than Inter's.
+
+   Set at display size. Everything on these pages lives between 11px and 28px,
+   so at 2rem an outcome was the same weight as a card title and the eye had no
+   reason to stop. A result is the thing a recruiter is scanning for — it gets
+   its own register, and a full-ink rule above it rather than a hairline. */
 export const StatCard = ({ value, label, icon }) => (
-  <div className="border-t border-line pt-5">
-    {icon && <div className="text-ink-faint mb-3">{icon}</div>}
-    <p className="font-ui font-medium text-ink text-[2rem] leading-none tracking-[-0.02em] tabular">
+  <div className="border-t-2 border-ink pt-6">
+    {icon && <div className="text-ink-faint mb-4">{icon}</div>}
+    <p className="font-ui font-medium text-ink text-[2.75rem] sm:text-[3.25rem] leading-[0.9] tracking-[-0.035em] tabular">
       {value}
     </p>
-    <p className="text-[0.8125rem] text-ink-muted leading-[1.6] mt-3">{label}</p>
+    <p className="text-[0.8125rem] text-ink-muted leading-[1.6] mt-4 max-w-[24ch]">{label}</p>
   </div>
 );
 
@@ -115,20 +120,58 @@ export const StatCard = ({ value, label, icon }) => (
    Sans: this is the analytical layer, and a decision title is an argument,
    not a chapter. `tone` is still accepted at the call sites and deliberately
    ignored — it carried the per-decision tile colour this pass removes. */
-export const Decision = ({ n, icon, title, children }) => (
-  <div className="mb-20">
-    <div className="flex items-center gap-3 mb-5">
-      {icon && <span className="text-ink-faint">{icon}</span>}
-      <span className="text-[11px] uppercase tracking-[0.18em] text-ink-ghost tabular">
-        Decision {String(n).padStart(2, "0")}
-      </span>
+export const Decision = ({ n, icon, title, children, collapsible = false, open = false }) => {
+  const head = (
+    <>
+      <div className="flex items-center gap-3 mb-5">
+        {icon && <span className="text-ink-faint">{icon}</span>}
+        <span className="text-[11px] uppercase tracking-[0.18em] text-ink-ghost tabular">
+          Decision {String(n).padStart(2, "0")}
+        </span>
+      </div>
+      <h3 className="font-ui font-medium text-ink text-[1.5rem] md:text-[1.875rem] mb-5 max-w-3xl leading-[1.25] tracking-[-0.02em] [text-wrap:balance]">
+        {title}
+      </h3>
+    </>
+  );
+
+  // A run of seven decisions is ten screens of scrolling, and the titles are
+  // already the argument — "AI drafts, humans decide", "time is a first-class
+  // citizen". Collapsed, the whole section becomes a readable list of calls
+  // made, and the evidence for any one of them is a click away.
+  //
+  // The first is left open so the pattern is obvious: a reader can see what is
+  // behind one before deciding whether to open the rest.
+  if (!collapsible) {
+    return (
+      <div className="mb-20">
+        {head}
+        {children}
+      </div>
+    );
+  }
+
+  return (
+    <div className="mb-10 border-t border-line pt-6">
+      {head}
+      <details className="group" open={open}>
+        <summary className="reveal-summary flex items-center justify-between gap-5 cursor-pointer py-2 text-left">
+          <span className="text-[0.9375rem] text-ink-muted group-hover:text-ink transition-colors">
+            <span className="group-open:hidden">Read the detail</span>
+            <span className="hidden group-open:inline">Hide the detail</span>
+          </span>
+          <span
+            aria-hidden="true"
+            className="shrink-0 text-ink-faint text-lg leading-none transition-transform duration-200 group-open:rotate-45 group-hover:text-ink"
+          >
+            +
+          </span>
+        </summary>
+        <div className="pt-4">{children}</div>
+      </details>
     </div>
-    <h3 className="font-ui font-medium text-ink text-[1.5rem] md:text-[1.875rem] mb-5 max-w-3xl leading-[1.25] tracking-[-0.02em] [text-wrap:balance]">
-      {title}
-    </h3>
-    {children}
-  </div>
-);
+  );
+};
 
 /* ── Project metadata ────────────────────────────────────────────────────
    Role, company, users, status. Was four bordered boxes in a row; a
@@ -158,9 +201,11 @@ export const MetaList = ({ items, className = "", cols = "md:grid-cols-4" }) => 
    explanation. Sans and tabular, because half of them are numerals and they
    are meant to be compared down the row. */
 export const Finding = ({ value, title, icon, children }) => (
-  <div className="border-t-2 border-ink/70 pt-5">
+  // A lighter rule than StatCard's, and a smaller figure. These are the
+  // problems; they set up the outcomes rather than competing with them.
+  <div className="border-t-2 border-ink/45 pt-5">
     {icon && <div className="text-ink-faint mb-3">{icon}</div>}
-    <p className="font-ui font-medium text-ink text-[1.75rem] leading-[1.1] tracking-[-0.02em] tabular mb-3 [text-wrap:balance]">
+    <p className="font-ui font-medium text-ink text-[2rem] leading-[1.05] tracking-[-0.03em] tabular mb-3 [text-wrap:balance]">
       {value}
     </p>
     <h4 className="font-ui font-medium text-ink text-[0.9375rem] leading-snug mb-2">
@@ -180,6 +225,91 @@ export const Note = ({ label, children, className = "" }) => (
     )}
     <p className="text-ink-muted text-[0.875rem] leading-[1.7]">{children}</p>
   </div>
+);
+
+/* ── The short version ───────────────────────────────────────────────────
+   Problem, call, ownership, outcome — the whole arc before any detail, for
+   the reader who gets one screen and decides from it. Carter had this block
+   and the other four didn't; it is the single most useful thing on the page
+   for someone scanning, so it is a component now rather than one page's good
+   idea.
+
+   `rows` is a plain list so each study can name its own fourth row: a
+   shipped project ends on "The outcome", one that was stopped ends on
+   "Why it stopped", and neither has to pretend to be the other. */
+export const ShortVersion = ({ rows, label = "The short version", className = "" }) => (
+  <div className={`max-w-3xl border-t border-line pt-6 ${className}`}>
+    <p className="text-[11px] text-ink-faint tracking-[0.18em] uppercase mb-6">{label}</p>
+    <dl className="space-y-5">
+      {rows.map((row) => (
+        <div key={row.k} className="flex flex-col sm:flex-row gap-1 sm:gap-6">
+          <dt className="text-[11px] text-ink-faint uppercase tracking-[0.18em] sm:w-36 shrink-0 sm:pt-1">
+            {row.k}
+          </dt>
+          <dd className="text-ink-muted text-sm leading-relaxed">{row.v}</dd>
+        </div>
+      ))}
+    </dl>
+  </div>
+);
+
+/* ── Contents ────────────────────────────────────────────────────────────
+   A case study that runs to 1,800 words needs a way in other than scrolling.
+   Anchors, not state: they survive a page reload, they can be linked to
+   directly, and they work with the browser's own back button. */
+export const Contents = ({ items, className = "" }) => (
+  <nav aria-label="On this page" className={`border-t border-line pt-6 ${className}`}>
+    <p className="text-[11px] uppercase tracking-[0.22em] text-ink-faint mb-5">
+      On this page
+    </p>
+    <ol className="flex flex-wrap gap-x-7 gap-y-3">
+      {items.map(({ to, label }, i) => (
+        <li key={to} className="flex items-baseline gap-2">
+          <span className="text-[11px] text-ink-ghost tabular">
+            {String(i + 1).padStart(2, "0")}
+          </span>
+          <a
+            href={`#${to}`}
+            className="text-[0.9375rem] text-ink border-b border-line-strong hover:border-ink transition-colors pb-0.5"
+          >
+            {label}
+          </a>
+        </li>
+      ))}
+    </ol>
+  </nav>
+);
+
+/* ── Progressive disclosure ──────────────────────────────────────────────
+   The reasoning behind a decision is the part that proves the work was
+   thought through — and the part a recruiter scanning for thirty seconds
+   will never read. Collapsed, it stops being a wall and starts being an
+   offer: here is the call, open it if you want to see the working.
+
+   A native <details> rather than React state, on purpose:
+     · it works with JavaScript disabled, which matters on a site that
+       currently renders nothing without it
+     · the content stays in the DOM, so it is still indexed and still
+       reachable by the browser's own find-in-page
+     · keyboard and screen-reader behaviour comes free and correct
+
+   The marker is a rotating plus, which reads as "more" in a page that has
+   no other icons. */
+export const Reveal = ({ summary, children, className = "" }) => (
+  <details className={`group border-t border-line ${className}`}>
+    <summary className="reveal-summary flex items-center justify-between gap-5 cursor-pointer py-4 text-left">
+      <span className="text-[0.9375rem] text-ink-muted group-hover:text-ink transition-colors">
+        {summary}
+      </span>
+      <span
+        aria-hidden="true"
+        className="shrink-0 text-ink-faint text-lg leading-none transition-transform duration-200 group-open:rotate-45 group-hover:text-ink"
+      >
+        +
+      </span>
+    </summary>
+    <div className="pb-8 -mt-1">{children}</div>
+  </details>
 );
 
 /* ── End-of-page link to the next study ──────────────────────────────────

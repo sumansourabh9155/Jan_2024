@@ -20,7 +20,9 @@ import {
     Users
 } from "lucide-react";
 
-import { Badge, IconCard, Decision, MetaList, NextCase } from "./CaseStudyUI";
+import {
+    Badge, IconCard, Decision, MetaList, NextCase, Contents, Reveal, ShortVersion,
+} from "./CaseStudyUI";
 
 // Every image here earns its place next to a specific argument. No carousels.
 import Cover from "../../../assets/poppins/cover.png";
@@ -235,7 +237,7 @@ const Poppins = () => {
                         </h1>
                         <p className="text-lg text-ink-muted leading-[1.6] max-w-2xl">
                             A conversational finance app built on one idea: replace the dashboard with
-                            <span className="text-ink font-medium"> a single number you can trust</span>, and earn
+                            <span className="mark text-ink font-medium"> a single number you can trust</span>, and earn
                             every permission before asking for it. Three months of research-led design &mdash;
                             whiteboard to high fidelity &mdash; and a deliberate decision not to build it.
                         </p>
@@ -252,8 +254,76 @@ const Poppins = () => {
                         className="rounded-sm w-full object-cover border border-line"
                     />
 
+                    {/* No outcome figures, and no apology for it. This one was
+                        stopped before build, so the last row of the summary is
+                        "Why it stopped" rather than "The outcome" — the decision
+                        is the story here, which is the honest way to show a
+                        project that never shipped. */}
+                    <ShortVersion
+                        className="mt-14"
+                        rows={[
+                            {
+                                k: "The problem",
+                                v: (
+                                    <>
+                                        Finance apps answer &ldquo;what am I worth?&rdquo; when the question
+                                        people actually carry is{" "}
+                                        <span className="text-ink font-medium">&ldquo;am I okay, and can I
+                                        afford this?&rdquo;</span> &mdash; a permanent low-grade anxiety no
+                                        dashboard resolves.
+                                    </>
+                                ),
+                            },
+                            {
+                                k: "The call",
+                                v: (
+                                    <>
+                                        Replace the dashboard with{" "}
+                                        <span className="text-ink font-medium">a single number you can
+                                        trust</span>, shown with its arithmetic &mdash; and earn every bank
+                                        permission before asking for it, rather than up front.
+                                    </>
+                                ),
+                            },
+                            {
+                                k: "What I owned",
+                                v: (
+                                    <>
+                                        The whole arc solo: market and competitor research, four archetypes,
+                                        the permission ladder, conversation design and voice, iOS screens to
+                                        high fidelity, plus the marketing site. Three months.
+                                    </>
+                                ),
+                            },
+                            {
+                                k: "Why it stopped",
+                                v: (
+                                    <>
+                                        We had a product; we didn&apos;t have a wedge. A delivery channel is a
+                                        feature, not a moat, and the thing we&apos;d compete on hardest &mdash;
+                                        breadth of account coverage &mdash; was what we controlled least. So we{" "}
+                                        <span className="text-ink font-medium">stopped at the end of v1 scope,
+                                        before engineering investment</span>.
+                                    </>
+                                ),
+                            },
+                        ]}
+                    />
+
+                    <Contents
+                        className="mt-14 max-w-3xl"
+                        items={[
+                            { to: "prototypes", label: "Try the prototypes" },
+                            { to: "problem", label: "The problem" },
+                            { to: "research", label: "Research" },
+                            { to: "architecture", label: "Architecture" },
+                            { to: "decisions", label: "Design decisions" },
+                            { to: "stopped", label: "The decision to stop" },
+                        ]}
+                    />
+
                     <MetaList
-                        className="mt-12"
+                        className="mt-14"
                         items={[
                             { term: "My role", value: "Product Designer" },
                             { term: "Platform", value: "iOS + Marketing Site" },
@@ -270,7 +340,7 @@ const Poppins = () => {
             </section>
 
             {/* ================= PROTOTYPES ================= */}
-            <section className="bg-cream py-16 px-6">
+            <section id="prototypes" className="scroll-mt-24 bg-cream py-16 px-6">
                 <div className="max-w-6xl mx-auto">
                     <div className="flex flex-col lg:flex-row lg:items-end lg:justify-between gap-4 mb-8">
                         <div className="max-w-2xl">
@@ -316,7 +386,7 @@ const Poppins = () => {
             </section>
 
             {/* ================= PROBLEM ================= */}
-            <section className="bg-surface py-16 px-6">
+            <section id="problem" className="scroll-mt-24 bg-surface py-16 px-6">
                 <div className="max-w-6xl mx-auto">
                     <div className="max-w-3xl mb-16">
                         <Badge>The Problem</Badge>
@@ -357,7 +427,7 @@ const Poppins = () => {
             </section>
 
             {/* ================= MARKET RESEARCH ================= */}
-            <section className="bg-cream py-16 px-6">
+            <section id="research" className="scroll-mt-24 bg-cream py-16 px-6">
                 <div className="max-w-6xl mx-auto">
                     <div className="max-w-3xl mb-12">
                         <Badge>Research &mdash; The Market</Badge>
@@ -379,44 +449,46 @@ const Poppins = () => {
                         </p>
                     </div>
 
-                    <div className="overflow-x-auto mb-12">
-                        <table className="w-full min-w-[680px] text-sm border border-line rounded-sm overflow-hidden">
-                            <thead>
-                                <tr className="bg-surface-3/70">
-                                    <th className="text-left p-4 text-[11px] uppercase tracking-[0.18em] text-ink-faint font-medium">Product</th>
-                                    <th className="text-left p-4 text-[11px] uppercase tracking-[0.18em] text-ink-faint font-medium">Strength</th>
-                                    <th className="text-left p-4 text-[11px] uppercase tracking-[0.18em] text-ink-faint font-medium">The gap we saw</th>
-                                </tr>
-                            </thead>
-                            <tbody className="text-ink-muted">
-                                <tr className="border-t border-line-soft">
-                                    <td className="p-4 text-ink font-medium">Monarch</td>
-                                    <td className="p-4">Beautiful dashboard, strong net-worth tracking</td>
-                                    <td className="p-4">Everything lives inside the app. No proactive delivery, no document layer.</td>
-                                </tr>
-                                <tr className="border-t border-line-soft">
-                                    <td className="p-4 text-ink font-medium">Cleo</td>
-                                    <td className="p-4">Personality-led chat, strong with under-25s</td>
-                                    <td className="p-4">Locked in its own app. No vault, no calendar, no cross-domain reasoning.</td>
-                                </tr>
-                                <tr className="border-t border-line-soft">
-                                    <td className="p-4 text-ink font-medium">Mint / YNAB</td>
-                                    <td className="p-4">Budgeting discipline</td>
-                                    <td className="p-4">Budget-first. Nothing proactive, nothing for life admin.</td>
-                                </tr>
-                                <tr className="border-t border-line-soft">
-                                    <td className="p-4 text-ink font-medium">Bank apps</td>
-                                    <td className="p-4">Authoritative balances</td>
-                                    <td className="p-4">Built to serve the bank, not the person. History, not guidance.</td>
-                                </tr>
-                                <tr className="border-t border-line bg-ink/[0.04]">
-                                    <td className="p-4 text-ink-faint font-medium">Poppins</td>
-                                    <td className="p-4 text-ink-soft">Proactive, cross-domain, delivered where people already are</td>
-                                    <td className="p-4 text-ink-soft">Connects bills, documents, balance and calendar &mdash; and reasons across all four.</td>
-                                </tr>
-                            </tbody>
-                        </table>
-                    </div>
+                    <Reveal summary="The competitor teardown, category by category">
+                        <div className="overflow-x-auto mb-12">
+                            <table className="w-full min-w-[680px] text-sm border border-line rounded-sm overflow-hidden">
+                                <thead>
+                                    <tr className="bg-surface-3/70">
+                                        <th className="text-left p-4 text-[11px] uppercase tracking-[0.18em] text-ink-faint font-medium">Product</th>
+                                        <th className="text-left p-4 text-[11px] uppercase tracking-[0.18em] text-ink-faint font-medium">Strength</th>
+                                        <th className="text-left p-4 text-[11px] uppercase tracking-[0.18em] text-ink-faint font-medium">The gap we saw</th>
+                                    </tr>
+                                </thead>
+                                <tbody className="text-ink-muted">
+                                    <tr className="border-t border-line-soft">
+                                        <td className="p-4 text-ink font-medium">Monarch</td>
+                                        <td className="p-4">Beautiful dashboard, strong net-worth tracking</td>
+                                        <td className="p-4">Everything lives inside the app. No proactive delivery, no document layer.</td>
+                                    </tr>
+                                    <tr className="border-t border-line-soft">
+                                        <td className="p-4 text-ink font-medium">Cleo</td>
+                                        <td className="p-4">Personality-led chat, strong with under-25s</td>
+                                        <td className="p-4">Locked in its own app. No vault, no calendar, no cross-domain reasoning.</td>
+                                    </tr>
+                                    <tr className="border-t border-line-soft">
+                                        <td className="p-4 text-ink font-medium">Mint / YNAB</td>
+                                        <td className="p-4">Budgeting discipline</td>
+                                        <td className="p-4">Budget-first. Nothing proactive, nothing for life admin.</td>
+                                    </tr>
+                                    <tr className="border-t border-line-soft">
+                                        <td className="p-4 text-ink font-medium">Bank apps</td>
+                                        <td className="p-4">Authoritative balances</td>
+                                        <td className="p-4">Built to serve the bank, not the person. History, not guidance.</td>
+                                    </tr>
+                                    <tr className="border-t border-line bg-ink/[0.04]">
+                                        <td className="p-4 text-ink-faint font-medium">Poppins</td>
+                                        <td className="p-4 text-ink-soft">Proactive, cross-domain, delivered where people already are</td>
+                                        <td className="p-4 text-ink-soft">Connects bills, documents, balance and calendar &mdash; and reasons across all four.</td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </Reveal>
 
                     <div className="max-w-3xl">
                         <h3 className="font-ui text-2xl font-medium text-ink mb-4">The behavioural finding that shaped the product</h3>
@@ -529,36 +601,38 @@ const Poppins = () => {
                         </p>
                     </div>
 
-                    <div className="grid grid-cols-1 md:grid-cols-2 gap-4 mb-8">
-                        <Persona
-                            name="Sara, 31"
-                            meta="Marketing manager · three banking apps · sometimes pays bills late"
-                            types="I never know what's due until it's almost late"
-                            feels="Relieved that someone finally asked the right question."
-                            converts="Moment 4 — she sees a bill due in two days that she hadn't checked."
-                        />
-                        <Persona
-                            name="Marcus, 27"
-                            meta="Software engineer · good income · no idea where it goes"
-                            types="Where does all my money go every month"
-                            feels="Curious. Nobody has ever answered this specifically for him."
-                            converts="Moment 2 — the savings-rate benchmark lands because it uses real numbers."
-                        />
-                        <Persona
-                            name="Diane, 44"
-                            meta="Nurse, two children · anxious about money, avoids thinking about it"
-                            types="Taps 'Where does my money go?' — exactly what she wants to know"
-                            feels="Defensive. She expects a lecture, or a frightening number."
-                            converts="Moment 2 — the feeling is validated before anything is fixed. No lecture."
-                        />
-                        <Persona
-                            name="James, 38"
-                            meta="Small business owner · has tried four finance apps and quit all four"
-                            types="Show me something the other apps can't"
-                            feels="Testing the product. Actively looking for a reason to leave."
-                            converts="Moment 2 — a specific, non-generic answer."
-                        />
-                    </div>
+                    <Reveal summary="The four archetypes, and what converts each one">
+                        <div className="grid grid-cols-1 md:grid-cols-2 gap-4 mb-8">
+                            <Persona
+                                name="Sara, 31"
+                                meta="Marketing manager · three banking apps · sometimes pays bills late"
+                                types="I never know what's due until it's almost late"
+                                feels="Relieved that someone finally asked the right question."
+                                converts="Moment 4 — she sees a bill due in two days that she hadn't checked."
+                            />
+                            <Persona
+                                name="Marcus, 27"
+                                meta="Software engineer · good income · no idea where it goes"
+                                types="Where does all my money go every month"
+                                feels="Curious. Nobody has ever answered this specifically for him."
+                                converts="Moment 2 — the savings-rate benchmark lands because it uses real numbers."
+                            />
+                            <Persona
+                                name="Diane, 44"
+                                meta="Nurse, two children · anxious about money, avoids thinking about it"
+                                types="Taps 'Where does my money go?' — exactly what she wants to know"
+                                feels="Defensive. She expects a lecture, or a frightening number."
+                                converts="Moment 2 — the feeling is validated before anything is fixed. No lecture."
+                            />
+                            <Persona
+                                name="James, 38"
+                                meta="Small business owner · has tried four finance apps and quit all four"
+                                types="Show me something the other apps can't"
+                                feels="Testing the product. Actively looking for a reason to leave."
+                                converts="Moment 2 — a specific, non-generic answer."
+                            />
+                        </div>
+                    </Reveal>
 
                     <div className="border-l-2 border-ink/70 pl-6 max-w-3xl">
                         <p className="text-ink-faint text-[11px] uppercase tracking-[0.18em] mb-2">The constraint this produced</p>
@@ -711,7 +785,7 @@ const Poppins = () => {
             </section>
 
             {/* ================= THE LOOP ================= */}
-            <section className="bg-cream py-16 px-6">
+            <section id="architecture" className="scroll-mt-24 bg-cream py-16 px-6">
                 <div className="max-w-6xl mx-auto">
                     <div className="max-w-3xl mb-4">
                         <Badge>Architecture</Badge>
@@ -780,7 +854,7 @@ const Poppins = () => {
             </section>
 
             {/* ================= DECISIONS ================= */}
-            <section className="bg-surface py-16 px-6">
+            <section id="decisions" className="scroll-mt-24 bg-surface py-16 px-6">
                 <div className="max-w-6xl mx-auto">
                     <div className="max-w-3xl mb-14">
                         <Badge>Design Decisions</Badge>
@@ -790,7 +864,7 @@ const Poppins = () => {
                     </div>
 
                     {/* 1 — Safe to Spend */}
-                    <Decision
+                    <Decision collapsible open
                         n={1}
                         icon={<Calculator size={20} className="text-ink-faint" />}
                         title="Replace the dashboard with one number — and always show its arithmetic."
@@ -810,13 +884,13 @@ const Poppins = () => {
                                 One number invites exactly one question: <em>says who?</em> So the number is never shown
                                 alone. Tapping it opens the full subtraction, plus the same figure for the previous week
                                 and a month ago, so it reads as a trend rather than a verdict. The principle we held to:{" "}
-                                <span className="text-ink font-medium">never show a number you can&apos;t explain.</span>
+                                <span className="mark text-ink font-medium">never show a number you can&apos;t explain.</span>
                             </p>
                         </SplitFigure>
                     </Decision>
 
                     {/* 2 — Two voices */}
-                    <Decision
+                    <Decision collapsible
                         n={2}
                         icon={<MessageSquare size={20} className="text-ink-faint" />}
                         title="One voice, two depths — because reassurance and opportunity can't sound the same."
@@ -879,7 +953,7 @@ const Poppins = () => {
                     </Decision>
 
                     {/* 3 — Permission ladder */}
-                    <Decision
+                    <Decision collapsible
                         n={3}
                         icon={<Route size={20} className="text-ink-faint" />}
                         title="Every permission is downstream of desire, never upstream of it."
@@ -957,7 +1031,7 @@ const Poppins = () => {
                     </Decision>
 
                     {/* 4 — Five bank asks */}
-                    <Decision
+                    <Decision collapsible
                         n={4}
                         icon={<Landmark size={20} className="text-ink-faint" />}
                         title="Five different bank asks — one per worry the user arrived with."
@@ -1016,7 +1090,7 @@ const Poppins = () => {
                     </Decision>
 
                     {/* 5 — Micro-interaction craft */}
-                    <Decision
+                    <Decision collapsible
                         n={5}
                         icon={<Smartphone size={20} className="text-ink-faint" />}
                         title="The first screen is won or lost in details most specs don't mention."
@@ -1089,7 +1163,7 @@ const Poppins = () => {
                     </Decision>
 
                     {/* 6 — Constraints */}
-                    <Decision
+                    <Decision collapsible
                         n={6}
                         icon={<Ban size={20} className="text-ink-faint" />}
                         title="The rules were written as prohibitions, because that's what holds under pressure."
@@ -1120,7 +1194,7 @@ const Poppins = () => {
                     </Decision>
 
                     {/* 7 — Failure states */}
-                    <Decision
+                    <Decision collapsible
                         n={7}
                         icon={<AlertTriangle size={20} className="text-ink-faint" />}
                         title="Design the empty and broken states first — that's where trust is won."
@@ -1272,7 +1346,7 @@ const Poppins = () => {
             </section>
 
             {/* ================= THE KILL ================= */}
-            <section className="bg-cream py-16 px-6">
+            <section id="stopped" className="scroll-mt-24 bg-cream py-16 px-6">
                 <div className="max-w-6xl mx-auto">
                     <div className="max-w-3xl">
                         <Badge>The Decision to Stop</Badge>
