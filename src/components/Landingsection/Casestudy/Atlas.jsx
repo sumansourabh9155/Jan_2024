@@ -49,7 +49,7 @@ const AtlasEcosystem = () => {
                     {/* Left-aligned, on the page's own margin — the rest of the
                         site never centres a column. */}
                     <div className="max-w-3xl mb-12">
-                        <Badge>Veterinary Care &middot; Multi-Location &middot; 0-to-1 Builder</Badge>
+                        <Badge>Veterinary healthcare &middot; 130-clinic network &middot; 0-to-1 Builder</Badge>
                         <h1 className="font-display text-[3.25rem] md:text-7xl font-normal text-ink tracking-[-0.02em] leading-[0.95] mb-6">
                             Atlas <span className="text-ink-faint">Veterinary Network</span>
                         </h1>
@@ -671,7 +671,7 @@ const AtlasEcosystem = () => {
             </section>
 
             {/* ================= NEXT CASE STUDY ================= */}
-            <NextCase to="/carter" title="Carter: Ad Platform Redesign & 0-to-1 DSP" />
+            <NextCase to="/poppins" title="Poppins: A conversational finance app for iOS" />
             </main>
             <Footer />
         </div>

@@ -1,63 +1,93 @@
 import "./index.css";
 
-import { Navigate, Route, BrowserRouter as Router, Routes } from "react-router-dom";
-/* eslint-disable react-refresh/only-export-components */
-import React, { Suspense } from "react";
+import { BrowserRouter } from "react-router-dom";
+import { createRoot, hydrateRoot } from "react-dom/client";
 
-import AnimatedCursor from "react-animated-cursor";
-import Analytics from "./components/Analytics";
-import App from "./App";
-import { HelmetProvider } from "react-helmet-async";
-import LandingPage from "./pages/LandingPage";
-import ProtectedRoute from "./components/ProtectedRoute";
-import ReactDOM from "react-dom/client";
-import ScrollToHash from "./components/ScrollToHash";
-
-// Lazy load pages for performance optimization
-const Carter = React.lazy(() => import("./components/Landingsection/Casestudy/Carter"));
-// Interview presentation for the Carter case study — its own route so it can be
-// shared as a link and presented full-screen. noindex; not linked from the site.
-const CarterDeck = React.lazy(() => import("./pages/CarterDeck"));
-const Resume = React.lazy(() => import("./pages/Resume"));
-const Contact = React.lazy(() => import("./pages/Contact"));
-// const Blog = React.lazy(() => import("./pages/Blog")); // Commented intentionally
-const ExpenseDashboard = React.lazy(() => import("./pages/ExpenseDashboard"));
-// /resource page removed — was a junior links/bookmarks page.
-
-// Lazy load Case Studies
-const Godiverse = React.lazy(() => import("./components/Landingsection/Casestudy/Godiverse"));
-const Atlas = React.lazy(() => import("./components/Landingsection/Casestudy/Atlas"));
-const Simfluent = React.lazy(() => import("./components/Landingsection/Casestudy/Simfluent"));
-const Poppins = React.lazy(() => import("./components/Landingsection/Casestudy/Poppins"));
-
-// Lazy load Tools
-const InquiryProtocol = React.lazy(() => import("./pages/InquiryProtocol"));
-
-
-const isMouseDevice = window.matchMedia("(pointer: fine)").matches;
+import AppShell from "./AppShell";
+import { pageRoutes } from "./routes";
 
 // Password for private tools (/expense, /ask) comes from the build environment
 // (VITE_TOOLS_PASSWORD in .env / Vercel env). If unset, those routes stay locked
 // with no valid password instead of shipping a hardcoded one in the bundle.
 const TOOLS_PASSWORD = import.meta.env.VITE_TOOLS_PASSWORD || null;
 
-const NotFound = () => (
-  <div className="flex flex-col items-center justify-center min-h-screen bg-surface text-ink gap-4 px-4 text-center">
-    <p className="font-mono text-xs text-accent-ink tracking-widest uppercase">[ 404 ]</p>
-    <h1 className="text-3xl font-bold">Page not found</h1>
-    <p className="text-ink-muted text-sm">The page you&apos;re looking for doesn&apos;t exist or has moved.</p>
-    <a href="/" className="mt-2 bg-ink text-surface px-6 py-3 rounded-full font-semibold text-sm hover:bg-ink-soft transition-colors">
-      Back to home
-    </a>
-  </div>
-);
+const container = document.getElementById("root");
 
-const root = ReactDOM.createRoot(document.getElementById("root"));
-root.render(
-  <HelmetProvider>
+/**
+ * Resolve the route being hydrated before React touches the DOM.
+ *
+ * The pre-render emits each page synchronously, with no lazy boundary. If the
+ * client then renders that same page through `React.lazy`, it suspends on the
+ * first pass, the Suspense markers in the HTML don't line up, and React throws
+ * hydration errors (#418 and #422) and re-renders the whole tree from scratch
+ * — which works, but throws away the pre-rendered DOM and flashes.
+ *
+ * Awaiting the chunk first means the client's first render is structurally
+ * identical to the server's. It costs nothing in practice: hydration could not
+ * have finished before that chunk arrived anyway. Every other route stays lazy.
+ */
+async function resolveInitialRoute() {
+  if (!container.hasChildNodes()) return null;
+  const pathname = window.location.pathname.replace(/\/+$/, "") || "/";
+  const match = pageRoutes.find(
+    (r) => r.prerender && r.path.toLowerCase() === pathname.toLowerCase()
+  );
+  if (!match) return null;
+  try {
+    const mod = await match.load();
+    return { path: match.path, Component: mod.default };
+  } catch {
+    // A failed chunk shouldn't block the app — fall back to mounting fresh.
+    return null;
+  }
+}
 
-    <div>
-      {isMouseDevice && (
+// A `.then` rather than a top-level await: TLA compiles to a module format
+// that the configured browser targets (chrome87 / safari14 / firefox78) don't
+// support, and raising the target to es2022 just to avoid one `.then` would
+// drop real browsers for no gain.
+resolveInitialRoute().then((resolved) => {
+  const tree = (
+    <BrowserRouter>
+      <AppShell resolved={resolved} toolsPassword={TOOLS_PASSWORD} />
+    </BrowserRouter>
+  );
+
+  // Pre-rendered routes arrive with their markup already in #root, so they are
+  // hydrated — React adopts the existing DOM instead of discarding and
+  // rebuilding it, which is what keeps the first paint from flashing.
+  //
+  // Routes that were not pre-rendered (the password-gated tools, the deck) and
+  // anything served through the SPA fallback shell arrive with an empty #root
+  // and are mounted normally. Calling hydrateRoot on an empty container would
+  // "succeed" and then warn on every node, so the branch matters.
+  if (container.hasChildNodes()) {
+    hydrateRoot(container, tree);
+  } else {
+    createRoot(container).render(tree);
+  }
+
+  mountCursorWhenIdle();
+});
+
+/**
+ * The animated cursor, in its own root outside the hydrated tree.
+ *
+ * It sets `style="cursor: none"` on every clickable element on the page. Done
+ * from inside the app, that fires while React is still working through a
+ * 96 KB pre-rendered document, and React then finds attributes on nodes it
+ * never rendered — "Extra attributes from the server: style", on 28 anchors.
+ *
+ * Its own root, mounted when the browser is next idle, keeps it entirely out
+ * of hydration. Touch devices never download it at all.
+ */
+function mountCursorWhenIdle() {
+  if (!window.matchMedia("(pointer: fine)").matches) return;
+  const start = () =>
+    import("react-animated-cursor").then(({ default: AnimatedCursor }) => {
+      const host = document.createElement("div");
+      document.body.appendChild(host);
+      createRoot(host).render(
         <AnimatedCursor
           showSystemCursor={false}
           innerSize={16}
@@ -68,115 +98,35 @@ root.render(
           innerScale={0.7}
           outerScale={2}
           trailingSpeed={18}
-          clickables={[
-            "a",
-            'input[type="text"]',
-            'input[type="email"]',
-            'input[type="number"]',
-            'input[type="submit"]',
-            'input[type="image"]',
-            "label[for]",
-            "select",
-            "textarea",
-            "button",
-            ".link",
-            {
-              target: ".custom",
-              options: {
-                innerSize: 12,
-                outerSize: 12,
-                color: "16, 20, 24",
-                outerAlpha: 0.3,
-                innerScale: 0.7,
-                outerScale: 5,
-              },
-            },
-          ]}
+          clickables={CURSOR_CLICKABLES}
         />
-      )}
-      <Router>
-        <ScrollToHash />
-        <Suspense fallback={<div className="flex items-center justify-center min-h-screen bg-surface text-ink">Loading...</div>}>
-          <Routes>
-            <Route path="/" element={<App />} />
-            <Route path="/home" element={<LandingPage />} />
-            <Route path="/resume" element={<Resume />} />
-            <Route path="/contact" element={<Contact />} />
-            {/* Case studies moved from /Projects/:slug to /:slug.
-                Old URLs are kept as redirects so anything already shared or
-                indexed still lands, rather than hitting the 404 route. */}
-            <Route path="/Projects/carter" element={<Navigate to="/carter" replace />} />
-            <Route path="/Projects/poppins" element={<Navigate to="/poppins" replace />} />
-            <Route path="/Projects/atlas" element={<Navigate to="/atlas" replace />} />
-            <Route path="/Projects/simfluent" element={<Navigate to="/simfluent" replace />} />
-            <Route path="/Projects/GoDiverse" element={<Navigate to="/GoDiverse" replace />} />
-            <Route path="/projects" element={<Navigate to="/#case-studies" replace />} />
+      );
+    });
+  if ("requestIdleCallback" in window) window.requestIdleCallback(start, { timeout: 2000 });
+  else setTimeout(start, 200);
+}
 
-
-            {/* <Route path="/blog" element={<Blog />} /> */}
-
-            <Route
-              path="/expense"
-              element={
-                <ProtectedRoute correctPassword={TOOLS_PASSWORD}>
-                  <ExpenseDashboard />
-                </ProtectedRoute>
-              }
-            />
-            {/* Case studies — public (password lock disabled).
-                Keep the <ProtectedRoute> snippets below for future re-lock;
-                swap the `element={...}` back to the commented version to re-enable. */}
-            <Route
-              path="/GoDiverse"
-              element={<Godiverse />}
-            // element={
-            //   <ProtectedRoute correctPassword="9155">
-            //     <Godiverse />
-            //   </ProtectedRoute>
-            // }
-            />
-            {/* Must precede /carter so the more specific path wins. */}
-            <Route path="/carter/present" element={<CarterDeck />} />
-            <Route
-              path="/carter"
-              element={<Carter />}
-            // element={
-            //   <ProtectedRoute correctPassword="9155">
-            //     <Carter />
-            //   </ProtectedRoute>
-            // }
-            />
-            <Route
-              path="/atlas"
-              element={<Atlas />}
-            // element={
-            //   <ProtectedRoute correctPassword="9155">
-            //     <Atlas />
-            //   </ProtectedRoute>
-            // }
-            />
-            <Route
-              path="/simfluent"
-              element={<Simfluent />}
-            />
-            <Route
-              path="/poppins"
-              element={<Poppins />}
-            />
-            <Route
-              path="/ask"
-              element={
-                <ProtectedRoute correctPassword={TOOLS_PASSWORD}>
-                  <InquiryProtocol />
-                </ProtectedRoute>
-              }
-            />
-            <Route path="*" element={<NotFound />} />
-          </Routes>
-        </Suspense>
-        {/* After <Routes> so the page's title is already set when the hit fires. */}
-        <Analytics />
-      </Router>
-    </div>
-  </HelmetProvider>
-);
+const CURSOR_CLICKABLES = [
+  "a",
+  'input[type="text"]',
+  'input[type="email"]',
+  'input[type="number"]',
+  'input[type="submit"]',
+  'input[type="image"]',
+  "label[for]",
+  "select",
+  "textarea",
+  "button",
+  ".link",
+  {
+    target: ".custom",
+    options: {
+      innerSize: 12,
+      outerSize: 12,
+      color: "16, 20, 24",
+      outerAlpha: 0.3,
+      innerScale: 0.7,
+      outerScale: 5,
+    },
+  },
+];

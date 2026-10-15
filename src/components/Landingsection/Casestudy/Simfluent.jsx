@@ -540,7 +540,7 @@ const Simfluent = () => {
             </section>
 
             {/* ================= NEXT CASE STUDY ================= */}
-            <NextCase to="/atlas" title="Atlas: CMS Architecture Across 130+ Locations" />
+            <NextCase to="/GoDiverse" title="GoDiverse: 1-page profile builder with AI" />
             </main>
             <Footer />
         </div>

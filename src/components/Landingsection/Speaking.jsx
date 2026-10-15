@@ -54,7 +54,7 @@ const Speaking = () => {
     <section
       id="speaking"
       aria-labelledby="speaking-heading"
-      className="scroll-mt-24 bg-surface bg-dotfield py-24 px-6"
+      className="scroll-mt-24 bg-cream py-24 px-6"
     >
       <div className="max-w-6xl mx-auto">
 

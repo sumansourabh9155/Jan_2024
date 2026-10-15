@@ -1402,7 +1402,7 @@ const Poppins = () => {
             </section>
 
             {/* ================= NEXT ================= */}
-            <NextCase to="/atlas" title="Atlas: CMS Architecture Across 130+ Locations" />
+            <NextCase to="/simfluent" title="Simfluent: AI-native recruitment platform" />
             </main>
             <Footer />
         </div>

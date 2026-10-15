@@ -1,5 +1,7 @@
 import { useEffect } from "react";
 
+import { collectHead } from "../seo/headCollector";
+
 /**
  * Applies per-page SEO directly to <head>.
  *
@@ -49,6 +51,30 @@ export default function useSeo({
   noindex = false,
 }) {
   const schemaKey = JSON.stringify(jsonLd);
+
+  // ── Pre-render path ───────────────────────────────────────────────────
+  // During the static build there is no document, and effects never run, so
+  // every page would bake out with index.html's fallback title — which is
+  // exactly the "every link preview reads as your homepage" problem.
+  //
+  // Writing to a module-level collector during render is a side effect in
+  // render, which is normally wrong. It is safe here because this branch only
+  // ever executes in the single-pass `renderToString` of the build script:
+  // one route per process, no concurrency, no re-render, and the value is read
+  // once immediately afterwards. In the browser this branch is dead code.
+  if (typeof document === "undefined") {
+    collectHead({
+      title,
+      description,
+      keywords,
+      canonicalUrl,
+      ogImage,
+      ogType,
+      twitterCreator,
+      jsonLd,
+      noindex,
+    });
+  }
 
   useEffect(() => {
     if (title) document.title = title;

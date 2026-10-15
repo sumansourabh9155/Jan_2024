@@ -8,36 +8,46 @@ import { Link } from "react-router-dom";
 // `meta` replaces the old category/icon/accent trio. The icon and the per-card
 // accent colour were decoration — three case studies do not need colour-coding
 // to be told apart, and the icons said nothing the title didn't.
+// Order matters as much as the copy here.
+//
+// Carter leads on the agentic AI work rather than on the guided form. The form
+// was the first thing the case study happens to cover, not the strongest thing
+// in it — and the roles this portfolio is aimed at are hiring for AI with a
+// human in the loop, which was buried eleven screens down.
+//
+// Poppins moves from second to third. It is the one project that never
+// shipped, so it reads best as the closing argument about judgement rather
+// than as the follow-up to the flagship.
 const projectData = [
   {
     title: "Carter",
-    subtitle: "Retail-media DSP, scaling a live platform",
-    meta: "Ad-tech · B2B SaaS",
+    subtitle: "Agentic campaign assistant for a retail-media DSP",
+    meta: "Ad-tech · B2B SaaS · AI-native",
     link: "/carter",
     image: BannerCarter,
     summary:
-      "Advertisers stalled in a dense, single-screen setup. The call: rebuild it as a short guided flow — trading more steps for fewer decisions each, betting completion mattered more than speed.",
-    outcome: "4.6/5 usability · 3× faster campaign launch",
-  },
-  {
-    title: "Poppins",
-    subtitle: "Conversational finance app for iOS",
-    meta: "Consumer fintech · Concluded",
-    link: "/poppins",
-    image: BannerPoppins,
-    summary:
-      "Finance apps lead with net worth — a number that answers nothing about today. The call: one Safe to Spend figure that always shows its arithmetic, and two named voices so reassurance and opportunity never sound the same.",
-    outcome: "Full process, whiteboard to hi-fi · Stopped before build",
+      "Launching across 12 networks took 1.5 hours of manual setup. The call: let AI draft the whole campaign, but gate every section behind human review — so speed never cost trust.",
+    outcome: "3× faster launch · 4.6/5 usability · −8% draft abandonment",
   },
   {
     title: "Atlas",
     subtitle: "0-to-1 CMS and booking across a 130-clinic network",
-    meta: "Enterprise CMS · Veterinary care",
+    meta: "Veterinary healthcare · Enterprise CMS",
     link: "/atlas",
     image: BannerAtlas,
     summary:
       "A 130-clinic network each wanting a bespoke site. The call: standardize to 6 templates instead — the trade-off that made the whole network maintainable without gutting local identity.",
     outcome: "+41% organic traffic · +16% booking conversion",
+  },
+  {
+    title: "Poppins",
+    subtitle: "Conversational finance app for iOS",
+    meta: "Consumer fintech · Concluded before build",
+    link: "/poppins",
+    image: BannerPoppins,
+    summary:
+      "Finance apps lead with net worth — a number that answers nothing about today. The call: one Safe to Spend figure that always shows its arithmetic, and two named voices so reassurance and opportunity never sound the same.",
+    outcome: "Full process, whiteboard to hi-fi · Stopped at v1 scope, before engineering",
   },
 ];
 
@@ -64,7 +74,7 @@ const Projects = () => {
             Selected work
           </h2>
           <p className="text-[11px] uppercase tracking-[0.22em] text-ink-faint pb-2">
-            Three projects · Ad-tech, fintech, veterinary care
+            Three projects · Ad-tech, veterinary healthcare, fintech
           </p>
         </div>
 

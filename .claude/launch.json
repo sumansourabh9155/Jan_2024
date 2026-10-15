@@ -4,8 +4,25 @@
     {
       "name": "portfolio",
       "runtimeExecutable": "/opt/homebrew/bin/node",
-      "runtimeArgs": ["node_modules/.bin/vite", "--port", "5176", "--strictPort"],
+      "runtimeArgs": [
+        "node_modules/.bin/vite",
+        "--port",
+        "5176",
+        "--strictPort"
+      ],
       "port": 5176
+    },
+    {
+      "name": "portfolio-static",
+      "runtimeExecutable": "/opt/homebrew/bin/node",
+      "runtimeArgs": [
+        "node_modules/.bin/vite",
+        "preview",
+        "--port",
+        "5178",
+        "--strictPort"
+      ],
+      "port": 5178
     }
   ]
 }

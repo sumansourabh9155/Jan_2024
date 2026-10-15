@@ -11,7 +11,7 @@ const personSchema = {
   url: SITE_URL,
   jobTitle: "Product Designer",
   description:
-    "Product Designer with a CS/ML background — designing 0-to-1 AI products end-to-end across AdTech and HealthTech, building design systems, and shipping the UI in React.",
+    "Product Designer with a CS/ML background — designing 0-to-1 AI products end-to-end across AdTech and veterinary healthcare, building design systems, and shipping the UI in React.",
   sameAs: [
     "https://www.linkedin.com/in/sumansourabh9155/",
     "https://github.com/sumansourabh9155",
@@ -82,7 +82,7 @@ const caseStudiesItemList = {
         url: `${SITE_URL}/atlas`,
         description:
           "Unifying a 130-clinic network under a relational CMS with a phased rollout and a no-code site builder.",
-        about: "Veterinary Care / Enterprise CMS",
+        about: "Veterinary healthcare / Enterprise CMS",
       },
     },
   ],
@@ -90,7 +90,7 @@ const caseStudiesItemList = {
 
 const SeoHead = ({
   title = "Suman Sourabh | Product Designer — AI-Native UX, Design Systems, 0-to-1",
-  description = "Product Designer with a CS/ML background — end-to-end design of 0-to-1 AI products across AdTech and HealthTech, design systems, and shipping the UI in React.",
+  description = "Product Designer with a CS/ML background — end-to-end design of 0-to-1 AI products across AdTech and veterinary healthcare, design systems, and shipping the UI in React.",
   keywords = "product designer, ui/ux designer, product design portfolio, design systems, interaction design, AI-native design, UX research, usability testing, Figma, React",
   canonicalUrl = SITE_URL,
   ogImage = `${SITE_URL}/og-image.png`,

@@ -179,7 +179,7 @@ const Resume = () => {
     <div className="bg-surface text-ink min-h-screen">
       <SeoHead
         title="Resume: Suman Sourabh — Product Designer | B2B SaaS & AI Products"
-        description="Product Designer with 2.5+ years of end-to-end design, from 0-to-1 builds to scaling live platforms, across B2B SaaS, agentic AI, and conversational products in AdTech, HealthTech, and CMS."
+        description="Product Designer with 2.5+ years of end-to-end design, from 0-to-1 builds to scaling live platforms, across B2B SaaS, agentic AI, and conversational products in AdTech, veterinary healthcare, and CMS."
         keywords="resume, product designer, interaction designer, ui/ux designer, shyftlabs, 0-to-1 products, design systems, AI-native design, agentic UX, React, experience"
         /* profilePic is a hashed bundle path — social crawlers need an absolute
            URL, so fall back to the site-wide OG card. */
@@ -200,7 +200,7 @@ const Resume = () => {
             </h1>
             <p className="text-[0.9375rem] text-ink-muted mt-6 max-w-2xl leading-[1.7]">
               B2B SaaS &amp; AI Products. 2.5+ years of end-to-end design, from 0-to-1
-              builds to scaling live platforms, across AdTech, HealthTech, and CMS.
+              builds to scaling live platforms, across AdTech, veterinary healthcare, and CMS.
               Rare edge:{" "}
               <span className="text-ink">I ship what I design.</span>
             </p>

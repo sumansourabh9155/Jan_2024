@@ -60,7 +60,7 @@ const Faq = () => {
   };
 
   return (
-    <section aria-labelledby="faq-heading" className="bg-cream py-24 px-6 relative overflow-hidden">
+    <section aria-labelledby="faq-heading" className="bg-surface bg-dotfield py-24 px-6 relative overflow-hidden">
 
 
       {/* Same max-w-6xl measure and the same two-column split as Speaking, so

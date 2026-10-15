@@ -1,5 +1,18 @@
 import { useCallback, useRef } from "react";
+import { Download } from "lucide-react";
 import { Link } from "react-router-dom";
+
+// Same file and the same GA event the /resume page fires, so a download is
+// counted once however the visitor got to it.
+const RESUME_PDF = "/Suman_Sourabh_Product_Designer_Resume.pdf";
+
+const trackResumeDownload = () => {
+  if (typeof window !== "undefined" && typeof window.gtag === "function") {
+    window.gtag("event", "resume_download", {
+      file_name: "Suman_Sourabh_Product_Designer_Resume.pdf",
+    });
+  }
+};
 // Cropped from the original: the top 30% was sky and the left 15% scrub, which
 // left the subject small and low in frame. The original is kept alongside.
 import suman from "../../assets/Img/suman-hero.jpg";
@@ -9,12 +22,17 @@ import suman from "../../assets/Img/suman-hero.jpg";
 //
 // Chosen for what they prove rather than for size. A usability score is
 // self-reported and abstract, and Figma copies measure reach, not outcome —
-// both were replaced. What's left says: I make the user faster, I make the
-// engineering team faster, and I've done it end to end for 2.5 years.
+// both were replaced.
+//
+// "2.5+ years" is gone. Tenure was the one figure here that argued against
+// him: most of the roles being applied for ask for four or five years, so
+// leading with the number invites the filter rather than the work. A booking
+// conversion lift is an outcome a business cares about, and it replaces a
+// fact a recruiter can read off the resume anyway.
 const proof = [
   { value: "3×", label: "Faster campaign launch" },
-  { value: "+30%", label: "Engineering velocity" },
-  { value: "2.5+", label: "Years end-to-end" },
+  { value: "+30%", label: "Shipping velocity" },
+  { value: "+16%", label: "Booking conversion" },
 ];
 
 // These sit in the hero partly to fill the column and partly because the
@@ -64,7 +82,7 @@ const HeroSection = () => {
       data-testid="hero-section"
       ref={gridRef}
       onPointerMove={onPointerMove}
-      className="relative w-full bg-surface bg-plusgrid cell-hover overflow-hidden px-6 pt-24 pb-12 lg:pt-28 lg:pb-14 min-h-screen flex items-center"
+      className="relative w-full bg-surface bg-plusgrid cell-hover overflow-hidden px-6 pt-24 pb-10 lg:pt-28 lg:pb-12 min-h-screen flex items-center"
     >
       <div className="max-w-6xl mx-auto w-full relative z-10">
 
@@ -86,7 +104,7 @@ const HeroSection = () => {
         {/* Both columns start at the image's top edge and the left one simply
             runs as long as it needs to. Pinning the figures to the bottom
             forced a hole in the middle of the column. */}
-        <div className="mt-8 lg:mt-10 grid gap-8 lg:grid-cols-[minmax(0,1fr)_minmax(0,0.72fr)] lg:gap-16 items-start">
+        <div className="mt-7 lg:mt-9 grid gap-8 lg:grid-cols-[minmax(0,1fr)_minmax(0,0.72fr)] lg:gap-16 items-start">
 
           <div>
             {/* Figures lead: they are the most concrete thing on the page and
@@ -106,25 +124,43 @@ const HeroSection = () => {
               ))}
             </dl>
 
-            <p className="text-[1.0625rem] leading-[1.65] text-ink-muted max-w-lg mt-9">
+            <p className="text-[1.0625rem] leading-[1.65] text-ink-muted max-w-lg mt-8">
               A Product Designer with a CS/ML background. I take AI products from
               user research through to a launched, polished interface — interaction,
               design systems, and the build itself.
             </p>
 
-            {/* Hairline chips, not the filled mono pills from before. */}
-            <ul className="flex flex-wrap gap-2 mt-7">
-              {capabilities.map((c) => (
-                <li
-                  key={c}
-                  className="text-[0.8125rem] text-ink-muted border border-line rounded-full px-3.5 py-1.5"
-                >
-                  {c}
-                </li>
-              ))}
+            {/* Hairline chips, not the filled mono pills from before.
+
+                "Design-to-code" is the one chip with proof sitting on the same
+                page — the footer line saying this site was designed and built
+                in React and Tailwind. A claim a recruiter can check in one
+                click is worth more than the same claim stated twice, so that
+                chip links to it. The rest stay as plain text: making them all
+                links would make none of them mean anything. */}
+            <ul className="flex flex-wrap gap-2 mt-6">
+              {capabilities.map((c) =>
+                c === "Design-to-code" ? (
+                  <li key={c}>
+                    <a
+                      href="#colophon"
+                      className="inline-block text-[0.8125rem] text-ink border border-line-strong rounded-full px-3.5 py-1.5 hover:border-ink transition-colors"
+                    >
+                      {c} &rarr;
+                    </a>
+                  </li>
+                ) : (
+                  <li
+                    key={c}
+                    className="text-[0.8125rem] text-ink-muted border border-line rounded-full px-3.5 py-1.5"
+                  >
+                    {c}
+                  </li>
+                )
+              )}
             </ul>
 
-            <div className="mt-8 flex flex-wrap items-center gap-x-3 gap-y-3">
+            <div className="mt-7 flex flex-wrap items-center gap-x-3 gap-y-3">
               <Link to="/#case-studies">
                 <button className="bg-ink text-surface px-7 py-3.5 rounded-full text-[0.9375rem] font-medium hover:bg-ink-soft transition-colors">
                   See selected work
@@ -136,6 +172,55 @@ const HeroSection = () => {
               >
                 Get in touch
               </Link>
+            </div>
+
+            {/* ── The recruiter strip ──────────────────────────────────────
+                Availability, location, notice period and the résumé, in one
+                line under the pitch.
+
+                None of this is new: the FAQ already answers all three, in his
+                own words ("All three are on the table. Based in Noida, India,
+                and open to relocation", "30 days. I'm on a standard notice
+                period"). They were just nine screens down, behind a question
+                someone had to think to ask — and they are the first three
+                things a recruiter checks before reading any of the work.
+
+                The résumé is a direct download rather than a link to /resume:
+                one click, which is what the audit was asking for. */}
+            <div className="mt-7 border-t border-line pt-4">
+              <p className="text-[0.8125rem] text-ink-muted leading-[1.7]">
+                <span className="text-ink-ghost">Open to </span>
+                Product / UX Designer roles
+                <span className="text-ink-ghost"> &middot; </span>
+                Noida, relocating, or remote
+                <span className="text-ink-ghost"> &middot; </span>
+                30-day notice
+              </p>
+              <p className="mt-3 flex flex-wrap items-center gap-x-5 gap-y-2 text-[0.8125rem]">
+                <a
+                  href={RESUME_PDF}
+                  download
+                  onClick={trackResumeDownload}
+                  className="inline-flex items-center gap-1.5 text-ink border-b border-line-strong hover:border-ink transition-colors pb-0.5"
+                >
+                  <Download size={13} className="shrink-0" />
+                  Résumé (PDF)
+                </a>
+                <a
+                  href="https://www.linkedin.com/in/sumansourabh9155/"
+                  target="_blank"
+                  rel="me noopener noreferrer"
+                  className="text-ink-muted hover:text-ink border-b border-line hover:border-ink transition-colors pb-0.5"
+                >
+                  LinkedIn
+                </a>
+                <a
+                  href="mailto:sumansourabh9155@gmail.com"
+                  className="text-ink-muted hover:text-ink border-b border-line hover:border-ink transition-colors pb-0.5"
+                >
+                  Email
+                </a>
+              </p>
             </div>
           </div>
 

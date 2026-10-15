@@ -100,14 +100,24 @@ const Navbar = () => {
     setIsMenuOpen(false);
   }, [location]);
 
-  const onCaseStudy = CASE_STUDY_PATHS.includes(location.pathname.toLowerCase());
+  // A trailing slash is the same page. Both of these used to be exact string
+  // comparisons, so "/carter/" lit nothing in the nav while "/carter" lit
+  // "Case studies" — and a static host that serves /carter/index.html will
+  // happily answer either spelling, so visitors really do arrive on both.
+  //
+  // It showed up as a hydration mismatch once the pages were pre-rendered: the
+  // build rendered the link active and the browser rendered it inactive, so
+  // React threw the pre-rendered markup away and re-rendered the page.
+  const normalise = (p) => (p.replace(/\/+$/, "") || "/").toLowerCase();
+  const here = normalise(location.pathname);
+  const onCaseStudy = CASE_STUDY_PATHS.includes(here);
 
   const isActive = (to) => {
-    if (!to.startsWith("/#")) return location.pathname === to;
+    if (!to.startsWith("/#")) return here === normalise(to);
     // On the landing page the scroll position decides; on a case study the
-    // Work link stands in for the section the reader came from.
+    // Case studies link stands in for the section the reader came from.
     if (to === "/#case-studies" && onCaseStudy) return true;
-    return location.pathname === "/" && activeSection === to.slice(2);
+    return here === "/" && activeSection === to.slice(2);
   };
 
   // "page" is for a link to the current page. A link to a section within the

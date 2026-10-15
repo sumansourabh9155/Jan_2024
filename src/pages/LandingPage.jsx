@@ -1,20 +1,26 @@
-import { lazy, Suspense } from "react";
 import "../App.css";
 import HeroSection from "../components/Landingsection/HeroSection";
 import Navbar from "../components/Navbar";
 import SeoHead from "../components/SeoHead";
 
-// Below-the-fold sections — code-split so the initial landing payload only
-// ships Navbar + Hero. Each chunk streams in as the user scrolls.
-const Projects = lazy(() => import("../components/Landingsection/Projects"));
-const DesignShowcase = lazy(() => import("../components/Landingsection/DesignShowcase"));
-const Testimonial = lazy(() => import("../components/Landingsection/Testimonial"));
-const Speaking = lazy(() => import("../components/Landingsection/Speaking"));
-const Faq = lazy(() => import("../components/Landingsection/Faq"));
-const Footer = lazy(() => import("../components/Footer"));
-
-// Minimal height placeholder so scroll position doesn't jump when a chunk streams in
-const SectionFallback = () => <div className="min-h-[400px] bg-surface" />;
+// These were code-split, so the initial payload was Navbar + Hero and each
+// section streamed in on scroll.
+//
+// They are static imports now, because the page is pre-rendered to HTML at
+// build time and `renderToString` cannot resolve a `React.lazy` boundary — it
+// emits the Suspense fallback instead. Pre-rendering a lazy landing page gives
+// crawlers an empty grey box where the case studies should be, which is the
+// exact problem the pre-render exists to fix.
+//
+// The cost is about 10 KB gzipped added to the first load. The gain is that
+// the page arrives complete, with no request waterfall behind it — so this is
+// very likely faster in practice as well as readable without JavaScript.
+import Projects from "../components/Landingsection/Projects";
+import DesignShowcase from "../components/Landingsection/DesignShowcase";
+import Testimonial from "../components/Landingsection/Testimonial";
+import Speaking from "../components/Landingsection/Speaking";
+import Faq from "../components/Landingsection/Faq";
+import Footer from "../components/Footer";
 
 const LandingPage = () => {
   return (
@@ -49,22 +55,22 @@ const LandingPage = () => {
       <main id="main" className="relative bg-surface">
         <HeroSection />
 
-        <Suspense fallback={<SectionFallback />}>
-          {/* The work leads, and takes the most room. */}
-          <Projects />
-          <DesignShowcase />
+        {/* The work leads, and takes the most room. */}
+        <Projects />
+        <DesignShowcase />
 
-          {/* Then the person: what a client said, what he teaches. */}
-          <Testimonial />
-          <Speaking />
+        {/* Then the person. */}
+        <Testimonial />
 
-          <Faq />
-        </Suspense>
+        {/* FAQ before the talks. The FAQ answers what a recruiter came to find
+            out — remote or on-site, notice period, what he actually owned.
+            Speaking is good signal but nobody is hired for it, so it stops
+            standing between the testimonial and the questions. */}
+        <Faq />
+        <Speaking />
       </main>
 
-      <Suspense fallback={<SectionFallback />}>
-        <Footer />
-      </Suspense>
+      <Footer />
     </div>
   );
 };

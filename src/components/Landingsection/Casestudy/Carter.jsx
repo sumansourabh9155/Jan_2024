@@ -1628,7 +1628,7 @@ const CarterEcosystem = () => {
             </section>
 
             {/* ================= NEXT CASE STUDY ================= */}
-            <NextCase to="/poppins" title="Poppins: A Conversational Finance App for iOS" />
+            <NextCase to="/atlas" title="Atlas: CMS architecture across a 130-clinic network" />
             </main>
             <Footer />
         </div>

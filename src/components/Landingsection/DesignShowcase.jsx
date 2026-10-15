@@ -3,15 +3,25 @@ import { X, ChevronLeft, ChevronRight } from "lucide-react";
 
 // Four strongest product-UI shots (optimized webp).
 import Shopping from "../../assets/Project/shopping.webp";
-import Nft from "../../assets/Project/nft.webp";
 import Kploy from "../../assets/Project/kploy.webp";
 import Payment from "../../assets/Project/payment.webp";
 
+// NFT Marketplace is gone. It is the one piece here that dates the portfolio
+// — the category reads as 2021-22 regardless of how good the screen is, and
+// it is the opposite of the AI-native positioning everything else now makes.
+//
+// `meta` is the line consumer-app roles are looking for: shipped or not, who
+// it was for, and when. Three of the four studies on this page carry that
+// context and these did not, which makes them read as exercises.
+//
+// Deliberately left blank rather than guessed at — I don't know whether these
+// shipped, for whom, or in what year, and inventing it is the one thing worse
+// than omitting it. The caption renders only when the string is filled in, so
+// nothing shows until it's real. Example: "Shipped · Freelance client · 2023".
 const shots = [
-  { img: Shopping, title: "Shopping App", tag: "Product · UI/UX" },
-  { img: Nft, title: "NFT Marketplace", tag: "Product · UI" },
-  { img: Kploy, title: "Kploy", tag: "Product · UI/UX" },
-  { img: Payment, title: "Payment Flow", tag: "Product · UI" },
+  { img: Shopping, title: "Shopping App", tag: "Product · UI/UX", meta: "" },
+  { img: Kploy, title: "Kploy", tag: "Product · UI/UX", meta: "" },
+  { img: Payment, title: "Payment Flow", tag: "Product · UI", meta: "" },
 ];
 
 const DesignShowcase = () => {
@@ -156,6 +166,9 @@ const DesignShowcase = () => {
                 {s.tag}
               </p>
               <p className="text-ink font-semibold text-sm mt-0.5">{s.title}</p>
+              {s.meta && (
+                <p className="text-[0.8125rem] text-ink-muted mt-1">{s.meta}</p>
+              )}
             </div>
             </button>
           ))}

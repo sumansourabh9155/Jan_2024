@@ -10,6 +10,12 @@ export default defineConfig({
     react(),
   ],
   build: {
+    // The pre-render renders through Vite's SSR pipeline, where an imported
+    // image resolves to its source path (/src/assets/foo.png). That path does
+    // not exist in dist, so without a translation table every pre-rendered
+    // page would ship broken images and mismatch the hashed URLs the client
+    // bundle uses. The manifest is that table.
+    manifest: true,
     // Surface oversized chunks — anything > 500KB gzipped should be
     // investigated, not silently bundled.
     chunkSizeWarningLimit: 500,

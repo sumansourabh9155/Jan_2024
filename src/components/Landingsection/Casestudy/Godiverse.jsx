@@ -566,7 +566,7 @@ const Godiverse = () => {
             </section>
 
             {/* ================= NEXT CASE STUDY ================= */}
-            <NextCase to="/carter" title="Carter: Ad Platform Redesign" />
+            <NextCase to="/carter" title="Carter: Agentic campaign assistant for a retail-media DSP" />
             </main>
             <Footer />
         </div>

@@ -134,7 +134,13 @@ const Footer = () => {
             <div className="px-6">
                 <div className="max-w-6xl mx-auto">
 
-                <div className="flex flex-wrap gap-x-6 gap-y-2 justify-between pt-8">
+                {/* `id` so the hero's "Design-to-code" chip can point at it:
+                    the chip makes a claim, this line is the evidence, and the
+                    evidence is the page the reader is already on. */}
+                <div
+                    id="colophon"
+                    className="scroll-mt-24 flex flex-wrap gap-x-6 gap-y-2 justify-between pt-8"
+                >
                     <p className="text-xs text-ink-ghost">
                         © {currentYear} Suman Sourabh · Noida, India · Open to Product Design roles
                     </p>
